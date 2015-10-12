@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #Utilisation de Sqoop avec Hadoop dans HDInsight (Windows)
@@ -79,12 +79,12 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 	> [AZURE.NOTE]SQL Server doit également autoriser l'authentification. Vous devez utiliser une connexion SQL Server pour compléter les étapes décrites dans cet article.
 
 	<table border="1">
-	<tr><th>Propriété de la base de données&#160;SQL&#160;Server</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
-	<tr><td>Nom SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>Serveur SQL Server depuis ou vers lequel Sqoop importe et exporte des données. </td></tr>
-	<tr><td>Nom de connexion SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour SQL&#160;Server.</td></tr>
-	<tr><td>Mot de passe de connexion SQL&#160;Server</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour SQL&#160;Server.</td></tr>
-	<tr><td>Nom de la base de données&#160;SQL Server</td><td>$sqlDatabaseName</td><td></td><td>La base de données SQL&#160;Server vers laquelle Sqoop exportera des données et depuis laquelle il en importera. </td></tr>
-	</table>
+<tr><th>Propriété de la base de données&#160;SQL&#160;Server</th><th>Nom de la variable Azure&#160;PowerShell</th><th>Valeur</th><th>Description</th></tr>
+<tr><td>Nom SQL Server</td><td>$sqlDatabaseServer</td><td></td><td>Serveur SQL Server depuis ou vers lequel Sqoop importe et exporte des données. </td></tr>
+<tr><td>Nom de connexion SQL Server</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour SQL&#160;Server.</td></tr>
+<tr><td>Mot de passe de connexion SQL&#160;Server</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour SQL&#160;Server.</td></tr>
+<tr><td>Nom de la base de données&#160;SQL Server</td><td>$sqlDatabaseName</td><td></td><td>La base de données SQL&#160;Server vers laquelle Sqoop exportera des données et depuis laquelle il en importera. </td></tr>
+</table>
 
 
 > [AZURE.NOTE]Remplissez les valeurs dans les tables précédentes. Cela vous sera utile pour ce didacticiel.
@@ -102,19 +102,19 @@ Le cluster HDInsight inclut des exemples de données. Vous devrez utiliser les d
 - Une table Hive appelée *hivesampletable*, qui référence le fichier de données situé sous */hive/warehouse/hivesampletable*. Cette table contient des données relatives aux appareils mobiles. Le schéma de la table Hive est le suivant :
 
 	<table border="1">
-	<tr><th>Champ</th><th>Type de données</th></tr>
-	<tr><td>clientid</td><td>string</td></tr>
-	<tr><td>querytime</td><td>string</td></tr>
-	<tr><td>market</td><td>string</td></tr>
-	<tr><td>deviceplatform</td><td>string</td></tr>
-	<tr><td>devicemake</td><td>string</td></tr>
-	<tr><td>devicemodel</td><td>string</td></tr>
-	<tr><td>state</td><td>string</td></tr>
-	<tr><td>country</td><td>string</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>Champ</th><th>Type de données</th></tr>
+<tr><td>clientid</td><td>string</td></tr>
+<tr><td>querytime</td><td>string</td></tr>
+<tr><td>market</td><td>string</td></tr>
+<tr><td>deviceplatform</td><td>string</td></tr>
+<tr><td>devicemake</td><td>string</td></tr>
+<tr><td>devicemodel</td><td>string</td></tr>
+<tr><td>state</td><td>string</td></tr>
+<tr><td>country</td><td>string</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 Vous allez d'abord exporter *sample.log* et *hivesampletable* vers la base de données SQL Azure ou vers SQL Server, puis importer à nouveau la table contenant les données de l’appareil mobile dans HDInsight en utilisant la procédure suivante :
 
@@ -521,14 +521,14 @@ Voici un exemple C# utilisant le kit de développement logiciel (SDK) HDInsight 
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -647,4 +647,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

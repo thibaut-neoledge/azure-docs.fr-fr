@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Partitions de tables dans SQL Data Warehouse
@@ -106,6 +106,7 @@ FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
 JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
+;
 ```
 
 > [AZURE.NOTE]Évitez de dimensionner vos partitions en affectant une taille supérieure à la mémoire octroyée que fournit la classe de ressources de très grande taille. Si la taille de vos partitions dépasse cette valeur, vous risquez de solliciter la mémoire de manière trop intensive, ce qui peut nuire à l’efficacité de la compression.
@@ -116,7 +117,7 @@ Pour faire basculer une partition d’une table à une autre, vous devez vous as
 ### Fractionnement d’une partition contenant des données
 Pour fractionner une partition qui contient déjà des données, la méthode la plus efficace consiste à utiliser une instruction `CTAS`. Si la table partitionnée est un CCI, la partition de table doit être vide pour pouvoir être fractionnée.
 
-Voici un exemple de table columnstore partitionnée qui inclut une ligne dans la partition finale :
+Voici un exemple de table columnstore partitionnée qui inclut une ligne dans chaque partition :
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -141,9 +142,12 @@ WITH
 ;
 
 INSERT INTO dbo.FactInternetSales
-VALUES (1,20010101,1,1,1,1,1,1)
+VALUES (1,19990101,1,1,1,1,1,1);
+INSERT INTO dbo.FactInternetSales
+VALUES (1,20000101,1,1,1,1,1,1);
 
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
+
+CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
 > [AZURE.NOTE]En créant l’objet de statistiques, nous favorisons la précision des métadonnées des tables. Si ces statistiques ne sont pas créées, SQL Data Warehouse utilise les valeurs par défaut. Pour en savoir plus sur les statistiques, voir [Gérer des statistiques dans SQL Data Warehouse][].
@@ -162,12 +166,13 @@ JOIN    sys.schemas    s    ON    t.[schema_id]   = s.[schema_id]
 JOIN    sys.indexes    i    ON    p.[object_id]   = i.[object_Id]
                             AND   p.[index_Id]    = i.[index_Id]
 WHERE t.[name] = 'FactInternetSales'
+;
 ```
 
 Si nous essayons de fractionner cette table, l’erreur suivante s’affiche :
 
 ```
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPLIT de l’instruction ALTER PARTITION a échoué, car la partition n’est pas vide. Seules les partitions vides peuvent faire l’objet d’un fractionnement lorsque la table inclut un index columnstore. Vous pouvez envisager de désactiver l’index columnstore avant de lancer l’instruction ALTER PARTITION, puis de reconstruire l’index columnstore une fois l’opération ALTER PARTITION terminée.
@@ -175,52 +180,54 @@ Le message 35346, au niveau 15, état 1, ligne 44, indique que la clause SPL
 Cependant, nous pouvons utiliser la commande `CTAS` pour créer une table afin de stocker nos données.
 
 ```
-CREATE TABLE dbo.FactInternetSales_20010101
+CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101
+                                (20000101
                                 )
                             )
             )
 AS
 SELECT *
-FROM	FactInternetSales
-WHERE	1=2
+FROM    FactInternetSales
+WHERE   1=2
+;
 ```
 
 Comme les limites de la partition sont alignées, le basculement est autorisé. La table source présente donc une partition vide, que nous pouvons fractionner.
 
 ```
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20010101 PARTITION 2
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 Il ne nous reste plus qu’à aligner nos données en fonction des limites de la nouvelle partition, via la commande `CTAS`, et à faire basculer nos données une nouvelle fois vers la table principale.
 
 ```
-CREATE TABLE [dbo].[FactInternetSales_20010101_20020101]
+CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101,20020101
+                                (20000101,20010101
                                 )
                             )
             )
 AS
 SELECT  *
-FROM	[dbo].[FactInternetSales_20010101]
-WHERE	[OrderDateKey] >= 20010101
-AND     [OrderDateKey] <  20020101
+FROM    [dbo].[FactInternetSales_20000101]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
 
-ALTER TABLE FactInternetSales_20010101_20020101 SWITCH PARTITION 3 TO  FactInternetSales PARTITION 3
+ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
 Une fois le déplacement des données effectué, il est judicieux d’actualiser les statistiques sur la table cible, afin de vérifier qu’elles reflètent de manière précise la nouvelle distribution des données sur leurs partitions respectives.
 
 ```
-UPDATE STATISTICS [dbo].[FactInternetSales]
+UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### Contrôle de code source dans le cadre du partitionnement d’une table
@@ -280,11 +287,11 @@ FROM    (
 -- Iterate over the partition boundaries and split the table
 
 DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
-,       @i INT = 1                     --iterator for while loop
-,       @q NVARCHAR(4000)              --query
-,       @p NVARCHAR(20)     = N''      --partition_number
-,       @s NVARCHAR(128)    = N'dbo'   --schema
-,       @t NVARCHAR(128)    = N'table' --table
+,       @i INT = 1                                 --iterator for while loop
+,       @q NVARCHAR(4000)                          --query
+,       @p NVARCHAR(20)     = N''                  --partition_number
+,       @s NVARCHAR(128)    = N'dbo'               --schema
+,       @t NVARCHAR(128)    = N'FactInternetSales' --table
 ;
 
 WHILE @i <= @c
@@ -326,4 +333,4 @@ Une fois que vous avez migré le schéma de base de données vers SQL Data Ware
 
 <!-- Other web references -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

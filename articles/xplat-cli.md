@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
-- [Azure CLI](xplat-cli.md)
+- [Azure CLI](xplat-cli-install.md)
 
 La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre presque les mêmes fonctionnalités que le portail de gestion Azure, notamment la possibilité de gérer des sites web, des machines virtuelles, des services mobiles, la base de données SQL et d'autres services fournis par la plateforme Azure.
 
@@ -281,4 +281,4 @@ Si vous écrivez un script qui dépend de l'état de sortie, vérifiez que les c
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation du connecteur SQL dans des applications logiques | Microsoft Azure App Service"
-	description="Comment créer et configurer le connecteur SQL ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Comment créer et configurer le connecteur SQL ou une application API et l'utiliser dans une application logique d’Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Prise en main du connecteur SQL de Microsoft et ajout de celui-ci à votre application logique
@@ -61,8 +61,8 @@ Procédures stockées | Non | Entrez une procédure stockée existante qui peut 
 Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table_name.
 Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit :  
-	![][1]  
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : 
+	![][1]
 
 6. Sélectionnez **Créer**.
 
@@ -90,13 +90,13 @@ La valeur **Requête d'interrogation de données** est exécutée uniquement lor
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Ajouter le déclencheur
-1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : <br/>
+1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : 
  ![][5]
 
-2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : <br/>
+2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : 
  ![][6]
 
-3. Le déclencheur s'affiche maintenant comme configuré dans l'application logique. La ou les sorties du déclencheur s'affichent et peuvent être utilisées comme entrées dans les actions suivantes : <br/>
+3. Le déclencheur s'affiche maintenant comme configuré dans l'application logique. La ou les sorties du déclencheur s'affichent et peuvent être utilisées comme entrées dans les actions suivantes : 
  ![][7]
 
 ## Utiliser le connecteur comme une action
@@ -104,20 +104,20 @@ Prenons notre scénario dans lequel une application logique simple interroge les
 
 Pour utiliser le connecteur SQL comme une action, entrez le nom des tables et/ou des procédures stockées que vous avez saisies lorsque vous avez créé le connecteur SQL :
 
-1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* :
-<br/>
+1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : 
+ 
  ![][8]
 
-2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓: 
-<br/>
+2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓ : 
+
  ![][9]
 
-3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* :
-<br/>
+3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* : 
+ 
  ![][11]
 
-4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : 
-<br/>
+4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : 
+ 
  ![][12]
 
 Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement dans la table interrogée.
@@ -141,13 +141,15 @@ Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés pa
 
 App Service utilise le Gestionnaire de configuration hybride pour se connecter en toute sécurité à votre système local. Si votre connecteur utilise un serveur SQL en local, le Gestionnaire de connexion hybride est requis.
 
+> [AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 Consultez la rubrique [Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md).
 
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -163,4 +165,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

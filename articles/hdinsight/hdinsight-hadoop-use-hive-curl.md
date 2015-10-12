@@ -1,21 +1,21 @@
 <properties
    pageTitle="Utiliser Hadoop Hive avec Curl dans HDInsight | Microsoft Azure"
-	description="Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l'aide de Curl."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Découvrez comment transmettre à distance des tâches Pig vers HDInsight à l'aide de Curl."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Exécution de requêtes Hive avec Hadoop dans HDInsight via Curl
 
@@ -116,7 +116,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l'emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **exemple/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-    Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](xplat-cli.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
+    Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **exemple/curl**, utilisez la commande suivante :
 
 		azure storage blob list <container-name> example/curl
 
@@ -194,4 +194,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -34,11 +34,11 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli.md) pour obtenir des informations sur l’installation et la configuration.
+- **Azure CLI** - Consultez la rubrique [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour obtenir des informations sur l’installation et la configuration.
 
 ##Installation
 
-Si ce n’est pas déjà fait, utilisez le document [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli.md) pour installer et configurer l’interface de ligne de commande Azure.
+Si ce n’est pas déjà fait, utilisez le document [Installer et configurer l’interface de ligne de commande Azure](../xplat-cli-install.md) pour installer et configurer l’interface de ligne de commande Azure.
 
 ##Approvisionnement d'un cluster HDInsight
 
@@ -132,8 +132,11 @@ Utilisez les commandes suivantes pour supprimer un cluster :
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Mise à l'échelle d'un cluster
 
+Pour modifier la taille du cluster Hadoop à l’aide d’Azure PowerShell, exécutez la commande suivante depuis un ordinateur client :
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Étapes suivantes
 Dans cet article, vous avez appris comment effectuer différentes tâches d'administration sur un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
@@ -144,7 +147,7 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 * [Utilisation de l’interface de ligne de commande Azure][azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -160,4 +163,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

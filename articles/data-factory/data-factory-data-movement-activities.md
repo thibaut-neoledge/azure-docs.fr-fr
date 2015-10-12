@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Activités de déplacement des données
@@ -24,24 +24,25 @@ L’activité de copie les données d’un magasin de données **source** vers u
 
 | **Source** | **Section sink** |
 | ------ | ---- |
-| [Objet blob Azure](data-factory-azure-blob-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB, système de fichiers local |
-| [Table Azure](data-factory-azure-table-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
-| [Base de données SQL Azure](data-factory-azure-sql-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure |
-| [Serveur SQL sur IaaS](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Système de fichiers local](data-factory-onprem-file-system-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, serveur SQL local, serveur SQL sur IaaS, système de fichiers local |
-| [Serveur SQL local](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données Oracle locale](data-factory-onprem-oracle-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données MySQL locale](data-factory-onprem-mysql-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données DB2 locale](data-factory-onprem-db2-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données Teradata locale](data-factory-onprem-teradata-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données Sybase locale](data-factory-onprem-sybase-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
-| [Base de données PostgreSQL locale](data-factory-onprem-postgresql-connector.md) | Objet blob Azure, table Azure, base de données Azure SQL, serveur SQL local, serveur SQL sur IaaS |
+| [Objet blob Azure](data-factory-azure-blob-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB, système de fichiers local |
+| [Table Azure](data-factory-azure-table-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
+| [Base de données SQL Azure](data-factory-azure-sql-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
+| [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS, Azure DocumentDB |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse |
+| [Serveur SQL sur IaaS](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Système de fichiers local](data-factory-onprem-file-system-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS, système de fichiers local |
+| [Serveur SQL local](data-factory-sqlserver-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données Oracle locale](data-factory-onprem-oracle-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données MySQL locale](data-factory-onprem-mysql-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données DB2 locale](data-factory-onprem-db2-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données Teradata locale](data-factory-onprem-teradata-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données Sybase locale](data-factory-onprem-sybase-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
+| [Base de données PostgreSQL locale](data-factory-onprem-postgresql-connector.md) | Objet blob Azure, table Azure, base de données SQL Azure, Azure SQL Data Warehouse, serveur SQL local, serveur SQL sur IaaS |
 
 ## <a name="copyactivity"></a>Activité de copie
-L’activité de copie sélectionne un jeu de données d'entrée (**source**) et copie les données selon la configuration de l'activité vers un jeu de données de sortie (**récepteur**). La copie des données est effectuée par lot conformément à la planification définie sur l'activité.
+L'activité de copie sélectionne un jeu de données d'entrée (**source**) et copie les données selon la configuration de l'activité vers un jeu de données de sortie (**récepteur**). La copie des données est effectuée par lot conformément à la planification définie sur l'activité.
 
-> [AZURE.NOTE]Pour en savoir plus sur la définition des activités en général à un niveau élevé comme les différentes sections JSON et les propriétés disponibles pour toutes les activités, consultez l’article [Comprendre les pipelines et les activités](data-factory-create-pipelines.md).
+> [AZURE.NOTE]Pour en savoir plus sur la définition des activités en général à un niveau élevé comme les différentes sections JSON et les propriétés disponibles pour toutes les activités, consultez l'article [Présentation des pipelines et des activités](data-factory-create-pipelines.md).
 
 L’activité de copie fournit les fonctionnalités suivantes :
 
@@ -97,4 +98,4 @@ Pour l’activité de copie, la section **typeProperties** varie selon les types
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

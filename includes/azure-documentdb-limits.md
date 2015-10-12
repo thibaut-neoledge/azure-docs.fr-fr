@@ -30,4 +30,4 @@ Nombre maximal d'opérations de mise à l'échelle par minute* |5
 
 Les quotas marqués d'un astérisque (*) [peuvent être ajustés en contactant le support Azure](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

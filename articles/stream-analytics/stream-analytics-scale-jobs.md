@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Mise à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Azure"
 	description="Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Mise à l’échelle des travaux Azure Stream Analytics pour augmenter le débit #
@@ -153,6 +154,9 @@ Cette requête peut être mise à l'échelle jusqu'à comporter 24 unités de d
 
 ![Mise à l’échelle des unités de diffusion en continu Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
+Dans le portail Azure en version préliminaire, les paramètres de mise à l'échelle sont accessibles sous Paramètres :
+
+![Configuration d’une tâche Stream Analytics sur le portail Azure en version préliminaire][img.stream.analytics.preview.portal.settings.scale]
 
 ## Surveillance des performances du travail ##
 
@@ -228,7 +232,7 @@ Voici les résultats avec l'augmentation du nombre d'unités de diffusion en con
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtenir de l'aide ##
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes ##
@@ -246,6 +250,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

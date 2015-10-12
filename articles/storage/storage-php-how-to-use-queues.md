@@ -7,16 +7,14 @@
 	manager="adinah"
 	editor=""/>
 
-
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
-
 
 # Utilisation du stockage de files d'attente à partir de PHP
 
@@ -114,8 +112,7 @@ Un objet **QueueRestProxy** vous permet de créer une file d’attente avec la m
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 > [AZURE.NOTE]Ne tenez pas compte de la différence entre majuscules et minuscules pour les clés de métadonnées. Toutes les clés sont lues en minuscules sur le service.
@@ -145,8 +142,7 @@ Pour ajouter un message à une file d'attente, utilisez **QueueRestProxy->create
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 ## Lecture furtive du message suivant
@@ -175,8 +171,7 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 	$messages = $peekMessagesResult->getQueueMessages();
@@ -184,20 +179,14 @@ Vous pouvez lire furtivement un ou plusieurs messages au début d'une file d'att
 	// View messages.
 	$messageCount = count($messages);
 	if($messageCount <= 0){
-		echo "There are no messages.<br />
-";
+		echo "There are no messages.<br />";
 	}
 	else{
 		foreach($messages as $message)	{
-			echo "Peeked message:<br />
-";
-			echo "Message Id: ".$message->getMessageId()."<br />
-";
-			echo "Date: ".date_format($message->getInsertionDate(), 'Y-m-d')."<br />
-";
-			echo "Message text: ".$message->getMessageText()."<br />
-<br />
-";
+			echo "Peeked message:<br />";
+			echo "Message Id: ".$message->getMessageId()."<br />";
+			echo "Date: ".date_format($message->getInsertionDate(), 'Y-m-d')."<br />";
+			echo "Message text: ".$message->getMessageText()."<br /><br />";
 		}
 	}
 
@@ -236,8 +225,7 @@ Votre code supprime un message d'une file d'attente en deux étapes. Tout d’ab
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 ## Modification du contenu d'un message en file d'attente
@@ -279,8 +267,7 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente en ap
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 ## Options supplémentaires pour l'extraction de messages
@@ -327,8 +314,7 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 ## Obtention de la longueur de la file d'attente
@@ -354,8 +340,7 @@ Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 	echo $approx_msg_count;
@@ -382,8 +367,7 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
-		echo $code.": ".$error_message."<br />
-";
+		echo $code.": ".$error_message."<br />";
 	}
 
 
@@ -394,9 +378,11 @@ Maintenant que vous connaissez les bases du stockage des files d’attente Azure
 - Consultez la référence MSDN suivante : [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Consultez le [blog de l’équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

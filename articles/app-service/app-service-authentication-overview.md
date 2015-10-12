@@ -214,4 +214,4 @@ Cet article a décrit les services d'authentification fournis par Azure App Serv
 
 * [Obtention d’un jeton d’accès et appel de l’API SharePoint dans une app mobile](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

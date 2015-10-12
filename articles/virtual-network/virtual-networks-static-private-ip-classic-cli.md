@@ -30,7 +30,7 @@ Les exemples de commandes d’interface de ligne de commande Azure supposent qu�
 ## Spécification d’une adresse IP privée statique lors de la création d’une machine virtuelle
 Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud nommé *TestService* selon le scénario ci-dessus, procédez comme suit :
 
-1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installation et configuration de l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 1. Exécutez la commande **azure service create** pour créer le service cloud.
 
 		azure service create TestService --location uscentral
@@ -115,4 +115,4 @@ Sortie attendue :
 - En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
 - Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

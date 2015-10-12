@@ -7,9 +7,9 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
 
-# Présentation d'Azure DPM Backup
+# Préparation de la sauvegarde des charges de travail dans Azure avec DPM
 
 Cet article présente l'utilisation de Microsoft Azure Backup pour protéger vos serveurs System Center Data Protection Manager (DPM) et vos charges de travail. En le lisant, vous comprendrez :
 
@@ -60,7 +60,7 @@ Préparer Azure Backup pour sauvegarder des données DPM comme suit :
 - Des données stockées dans Azure Backup ne peuvent pas être récupérées avec l'option « Copie sur bande ».
 - Vous devez posséder un compte Azure avec la fonctionnalité Azure Backup activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 - L'utilisation d'Azure Backup nécessite l'installation de l'agent Azure Backup sur les serveurs que vous souhaitez sauvegarder. Chaque serveur doit disposer d'au moins 2,5 Go d'espace de stockage local disponible (15 Go étant recommandés) pour l'emplacement du cache.
-- Les données seront stockées dans le coffre Azure. Il n'existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d'une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 1,65 To.
+- Les données seront stockées dans le coffre Azure. Il n'existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Azure Backup, mais la taille d'une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54 400 Go.
 
 Les types de fichiers suivants sont pris en charge pour une sauvegarde vers Azure :
 
@@ -81,4 +81,4 @@ Et les types suivants ne sont pas pris en charge :
 
 >[AZURE.NOTE]À partir de System Center 2012 DPM avec SP1, vous pouvez sauvegarder dans Azure des charges de travail protégées par DPM grâce à Microsoft Azure Backup.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

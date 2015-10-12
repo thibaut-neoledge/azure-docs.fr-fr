@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="09/22/2015"
 	ms.author="robmcm"/>
 
 # Exécution d'une tâche nécessitant beaucoup de ressources en langage Java sur une machine virtuelle
@@ -519,4 +519,4 @@ Pour quitter les applications solveur et cliente avant la fin normale, vous pouv
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

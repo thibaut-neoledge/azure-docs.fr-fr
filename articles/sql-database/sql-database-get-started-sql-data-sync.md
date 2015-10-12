@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Prise en main de la synchronisation des données SQL Azure (version préliminaire)
@@ -40,7 +40,7 @@ Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de 
 
 
 ## Étape 2 : ajout d’un agent client
-Cette étape n’est nécessaire que si vous envisagez d’inclure une base de données SQL Server locale dans le groupe de synchronisation. Vous pouvez passer à l’étape 4 : créer un groupe de synchronisation si celui-ci n’inclut que des instances de base de données SQL.
+Cette étape n’est nécessaire que si vous envisagez d’inclure une base de données SQL Server locale dans le groupe de synchronisation. Passez à l’étape 4 si votre groupe de synchronisation n'inclut que des instances de base de données SQL.
 
 <a id="InstallRequiredSoftware"></a>
 ### Étape 2a : installer les logiciels requis
@@ -202,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

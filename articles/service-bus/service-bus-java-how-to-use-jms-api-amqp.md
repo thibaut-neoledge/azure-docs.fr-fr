@@ -342,4 +342,4 @@ Vous pouvez également utiliser l’AMQP 1.0 de Service Bus avec d’autres lan
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion des conflits liés aux données hors connexion dans Mobile Services (Windows Phone) | Microsoft Azure" 
-	description="Apprenez à gérer les conflits à l&#39;aide d&#39;Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows Phone" 
+	description="Apprenez à gérer les conflits à l'aide d'Azure Mobile Services lors de la synchronisation des données hors connexion dans votre application Windows Phone" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2015" 
+	ms.author="ricksal"/>
 
 
 # Gestion des conflits liés à la synchronisation des données hors connexion dans Mobile Services
@@ -241,4 +241,4 @@ Lorsqu'une opération Push est annulée, `PushAsync` génère une `MobileService
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

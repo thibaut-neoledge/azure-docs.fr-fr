@@ -106,8 +106,7 @@ Dans cette section, vous allez créer un fichier **server.js** contenant l’exe
 
 		git init
 
-	> [AZURE.NOTE]**Si la commande Git n’est pas disponible** 
-	> [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site Web Azure. Pour obtenir des instructions d'installation pour votre plateforme, consultez [la page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]La commande Git est-elle indisponible ? [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué vous permettant de déployer votre site web Azure. Pour obtenir des instructions d’installation pour votre plateforme, voir la [page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilisez les commandes suivantes pour ajouter des fichiers au référentiel :
 
@@ -163,7 +162,7 @@ Dans cette section, vous allez créer un fichier **server.js** contenant l’exe
 
 ##Étapes suivantes
 
-Si la procédure de cet article utilise le portail Azure pour créer une application web, vous pouvez également utiliser l’[interface de ligne de commande Azure](../xplat-cli.md) pour effectuer les mêmes opérations.
+Si la procédure de cet article utilise le portail Azure pour créer une application web, vous pouvez également utiliser l’[interface de ligne de commande Azure](../xplat-cli-install.md) pour effectuer les mêmes opérations.
 
 Node.js fournit un écosystème de modules enrichi que vos applications peuvent utiliser. Pour savoir comment Web Apps fonctionne avec les modules, voir [Utilisation des modules Node.js avec les applications Azure](../nodejs-use-node-modules-azure-apps.md).
 
@@ -175,7 +174,7 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 ##Ressources supplémentaires
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Interface de ligne de commande Azure](../xplat-cli.md)
+* [Interface de ligne de commande Azure](../xplat-cli-install.md)
 * [Centre de développement Node.js](/develop/nodejs/)
 
 ## Changements apportés
@@ -206,4 +205,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

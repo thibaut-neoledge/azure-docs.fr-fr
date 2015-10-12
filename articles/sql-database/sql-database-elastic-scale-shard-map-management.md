@@ -7,7 +7,6 @@
 	authors="sidneyh" 
 	editor=""/>
 
-
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
-
 
 # Gestion des cartes de partitions
 Dans un environnement de base de données partitionné, une **carte de partitions** conserve les informations permettant à une application de se connecter à la base de données adéquate, désignée par la valeur de la **clé de partitionnement**. Il est essentiel de comprendre comment ces cartes sont construites pour gérer les partitions avec la bibliothèque cliente des bases de données élastiques.
@@ -108,6 +106,7 @@ Dans ce code, une application tente d’ouvrir un objet **ShardMapManager** exis
         // for privileges on both the GSM and the shards themselves.
     } 
  
+Comme alternative, vous pouvez utiliser PowerShell pour créer un gestionnaire de cartes de partitions. Un exemple est disponible [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 ### Informations d'identification de l'administration de carte de partitions
 
@@ -201,7 +200,7 @@ Le code est écrit de façon à ce que l'intégralité de la méthode puisse êt
             } 
         } 
  
-En guise d'alternative, vous pouvez utiliser des scripts PowerShell pour obtenir le même résultat.
+En guise d'alternative, vous pouvez utiliser des scripts PowerShell pour obtenir le même résultat. Certains exemples d’extraits de codes PowerShell sont disponibles [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
 Une fois les cartes de partitions remplies, vous pouvez créer ou adapter des applications pour accéder aux données, afin d'utiliser les cartes. Le remplissage ou la manipulation des cartes ne doit pas survenir tant que la **disposition de la carte** n’a pas été modifiée.
 
@@ -211,7 +210,7 @@ La plupart du temps, le gestionnaire des cartes de partitions est utilisé par d
 
 Notez que ces applications (utilisant **ShardMapManager** ouvert avec des informations d’identification en lecture seule) ne pourront pas modifier les cartes ni les mappages. Pour cela, vous devez créer des applications d'administration ou des scripts PowerShell qui fourniront des informations d'identification dotées de privilèges élevés comme indiqué précédemment.
 
-Pour plus d’informations, voir [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
+Pour plus d’informations, consultez [Routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md).
 
 ## Modification d'une carte de partitions 
 
@@ -247,11 +246,11 @@ Les mappages sont des objets immuables dans .Net. Toutes les méthodes ci-dessus
 
 Souvent, les applications n'ont qu'à ajouter de nouvelles partitions pour gérer des données prévues à partir de nouvelles clés ou plages de clés, pour une carte de partitions qui existe déjà. Par exemple, une application partitionnée par un ID de client peut requérir l'approvisionnement d'une nouvelle partition pour un nouveau client, ou des données partitionnées mensuellement peuvent requérir l'approvisionnement d'une nouvelle partition avant le début de chaque mois.
 
-Si la nouvelle plage de valeurs de clé n'appartient pas déjà à un mappage existant et qu'aucun déplacement de données n'est nécessaire, il est très simple d'ajouter la nouvelle partition et d'associer la nouvelle clé ou la plage à cette partition. Pour plus d’informations sur l’ajout de nouvelles partitions, voir [Ajout d’une nouvelle partition](sql-database-elastic-scale-add-a-shard.md).
+Si la nouvelle plage de valeurs de clé n'appartient pas déjà à un mappage existant et qu'aucun déplacement de données n'est nécessaire, il est très simple d'ajouter la nouvelle partition et d'associer la nouvelle clé ou la plage à cette partition. Pour plus d’informations sur l’ajout de nouvelles partitions, consultez [Ajout d’une nouvelle partition](sql-database-elastic-scale-add-a-shard.md).
 
-Cependant, pour les scénarios requérant le déplacement de données, l’outil de fusion/fractionnement est requis pour orchestrer le déplacement des données entre les partitions conjointement aux mises à jour nécessaires de la carte de partitions. Pour plus d’informations sur l’utilisation de l’outil de fractionnement/fusion, voir [Présentation du service de fractionnement/fusion](sql-database-elastic-scale-overview-split-and-merge.md).
+Cependant, pour les scénarios requérant le déplacement de données, l’outil de fusion/fractionnement est requis pour orchestrer le déplacement des données entre les partitions conjointement aux mises à jour nécessaires de la carte de partitions. Pour plus d’informations sur l’utilisation de l’outil de fractionnement/fusion, consultez [Présentation du service de fractionnement/fusion](sql-database-elastic-scale-overview-split-and-merge.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

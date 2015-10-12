@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -44,7 +44,7 @@ Si aucun de ces produits n'est installé, Visual Studio 2013 Express pour le We
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## <a id="learn"></a>Contenu
 
@@ -368,7 +368,7 @@ Dans cette section, vous utilisez l'**Explorateur de serveurs** pour définir de
 
 	Le bouton **Rappeler la fonction** de cette page commande à l'infrastructure du SDK de rappeler la fonction et vous permet de modifier les données déjà transmises à la fonction.
 
->[AZURE.NOTE] Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Azure, accédez à l'onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** en bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Azure, accédez à l'onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** en bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ### Activation d'AlwaysOn pour les processus longs
 
@@ -504,7 +504,7 @@ Vous pouvez maintenant générer, exécuter et déployer l'application en suivan
 
 Les sections suivantes présentent le code utilisé avec le Kit de développement logiciel (SDK) WebJobs et des objets blob et des files d'attente Azure.
 
-> [AZURE.NOTE] Pour le code spécifique au SDK WebJobs, consultez [Program.cs et Functions.cs](#programcs).
+> [AZURE.NOTE]Pour le code spécifique au SDK WebJobs, consultez [Program.cs et Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -715,7 +715,7 @@ Voici le code qui supprime les objets blob lorsque vous supprimez une publicité
 		    CloudBlockBlob blobToDelete = imagesBlobContainer.GetBlockBlobReference(blobName);
 		    await blobToDelete.DeleteAsync();
 		}
- 
+
 ### ContosoAdsWeb - Views\Ad\Index.cshtml et Details.cshtml
 
 Le fichier *Index.cshtml* affiche des vignettes avec les autres données de publicité :
@@ -828,4 +828,4 @@ Pour plus d'informations, consultez la page [Ressources recommandées pour les t
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple 8000 Release Version | Microsoft Azure"
-    description="Décrit les nouvelles fonctionnalités, les problèmes non résolus et les solutions de contournement disponibles pour la version de juillet 2014 de Microsoft Azure StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
-    editor="" />
+   pageTitle="Notes de publication de StorSimple 8000 Release Version | Microsoft Azure"
+   description="Décrit les nouvelles fonctionnalités, les problèmes non résolus et les solutions de contournement disponibles pour la version de juillet 2014 de Microsoft Azure StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/04/2015"
-    ms.author="v-sharos" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/04/2015"
+   ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Release Version - Juillet 2014 
 
@@ -42,4 +42,4 @@ Le tableau suivant récapitule les problèmes connus de cette version.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

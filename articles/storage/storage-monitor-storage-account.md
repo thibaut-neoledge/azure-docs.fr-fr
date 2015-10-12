@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Surveillance d'un compte de stockage dans le portail Azure
@@ -24,14 +24,14 @@ Vous pouvez surveiller votre compte de stockage à partir du portail Azure. Lors
 
 > [AZURE.NOTE]L'analyse des données de surveillance dans le portail Azure occasionne des frais supplémentaires. Pour plus d'informations, consultez la page <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics et facturation</a>. <br />
 
-> Le service de fichier Azure ne prend actuellement pas en charge Storage Analytics.
+> Le stockage de fichiers Azure prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation. Vous pouvez activer les métriques pour le stockage de fichiers Azure via le [portail Azure en version préliminaire](https://ms.portal.azure.com).
 
 > Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](../storage-monitoring-diagnosing-troubleshooting/).
 
 
 ## Configuration de la surveillance d'un compte de stockage
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1. Dans le [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Configure**, puis faites défiler l'écran vers le bas jusqu'aux paramètres de surveillance (**monitoring**) pour les services Blob, Table et File d'attente.
 
@@ -64,7 +64,7 @@ Les mesures sont stockées dans le compte de stockage dans quatre tables nommée
 
 Sur le tableau de bord, vous pouvez choisir jusqu'à six mesures sur les neuf disponibles pour les représenter sur le graphique de mesures. Pour chaque service (Blob, Table et File d'attente), les mesures Availability, Success Percentage et Total Requests sont disponibles. Les mesures disponibles sur le tableau de bord sont les mêmes, quel que soit le type de surveillance (minimale ou détaillée).
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2. Pour modifier les mesures représentées sur le graphique, effectuez l'une des actions suivantes :
 
@@ -92,7 +92,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 ## Ajout de mesures au tableau des mesures
 
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Monitor**.
 
@@ -122,7 +122,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 6. Après avoir sélectionné des mesures pour tous les services, cliquez sur OK (coche) pour mettre à jour la configuration de la surveillance. Les mesures sélectionnées sont ajoutées au tableau des mesures.
 
-7. Pour supprimer une mesure de la table, cliquez sur la mesure pour la sélectionner, puis sur **Delete**.
+7. Pour supprimer une mesure de la table, cliquez sur la mesure pour la sélectionner, puis sur **Delete Metric**.
 
 	![DeleteMetric](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
@@ -140,7 +140,7 @@ Utilisez les procédures suivantes pour choisir les mesures de stockage à affic
 
 Pour chaque service de stockage accessible à votre compte de stockage (Blob, Table et File d'attente), vous pouvez enregistrer des journaux de diagnostic pour les demandes de lecture, d'écriture et/ou de suppression. De même, vous pouvez définir la stratégie de rétention de données de chaque service.
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Storage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
+1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
 2. Cliquez sur **Configure**, puis faites défiler la page **logging** à l'aide de la touche Bas du clavier.
 
@@ -157,4 +157,4 @@ Pour chaque service de stockage accessible à votre compte de stockage (Blob, Ta
 
 Les journaux de diagnostic sont enregistrés dans un conteneur d'objets blob nommé $logs dans votre compte de stockage. Pour plus d'informations sur l'accès au conteneur $logs, consultez la page [À propos de la journalisation Storage Analytics](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

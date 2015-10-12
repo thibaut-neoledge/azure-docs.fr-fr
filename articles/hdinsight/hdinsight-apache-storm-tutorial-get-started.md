@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
 
@@ -23,7 +23,13 @@
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Microsoft Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de Big Data en temps réel.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+[AZURE.INCLUDE [portail en version préliminaire](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Didacticiel Apache Storm : prise en main d’exemples Storm Starter pour l’analyse de données volumineuses (« Big Data ») sur HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
+
+   
+
+> [AZURE.NOTE]Les étapes décrites dans cet article créent un cluster HDInsight Windows. Pour savoir comment créer un cluster Storm sur HDInsight sous Linux, consultez le [Didacticiel Apache Storm : prise en main de l’exemple Storm Starter à l’aide de l’analyse de données sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md)
 
 ## Composants requis
 
@@ -89,7 +95,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le Tableau d’accueil](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du Tableau d’accueil, ou l’entrée __Notifications__ à gauche de la page pour vérifier le processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
 
 ## Exécution d’un exemple Starter Storm sur HDInsight
 
@@ -239,4 +245,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

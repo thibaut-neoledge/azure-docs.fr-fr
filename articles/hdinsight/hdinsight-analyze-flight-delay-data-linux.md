@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Microsoft Azure"
-	description="Apprenez à utiliser un script Windows PowerShell pour configurer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Microsoft Azure" 
+	description="Apprenez à utiliser un script Windows PowerShell pour configurer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
 
-Découvrez comment analyser les données sur les retards de vol à l'aide de Hive sur HDInsight Linux (version préliminaire), puis exporter les données vers Azure SQL Database à l'aide de Sqoop.
+Découvrez comment analyser les données sur les retards de vol à l'aide de Hive sur HDInsight Linux, puis exporter les données vers Azure SQL Database à l'aide de Sqoop.
 
 > [AZURE.NOTE]Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python et Hive, par exemple), plusieurs étapes sont spécifiques aux clusters Linux. Pour les étapes fonctionnant avec un cluster Windows, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight](hdinsight-analyze-flight-delay-data.md)
 
@@ -33,7 +33,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - __Base de données SQL Azure__. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous ne disposez pas d’une base de données SQL, consultez la rubrique [Comment créer et configurer une base de données SQL Azure](../sql-database/sql-database-create-configure.md) pour en créer une.
 
-- __Interface de ligne de commande Azure__. Si vous n'avez pas installé l’interface de ligne de commande Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md) pour connaître la procédure.
+- __Interface de ligne de commande Azure__. Si vous n'avez pas installé l'interface de ligne de commande Azure, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md) pour connaître la procédure.
 
 
 ##Téléchargement des données de vol
@@ -305,4 +305,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

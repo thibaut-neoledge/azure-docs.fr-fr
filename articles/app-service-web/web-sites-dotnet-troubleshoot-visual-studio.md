@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio" 
 	description="Découvrez comment dépanner une application web Microsoft Azure via des outils de journalisation, de suivi et de débogage distants intégrés dans Visual Studio 2013." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -762,4 +762,4 @@ Si vous voulez déboguer un service cloud Microsoft Azure plutôt qu’une app
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

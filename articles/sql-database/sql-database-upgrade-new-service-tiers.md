@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service"
-	description="Mettez à niveau les bases de données SQL Azure Web ou Business vers les nouveaux niveaux de performance et niveaux de service de la base de données SQL Azure : De base, Standard et Premium."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service" 
+	description="Mettez à niveau les bases de données SQL Azure Web ou Business vers les nouveaux niveaux de performance et niveaux de service de la base de données SQL Azure : De base, Standard et Premium." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="06/18/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -29,7 +29,7 @@ Téléchargez le [Guide de la Migration des base de données Web et Business](ht
 
 <p>Les bases de données SQL Azure Web et Business s’exécutent dans un environnement mutualisé partagé sans aucune capacité de ressources réservée pour la base de données. L’activité des autres bases de données dans cet environnement de ressources partagées peut affecter vos performances. La disponibilité des ressources à un moment donné dépend essentiellement des autres charges de travail simultanées exécutées dans le système. Cela peut entraîner des performances d’application de base de données très fluctuantes et imprévisibles. D’après les commentaires des clients, ces performances imprévisibles sont difficiles à gérer et ils préfèrent des performances plus prévisibles.
 
-À partir de ces commentaires, le service Azure SQL Database a introduit de nouveaux niveaux de service de base de données [(De base, Standard et Premium)](http://msdn.microsoft.com/library/dn741340.aspx), qui offrent des performances prévisibles et plusieurs nouvelles fonctionnalités pour la continuité de l’activité et la sécurité. Ces nouveaux niveaux de service sont conçus pour fournir un niveau de ressources spécifié pour une charge de travail de base de données, indépendamment des autres charges de travail client exécutées dans cet environnement. Ainsi, le comportement des performances devient très prévisible.
+À partir de ces commentaires, le service Azure SQL Database a introduit de nouveaux niveaux de service de base de données [(De base, Standard et Premium)](sql-database-service-tiers.md), qui offrent des performances prévisibles et plusieurs nouvelles fonctionnalités pour la continuité de l’activité et la sécurité. Ces nouveaux niveaux de service sont conçus pour fournir un niveau de ressources spécifié pour une charge de travail de base de données, indépendamment des autres charges de travail client exécutées dans cet environnement. Ainsi, le comportement des performances devient très prévisible.
 
 La question est maintenant d’évaluer les nouveaux niveaux de service et de choisir celui qui convient le mieux à vos bases de données Web et Business actuelles, et de comprendre le processus de mise à jour actuel.
 
@@ -73,10 +73,8 @@ Les nouvelles fonctionnalités de niveau de service et des niveaux de performanc
 
 | Article | Description |
 |:--|:--|
-|[Niveaux du service Azure SQL Database (éditions)](http://msdn.microsoft.com/library/azure/dn741340.aspx)| Vue d’ensemble des niveau de service De base, Standard et Premium.|
-|[Niveaux du service Azure SQL Database et niveaux de performances](http://msdn.microsoft.com/library/dn741336.aspx)| Métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
-|[Différences entre les niveaux de service](http://msdn.microsoft.com/library/dn369873.aspx#Different)| Plus d’informations sur les différents niveaux de service, y compris certaines raisons justifiant le choix d’un niveau plutôt qu’un autre. |
-|[Continuité de l’activité des bases de données SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
+|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
+|[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
 |[Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
 
 <br>
@@ -156,7 +154,7 @@ Les données retournées par [sys.resource\_stats](https://msdn.microsoft.com/li
 
 Les informations sur la consommation DTU en termes de niveau de base de données S2 vous permettent de normaliser la consommation actuelle de vos bases de données Web et Business en termes de bases de données du nouveau service et de déterminer le niveau qui leur convient le mieux. Par exemple, si le pourcentage moyen de consommation DTU indique une valeur de 80 %, cela signifie que la base de données consomme des DTU à 80 % de la limite d’une base de données au niveau de performances S2. Si des valeurs sont supérieures à 100 % dans la vue **sys.resource\_stats**, vous avez besoin d’un niveau de performances supérieur à S2. Par exemple, supposons que vous observez une valeur de pourcentage DTU maximale de 300 %. Cela vous indique que vous utilisez trois fois plus de ressources que la quantité disponible dans un niveau S2. Pour déterminer une taille de départ raisonnable, comparez les DTU disponibles dans un niveau S2 (50 DTU) à celles des niveaux de taille supérieure (S3P1 = 100 DTU ou 200 % de S2, P2 = 200 DTU ou 400 % de S2). Avec une valeur de 300 % de S2, il est souhaitable de commencer par un niveau P2 et de recommencer les tests.
 
-En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande correspondant à votre charge de travail, vous pouvez déterminer le niveau de service et le niveau de performances les mieux adaptés à la charge de travail de votre base de données (comme indiqué par le pourcentage DTU et la puissance DTU relative de divers [niveaux de performances)](http://msdn.microsoft.com/library/azure/dn741336.aspx). Le tableau suivant indique la correspondance entre le pourcentage de consommation des ressources Web/Business et les niveaux de performances des nouveaux niveaux de service :
+En fonction du pourcentage d’utilisation DTU et de l’édition la plus grande correspondant à votre charge de travail, vous pouvez déterminer le niveau de service et le niveau de performances les mieux adaptés à la charge de travail de votre base de données (comme indiqué par le pourcentage DTU et la puissance DTU relative de divers [niveaux de performances)](sql-database-service-tiers.md). Le tableau suivant indique la correspondance entre le pourcentage de consommation des ressources Web/Business et les niveaux de performances des nouveaux niveaux de service :
 
 ![Consommation des ressources][4]
 
@@ -307,4 +305,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

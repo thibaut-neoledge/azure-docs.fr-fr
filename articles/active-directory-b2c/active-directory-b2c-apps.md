@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire d'Azure AD B2C : types d'applications
@@ -124,8 +124,8 @@ Les applications qui contiennent des processus de longue durée ou qui fonctionn
 Ce flux n'est pas actuellement pas pris en charge par Azure AD B2C. Concrètement, cela signifie que les applications peuvent récupérer des jetons uniquement après l'exécution d'un flux interactif utilisateur. Le flux des informations d’identification du client sera ajouté très prochainement.
 
 ### Chaînes d'API Web (On-Behalf-Of)
-De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par Azure AD. Ce scénario est courant dans les clients natifs qui disposent d'une API Web principale, qui à son tour appelle un service Microsoft Online, comme l'API Graph Azure AD.
+De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par Azure AD B2C. Ce scénario est courant dans les clients natifs qui disposent d'une API Web principale, qui à son tour appelle un service Microsoft Online, comme l'API Graph Azure AD.
 
 Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la concession des informations d'identification du porteur OAuth 2.0 Jwt, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n'est pas actuellement implémenté dans la version préliminaire d'Azure AD B2C.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

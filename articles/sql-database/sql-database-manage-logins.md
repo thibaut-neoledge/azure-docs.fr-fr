@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Gestion des bases de données et des connexions dans la base de données Azure SQL
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]Vous devez utiliser un mot de passe fort au moment de la création d’une connexion. Pour plus d'informations, consultez la page [Mots de passe forts](https://msdn.microsoft.com/library/ms161962.aspx).
 
-L’exemple suivant montre comment créer un utilisateur de base de données nommé **login1User** dans la base de données **database1**, qui correspond à la connexion **login1** :
+L’exemple suivant montre comment créer un utilisateur de base de données nommé **login1User** dans la base de données **database1**, qui correspond à la connexion **login1** : Pour exécuter l'exemple suivant, vous devez tout d'abord établir une nouvelle connexion à database1 via une connexion à l’aide de l’autorisation **ALTER ANY USER** dans cette base de données. Tout utilisateur qui se connecte en tant que membre du rôle **db\_owner** aura cette autorisation, tout comme la connexion qui a créé la base de données.
 
 ```
 -- Establish a new connection to the database1 database
@@ -157,7 +157,7 @@ Ce modèle d’autorisation au niveau de la base de données dans la base de don
 ## Affichage des connexions et bases de données
 
 
-Pour afficher les connexions et bases de données sur votre serveur de base de données SQL Azure, utilisez respectivement les vues ``sys.sql_logins`` et ``sys.databases`` de la base de données MASTER. L’exemple suivant montre comment afficher une liste de toutes les connexions et bases de données sur votre serveur de base de données SQL Azure.
+Pour afficher les connexions et bases de données sur votre serveur de base de données SQL Azure, utilisez respectivement les vues ``sys.sql_logins`` et ``sys.databases`` de la base de données master. L’exemple suivant montre comment afficher une liste de toutes les connexions et bases de données sur votre serveur de base de données SQL Azure.
 
 ```
 -- first, connect to the master database
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

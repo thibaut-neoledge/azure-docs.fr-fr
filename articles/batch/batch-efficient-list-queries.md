@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Requêtes de liste Batch efficaces
@@ -37,20 +37,22 @@ Il est important de savoir que le nombre d’éléments renvoyés et la quantit�
 - Davantage de mémoire est consommée par l’application qui appelle le service Batch, lorsque les éléments sont plus grands et/ou plus nombreux.
 - Les éléments plus grands et/ou plus nombreux génèrent un trafic réseau plus important. Le temps de transfert est donc plus lent et, selon l'architecture de l'application, cela peut entraîner une augmentation des frais de réseau pour les données transférées en dehors de la région du compte Batch.
 
+> [AZURE.IMPORTANT]Il est *vivement* recommandé de *toujours* utiliser le filtre et les clauses select pour vos appels d’API de liste pour garantir une efficacité maximale et les performances pour votre application. Ces clauses et la syntaxe correspondante sont décrites ci-après.
+
 Les conditions ci-après s’appliquent à toutes les API Batch :
 
 - Chaque nom de propriété est une chaîne qui correspond à la propriété de l'objet
 - Tous les noms de propriété respectent la casse, mais les valeurs de propriété ne respectent pas la casse
 - La casse et les noms de propriété sont comme les éléments qui figurent dans l’API REST Batch
 - Les chaînes de date/heure peuvent être rédigées dans l’un des deux formats et doivent être précédées de DateTime
-	- W3CDTF (par exemple, *creationTime gt DateTime’2011-05-08T08:49:37Z’*)
+	- W3CDTF (par exemple, *creationTime gt DateTime ’2011-05-08T08:49:37Z’*)
 	- RFC1123 (par exemple, *creationTime gt DateTime’Sun, 08 Mai 2011 08:49:37 GMT’*)
 - Les chaînes booléennes ont la valeur « true » ou « false »
 - La spécification d’une propriété ou d’un opérateur non valide entraîne une erreur « 400 (demande incorrecte) »
 
 ## Interrogation efficace dans Batch.NET
 
-L’API Batch .NET offre la possibilité de réduire le nombre d’éléments renvoyés dans une liste, ainsi que la quantité d’informations renvoyées pour chaque élément en spécifiant la propriété [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) d’une requête. DetailLevel est une classe de base abstraite, et un objet [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) doit être créé et transmis en tant que paramètre vers les méthodes appropriées.
+L’API Batch .NET offre la possibilité de réduire le nombre d’éléments renvoyés dans une liste, ainsi que la quantité d’informations renvoyées pour chaque élément en spécifiant la propriété [DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx) d’une requête. DetailLevel est une classe de base abstraite, et un objet [ODATADetailLevel][odata] doit être créé et transmis en tant que paramètre vers les méthodes appropriées.
 
 L’objet ODataDetailLevel possède trois propriétés de chaînes publiques qui peuvent être spécifiées dans le constructeur ou définies directement :
 
@@ -124,7 +126,23 @@ Vous trouverez ci-dessous un extrait de code qui utilise l’API .NET Batch pour
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]Il est recommandé de *toujours* utiliser le filtre et les clauses select pour vos appels d’API de liste pour garantir une efficacité maximale et les meilleures performances pour votre application.
+## Exemple de projet
+
+Découvrez l’exemple de projet [EfficientListQueries][efficient_query_sample] sur GitHub pour savoir comment une interrogation efficace de liste peut affecter les performances d’une application. Cette application console C# crée et ajoute un grand nombre de tâches à un travail, puis interroge le service de traitement par lots à l’aide de spécifications [ODATADetailLevel][odata] différentes, en affichant un résultat similaire à ce qui suit :
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+Comme indiqué dans les informations de temps écoulé, la limitation des propriétés et le nombre d’éléments retournés peuvent réduire considérablement les temps de réponse des requêtes. Cet exemple et d’autres exemples de projet sont disponibles dans le référentiel [azure-batch-samples][github_samples] sur GitHub.
 
 ## Étapes suivantes
 
@@ -133,4 +151,8 @@ Vous trouverez ci-dessous un extrait de code qui utilise l’API .NET Batch pour
     - [Batch .NET](https://msdn.microsoft.com/library/azure/dn865466.aspx)
 2. Saisissez les [exemples de commandes Azure](https://github.com/Azure/azure-batch-samples) sur GitHub et explorez le code
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

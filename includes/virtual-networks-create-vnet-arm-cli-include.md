@@ -2,7 +2,7 @@
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour gérer vos ressources Azure à partir de l’invite de commandes sur n’importe quel ordinateur exécutant Windows, Linux ou OSX. Pour créer un réseau virtuel à l’aide de l’interface de ligne de commande Azure, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez la page [Installer et configurer l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez la page [Installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -106,4 +106,4 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour gérer vos re
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

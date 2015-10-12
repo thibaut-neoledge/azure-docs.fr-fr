@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Configuration d’alertes dans Application Insights
@@ -50,6 +50,10 @@ Vous recevez un e-mail lorsqu’une alerte bascule entre les états inactive et 
 
 L’état actuel de chaque alerte est indiqué dans le panneau Règles d’alerte.
 
+Il existe un résumé de l’activité récente dans la liste déroulante des alertes :
+
+![](./media/app-insights-alerts/010-alert-drop.png)
+
 L’historique des modifications d’état figure dans le journal des événements d’opérations :
 
 ![Sur le panneau Vue d’ensemble, près du bas de la page, cliquez sur « Événements de la semaine dernière »](./media/app-insights-alerts/09-alerts.png)
@@ -57,6 +61,27 @@ L’historique des modifications d’état figure dans le journal des événemen
 *Ces « événements » sont-ils liés à des événements de télémétrie ou à des événements personnalisés ?*
 
 * Non. Ces événements opérationnels sont simplement un journal des opérations qui ont eu lieu dans cette ressource d’application. 
+
+
+## Fonctionnement des alertes
+
+* Une alerte a deux états : « alerte » et « intègre ». 
+
+* Un message électronique est envoyé lorsque l’état de l’alerte change.
+
+* Une alerte est évaluée chaque fois qu’une mesure arrive, mais pas autrement.
+
+* L’évaluation agrège la mesure de la période précédente, puis la compare à la valeur de seuil pour déterminer le nouvel état.
+
+* La période que vous choisissez spécifie la durée pendant laquelle les mesures sont agrégées. Cela n’affecte pas la fréquence à laquelle l’alerte est évaluée, mais cela dépend de la fréquence d’arrivée des mesures.
+
+* Si aucune donnée n’arrive pour une mesure particulière pendant un certain temps, l’écart a des effets différents sur l’évaluation de l’alerte et sur les graphiques dans Metrics Explorer. Dans Metrics Explorer, si aucune donnée n’apparaît plus longtemps que l’intervalle d’échantillonnage du graphique, le graphique affichera la valeur 0. Cependant, une alerte basée sur la même mesure n’est pas réévaluée et l’état de l’alerte reste inchangé.
+
+    Lorsque les données arrivent par la suite, le graphique revient à une valeur différente de zéro. L’alerte sera évaluée en fonction des données disponibles pour la période spécifiée. Si le nouveau point de données est le seul disponible dans la période, l’agrégat reposera uniquement sur ce point.
+
+* Une alerte peut osciller fréquemment entre les états alerte et intègre même si vous définissez une longue période. Cela peut se produire si la valeur de la mesure est placée autour du seuil. Le seuil est cohérent : la transition vers l’état alerte se produit à la même valeur que la transition vers l’état intègre.
+
+
 
 ## Alertes de disponibilité
 
@@ -69,8 +94,9 @@ Cela dépend de votre application. Pour commencer, il est préférable de ne pas
 Les alertes les plus appréciées sont les suivantes :
 
 * Les [tests Web][availability] sont importants si votre application est un site Web ou un service Web qui est visible sur l’Internet public. Ils vous indiquent si votre site tombe en panne ou répond lentement : même si le problème est plutôt dû au transporteur qu’à votre application. Ce sont des tests synthétiques, qui ne mesurent pas l’expérience réelle de vos utilisateurs.
-* Les [mesures de navigateur][client], surtout les temps de chargement des pages de navigateur, sont efficaces pour les applications Web. Si votre page comporte un grand nombre de scripts, il peut être intéressant de rechercher des exceptions du navigateur. Pour obtenir ces métriques et alertes, vous devez configurer la [surveillance de page Web][client].
-* Temps de réponse de serveur et échec des demandes pour le côté serveur des applications Web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
+* Les [mesures de navigateur][client], surtout les **temps de chargement des pages** de navigateur, sont efficaces pour les applications web. Si votre page comporte un grand nombre de scripts, il peut être intéressant de rechercher des **exceptions du navigateur**. Pour obtenir ces métriques et alertes, vous devez configurer la [surveillance de page Web][client].
+* **Temps de réponse de serveur** et **échec des demandes** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur ces métriques pour voir si elles varient énormément en cas de taux de demandes élevés : cela peut indiquer que votre application manque de ressources.
+* **Exceptions du serveur** - pour les afficher, vous devrez peut-être effectuer une [installation supplémentaire](app-insights-asp-net-exceptions.md).
 
 ## Définition d’alertes à l’aide de PowerShell
 
@@ -191,4 +217,4 @@ request,<br/>requestFailed|[Demande serveur](app-insights-configuration-with-app
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

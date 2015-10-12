@@ -445,7 +445,7 @@ Une autre possibilité pour l’approvisionnement d’un cluster HDInsight est l
 - **Kit de développement logiciel (SDK) Node.js** : <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Interface de ligne de commande Azure** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Pour une aide générale sur l’utilisation de l’interface de ligne de commande Azure, consultez la page [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md).
+Pour une aide générale sur l’utilisation de l’interface de ligne de commande Azure, consultez la page [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md).
 
 Les instructions ci-dessous expliquent comment installer l’interface de ligne de commande Azure sur Linux et Windows et comment l’utiliser pour approvisionner un cluster.
 
@@ -810,4 +810,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

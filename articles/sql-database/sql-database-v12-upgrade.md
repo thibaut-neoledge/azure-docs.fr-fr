@@ -3,7 +3,7 @@
 	description="Explique comment mettre à niveau la base de données SQL Microsoft Azure vers la version 12 à partir d’une version antérieure." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,85 +13,76 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="05/15/2015" 
-	ms.author="sonalm"/>
+	ms.date="09/30/2015" 
+	ms.author="sstein"/>
 
 
 # Mettre à niveau vers la version 12 de la base de données SQL
 
 
-[Inscrivez-vous](https://portal.azure.com) à la base de données SQL version 12, afin de tirer parti de la nouvelle génération de bases de données SQL sur Microsoft Azure. Tout d’abord, vous avez besoin d’un abonnement à Microsoft Azure. Inscrivez-vous à la [version d’évaluation gratuite de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial) et examinez la [tarification](http://azure.microsoft.com/pricing/details/sql-database).
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-v12-upgrade.md)
+- [PowerShell](sql-database-upgrade-server.md)
 
 
-## Étapes de la mise à niveau vers la base de données SQL version 12
+SQL Database V12 est la dernière version de SQL Database et elle propose [de nombreux avantages par rapport à la précédente version, V2](sql-database-v12-whats-new.md). Cet article explique comment mettre à niveau les serveurs V2 vers V12 avec le portail Azure en version préliminaire.
+
+Au cours du processus de mise à niveau vers la Base de données SQL V12, vous devez également [mettre à jour toutes les bases de données Web et Business vers un nouveau niveau de service](sql-database-upgrade-new-service-tiers.md). Les instructions suivantes incluent les étapes pour mettre à jour vos bases de données Web et Business avec des recommandations de niveau tarifaire basées sur l’historique d’utilisation de votre base de données.
 
 
-| Étape de mise à niveau | Capture d’écran |
-| :--- | :--- |
-| 1\. Connectez-vous au site [http://portal.azure.com/](http://portal.azure.com/). | ![Nouveau portail Azure][1] |
-| 2\. Cliquez sur **PARCOURIR**. | ![Parcourir les services][2] |
-| 3\. Cliquez sur **Serveurs SQL**. Une liste de noms des serveurs SQL s'affiche. | ![Sélectionner le service Serveur SQL][3] |
-| 4\. Sélectionnez le serveur à copier sur un nouveau serveur sur lequel la mise à jour de la base de données SQL est activée. | ![Affiche la liste des serveurs SQL][4] |
-| 5\. Cliquez sur **Paramètres** ou **Version du serveur** pour effectuer la mise à niveau de votre serveur vers la version 12. | ![Dernière fonctionnalité préliminaire][5] |
-| 6\. Cliquez sur **METTRE À NIVEAU LE SERVEUR**. | ![Met à niveau le serveur SQL vers la version préliminaire][6] |
-| 7\. Lorsque vous cliquez sur **METTRE À NIVEAU LE SERVEUR**, la mise à niveau commence. Sous **Version du serveur**, la notification **V2** est remplacée par **Mise à niveau planifiée..**. Si vous cliquez sur la notification **Mise à niveau planifiée..**, le bouton **Annuler la mise à niveau** apparaît dans la partie supérieure du volet qui s’ouvre. Cliquez sur **Annuler la mise à niveau** si vous décidez de ne plus effectuer la mise à niveau pour une raison quelconque. Veuillez **noter** que l’opération d’annulation ne fonctionne plus à l’approche de la fin de la mise à niveau et que dans ce cas la mise à niveau est donc terminée.|![Annuler la mise à niveau][9] 
+
+1. Dans le [portail Azure en version préliminaire](http://portal.azure.com/), accédez au serveur que vous souhaitez mettre à niveau en sélectionnant **PARCOURIR TOUT** > **Serveurs SQL**, puis en sélectionnant le serveur souhaité.
+2. Sélectionnez **Dernière mise à jour de la base de données SQL**, puis **Mettre à niveau ce serveur**.
+
+      ![mettre à niveau le serveur][1]
+
+## Mise à niveau de vos bases de données Web et Business
+
+2. Mettez à niveau toutes les bases de données Web et Business. Si votre serveur dispose d’une base de données Web ou Business, vous devez la mettre à niveau. Pour vous aider lors de la mise à niveau, le service Base de données SQL recommande un niveau de service et de performances approprié (niveau tarifaire) pour chaque base de données. En analysant l’historique d’utilisation de chaque base de données, le service recommande un niveau qui convient le mieux pour l’exécution des charges de travail de votre base de données existante. 
+    
+    Sélectionnez chaque base de données pour l’examiner, puis sélectionnez le niveau tarifaire recommandé pour la mise à niveau. Vous pouvez également parcourir les niveaux tarifaires disponibles et sélectionner celui qui convient le mieux à votre environnement.
+
+     ![bases de données][2]
 
 
-> [AZURE.NOTE]Lorsque l’option de mise à niveau est sélectionnée, votre serveur et les bases de données qu’il contient intègrent les fonctionnalités de la version 12 de la base de données SQL. Cette opération est irréversible. Pour mettre à niveau des serveurs vers la version 12 de la base de données SQL, vous avez besoin du niveau de service De base, Standard ou Premium. Pour en savoir plus sur les niveaux de service, consultez [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md).
+
+7. Lorsque vous cliquez sur un niveau suggéré, le panneau **Choisir votre niveau de tarification** s’affiche, dans lequel vous pouvez sélectionner un niveau, puis cliquer sur le bouton **Sélectionner** pour le modifier. Sélectionnez un nouveau niveau pour chaque base de données Web ou Business.
+
+    ![de films][6]
 
 
-> [AZURE.IMPORTANT]La géo-réplication n’est pas prise en charge dans la version 12 de la base de données SQL (version préliminaire). Pour en savoir plus, consultez [Planifier et préparer la mise à niveau vers la version préliminaire V12 de la base de données SQL Azure](sql-database-v12-plan-prepare-upgrade.md).
+Lorsque toutes les bases de données du serveur sont éligibles, vous pouvez commencer la mise à niveau.
+
+## Lancer la mise à niveau
+
+3. Lorsque toutes les bases de données sur le serveur sont mises à niveau, vous devez **SAISIR LE NOM DU SERVEUR** pour vérifier que vous souhaitez effectuer la mise à niveau, avant de cliquer sur **OK**. 
+
+    ![vérifier la mise à niveau][3]
 
 
-Lorsque vous cliquez sur l’option **METTRE À NIVEAU LE SERVEUR**, le panneau qui s’ouvre affiche un message sur le processus de validation.
+4. La mise à niveau démarre. Sa progression est affichée dans une zone de notification. Le processus de mise à jour est lancé. Selon les détails de votre mise à niveau de bases de données vers V12, la procédure peut prendre un certain temps. Pendant cette période, toutes les bases de données sur le serveur restent en ligne, mais les actions de gestion du serveur et des bases de données sont restreintes.
 
+    ![mise à niveau en cours][4]
 
-- Le processus de validation vérifie le niveau de service de votre base de données et si la géo-réplication est activée. Le volet affiche les résultats une fois la validation terminée. 
-- À la fin du processus de validation, le système affiche une liste dans laquelle vous devez choisir les bases de données concernées par la mise à niveau vers la version 12 de la base de données SQL.
- - **Vous devez effectuer ces actions pour que chaque base de données puisse être mise à niveau vers la version 12 de la base de données SQL**.
-- Quand vous cliquez sur un nom de base de données, un nouveau volet vous recommande un niveau de tarification de service en fonction de votre utilisation actuelle. Vous pouvez également parcourir les différents niveaux de tarification et sélectionner celui qui convient le mieux à votre environnement. Toutes les bases de données configurées pour la géo-réplication doivent être reconfigurées de sorte à arrêter la réplication. 
-- Notez que la recommandation sur le niveau de tarification ne s'affiche pas en cas de données insuffisantes. 
+    Au moment précis de la transition vers le nouveau niveau de performances, une perte temporaire des connexions à la base de données peut parfois se produire pendant quelques secondes. Si une application gère les problèmes temporaires d’interruption de connexion (logique de nouvelle tentative), il suffit d’établir une protection contre la perte de connexion à la fin de la mise à jour.
 
+5. Une fois l’opération de mise à niveau terminée, les fonctionnalités du serveur SQL Database V12 sont activées.
 
-| Action | Capture d’écran |
-| :--- | :--- |
-| 7\. Une fois que vous avez apporté les modifications préparant votre serveur à la mise à niveau, saisissez le nom du serveur à mettre à niveau et cliquez sur **OK**. | ![Confirmer le nom du serveur à mettre à niveau][7] |
-| 8\. Le processus de mise à jour est lancé. La mise à jour peut prendre jusqu'à 24 heures. Pendant cette période, toutes les bases de données sur ce serveur restent en ligne, mais les actions de gestion du serveur et des bases de données sont restreintes. Une fois le processus terminé, l’état **Activé** s’affiche dans le panneau du serveur. | ![Confirme que les fonctions de la version préliminaire sont activées][8] |
-
-
-## Applets de commande PowerShell
-
-
-Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers la version 12 de la base de données SQL Microsoft Azure, à partir d’une version 11 ou antérieure.
-
-
-Pour obtenir une documentation de référence sur ces applets de commande Powershell, consultez :
-
-
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
-
-
-L’applet de commande Stop- signifie « annuler », et non « interrompre ». Il est impossible de reprendre une mise à niveau en cours. Il faut la recommencer au début. L’applet de commande Stop- nettoie et libère toutes les ressources appropriées.
+    ![V12 activé][5]
 
 
 ## Liens connexes
 
--  [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md) 
+- [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md)
 - [Planifier et préparer la mise à niveau vers la version V12 de la base de données SQL](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
-[5]: ./media/sql-database-v12-upgrade/latestprview.png
-[6]: ./media/sql-database-v12-upgrade/upgrade.png
-[7]: ./media/sql-database-v12-upgrade/typeservername.png
-[8]: ./media/sql-database-v12-upgrade/enabled.png
-[9]: ./media/sql-database-v12-upgrade/cancel.PNG
- 
+[1]: ./media/sql-database-v12-upgrade/latest-sql-database-update.png
+[2]: ./media/sql-database-v12-upgrade/upgrade-server2.png
+[3]: ./media/sql-database-v12-upgrade/upgrade-server3.png
+[4]: ./media/sql-database-v12-upgrade/online-during-upgrade.png
+[5]: ./media/sql-database-v12-upgrade/enabled.png
+[6]: ./media/sql-database-v12-upgrade/recommendations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

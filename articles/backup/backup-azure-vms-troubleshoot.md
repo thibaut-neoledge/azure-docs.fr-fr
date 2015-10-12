@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# Résolution des erreurs
+# Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation d’Azure Backup à l’aide des informations figurant dans le tableau ci-dessous.
 
 ## Découverte
@@ -89,7 +89,7 @@ Pour les machines virtuelles Windows :
 
 Pour les machines virtuelles Linux :
 
-- Installez l’[agent Linux](https://github.com/Azure/WALinuxAgent) le plus récent à partir de github. 
+- Installez l’[agent Linux](https://github.com/Azure/WALinuxAgent) le plus récent à partir de github.
 - [Mettez à jour la propriété de la machine virtuelle](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour indiquer que l’agent est installé.
 
 
@@ -100,7 +100,7 @@ Pour les machines virtuelles Windows :
 
 Pour les machines virtuelles Linux :
 
-- Suivez les instructions fournies dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines-linux-update-agent.md). 
+- Suivez les instructions fournies dans la rubrique [Mise à jour d’un agent de machine virtuelle Linux ](../virtual-machines-linux-update-agent.md).
 
 
 ### Validation de l’installation de l’agent de machine virtuelle
@@ -123,4 +123,4 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 1. Obtenez la liste des [adresses IP de centres de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) à débloquer.
 2. Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

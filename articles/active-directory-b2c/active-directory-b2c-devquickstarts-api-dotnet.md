@@ -36,16 +36,18 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 - Pour l’application web, utilisez l’**Uri de redirection** `https://localhost:44316/`. Il s’agit de l’emplacement par défaut du client d’application web pour cet exemple de code.
 - Notez également l’**ID d’application** affecté à votre application. Vous en aurez besoin rapidement.
 
-     >[AZURE.IMPORTANT]Vous ne pouvez pas utiliser d’applications inscrites sous l’onglet **Applications** du [portail Azure](https://manage.windowsazure.com/) à cette fin.
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
 Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Dans ce code, le client contient trois expériences liées à l’identité : l’inscription, la connexion et la modification du profil. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
 - Choisir **Inscription par le biais d’un ID utilisateur** ou **Inscription par le biais d’une adresse e-mail** dans le panneau des fournisseurs d’identité.
-- Choisir le **Nom d'affichage** et quelques autres attributs d'inscription dans votre stratégie d'inscription.
+- Choisir le **nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications **nom d’affichage** et **ID objet** comme revendications d’application pour chaque stratégie. Vous pouvez également choisir d’autres revendications.
-- Noter le **nom** de chaque stratégie après sa création. Il doit être précédé du préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement. 
+- Noter le **nom** de chaque stratégie après sa création. Vous aurez besoin des noms de ces stratégies rapidement. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Une fois vos trois stratégies créées, vous pouvez générer votre application.
 
@@ -59,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 L’application terminée est également [disponible en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) ou sur la branche `complete` du même référentiel.
 
-Une fois l’exemple de code téléchargé, ouvrez le fichier Visual Studio `.sln` pour commencer. Vous remarquerez qu’il existe deux projets dans la solution : un projet `TaskWebApp` et un projet `TaskService`. Le projet `TaskWebApp` est une application de bureau MVC avec laquelle l’utilisateur interagit. Le projet `TaskService` est l’API web du serveur principal de l’application qui stocke la liste des tâches de chaque utilisateur.
+Une fois l’exemple de code téléchargé, ouvrez le fichier Visual Studio `.sln` pour commencer. Vous remarquerez qu’il existe deux projets dans la solution : un projet `TaskWebApp` et un projet `TaskService`. Le projet `TaskWebApp` est une application de bureau web MVC avec laquelle l’utilisateur interagit. Le projet `TaskService` est l’API web du serveur principal de l’application qui stocke la liste des tâches de chaque utilisateur.
 
 ## 5\. Configuration de l’application web de la tâche
 
@@ -83,6 +85,8 @@ Lorsque l’utilisateur interagit avec `TaskWebApp`, le client envoie des demand
 </appSettings>
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 Il existe également deux décorateurs `[PolicyAuthorize]` dans lesquels vous devez fournir le nom de votre stratégie de connexion. L’attribut `[PolicyAuthorize]` sert à appeler une stratégie particulière lorsque l’utilisateur tente d’accéder à une page de l’application qui requiert une authentification.
 
 ```C#
@@ -105,7 +109,7 @@ Si vous souhaitez apprendre comment une application web comme `TaskWebApp` utili
 
 ## 6\. Sécuriser l’API
 
-Maintenant que vous avez un client qui appelle l’API pour le compte d’utilisateurs, vous pouvez sécuriser `TaskService` à l’aide de jetons de support OAuth 2.0. Votre API peut accepter et valider les jetons à l’aide de la bibliothèque OWIN de Microsoft.
+Maintenant que vous avez un client qui appelle l’API pour le compte d’utilisateurs, vous pouvez sécuriser `TaskService` à l’aide de jetons de support OAuth 2.0. Votre API peut accepter et valider les jetons à l’aide de la bibliothèque OWIN de Microsoft.
 
 #### Installer OWIN
 Commencez par installer le pipeline d’authentification OAuth OWIN :
@@ -183,7 +187,7 @@ public partial class Startup
 ```
 
 #### Sécuriser le contrôleur de tâche
-Maintenant que l’application est configurée pour utiliser l’authentification OAuth 2.0, tout ce que vous avez à faire pour sécuriser votre API web est d’ajouter une balise `[Authorize]` au contrôleur de tâche. Il s’agit du contrôleur sur lequel toutes les manipulations de liste des tâches ont lieu. Donc, nous allons sécuriser l’ensemble du contrôleur au niveau de la classe. Vous pouvez également ajouter la balise `[Authorize]` pour les actions individuelles et obtenir ainsi un contrôle plus précis.
+Maintenant que l’application est configurée pour utiliser l’authentification OAuth 2.0, tout ce que vous avez à faire pour sécuriser votre API web est d’ajouter une balise `[Authorize]` au contrôleur de tâche. Il s’agit du contrôleur sur lequel toutes les manipulations de liste des tâches ont lieu. Donc, nous allons sécuriser l’ensemble du contrôleur au niveau de la classe. Vous pouvez également ajouter la balise `[Authorize]` pour les actions individuelles et obtenir ainsi un contrôle plus précis.
 
 ```C#
 // Controllers\TasksController.cs
@@ -196,7 +200,7 @@ public class TasksController : ApiController
 ```
 
 #### Obtenir des informations utilisateur à partir du jeton
-Le `TaskController` stocke des tâches dans une base de données où chaque tâche a un utilisateur associé « propriétaire » de la tâche. Le propriétaire est identifié par l’**ID d’objet** de l’utilisateur(c’est pourquoi vous devez ajouter l’ID d’objet en tant que revendication d’application dans toutes vous stratégies) :
+Le `TaskController` stocke des tâches dans une base de données où chaque tâche a un utilisateur associé « propriétaire » de la tâche. Le propriétaire est identifié par l’**ID d’objet** de l’utilisateur(c’est pourquoi vous devez ajouter l’ID d’objet en tant que revendication d’application dans toutes vous stratégies) :
 
 ```C#
 // Controllers\TasksController.cs
@@ -232,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

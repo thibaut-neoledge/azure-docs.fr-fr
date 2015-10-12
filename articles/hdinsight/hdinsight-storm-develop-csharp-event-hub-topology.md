@@ -1,20 +1,20 @@
 <properties
    pageTitle="Traitement des événements de hubs d’événements avec Storm sur HDInsight | Microsoft Azure"
-	description="Découvrez comment traiter les données de concentrateurs d’événements avec une topologie Storm C# créée dans Visual Studio à l’aide de HDInsight Tools pour Visual Studio."
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Découvrez comment traiter les données de concentrateurs d’événements avec une topologie Storm C# créée dans Visual Studio à l’aide de HDInsight Tools pour Visual Studio."
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
 
@@ -26,7 +26,9 @@ Dans ce didacticiel, vous allez apprendre à utiliser HDInsight Tools pour Visu
 
 * **EventHubReader** : lit les données à partir de Event Hubs et les stocke dans le stockage de table Azure
 
-## Configuration requise
+[AZURE.NOTE]Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
+
+## Composants requis
 
 * Un <a href="../hdinsight-storm-getting-started/" target="_blank">cluster Apache Storm sur HDInsight</a>
 
@@ -555,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

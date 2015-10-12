@@ -1,6 +1,6 @@
 <properties
 	pageTitle="À propos des machines virtuelles Azure | Microsoft Azure"
-	description="Découvrez les informations de base sur les machines virtuelles dans Azure."
+	description="Découvrez les informations de base sur les machines virtuelles dans Azure qui utilisent les deux modèles de déploiement."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#À propos des machines virtuelles Azure créées avec les deux modèles de déploiement
+#À propos des machines virtuelles Azure 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager et le modèle de déploiement classique.
 
@@ -51,4 +51,4 @@ Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulte
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

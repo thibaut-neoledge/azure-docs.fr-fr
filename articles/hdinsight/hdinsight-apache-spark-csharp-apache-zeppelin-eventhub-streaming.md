@@ -188,4 +188,4 @@ Les instructions sur la façon d’effectuer ces étapes et un exemple d’appli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

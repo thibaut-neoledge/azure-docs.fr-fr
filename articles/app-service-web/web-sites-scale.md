@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Mise à l’échelle d’une application web dans Microsoft Azure App Service" 
 	description="Apprenez à mettre à l’échelle une application web dans Azure App Service, notamment avec la fonction d’ajustement automatique." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -201,4 +201,4 @@ Selon le mode de l’application web, les fonctionnalités orientées développe
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

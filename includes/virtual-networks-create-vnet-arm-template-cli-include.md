@@ -2,7 +2,7 @@
 
 Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
 
-1. Si vous n'avez jamais utilisé l'interface de ligne de commande Azure, consultez [Installer et configurer l'interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu'à l'étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -89,4 +89,4 @@ Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’int
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

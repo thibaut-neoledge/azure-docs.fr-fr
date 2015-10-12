@@ -254,10 +254,11 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 * poursuivre l'apprentissage de la fonction de balisage dans le [didacticiel Nouvelles de dernière minute] ;
 * vous familiariser avec l'envoi de notifications Push à des utilisateurs individuels dans le [didacticiel Envoi de notifications à des utilisateurs]
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
 
 [exemple de wrapper PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [exemple de wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

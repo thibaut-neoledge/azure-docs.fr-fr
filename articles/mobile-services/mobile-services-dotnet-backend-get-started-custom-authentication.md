@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de l&#39;authentification personnalisée | Microsoft Azure" 
-	description="Découvrez comment authentifier les utilisateurs à l&#39;aide d&#39;un nom d&#39;utilisateur et d&#39;un mot de passe." 
+	pageTitle="Prise en main de l'authentification personnalisée | Microsoft Azure" 
+	description="Découvrez comment authentifier les utilisateurs à l'aide d'un nom d'utilisateur et d'un mot de passe." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Prise en main de l'authentification personnalisée
@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

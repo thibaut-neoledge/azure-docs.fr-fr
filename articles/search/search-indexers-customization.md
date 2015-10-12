@@ -13,18 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Personnalisation des indexeurs Azure Search#
+#Personnalisation des indexeurs Azure Search
 
-Dans cet article, vous allez apprendre à utiliser les indexeurs Azure Search pour implémenter les scénarios suivants :
-
-- Renommer des champs entre une source de données et un index cible 
-- Transformer des chaînes à partir d'une table de base de données en collections de chaînes
-- Basculer la stratégie de détection des modifications sur une source de données 
-- Encoder par URL les clés de document qui contiennent des caractères non sécurisés pour les URL 
-- Tolérer des échecs d'indexation de certains documents 
+La configuration d'un indexeur dans Azure Search vous permet de renommer des champs entre une source de données et un index cible, transformer des chaînes à partir d'une table de base de données en collections de chaînes, basculer la stratégie de détection des modifications sur une source de données, encoder par URL les clés de document qui contiennent des caractères non sécurisés pour les URL, et tolérer des échecs d'indexation de certains documents.
 
 Si vous n'êtes pas familiarisé avec les indexeurs Azure Search, vous pouvez au préalable consulter les articles suivants :
 
@@ -123,4 +117,4 @@ Même si vous choisissez de tolérer certains échecs, les informations indiquan
 C'est tout pour le moment. Si vous avez des idées ou des suggestions de contenu, vous pouvez nous envoyer un tweet en utilisant le hashtag #AzureSearch ou les soumettre via notre [page UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

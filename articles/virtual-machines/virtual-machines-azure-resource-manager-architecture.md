@@ -81,4 +81,4 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Présentation du gestionnaire des ressources Azure](resource-group-overview.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

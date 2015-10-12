@@ -23,7 +23,7 @@
 
 MongoDB est une base de données de documents open source qui fournit de hautes performances, une disponibilité élevée et la mise à l'échelle automatique. MongoDB peut être installé en base de données autonome ou dans un cluster, tirant ainsi parti des fonctionnalités de réplication intégrées. Dans certains cas, vous pouvez utiliser la réplication pour augmenter la capacité de lecture. Les clients ont la possibilité d'envoyer des opérations de lecture et d'écriture sur différents serveurs. Vous pouvez également conserver des copies dans différents centres de données pour augmenter la localité et la disponibilité des données pour les applications distribuées. Avec MongoDB, la réplication assure également la redondance et optimise la disponibilité des données. Avec plusieurs copies des données sur des serveurs de bases de données différents, la réplication protège une base de données contre la perte d'un seul serveur. La réplication vous permet également de récupérer suite à une défaillance matérielle et des interruptions de service. Avec des copies supplémentaires des données, vous pouvez en dédier une à la récupération d'urgence, la création de rapports ou la sauvegarde.
 
-En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l’aide d’un modèle Azure Resource Manager déployé avec [Azure PowerShell](../powershell-install-configure.md) ou [l’interface de ligne de commande Azure](../xplat-cli.md).
+En plus des différentes versions qui étaient déjà disponibles dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster MongoDB sur des machines virtuelles Ubuntu à l’aide d’un modèle Azure Resource Manager déployé avec [Azure PowerShell](../powershell-install-configure.md) ou [l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 Les clusters récemment déployés basés sur ce modèle disposent de la topologie décrite dans le schéma suivant, bien que d’autres topologies puissent être obtenues facilement grâce à la personnalisation du modèle présenté dans cet article.
 
@@ -693,4 +693,4 @@ En résumé, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

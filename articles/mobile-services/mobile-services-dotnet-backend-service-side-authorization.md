@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Autorisation côté service des utilisateurs de Mobile Services
@@ -42,10 +42,10 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
-	
+
 		// Set the user ID on the item
 		item.UserId = currentUser.Id;
-	
+
 	Ce code ajoute l’ID utilisateur de l’utilisateur authentifié à l’élément, avant son insertion dans la table TodoItem.
 
 3. Recherchez la méthode **GetAllTodoItems** et remplacez l'instruction **return** existante par la ligne de code suivante :
@@ -54,7 +54,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 		var currentUser = User as ServiceUser;
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
-		
+
 	Cette requête filtre les objets TodoItem retournés de façon à ce que chaque utilisateur reçoive seulement les éléments qu'il a insérés.
 
 4. Publiez à nouveau le projet de service mobile dans Azure.
@@ -78,6 +78,5 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 
 <!-- URLs. -->
 [Ajout de l'authentification à une application Mobile Services existante]: mobile-services-dotnet-backend-ios-get-started-users.md
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

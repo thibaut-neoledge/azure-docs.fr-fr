@@ -38,7 +38,7 @@ Dans ce document, découvrez comment utiliser C# avec Hive et Pig.
 
 * Hadoop sur un cluster HDInsight - Consultez la page [Approvisionnement d’un cluster HDInsight](hdinsight-provision-clusters.md) pour connaître les étapes de création d’un cluster
 
-* Outils Hadoop pour Visual Studio. Consultez la page [Prise en main des outils HDInsight Hadoop pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
+* Outils Hadoop pour Visual Studio. Consultez la page [Prise en main des outils HDInsight Hadoop pour Visual Studio￼](hdinsight-hadoop-visual-studio-tools-get-started.md) pour connaître les étapes d’installation et de configuration des outils.
 
 ##.NET sur HDInsight
 
@@ -241,4 +241,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

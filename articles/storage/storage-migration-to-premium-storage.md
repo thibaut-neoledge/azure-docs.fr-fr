@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="09/23/2015"
     ms.author="tamram"/>
 
 
@@ -106,7 +106,7 @@ Nous vous présentons ci-dessous différents scénarios pour la préparation de 
 
 #### Disque dur virtuel de système d’exploitation généralisé pour créer plusieurs instances de machine virtuelle
 
-Si vous téléchargez un disque dur virtuel qui permet de créer plusieurs instances de machine virtuelle Azure génériques, vous devez tout d’abord généraliser un disque dur virtuel à l’aide d’un utilitaire sysprep. Cela s’applique à un disque dur virtuel local ou dans le cloud. Sysprep supprime des informations spécifiques sur une machine à partir du disque dur virtuel.
+Si vous téléchargez un disque dur virtuel qui permet de créer plusieurs instances de machine virtuelle Azure génériques, vous devez tout d’abord généraliser un disque dur virtuel à l’aide d’un utilitaire sysprep. Cette procédure s’applique à un disque dur virtuel local ou dans le cloud. Sysprep supprime des informations spécifiques sur une machine à partir du disque dur virtuel.
 
 >[AZURE.IMPORTANT]Réalisez un instantané ou une sauvegarde de votre machine virtuelle avant la généralisation. L’exécution de sysprep supprime l’instance de la machine virtuelle. Suivez les étapes ci-dessous pour exécuter sysprep sur un disque dur virtuel de système d’exploitation Windows. Notez que vous devez arrêter la machine virtuelle pour pouvoir exécuter la commande Sysprep. Pour plus d’informations sur Sysprep, consultez [Présentation de Sysprep](http://technet.microsoft.com/library/hh825209.aspx) ou le Manuel de référence technique Sysprep (http://technet.microsoft.com/library/cc766049(v=ws.10).aspx).
 
@@ -315,4 +315,4 @@ Consultez également les ressources suivantes pour en savoir plus sur Azure Stor
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -295,6 +295,9 @@ Maintenant que vous connaissez les principes de base du service blob Azure, suiv
 - Consultez l'exemple d'objet blob de blocs PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - Consultez l'exemple d'objet blob de pages PHP à l'adresse <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
@@ -304,4 +307,4 @@ Maintenant que vous connaissez les principes de base du service blob Azure, suiv
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

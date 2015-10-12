@@ -6,7 +6,7 @@
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -124,7 +124,7 @@ Vous pouvez également rechercher les informations de stockage à l’aide du po
 
 Outre la commande Hadoop depuis le cluster, vous pouvez accéder aux objets blob de plusieurs façons :
 
-* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `azure storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `azure blob` pour obtenir les commandes spécifiques aux objets blob.
+* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `azure storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `azure blob` pour obtenir les commandes spécifiques aux objets blob.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage) : script python pour travailler avec des objets blob dans Azure Storage.
 
@@ -184,6 +184,7 @@ Les différents types de cluster sont affectés par la mise à l’échelle comm
 
 		2. Dans la liste des services sur la gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __UI Storm__ dans __Liens rapides__.
 
+
 			![Saisie de l’interface utilisateur Storm dans liens rapides](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
 
 			L’interface utilisateur de Storm s’affiche :
@@ -239,4 +240,4 @@ Si le cluster fournit déjà une version d’un composant sous la forme d’un f
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

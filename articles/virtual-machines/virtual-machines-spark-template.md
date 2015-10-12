@@ -24,7 +24,7 @@ Apache Spark est un moteur rapide pour le traitement des données à grande éch
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du déploiement d’une ressource avec le modèle de déploiement du Gestionnaire des ressources. Vous ne pouvez pas déployer cette ressource avec le modèle de déploiement classique.
 
 
-En plus de s’exécuter sur les gestionnaires de cluster Mesos ou YARN, Spark fournit un mode de déploiement autonome simple. Ce didacticiel vous guide dans l’utilisation d’un exemple de modèle Azure Resource Manager pour déployer un cluster Spark sur des machines virtuelles Ubuntu via [Azure PowerShell](../powershell-install-configure.md) ou l’[interface de ligne de commande Azure](../xplat-cli.md).
+En plus de s’exécuter sur les gestionnaires de cluster Mesos ou YARN, Spark fournit un mode de déploiement autonome simple. Ce didacticiel vous guide dans l’utilisation d’un exemple de modèle Azure Resource Manager pour déployer un cluster Spark sur des machines virtuelles Ubuntu via [Azure PowerShell](../powershell-install-configure.md) ou l’[interface de ligne de commande Azure](../xplat-cli-install.md).
 
 Ce modèle déploie un cluster Spark sur des machines virtuelles Ubuntu. Ce modèle configure également un compte de stockage, un réseau virtuel, des groupes à haute disponibilité, des adresses IP publiques et les interfaces réseau requis par l’installation. Le cluster Spark est créé derrière un sous-réseau : il n’existe donc pas d’accès IP public au cluster. Une « jump box » facultative peut être déployée dans le cadre du déploiement. Cette « jump box » est une machine virtuelle Ubuntu également déployée dans le sous-réseau, mais elle *expose* une adresse IP publique avec un port SSH ouvert auquel vous pouvez vous connecter. Vous pouvez ensuite exécuter SSH pour toutes les machines virtuelles Spark du sous-réseau depuis la « jump box ».
 
@@ -847,4 +847,4 @@ Découvrez plus d’informations sur les [infrastructures d’application](virtu
 
 [Résolution des problèmes des déploiements de modèle](resource-group-deploy-debug.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

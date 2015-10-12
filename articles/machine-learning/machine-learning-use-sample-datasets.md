@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Utilisation des exemples de jeux de données dans Machine Learning Studio | Microsoft Azure"
 	description="Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans ML Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences."
-	services="machine-learning" 
+	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
 	manager="paulettm"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="09/28/2015"
 	ms.author="garye"/>
 
 
@@ -21,7 +21,7 @@
 
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèle dans la [galerie Azure Machine Learning ](http://azure.microsoft.com/documentation/services/machine-learning/models/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
+Quand vous créez un espace de travail dans Azure Machine Learning, vous disposez par défaut d'un certain nombre d'exemples de jeux de données et d'expériences. Plusieurs de ces exemples de jeu de données sont utilisés par les exemples de modèle dans la [galerie Azure Cortana Analytics](http://gallery.azureml.net/), tandis que d’autres illustrent les différents types de données utilisés en général dans l’apprentissage automatique.
 
 Certains de ces jeux de données sont disponibles dans le stockage d'objets blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Lecteur][reader].
 
@@ -316,4 +316,4 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

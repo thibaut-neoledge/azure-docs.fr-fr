@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exploration des mesures dans Application Insights"
-	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Exploration des mesures dans Application Insights" 
+	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -75,20 +75,24 @@ Par exemple, parcourez le graphique des demandes ayant échoué pour l'applicati
 
 ## Que veulent dire les chiffres ?
 
-La légende sur le côté affiche par défaut la valeur agrégée sur la période couverte par le graphique.
+La légende sur le côté affiche généralement par défaut la valeur agrégée sur la période couverte par le graphique. Si vous pointez sur le graphique, il affiche la valeur au niveau de ce point.
 
-Chaque point de données du graphique est également un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
+Chaque point de données du graphique est un agrégat des valeurs de données reçues dans l’intervalle d’échantillonnage précédent, encore appelé « granularité ». La granularité est indiquée en haut du panneau et varie en fonction de l’échelle de temps globale du graphique.
 
-Les différentes mesures sont agrégées de différentes façons :
+Les mesures sont agrégées de différentes façons :
 
- * Pour mesurer le temps de réponse, la **moyenne** des valeurs est calculée sur la période du graphique.
- * Pour le nombre d'événements comme les demandes ayant échoué, l'agrégat est la **somme** des nombres sur la période.
- * Pour le nombre d'utilisateurs, l'agrégat est le nombre d'utilisateurs **uniques** sur la période. (Si un utilisateur est suivi plusieurs fois pendant la période, il est compté une seule fois.)
+ * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
+ * **Average** divise la somme par le nombre de points de données reçus durant l’intervalle.
+ * **Unique** est utilisé pour comptabiliser les nombres d’utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
 
-Pour déterminer si la valeur est une somme, une moyenne ou une valeur unique, cliquez sur le graphique et faites défiler jusqu'à la valeur sélectionnée. Vous pouvez également obtenir une brève description de la mesure.
 
-![Placez le pointeur sur (i)](./media/app-insights-metrics-explorer/06-total.png)
- 
+Vous pouvez changer de méthode d’agrégation :
+
+![Sélectionnez le graphique, puis l’agrégation](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+La méthode par défaut de chaque mesure s’affiche lorsque vous créez un graphique :
+
+![Désélectionnez toutes les métriques afin d’afficher les valeurs par défaut](./media/app-insights-metrics-explorer/06-total.png)
 
 
 ## Modification des graphiques et des grilles
@@ -128,6 +132,12 @@ Pour afficher uniquement les mesures d'un jeu de valeurs de propriété sélecti
 Si vous ne sélectionnez aucune valeur pour une propriété particulière, c'est la même chose que si vous aviez sélectionné toutes les valeurs : il n'existe aucun filtre sur cette propriété.
 
 Notez le nombre d'événements en même temps que chaque valeur de propriété. Lorsque vous sélectionnez les valeurs d'une propriété, le nombre est modifié, en même temps que les autres valeurs de la propriété.
+
+### Pour ajouter des propriétés à la liste de filtres
+
+Vous souhaitez filtrer la télémétrie pour une catégorie de votre choix ? Par exemple, vous pouvez diviser vos utilisateurs en catégories différentes et segmenter vos données à l’aide de ces catégories.
+
+[Créez votre propriété](app-insights-api-custom-events-metrics.md#properties). Définissez-la dans un [Initialiseur de télémétrie](app-insights-api-custom-events-metrics.md#telemetry-initializers) pour qu’elle s’affiche dans toute la télémétrie, y compris dans la télémétrie standard envoyée par des modules différents du Kit de développement logiciel (SDK).
 
 ## Supprimer le robot et tester le trafic web
 
@@ -202,4 +212,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

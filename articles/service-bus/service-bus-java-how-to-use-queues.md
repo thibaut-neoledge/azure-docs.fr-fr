@@ -192,4 +192,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

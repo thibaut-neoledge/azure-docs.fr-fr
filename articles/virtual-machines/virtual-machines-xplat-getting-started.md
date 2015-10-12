@@ -27,11 +27,11 @@ Il ne suffit pas d'installer l'interface de ligne de commande Azure et de déten
 
 ## Installation de l'interface de ligne de commande Azure
 
-Suivez les instructions pour l’[installation de l’interface de ligne de commande Azure](../xplat-cli.md#install).
+Suivez les instructions pour l’[installation de l’interface de ligne de commande Azure](../xplat-cli-install.md#install).
 
 ## Connexion à Azure à l’aide de l’interface de ligne de commande Azure
 
-Vous pouvez connecter l’installation de votre interface de ligne de commande Azure avec un compte Azure personnel, professionnel ou scolaire. Pour comprendre les différences et effectuer votre choix, consultez [Connexion à votre abonnement Azure](../xplat-cli.md#configure).
+Vous pouvez connecter l’installation de votre interface de ligne de commande Azure avec un compte Azure personnel, professionnel ou scolaire. Pour comprendre les différences et effectuer votre choix, consultez [Connexion à votre abonnement Azure](../xplat-cli-install.md#configure).
 
 ## Création d’une machine virtuelle et connexion à celle-ci dans Azure
 
@@ -78,4 +78,4 @@ Pour obtenir d’autres exemples d’utilisation de l’interface de ligne de co
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

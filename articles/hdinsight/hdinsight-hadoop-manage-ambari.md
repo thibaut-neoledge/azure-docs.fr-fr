@@ -33,11 +33,7 @@ Ambari est fourni par défaut avec les clusters HDInsight Linux. Les clusters H
 
 > [AZURE.NOTE]Bien qu’Ambari pour votre cluster soit accessible directement via Internet, certains liens de l’interface utilisateur web d’Ambari (telle que le JobTracker) ne sont pas exposés sur Internet. Par conséquent, un message d’erreur tel que « Serveur introuvable » s’affiche quand vous tentez d’accéder à ces fonctionnalités, sauf si vous utilisez un tunnel Secure Shell (SSH) pour le trafic web proxy vers le nœud principal du cluster.
 
-Utilisez les articles suivants pour créer un tunnel SSH d'un port de votre ordinateur local vers le cluster :
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X</a> : procédure pour créer un tunnel SSH à l'aide de la commande `ssh`.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Windows</a> : procédure pour utiliser Putty pour créer un tunnel SSH.
+Pour des informations sur la création d'un tunnel SSH pour utiliser Ambari, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Interface utilisateur Web d'Ambari
 
@@ -141,11 +137,7 @@ La sélection de l'un de ces liens ouvrira un nouvel onglet dans votre navigateu
 
 > [AZURE.NOTE]La sélection d'un lien **Liens rapides** pour un service quelconque entraîne l'apparition d'une erreur vous indiquant que le serveur est introuvable, à moins que vous n’utilisiez un tunnel SSL pour le trafic proxy web vers le cluster. Cela est lié au fait que les applications Web utilisées pour afficher ces informations ne sont pas exposées sur Internet.
 >
-> Pour en savoir plus sur l'utilisation d'un tunnel SSL avec HDInsight, consultez l'une des rubriques suivantes :
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Linux, Unix ou OS X</a> : procédure pour créer un tunnel SSH à l'aide de la commande `ssh`.
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilisation de SSH avec Hadoop sous Linux sur HDInsight à partir de Windows</a> : procédure pour utiliser Putty pour créer un tunnel SSH.
+> Pour des informations sur l'utilisation d'un tunnel SSH avec HDInsight, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ##gestion
 
@@ -195,7 +187,7 @@ Depuis la page **Tableau de bord** ou **Services**, utilisez le bouton **Actions
 
 ![actions de service](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [AZURE.WARNING]Bien que __Ajouter un service__ soit répertorié dans ce menu, il ne doit pas être utilisé pour ajouter des services au cluster HDInsight. Les nouveaux services doivent être ajoutés à l'aide d'une action de script lors de l’approvisionnement du cluster. Pour plus d’informations sur l’utilisation des actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
+> [AZURE.WARNING]Bien que __Ajouter un service__ soit répertorié dans ce menu, il ne doit pas être utilisé pour ajouter des services au cluster HDInsight. Les nouveaux services doivent être ajoutés à l'aide d'une action de script lors de l’approvisionnement du cluster. Pour plus d'informations sur l'utilisation des actions de script, consultez l'article [Personnaliser des clusters HDInsight à l'aide d'actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 
 Bien que le bouton **Actions** permette de redémarrer tous les services, vous souhaitez souvent démarrer, arrêter ou redémarrer un service spécifique. Pour effectuer des actions sur un service individuel, procédez comme suit :
@@ -232,8 +224,8 @@ Ambari Web utilise une API REST sous-jacente, que vous pouvez exploiter pour cr
 
 * **Adresses IP** : les adresses renvoyées aux hôtes au sein d'un cluster ne sont pas accessibles en dehors du cluster, sauf si le cluster est membre d'un réseau virtuel Azure. L'adresse IP est alors accessible aux autres membres du réseau virtuel, mais pas depuis l'extérieur du réseau.
 
-* **Certaines fonctionnalités ne sont pas activées** : certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d’hôtes du cluster, ou l’ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight. D'autres fonctionnalités ne peuvent pas être pleinement mises en œuvre dans la version préliminaire de HDInsight Linux.
+* **Certaines fonctionnalités ne sont pas activées** : certaines fonctionnalités d'Ambari, telles que l'ajout ou la suppression d'hôtes du cluster, ou l'ajout de nouveaux services, sont désactivées, puisqu'il est géré par le service cloud HDInsight. D'autres fonctionnalités ne peuvent pas être pleinement mises en œuvre dans la version préliminaire de HDInsight Linux.
 
 Pour obtenir une référence complète de l'API REST, consultez la page [Référence V1 de l'API d'Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

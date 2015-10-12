@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # Utilisez des exemples d'expériences pour créer de nouvelles expériences
-Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expériences parmi ceux de l'équipe de Machine Learning et des expériences partagées par la communauté de Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences dans la [galerie](http://gallery.azureml.net/).
+Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expériences parmi ceux de l'équipe de Machine Learning et des expériences partagées par la communauté de Machine Learning. Vous pouvez poser des questions ou publier des commentaires sur les expériences dans la [galerie Cortana Analytics](http://gallery.azureml.net/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Parcourir la galerie
+## Parcourir la galerie Cortana Analytics
 1. Aller à la [galerie](http://gallery.azureml.net/)
 2. Vous pouvez y accéder à partir des **Expériences tendances** ou des **exemples Microsoft**.
 3. Utilisez la recherche et les filtres pour affiner les résultats : ![](./media/machine-learning-sample-experiments/image1.png) 
@@ -38,6 +38,5 @@ Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expéri
 - [Passez en revue les exemples d'expériences ](machine-learning-r-csharp-web-service-examples.md)
 - [Créez une API de service web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Parcourez des applications prêtes à l'emploi](https://datamarket.azure.com/browse?query=machine+learning)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

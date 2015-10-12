@@ -40,13 +40,13 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Station de travail** : ordinateur avec un client SSH.
 
-- **Interface de ligne de commande Azure** : pour plus d’informations, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md).
+- **Interface de ligne de commande Azure** : pour plus d’informations, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 - **Cluster HDInsight sous Linux** : pour obtenir des instructions sur l’approvisionnement des clusters, consultez les rubriques [Prise en main de HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) ou [Approvisionnement de clusters HDInsight][hdinsight-provision].
 
 - **Base de données SQL Azure** : ce document fournit des instructions pour la création d’un exemple de base de données SQL. Pour plus d’informations sur la base de données SQL, consultez la rubrique [Prise en main de Base de données SQL Azure][sqldatabase-get-started].
 
-* **SQL Server** : vous pouvez également suivre les étapes décrites dans ce document, avec quelques modifications, avec SQL Server. Pour plus d’informations sur la configuration requise spécifique de l’utilisation de cet article avec SQL Server, consultez la section [Utilisation de SQL Server](#using-sql-server).
+* **SQL Server** : les étapes décrites dans ce document peuvent également être utilisées, avec quelques modifications, avec SQL Server ; toutefois, le cluster HDInsight et SQL Server doivent être sur le même réseau virtuel Azure. Pour plus d’informations sur la configuration requise spécifique de l’utilisation de cet article avec SQL Server, consultez la section [Utilisation de SQL Server](#using-sql-server).
 
 ##Présentation du scénario
 
@@ -263,4 +263,4 @@ Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, co
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

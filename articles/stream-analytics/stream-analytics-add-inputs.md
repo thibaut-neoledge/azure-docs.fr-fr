@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Ajout d'entrées | Microsoft Azure" 
-	description="Segment du parcours d'apprentissage Ajout d'entrées."
+	description="Ajout d’entrées à des tâches Stream Analytics | segment du parcours d’apprentissage."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,8 +13,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # Ajout d'entrées
 
@@ -25,21 +26,29 @@ Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs
 
 Pour ajouter une entrée à votre tâche Stream Analytics :
 
-1. Dans votre tâche Stream Analytics, cliquez sur **Entrées**, puis sur **Ajouter une entrée**.
+1. Dans le portail Azure, cliquez sur **Entrées**, puis sur **Ajouter une entrée** dans votre tâche Stream Analytics.
 
     ![Ajout d'entrées](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
+
+    Dans le portail Azure en version préliminaire, cliquez sur le titre **Entrées** de votre tâche Stream Analytics.
+
+    ![Ajout d’entrées au portail Azure en version préliminaire](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Spécifiez le type de l'entrée : **Flux de données** ou **Données de référence**.
 
     ![Ajout de données](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-3. Si vous créez une entrée Flux de données, spécifiez le type de source pour l'entrée. Cet écran est ignoré lors de la création de Données de référence car seul le stockage d'objets Blob est pris en charge.
+    ![Ajout de données au portail Azure en version préliminaire](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+
+3. Si vous créez une entrée Flux de données, spécifiez le type de source pour l'entrée. Cet étape peut être ignorée lors de la création de Données de référence car seul le stockage d'objets Blob est pris en charge à ce stade.
 
     ![Ajout d'un flux de données](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
+    ![Ajout d’un portail de flux de données en vue préliminaire](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+
 4. Attribuez un nom convivial à cette entrée dans la zone Alias d'entrée. Ce nom sera utilisé dans la requête de votre tâche plus tard pour faire référence à l'entrée.
 
-    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. Ces champs varient selon le type d'entrée et le type de source, et sont définis en détail [ici](stream-analytics-create-a-job.md.).
+    Renseignez le reste des propriétés de connexion requises pour vous connecter à votre source de données. Ces champs varient selon le type d'entrée et le type de source, et sont définis en détail [ici](stream-analytics-create-a-job.md).
 
     ![Ajout d'un concentrateur d'événements](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)
 
@@ -49,10 +58,13 @@ Pour ajouter une entrée à votre tâche Stream Analytics :
 
     ![Paramètres de sérialisation des données](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
 
+    ![Paramètres de sérialisation des données du portail Azure en version préliminaire](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
+
 6. Après avoir terminé la création de l'entrée, Stream Analytics vérifie qu'il peut se connecter à la source d'entrée. Vous pouvez afficher l'état de l'opération de test de la connexion dans le concentrateur de notification.
 
     ![Tester la connexion](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
+    ![Test de la connexion dans le portail Azure en version préliminaire](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -65,4 +77,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

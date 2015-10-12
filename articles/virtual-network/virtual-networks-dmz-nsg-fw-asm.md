@@ -27,12 +27,12 @@ Cet exemple crée une zone DMZ avec un pare-feu, quatre serveurs Windows et des 
 ## Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-- Deux services cloud : « FrontEnd001 », « BackEnd001 »
+- deux services cloud : « FrontEnd001 », « BackEnd001 »,
 - Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
 - Un groupe de sécurité réseau unique qui est appliqué aux deux sous-réseaux
 - Un équipement virtuel du réseau, dans cet exemple un pare-feu Barracuda NG Firewall, connecté au sous-réseau Frontend
 - Un serveur Windows Server qui représente un serveur web d’application (« IIS01 »)
-- Deux serveurs Windows Server qui représentent les serveurs principaux d’application (« AppVM01 », « AppVM02 »)
+- Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 - Un serveur Windows Server qui représente un serveur DNS (« DNS01 »)
 
 >[AZURE.NOTE]Bien que cet exemple utilise un pare-feu Barracuda NG Firewall, de nombreuses appliances virtuelles réseau différentes pourraient être utilisées pour cet exemple.
@@ -57,7 +57,7 @@ La section suivante explique la plupart des instructions de scripts relatives au
 ## Groupes de sécurité réseau (NSG)
 Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
->[AZURE.TIP]En règle générale, vous devez d’abord créer vos règles d’« autorisation » spécifiques, et enfin les règles de « refus » plus génériques. La priorité affectée indique quelles sont les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic s’applique à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
+>[AZURE.TIP]En règle générale, vous devez d’abord créer les règles d’« autorisation » spécifiques, puis les règles de « refus » plus générales. La priorité établit les règles évaluées en premier. Une fois qu’il a été déterminé que le trafic répond à une règle spécifique, aucune autre règle n’est évaluée. Les règles du groupe de sécurité réseau peuvent s’appliquer dans le sens entrant ou sortant (du point de vue du sous-réseau).
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
@@ -65,12 +65,12 @@ Les règles qui suivent sont générées de façon déclarative pour le trafic e
 2.	Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé
 3.	Le trafic HTTP (port 80) à partir d’Internet vers l’appliance virtuelle réseau (pare-feu) est autorisé
 4.	Tout le trafic (tous les ports) IIS01 vers AppVM1 est autorisé
-5.	Tout le trafic (tous les ports) en provenance d’Internet et dirigé vers l’ensemble du réseau virtuel (les deux sous-réseaux) est refusé
-6.	Tout le trafic (tous les ports) issu du sous-réseau frontal à destination du sous-réseau principal est refusé
+5.	Tout trafic (tous les ports) en provenance d’Internet vers l’ensemble du réseau virtuel (les deux sous-réseaux) est refusé.
+6.	Tout trafic (tous les ports) en provenance du sous-réseau frontal vers le sous-réseau principal est refusé.
 
-Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante en provenance d’HTTP arrive d’Internet à destination du serveur web, les 3 règles (autorisation) et les 5 règles (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au pare-feu. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à accéder au serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque par un intrus de l’application web sur le serveur frontal. Ce pirate aurait alors un accès limité au réseau principal « protégé » (uniquement pour les ressources exposées sur le serveur AppVM01).
+Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante en provenance d’HTTP arrive d’Internet à destination du serveur web, les 3 règles (autorisation) et les 5 règles (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au pare-feu. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à accéder au serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle sortante par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux directions, le routage défini par l’utilisateur est requis. Cette opération est expliquée dans un autre exemple qui figure dans le [document de limite de sécurité principal][HOME].
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux directions, le routage défini par l’utilisateur est requis. Cette opération est expliquée dans un autre exemple qui figure dans le [document de limite de sécurité principal][HOME].
 
 Les règles NSG abordées ci-dessus sont très similaires aux règles NSG décrites dans [Exemple 1 : créer une zone DMZ simple à l’aide de groupes de sécurité réseau][Example1]. Veuillez consulter la description NSG dans ce document pour obtenir une description détaillée de chaque règle NSG et de ses attributs.
 
@@ -104,7 +104,7 @@ Une fois l'ensemble de règles modifié par l’ajout de cette règle, l’ensem
 
 ![Activation de règle de pare-feu][4]
 
-Dans le coin supérieur droit du client de gestion se trouve un ensemble de boutons. Cliquez sur le bouton « Envoyer les modifications » pour envoyer les règles modifiées au pare-feu, puis cliquez sur le bouton « Activer ».
+Dans le coin supérieur droit du client de gestion se trouve un ensemble de boutons. Cliquez sur le bouton « Envoyer les modifications » pour envoyer les règles modifiées au pare-feu, puis cliquez sur le bouton « Activer ».
 
 Avec l’activation de l’ensemble de règles de pare-feu, la création de l’environnement de cet exemple est terminée. Les scripts post-build de la section Références peuvent si nécessaire être exécutés pour ajouter une application à cet environnement afin de tester les scénarios de trafic ci-dessous.
 
@@ -123,14 +123,14 @@ Avec l’activation de l’ensemble de règles de pare-feu, la création de l’
 5.	La règle de transfert du pare-feu constate que le trafic utilise le port 80, elle redirige vers le serveur web IIS01
 6.	IIS01 écoute le trafic web, reçoit cette requête et commence à traiter la demande
 7.	IIS01 demande des informations au serveur SQL Server sur AppVM01
-8.	Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
+8.	Aucune règle sur le trafic sortant sur le sous-réseau du serveur frontal. Le trafic est autorisé.
 9.	Le sous-réseau du serveur principal commence le traitement de la règle de trafic entrant :
   1.	La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
   2.	La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
   3.	La règle NSG 3 (Internet vers le pare-feu) ne s’applique pas, passer à la règle suivante
   4.	La règle NSG 4 (IIS01 vers AppVM01) s’applique, le trafic est autorisé, arrêter le traitement des règles
 10.	AppVM01 reçoit la requête SQL et répond
-11.	Comme il n’existe aucune règle sortante sur le sous-réseau du serveur principal, la réponse est autorisée
+11.	Comme il n’existe aucune règle sur le trafic sortant sur le sous-réseau du serveur principal, la réponse est autorisée.
 12.	Le sous-réseau du serveur frontal commence le traitement de la règle de trafic entrant :
   1.	Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
   2.	La règle du système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé.
@@ -149,15 +149,15 @@ Avec l’activation de l’ensemble de règles de pare-feu, la création de l’
 5.	La session RDP est activée
 6.	AppVM01 demande le mot de passe utilisateur
 
-#### (Autorisé) recherche DNS du serveur Web sur le serveur DNS
-1.	Le serveur Web IIS01 a besoin d’un flux de données sur www.data.gov, mais doit résoudre l’adresse.
+#### (Autorisé) recherche DNS du serveur web sur le serveur DNS
+1.	Le serveur Web Server IIS01 a besoin d’un flux de données sur www.data.gov, mais doit résoudre l’adresse.
 2.	La configuration réseau du réseau virtuel définit DNS01 (10.0.2.4 sur le sous-réseau du serveur principal) comme serveur DNS principal, IIS01 envoie la requête DNS à DNS01
 3.	Aucune règle sortante sur le sous-réseau du serveur frontal, le trafic est autorisé
 4.	Le sous-réseau du serveur principal entame le traitement du réseau entrant :
   1.	 La règle NSG 1 (DNS) s’applique, le trafic est autorisé, arrêter le traitement des règles
 5.	Le serveur DNS reçoit la demande
-6.	Le serveur DNS n’a pas d’adresse en cache et demande à un serveur DNS racine sur Internet
-7.	Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
+6.	Le serveur DNS n’a pas d’adresse en cache et demande à un serveur DNS racine sur Internet.
+7.	Aucune règle sur le trafic sortant sur le sous-réseau du serveur principal. Le trafic est autorisé.
 8.	Un serveur Internet DNS répond, car cette session a été initialisée en interne, la réponse est autorisée
 9.	Le serveur DNS met en cache la réponse et répond à la demande initiale à IIS01
 10.	Aucune règle sortante sur le sous-réseau du serveur principal, le trafic est autorisé
@@ -197,7 +197,7 @@ Avec l’activation de l’ensemble de règles de pare-feu, la création de l’
 #### (Refusé) Accès web vers SQL via le pare-feu
 1.	Un utilisateur Internet demande des données SQL de FrontEnd001.CloudApp.Net (Service cloud face à Internet)
 2.	Comme aucun point de terminaison n’est ouvert pour SQL, la demande ne franchit pas le service cloud et n’atteint pas le pare-feu
-3.	Si des points de terminaison étaient ouverts pour une raison quelconque, le sous-réseau frontal débute le traitement des règles entrantes :
+3.	Si des points de terminaison étaient ouverts pour une raison quelconque, le sous-réseau frontal commence le traitement des règles entrantes :
   1.	La règle NSG 1 (DNS) ne s’applique pas, passer à la règle suivante
   2.	La règle NSG 2 (RDP) ne s’applique pas, passer à la règle suivante
   3.	La règle NSG 2 (Internet vers pare-feu) s’applique, le trafic est autorisé, arrêter le traitement
@@ -211,7 +211,7 @@ Vous trouverez d’autres exemples et une vue d’ensemble des limites de sécur
 
 ## Références
 ### Script principal et configuration réseau
-Enregistrez le script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
+Enregistrez le script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
 
 #### Script complet
 Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
@@ -220,10 +220,10 @@ Ce script, en fonction des variables définies par l’utilisateur, exécutera 
 2.	Création d’un nouveau compte de stockage
 3.	Création d’un nouveau réseau virtuel et de deux sous-réseaux, comme indiqué dans le fichier de configuration du réseau
 4.	Génération de 4 machines virtuelles Windows Server
-5.	Configuration d’un groupe de sécurité réseau, notamment :
+5.	Configurez un groupe de sécurité réseau, notamment :
   -	Création d’un groupe de sécurité réseau
   -	Ajout de règles à ce dernier
-  -	Liaison du groupe de sécurité réseau aux sous-réseaux appropriés
+  -	La liaison du groupe de sécurité réseaux au sous-réseaux appropriés
 
 Ce script PowerShell doit être exécuté localement sur un PC ou un serveur connecté à Internet.
 
@@ -566,4 +566,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

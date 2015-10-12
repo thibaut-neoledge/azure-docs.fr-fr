@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -35,7 +35,7 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre les autres didacticiels
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications Mobile App gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’avez pas de compte, vous pouvez vous inscrire pour obtenir une version d’évaluation Azure et jusqu’à 10 applications Mobile App gratuites que vous pourrez conserver après l’expiration de votre période d’évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
@@ -65,13 +65,11 @@ Par défaut, le projet de démarrage rapide du client que vous allez télécharg
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	Cette commande installe la prise en charge CORS requise par le backend.
-
-2. Ouvrez le fichier de projet App\_Start/WebApiConfig.cs et ajoutez l’instruction using suivante :
+2. Ouvrez le fichier de projet App\_Start/Startup.MobileApp.cs et ajoutez l'instruction using suivante :
 
 		using System.Web.Http.Cors;
 
-3. Ensuite, ajoutez le code suivant à la méthode **WebApiConfig.Register** une fois **HttpConfiguration** créé :
+3. Ensuite, ajoutez le code suivant à la méthode **Startup.ConfigureMobileApp** une fois **HttpConfiguration** (*config*) créé :
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -121,4 +119,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

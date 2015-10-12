@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d’une application de classement du Windows Store avec le serveur principal .NET | Microsoft Azure" 
+	pageTitle="Création d’une application de classement du Windows Store avec le serveur principal .NET | Azure Mobile Services" 
 	description="Découvrez comment créer une application de classement du Windows Store à l’aide d’Azure Mobile Services avec un service principal .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/24/2015" 
 	ms.author="glenga"/>
 
 # Création d'une application de classement avec le backend .NET Azure Mobile Services
@@ -762,4 +762,4 @@ Transmettez l'URL de service et la clé d'application au constructeur **MobileSe
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

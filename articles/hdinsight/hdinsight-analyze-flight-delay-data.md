@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/12/2015"
 	ms.author="jgao"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
 
 Hive permet d’exécuter des tâches Hadoop MapReduce via un langage de création de scripts semblable à SQL, nommé *[HiveQL][hadoop-hiveql]*, qui peut être appliqué à la synthèse, à l’envoi de requêtes et à l’analyse d’importants volumes de données.
+
+> [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Pour les étapes fonctionnant avec un cluster basé sur Linux, consultez la rubrique [Analyse des données sur les retards de vol avec Hive dans HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
 L’un des principaux avantages d’Azure HDInsight est la séparation du calcul et du stockage des données. HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Un processus MapReduce habituel peut être scindé en trois parties :
 
@@ -879,4 +881,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

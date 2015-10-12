@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -46,14 +46,14 @@ Azure Storage est accessible partout dans le monde, depuis n'importe quel type d
 
 Azure Storage prend en charge les clients avec divers systèmes d'exploitation (notamment Windows et Linux) et divers langages de programmation (notamment .NET, Java, et C++) pour un développement pratique. Azure Storage expose également les ressources de données par l’intermédiaire de simples API REST, disponibles pour tout client capable d’envoyer et de recevoir des données via HTTP/HTTPS.
 
-Azure Premium Storage est à présent disponible en version préliminaire. Azure Premium Storage offre des performances élevées et une prise en charge à faible latence du disque pour des charges de travail d’E/S intensives exécutées sur Azure Virtual Machines. Avec Azure Premium Storage, vous pouvez associer plusieurs disques de données persistants à une machine virtuelle et les configurer afin qu’ils répondent à vos exigences de performance. Chaque disque de données est approvisionné par un disque SSD dans Azure Premium Storage pour une performance d’E/S maximale. Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal).
+Azure Premium Storage offre des performances élevées et une prise en charge à faible latence du disque pour des charges de travail d’E/S intensives exécutées sur Azure Virtual Machines. Avec Azure Premium Storage, vous pouvez associer plusieurs disques de données persistants à une machine virtuelle et les configurer afin qu’ils répondent à vos exigences de performance. Chaque disque de données est approvisionné par un disque SSD dans Azure Premium Storage pour une performance d’E/S maximale. Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal).
 
 ## Présentation des services Azure Storage
 
 Un compte de stockage Azure est un compte sécurisé qui vous donne accès à des services dans Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos ressources de stockage. Il existe deux types de comptes de stockage :
 
 - Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers.
-- Un compte de stockage Premium prend actuellement en charge uniquement les disques Machine virtuelle Azure. Azure Premium Storage est disponible sur demande dans la [page de la version préliminaire d’Azure](/services/preview/).
+- Un compte de stockage Premium prend actuellement en charge uniquement les disques Machine virtuelle Azure.
 
 Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c’est-à-dire un plan qui vous donne accès à divers services Azure. [Un seul abonnement vous permet de créer jusqu’à 100 comptes de stockage uniques.](../azure-subscription-service-limits.md) Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
@@ -66,7 +66,7 @@ Un compte de stockage standard vous donne accès au stockage d’objets blob, de
 - Le **stockage d'objets blob** stocke des données de fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. 
 - Le **stockage de tables** stocke des jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
 - Le **stockage de files d'attente** fournit une messagerie fiable pour le traitement du workflow et pour la communication entre les composants des services cloud.
-- Le **stockage de fichiers (version préliminaire)** propose un stockage partagé des applications héritées à l’aide du protocole SMB 2.1. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. Le stockage de fichiers est disponible à la demande dans la [page de la version préliminaire d’Azure](/services/preview/). 
+- Le **stockage de fichiers** propose un stockage partagé pour les applications héritées utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. 
 
 Chaque compte de stockage standard peut contenir jusqu’à 500 To de données d’objets blob, de files d’attente, de tables et de fichiers combinées. Pour plus d’informations sur la capacité du compte de stockage standard, consultez [Objectifs de performances et évolutivité d’Azure Storage](storage-scalability-targets.md).
 
@@ -78,9 +78,9 @@ Pour apprendre à créer un compte de stockage standard, consultez [À propos de
 
 ### Comptes de stockage Premium
 
-Actuellement, Azure Premium Storage prend uniquement en charge les disques d’Azure Virtual Machines. Le stockage Premium Azure est disponible sur demande dans la [page de la version préliminaire d’Azure](/services/preview/). Pour une présentation détaillée du stockage Premium Azure, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+Actuellement, Azure Premium Storage prend uniquement en charge les disques d’Azure Virtual Machines. Pour une présentation détaillée du stockage Premium Azure, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
 
-## Stockage d’objets blob
+## Stockage d'objets blob
 
 Pour les utilisateurs qui doivent stocker de grandes quantités de données non structurées dans le cloud, le stockage d'objets blob offre une solution peu coûteuse et évolutive. Vous pouvez utiliser le stockage d'objets blob pour stocker les contenus suivants :
 
@@ -117,11 +117,11 @@ Lors de la conception d'applications pour la mise à l'échelle, des composants 
 
 Un compte de stockage peut contenir un nombre quelconque de files d'attente. Une file d'attente peut contenir un nombre quelconque de messages, jusqu'à la limite de capacité du compte de stockage. La taille maximale des messages individuels est de 64 Ko.
 
-## Stockage de fichiers (aperçu)
+## Stockage de fichiers
 
-Le stockage de fichiers Azure offre des partages de fichiers SMB 2.1 dans le cloud permettant de migrer des applications héritées utilisant ces partages vers Azure rapidement, sans réécritures onéreuses. Avec le stockage de fichiers Azure, les applications exécutées sur des machines virtuelles Azure ou dans des services cloud peuvent monter un partage de fichiers dans le cloud, tout comme une application de bureau monte un partage SMB standard. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
+Le stockage de fichiers Azure offre des partages de fichiers SMB dans le cloud permettant de migrer des applications héritées utilisant ces partages vers Azure rapidement, sans réécritures onéreuses. Avec le stockage de fichiers Azure, les applications exécutées sur des machines virtuelles Azure ou dans des services cloud peuvent monter un partage de fichiers dans le cloud, tout comme une application de bureau monte un partage SMB standard. Un nombre illimité de composants d’application peuvent ensuite monter un partage de stockage de fichiers et y accéder simultanément.
 
-Un partage de stockage de fichiers étant un partage de fichiers SMB 2.1 standard, les applications exécutées dans Azure peuvent accéder aux données du partage grâce à des API d'E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
+Un partage de stockage de fichiers étant un partage de fichiers SMB standard, les applications exécutées dans Azure peuvent accéder aux données du partage grâce à des API d'E/S de système de fichiers. Les développeurs peuvent ainsi tirer profit de leur code et compétences actuels pour migrer les applications existantes. Les professionnels de l'informatique peuvent utiliser des applets de commande PowerShell pour créer, monter et gérer les partages de stockage de fichiers dans le cadre de l'administration des applications Azure.
 
 Comme les autres services de stockage Azure, le stockage de fichiers expose une API REST pour l'accès aux données d'un partage. Les applications locales peuvent appeler l'API REST de stockage de fichiers pour accéder aux données d'un partage de fichiers. Ainsi, une entreprise peut choisir de migrer certaines applications héritées vers Azure tout en continuant à exécuter d'autres applications au sein de leurs locaux. Le montage d'un partage de fichiers est possible uniquement pour les applications exécutées dans Azure. Une application locale ne peut accéder au partage de fichiers que via l'API REST.
 
@@ -133,7 +133,11 @@ Par défaut, seul le propriétaire du compte de stockage peut accéder aux resso
 
 Deux clés d'accès privées sont attribuées à votre compte de stockage lors de sa création. Elles sont utilisées pour l'authentification. L'existence de deux clés permet de s'assurer que votre application reste disponible lorsque la pratique courante de gestion des clés de sécurité vous amène à régénérer régulièrement les clés.
 
-Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour les utilisateurs, vous pouvez créer une [signature d'accès partagé](storage-dotnet-shared-access-signature-part-1.md). Une signature d'accès partagé est un jeton pouvant être ajouté à une URL qui permet un accès délégué à un conteneur, un objet blob, une table ou une file d'attente. Quiconque possède le jeton peut accéder à la ressource qu'il désigne avec les autorisations qu'il spécifie, pendant son délai de validité. Le stockage de fichiers Azure ne prend pas actuellement en charge les signatures d'accès partagé.
+Si vous devez autoriser un accès contrôlé à vos ressources de stockage pour les utilisateurs, vous pouvez créer une [signature d'accès partagé](storage-dotnet-shared-access-signature-part-1.md). Une signature d'accès partagé (SAP) est un jeton pouvant être ajouté à une URL qui permet un accès délégué à une ressource de stockage. Quiconque possède le jeton peut accéder à la ressource qu'il désigne avec les autorisations qu'il spécifie, pendant son délai de validité. Depuis la version 2015-04-05, Azure Storage prend en charge deux types de signatures d'accès partagé : SAP de service et SAP de compte SAP.
+
+Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service blob, de file d’attente, de table ou de fichiers.
+
+Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Vous pouvez déléguer l'accès à des opérations de niveau de service qui ne sont pas disponibles avec une SAP de service. Vous pouvez également déléguer l'accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d'objets blob, les tables, les files d'attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service.
 
 Enfin, vous pouvez spécifier qu'un conteneur et ses objets blob, ou un objet blob particulier, sont disponibles pour l'accès public. Lorsque vous indiquez qu'un conteneur ou un objet blob est public, n'importe qui peut le lire de manière anonyme ; aucune authentification n'est requise. Les conteneurs et les objets blob publics sont utiles pour exposer des ressources telles que des médias et des documents hébergés sur des sites Web. Afin de réduire la latence du réseau pour un public mondial, vous pouvez mettre en cache les données d’objets blob utilisées par des sites Web avec le réseau de distribution de contenu (CDN) Azure.
 
@@ -230,4 +234,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

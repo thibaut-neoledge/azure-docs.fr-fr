@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Connexion sécurisée à des ressources de backend à partir d’un environnement App Service" 
 	description="Découvrez comment connecter de façon sécurisée des ressources de backend à partir d'un environnement App Service." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -114,4 +114,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

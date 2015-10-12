@@ -13,20 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="eugenesh"/>
 
-#Connexion d’Azure SQL Database à Azure Search à l’aide d’indexeurs#
+#Connexion d’Azure SQL Database à Azure Search à l’aide d’indexeurs
 
 Le service Azure Search permet d’obtenir facilement une expérience de recherche exceptionnelle, mais pour pouvoir effectuer des recherches, vous devez créer un index Azure Search avec vos données. Si les données résident dans une base de données SQL Azure, la nouvelle fonctionnalité d’**indexeur Azure Search pour Azure SQL Database** (ou **indexeur SQL Azure**) dans Azure Search peut automatiser le processus d'indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
-Actuellement, les indexeurs ne fonctionnent qu’avec Azure SQL Database, SQL Server on Azure VMs et Azure DocumentDB. Dans cet article, nous allons nous concentrer sur les indexeurs qui fonctionnent avec Azure SQL Database. Si vous voulez voir comment d’autres sources de données sont prises en charge, indiquez vos souhaits sur le [forum Azure Search](http://feedback.azure.com/forums/263029-azure-search).
+Actuellement, les indexeurs ne fonctionnent qu’avec Azure SQL Database, SQL Server on Azure VMs et [Azure DocumentDB](../documentdb/documentdb-search-indexer.md). Dans cet article, nous allons nous concentrer sur les indexeurs qui fonctionnent avec Azure SQL Database. Si vous voulez voir comment d’autres sources de données sont prises en charge, indiquez vos souhaits sur le [forum Azure Search](http://feedback.azure.com/forums/263029-azure-search).
 
 Cet article décrit l’utilisation des indexeurs, mais nous allons également examiner les fonctionnalités et comportements propres aux bases de données SQL (par exemple, le suivi intégré des modifications).
 
 ## Indexeurs et sources de données ##
 
-Pour installer et configurer l’indexeur Azure SQL, vous pouvez appeler l'[API REST d’Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528173) afin de créer et de gérer des **indexeurs** et des **sources de données**. À l'avenir, cette fonctionnalité sera également disponible dans le portail de gestion Azure et dans le SDK .NET d’Azure Search.
+Pour installer et configurer l’indexeur Azure SQL, vous pouvez appeler l'[API REST d’Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528173) afin de créer et de gérer des **indexeurs** et des **sources de données**.
+
+Vous pouvez également utiliser la [classe Indexeur](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) du [SDK .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), ou l'Assistant d’importation des données du [portail Azure](https://portal.azure.com) pour créer et planifier un indexeur.
 
 Une **source de données** spécifie les données à indexer, les informations d'identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d'identifier efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Elle est définie comme une ressource indépendante utilisable par plusieurs indexeurs.
 
@@ -249,7 +251,7 @@ Notez que **softDeleteMarkerValue** doit être une chaîne. Utilisez la représe
 
 ## Personnaliser l’indexeur Azure SQL ##
  
-Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus d'informations, consultez la [documentation des API d'indexeur](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Vous pouvez personnaliser certains aspects du comportement des indexeurs (par exemple, taille de lot, nombre de documents pouvant être ignorés avant que l'exécution d’un indexeur n’échoue, etc.). Pour plus de détails, consultez [Personnalisation de l'indexeur Azure Search](search-indexers-customization.md).
 
 ## Forum Aux Questions (FAQ) ##
 
@@ -277,4 +279,4 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

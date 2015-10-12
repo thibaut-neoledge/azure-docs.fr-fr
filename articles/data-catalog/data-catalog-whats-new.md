@@ -20,6 +20,13 @@
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
 
+## Nouveautés de la version de la semaine du 25 Septembre 2015
+
+À compter de la semaine du 25 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge de l’inclusion des profils de données lors de l’inscription des sources de données Hive.
+- Prise en charge de la découverte par programmation de l’API du catalogue, facilitant ainsi l’intégration des applications à **Azure Data Catalog**.
+
 ## Nouveautés de la version de la semaine du 18 Septembre 2015
 
 À compter de la semaine du 18 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
@@ -67,4 +74,4 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

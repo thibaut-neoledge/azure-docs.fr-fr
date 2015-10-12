@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/28/2015"
    ms.author="kempb" />
 
 # Mise à niveau des projets vers la version actuelle d’Azure Tools pour Visual Studio
@@ -51,8 +51,4 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 1. Générez le projet, puis résolvez les erreurs qui résultent des modifications de l’API. Pour plus d’informations sur la modification de votre code pour la nouvelle version, consultez la documentation de l’API concernée.
 
-## Ressources
-
-[Historique des versions d’Azure Tools](http://go.microsoft.com/fwlink/p/?LinkId=623548)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

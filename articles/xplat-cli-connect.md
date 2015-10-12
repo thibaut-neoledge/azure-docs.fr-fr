@@ -128,7 +128,7 @@ Cette commande sélectionne Azure-sub-2 comme abonnement par défaut.
 
 Si vous souhaitez utiliser avec Azure CLI un abonnement autre que l’abonnement par défaut, mais sans changer ce dernier, vous pouvez utiliser l’option `--subscription` et fournir le nom de l’abonnement à utiliser pour l’opération.
 
-Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser les commandes Azure CLI. Pour plus d’informations, voir l’article [Utilisation de l’interface de ligne de commande Azure](xplat-cli.md).
+Une fois connecté à votre abonnement Azure, vous pouvez commencer à utiliser les commandes Azure CLI. Pour plus d’informations, voir l’article [Utilisation de l’interface de ligne de commande Azure](xplat-cli-install.md).
 
 ## Stockage des paramètres de l'interface de ligne de commande
 
@@ -159,4 +159,4 @@ Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous im
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

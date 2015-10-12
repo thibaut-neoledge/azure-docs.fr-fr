@@ -1,21 +1,21 @@
 <properties
  pageTitle="Corrélation des événements au fil du temps avec Storm et HBase sur HDInsight"
-	description="Apprenez à mettre en corrélation les événements qui se produisent à des moments différents à l’aide de Storm et HBase sur HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="Apprenez à mettre en corrélation les événements qui se produisent à des moments différents à l’aide de Storm et HBase sur HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # Corrélation des événements au fil du temps avec Storm et HBase sur HDInsight
 
@@ -23,7 +23,9 @@ En utilisant une banque de données persistante avec Apache Storm, vous pouvez a
 
 Dans ce document, vous allez apprendre à créer une topologie Storm C# de base qui effectue le suivi des événements de connexion et de déconnexion des sessions utilisateur et calcule la durée de la session. La topologie utilise HBase comme un magasin de données persistant. HBase vous permet également d’effectuer des requêtes par lots sur les données historiques pour produire des informations supplémentaires, telles que le nombre de sessions utilisateur ayant démarré ou ayant pris fin pendant une période spécifique.
 
-## Composants requis
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
+## Configuration requise
 
 -	Outils HDInsight pour Visual Studio : consultez la rubrique [Prise en main des outils HDInsight pour Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) pour plus d’informations sur l’installation.
 
@@ -198,4 +200,4 @@ Quand vous êtes prêt à arrêter la topologie, revenez au projet **Correlation
 Pour plus d’exemples Storm, consultez la page [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

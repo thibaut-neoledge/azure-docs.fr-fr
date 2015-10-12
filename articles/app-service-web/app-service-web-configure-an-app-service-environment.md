@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Comment configurer un environnement App Service" 
 	description="Configuration, gestion et surveillance d'environnements App Service" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -133,4 +133,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

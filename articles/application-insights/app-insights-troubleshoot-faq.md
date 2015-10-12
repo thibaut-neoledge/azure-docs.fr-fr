@@ -54,7 +54,7 @@ Cela peut se produire si :
 
 Solution :
 
-+ Vérifiez que les informations d'identification que vous avez fournies correspondent au compte Azure correct. Dans certaines versions précédentes des outils, ces informations d’identification Microsoft Azure, qui sont visibles dans la boîte de dialogue Nouveau projet, peuvent être différentes de celles de Visual Studio Online affichées dans le coin supérieur droit de Visual Studio.
++ Vérifiez que les informations d'identification que vous avez fournies correspondent au compte Azure correct. Dans certaines versions précédentes des outils, ces informations d'identification Microsoft Azure, qui sont visibles dans la boîte de dialogue Nouveau projet, peuvent être différentes de celles affichées dans le coin supérieur droit de Visual Studio.
 + Dans votre navigateur, vérifiez que vous avez accès au [portail Azure](https://portal.azure.com). Ouvrez Paramètres et vérifiez s’il existe des restrictions.
 + [Ajoutez Application Insights à votre projet existant :][start] dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet et sélectionnez « Ajouter Application Insights ».
 + Si cela ne fonctionne toujours pas, suivez la [procédure manuelle](app-insights-start-monitoring-app-health-usage.md) pour ajouter une ressource dans le portail, puis ajoutez le Kit SDK à votre projet. 
@@ -189,11 +189,6 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur `Application
 Non. Elle indique l'état du service Azure. Pour afficher et examiner les résultats de vos tests web, sélectionnez Parcourir > Application Insights > (votre application).
 
 
-#### <a name="q07"></a>Lorsque j'ajoute Application Insights à mon application et que j'ouvre le portail Application Insights, l'affichage est complètement différent de ce qu'affichent vos captures d'écran.
-
-Vous utilisez peut-être une [ancienne version du Kit de développement logiciel (SDK) Application Insights](http://msdn.microsoft.com/library/dn793604.aspx), qui se connecte à Visual Studio Online.
-
-Les pages d'aide que vous voyez font référence à [Application Insights pour la version préliminaire de Microsoft Azure][start], qui est déjà activée dans Visual Studio 2013 Update 3 et version ultérieure.
 
 #### <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
 
@@ -248,4 +243,4 @@ Vous pouvez [écrire un script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

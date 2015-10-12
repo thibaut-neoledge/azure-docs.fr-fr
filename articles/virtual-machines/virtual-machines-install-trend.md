@@ -86,4 +86,4 @@ Quelques minutes sont nécessaires avant que l'exécution de l'agent ne démarre
 [Connexion à une machine virtuelle exécutant Windows Server]: virtual-machines-log-on-windows-server.md
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

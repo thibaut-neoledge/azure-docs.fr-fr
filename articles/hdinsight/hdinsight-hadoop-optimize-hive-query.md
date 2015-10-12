@@ -1,28 +1,30 @@
 <properties
    pageTitle="Optimisation de vos requêtes Hive pour une accélération de l’exécution de HDInsight | Microsoft Azure"
-	description="Apprenez à optimiser vos requêtes pour Hadoop dans HDInsight"
-	services="hdinsight"
-	documentationCenter=""
-	authors="rashimg"
-	manager="mwinkle"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   description="Apprenez à optimiser vos requêtes pour Hadoop dans HDInsight"
+   services="hdinsight"
+   documentationCenter=""
+   authors="rashimg"
+   manager="mwinkle"
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/28/2015"
-	ms.author="rashimg"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="07/28/2015"
+   ms.author="rashimg"/>
 
 
 # Optimisation des requêtes Hive pour Hadoop dans HDInsight
 
 Par défaut, les clusters Hadoop ne sont pas optimisés pour les performances. Cet article présente quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer à nos requêtes.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [Optimisation des requêtes Hive pour Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md)
 
@@ -59,7 +61,7 @@ Vous pouvez activer n’importe quelle requête Hive pour Tez en faisant précé
 
 	set hive.execution.engine=tez;
 
-Tez doit être activé lors de l’approvisionnement. Voici un exemple de script PowerShell Azure pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
+Pour les clusters HDInsight basés sur Windows, Tez doit être activé lors de l'approvisionnement. Voici un exemple de script PowerShell Azure pour l’approvisionnement d’un cluster Hadoop où Tez est activé :
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez doit être activé lors de l’approvisionnement. Voici un exemple de script
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]Tez est activé par défaut pour les clusters HDInsight basés sur Linux.
+    
 
 ## Partitionnement Hive
 
@@ -220,4 +226,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Créer et gérer des machines virtuelles Azure dans Visual Studio
@@ -61,7 +61,7 @@ Vous pouvez créer une machine virtuelle depuis le [Portail de gestion Azure](ht
 
     Vous devrez utiliser les nouveaux nom et mot de passe pour vous connecter à la machine à l’aide du Bureau à distance. Il est donc conseillé de noter ces informations pour ne pas les oublier. Après avoir créé une machine virtuelle Azure dans Visual Studio, vous pouvez modifier sa taille, ainsi que d’autres paramètres depuis le [Portail de gestion Azure](http://go.microsoft.com/fwlink/?LinkID=253103).
 
-   >[AZURE.NOTE]Si vous choisissez des tailles importantes pour vos machines virtuelles, des frais supplémentaires peuvent s’appliquer. Pour plus d’informations, consultez [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
 1. Les machines virtuelles créées dans Visual Studio nécessitent un service cloud. Dans la page **Paramètres du service cloud**, sélectionnez un service cloud pour la machine virtuelle ou cliquez sur **<Créer…>** dans la liste déroulante si vous ne disposez pas d’un service cloud ou pour en utiliser un autre. Un compte de stockage est également requis. Choisissez donc un compte de stockage (ou créez-en un) dans la liste déroulante **Compte de stockage**. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](./storage/storage-introduction/).
 
@@ -157,7 +157,7 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 ### Pour restaurer une machine virtuelle à un état précédemment enregistré
 
-- Suivez les étapes décrites dans [Pas à pas : restauration cloud de machines virtuelles Microsoft Azure à l’aide de PowerShell – Deuxième partie](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
+- Suivez les étapes décrites dans [Pas-à-pas : restauration cloud de machines virtuelles Microsoft Azure à l’aide de PowerShell – Deuxième partie](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx).
 
 ### Pour supprimer un point de contrôle
 
@@ -177,4 +177,4 @@ Dans la page de configuration des machines virtuelles, en plus des fonctions d�
 
 Pour en savoir plus sur la création de machines virtuelles, consultez [Créer une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md) et [Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

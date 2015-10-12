@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Node.js
@@ -217,4 +217,4 @@ Maintenant que vous avez appris les principes de base de l’utilisation de Noti
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

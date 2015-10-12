@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ Microsoft fournit les utilitaires suivants pour utiliser le stockage d'objets bl
 
 L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les services Azure. Pour télécharger des données vers le stockage d'objets blob Azure, procédez comme suit :
 
-1. [Installation et configuration de l'interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md).
+1. [Installation et configuration de l'interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md).
 
 2. Ouvrez une invite de commandes, un bash ou un autre shell et procédez comme suit pour vous authentifier auprès de votre abonnement Azure.
 
@@ -178,7 +178,7 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 | Client | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure Storage Explorer](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,33 +187,31 @@ Plusieurs applications fournissent également une interface graphique pour utili
 
 ###<a id="storageexplorer"></a>Azure Storage Explorer
 
-*Azure Storage Explorer* est un outil utile pour examiner et modifier les données du compte Azure Storage. Il s'agit d'un outil gratuit que vous pouvez télécharger depuis CodePlex : [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+*Azure Storage Explorer* est un outil utile pour examiner et modifier les données de l’objet blob. Il s’agit d’un outil gratuit que vous pouvez télécharger depuis la page [http://storageexplorer.com/](http://storageexplorer.com/). Le code source est également disponible à partir de ce lien.
 
 Avant de l'utiliser, vous devez connaître le nom et la clé de votre compte Azure Storage. Pour obtenir des instructions permettant d'obtenir ces informations, consultez la section « Affichage, copie et régénération des clés d'accès de stockage » de l'article [Création, gestion et suppression d’un compte de stockage][azure-create-storage-account].
 
-1. Exécutez Azure Storage Explorer.
+1. Exécutez Azure Storage Explorer. S’il vous exécutez l’Explorateur de stockage pour la première fois, vous êtes invité à saisir le ___Nom du compte de stockage__ et la __Clé du compte de stockage__. Si vous avez déjà exécuté l’Explorateur de stockage, utilisez le bouton __Ajouter__ pour ajouter un nom et une clé de compte de stockage.
+
+    Entrez le nom et la clé du compte de stockage utilisé par votre cluster HDinsight, puis sélectionnez __ENREGISTRER ET OUVRIR__.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. Cliquez sur **Ajouter un compte**. Lorsque vous aurez ajouté un compte à Azure Storage Explorer, vous n'aurez plus besoin de repasser par cette étape.
+5. Dans la liste de conteneurs située à gauche de l’interface, cliquez sur le nom du conteneur associé à votre cluster HDInsight. Par défaut, il s’agit du nom du cluster HDInsight, mais il peut être différent si vous avez entré un nom spécifique lors de la création du cluster.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. Dans la barre d’outils, sélectionnez l’icône de téléchargement.
 
-3. Entrez le **nom de votre compte de stockage** et la **clé de votre compte de stockage**, puis cliquez sur **Ajouter le compte de stockage**. Vous pouvez ajouter plusieurs comptes de stockage, et chaque compte sera affiché sous un onglet.
+    ![Barre d’outils avec icône téléchargement mise en surbrillance](./media/hdinsight-upload-data/toolbar.png)
 
-4. Sous **Type de stockage**, cliquez sur **Objets blob**.
+7. Indiquez un fichier à télécharger, puis cliquez sur **Ouvrir**. Lorsque vous y êtes invité, sélectionnez __Télécharger__ pour télécharger le fichier vers la racine du conteneur de stockage. Si vous souhaitez télécharger le fichier vers un chemin d’accès spécifique, entrez-le dans le champ __Destination__, puis sélectionnez __Télécharger__.
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. Dans **Conteneur**, cliquez sur le nom du conteneur associé à votre cluster HDInsight. Lorsque vous créez un cluster HDInsight, vous devez indiquer un conteneur. Sinon, le processus de création de cluster en crée un pour vous.
-
-6. Sous **Objets blob**, cliquez sur **Téléchargement**.
-
-7. Indiquez un fichier à télécharger, puis cliquez sur **Ouvrir**.
+    ![Boîte de dialogue de téléchargement de fichier](./media/hdinsight-upload-data/fileupload.png)
+    
+    Une fois le téléchargement du fichier terminé, vous pouvez l’utiliser à partir des tâches du cluster HDInsight.
 
 ##Monter le stockage d'objets Blob Azure comme un lecteur Local
 
-Voir [Monter un objet Blob Azure en tant que lecteur Local](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Consultez [Monter un objet Blob Azure en tant que lecteur Local](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ##Services
 
@@ -280,11 +278,11 @@ Maintenant que vous savez comment obtenir des données avec HDInsight, consultez
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

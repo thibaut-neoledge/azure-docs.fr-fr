@@ -23,23 +23,25 @@ Apprenez à créer une topologie Storm C# à l’aide des outils HDInsight pour
 
 Vous apprendrez également à créer des topologies hybrides qui utilisent des composants Java et C#.
 
-##Configuration requise
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
+##Composants requis
 
 -	L’une des versions suivantes de Visual Studio :
 
-	-	Visual Studio 2012 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+	-	Visual Studio 2012 avec [mise à jour 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 avec [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+	-	Visual Studio 2013 avec [mise à jour 4](http://www.microsoft.com/download/details.aspx?id=44921) ou [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 	-	Visual Studio 2015 ou [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Azure SDK 2.5.1 ou version ultérieure
 
--	HDInsight Tools pour Visual Studio : consultez la page [Prise en main de HDInsight Tools pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour installer et configurer les outils HDInsight pour Visual Studio.
+-	Outils HDInsight pour Visual Studio : consultez la page [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) pour installer et configurer les outils HDInsight pour Visual Studio.
 
     > [AZURE.NOTE]Les outils HDInsight pour Visual Studio ne sont pas pris en charge sur Visual Studio Express.
 
--	Cluster Apache Storm sur HDInsight : consultez [Prise en main d’Apache Storm sur HDInsight](hdinsight-storm-getting-started.md) pour connaître les étapes de création d’un cluster.
+-	Cluster Apache Storm sur HDInsight : consultez [Prise en main d'Apache Storm sur HDInsight](hdinsight-storm-getting-started.md) pour connaître les étapes de création d'un cluster.
 
 	> [AZURE.NOTE]Les outils HDInsight pour Visual Studio n'acceptent actuellement que Storm sur les versions de cluster HDInsight 3.2.
 
@@ -66,7 +68,7 @@ Dans les étapes de ce document, vous allez utiliser le type de projet Applicati
 
 ##Création d’une topologie C#
 
-1.	Si vous n’avez pas encore installé la dernière version des outils HDInsight pour Visual Studio, consultez [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1.	Si vous n'avez pas encore installé la dernière version des outils HDInsight pour Visual Studio, consultez [Prise en main des outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Ouvrez Visual Studio, sélectionnez **Fichier** > **Nouveau**, puis **Projet**.
 
@@ -454,13 +456,13 @@ SCP.Net 0.9.4.203 introduit une classe et une méthode inédites propres à l�
 
 Les dernières versions de SCP.NET prennent en charge la mise à niveau du package via NuGet. Vous recevez une notification de mise à niveau dès qu’une nouvelle mise à jour est disponible. Pour rechercher manuellement une mise à niveau, procédez comme suit :
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
 
-2. Dans le Gestionnaire de package, sélectionnez **Mises à jour**. Si une mise à jour est disponible, elle est affichée. Cliquez sur le bouton **Mettre à jour** du package pour l’installer.
+2. Dans le Gestionnaire de package, sélectionnez **Mises à jour**. Si une mise à jour est disponible, elle est affichée. Cliquez sur le bouton **Mettre à jour** du package pour l'installer.
 
 > [AZURE.IMPORTANT]Si votre projet a été créé avec l’une des versions précédentes de SCP.NET qui n’utilisaient pas NuGet pour les mises à jour de package, vous devez procéder comme suit pour effectuer la mise à jour vers la nouvelle version :
 >
-> 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
+> 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**.
 > 2. Dans le champ **Rechercher**, recherchez, puis ajoutez **Microsoft.SCP.Net.SDK** au projet.
 
 ##Résolution de problèmes
@@ -656,4 +658,4 @@ Pour plus d’informations sur l’utilisation de HDInsight, ou pour obtenir dav
 
 -	[Prise en main de HBase sur HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

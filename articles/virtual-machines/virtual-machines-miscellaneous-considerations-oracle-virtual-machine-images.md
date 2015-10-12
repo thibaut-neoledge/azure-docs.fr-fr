@@ -105,4 +105,4 @@ Pour plus d’informations, voir l’article **860340.1**, à l’adresse <http:
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

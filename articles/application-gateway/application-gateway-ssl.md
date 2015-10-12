@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="09/25/2015"
    ms.author="joaoma"/>
 
 # Configuration d'une passerelle Application Gateway pour le déchargement SSL
@@ -229,4 +229,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

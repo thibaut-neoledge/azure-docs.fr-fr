@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/01/2015"
 	ms.author="markusvi"/>
 
 
@@ -221,4 +221,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

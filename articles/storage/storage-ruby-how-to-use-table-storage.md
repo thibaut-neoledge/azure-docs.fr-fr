@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 
@@ -158,4 +158,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 - Référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

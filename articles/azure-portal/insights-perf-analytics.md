@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Surveillance des performances d'application web Azure
@@ -21,7 +21,7 @@ Dans le [portail Azure](http://portal.azure.com), vous pouvez configurer l’ana
 
 Azure prend en charge l’Analyse des performances des applications (*APM*) en tirant parti des *extensions*. Ces dernières sont installées dans votre application et collectent les données qu’elles renvoient aux services d’analyse.
 
-Application Insights et New Relic sont deux des extensions de surveillance des performances disponibles. Pour utiliser New Relic, vous installez un agent lors de l'exécution. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK), et vous pouvez également installer une extension qui fournit l'accès aux données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
+Application Insights et New Relic sont deux des extensions de surveillance des performances disponibles. Pour les utiliser, vous installez un agent lors de l'exécution. Application Insights permet également de générer votre code à l’aide d’un kit de développement logiciel. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
 
 ## Activation d’une extension
 
@@ -37,9 +37,9 @@ Ou, si vous utilisez une machine virtuelle :
 
 ![Cliquez sur la vignette Analyse](./media/insights-perf-analytics/10-vm1.png)
 
-### Pour Application Insights : régénérez avec le Kit de développement logiciel (SDK)
+### En option avec Application Insights : régénérez avec le Kit de développement logiciel (SDK)
 
-Application Insights fonctionne en installant un SDK dans votre application.
+Application Insights peut fournir des données de télémétrie détaillée par l’installation d’un SDK dans votre application.
 
 Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) Application Insights à votre projet.
 
@@ -83,4 +83,4 @@ Une fois que vous arrivez sur le panneau, pour Application Insights par exemple,
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

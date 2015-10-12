@@ -624,4 +624,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -56,7 +56,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Pris en charge | Non pris en charge | Silicon Valley, Singapour, Washington DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam+, Londres+, Dallas, Silicon Valley, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Bientôt disponible | Amsterdam+, Londres+, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Londres, Dallas, Silicon Valley+, Washington DC |
 |**China Telecom Global** | Bientôt disponible | Non pris en charge | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Non pris en charge | Amsterdam, Londres |
@@ -77,7 +77,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Pris en charge | Pris en charge | Amsterdam, Chennai+, Hong Kong, Londres, Mumbai+, Singapour |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Pris en charge | Non pris en charge | Melbourne+, Sydney |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Pris en charge | Londres, Hong Kong, Silicon Valley, Washington DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Pris en charge | Pris en charge | Londres, Hong Kong, Silicon Valley, Washington DC |
 | **[Zayo Group](http://www.zayo.com/)** | Pris en charge | Non pris en charge | Washington DC |
 
  **+** = bientôt disponible
@@ -127,4 +127,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Voir [Conditions préalables pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

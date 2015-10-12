@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Mise à l’échelle du cache Azure Redis
 
->[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire.
+>[AZURE.NOTE]La fonctionnalité de mise à l’échelle du cache Redis Azure est actuellement en version préliminaire. Pendant la période d'évaluation, vous ne pouvez pas mettre à l'échelle vers, depuis, ni au sein d'un cache de niveau premium.
 
 Le cache Redis Azure offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de caches en toute flexibilité. Si les prérequis de votre application changent après la création d’un cache, vous pouvez mettre à l’échelle la taille du cache en utilisant le panneau **Changer le niveau de tarification** dans la [version préliminaire du portail Azure](https://portal.azure.com).
 
@@ -48,6 +48,7 @@ Sélectionnez le niveau de tarification souhaité dans le panneau **Niveau de ta
 
 >[AZURE.NOTE]Vous pouvez choisir un niveau de tarification différent avec les restrictions suivantes.
 >
+>-	Vous ne pouvez pas mettre à l'échelle vers ou depuis un cache **Premium**.
 >-	Vous ne pouvez pas passer d'un cache **Standard** à un cache **De base**.
 >-	Vous pouvez passer d'un cache **De base** à un cache **Standard**, mais vous ne pouvez pas modifier la taille en même temps. Si vous avez besoin d'une taille différente, vous pouvez effectuer ultérieurement une opération de mise à l'échelle vers la taille voulue.
 >-	Vous ne pouvez pas mettre à l'échelle à partir d'une taille supérieure vers la taille **C0 (250 Mo)**.
@@ -86,6 +87,10 @@ Pour plus d’informations, consultez l’exemple [Gestion du cache Redis en uti
 
 La liste suivante présente différentes réponses aux questions les plus fréquemment posées sur la mise à l’échelle du cache Redis Azure.
 
+## Puis-je mettre à l'échelle vers, depuis ou au sein d'un cache Premium ?
+
+Pendant la période d'évaluation, la mise à l'échelle n'est pas disponible pour les caches **Premium**.
+
 ## Après la mise à l’échelle, dois-je modifier le nom ou les clés d’accès de mon cache ?
 
 Non, le nom et les clés d’accès de votre cache n’ont pas à être modifiés durant une opération de mise à l’échelle.
@@ -100,7 +105,7 @@ Lorsqu'un cache **Standard** est mis à l'échelle vers une taille différente, 
 
 ## Vais-je perdre mes données de cache durant la mise à l’échelle ?
 
-Lors de la mise à l'échelle d'un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n’est plus disponible pendant l'exécution de la mise à l’échelle.
+Lors de la mise à l'échelle d'un cache **De base** vers une nouvelle taille, toutes les données sont perdues et le cache n'est plus disponible pendant l'exécution de la mise à l'échelle.
 
 Lorsqu'un cache **De base** est mis à l'échelle vers un cache **Standard**, les données qui se trouvent dans le cache sont généralement conservées.
 
@@ -115,6 +120,8 @@ Les caches **Standard** restent disponibles pendant l’opération de mise à l�
 Les caches **De base** sont hors ligne pendant les opérations de mise à l'échelle à une taille différente, mais ils restent disponibles lors de la mise à l'échelle d'un cache **De base** vers **Standard**.
 
 ## Quelles sont les opérations qui ne sont pas prises en charge ?
+
+Vous ne pouvez pas mettre à l'échelle vers, depuis ou au sein d'un cache **Premium**.
 
 Vous ne pouvez pas modifier un cache **Standard** en un cache **De base**.
 
@@ -148,4 +155,4 @@ Nous publions cette fonctionnalité pour obtenir des commentaires. Selon les com
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

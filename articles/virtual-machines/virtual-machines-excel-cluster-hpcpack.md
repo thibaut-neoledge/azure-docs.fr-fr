@@ -96,7 +96,7 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Création du fichier de configuration**
 
- Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script ou la [documentation du script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -384,4 +384,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

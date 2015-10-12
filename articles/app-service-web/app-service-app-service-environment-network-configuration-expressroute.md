@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Détails de la configuration réseau pour travailler avec ExpressRoute" 
 	description="Détails de la configuration réseau pour exécuter des environnements App Service sur des réseaux virtuels connectés à un circuit ExpressRoute." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

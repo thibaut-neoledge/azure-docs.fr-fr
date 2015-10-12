@@ -1,20 +1,20 @@
 <properties
    pageTitle="Optimisation de vos requêtes Hive pour une accélération de l’exécution de HDInsight | Microsoft Azure"
-	description="Apprenez à optimiser vos requêtes Hive dans HDInsight"
-	services="hdinsight"
-	documentationCenter=""
-	authors="rashimg"
-	manager="mwinkle"
-	editor="cgronlun"/>
+   description="Apprenez à optimiser vos requêtes Hive dans HDInsight"
+   services="hdinsight"
+   documentationCenter=""
+   authors="rashimg"
+   manager="mwinkle"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/28/2015"
-	ms.author="rashimg"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="07/28/2015"
+   ms.author="rashimg"/>
 
 
 # Optimisation des requêtes Hive pour Hadoop dans HDInsight
@@ -218,4 +218,4 @@ Dans cet article, vous avez appris plusieurs méthodes d’optimisation courante
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query-v1/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

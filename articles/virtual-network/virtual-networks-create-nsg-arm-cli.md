@@ -32,7 +32,7 @@ Les exemples de commandes de l’interface de ligne de commande Azure ci-dessous
 ## Comment créer le groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
@@ -105,7 +105,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou --access)**. Niveau d’accès de la règle (Deny ou Allow).
 	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
-	- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
+- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.
 	- **-o (ou --source-port-range)**. Port source ou plage de ports.
@@ -163,7 +163,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		data:    
 		info:    network vnet subnet set command OK
 
-## Comment créer le groupe de sécurité réseau pour le sous-réseau principal
+## Création du NSG pour le sous-réseau BackEnd
 Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
 3. Exécutez la commande **azure network nsg create** pour créer un groupe de sécurité réseau.
@@ -269,4 +269,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    
 		info:    network vnet subnet set command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

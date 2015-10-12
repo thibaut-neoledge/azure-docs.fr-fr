@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="wesmc"/>
 
 # Utilisation de la suppression réversible dans Mobile Services
@@ -163,4 +163,4 @@ Pour en savoir plus sur les tâches planifiées avec Mobile Services du backend 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

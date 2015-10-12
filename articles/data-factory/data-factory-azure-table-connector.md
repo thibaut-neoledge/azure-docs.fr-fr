@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis Azure Table | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis et vers le stockage Azure Table à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données vers et depuis Azure Table | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis et vers le stockage Azure Table à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Table à l’aide d’Azure Data Factory
@@ -370,8 +370,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête de table Azure. Exemple : **ColumnA eq ValueA** | Non
-azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | Non |
+azureTableSourceQuery | Utilise la requête personnalisée pour lire des données. | <p>Chaîne de requête de table Azure.</p>**Exemples :****<br/> "azureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'" <br/><br/>"azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00\_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00\_9999}\\')', SliceStart)" | No azureTableSourceIgnoreTableNotFound | Indiquer si l'exception de la table n'existe pas. | TRUE<br/>FALSE | No |
 
 **AzureTableSink** prend en charge les propriétés suivantes dans la section typeProperties :
 
@@ -389,7 +388,7 @@ writeBatchTimeout | Insère des données dans la table Azure lorsque la valeur d
 
 ### Mappage de type de Table Azure
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante.
+Comme mentionné dans l'article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l'activité de copie convertit automatiquement des types source en types récepteur à l'aide de l'approche en 2 étapes suivante :
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -485,4 +484,4 @@ Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

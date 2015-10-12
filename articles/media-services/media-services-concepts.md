@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="juliako"/>
 
 #Concepts Azure Media Services 
@@ -248,4 +248,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -9,12 +9,13 @@
 
 
 	- Dans la zone **ID**, entrez un nom pour identifier le compte DocumentDB. Lorsque l’**ID** est validé, une coche verte s’affiche dans la case **ID**. La valeur pour **ID** devient le nom d’hôte dans l’URI. Cet **ID** ne peut contenir que des minuscules, des chiffres, le caractère « - » et doit compter entre 3 et 50 caractères. Notez que *documents.azure.com* sera ajouté au nom du point de terminaison de votre choix. Celui-ci deviendra le point de terminaison de votre compte DocumentDB.
+	
 
-	- L’objectif **Niveau de compte** est verrouillé car DocumentDB prend en charge un niveau de compte standard unique. Pour plus d’informations, consultez [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
-
-	- Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour votre compte DocumentDB. Par défaut, un nouveau groupe de ressources est créé. Cependant, vous pouvez choisir de sélectionner un groupe de ressources existant auquel ajouter votre compte DocumentDB. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](resource-group-portal.md).
-
+	- Le filtre **Niveau de compte** est verrouillé car DocumentDB prend en charge un niveau de compte standard unique. Pour plus d’informations, consultez [Tarification de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
+	
 	- Dans **Abonnement**, sélectionnez l'abonnement Azure à utiliser avec le compte DocumentDB. Si votre compte ne comporte qu’un seul abonnement, ce compte sera sélectionné par défaut.
+
+	- Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour votre compte DocumentDB. Par défaut, un nouveau groupe de ressources est créé. Cependant, vous pouvez choisir de sélectionner un groupe de ressources existant auquel ajouter votre compte DocumentDB. Pour plus d'informations, consultez la page [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
  
 	- Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre compte DocumentDB.
 
@@ -34,4 +35,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

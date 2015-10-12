@@ -1,19 +1,19 @@
 <properties
     pageTitle="Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Azure"
-	description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -21,7 +21,7 @@
 
 La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du portail de gestion Microsoft Azure, ainsi que des fonctions étendues d’accès aux données.
 
-Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
+Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../xplat-cli-install.md) pour effectuer diverses tâches de développement et d’administration avec Microsoft Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
 
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
@@ -94,7 +94,7 @@ Après l’exécution du script, vous devez avoir un dossier local de destinatio
 
 ### Connectez-vous à un abonnement Azure
 
-Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Microsoft Azure, nous vous recommandons de vous connecter à votre abonnement à partir de la CLI Azure. Pour configurer la CLI Azure de façon qu’elle s’exécute avec votre abonnement, suivez les étapes de la section [Connexion à votre abonnement Azure](../xplat-cli.md#how-to-connect-to-your-azure-subscription).
+Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Microsoft Azure, nous vous recommandons de vous connecter à votre abonnement à partir de la CLI Azure. Pour configurer la CLI Azure de façon qu’elle s’exécute avec votre abonnement, suivez les étapes de la section [Connexion à votre abonnement Azure](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription).
 
 ### Création d’un nouveau compte de stockage
 
@@ -169,13 +169,11 @@ Pour supprimer un objet blob, utilisez la commande ci-dessous :
 
 ## Créer et gérer des partages de fichiers
 
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB 2.1. Les services cloud et machines virtuelles Microsoft Azure peuvent partager des données de fichiers entre des composants d’application, via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour en savoir plus sur le stockage de fichiers Azure, voir [Utilisation du stockage de fichiers Azure](storage-dotnet-how-to-use-files).
-
-> [AZURE.NOTE]Un stockage de fichiers Azure est actuellement disponible en version préliminaire. Pour demander un accès à cette version, allez sur la [page de la version préliminaire de Microsoft Azure](/services/preview/) et demandez un accès aux **fichiers Azure**. Lorsque votre demande est acceptée, vous recevez une notification indiquant que vous pouvez accéder à la version préliminaire du stockage de fichiers. Vous pouvez alors créer un compte de stockage pour accéder au stockage de fichiers.
+Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur le stockage de fichiers Azure, consultez la page [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files) ou [Utilisation du stockage de fichiers Azure avec Linux](storage-how-to-use-files-linux.md).
 
 ### Créer un partage de fichiers
 
-Un partage de fichiers Azure est un partage de fichiers SMB 2.1 dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
+Un partage de fichiers Azure est un partage de fichiers SMB dans Microsoft Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ Pour en savoir plus sur Azure Storage, consultez les articles et ressources sui
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

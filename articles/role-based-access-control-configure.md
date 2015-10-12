@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft"
-	description="Décrit le fonctionnement du contrôle d&#39;accès en fonction du rôle et comment configurer ce dernier"
-	services=""
+	description="Décrit le fonctionnement du contrôle d'accès en fonction du rôle et comment configurer ce dernier"
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -1275,7 +1275,7 @@ Essayez Azure RBAC et envoyez-nous vos [commentaires](http://aka.ms/azurerbacfee
 Voici quelques ressources supplémentaires destinées à faciliter votre utilisation du contrôle d'accès en fonction du rôle :
 
 + [Gestion du contrôle d'accès basé sur les rôles à l'aide de Windows PowerShell](role-based-access-control-powershell.md)
-+ [Gestion du contrôle d'accès basé sur les rôles à l'aide de la CLI Azure](role-based-access-control-xplat-cli.md)
++ [Gestion du contrôle d'accès basé sur les rôles à l'aide de la CLI Azure](role-based-access-control-xplat-cli-install.md)
 + [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium et De base](active-directory-editions.md)
 + [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ Voici quelques ressources supplémentaires destinées à faciliter votre utilisa
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

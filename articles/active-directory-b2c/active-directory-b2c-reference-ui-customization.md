@@ -37,13 +37,13 @@ La fonctionnalité de personnalisation de l’interface utilisateur de page vous
 
 Contrairement aux autres services où les options sont limitées ou ne sont disponibles que via les API, Azure AD B2C utilise une approche moderne (et plus simple) de l’interface utilisateur de personnalisation de page. Voici comment cela fonctionne : Azure AD B2C exécute le code dans l’explorateur client et utilise une approche moderne appelée [partage de ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger le contenu depuis une URL spécifiée au préalable dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Le code fusionne le contenu de B2C Azure AD (appelés des éléments d’interface utilisateur) et le contenu chargé depuis votre URL et affiche la page pour le consommateur. Il vous suffit de faire est créer un contenu HTML5 correct avec un élément `<div id="api"></div>` situé quelque part dans `<body>`. C’est l’endroit où le contenu B2C Active Directory Azure est fusionné. Et héberger ce contenu sur un point de terminaison HTTPS (avec CORS activé). Vous pouvez également totalement mettre en forme des éléments d’interface utilisateur de B2C Azure AD.
 
-## Un outil d’assistance qui vous permettra de tester la fonctionnalité de personnalisation d’interface utilisateur de page avec notre exemple de contenu.
+## Test de la fonctionnalité de personnalisation de l'interface
 
-Un outil d’assistance (bientôt disponible) qui vous permettra de tester la fonctionnalité de personnalisation d’interface utilisateur de page à l’aide de notre exemple de contenu.
+Si vous souhaitez tester la fonctionnalité de personnalisation de l'expérience utilisateur à l'aide de notre exemple de contenu HTML et CSS hébergé sur le stockage d'objets Blob Azure, nous fournissons [un outil simple d'assistance](active-directory-b2c-reference-ui-customization-helper-tool.md) pour télécharger et configurer votre contenu statique.
 
 ## Éléments d’interface utilisateur de base dans chaque type de page.
 
-Dans cette section, vous trouverez des fragments HTML5 (pour chaque type de page) qu’Azure AD B2C fusionne dans l’élément <div id="api"></div> situé dans votre contenu. Vous pouvez utiliser vos propres feuilles de style pour personnaliser ces éléments d’interface utilisateur. Ces feuilles de style peuvent remplacer des feuilles de style par défaut que nous ajoutons dans ces pages dans les fragments <head>.
+Dans cette section, vous trouverez des fragments HTML5 (pour chaque type de page) qu'Azure AD B2C fusionne dans l'élément <div id="api"></div> situé dans votre contenu. Vous pouvez utiliser vos propres feuilles de style pour personnaliser ces éléments d’interface utilisateur. Ces feuilles de style peuvent remplacer des feuilles de style par défaut que nous ajoutons dans ces pages dans les fragments <head>.
 
 > [AZURE.IMPORTANT]Pendant la présentation, prévoyez les éléments d’interface utilisateur à modifier, car nous prenons en compte vos retours et nous nous adaptons en conséquence. Consultez le code source des pages par défaut pour les dernières mises à jour. En fait, la première modification envisagée est la suppression de nos feuilles de style par défaut ; cela signifie que vous devrez toujours fournir vos propres feuilles de style pour ces éléments d'interface utilisateur dans votre contenu.
 
@@ -276,4 +276,4 @@ Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interf
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -239,4 +239,4 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invi
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md)<BR> [Réalisation d’opérations sur des zones DNS](dns-operations-dnszones-cli.md)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -71,8 +71,8 @@ La base de données SQL Azure a un quota de DTU par serveur logique d’actuelle
 
 [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
 
-[Niveaux de service et niveaux de performances de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
 
 [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

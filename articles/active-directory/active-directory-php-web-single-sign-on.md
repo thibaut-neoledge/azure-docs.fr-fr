@@ -7,7 +7,6 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
-
 
 # Authentification unique web avec PHP et Azure Active Directory
 
@@ -127,7 +125,7 @@ Dans cette étape, vous allez ajouter la prise en charge de la connexion fédér
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
+	> [AZURE.NOTE]Les valeurs **audienceuris** et **realm** doivent être précédées de « spn: ».
 
 4. Dans Eclipse, cliquez avec le bouton droit sur le projet **phpSample**, cliquez sur **New**, puis sur **PHP File**.
 
@@ -190,6 +188,9 @@ Ce didacticiel vous a montré comment créer et configurer une unique applicatio
 
 Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentification unique pour des sites Web PHP est disponible sur la page <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
+## Étapes suivantes
+
+Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
@@ -205,4 +206,4 @@ Un exemple illustrant l'utilisation d'Azure Active Directory et de l'authentific
 [Exemple de code PHP pour Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

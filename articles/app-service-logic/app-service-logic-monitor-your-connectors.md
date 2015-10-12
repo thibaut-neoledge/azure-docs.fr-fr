@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion et contrôle de vos connecteurs et applications API dans Azure App Service" 
+	pageTitle="Gestion et contrôle de vos connecteurs et applications API dans App Service | Microsoft Azure" 
 	description="Affiche les performances de vos connecteurs et applications API dans Azure App Service ; architecture microservices" 
 	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/29/2015" 
 	ms.author="mandia"/>
 
 # Gestion et contrôle de vos connecteurs et applications API intégrés
 
 Vous avez créé une application API intégrée. Et maintenant ?
 
-Dans Azure, chaque application API est un site web distinct hébergé sur Azure. Par conséquent, vous pouvez facilement voir le nombre de requêtes effectuées, ainsi que la quantité de données utilisée par le connecteur.
-
-Vous pouvez également sauvegarder votre application API, créer des alertes, activer Tinfoil Security et ajouter des utilisateurs et des rôles.
+Dans Azure, chaque application API est un site web distinct hébergé sur Azure. Par conséquent, vous pouvez facilement voir le nombre de requêtes effectuées, ainsi que la quantité de données utilisée par le connecteur. Vous pouvez également sauvegarder votre application API, créer des alertes, activer Tinfoil Security et ajouter des utilisateurs et des rôles.
 
 Cette rubrique décrit certaines des options de gestion de votre application API.
 
-Pour voir ces fonctions intégrées, ouvrez votre application API dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/p/?LinkID=525040). Si l’application API est dans votre tableau d’accueil, sélectionnez-la pour ouvrir les propriétés. Vous pouvez également sélectionner **Parcourir**, **Applications API**, puis choisir votre application API :
+Pour voir ces fonctions intégrées, ouvrez votre application API dans le [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Si l’application API est dans votre tableau d’accueil, sélectionnez-la pour ouvrir les propriétés. Vous pouvez également sélectionner **Parcourir**, **Applications API**, puis choisir votre application API :
 
 ![][browse]
 
@@ -51,17 +49,15 @@ Après avoir configuré ou créé votre connecteur, vous pouvez modifier les val
 Procédez comme suit :
 
 1. Ouvrez votre connecteur ou l’application API. Le panneau de l’application API s’ouvre.
-2. Dans la fenêtre Bases, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
+2. Dans la fenêtre **Bases**, cliquez sur le lien hypertexte sous la propriété de l’hôte. Le lien hypertexte est nommé de la manière suivante : *slackconnector* ou *microsoftsqlconnector123* :
 
 	![][apiapphost]
 
-3. Dans le panneau Hôte d’application API, sélectionnez **Paramètres**.
-4. Dans le panneau Paramètres, sélectionnez **Paramètres de l’application**.
-5. Vos valeurs de configuration sont répertoriées sous **Paramètres de l’application** : 
+3. Dans le panneau Hôte d’application API, sélectionnez **Paramètres**. Dans le panneau Paramètres, sélectionnez **Paramètres de l’application**. Vos valeurs de configuration sont répertoriées sous **Paramètres de l’application** :
 	
 	![][hostsettings]
 
-6. Cliquez sur le paramètre que vous souhaitez modifier, entrez la nouvelle valeur et **Enregistrez** vos modifications.
+4. Cliquez sur le paramètre que vous souhaitez modifier, entrez la nouvelle valeur et **Enregistrez** vos modifications.
 
 
 ## Installer le Gestionnaire de connexion hybride - Facultatif
@@ -75,7 +71,7 @@ Consultez la page [Utilisation du Gestionnaire de connexion hybride dans Azure A
 > [AZURE.NOTE]Le Gestionnaire de connexion hybride est requis uniquement si vous vous connectez à une ressource locale derrière le pare-feu. Si vous n’êtes pas connecté à un système local, le Gestionnaire de connexion hybride peut ne pas figurer dans le panneau de votre connecteur.
 
 ## Analyser les performances
-Les mesures de performance sont des fonctionnalités intégrées incluses avec chaque application API que vous créez. Ces mesures sont spécifiques de votre application API hébergée dans Azure :
+Les mesures de performance sont des fonctionnalités intégrées incluses avec chaque application API que vous créez. Ces mesures sont spécifiques de votre application API hébergée dans Azure : Exemples de mesures :
 
 ![][monitoring]
 
@@ -98,7 +94,7 @@ Collaborateur | Dispose d’un accès complet à l’expérience de gestion. Ne 
 Lecteur | Peut afficher toutes les ressources à l’exception des secrets.
 Administrateur de l'accès utilisateur | Peut afficher toutes les ressources, créer et gérer des rôles et créer/gérer des tickets de support.
 
-Consultez la page [Contrôle d’accès en fonction du rôle dans le portail Microsoft Azure](role-based-access-control-configure.md).
+Consultez la page [Contrôle d’accès en fonction basé sur les rôles dans le portail Microsoft Azure](role-based-access-control-configure.md).
 
 Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles spécifiques dans votre application API. Le portail affiche les utilisateurs disposant d’un accès, ainsi que leur rôle :
 
@@ -118,6 +114,9 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 > 
 > Ces propriétés sont spécifiques du site web qui héberge votre application API. Lorsque vous utilisez une application API ou un connecteur intégré, la plupart de ces propriétés ne s’appliquent pas réellement et nous vous recommandons de ne pas les mettre à jour. Si vous avez créé votre propre application API dans Visual Studio et que vous l’avez déployée dans votre abonnement Azure, vous pouvez utiliser les panneaux Hôte et Passerelle. La page [Gérer les applications API](../app-service-api/app-service-api-manage-in-portal.md) fournit davantage d’informations concernant les opérations réalisables dans ces panneaux avec votre application API personnalisée.
 
+
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d’ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est nécessaire et vous ne prenez aucun engagement.
+
 ## En savoir plus
 
 [Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)<br/>[Liste des connecteurs et applications API dans App Service](app-service-logic-connectors-list.md)<br/>[Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](role-based-access-control-configure.md)<br/>[Utilisation du Gestionnaire de connexion hybride dans Azure App Service](app-service-logic-hybrid-connection-manager.md)
@@ -133,4 +132,4 @@ Vous pouvez facilement ajouter des utilisateurs et leur attribuer des rôles sp�
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

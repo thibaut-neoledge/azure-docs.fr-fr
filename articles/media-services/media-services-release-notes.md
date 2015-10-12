@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"   
+	ms.date="09/27/2015"   
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,13 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 
 - Vous pouvez à présent utiliser Media Encoder Standard pour effectuer un sous-découpage et une extraction d’archive dynamique. Pour plus d’informations, voir [ce blog](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
+- Les mises à jour de filtrage suivantes ont été effectuées :
+
+	- Vous pouvez désormais utiliser le format Apple HTTP Live Streaming (HLS) avec filtre audio uniquement. Cette mise à jour vous permet de supprimer la piste audio uniquement en spécifiant (audio-only=false) dans l'URL.
+	- Lorsque vous définissez des filtres pour vos ressources, vous avez désormais la possibilité de combiner plusieurs filtres (jusqu'à 3) dans une même URL.
+
+- AMS prend désormais en charge I-Frames dans HLS v4. La prise en charge d'I-Frame optimise les opérations d’avance rapide et de retour arrière. Par défaut, toutes les sorties HLS v4 incluent une sélection I-Frame (EXT-X-I-FRAME-STREAM-INF).
+ 
 ##<a id="august_changes_15"></a>Version d’août 2015
 
 - Le Kit de développement logiciel (SDK) Azure Media Services pour Java V0.8.0 et de nouveaux exemples sont désormais disponibles. Pour plus d'informations, consultez les pages suivantes :
@@ -93,12 +100,12 @@ Pour des informations sur l'historique des versions de l'API REST, consultez la 
 - Mise à jour d’Azure Media Player avec prise en charge des flux audio multiples. Pour plus d'informations, consultez les pages suivantes :
 	- [Billet de blog](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
-##<a id="july_changes_15"></a>Version de juillet 2015
+##<a id="july_changes_15"></a>Version de juillet 2015
 
 - Annonce de la disponibilité générale de Media Encoder Standard. Pour plus d’informations, voir [ce billet de blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
 	Media Encoder Standard utilise les présélections décrites dans [cette](http://go.microsoft.com/fwlink/?LinkId=618336) section. Notez que, lorsque vous utilisez une présélection pour les encodages 4K, vous devez obtenir le type d’unité réservée **Premium**. Pour plus d’informations, voir [Mise à l’échelle de l’encodage](media-services-portal-encoding-units).
-- Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, voir [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
+- Légendes en temps réel en direct avec Azure Media Services et Azure Media Player. Pour plus d’informations, voir [ce billet de blog](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Mises à jour du Kit de développement logiciel (SDK) .NET de Media Services
 
@@ -369,7 +376,7 @@ Les modifications suivantes ont été apportées à la version 3.0.0.3 :
 
 >[AZURE.NOTE]Les versions 3.0.x.x ne présentent pas de compatibilité descendante avec les versions 2.4.x.x.
 
-La dernière version du Kit de développement logiciel (SDK) Media Services est maintenant la version 3.0.0.0.0. Vous pouvez télécharger le dernier package à partir de NuGet ou obtenir les différents composants sur [GitHub].
+La dernière version du Kit de développement logiciel (SDK) Media Services est maintenant la version 3.0.0.0.0. Vous pouvez télécharger le dernier package à partir de Nuget ou obtenir les différents composants sur [GitHub].
 
 À compter de version 3.0.0.0 du Kit de développement logiciel (SDK) Media Services, vous pouvez réutiliser les [jetons ACS (Access Control Service) d'Azure Active Directory]. Pour plus d'informations, consultez la section « Réutilisation des jetons du service de contrôle d'accès » dans la rubrique [Connexion à Media Services à l'aide du Kit de développement logiciel (SDK) Media Services pour .NET].
 
@@ -550,7 +557,7 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du Kit 
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 <!-- Anchors. -->
@@ -592,4 +599,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Sauvegarder une application web dans Azure App Service" 
 	description="Apprenez à créer des sauvegardes de vos applications Web dans Azure App Service" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -222,4 +222,4 @@ Pour la prise en main d'Azure, consultez la page [Version d'évaluation gratuite
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

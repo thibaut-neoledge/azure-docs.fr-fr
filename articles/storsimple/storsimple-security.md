@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/10/2015"
+   ms.date="09/25/2015"
    ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
@@ -52,7 +52,7 @@ Seuls les appareils autorisés par StorSimple peuvent rejoindre le service StorS
 
 Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimple Manager en fournissant la clé d’inscription. La clé d’inscription est une clé aléatoire de 128 bits, générée dans le portail. Pour savoir comment obtenir une clé d’inscription, passez à l’[Étape 2 : Obtention de la clé d’inscription](storsimple-deployment-walkthrough.md#step-2-get-the-service-registration-key).
 
-> [AZURE.NOTE]La clé d’inscription est une clé longue, contenant plus de 100 caractères. Nous vous recommandons de copier la clé et de l’enregistrer dans un fichier texte dans un emplacement sécurisé, afin que vous puissiez l’utiliser pour autoriser des appareils supplémentaires si nécessaire.
+> [AZURE.NOTE]La clé d’inscription est une clé longue, contenant plus de 100 caractères. Vous pouvez copier la clé et l’enregistrer dans un fichier texte dans un emplacement sécurisé, afin de l’utiliser pour autoriser des appareils supplémentaires si nécessaire.
 > 
 > * Si vous égarez la clé d’inscription après avoir enregistré votre premier appareil, vous pouvez générer une nouvelle clé à partir du service StorSimple Manager. Cela n’a pas d’incidence sur le fonctionnement des appareils existants. 
 > * Une fois qu’un appareil est inscrit, il utilise des jetons pour communiquer avec Microsoft Azure. La clé d’inscription au service n’est pas utilisée après l’inscription de l’appareil.
@@ -69,7 +69,7 @@ Les mots de passe sont un aspect important de la sécurité informatique et sont
 
 ### Mots de passe Administrateur Windows PowerShell pour StorSimple et appareil StorSimple
 
-Windows PowerShell pour StorSimple est une interface de ligne de commande que vous pouvez utiliser pour gérer l’appareil StorSimple. Windows PowerShell pour StorSimple dispose de fonctionnalités qui vous permettent d’inscrire votre appareil, de configurer l’interface réseau sur votre appareil, d’installer certains types de mises à jour, de résoudre les problèmes de votre appareil en accédant à la session de support et de modifier l’état de l’appareil. Vous pouvez accéder à Windows PowerShell pour StorSimple en vous connectant à la console série ou à l’aide de l’accès distant Windows PowerShell.
+Windows PowerShell pour StorSimple est une interface de ligne de commande que vous pouvez utiliser pour gérer l’appareil StorSimple. Windows PowerShell pour StorSimple dispose de fonctionnalités qui vous permettent d’inscrire votre appareil, de configurer l’interface réseau sur votre appareil, d’installer certains types de mises à jour, de résoudre les problèmes de votre appareil en accédant à la session de support et de modifier l’état de l’appareil. Vous pouvez accéder à Windows PowerShell pour StorSimple en vous connectant à la console série sur l’appareil ou à l’aide de l’accès distant Windows PowerShell.
 
 L’accès distant PowerShell peut être effectué via HTTPS ou HTTP. Si la gestion à distance via HTTPS est activée, vous devez télécharger le certificat de gestion à distance à partir du périphérique et l’installer sur le client distant.
 
@@ -129,7 +129,7 @@ Comme mentionné dans les sections précédentes, les mots de passe sont utilis�
 L’objectif principal du service StorSimple Manager est de gérer et de configurer l’appareil StorSimple. Le service StorSimple Manager s’exécute dans Microsoft Azure. Le portail de gestion Azure vous permet d’entrer des données de configuration d’appareil, puis Microsoft Azure utilise le service StorSimple Manager pour envoyer ces données vers l’appareil. Le service StorSimple Manager utilise un système de paires de clés asymétriques pour garantir que la compromission du service Azure ne compromette pas les informations stockées. Le système de clés asymétriques permet de protéger les données qui transitent par le service de la manière suivante :
 
 1. Un certificat de chiffrement de données qui utilise une paire de clés publiques et privées asymétrique est généré sur l’appareil, puis il est utilisé pour protéger les données. Les clés sont générées lors de l’inscription du premier appareil. 
-2. Les clés du certificat de chiffrement de données sont exportées dans un fichier d’échange d’informations personnelles (.pfx), protégé par la clé de chiffrement des données de service, qui est une clé forte de 128 bits, générée de façon aléatoire par l’appareil pendant l’inscription.
+2. Les clés du certificat de chiffrement de données sont exportées dans un fichier d’échange d’informations personnelles (.pfx), protégé par la clé de chiffrement des données de service, qui est une clé forte de 128 bits, générée de façon aléatoire par le premier appareil pendant l’inscription.
 3. La clé publique du certificat est accessible en toute sécurité par le service StorSimple Manager et la clé privée est conservée dans l’appareil.
 4. Les données entrant dans le service sont chiffrées à l’aide de la clé publique et déchiffrées à l’aide de la clé privée stockée sur l’appareil, afin de garantir que le service Azure ne peut pas déchiffrer les données envoyées vers l’appareil.
 
@@ -144,7 +144,7 @@ L’objectif principal du service StorSimple Manager est de gérer et de configu
 
 ## Protection des données au repos
 
-L’appareil StorSimple gère les données en les stockant dans des couches locales et dans le cloud, en fonction de leur fréquence d’utilisation. Tous les ordinateurs hôtes connectés à l’appareil envoient des données à l’appareil, qui les déplace ensuite vers le cloud, si nécessaire. Les données sont transférées de l’appareil vers le cloud via le protocole iSCSI. Chaque périphérique possède une cible iSCSI qui couvre tous les volumes partagés sur cet appareil. Toutes les données sont chiffrées avant d’être envoyées vers le stockage cloud. Pour garantir la sécurité et l’intégrité des données déplacées vers le cloud, Azure StorSimple vous permet de définir des clés de chiffrement de stockage cloud comme suit :
+L’appareil StorSimple gère les données en les stockant dans des couches locales et dans le cloud, en fonction de leur fréquence d’utilisation. Tous les ordinateurs hôtes connectés à l’appareil envoient des données à l’appareil, qui les déplace ensuite vers le cloud, si nécessaire. Les données sont transférées de l’appareil vers le cloud de façon sécurisée via Internet. Chaque périphérique possède une cible iSCSI qui couvre tous les volumes partagés sur cet appareil. Toutes les données sont chiffrées avant d’être envoyées vers le stockage cloud. Pour garantir la sécurité et l’intégrité des données déplacées vers le cloud, Azure StorSimple vous permet de définir des clés de chiffrement de stockage cloud comme suit :
 
 - Vous spécifiez la clé de chiffrement de stockage cloud lorsque vous créez un conteneur de volume. La clé ne peut pas être modifiée ou ajoutée ultérieurement. 
 - Tous les volumes d’un conteneur de volumes partagent la même clé de chiffrement. Si vous souhaitez utiliser une autre forme de cryptage pour un volume spécifique, nous vous recommandons de créer un nouveau conteneur de volumes pour héberger ce volume.
@@ -203,7 +203,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **Q :** J’ai perdu ma clé de chiffrement des données du service. Que faire ?
 
-**R :** Contactez le support technique Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé. Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
+**R :** Contactez le support technique Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé (à condition qu’au moins un appareil soit connecté) Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
 
 - [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
@@ -253,4 +253,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

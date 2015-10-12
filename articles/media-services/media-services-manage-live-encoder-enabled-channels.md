@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
-#Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services (version préliminaire)
+#Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
 
 ##Vue d'ensemble
 
@@ -25,15 +25,11 @@ Dans Azure Media Services, un **canal** représente un pipeline de traitement du
 - Un encodeur dynamique local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 - Un flux à débit binaire unique (dans l’un des formats suivants : **RTP** [MPEG-TS], **RTMP** ou **Smooth Streaming** [MP4 fragmenté]) est envoyé au **canal** qui est activé pour effectuer un encodage en temps réel avec Media Services. Le **canal** procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients. 
 
-	L’encodage d’un flux dynamique avec Media Services est actuellement en mode **Aperçu**.
-
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
 - **Aucun** : indiquez cette valeur si vous envisagez d’utiliser un encodeur dynamique local qui produira des flux à débit binaire multiple. Le cas échéant, le flux entrant est transmis à la sortie sans encodage. Il s’agit du comportement d’un canal avant la version 2.10. Pour plus d’informations sur l’utilisation des canaux de ce type, voir [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
-- **Standard** (aperçu) : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple.
-
-	L’encodage d’un flux dynamique avec Media Services est actuellement en mode Aperçu.
+- **Standard** : choisissez cette valeur si vous envisagez d’utiliser Media Services pour encoder votre flux dynamique à débit binaire unique en flux à débit binaire multiple.
 
 >[AZURE.NOTE]Cette rubrique décrit les attributs des canaux qui sont activés pour effectuer un encodage en temps réel (type d’encodage **standard**). Pour obtenir des informations sur l’utilisation des canaux qui ne sont pas activés pour effectuer l’encodage en temps réel, consultez [Utilisation des canaux qui reçoivent un flux dynamique à débit binaire multiple provenant d’encodeurs locaux](media-services-manage-channels-overview.md).
 
@@ -378,12 +374,12 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
 ---|---|---
 Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
-Exécution|Prêt (aucun programme en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d’exécution)|Oui
+Exécution|Prêt (aucun programme en cours d'exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
 En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
 Arrêté|Arrêté|Non
 
 
->[AZURE.NOTE]Actuellement en version préliminaire, le démarrage du canal peut prendre jusqu’à plus de 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
+>[AZURE.NOTE]Actuellement, le démarrage du canal peut prendre jusqu’à plus de 20 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
 
 
 ##<a id="Considerations"></a>Considérations
@@ -399,7 +395,7 @@ Arrêté|Arrêté|Non
 ##Problèmes connus
 
 - Le démarrage du canal peut prendre plus de 20 minutes.
-- La prise en charge RTP est adaptée aux diffuseurs professionnels. Consultez les notes relatives à RTP dans [ce blog](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/).
+- La prise en charge RTP est adaptée aux diffuseurs professionnels. Consultez les notes relatives à RTP dans [ce](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
 - Les images d’ardoise doivent être conformes aux restrictions décrites [ici](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si vous essayez de créer un canal à partir d’une ardoise par défaut d’une résolution supérieure à 1920 x 1080, la requête se termine par une erreur.
 
 ###Création de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire adaptatif 
@@ -416,7 +412,7 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Rubriques connexes
@@ -430,4 +426,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
+
+## Notes relatives à la version du 29/09/2015 de Stream Analytics ##
+
+Cette version contient les mises à jour suivantes.
+
+Intitulé | Description
+---|---
+Version préliminaire publique d’IoT Azure Suite | Stream Analytics est inclus dans la version préliminaire publique d’IoT Azure Suite.
+Intégration du portail Azure en version préliminaire | En plus de sa présence continue dans le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
+Prise en charge de la sortie DocumentDB | Les tâches Stream Analytics peuvent à présent générer une sortie vers [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Prise en charge de l’entrée IoT Hub | Les tâches Stream Analytics peuvent à présent recevoir des données à partir d’IoT Hub.
+TIMESTAMP BY pour les événements hétérogènes | Lorsqu’un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez maintenant utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas.
 
 ## Notes relatives à la version du 10/09/2015 de Stream Analytics ##
 
@@ -92,4 +104,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

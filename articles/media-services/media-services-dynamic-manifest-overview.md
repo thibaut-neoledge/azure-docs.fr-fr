@@ -111,7 +111,7 @@ Comme mentionné précédemment, quand vous distribuez votre contenu aux clients
 - Lecture d'une seule section d'une vidéo (au lieu de la vidéo entière).
 - Ajustement de la fenêtre de présentation DVR.
 
-###Filtrage de rendu 
+##Filtrage de rendu 
 
 Vous pouvez choisir d'encoder votre élément multimédia pour plusieurs profils d'encodage (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) et plusieurs qualités de débit binaire. Toutefois, tous les appareils client ne prennent pas en charge tous les profils et débits binaires de tous vos éléments multimédias. Par exemple, les anciens appareils Android prennent uniquement en charge H.264 Baseline+AACL. L'envoi de débits binaires plus élevés à un appareil qui ne peut pas en tirer partie ne fait que gaspiller la bande passante et entraîner des calculs inutiles pour l'appareil. Ce dernier doit en effet décoder toutes les informations données, pour finalement les réduire pour pouvoir les afficher.
 
@@ -124,20 +124,20 @@ Dans l'exemple suivant, Azure Media Encoder a été utilisé pour encoder un él
 
 ![Filtrage de rendu][renditions1]
 
-###Suppression des pistes de langue
+##Suppression des pistes de langue
 
 Vos éléments multimédias peuvent inclure plusieurs langues audio telles que l'anglais, l'espagnol, le français, etc. Généralement, le Kit de développement logiciel (SDK) du lecteur gère la sélection de pistes audio par défaut et les pistes audio disponible par sélection de l'utilisateur. Il est difficile de développer ces Kits de développement logiciel (SDK) de lecteur, car différentes implémentations sont requises entre les infrastructures de lecteur propres aux appareils. De plus, sur certaines plateformes, les API de lecteur sont limitées et n'incluent pas de fonctionnalité de sélection audio, ce qui ne permet pas aux utilisateurs de sélectionner ou de modifier la piste audio par défaut. Avec les filtres d'éléments multimédias, vous pouvez contrôler le comportement en créant des filtres qui incluent uniquement les langues audio souhaitées.
 
 ![Filtrage des pistes de langue][language_filter]
 
 
-###Découpage du début d'un élément multimédia 
+##Découpage du début d'un élément multimédia 
 
 Pour la plupart des événements de diffusion en continu en direct, les opérateurs exécutent des tests avant l'événement réel. Par exemple, ils peuvent inclure une ardoise comme celle-ci avant le début de l'événement : « Le programme va commencer dans un instant. » Si le programme est archivé, le test et les données de l'ardoise le sont également et ils sont donc inclus dans la présentation. Toutefois, ces informations ne doivent pas être montrées aux clients. Avec un manifeste dynamique, vous pouvez créer un filtre sur l'heure de début et supprimer les données indésirables du manifeste.
 
 ![Découpage du début][trim_filter]
 
-###Création de sous-clips (vues) à partir d'une archive en direct
+##Création de sous-clips (vues) à partir d'une archive en direct
 
 De nombreux événements en direct ont une durée d'exécution longue et une archive en direct peut inclure plusieurs événements. Une fois l'événement en direct terminé, les diffuseurs peuvent décomposer l'archive en direct en séquences de démarrage et d'arrêt du programme logiques. Ensuite, il suffit de publier ces programmes virtuels séparément sans post-traitement de l'archive en direct et sans créer d'éléments multimédias distincts (qui ne bénéficieront pas des fragments mis en cache existants dans les CDN). Par exemple, ces programmes virtuels (sous-clips) peuvent correspondre aux mi-temps d'un match de football ou de basket, aux tours de batte au base-ball ou à des événements individuels d'une journée des Jeux Olympiques.
 
@@ -149,24 +149,22 @@ Avec un manifeste dynamique, vous pouvez créer des filtres en utilisant des heu
 
 ![Ski][skiing]
 
-###Ajustement de la fenêtre de présentation (DVR)
+##Ajustement de la fenêtre de présentation (DVR)
 
 Actuellement, Azure Media Services propose une archive circulaire où la durée peut être configurée entre 5 minutes et 25 heures. Le filtrage de manifeste peut servir à créer une fenêtre DVR de substitution par-dessus l'archive, sans supprimer le média. Il existe de nombreux scénarios où les diffuseurs veulent fournir une fenêtre DVR limitée qui se déplace avec le bord en direct et qui garde en même temps une plus grande fenêtre d'archivage. Un diffuseur peut utiliser les données en dehors de la fenêtre DVR pour mettre en avant des clips ou il peut proposer des fenêtres DVR différentes pour différents appareils. Par exemple, la plupart des appareils mobiles ne gèrent pas les grandes fenêtres DVR (une fenêtre DVR peut durer 2 minutes pour les appareils mobiles quand elle dure une heure pour les clients de bureau).
 
 ![Fenêtre DVR][dvr_filter]
 
-###Ajustement de LiveBackoff (position en direct)
+##Ajustement de LiveBackoff (position en direct)
 
 Le filtrage de manifeste peut servir à supprimer plusieurs secondes à partir du bord en direct d'un programme en direct. Cela permet aux diffuseurs de regarder la présentation sur le point de publication d'aperçu et de créer des points d'insertion d'annonce avant que les utilisateurs ne reçoivent le flux (généralement sauvegardé toutes les 30 secondes). Les diffuseurs peuvent ensuite transmettre ces annonces à leurs infrastructures client à temps pour qu'ils reçoivent et traitent les informations avant l'opportunité d'annonce.
 
 Outre la prise en charge d'annonces, LiveBackoff peut servir à ajuster la position de téléchargement en direct du client afin que lorsque les clients dérivent et atteignent le bord en direct, ils puissent toujours obtenir des fragments du serveur au lieu d'obtenir des erreurs HTTP 404 ou 412.
 
-
-
 ![livebackoff\_filter][livebackoff_filter]
 
 
-###Combinaison de plusieurs règles dans un seul filtre
+##Combinaison de plusieurs règles dans un seul filtre
 
 Vous pouvez combiner plusieurs règles de filtrage dans un filtre unique. Par exemple, vous pouvez définir une règle de plage pour supprimer une ardoise d'une archive en direct et également filtrer les débits binaires disponibles. Pour plusieurs règles de filtrage, le résultat final est la composition (intersection uniquement) de ces règles.
 
@@ -177,6 +175,22 @@ Vous pouvez combiner plusieurs règles de filtrage dans un filtre unique. Par ex
 La rubrique suivante décrit les entités Media Services liées aux filtres. La rubrique indique également comment créer par programme des filtres.
 
 [Créez des filtres avec les API REST](media-services-rest-dynamic-manifest.md).
+
+## Combinaison de plusieurs filtres (composition de filtre)
+
+Vous pouvez également combiner plusieurs filtres dans une URL unique.
+
+Le scénario suivant explique les avantages de la combinaison de filtres :
+
+1. Vous devez filtrer vos qualités vidéos pour des appareils mobiles tels qu’Android ou iPAD (afin de limiter les qualités vidéos). Pour supprimer les qualités indésirables, vous pouvez créer un filtre global adapté aux profils de vos appareils. Comme indiqué ci-dessus, les filtres globaux peuvent être utilisés pour tous vos éléments multimédia sous le même compte Media Services sans aucune autre association. 
+2. Vous pouvez aussi avoir besoin d’ajuster l’heure de début et de fin d’un élément multimédia. Pour ce faire, il vous suffit de créer un filtre local et de définir l’heure de début et de fin. 
+3. Vous pouvez combiner ces deux filtres (sans combinaison, vous devez ajouter le filtrage de la qualité au filtre de réglage, ce qui compliquera l’utilisation de filtres).
+
+Pour combiner des filtres, vous devez définir les noms de filtre dans l’URL du manifeste ou de la liste de lecture en les délimitant avec des points-virgules. Supposons que vous ayez un filtre nommé *MyMobileDevice* qui filtre les qualités et un autre nommé *MyStartTime* qui définit une heure de début spécifique. Vous pouvez les combiner comme suit :
+
+	http://teststreaming.streaming.mediaservices.windows.net/3d56a4d-b71d-489b-854f-1d67c0596966/64ff1f89-b430-43f8-87dd-56c87b7bd9e2.ism/Manifest(filter=MyMobileDevice;MyStartTime)
+
+Vous pouvez combiner jusqu’à 3 filtres.
 
 ##Problèmes connus et limitations
 
@@ -189,10 +203,12 @@ La rubrique suivante décrit les entités Media Services liées aux filtres. La 
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Voir aussi
 
+[Vue d’ensemble de la distribution de contenu aux clients](media-services-deliver-content-overview.md)
 
 [renditions1]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/media-services-dynamic-manifest-overview/media-services-rendition-filter2.png
@@ -214,4 +230,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

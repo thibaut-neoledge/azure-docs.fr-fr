@@ -105,7 +105,9 @@ Pour plus d'informations sur l'utilisation d'Azure PowerShell, consultez la page
 
 L’interface de ligne de commande Azure est un ensemble de commandes permettant de déployer et de gérer des services Azure, tels que Sites Web Azure et Azure Virtual Machines. Pour plus d'informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
 
+## Étapes suivantes
 
+Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ L’interface de ligne de commande Azure est un ensemble de commandes permettant
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

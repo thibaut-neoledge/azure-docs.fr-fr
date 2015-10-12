@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/22/2015"
+   ms.date="09/30/2015"
    ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
 
 Cette rubrique montre comment consulter et mettre à jour la configuration de vos instances de Cache Redis Azure et présente la configuration du serveur Redis par défaut pour les instances de Cache Redis Azure.
 
+>[AZURE.NOTE]Le niveau Premium de Cache Redis Azure est actuellement en version préliminaire. Pendant la période d’évaluation, vous pouvez uniquement configurer les fonctionnalités Premium lors du processus de création du cache. Pour plus d’informations sur l’utilisation des fonctionnalités du cache Premium, consultez [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md), [Comment configurer la mise en clust pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md) et [Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium](cache-how-to-premium-vnet.md).
+
 ## Configuration des paramètres de cache Redis
 
-Les caches sont accessibles dans la [version préliminaire du portail Azure ](https://portal.azure.com) à l’aide du panneau **Parcourir**.
+Les caches sont accessibles dans le [portail Azure en version préliminaire](https://portal.azure.com) à l’aide du panneau **Parcourir**.
 
 ![Panneau de navigation Cache Redis Azure](./media/cache-configure/IC796920.png)
 
@@ -45,7 +47,7 @@ Cliquez sur **Propriétés** pour afficher des informations sur le cache, y comp
 
 ## Clés d'accès
 
-Cliquez sur **Clés d'accès** pour afficher ou régénérer les clés d'accès de votre cache. Ces clés sont utilisées avec le nom d'hôte et les ports à partir du panneau **Propriétés** par les clients se connectant à votre cache.
+Cliquez sur **Clés d’accès** pour afficher ou régénérer les clés d’accès de votre cache. Ces clés sont utilisées avec le nom d’hôte et les ports à partir du panneau **Propriétés** par les clients se connectant à votre cache.
 
 ![Clés d'accès de Cache Redis](./media/cache-configure/IC808315.png)
 
@@ -57,7 +59,7 @@ Par défaut, l'accès non SSL est désactivé pour les nouveaux caches. Pour act
 
 ## Niveau de tarification
 
-Cliquez sur **Niveau de tarification** pour afficher ou modifier le niveau de tarification de votre cache. Pour plus d'informations sur la mise à l'échelle, consultez [Mise à l'échelle du cache Azure Redis](cache-how-to-scale.md).
+Cliquez sur **Niveau de tarification** pour afficher ou modifier le niveau de tarification de votre cache. Pour plus d’informations sur la mise à l’échelle, consultez [Mise à l’échelle du cache Redis Azure](cache-how-to-scale.md).
 
 ![Niveau de tarification de Cache Redis](./media/cache-configure/pricing-tier.png)
 
@@ -67,15 +69,15 @@ Cliquez sur **Diagnostics** pour configurer le compte de stockage utilisé pour 
 
 ![Diagnostics de Cache Redis](./media/cache-configure/IC808317.png)
 
-Pour plus d'informations, consultez [Surveillance du cache Redis Azure](cache-how-to-monitor.md).
+Pour plus d’informations, consultez [Surveillance du cache Redis Azure](cache-how-to-monitor.md).
 
 ## Maxmemory-policy et maxmemory-reserved
 
-Cliquez sur **Maxmemory policy** pour configurer les stratégies de mémoire pour le cache. Le paramètre **maxmemory-policy** configure la stratégie d'éviction du cache et **maxmemory-reserved** configure la mémoire réservée pour les processus non cache.
+Cliquez sur **Maxmemory policy** pour configurer les stratégies de mémoire pour le cache. Le paramètre **maxmemory-policy** configure la stratégie d’éviction du cache et **maxmemory-reserved** configure la mémoire réservée pour les processus non cache.
 
 ![Stratégie Maxmemory de Cache Redis](./media/cache-configure/IC808318.png)
 
-**Maxmemory policy** vous permet de choisir parmi les stratégies d'éviction.
+**Maxmemory policy** vous permet de choisir parmi les stratégies d’éviction.
 
 -	volatile-lru est la valeur par défaut.
 -	allkeys-lru
@@ -84,11 +86,11 @@ Cliquez sur **Maxmemory policy** pour configurer les stratégies de mémoire pou
 -	volatile-ttl
 -	noeviction
 
-Pour plus d'informations sur les stratégies maxmemory, consultez [Stratégies d'éviction](http://redis.io/topics/lru-cache#eviction-policies).
+Pour plus d’informations sur les stratégies maxmemory, consultez [Stratégies d’éviction](http://redis.io/topics/lru-cache#eviction-policies).
 
 Le paramètre **maxmemory-reserved** détermine la quantité de mémoire (en mégaoctets) réservée pour les opérations non cache telles que la réplication pendant le basculement. Il peut également être utilisé lorsque le taux de fragmentation est élevé. La définition de ce paramètre vous permet d'avoir une expérience de serveur Redis plus cohérente lorsque votre charge varie. Cette valeur doit être plus élevée pour les charges de travail comportant de nombreuses écritures. Lorsque la mémoire est réservée pour ces opérations, elle n'est pas disponible pour le stockage des données mises en cache.
 
->[AZURE.IMPORTANT]Le paramètre **maxmemory-reserved** est uniquement disponible pour les caches Standard.
+>[AZURE.IMPORTANT]Le paramètre **maxmemory-reserved** est uniquement disponible pour les caches Standard et Premium.
 
 ## Notifications de Keyspace (paramètres avancés)
 
@@ -96,51 +98,57 @@ Cliquez sur **Paramètres avancés** pour configurer les notifications de keyspa
 
 ![Paramètres avancés de Cache Redis](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Les notifications de keyspace et le paramètre **notify-keyspace-events** sont uniquement disponibles pour les caches Standard.
+>[AZURE.IMPORTANT]Les notifications de keyspace et le paramètre **notify-keyspace-events** sont uniquement disponibles pour les caches Standard et Premium.
 
-Pour plus d'informations, consultez [Notifications de keyspace Redis](http://redis.io/topics/notifications). Pour un exemple de code, consultez le fichier [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) dans l'exemple [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
+Pour plus d’informations, consultez [Notifications de keyspace Redis](http://redis.io/topics/notifications). Pour un exemple de code, consultez le fichier [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) dans l’exemple [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld).
 
 ## Utilisateurs et balises
 
 ![Utilisateurs et balises de Cache Redis](./media/cache-configure/IC808320.png)
 
-La section **Utilisateurs** fournit une prise en charge pour le contrôle d'accès en fonction du rôle (RBAC) dans la version préliminaire du portail pour aider les entreprises à répondre aux exigences de gestion des accès de façon simple et précise. Pour plus d'informations, consultez la page [Contrôle d'accès basé sur le rôle dans la version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=512803).
+La section **Utilisateurs** fournit une prise en charge pour le contrôle d’accès basé sur les rôles (RBAC) dans le portail en version préliminaire pour aider les entreprises à répondre aux exigences de gestion des accès de façon simple et précise. Pour plus d’informations, consultez la page [Contrôle d’accès basé sur les rôles dans le portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=512803).
 
-La section **Balises** vous aide à organiser vos ressources. Pour plus d'informations, consultez [Organisation des ressources Azure à l'aide de balises](../resource-group-using-tags.md).
+La section **Balises** vous aide à organiser vos ressources. Pour plus d’informations, consultez [Organisation des ressources Azure à l’aide de balises](../resource-group-using-tags.md).
 
 ## Configuration du serveur Redis par défaut
 
 Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs de configuration par défaut Redis suivantes.
 
->[AZURE.NOTE]Les paramètres de cette section ne peuvent pas être modifiés à l'aide de la méthode `StackExchange.Redis.IServer.ConfigSet`. Si cette méthode est appelée avec une des commandes de cette section, une exception semblable à la suivante est levée :
+>[AZURE.NOTE]Les paramètres de cette section ne peuvent pas être modifiés à l’aide de la méthode `StackExchange.Redis.IServer.ConfigSet`. Si cette méthode est appelée avec une des commandes de cette section, une exception semblable à la suivante est levée :
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Toutes les valeurs configurables, telles que **max-memory-policy**, sont configurables via la version préliminaire du portail.
+>Toutes les valeurs configurables, telles que **max-memory-policy**, sont configurables via le portail en version préliminaire.
 
 |Paramètre|Valeur par défaut|Description|
 |---|---|---|
 |bases de données|16|La base de données par défaut est DB 0 ; vous pouvez en sélectionner une autre pour chaque connexion à l'aide de connection.GetDataBase(dbid), où dbid est un nombre compris entre 0 et 15.|
 |maxclients|Dépend de la tarification<sup>1</sup>|Le nombre maximal de clients connectés autorisés en même temps. Une fois la limite atteinte, Redis ferme toutes les nouvelles connexions en envoyant une erreur « nombre maximal de clients atteint ».|
-|maxmemory-policy|volatile-lru|La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque la mémoire maximale (la taille du cache que vous avez sélectionné lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est volatile-lru, qui supprime les clés avec une expiration définie à l'aide d'un algorithme dernier récemment utilisé (LRU). Ce paramètre peut être configuré dans la version préliminaire du portail. Pour plus d'informations, consultez [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
+|maxmemory-policy|volatile-lru|La stratégie maxmemory est le paramètre définissant la sélection par Redis des éléments à supprimer lorsque la mémoire maximale (la taille du cache que vous avez sélectionné lorsque vous avez créé le cache) est atteinte. Avec Cache Redis Azure, le paramètre par défaut est volatile-lru, qui supprime les clés avec une expiration définie à l'aide d'un algorithme dernier récemment utilisé (LRU). Ce paramètre peut être configuré dans la version préliminaire du portail. Pour plus d’informations, consultez [Maxmemory-policy et maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Les algorithmes LRU et TTL ne sont pas précis mais estimés (afin d’économiser de la mémoire), vous pouvez donc sélectionner également la taille d’échantillon à vérifier. Par exemple, Redis vérifie par défaut trois clés et choisit celle qui a été utilisée il y a le plus longtemps.|
 |lua-time-limit|5 000|Temps d'exécution maximal d'un script Lua en millisecondes. Si la durée d'exécution maximale est atteinte, Redis enregistre qu'un script est toujours en cours d’exécution après la durée maximale autorisée et commence à répondre aux requêtes avec une erreur.|
 |lua-event-limit|500|Il s'agit de la taille maximale de la file d'attente des événements de script.|
-|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu'un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d'informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+|client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Les limites de mémoire tampon de sortie client peuvent servir à forcer la déconnexion des clients qui ne lisent pas les données à partir du serveur suffisamment rapidement pour une raison quelconque (une raison courante est qu'un client Pub/Sub ne peut pas consommer les messages aussi rapidement que le serveur de publication les génère). Pour plus d’informations, consultez [http://redis.io/topics/clients](http://redis.io/topics/clients).|
 
-<sup>1</sup>`maxclients` est différent pour chaque niveau de tarification du cache Azure Redis.
+<sup>1</sup>`maxclients` est différent pour chaque niveau de tarification du cache Redis Azure.
 
--	Cache C0 (250 Mo) : jusqu'à 256 connexions
--	Cache C1 (1 Go) : jusqu'à 1 000 connexions
--	Cache C2 (2,5 Go) : jusqu'à 2 000 connexions
--	Cache C3 (6 Go) : jusqu'à 5 000 connexions
--	Cache C4 (13 Go) : jusqu'à 10 000 connexions
--	Cache C5 (26 Go) : jusqu'à 15 000 connexions
--	Cache C6 (53 Go) : jusqu'à 20 000 connexions
+-	Caches De base et Standard
+	-	Cache C0 (250 Mo) : jusqu'à 256 connexions
+	-	Cache C1 (1 Go) : jusqu'à 1 000 connexions
+	-	Cache C2 (2,5 Go) : jusqu'à 2 000 connexions
+	-	Cache C3 (6 Go) : jusqu'à 5 000 connexions
+	-	Cache C4 (13 Go) : jusqu'à 10 000 connexions
+	-	Cache C5 (26 Go) : jusqu'à 15 000 connexions
+	-	Cache C6 (53 Go) : jusqu'à 20 000 connexions
+-	Caches Premium
+	-	P1 (6 Go - 60 Go) : jusqu’à 7 500 connexions
+	-	P2 (13 Go - 130 Go) : jusqu’à 15 000 connexions
+	-	P3 (26 Go - 260 Go) : jusqu’à 30 000 connexions
+	-	P4 (53 Go - 530 Go) : jusqu’à 40 000 connexions
 
 ## Commandes Redis non prises en charge dans le Cache Redis Azure
 
->[AZURE.IMPORTANT]Étant donné que la configuration et la gestion des instances de Cache Redis Azure s’effectuent à l’aide de la version préliminaire du portail, les commandes suivantes sont désactivées. Si vous essayez de les utiliser, vous recevez un message d'erreur semblable à `"(error) ERR unknown command"`.
+>[AZURE.IMPORTANT]Étant donné que la configuration et la gestion des instances de Cache Redis Azure s’effectuent à l’aide de la version préliminaire du portail, les commandes suivantes sont désactivées. Si vous essayez de les utiliser, vous recevez un message d’erreur semblable à `"(error) ERR unknown command"`.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -151,23 +159,23 @@ Les nouvelles instances de Cache Redis Azure sont configurées avec les valeurs 
 >-	SHUTDOWN
 >-	SLAVEOF
 
-Pour plus d'informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
+Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 
 ## Console Redis
 
-Vous pouvez exécuter des commandes en toute sécurité aux instances de Cache Redis Azure à l'aide de la **console Redis** disponible pour les caches standard. Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
+Vous pouvez exécuter des commandes en toute sécurité aux instances de Cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium. Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
 
->[AZURE.IMPORTANT]La console Redis est uniquement disponible pour les caches standard.
+>[AZURE.IMPORTANT]La console Redis est uniquement disponible pour les caches Standard et Premium.
 
 Pour exécuter des commandes sur votre instance de cache, tapez simplement la commande souhaitée dans la console.
 
 ![Console Redis](./media/cache-configure/redis-console.png)
 
-Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le Cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache). Pour plus d'informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
+Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azure, consultez la section précédente intitulée [Commandes Redis non prises en charge dans le Cache Redis Azure](#redis-commands-not-supported-in-azure-redis-cache). Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/commands](http://redis.io/commands).
 
 ## Étapes suivantes
--	Pour plus d'informations sur l'utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
+-	Pour plus d’informations sur l’utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

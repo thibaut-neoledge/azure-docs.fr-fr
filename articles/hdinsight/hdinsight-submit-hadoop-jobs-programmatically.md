@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 # Envoi de tâches Hadoop dans HDInsight
@@ -567,134 +567,103 @@ Les procédures suivantes sont nécessaires pour approvisionner un cluster HDIns
 
 **Installation du Kit de développement logiciel (SDK) .NET HDInsight** : vous pouvez installer la dernière version du Kit de développement logiciel (SDK) publiée sur [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Vous pourrez consulter les instructions dans la procédure suivante.
 
-**Création d'une application console Visual Studio**
+**Pour créer une application console Visual Studio**
 
-1. Ouvrez Visual Studio.
+1. Ouvrir Visual Studio 2013 ou 2015
 
-2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
+2. Créer un projet avec les paramètres suivants :
 
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+	|Propriété|Valeur|
+	|--------|-----|
+	|Modèle|Templates/Visual C#/Windows/Console Application|
+	|Nom|SubmitHiveJob|
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Propriété</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Valeur</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Catégorie</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Modèles/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Modèle</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Application console</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Nom</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
-</table>
+3. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**.
+4. Exécutez la commande suivante dans la console pour installer les packages :
 
-4. Cliquez sur **OK** pour créer le projet.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
+	Ces commandes ajoutent des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
 
-5. Dans le menu **Outils**, cliquez sur **Gestionnaire de package de bibliothèques**, puis cliquez sur **Console du gestionnaire de package**.
+5. Dans l'Explorateur de solutions, double-cliquez sur **Program.cs** pour l'ouvrir, collez le code suivant et fournissez des valeurs pour les variables :
 
-6. Exécutez la commande suivante dans la console pour installer le package :
+		using System.Collections.Generic;
+		using System.Linq;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
+		
+		namespace SubmitHiveJob
+		{
+		    class Program
+		    {
+		        private static HDInsightJobManagementClient _hdiJobManagementClient;
+		
+		        private const string ExistingClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		
+		        private const string ExistingClusterUsername = "<HDINSIGHT HTTP USER NAME>";  //The default name is admin.
+		        private const string ExistingClusterPassword = "<HDINSIGHT HTTP USER PASSWORD>";
+		
+		        private static void Main(string[] args)
+		        {
+		
+		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+		
+		            SubmitHiveJob();
+		        }
+		
+		        private static void SubmitHiveJob()
+		        {
+		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+		            List<string> args = new List<string> { { "argA" }, { "argB" } };
+		            var parameters = new HiveJobSubmissionParameters
+		            {
+		                UserName = ExistingClusterUsername,
+		                Query = "SHOW TABLES",
+		                Defines = ConvertDefinesToString(defines),
+		                Arguments = ConvertArgsToString(args)
+		            };
+		
+		            System.Console.WriteLine("Submitting the Hive job to the cluster...");
+		            var response = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+		            System.Console.WriteLine("Validating that the response is as expected...");
+		            System.Console.WriteLine("Response status code is " + response.StatusCode);
+		            System.Console.WriteLine("Validating the response object...");
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		            System.Console.WriteLine("Press ENTER to continue ...");
+		            System.Console.ReadLine();
+		        }
+		
+		        private static string ConvertDefinesToString(Dictionary<string, string> defines)
+		        {
+		            if (defines.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+		        }
+		        private static string ConvertArgsToString(List<string> args)
+		        {
+		            if (args.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&arg=", args.ToArray());
+		        }
+		    }
+		}
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-
-	Cette commande ajoute des bibliothèques .NET et leurs références nécessaires au projet Visual Studio en cours.
-
-7. Dans l'**Explorateur de solutions**, double-cliquez sur **Program.cs** pour l'ouvrir.
-
-8. Ajoutez les instructions **using** suivantes au début du fichier :
-
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
-
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
-
-9. Ajoutez la définition de fonction suivante à la classe. Cette fonction permet d'attendre la fin d'une tâche Hadoop :
-
-        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-        {
-            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-            {
-                jobInProgress = client.GetJob(jobInProgress.JobId);
-                Thread.Sleep(TimeSpan.FromSeconds(10));
-            }
-        }
-
-10. Dans la fonction **Main()**, collez le code suivant :
-
-		// Set the variables
-		string subscriptionID = "<Azure subscription ID>";
-		string clusterName = "<HDInsight cluster name>";
-		string certFriendlyName = "<certificate friendly name>";
-
-
-	Vous devez définir toutes ces variables pour le programme. Vous pouvez obtenir l'ID d'abonnement Azure auprès de votre administrateur système.
-
-	Pour plus d'informations sur le certificat, consultez [Créer et télécharger un certificat de gestion pour Azure][azure-certificate]. Pour configurer facilement les certificats, exécutez les cmdlets PowerShell **Get-AzurePublishSettingsFile** et **Import-AzurePublishSettingsFile**. Elles vont créer le certificat de gestion et le télécharger automatiquement. Après avoir exécuté ces cmdlets, ouvrez **certmgr.msc** sur le poste de travail puis recherchez le certificat en développant **Personnel** > **Certificats** Le certificat qui est créé par les cmdlets d’Azure PowerShell dispose des outils Azure pour les champs **Émis à** et **Émis par**.
-
-11. Dans la fonction **Main()**, ajoutez le code suivant pour définir la tâche Hive :
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            Query = "show tables;"
-        };
-
-	Vous pouvez également utiliser le paramètre **File** pour indiquer un fichier de script HiveQL dans HDFS, par exemple :
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            File = "/user/admin/showtables.hql"
-        };
-
-
-12. Dans la fonction **Main()**, ajoutez le code suivant pour créer un objet **JobSubmissionCertificateCredential** :
-
-        // Get the certificate object from certificate store using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-
-13. Dans la fonction **Main()**, ajoutez le code suivant pour exécuter la tâche et attendre qu'elle soit terminée :
-
-        // Submit the Hive job
-        var jobClient = JobSubmissionClientFactory.Connect(creds);
-        JobCreationResults jobResults = jobClient.CreateHiveJob(hiveJobDefinition);
-
-        // Wait for the job to complete
-        WaitForJobCompletion(jobResults, jobClient);
-
-14. Dans la fonction **Main()**, ajoutez le code suivant pour imprimer le résultat de la tâche Hive :
-
-        // Print the Hive job output
-        System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);
-
-        StreamReader reader = new StreamReader(stream);
-        Console.WriteLine(reader.ReadToEnd());
-
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadLine();
-
-**Exécution de l'application**
-
-Lorsque l'application est ouverte dans Visual Studio, appuyez sur **F5** pour l'exécuter. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. La sortie doit être :
-
-	hivesampletable
+6. Appuyez sur **F5** pour exécuter l'application.
 
 ##Exécution de travaux Hive à l'aide des outils HDInsight pour Visual Studio
 
-Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop pour Visual Studio HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Vous pouvez exécuter des requêtes Hive et Pig à l'aide des outils HDInsight pour Visual Studio Consultez [Prise en main des outils Hadoop de Visual Studio pour HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 
 ##Étapes suivantes
@@ -731,4 +700,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

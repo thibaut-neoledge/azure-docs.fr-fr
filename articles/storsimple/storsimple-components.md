@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Présentation des composants StorSimple | Microsoft Azure"
-	description="Décrit l’appareil StorSimple, l’appareil virtuel, les services ainsi que les technologies de gestion, et définit les termes clés utilisés dans la solution."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="AdinaH"
-	editor=""/>
+   pageTitle="Présentation des composants StorSimple | Microsoft Azure" 
+   description="Décrit l’appareil StorSimple, l’appareil virtuel, les services ainsi que les technologies de gestion, et définit les termes clés utilisés dans la solution." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="AdinaH" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="08/26/2015"
+   ms.author="v-sharos"/>
 
 
 # Quels sont les composants StorSimple et comment fonctionnent-ils ? 
@@ -53,7 +53,7 @@ L’appareil virtuel StorSimple (ou appliance virtuelle Storsimple) s’exécute
 - L’appareil virtuel n’a qu’une interface, tandis que l’appareil physique comporte six interfaces réseau. 
 - Vous inscrivez l’appareil virtuel lors de la configuration de l’appareil, et non comme une tâche distincte.
 - Vous ne pouvez pas régénérer la clé de chiffrement des données de service à partir d’un appareil virtuel. Au cours de la substitution de la clé, vous régénérez la clé sur l’appareil physique, puis mettez à jour l’appareil virtuel avec la nouvelle clé.
-- Si vous devez appliquer des mises à jour à l’appareil virtuel, vous serez confronté à des temps d’arrêt. Cela ne se produit pas avec un appareil physique StorSimple.
+- Actuellement, l’application de mises à jour à l’appareil virtuel est actuellement désactivée. Si vous avez besoin d'un appareil virtuel disposant de la dernière version, vous pouvez en créer un et basculer les conteneurs de volumes vers ce nouveau appareil virtuel.
 
 Nous vous recommandons d’utiliser l’appareil virtuel StorSimple pour les scénarios de récupération d’urgence dans lesquels un appareil physique n’est pas disponible, comme les scénarios de développement de cloud et de test.
 
@@ -226,4 +226,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

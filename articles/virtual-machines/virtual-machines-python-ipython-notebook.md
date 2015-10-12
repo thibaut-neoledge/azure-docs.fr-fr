@@ -258,8 +258,9 @@ L'interpréteur IPython Notebook offre une interface haute performance pour acc�
 
 Les fonctionnalités principales d'IPython sont également disponibles dans Visual Studio par l'intermédiaire des [outils Python pour Visual Studio][] (PTVS). PTVS est un plug-in open source gratuit de Microsoft qui transforme Visual Studio en environnement de développement Python avancé qui inclut un éditeur avancé avec IntelliSense, ainsi qu'une intégration de débogage, de profilage et de calcul parallèle.
 
+## Étapes suivantes
 
-
+Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ Les fonctionnalités principales d'IPython sont également disponibles dans Visu
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

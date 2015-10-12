@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Authentification de votre application avec le service d&#39;authentification unique de la bibliothèque d&#39;authentification Active Directory (Xamarin.iOS) | Microsoft Azure" 
-	description="Découvrez comment authentifier les utilisateurs pour l&#39;authentification unique avec la bibliothèque d&#39;authentification AD dans votre application Xamarin.iOS." 
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Xamarin.iOS) | Microsoft Azure" 
+	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Xamarin.iOS." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory
@@ -142,4 +142,4 @@ Ce didacticiel requiert les éléments suivants :
 [extension Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

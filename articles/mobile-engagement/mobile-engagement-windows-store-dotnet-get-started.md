@@ -159,6 +159,8 @@ Vous êtes prêt à envoyer un toast. Nous allons maintenant vérifier que vous 
 
 1. Vous devrez associer votre application à une application du Windows Store pour obtenir votre **Identificateur de sécurité (SID) du package** et votre **clé secrète** (clé secrète client). Vous pouvez créer une application à partir du [Centre de développement du Windows Store]. Veillez ensuite à utiliser **Associer l’application au Store** dans Visual Studio.
 
+	![][7]
+
 2. Accédez aux **Paramètres** du portail Mobile Engagement, puis cliquez sur la section **Push natif** à gauche.
 
 3. Cliquez sur le bouton **Modifier** pour entrer l’**identificateur de sécurité (SID) du package** et votre **clé secrète**, comme indiqué ci-dessous :
@@ -178,10 +180,11 @@ Vous devez maintenant voir une notification toast à partir de votre campagne su
 [Applications universelles Windows - intégration de superposition]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

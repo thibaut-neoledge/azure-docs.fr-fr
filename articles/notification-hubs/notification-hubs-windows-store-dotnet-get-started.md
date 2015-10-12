@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/30/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs pour les applications Windows Store
@@ -197,6 +197,9 @@ Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d
 
 	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
 5. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
         using Microsoft.Azure.NotificationHubs;
@@ -264,4 +267,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

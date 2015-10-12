@@ -113,4 +113,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

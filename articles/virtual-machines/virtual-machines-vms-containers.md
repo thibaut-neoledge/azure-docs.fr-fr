@@ -28,7 +28,7 @@ Azure vous offre des solutions cloud exceptionnelles reposant sur les machines v
 
 **Mais c’est de l’histoire ancienne.** La grande *nouveauté* est qu’Azure vous offre encore plus d’avantages Docker :
 
-- [De nombreux](virtual-machines-docker-with-xplat-cli.md) [moyens](virtual-machines-docker-ubuntu-quickstart.md) [différents](virtual-machines-docker-with-portal.md) de [créer des hôtes Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) pour des conteneurs adaptés à vos besoins
+- [De nombreux](virtual-machines-docker-with-xplat-cli-install.md) [moyens](virtual-machines-docker-ubuntu-quickstart.md) [différents](virtual-machines-docker-with-portal.md) de [créer des hôtes Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) pour des conteneurs adaptés à vos besoins
 - [Azure Resource Manager](resource-group-overview.md) et [modèles de groupes de ressources](resource-group-authoring-templates.md) pour simplifier le déploiement et la mise à jour des applications distribuées complexes
 - Intégration avec un large éventail d’outils de gestion de configuration propriétaires et open source
 
@@ -120,7 +120,7 @@ Le tableau suivant décrit de manière très générale le type de différences 
 
 À ce stade, un architecte, développeur ou spécialiste des opérations informatiques pourrait penser : « Je peux automatiser TOUTES ces opérations ; le Data-Center-As-A-Service est une RÉALITÉ ! »
 
-Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d’entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser vos déploiements Azure (et peut-être l’avez-vous déjà fait) en utilisant PowerShell ou des scripts de l’interface de ligne de commande Azure [comme indiqué ici](virtual-machines-create-multi-vm-deployment-xplat-cli.md).
+Vous avez raison, cela peut être le cas et il existe de nombreux systèmes, que vous utilisez déjà pour beaucoup d’entre eux, qui peuvent gérer des groupes de machines virtuelles Azure et injecter du code personnalisé en utilisant des scripts, souvent avec [CustomScriptingExtension pour Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) ou [CustomScriptingExtension pour Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Vous pouvez automatiser vos déploiements Azure (et peut-être l’avez-vous déjà fait) en utilisant PowerShell ou des scripts de l’interface de ligne de commande Azure [comme indiqué ici](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
 
 Souvent, ces fonctionnalités sont ensuite migrées vers des outils tels que [Puppet](https://puppetlabs.com/) et [Chef](https://www.chef.io/) pour automatiser la création et la configuration des machines virtuelles à l’échelle. (Des liens expliquant l’utilisation de ces outils avec Azure sont disponibles [ici](#tools-for-working-with-containers).)
 
@@ -185,7 +185,7 @@ Docker sur Microsoft Azure :
 
 - [Extension Docker VM pour Linux dans Azure](virtual-machines-docker-vm-extension.md)
 - [Guide de l’utilisateur de l’extension Docker VM Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-docker-with-xplat-cli.md)
+- [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-docker-with-xplat-cli-install.md)
 - [Utilisation de l’extension Docker VM à partir du portail Azure en version préliminaire](virtual-machines-docker-with-portal.md)
 - [Prise en main rapide de Docker dans Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Comment utiliser docker-machine sur Azure](virtual-machines-docker-machine.md)
@@ -239,4 +239,4 @@ Découvrez [Docker](https://www.docker.com) et les [conteneurs Windows Server](h
 [microservices]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

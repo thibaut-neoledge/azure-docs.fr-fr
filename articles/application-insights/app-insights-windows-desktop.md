@@ -200,12 +200,14 @@ En revanche, le canal de persistance met en mémoire tampon la télémétrie dan
     ``` 
 3. Utilisez `telemetryClient.Flush()` avant que votre application ferme, pour vous assurer que les données sont soit envoyées au portail, soit enregistrées dans votre fichier.
 
+    Notez que Flush() est synchrone pour le canal de persistance, mais asynchrone pour les autres canaux.
+
  
 Le canal de persistance est optimisé pour les scénarios d’appareils, où le nombre d’événements générés par l’application est relativement faible et la connexion est souvent peu fiable. Ce canal écrira les événements sur le disque dans un espace de stockage fiable tout d’abord, puis essaiera de les envoyer.
 
 #### Exemple
 
-Disons que vous souhaitez surveiller les exceptions non traitées. Commencez par vous abonner à l’événement `UnhandledException`. Dans le rappel, incluez un appel de vidage pour vous assurer que la télémétrie est bien persistante.
+Disons que vous souhaitez surveiller les exceptions non traitées. Commencez par vous abonner à l'événement `UnhandledException`. Dans le rappel, incluez un appel de vidage pour vous assurer que la télémétrie est bien persistante.
  
 ```C# 
 
@@ -226,7 +228,7 @@ private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionE
 
 ``` 
 
-Une fois que l’application s’arrête, vous voyez un fichier contenant les événements compressés dans `%LocalAppData%\Microsoft\ApplicationInsights`.
+Une fois que l'application s'arrête, vous voyez un fichier contenant les événements compressés dans `%LocalAppData%\Microsoft\ApplicationInsights`.
  
 Lors du prochain que démarrage de cette application, le canal récupérera le fichier et transmettra la télémétrie à Application Insights si possible.
 
@@ -297,4 +299,4 @@ Le code du canal de persistance est sur [github](https://github.com/Microsoft/Ap
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

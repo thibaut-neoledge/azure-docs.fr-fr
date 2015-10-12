@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -59,4 +59,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application web](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

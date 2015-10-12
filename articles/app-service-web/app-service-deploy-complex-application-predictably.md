@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Mise en service et déploiement de microservices de manière prévisible dans Azure"
 	description="Découvrez comment déployer une application composée de microservices dans Azure App Service sous forme d'unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et de scripts PowerShell."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -305,4 +305,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

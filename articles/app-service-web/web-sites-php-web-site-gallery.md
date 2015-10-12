@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
@@ -26,8 +26,10 @@ Vous savez désormais comment créer et déployer une application web à partir 
 - [Création et déploiement d’une application web Azure PHP-MySQL à l’aide de Git](/fr-FR/develop/php/tutorials/website-w-mysql-and-git/)
 - [Création d’autres types d’applications utilisant PHP et Azure](/fr-FR/develop/php/tutorials/)
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Web Sites et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

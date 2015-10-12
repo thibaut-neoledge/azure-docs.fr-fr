@@ -37,7 +37,7 @@ Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des
 Vous devez disposer des éléments suivants :
 
 - Agent Microsoft Azure Linux version 2.0.5 ou ultérieure. La plupart des images Linux dans la galerie de machines virtuelles incluent la version 2.0.5. Pour connaître la version installée, exécutez **waagent -version**. Pour mettre à jour l’agent, suivez les instructions du [Guide de l’utilisateur de l’agent Linux Azure].
-- Interface de ligne de commande Microsoft Azure Pour plus d’informations sur la configuration de l’interface de ligne de commande Microsoft Azure, consultez la page [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli.md).
+- Interface de ligne de commande Microsoft Azure Pour plus d’informations sur la configuration de l’interface de ligne de commande Microsoft Azure, consultez la page [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
 - Azure PowerShell. Vous allez utiliser les commandes de la cmdlet Set-AzureVMExtension pour charger et configurer automatiquement l'extension VMAccessForLinux. Pour plus d’informations sur la configuration de Microsoft Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell].
 - Un nouveau mot de passe ou des clés SSH, si vous souhaitez réinitialiser l’un des deux. Vous n’avez pas besoin de ces derniers si vous souhaitez corriger la configuration SSH.
 
@@ -263,4 +263,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -24,6 +24,7 @@ Cette rubrique explique comment énumérer par programme les applications YARN (
   1. Le serveur d’historique des applications génériques sur les clusters HDInsight est activé. Il s'agit d'un composant du serveur YARN Timeline qui gère le stockage et la récupération d'informations génériques sur les applications terminées.
   2. Des API sont ajoutées au le Kit de développement logiciel (SDK) .Net Azure HDInsight pour vous permettre d’énumérer par programme les applications exécutées sur vos clusters et de télécharger les journaux propres à des applications ou à des conteneurs (au format texte brut) en vue du débogage de problèmes éventuels.
 
+> [AZURE.NOTE]Les informations présentes dans ce document sont spécifiques aux clusters HDInsight sous Windows. Pour plus d'informations sur l'accès aux journaux YARN sur les clusters HDInsight sous Linux, consultez [Accès aux journaux d'application YARN basés sur Hadoop Linux sous HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## Configuration requise
 
@@ -173,4 +174,4 @@ Si nécessaire, vous pouvez également télécharger des journaux pour chaque co
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

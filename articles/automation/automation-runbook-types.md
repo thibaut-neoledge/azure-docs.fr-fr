@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="bwren" />
 
 # Types de Runbooks Azure Automation
@@ -35,15 +35,18 @@ Les [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) sont c
 - Créez des Runbooks avec une connaissance minimale du [workflow PowerShell](automation-powershell-workflow.md).
 - Représentez visuellement les processus de gestion.
 - Utilisez des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
-- Utilisez un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
-- D’autres Runbooks graphiques ou de workflow PowerShell peuvent être inclus en tant que Runbooks enfants afin de créer des workflows de haut niveau.
+- Utilisez un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs activités en parallèle.
+- Peut inclure d'autres Runbooks graphiques et Runbooks de workflow PowerShell en tant que Runbooks enfants afin de créer des workflows de haut niveau.
+
 
 ### Limites
 
 - Impossible de modifier le Runbook en dehors du portail Azure.
 - Peut nécessiter un [contrôle Script de workflow](automation-powershell-workflow.md#activities) contenant du code de workflow PowerShell pour exécuter une logique complexe.
+- Impossible d'afficher ou de modifier directement le code de Workflow PowerShell créé par le workflow graphique. Notez que vous pouvez afficher le code dans toute activité Script de Workflow.
 - Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
-- Les Runbooks PowerShell peuvent être inclus uniquement à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
+- Les Runbooks PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
+
 
 ## Runbooks de workflow PowerShell
 
@@ -54,14 +57,16 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 - Implémentez tout type de logique complexe avec le code de workflow PowerShell.
 - Utilisez des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
 - Utilisez un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
-- D’autres Runbooks de workflow PowerShell ou graphiques peuvent être inclus en tant que Runbooks enfants afin de créer des workflows de haut niveau.
+- Peut inclure d'autres Runbooks graphiques et Runbooks de workflow PowerShell en tant que Runbooks enfants afin de créer des workflows de haut niveau.
+
 
 ### Limites
 
 - L’auteur doit être familiarisé avec les workflows PowerShell.
 - Un Runbook doit pouvoir gérer la complexité supplémentaire liée au workflow PowerShell, notamment les [objets désérialisés](automation-powershell-workflow.md#code-changes).
 - Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
-- Les Runbooks PowerShell peuvent être inclus uniquement à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
+- Les Runbooks PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
+
 
 ## Runbooks PowerShell
 
@@ -75,10 +80,10 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell. Vous modifiez direct
 ### Limites
 
 - Doit être familiarisé avec les scripts PowerShell.
-- Impossible d’utiliser un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
-- Impossible d’utiliser des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
-- Impossible de démarrer des Runbooks sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md)
-- Les Runbooks PowerShell et graphiques peuvent être inclus uniquement à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
+- Impossible d'utiliser un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
+- Impossible d'utiliser des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
+- Impossible de démarrer des Runbooks sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md).
+- Les Runbooks graphiques et les Runbooks de Workflow PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
 
 ### Problèmes connus
 Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
@@ -86,7 +91,7 @@ Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
 - Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) non chiffrée avec une valeur null.
 - Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) avec le symbole *~* dans le nom.
 - Get-Process dans une boucle d’un Runbook PowerShell peut se bloquer après environ 80 itérations. 
-- Un Runbook PowerShell peut échouer s’il tente d'écrire une très grande quantité de données dans un flux de sortie. Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux. Par exemple, au lieu d’exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
+- Un Runbook PowerShell peut échouer s’il tente d'écrire une très grande quantité de données dans un flux de sortie. Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux. Par exemple, au lieu d'exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
 
 ## Considérations
 
@@ -104,4 +109,4 @@ Vous devez prendre en compte les considérations supplémentaires suivantes pour
 - [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - [Création ou importation d'un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

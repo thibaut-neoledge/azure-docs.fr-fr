@@ -151,4 +151,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

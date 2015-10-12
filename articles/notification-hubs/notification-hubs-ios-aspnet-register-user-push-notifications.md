@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 
 > [AZURE.SELECTOR]
@@ -237,4 +238,4 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Prise en main de Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

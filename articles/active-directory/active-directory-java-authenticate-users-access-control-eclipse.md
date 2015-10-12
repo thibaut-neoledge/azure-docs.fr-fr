@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="09/22/2015"
     ms.author="robmcm" />
 
 # Authentification des utilisateurs web auprès d'Azure Access Control Service à l'aide d'Eclipse
@@ -114,8 +114,8 @@ Cette tâche vise à configurer ACS afin que votre application Web Java soit rec
 3.  Effectuez les actions suivantes sur la page **Add Relying Party Application** :
     1.  Dans **Name**, entrez le nom de la partie de confiance. Pour suivre l'exemple de ce didacticiel, entrez **Azure Web App**.
     2.  Dans **Mode**, sélectionnez **Enter settings manually**.
-    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez \*\***http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
-4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez \*\***http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
+    3.  Sous **Realm**, entrez l'URI auquel s'applique le jeton de sécurité émis par ACS. Pour cette tâche, tapez ****http://localhost:8080/**. ![Domaine de partie de confiance à utiliser dans l'émulateur de calcul][relying_party_realm_emulator]
+4.  Sous **Return URL**, entrez l'adresse URL vers laquelle ACS renvoie le jeton de sécurité. Pour cette tâche, tapez ****http://localhost:8080/MyACSHelloWorld/index.jsp** ![URL de retour de partie de confiance à utiliser dans l’émulateur de calcul][relying_party_return_url_emulator]
 5.  Acceptez les valeurs par défaut dans les autres champs.
 
 4.  Cliquez sur **Save**.
@@ -287,7 +287,7 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [site web du projet]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Affichage des données SAML renvoyées par ACS]: /fr-fr/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Affichage des données SAML renvoyées par ACS]: /fr-FR/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -309,4 +309,4 @@ Votre certificat doit maintenant être inclus dans votre déploiement. Que le ce
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

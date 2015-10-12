@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Activer la journalisation des diagnostics pour les applications web dans Azure App Service"
 	description="Découvrez comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, mais aussi comment accéder aux informations enregistrées par Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ Pour télécharger les fichiers journaux à l’aide de l’interface de ligne d
 
 Cette commande enregistre les journaux de l’application web nommée « webappname » dans un fichier **diagnostics.zip** du répertoire en cours.
 
-> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de l’interface de ligne de commande Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure (CLI Azure) de manière à utiliser votre abonnement Azure, consultez la page[ Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ## Affichage des journaux dans Application Insights
 
@@ -175,7 +175,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si vous n’avez pas installé ou configuré l’interface de ligne de commande Azure de manière à utiliser votre abonnement Azure, consultez la page [Utilisation de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ##<a name="understandlogs"></a> Présentation des journaux de diagnostic
 
@@ -265,4 +265,4 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

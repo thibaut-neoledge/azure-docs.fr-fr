@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Accès aux machines virtuelles Azure à partir de l’Explorateur de serveurs
@@ -51,6 +51,6 @@ Si vous avez des machines virtuelles hébergées par Azure, vous pouvez y accéd
 
 ## Étapes suivantes
 
-Pour en savoir plus sur l’utilisation des rôles Azure dans Visual Studio, consultez [Utilisation du Bureau à distance avec des rôles Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091).
+Pour en savoir plus sur l’utilisation des rôles Azure dans Visual Studio, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

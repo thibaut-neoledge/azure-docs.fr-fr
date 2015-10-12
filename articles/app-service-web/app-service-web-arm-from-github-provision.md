@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Déployer une application Web liée à un référentiel GitHub" 
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui contient un projet issu d'un référentiel GitHub." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@ Avec ce modèle, vous allez déployer une application Web qui contient le code d
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
+[![Déploiement sur Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
 ## Paramètres
 
@@ -110,4 +110,4 @@ L'application Web a également une ressource enfant qui est définie dans la sec
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

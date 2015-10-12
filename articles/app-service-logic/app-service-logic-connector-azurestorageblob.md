@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Utilisation du connecteur d’objet blob de stockage Azure dans des applications logiques | Microsoft Azure App Service"
-	description="Comment créer et configurer le connecteur d’objet blob de stockage Azure ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Utilisation du connecteur d’objet blob de stockage Azure dans des applications logiques | Microsoft Azure App Service" 
+   description="Comment créer et configurer le connecteur d’objet blob de stockage Azure ou une application API et l'utiliser dans une application logique d’Azure App Service" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="anuragdalmia" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
    
 # Utilisation et ajout du connecteur d’objet blob de stockage Azure dans votre application logique 
 Connectez-vous à votre objet blob de stockage Azure pour télécharger et supprimer des objets blob dans le conteneur d’objets blob. Les connecteurs sont utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
@@ -85,9 +85,11 @@ Vous pouvez définir n'importe quelle valeur souhaitée. L'expression prend la s
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
+Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
@@ -102,4 +104,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

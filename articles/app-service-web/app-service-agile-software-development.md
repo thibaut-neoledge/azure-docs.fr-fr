@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Développement logiciel agile avec Azure App Service"
 	description="Apprenez à créer des applications complexes à grande échelle avec Azure App Service afin que le développement logiciel agile soit pris en charge."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -277,8 +277,8 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création de branches Git – Branchement et fusion basiques](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[Blog de David Ebbo](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Outils en ligne de commande multiplateforme Azure](xplat-cli.md)
+-	[Outils en ligne de commande multiplateforme Azure](xplat-cli-install.md)
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

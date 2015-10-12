@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Migration à partir de Mobile Services vers une application App Service Mobile App"
-	description="Découvrez comment migrer facilement votre application Mobile Services vers une application App Service Mobile App."
-	services="app-service\mobile"
-	documentationCenter=""
-	authors="mattchenderson"
-	manager="dwrede"
+	pageTitle="Migration à partir de Mobile Services vers une application App Service Mobile App" 
+	description="Découvrez comment migrer facilement votre application Mobile Services vers une application App Service Mobile App." 
+	services="app-service\mobile" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="mahender"/>
 
 # Migration d'une application Azure Mobile Service existante vers une application Azure App Service Mobile App
@@ -135,14 +135,14 @@ Une fois que vos clients ont eu l'occasion de recevoir ces mises à jour, vous p
 [version préliminaire du portail de gestion Azure]: https://portal.azure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Que sont les applications Mobile Apps ?]: app-service-mobile-value-prop-preview.md
-[J’utilise déjà les sites web et des services mobiles – comment App Service peut-il m’aider ?]: /fr-fr/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[J’utilise déjà les sites web et des services mobiles – comment App Service peut-il m’aider ?]: /fr-FR/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [Kit de développement logiciel (SDK) Mobile App Server]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Création d’une application Mobile App]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [Ajout de notifications push à votre application mobile]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [Ajout de l’authentification à votre application mobile]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Azure Scheduler]: /fr-fr/documentation/services/scheduler/
+[Azure Scheduler]: /fr-FR/documentation/services/scheduler/
 [tâche web]: ../app-service-web/websites-webjobs-resources.md
 [Envoi de notifications push interplateformes]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Comment utiliser le kit de développement logiciel du serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

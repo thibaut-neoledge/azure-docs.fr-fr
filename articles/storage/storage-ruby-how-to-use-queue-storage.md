@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -153,4 +153,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 Pour obtenir une comparaison entre le service de File d'attente Azure abordé dans cette rubrique et les files d'attente Azure Service Bus abordées dans la rubrique [Utilisation des files d'attente Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](http://msdn.microsoft.com/library/azure/hh767287.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

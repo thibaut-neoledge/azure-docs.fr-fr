@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Présentation de Microsoft Azure DocumentDB : version d’évaluation gratuite | Microsoft Azure"
-	description="Découvrez Azure DocumentDB, une base de données de documents NoSQL, et ses bénéfices pour les applications cloud et mobiles. Découvrez également comment l'utiliser pour gérer les données et développer des applications."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Présentation de Microsoft Azure DocumentDB : version d’évaluation gratuite | Microsoft Azure" 
+	description="Découvrez Azure DocumentDB, une base de données de documents NoSQL, et ses bénéfices pour les applications cloud et mobiles. Découvrez également comment l'utiliser pour gérer les données et développer des applications." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Présentation de Microsoft Azure DocumentDB
@@ -110,4 +110,4 @@ Ensuite, lorsque vous êtes prêt à en savoir plus, visitez notre [cursus](http
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

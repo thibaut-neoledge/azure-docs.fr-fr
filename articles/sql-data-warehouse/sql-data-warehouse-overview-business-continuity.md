@@ -78,4 +78,4 @@ Pour en savoir plus sur les fonctionnalités de continuité d’activité d’au
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

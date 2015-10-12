@@ -172,10 +172,10 @@ Une fois que les réponses aux questions ci-dessus sont connues, la section [Dé
 #### Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-- Deux services cloud : « FrontEnd001 » et « BackEnd001 »
+- deux services cloud : « FrontEnd001 », « BackEnd001 »,
 - Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
-- Un groupe de sécurité réseau qui est appliqué aux deux sous-réseaux
-- Un serveur Windows Server qui représente un serveur web d’application (« IIS01 »)
+- un groupe de sécurité réseau est appliqué aux deux sous-réseaux,
+- un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 - Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 - Un serveur Windows Server qui représente un serveur DNS (« DNS01 »)
 
@@ -188,7 +188,7 @@ Dans cet exemple, un groupe NSG est créé, puis chargé avec six règles.
 
 Les règles qui suivent sont générées de façon déclarative pour le trafic entrant :
 
-1.	Le trafic DNS interne (port 53) est autorisé.
+1.	Le trafic DNS interne (port 53) est autorisé
 2.	Le trafic RDP (port 3389) à partir d’Internet vers n’importe quelle machine virtuelle est autorisé.
 3.	Le trafic HTTP (port 80) à partir d’Internet vers le serveur web (IIS01) est autorisé.
 4.	Tout trafic (tous les ports) en provenance d’IIS01 vers AppVM1 est autorisé.
@@ -197,7 +197,7 @@ Les règles qui suivent sont générées de façon déclarative pour le trafic e
 
 Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante arrive en provenance d’Internet à destination du serveur web, les règles 3 (autorisation) et 5 (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au serveur web. Si le même trafic tentait d’atteindre le serveur DNS01, la règle 5 (Refus) serait la première à s’appliquer et le trafic ne serait pas autorisé à franchir le serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle sortante par défaut qui autorise le trafic sortant vers internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
 
 #### Conclusion
 Il s’agit d’un moyen relativement simple et direct d’isoler le sous-réseau principal du trafic entrant. Plus d’informations sur cet exemple, notamment :
@@ -217,7 +217,7 @@ disponibles sur la page [Instructions de création détaillées][Example1]
 #### Description de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-- Deux services cloud : « FrontEnd001 » et « BackEnd001 »
+- deux services cloud : « FrontEnd001 », « BackEnd001 »,
 - Un réseau virtuel « CorpNetwork » avec deux sous-réseaux « FrontEnd » et « BackEnd »
 - Un groupe de sécurité réseau unique qui est appliqué aux deux sous-réseaux
 - Une appliance virtuelle réseau, dans cet exemple un pare-feu, connecté au sous-réseau principal
@@ -243,7 +243,7 @@ Les règles qui suivent sont générées de façon déclarative pour le trafic e
 
 Lorsque ces règles sont associées à chacun des sous-réseaux, si une requête HTTP entrante arrive d’Internet à destination du pare-feu, les règles 3 (autorisation) et 5 (refus) s’appliquent. Cependant, comme la règle 3 a une priorité plus élevée, elle seule s’applique, et la règle 5 n’entre pas en jeu. La requête HTTP est donc autorisée à accéder au pare-feu. Si le même trafic tentait d’atteindre le serveur IIS01, même s’il se trouve sur le sous-réseau frontal, la règle 5 (Refus) s’appliquerait et le trafic ne serait pas autorisé à franchir le serveur. La règle 6 (Refus) bloque la communication du sous-réseau frontal vers le sous-réseau principal (excepté le trafic autorisé dans les règles 1 et 4), ce qui protège le réseau principal en cas d’attaque d’une personne mal intentionnée sur l’application web sur le serveur frontal. Cette personne aurait alors un accès limité au réseau principal « protégé » (uniquement les ressources exposées sur le serveur AppVM01).
 
-Il existe une règle sortante par défaut qui autorise le trafic sortant vers internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
+Il existe une règle par défaut qui autorise le trafic sortant vers Internet. Pour cet exemple, nous allons autoriser le trafic sortant sans modifier les règles de trafic sortant. Pour verrouiller le trafic dans les deux sens, l’itinéraire défini par l’utilisateur est requis. Cette opération est expliquée dans l’exemple 3 ci-dessous.
 
 #### Description de la règle de pare-feu
 Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que cet exemple achemine uniquement le trafic Internet entrant vers le pare-feu, puis vers le serveur web, seule une règle NAT de transfert est requise.
@@ -270,8 +270,8 @@ Dans cet exemple, il existe un abonnement qui contient les éléments suivants 
 
 - Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
 - Un réseau virtuel « CorpNetwork », avec trois sous-réseaux ; « SecNet », « FrontEnd » et « BackEnd »
-- Une appliance virtuelle réseau, dans cet exemple un pare-feu, connecté au sous-réseau SecNet
-- Un serveur Windows Server qui représente un serveur web d’application (« IIS01 »)
+- Une appliance virtuelle du réseau, dans cet exemple un pare-feu, connecté au sous-réseau SecNet
+- un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
 - Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 - Un serveur Windows Server qui représente un serveur DNS (« DNS01 »)
 
@@ -290,7 +290,7 @@ Par défaut, les itinéraires système suivants sont définis en tant que :
          {172.16.0.0/12}   Null                                 Active   Default    
          {192.168.0.0/16}  Null                                 Active   Default
 
-Le VNETLocal constitue toujours le ou les préfixes d’adresse défini(s) du réseau virtuel correspondant à ce réseau spécifique (il passera d’un réseau virtuel à un autre en fonction de la manière dont chaque réseau virtuel spécifique est défini). Les itinéraires système restants sont statiques et par défaut, ils prennent la valeur indiquée ci-dessus.
+Le VNETLocal constitue toujours le ou les préfixes d’adresse de réseau virtuel défini(s) du réseau virtuel correspondant à ce réseau spécifique (il passera de VNet à VNet en fonction de la manière dont chaque réseau virtuel spécifique est défini. Les itinéraires système restants sont statiques et par défaut, ils prennent la valeur indiquée ci-dessus.
 
 Dans cet exemple, deux tables de routage sont créées, une pour chacun des sous-réseaux principal et frontal. Chaque table est chargée avec des itinéraires statiques appropriés au sous-réseau donné. Dans cet exemple, chaque table possède trois itinéraires qui dirigent tout le trafic (0.0.0.0/0) via le pare-feu (tronçon suivant = adresse IP de l’appliance virtuelle) :
 
@@ -310,7 +310,7 @@ Une fois que les tables de routage sont créées, elles sont liées à leurs sou
 >[AZURE.NOTE]Il existe des limitations actuelles avec l’UDR et les réseaux hybrides. Cela est résolu dans une version ultérieure ; des exemples montrant comment activer votre zone DMZ avec ExpressRoute ou la mise en réseau de site à site sont décrits ci-dessous dans les exemples 3 et 4.
 
 #### Description du transfert IP
-Le transfert IP est associé à l’UDR. Il s’agit d’un paramètre d’appliance virtuelle qui permet de recevoir du trafic pas spécialement adressé à l’appliance, puis de transférer ce trafic vers sa destination finale.
+Le transfert IP est associé à l’UDR. Il s’agit d’un paramètre d’appliance virtuelle qui permet de recevoir du trafic pas spécialement adressé à l’équipement, puis de transférer ce trafic vers sa destination finale.
 
 Par exemple, si le trafic à partir d’AppVM01 fait une demande au serveur DNS01, l’UDR l’achemine vers le pare-feu. Lorsque le transfert IP est activé, le trafic de la destination de DNS01 (10.0.2.4) est accepté par l’appliance (10.0.0.4), puis transféré vers sa destination finale (10.0.2.4). Si le routage IP n’est pas activé sur le pare-feu, le trafic n’est pas accepté par l’appliance, même si le tronçon suivant de la table de routage est le pare-feu. Pour utiliser une appliance virtuelle, il est essentiel de ne pas oublier d’activer le transfert IP en conjonction avec l’itinéraire défini par l’utilisateur.
 
@@ -319,12 +319,12 @@ Dans cet exemple, un groupe NSG est créé, puis chargé avec une seule règle. 
 
 1.	Tout le trafic (tous les ports) depuis Internet vers l’ensemble du réseau virtuel entier (tous les sous-réseaux) est refusé.
 
-Bien que dans cet exemple, on utilise des NSG, son principal objectif est celui d’une couche secondaire de défense contre les erreurs de configuration manuelle. Nous voulons bloquer tout trafic entrant en provenance d’Internet vers les sous-réseaux frontal ou principal, le trafic doit circuler uniquement via le sous-réseau SecNet vers le pare-feu (puis, le cas échéant, sur les sous-réseaux frontal ou principal). En outre, avec les règles UDR en place, tout trafic ayant atteint les sous-réseaux principal ou frontal est dirigé vers le pare-feu (grâce à l’UDR). Le pare-feu serait considéré comme un flux asymétrique et abandonnerait le trafic sortant. Par conséquent, il existe trois couches de sécurité protégeant les sous-réseaux frontaux et principaux ; (1) aucun point de terminaison n’est ouvert sur les services cloud FrontEnd001 et BackEnd001, (2) NSG refusant le trafic provenant d’Internet, (3) pare-feu abandonnant le trafic asymétrique.
+Bien que dans cet exemple, on utilise des NSG, son principal objectif est celui d’une couche secondaire de défense contre les erreurs de configuration manuelle. Nous voulons bloquer tout trafic entrant en provenance d’Internet vers les sous-réseaux frontal ou principal des sous-réseaux, le trafic doit circuler uniquement via le sous-réseau SecNet vers le pare-feu (puis, le cas échéant, sur les sous-réseaux frontal ou principal). En outre, avec les règles UDR en place, tout trafic ayant atteint les sous-réseaux principal ou frontal est dirigé vers le pare-feu (grâce à l’UDR). Le pare-feu serait considéré comme un flux asymétrique et abandonnerait le trafic sortant. Par conséquent, il existe trois couches de sécurité protégeant les sous-réseaux frontaux et principaux ; (1) aucun point de terminaison n’est ouvert sur les services cloud FrontEnd001 et BackEnd001, (2) NSG refusant le trafic provenant d’Internet, (3) pare-feu abandonnant le trafic asymétrique.
 
 Point intéressant concernant le groupe de sécurité réseau dans cet exemple : il contient une seule règle qui consiste à refuser le trafic internet de l’ensemble du réseau virtuel qui inclut le sous-réseau de sécurité. Toutefois, étant donné que le NSG est associé uniquement aux sous-réseaux frontaux et principaux, la règle n’est pas exécutée sur le trafic entrant du sous-réseau de sécurité. Par conséquent, même si la règle NSG n’indique aucun trafic Internet sur une adresse de réseau virtuel, le NSG n’est jamais lié au sous-réseau de sécurité, le trafic passe au sous-réseau de sécurité.
 
 #### Règles de pare-feu
-Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu. En outre, tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. L’une des meilleures pratiques consiste à faire un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
+Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu. Tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. L’une des meilleures pratiques consiste à faire un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
  
 ![Affichage logique des règles de pare-feu][10]
 
@@ -336,17 +336,17 @@ Dans le schéma logique ci-dessus, le sous-réseau de sécurité n’est pas aff
 Dans cet exemple, nous avons besoin de 7 types de règles, qui se présentent comme suit :
 
 - Règles externes (pour le trafic entrant) :
-  1.	Règle de gestion de pare-feu : cette règle de redirection de l’application autorise le trafic à traverser les ports de gestion de l’appliance virtuelle réseau.
+  1.	Règle de gestion de pare-feu : cette règle de redirection de l’application autorise le trafic à traverser les ports de gestion de l’appliance virtuelle du réseau.
   2.	Règles de RDP (pour chaque serveur Windows) : ces quatre réseaux (une pour chaque serveur) permettront la gestion des serveurs individuels via RDP. Ces éléments pourraient être regroupés en une règle, en fonction de la capacité de l’appliance virtuelle réseau utilisée.
   3.	Règles de trafic d’application : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture réseau (sur lequel sont placés vos serveurs) et les flux de trafic (direction du flux de trafic et ports utilisés).
       - La première règle permet au trafic d’application réel de parvenir au serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un serveur web sur le port 80, et donc une seule règle d’application redirige le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web. L’adresse réseau de la session de trafic redirigée sera traduite vers le serveur interne.
-      - La seconde règle de trafic d’application et la règle principale qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via n’importe quel port.
+      - La seconde règle de trafic d’application est la règle du serveur principal qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via n’importe quel port.
 - Règles internes (pour le trafic réseau virtuel interne)
-  4.	Règle de sortie vers Internet : cette règle autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux sélectionnés. Cette règle est généralement une règle par défaut déjà sur le pare-feu, mais à l’état désactivé. Pour cet exemple, cette règle doit être activée.
+  4.	Sortie vers règle Internet : cette règle autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu, mais à l’état désactivé. Pour cet exemple, cette règle doit être activée.
   5.	Règle DNS : cette règle autorise uniquement le trafic DNS (port 53) vers le serveur DNS. Pour cet environnement, la majeure partie du trafic du serveur frontal vers le serveur principal est bloquée. Cette règle autorise spécifiquement DNS à partir de n’importe quel sous-réseau local.
-  6.	Règle sous-réseau à sous-réseau : cette règle permet à n’importe quel serveur principal du sous-réseau de se connecter à n’importe quel serveur du sous-réseau frontal (mais pas l’inverse).
+  6.	Règle sous-réseau à sous-réseau : cette règle permet à n’importe quel serveur principal du sous-réseau de se connecter à n’importe quel serveur du sous-réseau du serveur frontal (mais pas l’inverse).
 - Règle de prévention de défaillance (pour le trafic ne répondant à aucun des éléments ci-dessus) :
-  7.	Refuser toutes les règles de trafic : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut et généralement activée, et en général, aucune modification n’est nécessaire.
+  7.	Refuser toutes les règles de trafic : il doit toujours s’agir de la dernière règle (en termes de priorité) et par conséquent, si un trafic ne correspond à aucune des règles qui précèdent, il sera abandonné par cette règle. Il s’agit d’une règle par défaut qui est en général activée, et en général, aucune modification n’est nécessaire.
 
 >[AZURE.TIP]Sur la deuxième règle de trafic de l’application, n’importe quel port est autorisé pour simplifier cet exemple. Dans un scénario réel, le port le plus spécifique et les plages d’adresses doivent être utilisés pour réduire la surface d’attaque de cette règle.
 
@@ -499,4 +499,4 @@ bientôt disponibles et liés à partir de cette page.
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

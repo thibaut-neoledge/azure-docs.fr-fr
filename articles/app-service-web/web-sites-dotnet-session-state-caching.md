@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="État de session avec Cache Redis Azure dans Azure App Service" 
 	description="Découvrez comment utiliser Azure Cache Service pour prendre en charge la mise en cache de l’état de session ASP.NET." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@ Vous pouvez également utiliser le Cache Redis pour mettre en cache des objets d
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

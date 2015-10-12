@@ -35,7 +35,7 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../pricing/free-trial) dès aujourd’hui.
-- Interface de ligne de commande interplateforme Azure, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli.md).
+- Interface de ligne de commande interplateforme Azure, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli-install.md).
 - Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 ## Obtention d’aide avec l’interface de ligne de commande interplateforme Azure
@@ -54,7 +54,7 @@ Si vous avez des doutes sur les paramètres exigés par une commande, reportez-v
 
 Consultez également les didacticiels suivants afin de vous familiariser avec Azure Resource Manager dans l’interface de ligne de commande interplateforme Azure :
 
-- [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli.md)
+- [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli-install.md)
 - [Utilisation de l’interface de ligne de commande interplateforme Azure avec Azure Resource Manager](xplat-cli-azure-resource-manager.md)
 
 
@@ -89,7 +89,7 @@ Ensuite, pour indiquer l’abonnement, tapez ce qui suit :
 
     azure account set <subscription name>
 
-Pour plus d’informations sur la configuration de l’interface de ligne de commande interplateforme Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli.md).
+Pour plus d’informations sur la configuration de l’interface de ligne de commande interplateforme Azure, consultez la page [Installation et configuration de l’interface de ligne de commande interplateforme Azure](xplat-cli-install.md).
 
 
 ## Passage au mode Azure Resource Manager
@@ -256,4 +256,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

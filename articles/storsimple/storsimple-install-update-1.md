@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Installation d’Update 1.2 sur votre appareil StorSimple | Microsoft Azure"
-   description="Explique comment installer StorSimple série 8000 Update 1.2 sur votre appareil."
+   description="Explique comment installer StorSimple série 8000 Update 1.2 sur votre appareil StorSimple série 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # Installation d’Update 1.2 sur votre appareil StorSimple
@@ -153,4 +153,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

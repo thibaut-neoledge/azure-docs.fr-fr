@@ -59,9 +59,11 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 
     Le transfert n’a aucune incidence sur le service. Il annule l’abonnement de l’administrateur de compte actuel et en crée un nouveau sous le compte du destinataire, mais associe les services Azure sous-jacents avec ce nouvel abonnement. L’ID de l’abonnement reste inchangé.
 
+-   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**- Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
+   
 -   **Si je deviens titulaire d’un abonnement d’une autre organisation, cette dernière aura-t-elle toujours accès à mes ressources ?**
 
-    Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Par exemple : - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d’informations, voir [Télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) - Clés d’accès pour les services comme le stockage. Pour plus d’informations, voir [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys) - Informations d’identification pour l’accès à distance aux services comme les machines virtuelles Azure
+    Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Par exemple : - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) - Clés d'accès pour les services tels que Storage. Pour plus d'informations, consultez [Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys) - Informations d'accès à distance pour les services tels que Azure Virtual Machines
 
     Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
 
@@ -92,17 +94,17 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 
 -   **Le destinataire peut-il utiliser un autre mode de paiement ?**
 
-    Oui, vous pouvez choisir la facturation sur une carte de crédit comme mode de paiement de votre abonnement. Il vous suffit de faire le transfert vers un autre compte dont vous êtes titulaire et de saisir les informations de carte de crédit à la réception de l’abonnement. Les limites sont les suivantes : l’historique de facturation de l’abonnement est désormais réparti entre deux comptes. L’avantage, c’est que vous pouvez effectuer cette procédure sans avoir à [contacter le support technique](http://go.microsoft.com/fwlink/?LinkID=619338).
+    Oui, vous pouvez choisir la facturation sur une carte de crédit comme mode de paiement de votre abonnement. Il vous suffit de faire le transfert vers un autre compte dont vous êtes titulaire et de saisir les informations de carte de crédit à la réception de l’abonnement. Les limites sont les suivantes : l’historique de facturation de l’abonnement est désormais réparti entre deux comptes. L'avantage, c'est que vous pouvez effectuer cette procédure sans avoir à [contacter le support technique](http://go.microsoft.com/fwlink/?LinkID=619338).
 
 ## Étapes suivantes après avoir accepté la propriété d’un abonnement
 
 1. Vous êtes désormais l’administrateur de compte. Examinez et mettez à jour l’administrateur du service et les coadministrateurs. Gérez les administrateurs dans le [portail de gestion Azure](https://manage.windowsazure.com) en accédant aux paramètres. [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533293).
-2. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour vos abonnement et services. Visitez le [portail Azure en version préliminaire](https://portal.azure.com). [En savoir plus sur le contrôle RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
+2. Vous pouvez également utiliser le contrôle d’accès en fonction du rôle (RBAC) pour vos abonnement et services. Visitez le [portail Azure en version préliminaire](https://portal.azure.com) [En savoir plus sur le contrôle RBAC](http://go.microsoft.com/fwlink/?LinkID=544802)
 3. Mettez à jour les informations d’identification associées aux services de cet abonnement. Il s’agit des actions suivantes :
-    -   Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d’informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
-    -	Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+    -   Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx).
+    -	Touches d’accès rapide pour les services tels que Storage. Pour plus d'informations, consultez [Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
     -	Informations d’accès à distance pour les services tels que Azure Virtual Machines
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

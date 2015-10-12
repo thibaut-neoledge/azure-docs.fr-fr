@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Ajout de l’authentification à une application existante
@@ -84,4 +84,4 @@ Ensuite, découvrez [comment utiliser la valeur d’ID d’utilisateur pour filt
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

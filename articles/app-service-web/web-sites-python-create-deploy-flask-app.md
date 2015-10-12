@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Création d’applications web avec Flask dans AzureCréation d’applications web avec Flask dans Azure"
-	description="Un didacticiel qui vous présente l’exécution d’une application web Python sur Azure."
-	services="app-service\web"
+	pageTitle="Création d’applications web avec Flask dans AzureCréation d’applications web avec Flask dans Azure" 
+	description="Un didacticiel qui vous présente l’exécution d’une application web Python sur Azure." 
+	services="app-service\web" 
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -377,6 +377,8 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 - [Flask et MongoDB sur Azure avec Python Tools pour Visual Studio]
 - [Flask et stockage des tables Azure sur Azure avec Python Tools pour Visual Studio]
 
+Pour plus d’informations, consultez également le [Centre pour développeurs Python](/develop/python/).
+
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
@@ -401,4 +403,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

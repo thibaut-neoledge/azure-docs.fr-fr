@@ -222,7 +222,7 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 | Connexions à une application métier personnalisée qui a été ajoutée au répertoire | Non (bientôt disponible) |
 | Connexions à une application de proxy de l'application Azure AD qui a été ajoutée au répertoire | Non (bientôt disponible) |
 
-> Remarque : Pour limiter le nombre de parasites dans ce rapport, les connexions à l’application native [Lync/Skype Entreprise](http://products.office.com/fr-FR/skype-for-business/online-meetings) et celles effectuées via l’[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-FR/w/sso/534.aspx) ne sont pas indiquées.
+> Remarque : pour limiter le nombre de parasites dans ce rapport, les connexions effectuées par le biais de l'[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-FR/w/sso/534.aspx) ne sont pas indiquées.
 
 
 
@@ -263,11 +263,11 @@ Si vous affichez des rapports d'anomalie, vous remarquerez peut-être que vous p
 
 ## Notifications automatiques par courrier électronique
 
-Pour plus d'informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
+Pour plus d’informations sur les notifications de création de rapport Azure AD, consultez [Notifications de création de rapport Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Étapes suivantes
 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

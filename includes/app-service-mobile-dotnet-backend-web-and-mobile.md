@@ -64,10 +64,6 @@ Dans cette section, vous allez utiliser un exemple d’application cliente web i
 
     ![Affichage de l'application mobile Xamarin](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
-## Étapes suivantes
-
-Dans cet exemple, nous vous avons montré comment utiliser la même base de données sous-jacente pour une application disposant à la fois d’un site web et d’un client mobile. Nous ne disposions pas de logique métier dans le serveur principal à réutiliser sur les deux clients. Il suffisait donc de partager la même base de données. Dans un prochain didacticiel, vous apprendrez à ajouter une logique métier à votre API web et à réutiliser cette logique dans le code de votre serveur principal d’applications mobiles.
-
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
@@ -77,4 +73,4 @@ Dans cet exemple, nous vous avons montré comment utiliser la même base de donn
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
 [Créer une application mobile]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -58,8 +58,7 @@ car elles constituent une application logique. Pour créer une application, suiv
 - Créer une **clé secrète d’application** pour votre application et la noter quelque part. Vous en aurez besoin rapidement.
 - Notez l’**ID d’application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
-    > [AZURE.IMPORTANT]
-    Vous ne pouvez pas utiliser les applications enregistrées sous l’onglet **Applications** sur le [portail Azure](https://manage.windowsazure.com/) à cette fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
@@ -71,8 +70,9 @@ expériences liées à l'identité : l'inscription, la connexion et la connexio
 - Choisir les revendications d’application **nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
 - Notez le **nom** de chaque stratégie après sa création. Il doit présenter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
 
-Une fois vos trois stratégies créées, vous pouvez concevoir votre application.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
+Une fois vos trois stratégies créées, vous pouvez concevoir votre application.
 Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Si vous souhaitez en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C,
 vous devriez commencer par lire le [didacticiel sur la prise en main de l’application Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
@@ -294,6 +294,8 @@ policyName:'b2c_1_<sign in policy name>',
 };
 
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### Valeurs requises
 
@@ -889,4 +891,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Se connecter à une API web utilisant iOS avec B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
@@ -595,9 +595,9 @@ Votre code enlève un message d'une file d'attente en deux étapes. Quand vous a
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Gestion des partages de fichiers et des fichiers Azure
-Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB 2.1. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
+Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
 
-Pour plus d’informations sur le stockage Azure, consultez les pages [Utilisation du stockage de fichiers Azure](storage-dotnet-how-to-use-files.md) et [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Pour plus d’informations sur le stockage Azure, consultez les pages [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md) et [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Définition et interrogation de Storage Analytics
 Vous pouvez utiliser [Azure Storage Analytics](storage-analytics.md) pour recueillir des mesures pour vos comptes de stockage Azure et enregistrer les données sur les demandes envoyées à votre compte de stockage. Vous pouvez utiliser des mesures de stockage pour analyser l’intégrité d’un compte de stockage et utiliser la journalisation de stockage pour diagnostiquer et résoudre les problèmes de votre compte de stockage. Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance à l'aide du portail de gestion Azure, de Windows PowerShell ou par programmation via une API de stockage. La journalisation du stockage se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes.
@@ -736,4 +736,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

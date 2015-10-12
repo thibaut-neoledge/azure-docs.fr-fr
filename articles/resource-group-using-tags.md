@@ -155,4 +155,4 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 - Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 - Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

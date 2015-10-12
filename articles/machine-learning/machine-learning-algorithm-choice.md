@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Comment choisir les algorithmes d&#39;apprentissage automatique | Microsoft Azure"
-	description="Comment choisir les algorithmes Azure Machine Learning pour l&#39;apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression."
+	pageTitle="Comment choisir les algorithmes d'apprentissage automatique | Microsoft Azure"
+	description="Comment choisir les algorithmes Azure Machine Learning pour l'apprentissage supervisé et non supervisé dans les expériences de clustering, classification ou régression."
 	services="machine-learning"
 	documentationCenter=""
 	authors="brohrer"
@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="09/28/2015"
 	ms.author="brohrer;garye" />
 
 # Comment choisir les algorithmes dans Microsoft Azure Machine Learning
@@ -25,17 +25,17 @@ La réponse à la question « Quel algorithme d'apprentissage automatique dois-
 
 L'**aide-mémoire d'algorithme Microsoft Azure Machine Learning** vous aide à choisir l'algorithme d'apprentissage automatique adapté à vos solutions d'analyse prédictive dans la bibliothèque d'algorithmes Microsoft Azure Machine Learning. Cet article vous guide tout au long de son utilisation.
 
-> [AZURE.NOTE]Pour télécharger l’aide-mémoire et suivre cet article, accédez à [Aide-mémoire d'algorithme d'apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
+> [AZURE.NOTE]Pour télécharger l’aide-mémoire et suivre cet article, accédez à [Aide-mémoire d'algorithme Machine Learning pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md).
 
 Cet aide-mémoire est pensé pour un public très spécifique : un scientifique des données débutant, avec une formation de premier cycle en apprentissage automatique, qui tente de choisir un algorithme pour prendre en main Azure Machine Learning Studio. Cela signifie qu'il comprend certaines généralisations et simplifie trop, mais vous guide en toute sécurité. Cela signifie également qu'il existe un grand nombre d'algorithmes non répertoriés ici. Nous ajouterons des méthodes au fur et à mesure de leur entrée dans Azure Machine Learning.
 
-Ces recommandations sont des commentaires et des conseils compilés d'un grand nombre de chercheurs de données et d'experts en apprentissage automatique. Nous ne sommes pas d'accord avec tous les éléments, mais avons essayé d'harmoniser les avis en un consensus. Notre désaccord est généralement introduit par « Cela dépend... »
+Ces recommandations sont des commentaires et des conseils compilés d'un grand nombre de scientifiques de données et d'experts en apprentissage automatique. Nous ne sommes pas d'accord avec tous les éléments, mais avons essayé d'harmoniser les avis en un consensus. Notre désaccord est généralement introduit par « Cela dépend... »
 
 ### Utilisation de l’aide-mémoire
 
 Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithme&gt;*. ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes*. ». Parfois, plusieurs branches sont utiles. Parfois, aucune ne sera parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude. Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
-Voici un exemple d’une expérience de la [Galerie Azure Machine Learning](http://gallery.azureml.net/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+Voici un exemple d’une expérience de la [Galerie Cortana Analytics](http://gallery.azureml.net/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
 ## Types d'apprentissage automatique
 
@@ -47,7 +47,7 @@ Il s’agit d’un type d’apprentissage automatique utile et apprécié. À un
 
 * **Classification**. Lorsque les données sont utilisées pour prédire une catégorie, l’apprentissage supervisé est également appelé classification. C'est le cas lors de l'affectation d'une image en tant que photo d'un « chat » ou d’un « chien ». Lorsqu'il n’y a que deux choix, on appelle cela la **classification à deux classes** ou **binomiale**. Lorsqu'il existe plusieurs catégories, comme lors de la prévision du gagnant du championnat NCAA, ce problème est connu sous le nom de **classification à classes multiples**.
 
-* **Régression**. Lorsque l’on prédit une valeur, comme le cours de la bourse, l’apprentissage surveillé est appelé régression.
+* **Régression**. Lorsque l’on prédit une valeur, comme le cours de la Bourse, l’apprentissage surveillé est appelé régression.
 
 * **Détection des anomalies**. Parfois, l'objectif est d'identifier les points de données qui sont simplement inhabituels. Dans le cas de la détection des fraudes par exemple, toute dépense très étrange par carte de crédit est suspecte. Les variations possibles sont si nombreuses et les exemples de formation si rares, qu'il n'est pas possible de savoir à quoi ressemble une activité frauduleuse. L'approche de la détection des anomalies consiste simplement à apprendre à quoi ressemble l’activité normale (à l'aide d'un historique de transactions non-frauduleuses) et d’identifier tout ce qui est très différent.
 
@@ -112,7 +112,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 |[Machine à vecteurs de support localement profonde](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Idéal pour les ensembles de fonctionnalités de grande taille|
 |[Machine de point de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Classification multiclasse.**| | | | | |
-|[régression logique](https://msdn.microsoft.com/fr-fr/library/azure/dn905853.aspx)| |●|●|5| |
+|[régression logique](https://msdn.microsoft.com/fr-FR/library/azure/dn905853.aspx)| |●|●|5| |
 |[forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[jungle de décision](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Faible encombrement de mémoire|
 |[réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -137,7 +137,7 @@ Comme mentionné précédemment, la [régression linéaire](https://msdn.microso
 
 ### Régression logique
 
-Même si son nom inclut « régression », la régression logique est en fait un puissant outil pour la classification à [deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) et [à classes multiples](https://msdn.microsoft.com/library/azure/dn905853.aspx). Elle est rapide et simple. Le fait qu'elle utilise une courbe en forme de S, et non une ligne droite, en fait une solution de choix pour diviser les données en groupes. La régression logique crée des limites de classes linéaires : vérifiez donc qu'une approximation linéaire vous convient.
+En dépit du terme « régression », la régression logique est en fait un puissant outil pour la classification à [deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) et [à classes multiples](https://msdn.microsoft.com/library/azure/dn905853.aspx). Elle est rapide et simple. Le fait qu'elle utilise une courbe en forme de S, et non une ligne droite, en fait une solution de choix pour diviser les données en groupes. La régression logique crée des limites de classes linéaires : vérifiez donc qu'une approximation linéaire vous convient.
 
 ![Régression logique pour les données à deux classes avec une seule caractéristique][4]
 
@@ -155,11 +155,11 @@ Les forêts de décision ([régression](https://msdn.microsoft.com/library/azure
 
 Les arbres de décision améliorée évitent le surajustement en limitant le nombre de subdivisions et le nombre minimum de points de données autorisés dans chaque région. L'algorithme construit une séquence d'arbres, chacun d'entre eux apprenant à compenser l'erreur de l'arbre précédent. Cela fournit un apprenant très précis qui a tendance à utiliser beaucoup de mémoire. Pour une description complète, consultez le [livre d'origine de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
-[La régression de quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) est une variante d'arbres de décision pour les cas où vous souhaitez savoir non seulement la valeur standard (médiane) des données au sein d'une région, mais également sa distribution sous la forme de quantiles.
+[La régression quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) est une variante d'arbres de décision pour les cas où vous souhaitez savoir non seulement la valeur standard (médiane) des données au sein d'une région, mais également sa distribution sous la forme de quantiles.
 
 ### Perceptrons et réseaux neuronaux
 
-Les réseaux neuronaux sont des algorithmes d'apprentissage inspirés du cerveau couvrant les problèmes [de classes multiples](https://msdn.microsoft.com/library/azure/dn906030.aspx), [à deux classes](https://msdn.microsoft.com/library/azure/dn905947.aspx) et de [régression](https://msdn.microsoft.com/library/azure/dn905924.aspx). Il existe de nombreux réseaux neuronaux d’apprentissage, mais ceux d’Azure Machine Learning sont tous des graphiques acycliques dirigés. Cela signifie que les fonctionnalités d'entrée sont transmises vers l'avant (jamais vers l'arrière) via une séquence de couches, avant d'être transformées en sorties. Dans chaque couche, les entrées sont pondérées dans diverses combinaisons, additionnées et transmises à la couche suivante. Cette combinaison de calculs simples permet d'apprendre les tendances de données et les limites de classe sophistiquées, en toute simplicité. Les réseaux à plusieurs couches de ce type effectuent « l’apprentissage approfondi » qui alimente tant d’articles technologiques et de science fiction.
+Les réseaux neuronaux sont des algorithmes d'apprentissage inspirés du cerveau couvrant les problèmes [de classes multiples](https://msdn.microsoft.com/library/azure/dn906030.aspx), [à deux classes](https://msdn.microsoft.com/library/azure/dn905947.aspx) et de [régression](https://msdn.microsoft.com/library/azure/dn905924.aspx). Il existe de nombreux réseaux neuronaux d’apprentissage, mais ceux d’Azure Machine Learning sont tous des graphiques acycliques dirigés. Cela signifie que les fonctionnalités d'entrée sont transmises vers l'avant (jamais vers l'arrière) via une séquence de couches, avant d'être transformées en sorties. Dans chaque couche, les entrées sont pondérées dans diverses combinaisons, additionnées et transmises à la couche suivante. Cette combinaison de calculs simples permet d'apprendre les tendances de données et les limites de classe sophistiquées, en toute simplicité. Les réseaux à plusieurs couches de ce type effectuent « l’apprentissage approfondi » qui alimente tant d’articles technologiques et de science-fiction.
 
 Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux neuronaux peut prendre beaucoup de temps, en particulier pour les grands jeux de données avec un grand nombre de fonctionnalités. Ils ont également plus de paramètres que la plupart des algorithmes, ce qui signifie que le balayage de paramètres allonge grandement la durée d’apprentissage. Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
@@ -172,25 +172,25 @@ Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azu
 
 ### Machines à vecteurs de support (SVM)
 
-Les machines à vecteurs de support (SVM) recherchent la limite qui sépare les classes par une marge aussi grande que possible. Lorsque les deux classes ne peuvent pas être clairement séparées, les algorithmes trouvent la meilleure limite possible. Comme présenté dans Azure Machine Azure, la [SVM à deux classes](https://msdn.microsoft.com/library/azure/dn905835.aspx) le fait uniquement avec une ligne droite. (Dans le jargon SVM, il utilise un noyau linéaire). Étant donné qu’elle utilise cette approximation linéaire, elle est capable de s'exécuter assez rapidement. Elle est particulièrement utile pour les données avec de nombreuses fonctionnalités comme les données textuelles ou de génome. Dans ces cas, les SVM sont en mesure de séparer les classes plus rapidement et avec moins de surajustement que la plupart des autres algorithmes, tout en utilisant une petite quantité de mémoire.
+Les machines à vecteurs de support (SVM) recherchent la limite qui sépare les classes par une marge aussi grande que possible. Lorsque les deux classes ne peuvent pas être clairement séparées, les algorithmes trouvent la meilleure limite possible. Comme présenté dans Azure Machine Azure, la [SVM à deux classes](https://msdn.microsoft.com/library/azure/dn905835.aspx) le fait uniquement avec une ligne droite. (Dans le jargon SVM, elle utilise un noyau linéaire). Étant donné qu’elle utilise cette approximation linéaire, elle est capable de s'exécuter assez rapidement. Elle est particulièrement utile pour les données avec de nombreuses fonctionnalités comme les données textuelles ou de génome. Dans ces cas, les SVM sont en mesure de séparer les classes plus rapidement et avec moins de surajustement que la plupart des autres algorithmes, tout en utilisant une petite quantité de mémoire.
 
 ![Frontière de classe de machine à vecteurs de support][7]
 
 ***Une frontière de classe de machine à vecteurs de support standard optimise la marge séparant deux classes***
 
-Un autre produit de Microsoft Research, le [SVM localement approfondi à deux classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) est une variante non linéaire de SVM qui conserve la plupart de l'efficacité de la mémoire et de la vitesse de la version linéaire. Il est idéal pour les cas où l'approche linéaire ne donne pas de réponses suffisamment précises. Les développeurs ont conservé sa rapidité en décomposant le problème en une série de petits problèmes SVM linéaires. Lisez la [description complète](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) pour plus d'informations sur la méthode utilisée.
+Un autre produit de Microsoft Research, la [SVM localement approfondi à deux classes](https://msdn.microsoft.com/library/azure/dn913070.aspx) est une variante non linéaire de SVM qui conserve la plupart de l'efficacité de la mémoire et de la vitesse de la version linéaire. Elle est idéale pour les cas où l'approche linéaire ne donne pas de réponses suffisamment précises. Les développeurs ont conservé sa rapidité en décomposant le problème en une série de petits problèmes SVM linéaires. Lisez la [description complète](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) pour plus d'informations sur la méthode utilisée.
 
-À l'aide d'une extension intelligente de SVM non linéaires, la [SVM à une classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) dessine une limite qui encadre étroitement l'ensemble de données. Il est utile pour la détection des anomalies. Les nouveaux points de données qui se situent bien à l'extérieur de cette limite sont assez inhabituels pour être dignes d'intérêt.
+À l'aide d'une extension intelligente de SVM non linéaires, la [SVM à une classe](https://msdn.microsoft.com/library/azure/dn913103.aspx) dessine une limite qui encadre étroitement l'ensemble de données. Elle est utile pour la détection des anomalies. Les nouveaux points de données qui se situent bien à l'extérieur de cette limite sont assez inhabituels pour être remarqués.
 
 ### Méthodes bayésiennes
 
 Les méthodes bayésiennes ont une qualité très intéressante : elles évitent le surajustement. Pour cela, elles émettent quelques hypothèses préalables sur la distribution probable de la réponse. Un autre avantage de cette approche est qu'elle a très peu de paramètres. Azure Machine Learning a des algorithmes bayésiens pour la classification ([machine de points à deux classes de Bayes](https://msdn.microsoft.com/library/azure/dn905930.aspx)) et la régression ([régression linéaire bayésienne](https://msdn.microsoft.com/library/azure/dn906022.aspx)). Notez qu’ils supposent que les données peuvent être fractionnées ou ajustées avec une ligne droite.
 
-Anecdote historique, les machines de point de Bayes ont été développées à Microsoft Research. Elles reposent sur un travail théorique exceptionnel. Pour plus d’informations, consultez [l'article d'origine dans JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) et un [blog de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Anecdote historique, les machines de point de Bayes ont été développées par Microsoft Research. Elles reposent sur un travail théorique exceptionnel. Pour plus d’informations, consultez [l'article d'origine dans JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) et le [blog de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### Algorithmes spécialisés
 
-Avoir un objectif très spécifique peut être bénéfique. La collection Azure Machine Learning comprend des algorithmes spécialisés dans la prédiction de classement ([régression ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), la prédiction de nombres ([régression Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) et la détection des anomalies (un reposant sur l’[analyse des principaux composants](https://msdn.microsoft.com/library/azure/dn913102.aspx) et un autre sur les [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx)). Il existe également un algorithme de clustering isolé ainsi ([K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
+Avoir un objectif très spécifique peut être bénéfique. La collection Azure Machine Learning comprend des algorithmes spécialisés dans la prédiction de classement ([régression ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx)), la prédiction de nombres ([régression Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx)) et la détection des anomalies (un reposant sur l’[analyse des principaux composants](https://msdn.microsoft.com/library/azure/dn913102.aspx) et un autre sur les [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn913103.aspx)). Il existe également un algorithme de clustering isolé ([K-moyennes](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/)).
 
 ![Détection des anomalies reposant sur le PCA][8]
 
@@ -206,7 +206,7 @@ Il existe également un ensemble [de classifieur à classes multiples one-v-all
 
 ***Deux classifieurs à deux classes combinés pour former un classifieur à trois classes***
 
-Azure Machine Learning inclut également l'accès à une puissante infrastructure d'apprentissage automatique appelée [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf). VW s'oppose à la présente catégorisation, puisqu'elle peut apprendre des problèmes de classification et de régression et même utiliser des données partiellement sans étiquette. Vous pouvez la configurer pour utiliser l'un des nombreux algorithmes d’apprentissage, les fonctions de perte et les algorithmes d'optimisation. Elle a été conçue dès le départ pour être efficace, parallèle et extrêmement rapide. Elle gère d’immenses ensembles de fonctionnalités avec peu d'effort. Lancée et dirigée par John Langford de Microsoft Research, VW est une Formule 1 dans la course des algorithmes. VW ne convient pas à tous les problèmes, mais si c’est le cas pour le vôtre, il est avantageux de l’utiliser. Elle est également disponible en tant que [code open source autonome](https://github.com/JohnLangford/vowpal_wabbit) dans plusieurs langues.
+Azure Machine Learning inclut également l'accès à une puissante infrastructure d'apprentissage automatique appelée [Vowpal Wabbit](https://msdn.microsoft.com/library/azure/8383eb49-c0a3-45db-95c8-eb56a1fef5bf). VW défie la catégorisation ici, puisqu'elle peut apprendre des problèmes de classification et de régression et même utiliser des données partiellement sans étiquette. Vous pouvez la configurer pour utiliser l'un des nombreux algorithmes d’apprentissage, les fonctions de perte et les algorithmes d'optimisation. Elle a été conçue dès le départ pour être efficace, parallèle et extrêmement rapide. Elle gère d’immenses ensembles de fonctionnalités avec peu d'effort. Lancée et dirigée par John Langford de Microsoft Research, VW est une Formule 1 dans la course des algorithmes. VW ne convient pas à tous les problèmes, mais si c’est le cas pour le vôtre, il est avantageux de l’utiliser. Elle est également disponible en tant que [code open source autonome](https://github.com/JohnLangford/vowpal_wabbit) dans plusieurs langues.
 
 
 <!-- Media -->
@@ -222,4 +222,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

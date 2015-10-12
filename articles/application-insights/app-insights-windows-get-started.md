@@ -184,7 +184,7 @@ Si vous préférez utiliser Visual Studio pour effectuer les étapes de configur
 
 Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Application Insights**.
 
-Si vous êtes invité à le faire, utilisez les informations d'identification de votre compte Azure (qui est distinct de votre compte Visual Studio Online).
+Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -232,4 +232,4 @@ Quand un nouveau [Kit de développement logiciel (SDK) et publié](app-insights-
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

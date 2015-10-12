@@ -276,12 +276,12 @@ Entrez un nom de cluster, puis appuyez sur Entrée pour approvisionner un cluste
 ## Voir aussi
 
 - [Installation et utilisation de Spark sur des clusters HDInsight][hdinsight-install-spark] pour obtenir des instructions sur la personnalisation de clusters pour installer et utiliser Spark sur des clusters Hadoop HDInsight. Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de « big data ».
-- [Installation de Giraph sur des clusters HDInsight](../hdinsight-hadoop-giraph-install). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
-- [Installation de Solr sur des clusters HDInsight](../hdinsight-hadoop-solr-install). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d’effectuer de puissantes opérations de recherche sur des données stockées.
+- [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques avec Hadoop et peut être utilisé avec Azure HDInsight.
+- [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d’effectuer de puissantes opérations de recherche sur des données stockées.
 
 [powershell-install-configure]: ../install-configure-powershell.md
 [hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-[hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
+[hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

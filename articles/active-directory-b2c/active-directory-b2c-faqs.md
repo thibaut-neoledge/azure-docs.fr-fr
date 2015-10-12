@@ -75,7 +75,7 @@ Pas actuellement. L'intégration de ces systèmes est sur notre feuille de route
 
 ### Azure AD B2C fonctionne-t-il avec SharePoint On-Premises 2016 ou version antérieure ?
 
-Pas actuellement. Azure AD B2C ne prend pas en charge les jetons SAML 1.1.
+Pas actuellement. Azure AD B2C ne prend pas en charge les jetons SAML 1.1 que les portails / applications de commerce électronique ont créés selon les besoins SP locaux. Notez qu'Azure AD B2C n'est pas conçu pour le scénario de partage partenaire externe Sharepoint ; consultez [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) à la place.
 
 ### Quelles sont les fonctionnalités de création de rapports et d'audit proposées par Azure AD B2C ? Sont-elles identiques à celles d'Azure AD Premium ?
 
@@ -105,4 +105,4 @@ Nous ne pouvons fournir aucune informations sur la date de disponibilité pour l
 
 Vous pouvez également consulter les [Limites, restrictions et contraintes de la version préliminaire](active-directory-b2c-limitations.md) actuelle.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

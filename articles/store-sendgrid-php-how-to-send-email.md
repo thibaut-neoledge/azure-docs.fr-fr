@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du service de messagerie électronique SendGrid (PHP) | Microsoft Azure"
-	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="Utilisation du service de messagerie électronique SendGrid (PHP) | Microsoft Azure" 
+	description="Découvrez comment envoyer un courrier électronique avec le service de messagerie SendGrid dans Azure. Exemples de code écrits en PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # Utilisation du service de messagerie électronique SendGrid à partir de PHP
 
@@ -390,6 +390,9 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
 -   Bibliothèque PHP SendGrid : <https://github.com/sendgrid/sendgrid-php>
 -   Offres spéciales SendGrid pour les clients Azure : <https://sendgrid.com/windowsazure.html>
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [sendgrid-php]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

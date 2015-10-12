@@ -1,178 +1,97 @@
 <properties
-   pageTitle="Prise en main : approvisionnement d’une instance SQL Data Warehouse | Microsoft Azure"
-   description="Suivez ces différentes étapes et instructions pour approvisionner une instance SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
-
+	pageTitle="Créer une base de données SQL Data Warehouse dans le portail Azure en version préliminaire | Microsoft Azure"
+	description="Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure en version préliminaire"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""
+	tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
-   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.date="09/29/2015"
+   ms.author="lodipalm;barbkess"/>
 
-# Prise en main : approvisionnement d’une instance SQL Data Warehouse #
+# Créer une base de données SQL Data Warehouse dans le portail Azure en version préliminaire#
 
-Cet article, qui constitue un guide, a pour but de vous aider à provisionner une instance SQL Data Warehouse dans Azure. En suivant ce guide, vous allez effectuer les tâches suivantes :
+Ce didacticiel montre combien il est facile de créer une base de données Azure SQL Data Warehouse dans le portail Azure en version préliminaire, et ce en quelques minutes.
 
-1. création d’une base de données SQL Data Warehouse ;
-2. configuration d’un nouveau serveur logique ;
-3. définition d’une règle de pare-feu Azure pour activer l’accès de clients externes.
+Lors de cette procédure pas à pas, vous allez :
 
-## Version d’évaluation gratuite Azure ##
-Vous devez disposer d’un abonnement Azure et de l’autorisation d’accès à la version Preview de SQL Data Warehouse pour effectuer les tâches suivantes. Ce n’est pas le cas ? Alors, l’obtention d’un abonnement constitue la première étape à suivre.
+- créer une base de données SQL Data Warehouse ;
+- créer un serveur pour votre base de données ;
+- charger AdventureWorksDW dans votre nouvelle base de données.
 
-Vous pouvez obtenir une [version d’essai gratuit][], qui vous permet d’essayer l’un des services Azure. Cela inclut SQL Data Warehouse.
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 
-## Connectez-vous au portail Azure. ##
+## Se connecter et rechercher SQL Data Warehouse
 
-Une fois votre abonnement obtenu, vous pouvez vous connecter au [portail Azure][]. À présent, ouvrez une session.
+1. Connectez-vous au [portail en version préliminaire](https://portal.azure.com).
 
-Au cours de la procédure suivante, nous allons rapidement créer un tout nouveau serveur logique, ainsi qu’une base de données SQL Data Warehouse.
+2. Dans le menu Hub, cliquez sur **Nouveau** > **Données + stockage** > **SQL Data Warehouse**.
 
-## Localiser le service SQL Data Warehouse
+	![Créer un entrepôt de données](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
 
-Nous devons avant tout localiser le service SQL Data Warehouse dans le portail Azure.
+## Configurer les paramètres de performances et autres paramètres de base
 
-Dans l’angle supérieur gauche du portail Azure, vous pouvez voir apparaître le bouton Nouveau. Ce bouton est le point de départ de toute création de service dans Microsoft Azure.
+Dans le volet **SQL Data Warehouse**, renseignez les champs suivants. **Serveur** et **Source** sont configurés dans les sections suivantes.
 
-- Cliquez sur le bouton Nouveau.
+1. **Nom de la base de données** : entrez un nom pour votre base de données SQL Data Warehouse.
 
-### Stockage + Données
+2. **Performances** : vous pouvez ajuster les performances de départ de votre instance durant l’approvisionnement. Nous vous recommandons de commencer avec 400 DWU, car cela vous permettra de mieux observer les avantages en termes de MPP offerts par SQL Data Warehouse.
+     
+    ![Nom et DWU](./media/sql-data-warehouse-get-started-provision/name-and-dwu.png)
 
-En cliquant sur le bouton Nouveau, vous ouvrez toutes les catégories de service Azure. Le logiciel SQL Data Warehouse se trouve dans la catégorie Stockage + Données.
+    > [AZURE.NOTE]Nous mesurons les performances en termes de DWU (Data Warehouse Units). À mesure que vous augmentez les DWU, SQL Data Warehouse augmente les ressources informatiques disponibles pour vos opérations de base de données d’entrepôt de données.
 
-- Cliquez sur cette dernière pour afficher les détails et faire apparaître les services offerts par Microsoft Azure pour cette catégorie.
+	> [AZURE.NOTE]Vous pouvez modifier rapidement et facilement le niveau de performance après avoir créé la base de données. Par exemple, si vous n’utilisez pas la base de données, déplacez le curseur vers la gauche pour réduire les coûts. Vous pouvez aussi améliorer les performances quand davantage de ressources sont nécessaires. Là réside toute la puissance d’extensibilité de SQL Data Warehouse.
+	
 
-### SQL Data Warehouse
+2. **Groupe de ressources**. Conservez les valeurs par défaut. Un groupe de ressources est un conteneur conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure. En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
+3. **Abonnement**. Sélectionnez l’abonnement à facturer pour cette base de données.
 
-Comme vous pouvez le voir, Microsoft Azure propose un grand nombre de moteurs de données et de stockage. Toutefois, ce guide de prise en main est destiné à SQL Data Warehouse.
 
-- À présent, sélectionnez **SQL Data Warehouse**. 
+## Configurer un serveur logique
 
-##Accès à la version Preview
-Avant de commencer le processus d’installation, vous devez être autorisé à accéder à la version Preview du programme. Cliquez sur Inscrivez-moi pour la version Preview, puis envoyez votre demande. Vous serez notifié par courrier électronique une fois votre demande approuvée.
+3. Cliquez sur **Serveur** > **Créer un serveur**. Cela crée un serveur logique auquel votre base de données sera associée. Si vous avez déjà un serveur V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à la section suivante.
 
-Dès que vous aurez reçu l’autorisation, vous pourrez passer aux étapes suivantes. Remarque : le traitement d’une demande d’autorisation peut prendre plusieurs jours.
+    ![Créer un serveur](./media/sql-data-warehouse-get-started-provision/create-new-server.png)
 
-## Configurer SQL Data Warehouse
+    >[AZURE.NOTE]Dans SQL Data Warehouse et Base de données SQL, un serveur fournit un moyen cohérent de configurer des bases de données dans le cloud. Dans Azure, même si un serveur est lié à un centre de données unique, il ne s’agit pas de matériel physique comme pour une instance locale de SQL Server. Ce serveur fait partie du logiciel du service. C’est pourquoi nous utilisons le terme « serveur logique ». Veuillez noter que, contrairement à la réalité, les charges de travail exécutant des bases de données et des entrepôts de données sur le même serveur n’auront pas d’impact de performances l’une sur l’autre.
 
-Pour terminer le processus de déploiement, configurez simplement SQL Data Warehouse.
+1. Dans la fenêtre **Nouveau serveur**, renseignez les informations demandées.
 
+    Veillez à stocker le nom du serveur, le nom de l’administrateur et le mot de passe quelque part. Vous aurez besoin de ces informations pour vous connecter au serveur. - **Nom du serveur**. Entrez un nom pour votre serveur logique. - **Nom de l’administrateur de serveur**. Entrez un nom d’utilisateur pour le compte d’administrateur de serveur. - **Mot de passe**. Entrez le mot de passe de l’administrateur de serveur. - **Emplacement**. Choisissez un emplacement géographique proche de vous ou de vos autres ressources Azure. Cela réduira la latence du réseau, car toutes les bases de données et les ressources qui appartiennent à votre serveur logique résideront physiquement dans la même région.
 
-### Nom de la base de données
+    ![Configurer un nouveau serveur](./media/sql-data-warehouse-get-started-provision/configure-new-server.png)
 
-La première étape consiste à nommer la base de données.
+1. Cliquez sur **OK** pour enregistrer les paramètres de configuration du serveur.
 
+## Charger l’exemple de base de données
 
+1. Choisissez **Source** > **Exemple** pour initialiser votre nouvelle base de données avec l’exemple de base de données AdventureWorksDW. 
 
-- Pour ce démarrage rapide, nous l’appellerons « MonSQLDW ».
+    ![Créer un entrepôt de données](./media/sql-data-warehouse-get-started-provision/create-data-warehouse.png)
 
+## Terminer la création de la base de données
 
-> [AZURE.NOTE]Bien sûr, lorsque vous créez votre propre base de données, vous pouvez lui attribuer le nom de votre choix. Toutefois, ce nom doit respecter les exigences de dénomination de base d’Azure.
+1. Cliquez sur **Créer** pour créer votre base de données SQL Data Warehouse. 
 
-### Performances
+1. Il ne vous reste plus qu’à patienter quelques minutes. Une fois terminé, votre exemple de base de données apparaît dans votre page d’accueil.
 
-L’option relative aux performances est *importante*. L’évolutivité de la puissance de SQL Data Warehouse repose sur ce curseur. Vous pouvez augmenter ou diminuer les performances à tout moment, et pas uniquement lorsque vous configurez l’entrepôt de données. Plus vous faites glisser le curseur vers la droite, plus le nombre de ressources à votre disposition est élevé. Si ces ressources ne sont plus nécessaires, vous pouvez immédiatement le remettre à son emplacement de départ, ce qui vous permet de réduire les coûts. SQL Data Warehouse vous permet de modifier votre profil de performances à la demande sans devoir recréer l’entrepôt de données, ni déplacer des données.
-
-- Vous pouvez voir de quelle manière le nombre d’unités Data Warehouse (DWU) augmente à mesure que vous faites glisser le curseur vers la droite, et de quelle manière il baisse quand vous le déplacez vers la gauche.
-
-- Avant de terminer cette étape, vérifiez que vous avez remis le curseur à son emplacement de départ, vers la gauche. Comme le nouvel entrepôt de données est petit, nous n’avons pas besoin d’un grand nombre de ressources. Réservez-les pour la suite de votre essai !
-
-### Sélectionner une source
-
-Cette option vous donne la possibilité d’utiliser une base de données vide, au départ. Sélectionnez votre nouvelle base de données en tant que point de départ.
-
-> [AZURE.NOTE]Cependant, il existe une deuxième option. Il est possible de créer la base de données à partir d’un point de restauration existant (option de restauration).
-
-### Serveur logique
-
-Votre nouvelle base de données SQL Data Warehouse réside sur un serveur logique. Le serveur logique garantit la cohérence de la configuration d’un certain nombre de bases de données, et localise le service dans un centre de données Azure.
-
-Les options que vous devez configurer sont les suivantes : 1) Nom du serveur. 2) Nom de l’administrateur du serveur. 3) Mot de passe. 4) Emplacement du centre de données. 5) Autorisation d’accès au serveur pour les services Microsoft Azure.
-
-Définissez ces valeurs comme vous l’entendez. Le nom du serveur doit être unique. Nous vous recommandons de choisir un centre de données proche de vous, afin de réduire la latence du réseau. SQL Data Warehouse contient également des fonctionnalités puissantes, qui tirent parti d’autres services Microsoft Azure. Pour cette raison, il peut être judicieux de ne pas désélectionner la case de l’accès des services Microsoft Azure.
-
-> [AZURE.NOTE]SQL Data Warehouse doit utiliser un serveur de version 12. Vérifiez que cette option est définie sur OUI. Par ailleurs, le serveur logique peut être partagé par les bases de données SQL Azure et les bases de données SQL Data Warehouse. Toutefois, il doit présenter la version 12.
-
-> [AZURE.NOTE]Indiquez le nom du serveur, le nom de l’administrateur du serveur et le mot de passe, en les protégeant contre tout accès malveillant. Vous aurez besoin de ces informations pour vous connecter à la base de données SQL Data Warehouse.
-
-### Groupe de ressources
-Un groupe de ressources est un conteneur, conçu pour vous aider à gérer un ensemble de ressources Microsoft Azure.
-
-Pour les besoins de ce guide de démarrage rapide, vous pouvez conserver les valeurs par défaut du groupe de ressources.
-
-En savoir plus sur les [groupes de ressources](../azure-portal/resource-group-portal.md).
-
-### Abonnement
-Un utilisateur unique peut être associé à un ou plusieurs abonnements Microsoft Azure. Si votre identifiant de connexion est associé à plusieurs abonnements, vous pouvez choisir celui qui vous convient.
-
-Toutefois, pour les besoins du présent guide, vous pouvez utiliser l’abonnement par défaut.
-
-À présent, créons l’entrepôt de données SQL Data Warehouse.
-
-## Créer l’entrepôt de données ##
-Pour créer votre entrepôt de données, il vous suffit à présent de cliquer sur le bouton Créer.
-
-Félicitations ! Vous avez créé votre première base de données SQL Data Warehouse.
-
-Vous devriez maintenant être redirigé vers le [portail Azure][]. Comme vous pouvez le constater, votre base de données SQL Data Warehouse a été ajoutée sur la page.
-
-
-Cependant, à ce stade, personne ne peut y accéder. Pour éviter tout risque, par défaut, le système n’a pas configuré l’accès à cette base de données pour les clients.
-
-Ainsi, la dernière étape du processus d’approvisionnement consiste à configurer le service pour accorder l’accès à des systèmes externes.
-
-## Configurer le pare-feu Microsoft Azure ##
-
-Pour configurer le pare-feu Microsoft Azure pour la première fois :
-
-1. Cliquez sur le bouton **Parcourir** dans le panneau de navigation de gauche.
-
-2. Choisissez **Serveurs SQL**.
-
-3. Sélectionnez votre serveur SQL Server logique.
-
-4. Choisissez les paramètres.
-
-5. Cliquez sur **Pare-feu**.
-
-6. Définissez votre règle de pare-feu.
-
-    À présent, vous devez effectuer différentes opérations : - Attribuer un nom à votre règle de pare-feu ; - Fournir une plage d’adresses IP, si vous ne disposez pas d’une adresse IP statique.
-
-    > [AZURE.NOTE]La plage d’adresses IP du client que vous devez inclure correspond à votre adresse IP externe ou publique. Pour connaître votre adresse IP externe, vous pouvez accéder à différents sites web, comme <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>.
-
-7. Enregistrez votre règle de pare-feu.
-
-
-Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d’établir des connexions entre votre ordinateur de bureau et l’entrepôt de données Azure SQL Data Warehouse que vous venez de créer.
+    ![Vue du portail SQL Data Warehouse](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
 ## Étapes suivantes
 
-Le service SQL Data Warehouse est correctement approvisionné. Nous pouvons désormais découvrir comment l’utiliser. Étapes suivantes :
+Maintenant que vous avez créé un exemple de base de données pour SQL Data Warehouse, découvrez comment utiliser SQL Data Warehouse dans cette procédure pas à pas suivante.
 
-1. [Connecter et interroger][] l’entrepôt de données.
-2. Charger les [exemples de données].
+- [Se connecter et interroger](./sql-data-warehouse-get-started-connect-query.md).
 
 	> [AZURE.NOTE]Nous souhaitons améliorer cet article. Si vous choisissez de répondre « non » à la question « Cet article vous a-t-il été utile ? », veuillez ajouter une brève suggestion concernant ce qui manque ou comment cet article peut être amélioré. Merci d’avance !
 
-<!--Image references-->
-
-
-<!-- Articles -->
-[Connecter et interroger]: sql-data-warehouse-get-started-connect-query.md
-[exemples de données]: ./sql-data-warehouse-get-started-load-samples.md
-
-<!--External links-->
-[version d’essai gratuit]: https://azure.microsoft.com/fr-FR/pricing/free-trial/
-[portail Azure]: https://portal.azure.com/
-[portail Azure]: https://portal.azure.com/
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

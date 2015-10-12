@@ -64,7 +64,7 @@ Obtenir toutes les tailles de machines virtuelles disponibles | Non disponible |
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur l'utilisation de l'interface de ligne de commande Azure avec des ressources du Gestionnaire de ressources, consultez les rubriques [Utilisation de l'interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md) et [Gestion du contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](../role-based-access-control-xplat-cli.md).
+* Pour plus d'informations sur l'utilisation de l'interface de ligne de commande Azure avec des ressources du Gestionnaire de ressources, consultez les rubriques [Utilisation de l'interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md) et [Gestion du contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](../role-based-access-control-xplat-cli-install.md).
 * Pour d'autres exemples de commandes de l'interface de ligne de commande, consultez [Utilisation de l'interface de ligne de commande Azure avec Azure Service Management](../virtual-machines-command-line-tools.md) et [Utilisation de l'interface de ligne de commande Azure avec Azure Resource Manager](azure-cli-arm-commands.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

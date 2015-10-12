@@ -74,4 +74,4 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, ass
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -210,4 +210,4 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 Pour plus d’informations sur ExpressRoute, consultez le [Forum aux questions ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

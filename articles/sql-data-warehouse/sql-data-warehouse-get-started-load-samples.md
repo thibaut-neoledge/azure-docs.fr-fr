@@ -85,8 +85,8 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 [code de migration]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-migrate-code/
 [charger manuellement des exemples de données]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [charger manuellement les exemples de données]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[portail Azure]: portal.azure.com
-[Power BI]: www.powerbi.com
+[portail Azure]: https://portal.azure.com
+[Power BI]: http://www.powerbi.com
 [connectant à SQL Data Warehouse]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
@@ -95,4 +95,4 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

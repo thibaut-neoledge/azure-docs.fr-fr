@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs pour diffuser les dernières nouvelles
@@ -384,4 +384,4 @@ Dans ce didacticiel, nous avons appris à diffuser les dernières nouvelles par 
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

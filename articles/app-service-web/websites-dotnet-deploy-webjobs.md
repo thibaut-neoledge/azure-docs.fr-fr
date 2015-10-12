@@ -1,18 +1,18 @@
 <properties 
 	pageTitle="Déployer des tâches web à l’aide de Visual Studio" 
 	description="Découvrez comment déployer des tâches web Azure dans Azure App Service Web Apps à l’aide de Visual Studio." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
@@ -200,4 +200,4 @@ Cet article vous a expliqué comment déployer des WebJobs à l'aide de Visual S
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre le portail Azure et le portail Azure en version préliminaire, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

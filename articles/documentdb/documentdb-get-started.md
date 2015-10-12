@@ -228,6 +228,7 @@ Ensuite, créez vos documents dans votre méthode asynchrone **GetStartedDemo**.
 	        IsRegistered = true
 	    };
 	
+	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
@@ -266,6 +267,7 @@ Ensuite, créez vos documents dans votre méthode asynchrone **GetStartedDemo**.
             IsRegistered = false
         };
 
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
 	}
 
@@ -278,7 +280,7 @@ La base de données, la collection et les documents suivants sont maintenant cr�
 DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies sur les documents JSON stockés dans chaque collection. L'exemple de code suivant affiche différentes requêtes (à l'aide de la syntaxe SQL de DocumentDB et de LINQ) que nous pouvons exécuter sur les documents insérés à l'étape précédente. Ajoutez ces requêtes à votre méthode asynchrone **GetStartedDemo**.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
         "WHERE f.id = "AndersenFamily"");
@@ -290,7 +292,7 @@ DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies su
 
     // Query the documents using LINQ for the Andersen family.
     families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         where f.Id == "AndersenFamily"
         select f;
 
@@ -300,7 +302,7 @@ DocumentDB prend en charge les [requêtes](documentdb-sql-query.md) enrichies su
     }
 
     // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         .Where(f => f.Id == "AndersenFamily")
         .Select(f => f);
 
@@ -472,4 +474,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

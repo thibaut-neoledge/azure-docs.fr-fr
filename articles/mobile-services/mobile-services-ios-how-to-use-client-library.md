@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Comment utiliser la bibliothèque cliente iOS pour Azure Mobile Services
@@ -332,4 +332,4 @@ Le fichier [`<WindowsAzureMobileServices/MSError.h>`](https://github.com/Azure/a
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [Gestionnaire de conflits]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -7,7 +7,6 @@
 	authors="tdykstra"
 	services="app-service\api"/>
 
-
 <tags
 	ms.service="app-service-api"
 	ms.workload="web"
@@ -17,14 +16,13 @@
 	ms.date="07/20/2015"
 	ms.author="tdykstra"/>
 
-
 # Interface de ligne de commande (CLI) Azure et applications API
 
 Cet article vous indique comment créer, gérer et supprimer des applications API dans Azure App Service, à l'aide de l'Interface de ligne de commande Azure (CLI) pour Mac, Linux et Windows.
 
 ## Composants requis
 
-Cet article part du principe que vous avez installé l’interface de ligne de commande Azure et que vous savez comment effectuer des tâches de base. Pour une présentation de l’interface de ligne de commande, consultez la page [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md).
+Cet article part du principe que vous avez installé l’interface de ligne de commande Azure et que vous savez comment effectuer des tâches de base. Pour une présentation de l'interface de ligne de commande, consultez la page [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md).
 
 > [AZURE.NOTE]Les instructions décrites dans la rubrique [Connexion à un abonnement Azure](../xplat-cli-connect.md) vous offrent deux possibilités : vous connecter à l'aide d'un compte professionnel ou scolaire ou télécharger un fichier *.publishsettings*. Pour les applications API, la méthode d'authentification de fichiers *.publishsettings* ne fonctionnera pas. Vous devez utiliser le mode Resource Management (présenté dans la section suivante) pour exécuter des applications API, et la méthode d’authentification de fichiers *.publishsettings* ne fonctionne pas avec le Gestionnaire de ressources.
 
@@ -290,4 +288,4 @@ Pour plus d'informations sur l'utilisation des utilitaires de ligne de commande 
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

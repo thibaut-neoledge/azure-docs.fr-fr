@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="Démarrage et arrêt de machines virtuelles - Graphique | Microsoft Azure"
-   description="La version du workflow PowerShell de la solution Azure Automation inclut des Runbooks pour démarrer et arrêter des machines virtuelles classiques."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Démarrage et arrêt de machines virtuelles - Graphique | Microsoft Azure"
+	description="La version du workflow PowerShell de la solution Azure Automation inclut des Runbooks pour démarrer et arrêter des machines virtuelles classiques."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
-# Solution Azure Automation - démarrage et arrêt de machines virtuelles
+# Solution Azure Automation : démarrage et arrêt de machines virtuelles
 
-Cette solution Azure Automation inclut des Runbooks pour démarrer et arrêter des machines virtuelles classiques. Vous pouvez utiliser cette solution dans les cas suivants :
+Cette solution Azure Automation inclut des runbooks pour démarrer et arrêter des machines virtuelles classiques. Vous pouvez utiliser cette solution dans les cas suivants :
 
-- Utilisez les Runbooks sans modification dans votre propre environnement. 
-- Modifiez les Runbooks pour exécuter une fonctionnalité personnalisée.  
-- Appelez les Runbooks à partir d'un autre Runbook dans le cadre d'une solution globale. 
+- Utiliser les runbooks sans modification dans votre propre environnement. 
+- Modifier les runbooks pour exécuter une fonctionnalité personnalisée.  
+- Appeler les runbooks à partir d’un autre runbook dans le cadre d’une solution globale. 
 - Utilisez les Runbooks comme didacticiels pour apprendre les concepts de création de Runbook. 
 
 > [AZURE.SELECTOR]
@@ -54,7 +54,7 @@ Les Runbooks incluent une activité appelée **Lisez-moi** qui comprend une desc
 Les Runbooks requièrent les ressources suivantes que vous devez créer et remplir avec les valeurs appropriées. Les noms sont définis par défaut. Vous pouvez utiliser des ressources avec des noms différents si vous spécifiez ces noms dans les [paramètres d'entrée](#using-the-solution) au démarrage du Runbook.
 
 | Type de ressource | Nom par défaut | Description |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | [Informations d'identification](automation-credentials.md) | AzureCredential | Contient des informations d'identification d'un compte ayant les autorisations pour démarrer et arrêter des machines virtuelles dans l'abonnement Azure. |
 | [Variable](automation-variables.md) | AzureSubscriptionId | Contient l’ID d’abonnement de votre abonnement Azure. |
 
@@ -65,12 +65,12 @@ Les Runbooks requièrent les ressources suivantes que vous devez créer et rempl
 Les Runbooks ont tous les [paramètres d’entrée](automation-starting-a-runbook#runbook-parameters) suivants. Vous devez fournir des valeurs pour tous les paramètres obligatoires et pouvez éventuellement fournir des valeurs pour les autres paramètres, selon vos besoins.
 
 | Paramètre | Type | Obligatoire | Description |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | string | Non | Si une valeur est fournie, toutes les machines virtuelles portant ce nom de service sont démarrées ou arrêtées. Si aucune valeur n’est fournie, toutes les machines virtuelles classiques dans l’abonnement Azure sont démarrées ou arrêtées. |
 | AzureSubscriptionIdAssetName | string | Non | Contient le nom de la [ressource variable](#installing-the-solution) qui contient l'ID d'abonnement de votre abonnement Azure. Si vous ne spécifiez aucune valeur, la valeur *AzureSubscriptionId* est utilisée. |
 | AzureCredentialAssetName | string | Non | Contient le nom de la [ressource d'informations d'identification](#installing-the-solution) qui contient les informations d'identification pour le Runbook à utiliser. Si vous ne spécifiez aucune valeur, la valeur *AzureCredential* est utilisée. |
 
-### Démarrage des Runbooks
+### Démarrage des runbooks
 
 Vous pouvez utiliser n’importe quelle méthode proposée dans [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md) pour démarrer le Runbook de votre choix dans cette solution.
 
@@ -81,7 +81,7 @@ Les exemples de commandes suivant utilisent Windows PowerShell pour exécuter **
 
 ### Sortie
 
-Les Runbooks [généreront un message](automation-runbook-output-and-messages.md) pour chaque machine virtuelle, indiquant si l'instruction de démarrage ou d'arrêt a été correctement envoyée. Vous pouvez rechercher une chaîne spécifique dans la sortie afin de déterminer le résultat pour chaque Runbook. Les chaînes de sortie possibles sont répertoriées dans le tableau suivant.
+Les Runbooks [généreront un message](automation-runbook-output-and-messages.md) pour chaque machine virtuelle, indiquant si l'instruction de démarrage ou d'arrêt a été correctement envoyée. Vous pouvez rechercher une chaîne spécifique dans la sortie afin de déterminer le résultat pour chaque runbook. Les chaînes de sortie possibles sont répertoriées dans le tableau suivant.
 
 | Runbook | Condition | Message |
 |:---|:---|:---|
@@ -153,4 +153,4 @@ La dernière étape du Runbook consiste à envoyer la sortie si la demande de d�
 - [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) 
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

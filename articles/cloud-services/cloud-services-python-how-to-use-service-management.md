@@ -303,7 +303,7 @@ Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-fr-fr-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-fr-FR-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -406,7 +406,7 @@ Pour en savoir plus sur la capture d’une machine virtuelle Windows, consultez 
 
 Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du Kit de développement logiciel (SDK) Azure pour Python](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html) et effectuer facilement des tâches complexes pour gérer votre application python.
 
-
+Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
@@ -445,4 +445,4 @@ Vous connaissez désormais les principes de base de la gestion des services. Vou
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

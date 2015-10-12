@@ -27,7 +27,7 @@
 
 Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide du [portail Azure en version préliminaire](https://portal.azure.com).
 
-Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
+Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
 
 > [AZURE.IMPORTANT]La modification des niveaux de service et de performances d’une base de données SQL s’effectue en ligne. Cela signifie que votre base de données doit être en ligne et accessible pendant toute la durée de l’opération, sans interruption de service.
 
@@ -98,4 +98,4 @@ Ouvrez le panneau SQL Database de la base de données dont vous souhaitez augmen
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

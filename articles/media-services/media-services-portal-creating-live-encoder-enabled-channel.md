@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple (version préliminaire)
+#Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@ Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définiti
 
 ![standard4][standard4]
 
->[AZURE.NOTE]Actuellement en version préliminaire, le démarrage du canal peut prendre jusqu’à 30 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
+>[AZURE.NOTE]Actuellement, le démarrage du canal peut prendre jusqu’à 30 minutes. La réinitialisation du canal peut prendre jusqu’à 5 minutes.
 
 Une fois que vous avez créé le canal, vous pouvez sélectionner l’onglet **ENCODEUR** où vous pouvez afficher les configurations de vos canaux. Vous pouvez également gérer les annonces et les ardoises.
 
@@ -266,4 +266,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

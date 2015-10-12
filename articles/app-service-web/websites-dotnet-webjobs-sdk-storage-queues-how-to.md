@@ -586,4 +586,4 @@ Dans une table Azure, les journaux `Console.Out` et `Console.Error` ressemblent 
 Ce guide fournit des exemples de code qui indiquent comment gérer des scénarios courants pour l’utilisation des files d’attente Microsoft Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

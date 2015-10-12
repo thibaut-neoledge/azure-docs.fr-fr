@@ -26,4 +26,4 @@
 	- Définissez **Activer Bitcode** sur **Non** sous Cibles > Paramètres de génération. Assurez-vous de sélectionner TOUT en haut de la barre. 
 	- Activer **Notifications Push** dans Cibles > Votre nom cible > Fonctionnalités.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

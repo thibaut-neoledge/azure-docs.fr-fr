@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Exécuter des tâches en arrière-plan avec les tâches web" 
 	description="Découvrez comment exécuter des tâches en arrière-plan dans les applications web Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -211,4 +211,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

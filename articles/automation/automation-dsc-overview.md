@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
@@ -137,11 +137,11 @@ Passer d’un compte Automation vide à un ensemble géré de nœuds correctemen
 
 - Quand une machine virtuelle Azure est intégrée pour la gestion à Azure Automation DSC à l’aide de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` ou de l’extension de machine virtuelle Azure Automation DSC sur le portail Azure en version préliminaire, une heure peut être nécessaire avant que la machine virtuelle apparaisse comme un nœud DSC dans Azure Automation. Cela est dû à l'installation de Windows Management Framework 5.0 sur la machine virtuelle par l'extension Azure VM DSC, nécessaire à l’intégration de la machine virtuelle dans Azure Automation DSC.
 
-- Une fois qu’un nœud est inscrit, il est censé négocier automatiquement un certificat en vue de son authentification auprès d’Azure Automation DSC. Ce certificat expire un an après sa création et, actuellement, le protocole de collecte PS DSC n’a aucune méthode pour émettre un nouveau certificat quand ce certificat est sur le point d’expirer. Pour cette raison, les nœuds doivent être réinscrits auprès d’Azure Automation DSC après une année, en attendant que ce protocole soit implémenté dans une version future de WMF (normalement d’ici un an).
+- Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pour l'authentification qui expire après un an. À ce stade, le protocole d'inscription DSC PowerShell ne peut pas renouveler automatiquement les certificats lorsqu'ils approchent de l'expiration, donc vous devez réinscrire les nœuds après une année. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d'authentification d'un nœud expire et si le nœud n'est pas réinscrit, le nœud ne pourra pas communiquer avec Azure Automation et sera marqué « Ne répond pas ». La réinscription s'effectue de la même façon que l'inscription initiale du nœud. La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.
 
 ##Articles connexes##
 
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Tarification d’Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

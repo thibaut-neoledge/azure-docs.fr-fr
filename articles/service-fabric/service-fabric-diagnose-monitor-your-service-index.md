@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Diagnostiquer et surveiller un service Service Fabric
@@ -22,9 +22,8 @@ L'analyse, la détection, le diagnostic et la résolution des problèmes permett
 - [Comment analyser et diagnostiquer des services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Configuration d'Application Insights pour votre application Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
 - [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md)
-- [Résolution de l'échec d'une mise à niveau d'application surveillée](../service-fabric-application-monitored-upgrade-troubleshooting.md)
-- [Diagnostics et surveillance des performances pour les acteurs fiables](service-fabric-reliable-actors-diagnostics.md)
-- [Diagnostics et surveillance des performances pour les services fiables](service-fabric-reliable-services-diagnostics.md)
+- [Diagnostics et surveillance des performances pour les Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+- [Diagnostics et surveillance des performances pour les Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
 ## Dépannage d'un cluster
 Les informations suivantes vous aideront à résoudre les problèmes de votre cluster de développement local :
@@ -38,6 +37,5 @@ Service Fabric introduit un modèle d'intégrité qui fournit une fonctionnalit�
 - [Comment afficher les rapports d'intégrité de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 - [Utilisation des rapports d'intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Ajout de rapports d'intégrité de Service Fabric personnalisés](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Démarrage d'un Runbook dans Azure Automation
 
@@ -49,7 +49,6 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">API Azure Automation</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@ Le tableau suivant vous aide à déterminer la méthode de démarrage d'un Runbo
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Répondre à une alerte Azure</a></td>
+  <td>
+   <ul>
+    <li>Démarrer un Runbook en réponse à une alerte Azure.</li>
+    <li>Configurer webhook pour Runbook et lien vers l'alerte.</li>
+    <li>Authentification avec un jeton de sécurité dans l'URL.</li>
+    <li>Actuellement, prend en charge l'alerte sur Metrics uniquement.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Planification</a></td>
   <td>
@@ -232,4 +240,4 @@ En supposant que le nom d'utilisateur des informations d'identification soit *js
 
 - [Démarrage d'un Runbook à partir d'un autre Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

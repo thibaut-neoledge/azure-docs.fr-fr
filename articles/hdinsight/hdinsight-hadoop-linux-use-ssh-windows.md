@@ -35,7 +35,7 @@
 
 OU
 
-* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md).
+* [Interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md).
 
 ##Qu'est-ce que SSH ?
 
@@ -57,7 +57,7 @@ Une clé offre davantage de protection qu’un mot de passe, mais sa génératio
 
 Une paire de clés se compose d’une clé publique (envoyée au serveur HDInsight) et d’une clé privée (conservée sur votre ordinateur client). Quand vous vous connectez au serveur HDInsight à l’aide de SSH, le client SSH utilise la clé privée contenue sur votre ordinateur pour s’authentifier auprès du serveur.
 
-##Créer une clé SSH
+##Création d’une clé SSH
 
 Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH avec votre cluster. Si vous prévoyez d’utiliser un mot de passe, vous pouvez ignorer cette section.
 
@@ -109,7 +109,7 @@ Cela crée une connexion pour l'utilisateur indiqué et active l'authentificatio
 
 ###Interface de ligne de commande Azure pour Mac, Linux et Windows
 
-Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
+Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
 Pour plus d’informations sur l’utilisation de cette commande, consultez [Approvisionner des clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -233,4 +233,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

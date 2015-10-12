@@ -109,9 +109,11 @@ Maintenant que vous connaissez les bases du stockage des objets blob, consultez 
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
 -   Consultez le [blog de l'équipe Azure Storage][]
 
+Pour plus d’informations, consultez également le [Centre pour développeurs Python](/develop/python/).
+
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

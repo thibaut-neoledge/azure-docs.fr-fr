@@ -152,4 +152,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

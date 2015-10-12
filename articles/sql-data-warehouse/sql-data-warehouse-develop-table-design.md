@@ -102,7 +102,7 @@ Au lieu du paramètre...
 - **geography** : utilisez un type « varbinary » ;
 - **hierarchyid** : utilisez un type CLR non natif ;
 - **image**, **text**, **ntext** : en cas de paramètre basé sur du texte, utilisez une valeur «  varchar/nvarchar » (la plus petite possible) ;
-- **nvarchar (max)** : utilisez le paramètre « varchar (4000) » ou une valeur inférieure pour optimiser les performances ;
+- **nvarchar(max)** : utilisez le paramètre « nvarchar (4000) » ou une valeur inférieure pour optimiser les performances ;
 - **numeric** : utilisez une valeur décimale ;
 - **sql\_variant** : fractionnez la colonne en plusieurs colonnes fortement typées ;
 - **sysname** : utilisez le paramètre « nvarchar (128) » ;
@@ -306,4 +306,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

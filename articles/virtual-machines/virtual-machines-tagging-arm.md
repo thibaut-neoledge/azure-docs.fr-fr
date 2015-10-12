@@ -189,4 +189,4 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

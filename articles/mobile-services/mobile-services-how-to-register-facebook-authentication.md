@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Inscription pour l&#39;authentification Facebook | Microsoft Azure" 
-	description="Apprenez à utiliser l&#39;authentification Facebook dans votre application Azure Mobile Services." 
+	pageTitle="Inscription pour l'authentification Facebook | Azure Mobile Services" 
+	description="Apprenez à utiliser l'authentification Facebook dans votre application Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="09/25/2015" 
 	ms.author="glenga"/>
 
 # Inscription des applications pour l'authentification Facebook avec Mobile Services
@@ -22,11 +22,11 @@
 
 Cette rubrique montre comment inscrire vos applications afin d'utiliser Facebook pour l'authentification auprès d'Azure Mobile Services.
 
->[AZURE.NOTE]Ce didacticiel concerne [Azure Mobile Services], une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page est consacrée au didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Prise en main de l'authentification</a>, qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Prise en main de Mobile Services</a>.
+>[AZURE.NOTE]Ce didacticiel concerne [Azure Mobile Services], une solution conçue pour vous aider à créer des applications mobiles évolutives pour n'importe quelle plateforme. Grâce à Mobile Services, synchronisez des données, authentifiez des utilisateurs et envoyer des notifications Push en toute simplicité. Cette page est consacrée au didacticiel [Prise en main de l'authentification](mobile-services-ios-get-started-users.md), qui montre comment permettre aux utilisateurs de se connecter à votre application. Si vous n'avez aucune expérience de Mobile Services, suivez le didacticiel [Prise en main de Mobile Services](mobile-services-ios-get-started.md).
 	
-Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
+Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte Facebook avec une adresse de messagerie vérifiée et un numéro de téléphone mobile. Pour créer un compte Facebook, allez sur [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
-1. Accédez au site web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Développeurs Facebook</a> et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
+1. Accédez au site Web [Développeurs Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268285) et connectez-vous à l'aide des informations d'identification de votre compte Facebook.
 
 2. (Facultatif) Si vous n’êtes pas encore inscrit, cliquez sur **My Apps**, puis sur **Register as a Developer**, acceptez la politique et suivez les étapes de l’inscription.
 
@@ -73,4 +73,4 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

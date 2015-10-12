@@ -57,7 +57,7 @@ Cliquez avec le bouton droit de la souris sur le projet dans l'Explorateur de so
 
 #### Options d'installation
 
-S'il s'agit de votre toute première utilisation, vous êtes invité à vous connecter ou à vous inscrire à la version préliminaire de Microsoft Azure. (indépendamment de votre compte Visual Studio Online).
+S'il s'agit de votre toute première utilisation, vous êtes invité à vous connecter ou à vous inscrire à Microsoft Azure.
 
 Si cette application fait partie d'une application plus importante, vous pouvez utiliser **Configurer les paramètres** pour la placer dans le même groupe de ressources que les autres composants.
 
@@ -248,4 +248,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

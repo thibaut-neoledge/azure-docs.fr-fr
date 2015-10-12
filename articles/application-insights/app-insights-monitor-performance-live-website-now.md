@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Diagnostic des problèmes de performances sur un site Web en cours d'exécution | Microsoft Azure"
+	pageTitle="Diagnostic des problèmes de performances sur un site web IIS en cours d’exécution | Microsoft Azure"
 	description="Analysez les performances d'un site web sans le redéployer. Utilisation autonome ou avec le Kit de développement logiciel (SDK) Application Insights pour obtenir des données de télémétrie relatives aux dépendances."
 	services="application-insights"
     documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/10/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -20,15 +20,18 @@
 
 *Application Insights est à l'état de version préliminaire.*
 
-Le Status Monitor de Visual Studio Application Insights vous permet de diagnostiquer les problèmes liés aux exceptions et aux performances dans les applications web s’exécutant sur n’importe quel serveur IIS. Il vous suffit de l’installer sur votre serveur web IIS pour qu’il soit associé aux applications web ASP.NET dans le but d’envoyer des données au portail Application Insights à des fins de recherche et d’analyse. Vous pouvez l’installer sur n’importe quel serveur physique ou virtuel pour lequel vous disposez d’un accès administrateur.
+Le Status Monitor de Visual Studio Application Insights vous permet de diagnostiquer les problèmes liés aux exceptions et aux performances dans les applications ASP.NET.
 
 ![Exemples de graphiques](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+
+> [AZURE.TIP]Des articles distincts sont consacrés à l’instrumentation des [applications web J2EE en direct](app-insights-java-live.md) et les [services cloud Azure](app-insights-cloudservices.md).
+
 
 Vous avez le choix entre trois façons d’appliquer Application Insights à vos applications web IIS :
 
 * **En cours de création :** [ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown] au code de votre application web. Cela permet :
- * d’obtenir un ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
- * Et de pouvoir utiliser l’[API Application Insights][api] si vous souhaitez écrire votre propre télémétrie pour effectuer un suivi de l’utilisation ou diagnostiquer les problèmes.
+ * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
+ * L’[API Application Insights][api] si vous permet d’écrire votre propre télémétrie pour effectuer un suivi détaillé de l’utilisation ou pour diagnostiquer les problèmes.
 * **En cours d’exécution :** utilisez Status Monitor pour l’associer à votre application web sur le serveur.
  * Surveillance des applications web déjà exécutées sans avoir à les générer ou les publier de nouveau.
  * Ensemble de diagnostics standard et de données de télémétrie liées à l’utilisation.
@@ -37,26 +40,23 @@ Vous avez le choix entre trois façons d’appliquer Application Insights à vos
 * **En cours d’exécution et de création :** compilez le Kit de développement logiciel (SDK) dans le code de votre application web et exécutez Status Monitor sur votre serveur web. Cette méthode associe les avantages des deux autres méthodes :
  * Ensemble de diagnostics standard et données de télémétrie liées à l’utilisation.
  * Diagnostics de dépendance.
- * Élaboration d’une télémétrie personnalisée à l’aide de l’API.
+ * L’API vous permet d’écrire une télémétrie personnalisée.
  * Résolution des problèmes à l’aide du Kit de développement logiciel (SDK) et de la télémétrie.
 
 
+## Installez Application Insights Status Monitor
 
-> [AZURE.TIP]S’agit-il d’une application [Azure App Service Web App](../app-service-web/websites-learning-map.md) ? [Ajoutez le kit de développement logiciel (SDK) Application Insights][greenbrown], puis [l’extension Application Insights](../insights-perf-analytics.md) à partir du panneau de configuration de l’application dans Microsoft Azure.
+Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
-
-## Installez Application Insights Status Monitor sur votre serveur web IIS
-
-1. Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
+### Si votre application s’exécute sur votre serveur IIS
 
 1. Sur votre serveur web IIS, connectez-vous avec vos informations d’identification d’administrateur.
 2. Téléchargez et exécutez le [programme d’installation Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-
 4. Dans l'Assistant Installation, connectez-vous à Microsoft Azure.
 
     ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
 
-    *Des erreurs de connexion ? Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
+    *Erreurs de connexion Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
 
 5. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights.
 
@@ -78,11 +78,24 @@ Vous avez le choix entre trois façons d’appliquer Application Insights à vos
 
    web.config a également été légèrement modifié.
 
-### Vous voulez (re)configurer plus tard ?
+#### Vous voulez (re)configurer plus tard ?
 
 Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout moment. Vous pouvez également reconfigurer si vous avez installé l'agent et avez rencontré des problèmes lors de la configuration initiale.
 
 ![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
+
+
+### Si votre application s’exécute en tant que qu’application web Azure
+
+Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
+
+![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+
+### S’il s’agit d’un projet services cloud Azure
+
+[Ajoutez des scripts aux rôles web et de travail](app-insights-cloudservices.md).
+
 
 ## Affichage des données de télémétrie relatives aux performances
 
@@ -90,24 +103,30 @@ Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.c
 
 ![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
-Ouvrez le panneau des performances pour afficher les dépendances et les autres données.
+Ouvrez le panneau des performances pour afficher les données de demande, les données de temps de réponse, les dépendances et les autres données.
 
 ![Performances](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Cliquez sur n’importe quel graphique pour afficher plus de détails.
+Cliquez pour ajuster les détails de l’affichage ou pour ajouter un graphique.
 
 
 ![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
 
-#### Dépendances
+## Dépendances
 
-Les graphiques libellés HTTP, SQL et AZUREBLOB indiquent les temps de réponse et le nombre d’appels de dépendances : autrement dit, les services externes utilisés par votre application.
+Le graphique de la durée de la dépendance indique la durée comptabilisée pour les appels de votre application aux composants externes, tels que les bases de données, les API REST ou le stockage de blobs Azure.
 
+Pour segmenter le graphique par appels à des dépendances différentes, sélectionnez Regroupement, puis choisissez Dépendance, Type de dépendance ou Performances de dépendance.
 
+Vous pouvez également filtrer le graphique pour examiner un compartiment spécifique de dépendance, de type ou de performances. Cliquez sur Filtres.
 
 #### Compteurs de performances
 
-Cliquez sur n’importe quel graphique du compteur de performance pour changer les données affichées. Vous pouvez aussi ajouter un nouveau graphique.
+(Ne concerne pas les applications web Azure.) Cliquez sur Serveurs sur le panneau de présentation pour voir les graphiques des compteurs de performance de serveur telles que l’utilisation de la mémoire et l’occupation du processeur.
+
+Ajoutez un graphique ou cliquez sur n’importe quel graphique pour afficher son contenu.
+
+Vous pouvez également [changer l’ensemble des compteurs de performances qui sont rapportées par le Kit de développement logiciel (SDK)](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3).
 
 #### Exceptions
 
@@ -196,4 +215,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

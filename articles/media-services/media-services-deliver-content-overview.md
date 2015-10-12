@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@ Exemple
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Format Apple HTTP Live Streaming (HLS) V4**
 
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID\_de\_localisateur}/{nom\_de\_fichier}.ISM/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@ Exemple
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Format Apple HTTP Live Streaming (HLS) avec filtre audio uniquement**
+
+Par défaut, les pistes uniquement audio sont incluses dans le manifeste HLS. Cette condition est nécessaire pour qu’Apple certifie les réseaux cellulaires. Dans ce cas, si un client n'a pas suffisamment de bande passante ou est connecté via une connexion 2G, il bascule vers la lecture audio uniquement. Cela permet de conserver une diffusion en continu sans mise en mémoire tampon, mais avec l’inconvénient de n’avoir aucune vidéo. Toutefois, dans certains scénarios, la mise en mémoire tampon du lecteur est préférable à une diffusion audio uniquement. Si vous souhaitez supprimer la piste audio uniquement, vous pouvez l’ajouter (audio-only=false) à l'URL et la supprimer.
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Format Smooth Streaming**
 
@@ -170,7 +177,7 @@ Un **point de terminaison de diffusion en continu** représente un service de di
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
@@ -179,4 +186,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

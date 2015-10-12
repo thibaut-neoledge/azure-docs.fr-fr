@@ -46,4 +46,4 @@
     |5, 6|Ports SAS sur le boîtier principal (mention EBOD)|
     |7, 8|Ports SAS sur le boîtier EBOD (Port A)|
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
@@ -159,7 +159,7 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 
 <!-- URLs. -->
-[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Utilisation du client Xamarin Component pour Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -172,4 +172,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

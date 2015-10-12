@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory"
-	description="Découvrez comment déplacer des données entre des emplacements locaux et le cloud à l'aide de la passerelle de gestion des données et d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacement de données entre des emplacements locaux et le cloud à l'aide d’Azure Data Factory" 
+	description="Découvrez comment déplacer des données entre des emplacements locaux et le cloud à l'aide de la passerelle de gestion des données et d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2015" 
 	ms.author="spelluru"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
 Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. Data Factory facilite cette intégration grâce à une passerelle de gestion des données. La passerelle de gestion Data Factory est un agent que vous pouvez installer en local pour créer des pipelines hybrides.
 
-Cet article fournit une vue d'ensemble de l'intégration de magasins de données locaux dans des magasins de données sur le cloud et le traitement sur le cloud à l’aide de Data Factory. Cet article s'appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) et d’autres articles sur les principaux concepts Data Factory. La vue d’ensemble suivante suppose que vous maîtrisez les concepts Data Factory tels que les pipelines, les activités, les jeux de données et l'activité de copie.
+Cet article fournit une vue d’ensemble de l’intégration de magasins de données locaux à des magasins de données cloud et du traitement cloud à l’aide de Data Factory. Cet article s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) et d’autres articles sur les principaux concepts Data Factory. La vue d’ensemble suivante suppose que vous maîtrisez les concepts Data Factory tels que les pipelines, les activités, les jeux de données et l’activité de copie.
 
 La passerelle de données offre les fonctionnalités suivantes :
 
@@ -27,7 +27,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 2.	Un point unique de surveillance et de gestion avec une visibilité du statut de la passerelle et un tableau de bord sur un cloud de fabrique de données.
 3.	Gestion sécurisée de l’accès aux sources de données locales.
 	1. Aucune modification du pare-feu d’entreprise n’est requise. La passerelle établit uniquement des connexions HTTP sortantes pour l’accès à Internet.
-	2. Chiffrement des informations d'identification pour vos magasins de données locaux à l’aide de votre certificat.
+	2. Chiffrement des informations d’identification pour vos magasins de données locaux à l’aide de votre certificat.
 4.	Déplacer les données efficacement : les données sont transférées en parallèle et résistent aux problèmes intermittents du réseau, grâce à la logique de nouvelle tentative automatique.
 
 ## Considérations sur l’utilisation de la passerelle de gestion de données
@@ -44,7 +44,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 2.	La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
 3.	Si l’ordinateur hôte est en veille prolongée, la passerelle n’est pas en mesure de répondre à la demande de données. Vous devez donc configurer un **plan de gestion de l’alimentation** approprié sur l’ordinateur avant d’installer la passerelle. L’installation de la passerelle ouvre une invite si l’ordinateur est configuré pour la mise en veille prolongée.
 
-Etant donné que l’activité de copie s'exécute selon une fréquence spécifique, l'utilisation des ressources (processeur, mémoire) sur l'ordinateur suit également le même modèle avec des pics et des baisses d'inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs tâches sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe. L’exemple ci-dessus représente la configuration minimale, et il est toujours préférable d'avoir une configuration avec plus de ressources que cette configuration minimale en fonction de votre charge spécifique pour le déplacement des données.
+Étant donné que l’activité de copie s’exécute selon une fréquence spécifique, l’utilisation des ressources (processeur, mémoire) sur l’ordinateur suit également le même modèle avec des pics et des baisses d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs tâches sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe. L’exemple ci-dessus représente la configuration minimale, et il est toujours préférable d'avoir une configuration avec plus de ressources que cette configuration minimale en fonction de votre charge spécifique pour le déplacement des données.
 
 ## Installation
 La passerelle de gestion des données peut être installée en téléchargeant un package d'installation MSI à partir du Centre de téléchargement Microsoft. Le fichier MSI peut également servir à mettre à niveau la passerelle de gestion des données existante vers la version la plus récente, en conservant tous les paramètres. Vous trouverez le lien vers le package MSI sur le portail Azure en suivant la procédure étape par étape ci-dessous.
@@ -79,7 +79,7 @@ Le programme d'installation MSI configurera automatiquement les règles de pare-
 
 Mais le programme d'installation suppose que les ports de sortie mentionnés ci-dessus sont activés par défaut sur l'ordinateur local et le pare-feu d'entreprise. Vous devez activer ces ports sortants si ce n'est déjà fait. Si vous avez remplacé le pare-feu Windows par un pare-feu tiers, ces ports peuvent nécessiter une ouverture manuelle.
 
-Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure à la liste approuvée. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
+Si votre entreprise utilise un serveur proxy, vous devez ajouter Microsoft Azure à la liste blanche. Vous pouvez télécharger une liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](http://msdn.microsoft.com/library/windowsazure/dn175718.aspx).
 
 ## Utilisation de la passerelle de données – Procédure pas à pas
 Dans cette procédure pas à pas, vous créez une fabrique de données avec un pipeline qui déplace les données d’une base de données SQL Server locale vers un objet blob Azure.
@@ -105,24 +105,22 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 
 	Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche : **Le nom de la fabrique de données « ADFTutorialOnPremDF » n'est pas disponible**, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialOnPremDF), puis essayez de la recréer. Utilisez ce nom à la place d'ADFTutorialOnPremDF quand vous effectuez les étapes restantes de ce didacticiel.
 
-9. Recherchez des notifications du processus de création dans le concentrateur **NOTIFICATIONS** sur la gauche. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
+9. Recherchez des notifications à partir du processus de création en cliquant sur le bouton **Notifications** sur la barre de titre, comme indiqué dans l’image suivante. Cliquez dessus de nouveau pour fermer la fenêtre de notifications.
 
-	![Concentrateur NOTIFICATIONS](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
+	![Hub NOTIFICATIONS](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
 
 11. Une fois la création terminée, vous verrez apparaître le panneau **Data Factory** comme indiqué ci-dessous :
 
 	![Page d’accueil Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ### Étape 2 : Créer un portail de gestion des données
-5.	Dans le panneau **Data Factory** de **ADFTutorialOnPremDF**, cliquez sur **Services liés**. 
+5. Dans le panneau **DATA FACTORY**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
 
-	![Page d’accueil Data Factory](./media/data-factory-move-data-between-onprem-and-cloud/DataFactoryHomePage.png)
+	![Vignette Créer et déployer](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+6.	Dans Data Factory Editor, cliquez sur **... (points de suspension)** sur la barre d’outils, puis cliquez sur **Nouvelle passerelle de données**. 
 
-2.	Dans le panneau **Services liés**, cliquez sur **+ Passerelle de données**.
-
-	![Services liés - Ajouter un bouton Passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremLinkedServicesAddGaewayButton.png)
-
-2. Dans le panneau **Créer**, saisissez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**.
+	![Nouvelle passerelle de données sur la barre d’outils](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
+2. Dans le panneau **Créer**, saisissez **adftutorialgateway** dans le champ **Nom**, puis cliquez sur **OK**. 	
 
 	![Panneau Créer une passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -140,76 +138,66 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 
 	>[AZURE.NOTE]Vous devez être administrateur sur l’ordinateur local pour pouvoir installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local d’utilisateurs de la passerelle de gestion des données. Les membres de ce groupe sont en mesure d’utiliser l’outil Gestionnaire de configuration de la passerelle de gestion de données pour configurer la passerelle.
 
-4. Cliquez sur le concentrateur **NOTIFICATIONS**, sur la gauche. Patientez jusqu’à ce que le message **L’installation rapide de « adftutorialgateway » a réussi** s’affiche dans le panneau **Notifications**.
-
-	![Réussite de l’installation rapide](./media/data-factory-move-data-between-onprem-and-cloud/express-setup-succeeded.png)
-6. Cliquez sur **OK** dans le panneau **Créer**, puis dans le panneau **Nouvelle passerelle de données**.
-6. Fermez le panneau **Services liés** (en appuyant sur le bouton **X** dans l’angle supérieur droit de la fenêtre) et rouvrez le panneau **Services liés** pour afficher le dernier état de la passerelle. 
-7. Vérifiez que l’**état** de la passerelle est **En ligne**. 
-
-	![État de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/gateway-status.png)
-
-5. Lancez l’application **Gestionnaire de configuration de la passerelle de gestion de données Microsoft** sur votre ordinateur.
+5. Patientez deux minutes, puis lancez l’application **Gestionnaire de configuration de la passerelle de gestion de données** sur votre ordinateur. Dans la fenêtre **Recherche**, tapez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	![Gestionnaire de configuration de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
 6. Attendez que les valeurs soient définies comme suit :
-	1. Si l’**état** du service n’est pas défini sur **Démarré**, cliquez sur **Démarrer le service** pour démarrer le service et attendez une minute que les autres champs soient actualisés.
+	1. **État** est défini sur **Démarré**.
 	2. Le **nom de la passerelle** est défini sur **adftutorialgateway**.
 	3. Le **nom de l’instance** est défini sur **adftutorialgateway**.
-	4. L’**état de la clé de la passerelle** est défini sur **Enregistré**.
+	4. **Inscription** est défini sur **Inscrit**.
 	5. La barre d’état située au bas de l’écran affiche le message **Connecté au service de cloud de la passerelle de gestion de données** accompagné d’une **coche verte**.
-	
-7. Basculez vers **Certificats**. Le certificat spécifié dans cet onglet sert à chiffrer/déchiffrer les informations d'identification pour le magasin de données local que vous spécifiez dans le portail. Cliquez sur **Change** pour utiliser votre propre certificat à la place. Par défaut, la passerelle utilise le certificat généré automatiquement par le service Data Factory.
+
+8. Basculez vers **Certificats**. Le certificat spécifié dans cet onglet sert à chiffrer/déchiffrer les informations d'identification pour le magasin de données local que vous spécifiez dans le portail. Cliquez sur **Modifier** pour utiliser votre propre certificat à la place. Par défaut, la passerelle utilise le certificat généré automatiquement par le service Data Factory.
 
 	![Configuration de certificat de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
-
-8. Dans le panneau **Services liés** du portail, vérifiez que l’**état** de la passerelle est bien défini sur **Correct**.
-
+9. Dans le portail Azure, cliquez sur **OK** dans le panneau **Configurer**, puis dans le panneau **Nouvelle passerelle de données**.
+6. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence sur la gauche. Si vous cliquez dessus, vous devez voir le code JSON associé. 
+	
 
 ### Étape 2 : Créer des services liés 
-Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** lie une base de données SQL Server locale et le service lié **StorageLinkedService** lie un magasin d’objets blob Microsoft Azure à **ADFTutorialDataFactory**. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
+Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** lie une base de données SQL Server locale, et le service lié **StorageLinkedService** lie un magasin d’objets blob Azure à la Fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
 
 #### Ajout d’un service lié à une base de données SQL Server locale
-1.	Dans le panneau **Services liés**, cliquez sur **Nouveau magasin de données** dans la barre de commandes.
-2.	Entrez le **nom** **SqlServerLinkedService**. 
-2.	Cliquez sur la flèche en regard du **type**, puis sélectionnez **SQL Server**.
+1.	Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**. 
 
-	![Créer un magasin de données](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	D’autres paramètres devraient apparaître sous **Type**.
-4.	Pour le paramètre **Passerelle de données**, sélectionnez la passerelle que vous venez de créer. 
+	![Nouveau service lié SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
+3.	Dans l’**éditeur JSON**, procédez comme suit : 
+	1. Pour **gatewayName**, spécifiez **adftutorialgateway**.	
+	2. Si vous utilisez l’authentification Windows, procédez comme suit :
+		1. Pour **connectionString** : 
+			1. Définissez le paramètre **Integrated Security** sur **true**.
+			2. Spécifiez le **nom du serveur** et le **nom de la base de données**. 
+			2. Supprimez **User ID** et **Password**. 
+		3. Spécifiez le nom d’utilisateur et le mot de passe pour **userName** et **password**.
+		
+				"typeProperties": {
+            		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+            		"gatewayName": "adftutorialgateway",
+            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"password": "<Specify password for the user account>"
+        		}
 
-	![Paramètres de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	Entrez le nom de votre serveur de base de données pour le paramètre **Serveur**.
-5.	Entrez le nom de la base de données pour le paramètre **Base de données**.
-6.	Cliquez sur la flèche en regard de **Informations d'identification**.
+	4. Si vous utilisez l’authentification SQL, procédez comme suit :
+		1. Spécifiez le **nom du serveur**, le **nom de la base de données**, ainsi que les paramètres **User ID** et **Password**, dans **connectionString** pour la base de données.       
+		2. Supprimez les deux dernières propriétés JSON (**userName** et **password**) du code JSON.
+		3. Supprimez la dernière **virgule (,)** à la fin de la ligne qui spécifie la valeur de la propriété **gatewayName**. 
 
-	![Panneau Informations d’identification](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
-8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
-
-	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	Sélectionnez l’**authentification** que le service de Data Factory utilisera pour se connecter à la base de données.
-	2.	Entrez le nom de l'utilisateur ayant accès à la base de données dans le paramètre **USERNAME**.
-	3.	Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**.
-	4.	Cliquez sur **OK** pour fermer la boîte de dialogue. 
-4. Cliquez sur **OK** pour fermer le panneau **Informations d'identification**. 
-5. Cliquez sur **OK** dans le panneau **Nouveau magasin de données**. 	
-6. Vérifiez que l'état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.
-	![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
-
-Pour plus d’informations sur la définition des informations d’identification, consultez la section [Configuration des informations d’identification et de la sécurité](#setting-credentials-and-security).
+				"typeProperties": {
+            		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
+    		    }
+	   
+2.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié SQL Server.
 
 #### Ajout d’un service lié pour un compte de stockage Azure
  
-1. Dans le panneau **Services liés**, cliquez sur **Nouveau magasin de données** dans la barre d’outils. 
-2. Entrez **StorageLinkedService** dans le champ **Nom**. 
-3. Cliquez sur la flèche en regard du **type**, puis sélectionnez **Azure Storage**.
-4. De nouveaux champs devraient apparaître : **Nom du compte** et **Clé du compte**, sous le paramètre **Type**. 
-3. Entrez le nom de votre compte de stockage Azure dans le champ **Nom du compte**.
-4. Entrez la clé de votre compte de stockage Azure dans le champ **Clé du compte**. 
-5. Cliquez sur **OK** pour fermer la boîte de dialogue. 
-
+1. Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** dans la barre de commandes, puis sur **Azure Storage**.
+2. Entrez le nom de votre compte de stockage Azure dans le champ **Nom du compte**.
+3. Entrez la clé de votre compte de stockage Azure dans le champ **Clé du compte**.
+4. Cliquez sur l’option **Déployer** pour déployer le service lié **StorageLinkedService**.
+   
  
 ### Étape 3 : Créer des jeux de données d’entrée et de sortie
 Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
@@ -240,12 +228,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 
 
 
-### Créer une table d'entrée
+### Créer une table d’entrée
 
-1.	Dans le panneau **DATA FACTORY**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
-
-	![Vignette Créer et déployer](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commande, puis sur **SQL local**. 
+1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commande, puis sur **Table SQL Server**. 
 2.	Remplacez le code JSON du volet droit par le texte suivant :    
 
 		{
@@ -276,7 +261,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **SqlServerTable**.
 	- Le paramètre **tablename** est défini sur **emp**.
 	- Le paramètre **linkedServiceName** est défini sur **SqlServerLinkedService** (vous avez créé ce service lié à l’étape 2).
-	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **Stratégie**.    
+	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **policy**.    
 
 	Pour plus d'informations sur les propriétés JSON, consultez la rubrique [Référence de script JSON][json-script-reference].
 
@@ -423,7 +408,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d’entrée/de sortie) pour afficher les propriétés associées.
 
 ### Étape 5 : surveiller les jeux de données et les pipelines
-Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, voir [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
+Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
 
 1. Ouvrez la **version préliminaire du portail Azure** (si vous l’avez fermée).
 2. Si le panneau **ADFTutorialOnPremDF** n’est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialOnPremDF** dans le **tableau d’accueil**.
@@ -467,10 +452,36 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 14. (facultatif) Cliquez sur **Pipelines**, puis sur **ADFTutorialOnPremDF**, et accédez aux tables d’entrée (**Consommé**) ou aux tables de sortie (**Produit**).
 15. Utilisez des outils tels que l’**Explorateur de stockage Azure** pour contrôler la sortie.
 
-	![Explorateur du stockage Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+	![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 
 ## Configuration des informations d'identification et de la sécurité
+
+Vous pouvez également créer un service lié SQL Server à l’aide du panneau Services liés au lieu d’utiliser Data Factory Editor.
+ 
+3.	Dans la page d’accueil Data Factory, cliquez sur la vignette **Services liés**. 
+4.	Dans le panneau **Services liés**, cliquez sur **Nouvelle banque de données** dans la barre de commandes. 
+4.	Entrez le **nom** **SqlServerLinkedService**. 
+2.	Cliquez sur la flèche en regard du **type**, puis sélectionnez **SQL Server**.
+
+	![Créer un magasin de données](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
+3.	D’autres paramètres devraient apparaître sous **Type**.
+4.	Pour le paramètre **Passerelle de données**, sélectionnez la passerelle que vous venez de créer. 
+
+	![Paramètres de SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
+4.	Entrez le nom de votre serveur de base de données pour le paramètre **Serveur**.
+5.	Entrez le nom de la base de données pour le paramètre **Base de données**.
+6.	Cliquez sur la flèche en regard d’**Informations d’identification**.
+
+	![Panneau Informations d’identification](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
+7.	Dans le panneau **Informations d’identification**, cliquez sur **Cliquez ici pour définir les informations d’identification**.
+8.	Dans la boîte de dialogue **Configuration des informations d’identification**, procédez comme suit :
+
+	![Boîte de dialogue des paramètres d’informations d'identification](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. Sélectionnez l’**authentification** que le service de Data Factory doit utiliser pour se connecter à la base de données. 2. Entrez le nom de l’utilisateur ayant accès à la base de données dans le paramètre **USERNAME**. 3. Entrez le mot de passe de l’utilisateur dans le paramètre **PASSWORD**. 4. Cliquez sur **OK** pour fermer la boîte de dialogue. 
+4. Cliquez sur **OK** pour fermer le panneau **Informations d’identification**. 
+5. Cliquez sur **OK** dans le panneau **Nouvelle banque de données**. 	
+6. Vérifiez que l’état de **SqlServerLinkedService** est défini sur En ligne dans le panneau Services liés.![État du service SQL Server lié](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+
 Si vous accédez au portail à partir d’un ordinateur différent de l’ordinateur de passerelle, vous devrez peut-être vous assurer que l’application Gestionnaire d’informations d’identification peut se connecter à l’ordinateur de passerelle. Sinon, vous ne pourrez pas définir les informations d’identification de la source de données, ni tester la connexion à la source de données.
 
 Quand vous utilisez l’application « Configuration des informations d’identification » lancée à partir du portail Azure pour définir les informations d’identification d’une source de données locale, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié sous l’onglet Certificat du gestionnaire de configuration de la passerelle de gestion des données sur l’ordinateur de passerelle.
@@ -525,7 +536,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Dans Azure PowerShell, accédez au dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+4. Dans Azure PowerShell, accédez au dossier **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** et exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante pour enregistrer l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -554,8 +565,8 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 1. Comme mentionné ci-dessus dans la procédure étape par étape, il existe plusieurs façons de configurer les informations d’identification de magasins de données locaux à l’aide de Data Factory. Les considérations liées aux ports varient selon ces options.	
 
-	- À l’aide de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows pour l’ordinateur de passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
-	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : a. Si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
+	- Utilisation de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows local pour l’ordinateur de passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
+	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Si vous utilisez l’application **Configuration des informations d’identification**, vous devez la lancer sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
@@ -567,4 +578,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -14,6 +14,6 @@
  
 Votre service mobile et votre application sont désormais configurés pour utiliser votre fournisseur d’authentification. Vous pouvez éventuellement répéter toutes ces étapes pour chaque fournisseur d’identité supplémentaire que vous souhaitez prendre en charge.
 
-    > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
+> [AZURE.IMPORTANT]Vérifiez que vous avez défini le bon URI de redirection sur le site du développeur de votre fournisseur d’identité. Comme décrit dans les instructions pour chaque fournisseur ci-dessus, l'URI de redirection peut être différent pour un backend .NET et pour un backend JavaScript. Un URI de redirection mal configuré peut faire que l’écran de connexion ne s’affiche pas correctement et que l’application fonctionne mal, de façon inattendue.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

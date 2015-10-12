@@ -6,7 +6,7 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
 
 	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Configurez le premier champ de votre campagne en suivant les étapes suivantes :
+3. Configurez le premier champ de votre campagne en exécutant les étapes suivantes :
 
 	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
@@ -30,4 +30,4 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -84,4 +84,4 @@ Où « publsher-name » correspond au type d'extension à partir de la sortie 
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

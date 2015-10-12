@@ -34,7 +34,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure** : consultez la page [Obtention d’un essai gratuit Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md).
+- **Une interface de ligne de commande Azure** : consultez la page [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md).
 
 - **Un cluster HDInsight** : consultez la page [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
@@ -201,7 +201,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
 Les étapes suivantes créent la base de données SQL Azure vers laquelle les données seront exportées.
 
-> [AZURE.IMPORTANT]Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](xplat-cli.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
+> [AZURE.IMPORTANT]Avant d’exécuter cette procédure, vous devez [installer et configurer l’interface de ligne de commande Azure](xplat-cli-install.md). Vous pouvez installer l’interface de ligne de commande et suivre les étapes de création d’une base de données à partir du cluster HDInsight ou votre station de travail locale.
 
 1. Utilisez la commande suivante pour créer un serveur de base de données SQL Azure :
 
@@ -477,11 +477,7 @@ L’interface utilisateur web Oozie fournit une vue web de l’état des travaux
 
 Pour accéder à l'interface utilisateur web Oozie, procédez comme suit :
 
-1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations sur la façon de procéder, consultez l’une des pages suivantes :
-
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations sur la façon de procéder, consultez [Utiliser SSH Tunneling pour accéder à l’interface web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Internet](hdinsight-linux-ambari-ssh-tunnel.md).
 
 2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web. L’URI du site Ambari est ****https://CLUSTERNAME.azurehdinsight.net**. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight basé sur Linux.
 
@@ -648,7 +644,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 ###Launcher ERROR (Sqoop) (Erreur du lanceur, Sqoop)
 
-**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunHiveScript. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
+**Symptômes** : l’état du travail devient **KILLED**. Dans les détails du travail, **ERROR** est affiché pour l’état de RunSqoopExport. Lorsque vous sélectionnez l’action, le message d’erreur suivant apparaît :
 
 	Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
@@ -725,4 +721,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

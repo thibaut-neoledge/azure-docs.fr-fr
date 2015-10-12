@@ -461,7 +461,18 @@ Mais si les utilisateurs se connectent à votre application, vous pouvez obtenir
     }
 ```
 
-Il n’est pas nécessaire d’utiliser le nom de connexion réel de l’utilisateur. Il doit uniquement s’agir d’un ID unique pour cet utilisateur. Il ne doit pas inclure d’espaces ni l’un des caractères `,;=|`.
+Dans une application MVC Web ASP.NET, par exemple :
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
+Il n’est pas nécessaire d’utiliser le nom de connexion réel de l’utilisateur. Il doit uniquement s’agir d’un ID unique pour cet utilisateur. Il ne doit pas inclure d'espaces ni l'un des caractères `,;=|`.
 
 L’ID d’utilisateur est également défini dans un cookie de session et envoyé au serveur. Si le Kit de développement logiciel (SDK) de serveur est installé, l’ID d’utilisateur authentifié est envoyé dans le cadre des propriétés de contexte de télémétrie client et serveur, afin que vous puissiez filtrer et rechercher sur celui-ci.
 
@@ -470,7 +481,9 @@ Si votre application regroupe les utilisateurs par comptes, vous pouvez égaleme
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique des **Utilisateurs authentifiés** et des **Comptes**.
+Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique qui compte les **Utilisateurs authentifiés** et les **Comptes d'utilisateurs**.
+
+Vous pouvez également [rechercher][diagnostic] les points de données client avec des comptes et des noms d'utilisateurs spécifiques.
 
 
 ## <a name="defaults"></a>Définir les paramètres par défaut de la télémétrie personnalisée sélectionnée
@@ -699,7 +712,7 @@ Normalement, le Kit de développement logiciel (SDK) envoie des données à des 
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Notez que la fonction est synchrone.
+Notez que la fonction est asynchrone pour les canaux en mémoire, mais synchrone si vous choisissez d'utiliser le [canal persistant](app-insights-windows-desktop.md#persistence-channel).
 
 
 
@@ -731,17 +744,17 @@ TelemetryClient a une propriété de contexte contenant un certain nombre de val
 
 Si vous définissez une de ces valeurs vous-même, supprimez la ligne appropriée dans [ApplicationInsights.config][config], de sorte que vos valeurs et les valeurs standard ne se mélangent pas.
 
-* **Component** : identifie l'application et sa version
-* **Device** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
-* **InstrumentationKey** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
-* **Location** : identifie l'emplacement géographique du périphérique.
-* **Operation** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
+* **Composant** : identifie l'application et sa version
+* **Périphérique** : données du périphérique sur lequel l'application est en cours d'exécution (dans les applications web, il s’agit du serveur ou du périphérique client à partir duquel la télémétrie est envoyée)
+* **Clé d’instrumentation** : identifie la ressource d'Application Insights dans Azure où apparaît la télémétrie. Elle est généralement récupérée dans ApplicationInsights.config
+* **Emplacement** : identifie l'emplacement géographique du périphérique.
+* **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » lorsque vous inspectez un événement dans la Recherche de diagnostic.
- * **Name** : identificateur, généralement l’URL de la requête HTTP. 
+ * **Nom** : identificateur, généralement l'URL de la requête HTTP. 
  * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, celle-ci sera exclue des calculs dans Metrics Explorer.
-* **Properties** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
+* **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session** : identifie la session de l’utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
-* **User** : informations utilisateur. 
+* **Utilisateur** : informations utilisateur. 
 
 
 ## <a name="default-properties"></a>Initialiseurs de contexte - Définition des propriétés par défaut pour toute la télémétrie
@@ -750,7 +763,7 @@ Vous pouvez configurer un initialiseur universel afin que tous les TelemetryClie
 
 Une utilisation typique consiste à identifier la télémétrie provenant de différentes versions ou de différents composants de votre application. Dans le portail, vous pouvez filtrer ou regrouper des résultats suivant la propriété « Version de l'application ».
 
-En général, [nous vous recommandons d’utiliser des initialiseurs de télémétrie plutôt que des initialiseurs de contexte](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+En général, [nous vous recommandons d'utiliser des initialiseurs de télémétrie plutôt que des initialiseurs de contexte](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
 
 #### Définir un initialiseur de contexte
 
@@ -903,4 +916,4 @@ Il existe certaines limites au nombre de mesures et d’événements par applica
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

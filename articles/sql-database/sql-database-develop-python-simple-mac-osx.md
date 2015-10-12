@@ -24,10 +24,10 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-Cette rubrique présente un exemple de code écrit dans Python. L’exemple s’exécute sur un ordinateur Mac. L’exemple se connecte à Azure SQL Database à l’aide du pilote **pymssql**.
+Cette rubrique présente un exemple de code écrit dans Python. L’exemple s’exécute sur un ordinateur Mac. L’exemple se connecte à une base de données SQL Azure à l’aide du pilote **pymssql**. En outre, veuillez utiliser notre vidéo [Prise en main de Python sur Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) pour compléter cette documentation.
 
 
-## Conditions requises
+## Configuration requise
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
@@ -68,7 +68,7 @@ La fonction [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) est
 
 ## Exécuter une instruction SQL SELECT
 
-La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête effectuée dans la base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
+La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) peut être utilisée pour récupérer un jeu de résultats d'une requête à partir d'une base de données SQL. Cette fonction accepte n'importe quelle requête et renvoie un jeu de résultats qui peut être itéré à l'aide de [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
 
 	import pymssql
@@ -83,7 +83,7 @@ La fonction [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
 
 ## Insérer une ligne, transmettre des paramètres et récupérer la clé primaire générée
 
-Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des valeurs de [clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
+Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) et l’objet [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) peuvent être utilisés pour générer automatiquement des [valeurs de clé primaire](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	import pymssql
@@ -102,11 +102,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.c
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
-\-Commencez une transaction
+-Commencez une transaction
 
-\-Insérez une ligne de données
+-Insérez une ligne de données
 
-\-Restaurez la transaction pour annuler l'insertion
+-Restaurez la transaction pour annuler l'insertion
 
 
 	import pymssql
@@ -118,4 +118,4 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

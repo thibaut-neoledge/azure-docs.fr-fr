@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Appel d'une API personnalisée à partir du client
@@ -60,4 +60,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-javascript-create-pull-notifications.md
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/16/2015"
+	ms.date="09/29/2015"
 	ms.author="heidist"/>
 
 #Azure Search : didacticiels, démonstrations vidéo et exemples
@@ -31,6 +31,7 @@ Familiarisez-vous rapidement avec les vidéos, démonstrations, didacticiels et 
 
 Lien|Description
 ----|-----------
+[Meilleures pratiques AzureCon 2015 pour Azure Search](https://azure.microsoft.com/fr-FR/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Des conseils pratiques pour optimiser l’efficacité de la mise à l’échelle, des performances et du codage lors de la création d'applications pour le Web ou pour des scénarios mobiles. 
 [Académie virtuelle Microsoft (MVA) : Ajout d'Azure Search à vos applications et sites Web](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Série de 7 didacticiels qui expliquent comment ajouter Azure Search à une application, présentation de Liam Cavanagh, Janusz Lembicz et Bernardita Torres Garayar.
 [Build 2015 : Données modernes](http://channel9.msdn.com/Events/Build/2015/2-663)|À la 29ème minute de la session, découvrez comment Azure Search s’intègre dans la révolution des données modernes, présentation de Shawn Bice et Pablo Castro.
 [Build 2015 : Utilisation d’Azure Search pour créer des expériences de recherche exceptionnelles dans les applications Web et mobiles](http://channel9.msdn.com/Events/Build/2015/2-745)|Présentation de Pablo Castro lors de la conférence Microsoft Build 2015.
@@ -90,4 +91,4 @@ Sur CodePlex, vous trouverez plusieurs exemples publiés à l’occasion de la p
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) est une application de console Windows qui charge un ensemble de lignes SQL Server à partir d’une base de données locale intégrée.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) est une application de console Windows qui définit, exécute et met à jour un profil de score pour le paramétrage des résultats de la recherche.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

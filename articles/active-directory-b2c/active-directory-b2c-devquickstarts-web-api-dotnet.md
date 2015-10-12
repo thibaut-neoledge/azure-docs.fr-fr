@@ -39,7 +39,7 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 - Créer une **clé secrète d'application** pour votre application et notez-la quelque part. Vous en aurez besoin rapidement.
 - Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
-    > [AZURE.IMPORTANT]Vous ne pouvez pas utiliser d’applications inscrites sous l’onglet **Applications** du [portail Azure](https://manage.windowsazure.com/) à cette fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
@@ -47,9 +47,11 @@ Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stra
 
 - Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
 - Choisir les revendications d’application **Nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement. 
+- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement.
 
-Une fois vos trois stratégies créées, vous pouvez concevoir votre application.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
+Une fois vos trois stratégies créées, vous pouvez générer votre application.
 
 Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, nous vous recommandons de commencer par lire le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
@@ -80,15 +82,16 @@ Lorsque le projet `TaskService` reçoit des demandes de `TaskWebApp`, il recherc
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre
-[article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configuration de l’application web de la tâche
+Cet article ne traite pas les détails de la sécurisation du `TaskService`. Si vous souhaitez apprendre comment une API web authentifie en toute sécurité les demandes à l’aide d’Azure AD B2C, découvrez notre [article Prise en main de l’API web](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier
-`web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
+## 6\. Configuration de l’application web de la tâche
+
+Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner certains paramètres communs. Dans le projet `TaskWebApp`, ouvrez le fichier `web.config` qui se trouve à la racine et remplacez les valeurs de la section `<appSettings>` : Ces valeurs seront utilisées dans l’application web.
 
 ```
 <appSettings>
@@ -107,6 +110,8 @@ Afin que l’`TaskWebApp` communique avec Azure AD B2C, vous devez renseigner ce
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```     
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 Il existe également deux décorateurs `[PolicyAuthorize]` dans lesquels vous devez fournir le nom de votre stratégie de connexion. L’attribut `[PolicyAuthorize]` sert à appeler une stratégie particulière lorsque l’utilisateur tente d’accéder à une page de l’application qui requiert une authentification.
 
@@ -366,7 +371,7 @@ public void SignOut()
 
 Pour terminer, générez et exécutez `TaskClient` et `TaskService`. Inscrivez-vous ou connectez-vous à l'application et créez des tâches pour l'utilisateur connecté. Déconnectez-vous et reconnectez-vous par le biais d'un autre utilisateur, ce qui a pour effet de créer des tâches pour cet utilisateur. Notez la façon dont les tâches sont stockées par utilisateur sur l'API, dans la mesure où l'API extrait l'identité de l'utilisateur à partir du jeton d'accès qu'il reçoit.
 
-Pour référence, l’exemple complété [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l’exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -382,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

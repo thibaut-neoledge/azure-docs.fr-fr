@@ -79,4 +79,4 @@ En savoir plus sur la [charge de travail de l’entrepôt de données]. Pour com
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

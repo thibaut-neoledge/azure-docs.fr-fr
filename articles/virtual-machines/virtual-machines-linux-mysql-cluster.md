@@ -339,4 +339,4 @@ Les limites suivantes s'appliquent :
 - Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Connexion d’une application web à une application API dans Azure App Service" 
 	description="Ce didacticiel montre comment utiliser une application API depuis une application web ASP.NET hébergée dans Azure App Service." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
@@ -12,7 +12,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/15/2015"
 	ms.author="cfowler"/>
 
@@ -96,4 +96,4 @@ Suivez les instructions fournies dans [Comment déployer une application web Azu
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

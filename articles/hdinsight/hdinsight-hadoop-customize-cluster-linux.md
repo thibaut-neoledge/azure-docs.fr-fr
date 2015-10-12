@@ -51,7 +51,7 @@ Nom | Script
 **Installation de Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. Consultez [Installer et utiliser Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Installation de Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. Consultez [Installer et utiliser Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
-##Utilisez une Action de script à partir du portail Azure en version préliminaire
+## Utilisez une Action de script à partir du portail Azure en version préliminaire
 
 1. Lancez l’approvisionnement comme indiqué dans la rubrique [Configuration d’un cluster à l’aide d’options personnalisées](hdinsight-provision-clusters.md#portal).
 
@@ -70,7 +70,7 @@ Nom | Script
 
 3. Cliquez sur **Sélectionner** pour enregistrer la configuration d’action de script et poursuivre l'approvisionnement du cluster.
 
-##Utilisez une action de Script à partir de modèles Azure Resource Manager
+## Utilisez une action de Script à partir de modèles Azure Resource Manager
 
 Dans cette section, nous utilisons des modèles Azure Resource Manager (ARM) pour configurer un cluster HDInsight et une action de script pour installer des composants personnalisés (R, dans cet exemple) sur le cluster. Cette section fournit un exemple de modèle ARM pour approvisionner un cluster utilisant l’action de script.
 
@@ -165,7 +165,6 @@ Dans cette section, nous utilisons des modèles Azure Resource Manager (ARM) pou
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -239,8 +238,6 @@ Dans cette section, nous utilisons des modèles Azure Resource Manager (ARM) pou
 		    }
 		}
 
-
-
 2. Démarrer Azure PowerShell et se connecter à votre compte Azure. Une fois que vous avez entré vos informations d'identification, la commande retourne les informations relatives à votre compte.
 
 		Add-AzureAccount
@@ -297,9 +294,9 @@ Dans cette section, nous utilisons des modèles Azure Resource Manager (ARM) pou
 
 		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
-##Utilisez une Action de Script PowerShell Azure
+## Utilisez une Action de Script PowerShell Azure
 
-Dans cette section, nous allons utiliser l’applet de commande **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** pour appeler des scripts avec une action de script pour personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des applets de commande HDInsight Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Dans cette section, nous allons utiliser l’applet de commande **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** pour appeler des scripts avec une action de script pour personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d'informations sur la configuration d'un poste de travail pour exécuter des applets de commande HDInsight PowerShell, consultez la rubrique [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md).
 
 Procédez comme suit :
 
@@ -346,15 +343,14 @@ Procédez comme suit :
 
 Lorsque vous y êtes invité, entrez les informations d'identification du cluster. La création du cluster peut prendre plusieurs minutes.
 
-##Utilisez une action de Script dans le Kit de développement .NET HDInsight
+## Utilisez une action de Script dans le Kit de développement .NET HDInsight
 
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes qui facilitent l’utilisation d’HDInsight à partir d’une application .NET. Les étapes suivantes montrent comment utiliser un script pour personnaliser un cluster à partir du Kit de développement .NET HDInsight.
-
 
 > [AZURE.IMPORTANT]Vous devez créer un certificat auto-signé, l’installer sur votre station de travail et le télécharger dans votre abonnement Azure. Pour obtenir des instructions, consultez la page [Création d'un certificat auto-signé](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 
-###Créer un projet Visual Studio
+### Créer un projet Visual Studio
 
 1. Ouvrir Visual Studio 2013 ou 2015
 
@@ -441,7 +437,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 11. Enregistrez les modifications apportées à l'application et générez la solution.
 
-###Exécution de l'application
+### Exécution de l'application
 
 Ouvrez la console Azure PowerShell, naviguez jusqu’à l’emplacement dans lequel vous avez enregistré le projet, accédez au répertoire \\bin\\debug du projet, puis exécutez la commande suivante :
 
@@ -471,7 +467,7 @@ Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composan
 
 3. Exemples : pour des composants personnalisés fréquemment utilisés, il arrive que Microsoft et d’autres éditeurs proposent des exemples illustrant leur utilisation sur les clusters HDInsight. Ces exemples sont fournis sans support.
 
-##Résolution de problèmes
+## Résolution de problèmes
 
 Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les informations consignées par des scripts lors de la configuration du cluster.
 
@@ -503,4 +499,4 @@ Consultez la rubrique suivante pour obtenir des informations et des exemples sur
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

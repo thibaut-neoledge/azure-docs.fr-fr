@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Déployer une application web dans Azure App Service"
 	description="Découvrez les méthodes disponibles pour le déploiement de contenu vers Web Apps."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## Vue d'ensemble
 
-Vous disposez de nombreuses options pour déployer votre contenu vers [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Cette rubrique présente rapidement chaque option et propose des liens renvoyant vers des informations supplémentaires.
-
-
-###<a name="cloud"></a>Déploiement à partir d’un système de contrôle du code source hébergé sur le cloud
+Cette rubrique fournit une vue d'ensemble des options de déploiement de votre propre contenu sur [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 La meilleure méthode pour déployer une application Web consiste à configurer un [flux de diffusion continu](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) intégré dans votre [système de contrôle du code source](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). L'automatisation renforce l'efficacité du processus de développement, ainsi que la gestion et la fiabilité de vos processus de sauvegarde et de restauration.
 
-Si vous n'avez pas encore de contrôle de code source, la méthode la plus simple pour commencer est d'utiliser un système de contrôle de code source hébergé sur le cloud.
+Pour plus d'informations sur le déploiement à partir de systèmes de contrôle sources hébergés sur le cloud, consultez les sections suivantes plus loin dans cet article.
 
 * [Visual Studio Online](#vso)
 * [Sites Web référentiels avec Git](#git)
 * [Sites Web référentiels avec Mercurial](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>Déploiement à partir d’un IDE
-
-[Visual Studio](http://www.visualstudio.com/) et [WebMatrix](http://www.microsoft.com/web/webmatrix/) sont des environnements de développement intégrés Microsoft (ou IDE) que vous pouvez utiliser pour le développement Web. Ils fournissent tous deux des fonctionnalités intégrées facilitant le déploiement d’applications web. De même, ils peuvent tous deux utiliser [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) pour automatiser les tâches liées au déploiement, comme le déploiement d'une base de données et les modifications de chaînes de connexion. Enfin, ils peuvent tous deux être déployés en utilisant [FTP ou FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
-
-WebMatrix est rapide à installer et facile à maîtriser, mais Visual Studio offre bien plus de fonctionnalités pour utiliser Web Apps. Dans l’IDE Visual Studio, vous pouvez créer, arrêter, démarrer et supprimer des applications web, afficher des fichiers journaux pendant leur création en temps réel, procéder à un débogage à distance, etc. Visual Studio intègre également des systèmes de contrôle de code source tels que [Visual Studio Online](#vso), [Team Foundation Server](#tfs) et les [référentiels Git](#git).
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>Déploiement à l’aide d’un utilitaire FTP
-
-Indépendamment de l’IDE que vous utilisez, vous pouvez déployer des contenus dans votre application en utilisant le [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application Web, puis les utiliser dans n’importe quelle application fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
-
-Bien que les utilitaires FTP permettent de copier facilement vos fichiers d’application web dans Azure, ils n’effectuent ou ne coordonnent pas automatiquement de tâches de déploiement telles que le déploiement d’une base de données ou la modification de chaînes de connexion. De même, de nombreux outils FTP ne comparent pas les fichiers source et de destination afin d'ignorer la copie des fichiers qui n'ont pas été modifiés. Pour des applications volumineuses, le fait de toujours copier tous les fichiers peut allonger la durée des déploiements, même dans le cas d’une mise à jour mineure, puisque tous les fichiers sont toujours copiés.
-
-###<a name="onpremises"></a>Déploiement à partir d’un système de contrôle du code source local
-
-Si vous utilisez TFS, Git ou Mercurial dans un référentiel local (qui n’est pas hébergé sur le cloud), vous pouvez déployer directement depuis votre référentiel vers une application web.
+Pour plus d'informations sur le déploiement à partir de systèmes de contrôle sources locaux, consultez les sections suivantes plus loin dans cet article.
 
 * [Team Foundation Server (TFS)](#tfs)
 * [Référentiels Git ou Mercurial locaux](#onpremises)
 
-###<a name="commandline"></a>Déploiement à l’aide des outils en ligne de commande et de l’API de gestion REST Azure
+Vous pouvez également automatiser le déploiement à l'aide d’outils de ligne de commande. Pour plus d'informations sur le déploiement à l’aide d’outils de ligne de commande, consultez les sections suivantes plus loin dans cet article.
 
-Il est toujours recommandé d'automatiser votre workflow de développement, mais si vous ne pouvez pas le faire directement dans votre système de contrôle de code source, vous pouvez le configurer manuellement en utilisant les outils en ligne de commande. Cela implique généralement l'utilisation de plusieurs outils ou infrastructures, car un déploiement implique souvent l'utilisation de fonctions de gestion de site, ainsi que la copie de contenus.
-
-Azure simplifie les tâches de gestion de site qui vous attendent lors d'un déploiement, en fournissant une API de gestion REST et plusieurs infrastructures facilitant l'utilisation de l'API.
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [Scripts FTP](#ftp2)
+* [Scripts et outils FTP](#ftp)
 * [Windows PowerShell](#powershell)
 * [API de gestion .NET](#api)
 * [Interface de ligne de commande Microsoft Azure](#cli)
 * [Ligne de commande Web Deploy](#webdeploy)
  
-###<a name="octopus"></a>Déploiement d’Octopus
+Il est parfois plus pratique d’effectuer un déploiement à partir de votre environnement de développement intégré (IDE). Pour plus d'informations sur le déploiement à partir d’un environnement IDE, consultez les sections suivantes plus loin dans cet article.
 
-[Déploiement d’Octopus](http://en.wikipedia.org/wiki/Octopus_Deploy) peut être utilisé avec les applications web d’App Service. Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Pour plus d'informations, consultez les ressources suivantes :
 * [Forum Azure pour Git, Mercurial et Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 * [Déploiement de DEUX sites Web sur Azure à partir d'un référentiel Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Billet de blog de Scott Hanselman.
 
-
 ##<a name="msbuild"></a>MSBuild
 
 Si vous utilisez l'[IDE Visual Studio](#vs) pour le développement, vous pouvez utiliser [MSBuild](http://msbuildbook.com/) pour automatiser tout ce que vous pouvez faire dans votre IDE. Vous pouvez configurer MSBuild pour utiliser [Web Deploy](#webdeploy) ou le [FTP/FTPS](#ftp) pour copier vos fichiers. Web Deploy peut également automatiser de nombreuses autres tâches de déploiement, comme le déploiement des bases de données.
@@ -164,11 +140,13 @@ Pour plus d'informations sur le déploiement en ligne de commande avec MSBuild, 
 * [Déploiement Web ASP.NET en utilisant Visual Studio : déploiement en ligne de commande](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment) (en anglais). Une série d'une dizaine de didacticiels sur le déploiement dans Azure avec Visual Studio. Montre comment utiliser la ligne de commande pour le déploiement après la configuration de profils de publication dans Visual Studio.
 * [Présentation de Microsoft Build Engine : utilisation de MSBuild et Team Foundation Build](http://msbuildbook.com/). Manuel comportant des chapitres sur l'utilisation de MSBuild pour le déploiement.
 
-##<a name="ftp2"></a>Scripts FTP
+##<a name="ftp"></a>Scripts et outils FTP
 
-Vous pouvez créer facilement des informations d’identification [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour une application Web, puis les utiliser avec des scripts de commandes FTP.
+Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application Web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
 
-Pour plus d'informations, consultez les ressources suivantes :
+Bien que les utilitaires FTP permettent de copier facilement vos fichiers d’application web dans Azure, ils n’effectuent ou ne coordonnent pas automatiquement de tâches de déploiement telles que le déploiement d’une base de données ou la modification de chaînes de connexion. De même, de nombreux outils FTP ne comparent pas les fichiers source et de destination afin d'ignorer la copie des fichiers qui n'ont pas été modifiés. Pour des applications volumineuses, le fait de toujours copier tous les fichiers peut allonger la durée des déploiements, même dans le cas d’une mise à jour mineure, puisque tous les fichiers sont toujours copiés.
+
+Pour plus d’informations, consultez les ressources suivantes :
 
 * [Utilisation des scripts de commandes FTP](http://support.microsoft.com/kb/96269).
 
@@ -227,4 +205,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

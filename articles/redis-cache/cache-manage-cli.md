@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Création et gestion du cache Redis Azure à l’aide de l’interface de ligne de commande Azure (Azure CLI)
@@ -25,9 +25,9 @@ L'interface de ligne de commande Azure est un excellent moyen de gérer votre in
 Pour créer et gérer des instances de cache Redis Azure à l’aide de l’interface de ligne de commande Azure, vous devez procéder comme suit.
 
 -	Vous devez disposer d’un compte Azure. Si vous n’en avez pas, vous pouvez créer un [compte d’évaluation gratuit](http://azure.microsoft.com/pricing/free-trial/) dans quelques instants.
--	[Installez l’interface de ligne de commande Azure](../xplat-cli.md#install).
--	Connectez votre installation d’interface de ligne de commande Azure à un compte Azure personnel ou à un compte Azure professionnel ou scolaire, puis connectez-vous à partir de l’interface de ligne de commande Azure à l’aide de la commande `azure login`. Pour comprendre les différences et effectuer votre choix, consultez [Connexion à votre abonnement Azure](../xplat-cli.md#configure).
--	Avant d’exécuter les commandes suivantes, basculez l’interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande suivante. `azure config mode arm` Pour plus d’informations, voir [Définition du mode Azure Resource Manager](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	[Installez l'interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+-	Connectez votre installation d’interface de ligne de commande Azure à un compte Azure personnel ou à un compte Azure professionnel ou scolaire, puis connectez-vous à partir de l’interface de ligne de commande Azure à l’aide de la commande `azure login`. Pour comprendre les différences et faire votre choix, consultez [Se connecter à un abonnement Azure à partir de l'interface de ligne de commande Azure (Azure CLI)](../xplat-cli-connect.md).
+-	Avant d'exécuter les commandes suivantes, basculez l'interface de ligne de commande Azure en mode Gestionnaire de ressources en exécutant la commande `azure config mode arm`. Pour plus d'informations, consultez [Définition du mode Azure Resource Manager](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Propriétés du cache Redis
 
@@ -254,4 +254,4 @@ Pour plus d’informations sur cette commande, exécutez la commande `azure redi
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

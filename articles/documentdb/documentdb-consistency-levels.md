@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Utilisation des niveaux de cohérence pour optimiser la disponibilité et les performances dans DocumentDB
@@ -56,15 +56,13 @@ Le niveau Éventuel fournit la cohérence la plus faible en matière de lecture,
 
 ### Modification du niveau de cohérence des bases de données
 
-1.  Sur le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout**.
+1.  Dans la barre de lancement du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Comptes DocumentDB**.
 
-2.  Dans le panneau **Parcourir tout**, cliquez sur **Comptes DocumentDB**.
+2. Dans le panneau **Comptes DocumentDB**, sélectionnez le compte de base de données à modifier.
 
-3. Dans le panneau **Comptes DocumentDB**, sélectionnez le compte de base de données à modifier.
+3. Dans le panneau du compte, dans l’objectif **Configuration**, cliquez sur la vignette **Cohérence par défaut**.
 
-4. Dans le panneau du compte, dans l’objectif **Configuration**, cliquez sur la vignette **Cohérence par défaut**.
-
-5. Sélectionnez le nouveau niveau de cohérence, puis cliquez sur **Enregistrer**.
+4. Dans le panneau **Cohérence par défaut**, sélectionnez le nouveau niveau de cohérence et cliquez sur **Enregistrer**.
 
 	![Capture d’écran mettant en avant la vignette Cohérence par défaut, les paramètres de la cohérence et le bouton Enregistrer](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -90,4 +88,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

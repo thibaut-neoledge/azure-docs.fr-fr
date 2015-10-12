@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure"
-	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics."
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettm"
+	pageTitle="Tableau de bord d’alimentation sur Stream Analytics | Microsoft Azure" 
+	description="Utilisez un tableau de bord Power BI de diffusion en temps réel pour collecter des informations d’analyse décisionnelle et analyser les données volumineuses à partir d’un travail Stream Analytics." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	services="stream-analytics" 
+	documentationCenter="" 
+	authors="jeffstokes72" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="08/27/2015"
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
@@ -24,7 +25,7 @@ Utilisez [Microsoft Power BI](https://powerbi.com/) pour générer rapidement un
 
 Dans cet article, découvrez comment créer vos propres outils d’analyse décisionnelle en utilisant Power BI comme sortie pour vos travaux Azure Stream Analytics.
 
-> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics.
+> [AZURE.NOTE]La sortie Power BI est une fonctionnalité d’aperçu d’Azure Stream Analytics. À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
 
 ## Composants requis ##
 
@@ -220,4 +221,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

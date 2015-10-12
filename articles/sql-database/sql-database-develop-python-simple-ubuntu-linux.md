@@ -95,11 +95,11 @@ Dans la base de données SQL, la propriété [IDENTITY](https://msdn.microsoft.
 Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous :
 
 
-\-Commencez une transaction
+-Commencez une transaction
 
-\-Insérez une ligne de données
+-Insérez une ligne de données
 
-\-Restaurez la transaction pour annuler l'insertion
+-Restaurez la transaction pour annuler l'insertion
 
 
 	import pymssql
@@ -109,7 +109,10 @@ Cet exemple de code illustre l'utilisation de transactions dans lesquelles vous�
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
+## Étapes suivantes
+
+Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

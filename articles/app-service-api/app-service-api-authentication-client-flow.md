@@ -227,4 +227,4 @@ Vous avez vu comment procéder à l'authentification du flux client pour les app
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

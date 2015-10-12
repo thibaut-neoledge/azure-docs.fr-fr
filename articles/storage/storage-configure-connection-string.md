@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tamram"/>
 
 # Configuration des chaînes de connexion Azure Storage
@@ -122,4 +122,4 @@ Par exemple, votre chaîne de connexion doit ressembler à l’exemple de chaîn
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

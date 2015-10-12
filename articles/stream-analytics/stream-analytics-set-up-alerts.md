@@ -14,8 +14,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # Configuration d'alertes
 
@@ -29,14 +30,14 @@ Les règles peuvent être configurées sur des mesures à l'aide du portail. Ell
 
 ## Configuration d'alertes par le biais du portail Azure
 
-Il existe deux façons de configurer des alertes :
+Il existe deux façons de configurer des alertes sur le portail de gestion Azure :
 
-1.	L'onglet Surveillance de votre tâche Stream Analytics  
+1.	L'onglet **Surveillance** de votre tâche Stream Analytics  
 2.	Le Journal des opérations dans les Services de gestion  
 
 ## Alertes avec l'onglet Surveillance de la tâche dans le portail
 
-1.	Sélectionnez la mesure dans l'onglet de surveillance, cliquez sur le bouton Ajouter une règle dans la partie inférieure du tableau de bord et configurez vos règles.  
+1.	Sélectionnez la mesure dans l'onglet de surveillance, cliquez sur le bouton **Ajouter une règle** dans la partie inférieure du tableau de bord et configurez vos règles.  
 
     ![Tableau de bord](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
@@ -50,7 +51,7 @@ Il existe deux façons de configurer des alertes :
 
 ## Configuration d'alertes par le biais des journaux des opérations
 
-1.	Accédez à l'onglet **Alertes** ans les Services de gestion du [portail Azure](https://manage.windowsazure.com)  
+1.	Accédez à l'onglet **Alertes** dans les Services de gestion du [portail Azure](https://manage.windowsazure.com).  
 2.	Cliquez sur **Ajouter une règle**  
 
     ![Critères](./media/stream-analytics-set-up-alerts/04-stream-analytics-set-up-alerts.png)
@@ -58,6 +59,20 @@ Il existe deux façons de configurer des alertes :
 3.	Entrez un nom et une description pour l'alerte. Sélectionnez « Stream Analytics » comme Type de service et le nom de la tâche comme Nom du service.
 
     ![Définition de l'alerte](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
+
+## Configuration d'alertes dans le portail Azure en version préliminaire ##
+
+Dans le portail Azure en version préliminaire, accédez à la tâche Stream Analytics pour laquelle vous souhaitez configurer une alerte, puis cliquez sur la section **Surveillance**. Dans le panneau **Métrique** qui s'ouvre, cliquez sur la commande **Ajouter une alerte**.
+
+  ![Configuration du portail Azure en version préliminaire](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+
+Vous pouvez nommer votre règle d'alerte et choisir la description à afficher dans le message électronique de notification.
+
+Quand vous sélectionnez Mesures, vous allez choisir une condition et une valeur de seuil pour la métrique.
+
+  ![Sélection d’une métrique dans le portail Azure en version préliminaire](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+
+Pour plus d'informations sur la configuration d’alertes dans le portail Azure en version préliminaire, consultez [Réception de notifications d’alerte](./azure-portal/insights-receive-alert-notifications.md).
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -70,4 +85,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

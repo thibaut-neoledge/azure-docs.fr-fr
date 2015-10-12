@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Notes de publication de StorSimple 8000 Update 0.3 | Microsoft Azure"
-    description="Décrit les nouvelles fonctionnalités, les correctifs, les problèmes non résolus et les solutions de contournement disponibles pour la version de février 2015 de Microsoft Azure StorSimple (Update 0.3)."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
-    editor="" />
+   pageTitle="Notes de publication de StorSimple 8000 Update 0.3 | Microsoft Azure"
+   description="Décrit les nouvelles fonctionnalités, les correctifs, les problèmes non résolus et les solutions de contournement disponibles pour la version de février 2015 de Microsoft Azure StorSimple (Update 0.3)."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/04/2015"
-    ms.author="v-sharos" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/04/2015"
+   ms.author="v-sharos" />
 
 # Notes de publication de StorSimple série 8000 Update 0.3 - Février 2015
 
@@ -86,4 +86,4 @@ Cette version ne contient aucune mise à jour pour le microprogramme ou le contr
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

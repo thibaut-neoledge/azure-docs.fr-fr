@@ -22,6 +22,7 @@
 
 Cette rubrique explique comment utiliser la bibliothèque <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> pour sérialiser des objets et d’autres structures de données en flux afin de les rendre persistants dans une mémoire, une base de données ou un fichier, ainsi que pour les désérialiser afin de récupérer les objets d’origine.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ##<a name="apacheAvro"></a>Apache Avro
 La bibliothèque <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> met en œuvre le système de sérialisation des données Apache Avro pour l’environnement Microsoft.NET. Apache Avro fournit un format compact d'échange des données binaires pour la sérialisation. Elle utilise le format <a href="http://www.json.org" target="_blank">JSON</a> pour définir un schéma sans langage spécifié qui assure l’interopérabilité des langages. Les données sérialisées dans un langage peuvent être lues dans un autre langage. Les langages C, C++, C#, Java, PHP, Python et Ruby sont actuellement pris en charge. Vous pouvez trouver des informations détaillées sur ce format dans la <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Spécification Apache Avro</a>. Notez que la version actuelle de Microsoft Avro Library ne prend pas en charge la partie RPC (appels de procédure distante) de cette spécification.
@@ -1404,4 +1405,4 @@ Pour nettoyer le cluster, exécutez la commande suivante :
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -20,7 +20,7 @@
 
 Cet article vous donne une vue d’ensemble de la façon de lier des réseaux virtuels à des circuits ExpressRoute. Les réseaux virtuels peuvent appartenir au même abonnement, ou faire partie d’un autre abonnement. Cet article s’applique aux réseaux virtuels déployés à l’aide du modèle de déploiement classique.
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+>[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md)
 
 ## Conditions préalables à la configuration
 
@@ -145,4 +145,4 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

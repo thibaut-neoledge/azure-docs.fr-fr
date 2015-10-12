@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Surveiller les applications web dans Azure App Service"
 	description="Découvrez comment surveiller des applications web dans le Service d’application Microsoft Azure, à l’aide du portail de gestion."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/24/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C en version préliminaire : dépôt de demandes de prise en charge de fichiers pour Azure Active Directory B2C
@@ -23,7 +23,7 @@
 Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C sur le portail Azure en version préliminaire, procédez comme suit :
 
 1. [Accédez au panneau de fonctionnalités B2C sur le portail Azure en version préliminaire](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
-2. Basculez de votre annuaire B2C vers un autre annuaire auquel un abonnement Azure est associé. En règle générale, ce dernier est votre annuaire des employés ou l’annuaire par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus sur la relation entre les abonnements Azure et les annuaires Azure AD, lire [cet article](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
+2. Basculez de votre client B2C vers un autre client auquel un abonnement Azure est associé. En règle générale, ce dernier est votre client des employés ou le client par défaut créé pour vous lorsque vous avez souscrit un abonnement Azure. Pour en savoir plus sur la relation entre les abonnements Azure et les annuaires Azure AD, lire [cet article](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad).
 
     > [AZURE.IMPORTANT]Cette étape est obligatoire. Si vous ne l’exécutez pas, le processus échoue.
 
@@ -38,16 +38,16 @@ Pour déposer des demandes d’assistance pour Azure Active Directory (AD) B2C 
     - Le **Type de demande** est **technique**.
 	- La **Ressource** est **Active Directory**.
 	- Dans le panneau **Catégorie de problème**, sélectionnez **B2C en version préliminaire** comme **Type de problème** et la **Catégorie** appropriée.
-	- Dans le panneau **Description**, décrivez votre problème de façon détaillée. Dans la zone de texte **Ressource**, entrez le nom de votre annuaire B2C, par exemple, contosob2c.onmicrosoft.com.
+	- Dans le panneau **Description**, décrivez votre problème de façon détaillée. Dans la zone de texte **Ressource**, entrez le nom de votre client B2C, par exemple, contosob2c.onmicrosoft.com.
 
 5. Après avoir soumis votre demande d’assistance, vous pouvez la surveiller en cliquant sur **Aide + support** dans le tableau d’accueil, puis sur **Gérer les demandes de support**.
 
-## Problème connu : dépôt d’une demande de support dans le contexte d’un annuaire B2C
+## Problème connu : dépôt d'une demande de support dans le contexte d'un client B2C
 
-Si vous manqué l’étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre annuaire B2C, l’erreur suivante s’affiche.
+Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une demande de support dans le contexte de votre client B2C, l'erreur suivante s'affiche.
 
-> [AZURE.IMPORTANT]N’essayez pas de souscrire un nouvel abonnement Azure dans votre annuaire B2C.
+> [AZURE.IMPORTANT]N'essayez pas de souscrire un nouvel abonnement Azure dans votre client B2C.
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

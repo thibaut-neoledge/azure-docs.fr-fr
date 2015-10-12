@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Envoi de notifications interplateformes à un utilisateur spécifique dans iOS" 
-	description="Découvrez comment envoyer des notifications push à tous les appareils d&#39;un utilisateur spécifique."
+	description="Découvrez comment envoyer des notifications push à tous les appareils d'un utilisateur spécifique."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
 	authors="ysxu" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
@@ -103,7 +103,7 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 <!-- URLs. -->
 [Prise en main de l'authentification]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [Prise en main des notifications Push]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
-[modèles]: https://msdn.microsoft.com/fr-fr/library/dn530748.aspx
+[modèles]: https://msdn.microsoft.com/fr-FR/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

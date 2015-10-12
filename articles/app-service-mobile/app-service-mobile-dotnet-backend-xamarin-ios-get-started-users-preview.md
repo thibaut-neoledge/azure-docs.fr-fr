@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin iOS" 
 	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft." 
-	services="app-service\mobile" 
+	services="app-service" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="mobile" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -118,4 +118,4 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

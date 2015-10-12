@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Vue d’ensemble de la requête de base de données élastique Azure SQL Database"
-    description="Vue d’ensemble de la fonctionnalité de requête élastique"
-    metaKeywords="azure sql database elastic database queries"
+    description="Vue d’ensemble de la fonctionnalité de requête élastique"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Vue d’ensemble de la requête de base de données élastique Azure SQL Database (en version préliminaire)
 
@@ -81,7 +79,7 @@ Pour décrire les tables distantes accessibles à partir d’un point de termina
 La fonctionnalité de requête de base de données élastique repose sur ces quatre instructions DDL. En règle générale, ces instructions DDL sont utilisées une seule fois ou très rarement, lorsque le schéma de votre application change.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE CREDENTIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@ Les informations d'identification sont visibles dans la vue de catalogue sys.dat
 
 Vous pouvez utiliser la syntaxe suivante pour supprimer la clé principale et les informations d’identification :
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### Sources de données externes
@@ -267,4 +265,4 @@ Pour commencer à explorer une requête de base de données élastique, essayez 
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

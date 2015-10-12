@@ -1,46 +1,47 @@
 <properties 
-	pageTitle="Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service"
-	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service" 
+	description="Découvrez comment développer une application ASP.NET MVC 5 avec une base de données SQL principale, ajouter l’authentification et l’autorisation et la déployer dans Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="riande"/>
-
-
 
 # Créer une application ASP.NET MVC avec authentification et base de données SQL et la déployer dans Azure App Service
 
-Ce didacticiel vous montre comment générer une application Web ASP.NET MVC 5 sécurisée qui permet aux utilisateurs de se connecter avec des informations d’identification Facebook ou Google. Vous allez également déployer l’application dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Ce didacticiel vous montre comment générer une application Web ASP.NET MVC 5 sécurisée qui permet aux utilisateurs de se connecter avec des informations d’identification Facebook ou Google. L’application est une liste de contacts utilisant Entity Framework ADO.NET pour accéder à la base de données. Vous allez déployer cette application dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-Vous pouvez ouvrir gratuitement un compte Azure. Si vous n'avez pas déjà Visual Studio 2013, le Kit de développement logiciel (SDK) installe automatiquement Visual Studio Express 2013 pour le Web. Vous pouvez commencer vos développement Azure gratuitement.
-
-Ce didacticiel part du principe que vous n'avez pas d'expérience en tant qu'utilisateur d'Azure. À la fin de ce didacticiel, vous disposerez d’une application Web pilotée par les données sécurisée et fonctionnelle dans le cloud et utilisant une base de données du cloud.
-
-Vous apprendrez ce qui suit :
-
-* créer un projet ASP.NET MVC 5 sécurisé et le publier sur [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service ;
-* utiliser [OAuth](http://oauth.net/ "http://oauth.net/") et la base de données des membres ASP.NET pour sécuriser votre application ;
-* utiliser une base de données SQL pour stocker des données dans Azure ;
-
-Vous développerez une application web de liste de contacts simple basée sur ASP.NET MVC 5 et utilisant Entity Framework ADO.NET pour accéder à la base de données. L’illustration suivante montre la page de connexion une fois l’application terminée :
+À la fin du didacticiel, vous disposerez d’une application web pilotée par les données sécurisée et fonctionnelle dans le cloud et utilisant une base de données du cloud. L’illustration suivante montre la page de connexion une fois l’application terminée :
 
 ![page de connexion][rxb]
 
->[AZURE.NOTE]Pour créer des boutons de connexion conviviaux dans la capture d’écran ci-dessus, consultez le billet de blog intitulé [Boutons de connexion conviviaux pour ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)
+Vous apprendrez ce qui suit :
 
->[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+* Créer un projet web ASP.NET MVC 5 sécurisé dans Visual Studio
+* Authentifier et autoriser des utilisateurs qui se connectent avec leurs informations d’identification à partir de leurs comptes Google ou Facebook (authentification de fournisseur de réseaux sociaux à l’aide de [OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")).
+* Authentifier et autoriser des utilisateurs qui s’inscrivent dans une base de données gérée par l’application (authentification locale utilisant [Identité ASP.NET](http://asp.net/identity/)).
+* Utiliser le code d’ADO.NET Entity Framework 6 avant de lire et d’écrire des données dans une base de données SQL.
+* Utiliser Migrations Code First d’Entity Framework avant de déployer une base de données.
+* Stocker des données relationnelles dans le cloud à l’aide d’une base de données SQL Azure.
+* Déployer un projet web qui utilise une base de données associée à une [application web](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service.
 
->Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md).
+>
+>Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+## Configuration requise
+
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le Kit de développement logiciel SDK 2.5.1.
 
@@ -361,6 +362,8 @@ En plus de l’authentification, ce didacticiel va également utiliser des rôle
 
 Suivez les instructions du didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2 ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog) (en anglais) sous **Création d’une application Google pour OAuth2 afin de configurer une application Google pour OAuth2**. Exécutez et testez l’application pour vérifier que vous pouvez vous connecter à l’aide de l’authentification Google.
 
+Pour créer des boutons de réseaux sociaux avec icônes fournisseur, consultez [Boutons de réseaux sociaux pour ASP.NET MVC 5](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5).
+
 ## Utilisation de l’API d’appartenance
 Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *peutSupprimerMembres*, plus parlant que le nom *superAdmin*.
 
@@ -403,7 +406,7 @@ Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle 
 
 	![image du code](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d'informations, consultez les didacticiels [Identité ASP.NET](http://www.asp.net/identity/overview/features-api).
+	Ce code crée un rôle nommé *canEdit*, créé un utilisateur local nommé **user1@contoso.com* et ajoute **user1@contoso.com* au rôle *canEdit*. Pour plus d’informations, consultez les didacticiels [Identité ASP.NET](http://www.asp.net/identity/overview/features-api).
 
 ## Utilisation de code temporaire pour ajouter de nouveaux utilisateurs de réseaux sociaux au rôle peutModifier  ##
 Dans cette section, vous allez modifier temporairement la méthode **ExternalLoginConfirmation** dans le contrôleur Account afin d’ajouter des utilisateurs se connectant avec un fournisseur OAuth au rôle *canEdit*. Nous allons modifier temporairement la méthode **ExternalLoginConfirmation** pour ajouter automatiquement de nouveaux utilisateurs à un rôle d’administration. Tant que nous n’avons pas fourni un outil pour ajouter et gérer des rôles, nous allons utiliser le code d’inscription automatique. Nous espérons fournir un outil similaire à [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) à l’avenir pour vous permettre de créer et de modifier les comptes et les rôles des utilisateurs.
@@ -457,7 +460,7 @@ Dans la **Console du Gestionnaire de package**, actionnez la touche Haut pour af
 
 		Update-Database
 
-Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l'utilisateur **user1@contoso.com* et l'ajoute au rôle *canEdit*.
+Exécutez la commande **Update-Database** qui exécutera la méthode **Seed**, qui exécutera la méthode **AddUserAndRole** que vous venez d’ajouter. **AddUserAndRole** crée l’utilisateur **user1@contoso.com* et l’ajoute au rôle *canEdit*.
 
 ## Protection de l’application à l’aide du protocole SSL et de l’attribut Authorize ##
 
@@ -530,7 +533,7 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
 		
 1. Si vous êtes toujours connecté depuis une session précédente, cliquez sur le lien **Se déconnecter**.
 1. Cliquez sur le lien **À propos de** ou **Contact**. Vous serez redirigé vers la page de connexion, car les utilisateurs anonymes ne peuvent pas afficher ces pages. 
-1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l'adresse e-mail **joe@contoso.com*. Vérifiez que *Jerome* peut afficher les pages Accueil, Contact et À propos de.
+1. Cliquez sur le lien **Enregistrer comme nouvel utilisateur** et ajoutez un utilisateur local avec l’adresse e-mail **joe@contoso.com*. Vérifiez que *Jerome* peut afficher les pages Accueil, Contact et À propos de.
 
 	![se connecter](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -625,7 +628,7 @@ Si vous n'avez pas indiqué le prénom et le nom de vos informations de compte G
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. Notez l'ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l'ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
+1. Notez l’ID du compte Google utilisé pour votre inscription afin de lui attribuer le rôle **canEdit**, ainsi que l’ID de **user1@contoso.com*. Ces ID doivent être les seuls à avoir le rôle **peutModifier**. Nous allons vérifier cela à l’étape suivante.
 
 	![Page CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -717,4 +720,4 @@ Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

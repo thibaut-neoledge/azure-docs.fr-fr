@@ -34,6 +34,8 @@ Apache Storm sur HDInsight est un cluster géré intégré dans l‘environneme
 * Utiliser le langage de votre choix : il prend en charge les composants Storm écrits en **Java**, en **C#** et en **Python**
 
 	* Prendre en charge une combinaison de plusieurs langages de programmation : il peut lire des données à l‘aide de Java, puis les traiter en utilisant le C#
+	
+		> [AZURE.NOTE]Les topologies C# sont uniquement prises en charge sur les clusters HDInsight Windows.
 
 	* Utiliser l’interface Java **Trident** pour créer des topologies Storm qui prennent en charge « exactement une fois » le traitement des messages, la persistance de magasin de données « transactionnels » et un ensemble d‘opérations d‘analyses courantes de flux de données
 
@@ -51,13 +53,17 @@ Pour découvrir Storm, consultez la rubrique [Prise en main de Storm sur HDInsig
 
 Vous pouvez approvisionner un nouveau cluster Storm sur HDInsight en quelques minutes. Précisez le nom du cluster, sa taille, le compte d‘administrateur et le compte de stockage. Azure créera le cluster, y compris des exemples de topologies et un tableau de bord de gestion web.
 
-> [AZURE.NOTE]Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli.md) ou [Azure PowerShell](../powershell-install-configure.md).
+> [AZURE.NOTE]Vous pouvez également configurer des clusters Storm en utilisant l’[interface de ligne de commande](../xplat-cli-install.md) ou [Azure PowerShell](../powershell-install-configure.md).
 
 Dans les 15 minutes qui suivent l‘envoi de la demande, vous disposerez d’un nouveau cluster actif et prêt pour votre première analyse en temps réel.
 
 ###Simplicité d'utilisation
 
-Si vous utilisez Visual Studio, HDInsight Tools pour Visual Studio vous offre la possibilité de créer des topologies C# et hybrides C#/Java pour les envoyer à votre cluster Storm sur HDInsight.
+__Pour Storm Linux sur les clusters HDInsight__, vous pouvez vous connecter au cluster à l’aide d’un protocole SSH, puis utiliser la commande `storm` pour démarrer et gérer des topologies. Vous pouvez également utiliser Ambari pour surveiller le service Storm et l’interface utilisateur Storm pour surveiller et gérer des topologies en cours d’exécution.
+
+Pour plus d’informations sur l’utilisation des clusters Storm Linux, consultez [Prise en main d’Apache Storm sur HDInsight Linux](hdinsight-apache-storm-tutorial-get-started-linux.md).
+
+__Pour Storm Windows sur des clusters HDInsight__, les outils HDInsight pour Visual Studio vous permettent de créer des topologies C# et hybrides C#/Java pour les envoyer à Storm sur votre cluster HDInsight.
 
 ![Création du projet Storm](./media/hdinsight-storm-overview/createproject.png)
 
@@ -75,7 +81,11 @@ Chaque cluster Storm sur HDInsight permet également d’accéder à un tableau 
 
 Pour plus d‘informations sur l‘utilisation du tableau de bord Storm, consultez la rubrique [Déploiement et gestion des topologies Apache Storm sur HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d‘utilisation de ce spout dans une topologie Storm, consultez les rubriques [Prise en main de Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) et [Analyse des données de capteur avec Storm et HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm sur HDInsight s’intègre également sans difficulté avec Azure Event Hubs via le **spout de concentrateur d’événement**. Cette option est disponible sur chaque cluster Storm à **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Pour obtenir des exemples d’utilisation de ce spout dans une topologie Storm, consultez les documents suivants :
+
+* [Développer une topologie C# qui utilise Azure Event Hubs](hdinsight-storm-develop-csharp-event-hub-topology.md)
+
+* [Développer une topologie Java qui utilise Azure Event Hubs](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###Fiabilité
 
@@ -154,7 +164,9 @@ La plupart des exemples Java que vous allez rencontrer sont entièrement rédig�
 
 Pour plus d‘informations sur Trident, consultez le [didacticiel Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) sur le site apache.org.
 
-Pour obtenir des exemples de topologies Java et Trident brutes, consultez le répertoire **%storm\_home%\\contrib\\storm-starter** situé sur votre cluster Storm HDInsight.
+Pour obtenir des exemples de topologies Java et Trident, consultez la [liste des exemples de topologies Storm](hdinsight-storm-example-topology.md) ou les exemples storm-starter sur votre cluster HDInsight.
+
+Les exemples storm-starter sont situés dans le répertoire \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ sur les clusters Linux et le répertoire **%storm\_home%\\contrib\\storm-starter** sur les clusters Windows.
 
 ##Quels sont les modèles de développement courants ?
 
@@ -205,6 +217,6 @@ En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm d
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: ../hdinsight-storm-getting-started.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

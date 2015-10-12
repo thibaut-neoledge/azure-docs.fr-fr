@@ -32,7 +32,7 @@ Les exemples de commandes d’interface de ligne de commande PowerShell ci-desso
 ## Création du groupe de sécurité réseau pour le sous-réseau frontal
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 
 2. Exécutez la commande **azure config mode** pour passer en mode classique, comme illustré ci-dessous.
 
@@ -104,7 +104,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou--action)**. Niveau d’accès de la règle (Deny ou Allow).
 	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
-	- **-r (ou --type)**. Direction de la connexion (Inbound ou Outbound).
+- **-r (ou --type)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.
 	- **-o (ou --source-port-range)**. Port source ou plage de ports.
@@ -239,4 +239,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -125,4 +125,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Comment générer une miniature à l'aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d'ensemble du codage Media Services codage](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

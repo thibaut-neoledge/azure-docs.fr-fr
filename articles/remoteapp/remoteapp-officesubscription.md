@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@ Saviez-vous que vous pouvez utiliser votre abonnement Office 365 existant dans 
 ## Puis-je utiliser mon abonnement Office 365 pour exécuter des applications Office dans Azure RemoteApp ?
 
 Oui. En fait, l’utilisation de votre abonnement Office 365 est la seule façon d’importer vos applications Office dans Azure RemoteApp.
+
+(Remarque : si votre déploiement Azure RemoteApp est fourni par un partenaire d'hébergement, ce dernier peut éventuellement vous fournir des licences Office dans le cadre d’un [contrat de licence de fournisseur de services](http://www.microsoft.com/fr-FR/Licensing/licensing-programs/spla-program.aspx))
+
 
 L’avantage de votre abonnement Office 365 est qu’il vous permet d’utiliser la même licence utilisateur dans de nombreux environnements et plateformes, y compris dans le cloud Azure. Lorsque vous utilisez des applications Office dans Azure RemoteApp, vous n’avez pas besoin d’acheter des licences supplémentaires ou de configurer vos licences existantes d’une manière particulière. Il vous suffit de disposer d’un abonnement Office 365 qui inclut [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx).
 
@@ -71,7 +74,7 @@ Pour déployer Office 365 ProPlus sur une collection, le plus simple est de [d�
 
 ### Utilisation d’une image personnalisée
 
-Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office ](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.microsoft.com/library/Dn782858.aspx) pour l’installation.
+Vous pouvez toujours créer une image personnalisée. Vous pouvez créer une [machine virtuelle Azure](remoteapp-image-on-azurevm.md) ou [créer l’image localement](remoteapp-create-custom-image.md) et la charger sur Azure. Dans les deux cas, veillez à installer Office 365 ProPlus à l’aide du nœud d’activation d’ordinateur partagé. Utilisez l’[outil Déploiement d’Office](http://blogs.technet.com/b/odsupport/archive/2014/07/11/using-the-office-deployment-tool.aspx) et suivez les [instructions](https://technet.microsoft.com/library/Dn782858.aspx) pour l’installation.
 
 ### Désactivation des mises à jour automatiques pour Office 365 ProPlus dans votre image personnalisée - IMPORTANT
 
@@ -84,8 +87,8 @@ Pour désactiver les mises à jour automatiques, ajoutez le code suivant au fich
 À présent, votre fichier de configuration doit contenir les lignes suivantes :
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## Comment puis-je mettre à jour une image avec Office 365 ProPlus ?
 
@@ -117,4 +120,4 @@ Vous avez besoin de plus d’informations sur l’utilisation de l’outil Dépl
 - [Déploiement et mise à jour d’Office 365 ProPlus à l’aide de l’outil Déploiement d’Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (vidéo en anglais)
 - [Définir les paramètres de mise à jour pour Office 365 ProPlus](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Créer une application logique IAE à l'aide de VETR | Microsoft Azure"
-	description="Cette rubrique traite des fonctionnalités de validation, encodage et transformation de BizTalk services."
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="Fonctionnalités de validation, encodage et transformation des services XML BizTalk"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="06/24/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/29/2015"
+   ms.author="rajram"/>
 
 
 # Créer une application logique IAE à l'aide de VETR
@@ -26,7 +26,7 @@ La plupart des scénarios d'Intégration d'Applications d'Entreprise (IAE) serve
 - Convertir les données d'un format vers un autre (par exemple, du format de données d'un système CRM vers le format de données d'un système ERP).
 - Acheminer les données vers l'application ou le système souhaité.
 
-Cet article vous montre un modèle d'intégration courante : « médiation message unidirectionnel » ou modèle VETR (validation, enrichissement, transformation, itinéraire). Le modèle VETR sert d'intermédiaire pour les données entre une entité source et une entité de destination. La source et la destination sont généralement des sources de données.
+Cet article illustre un modèle d'intégration courant : la « médiation de message unidirectionnelle » ou VETR (Validation, Enrichissement, Transformation, Routage). Le modèle VETR sert d'intermédiaire pour les données entre une entité source et une entité de destination. La source et la destination sont généralement des sources de données.
 
 Prenons comme exemple un site web qui accepte des commandes. Les utilisateurs envoient des commandes au système à l'aide du protocole HTTP. En arrière-plan, le système valide les données entrantes, les normalise et les stocke dans une file d'attente Service Bus pour un traitement ultérieur. Le système extrait les commandes de la file d'attente et s'attend à ce qu'elles soient dans un format particulier. Ainsi, le flux de bout en bout est le suivant :
 
@@ -53,9 +53,9 @@ Ensuite, nous allons ajouter des déclencheurs et des actions.
 ## Ajouter un déclencheur HTTP
 
 1. Sélectionnez **Écouteur HTTP** dans la galerie pour créer un écouteur. Nommez-le **HTTP1**.
-2. Conservez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _HTTP Method_ et la valeur _/OneWayPipeline_ à _Relative URL_.
+2. Conservez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l'action du déclencheur en affectant la valeur _POST_ à _HTTP Method_ et la valeur _/OneWayPipeline_ à _Relative URL_ :  
 
-![Déclencheur HTTP][2]
+	![Déclencheur HTTP][2]
 
 
 ## Ajouter une action de validation
@@ -65,18 +65,18 @@ Maintenant, nous allons entrer des actions qui s'exécutent chaque fois que le d
 1. Ajoutez le **Validateur XML BizTalk** à partir de la galerie et nommez-le _(Validate1)_ pour créer une instance.
 2. Configurez un schéma XSD pour valider les messages XML entrants. Sélectionnez l’action _Validation_ et sélectionnez _triggers(’httplistener’).outputs.Content_ comme valeur pour le paramètre _inputXml_.
 
-À présent, l'action de validation est la première action après l'écouteur HTTP. En procédant de même, nous allons ajouter le reste des actions.
+À présent, l'action de validation est la première action après l'écouteur HTTP :
 
 ![Validateur XML BizTalk][3]
 
+En procédant de même, nous allons ajouter le reste des actions.
 
 ## Ajouter une action de transformation
 Nous allons maintenant configurer des transformations pour normaliser les données entrantes.
 
 1. Ajoutez **Transformation** à partir de la galerie.
-2. Pour configurer une transformation pour transformer les messages XML entrants, sélectionnez l’action **Transformer** comme action à exécuter quand cette API est appelée et sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. Map est un paramètre facultatif car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
-3. Pour finir, la transformation s'exécute uniquement si la validation réussit. Pour configurer cette condition, cliquez sur l’icône d’engrenage dans le coin supérieur droit et sélectionnez _Ajouter une condition à remplir_. Définissez la valeur suivante pour la condition : ```equals(actions('xmlvalidator').status,'Succeeded')```
-
+2. Pour configurer une transformation pour transformer les messages XML entrants, sélectionnez l'action **Transformer** comme action à exécuter quand cette API est appelée et sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. *Map* est un paramètre facultatif car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
+3. Pour finir, la transformation s'exécute uniquement si la validation réussit. Pour configurer cette condition, cliquez sur l'icône d'engrenage dans le coin supérieur droit et sélectionnez _Ajouter une condition à remplir_. Définissez la valeur suivante pour la condition ```equals(actions('xmlvalidator').status,'Succeeded')``` :  
 
 ![Transformations BizTalk][4]
 
@@ -84,8 +84,8 @@ Nous allons maintenant configurer des transformations pour normaliser les donné
 ## Ajouter le connecteur Service Bus
 Ensuite, nous allons ajouter la destination (une file d'attente Service Bus) où écrire les données.
 
-1. Ajoutez un **Connecteur Service Bus** à partir de la galerie. Affectez la valeur _Servicebus1_ à **Name**, affectez la chaîne de connexion à votre instance Service Bus comme valeur **Connection String**, affectez la valeur _Queue_ à **Entity Name** et ignorez **Subscription name**.
-2. Sélectionnez l’action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Message**.
+1. Ajoutez un **Connecteur Service Bus** à partir de la galerie. Affectez la valeur _Servicebus1_ à **Name**, affectez la chaîne de connexion à votre instance Service Bus comme valeur **Connection String**, affectez la valeur **Queue** à _Entity Name_ et ignorez **Subscription name**.
+2. Sélectionnez l'action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Message**.
 
 ![Service Bus][5]
 
@@ -94,14 +94,18 @@ Ensuite, nous allons ajouter la destination (une file d'attente Service Bus) où
 Une fois le traitement du pipeline terminé, renvoyez une réponse HTTP pour la réussite et l'échec en procédant comme suit :
 
 1. Ajoutez un **Écouteur HTTP** à partir de la galerie et sélectionnez l’action **Envoyer une réponse HTTP**.
-2. Affectez la valeur *Traitement de pipeline terminé* à **Response Content**, la valeur *200* à **Response Status Code** pour indiquer HTTP 200 OK, et la **condition** sur l'expression ```@equals(actions('servicebusconnector').status,'Succeeded')```
+2. Affectez la valeur *Traitement de pipeline terminé* à **Response Content**, la valeur *200* à **Response Status Code** pour indiquer HTTP 200 OK, et la **condition** sur l'expression suivante : ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
 
-Répétez les étapes ci-dessus pour envoyer aussi une réponse HTTP en cas d'échec. Modifiez la valeur de la **condition** en ```@not(equals(actions('servicebusconnector').status,'Succeeded')).```
+
+Répétez ces étapes pour envoyer aussi une réponse HTTP en cas d'échec. Modifiez la **condition** sur l'expression suivante : ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Achèvement
-Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'application est déclenchée et les actions que vous venez de créer sont exécutées. Pour gérer le genre d’application logique que vous créez, cliquez sur **Parcourir** dans le portail de gestion Azure et cliquez sur **Logic Apps**. Cliquez sur votre application pour afficher plus d'informations.
+Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'application est déclenchée et les actions que vous venez de créer sont exécutées. Pour gérer le genre d'application logique que vous créez, cliquez sur **Parcourir** dans le portail Azure et sélectionnez **Logic Apps**. Sélectionnez votre application pour afficher plus d'informations.
 
+Rubriques utiles :
+
+[Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md) <br/> [Analyser vos applications logiques](app-service-logic-monitor-your-logic-apps.md)
 
 <!--image references -->
 [1]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BasicVETR.PNG
@@ -110,4 +114,4 @@ Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'appl
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

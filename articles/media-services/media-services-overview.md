@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 #Vue d’ensemble d’Azure Media Services et scénarios courants
@@ -22,27 +22,28 @@ Microsoft Azure Media Services est une plateforme extensible basée sur le cloud
 
 Vous pouvez créer des flux de travail de bout en bout en utilisant uniquement Media Services. Vous pouvez aussi choisir d'utiliser des composants tiers pour certaines parties de votre flux de travail (par exemple, en encodant avec un encodeur tiers). Le contenu est ensuite téléchargé, protégé, empaqueté et remis à l'aide de Media Services.
 
-
-L'affiche suivante présente les flux de travail Azure Media Services, de la création des médias à leur consommation. Vous pouvez télécharger l’affiche ici : [Affiche Azure Media Services](http://www.microsoft.com/download/details.aspx?id=38195).
-
-![Vue d’ensemble][overview]
-
 Vous pouvez choisir de diffuser votre contenu en direct ou de distribuer du contenu à la demande. Cette rubrique décrit les scénarios courants pour distribuer vos contenus [en direct](media-services-overview.md#live_scenarios) ou [à la demande](media-services-overview.md#vod_scenarios). La rubrique contient également des liens vers d’autres rubriques pertinentes.
+
+## Kits de développement logiciel (SDK) et outils 
 
 Pour créer des solutions Media Services, vous pouvez utiliser les composants suivants :
 
 - [API REST Media Services](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - Un des SDK clients disponibles : [SDK Azure Media Services pour .NET](https://github.com/Azure/azure-sdk-for-media-services), [SDK Azure pour Java](https://github.com/Azure/azure-sdk-for-java), [Azure Media Services pour Node.js](https://github.com/fritzy/node-azure-media), [SDK Azure PHP](https://github.com/Azure/azure-sdk-for-php)
-- Outil existants : [Portail de gestion Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Outils existants : [Portail de gestion Azure](http://manage.windowsazure.com/) ou [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##Affiche
+
+
+Vous pouvez [ici](http://azure.microsoft.com/documentation/infographics/media-services/) consulter l'affiche Azure Media Services qui présente les flux de travail AMS, de la création des médias à leur consommation.
 
 ##Composants requis
 
@@ -50,9 +51,9 @@ Pour commencer à utiliser Azure Media Services, vous devez disposer des éléme
  
 3. Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
 2. Un compte Azure Media Services. Utilisez le portail de gestion Azure, .NET ou l’API REST pour créer un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte](media-services-create-account.md).
-3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, consultez [Configuration de votre environnement](media-services-dotnet-how-to-use.md). 
+3. (Facultatif) Un environnement de développement configuré. Choisissez .NET ou API REST comme environnement de développement. Pour plus d’informations, consultez [Configuration d'environnement](media-services-dotnet-how-to-use.md). 
 
-	En outre, découvrez comment [vous connecter par programmation](media-services-dotnet-connect_programmatically.md).
+	En outre, découvrez comment [vous connecter](media-services-dotnet-connect_programmatically.md) par programmation.
 4. (Recommandé) Allocation d’une ou de plusieurs unités d’échelle. Il est recommandé d’allouer une ou plusieurs unités d’échelle pour les applications dans un environnement de production. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu](media-services-manage-origins.md).
 
 ##Concepts
@@ -60,7 +61,7 @@ Pour commencer à utiliser Azure Media Services, vous devez disposer des éléme
 Pour plus d’informations, consultez [Concepts](media-services-concepts.md).
 
 
-##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarions courants
+##<a id="vod_scenarios"></a>Diffusion multimédia à la demande avec Azure Media Services : tâches et scénarios courants
 
 Cette section décrit les scénarios courants et fournit des liens vers des rubriques pertinentes. Le diagramme suivant présente les principaux composants de la plateforme Media Services impliqués dans la distribution de contenu à la demande.
 
@@ -152,7 +153,7 @@ Lorsque vous utilisez la vidéo en flux continu, les composants suivants sont g�
 
 Quand vous distribuez votre contenu aux clients, votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour prendre en charge les conditions de qualité et de réseau, utilisez des encodeurs dynamiques pour encoder votre flux dans un flux vidéo à débit binaire multiple (débit binaire adaptatif). Pour prendre en charge la diffusion en continu sur différents appareils, utilisez l’[empaquetage dynamique](media-services-dynamic-packaging-overview.md) Media Services pour empaqueter de manière dynamique votre flux dans différents protocoles. Media Services prend en charge la distribution des technologies de diffusion en continu à débit binaire adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH et HDS (pour licences Adobe PrimeTime/Access uniquement).
 
-Dans Azure Media Services, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
+Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de terminaison de diffusion en continu** gèrent toutes les fonctionnalités vidéo en flux continu, notamment la réception, le formatage, le DVR, la sécurité, l’extensibilité et la redondance.
 
 Un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Actuellement, un canal peut recevoir des flux d’entrée dynamiques de l’une des manières suivantes :
 
@@ -170,7 +171,7 @@ Le schéma suivant illustre les principales parties de la plateforme AMS impliqu
 
 ![Flux de travail en direct][live-overview1]
 
-Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 
 ###Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -226,4 +227,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

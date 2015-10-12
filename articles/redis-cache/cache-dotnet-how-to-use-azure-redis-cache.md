@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure
@@ -25,10 +25,11 @@ Ce guide décrit la prise en main du **Cache Redis Azure**. Les exemples ont ét
 
 Le Cache Microsoft Azure Redis se base sur le cache Redis open source connu. Il vous donne accès à un cache Redis dédié et sécurisé, qui est géré par Microsoft. Un cache créé avec Cache Redis Azure est accessible à partir de toutes les applications dans Microsoft Azure.
 
-Cache Redis Microsoft Azure est disponible en deux options :
+Cache Redis Microsoft Azure est disponible dans les niveaux suivants :
 
 -	**De base**, avec un seul nœud. Plusieurs tailles jusqu'à 53 Go.
 -	**Standard** : avec deux nœuds, principal et réplica. Plusieurs tailles jusqu'à 53 Go. Un contrat SLA de 99,9 %.
+-	**Premium** – Actuellement en version préliminaire. Deux nœuds (principal/réplica) avec jusqu'à 10 partitions. Plusieurs tailles de 6 Go à 530 Go (nous contacter pour en savoir plus). Toutes les fonctionnalités du niveau Standard et plus, y compris la prise en charge de [cluster Redis](cache-how-to-premium-clustering.md), [persistance Redis](cache-how-to-premium-persistence.md) et [réseau virtuel Azure](cache-how-to-premium-vnet.md). Aucun contrat de niveau de service pendant la période d'évaluation.
 
 Chaque option diffère en termes de fonctionnalités et de tarification. Les fonctionnalités sont décrites plus loin dans ce guide ; pour plus d'informations sur la tarification, consultez la page [Tarification - Cache][].
 
@@ -45,7 +46,7 @@ La prise en main de Cache Redis Azure est aisée. Pour commencer, vous mettez en
 <a name="create-cache"></a>
 ## Création d'un cache
 
-Pour créer un cache, connectez-vous à la [version préliminaire du portail Azure][] et cliquez sur **Nouveau**, **Stockage + Données**, **Cache Redis**.
+Pour créer un cache, connectez-vous au [portail Azure en version préliminaire][] et cliquez sur **Nouveau**, **Stockage + Données**, **Cache Redis**.
 
 ![New cache][NewCacheMenu]
 
@@ -57,7 +58,7 @@ Dans le panneau **Nouveau cache Redis**, spécifiez la configuration souhaitée 
 
 Dans **Nom DNS**, entrez le nom de sous-domaine à utiliser pour le point de terminaison du cache. Le point de terminaison doit être une chaîne composée de six à vingt caractères, contenant uniquement des minuscules et des chiffres, et commençant par une lettre.
 
-Utilisez **Option de tarification** pour sélectionner la taille du cache et les fonctionnalités appropriées. Les caches **De base** ont un seul nœud de plusieurs tailles, jusqu’à 53 Go. Les caches **Standard** présentent une configuration principal/réplica, avec un contrat SLA de 99,9 % et plusieurs tailles de nœuds, jusqu’à 53 Go.
+Utilisez **Option de tarification** pour sélectionner la taille du cache et les fonctionnalités appropriées.
 
 Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour le cache.
 
@@ -269,7 +270,7 @@ Pour plus d’informations sur la configuration de ces paramètres et l’utilis
 
 Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens pour apprendre à exécuter les tâches de mise en cache plus complexes.
 
--	[Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [cache-how-to-monitor.md) l’intégrité de votre cache. Vous pouvez afficher les mesures dans la version préliminaire du portail, et vous pouvez également les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
+-	[Activez les diagnostics du cache](cache-how-to-monitor.md#enable-cache-diagnostics) afin de pouvoir [cache-how-to-monitor.md) l'intégrité de votre cache. Vous pouvez afficher les mesures dans le portail Azure en version préliminaire, et vous pouvez également les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l'aide des outils de votre choix.
 -	Consultez la [Documentation du client du cache StackExchange.Redis][].
 	-	Le Cache Redis Azure est accessible depuis de nombreux clients Redis et langages de développement. Pour plus d’informations, consultez [http://redis.io/clients][] et [Développement dans d’autres langages pour le cache Azure Redis][].
 	-	Le Cache Redis Azure peut également être utilisé avec des services tels que Redsmin. Pour plus d’informations, consultez la [page expliquant comment récupérer une chaîne de connexion Azure Redis pour l’utiliser avec Redsmin][].
@@ -347,7 +348,7 @@ Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Tarification - Cache]: http://www.windowsazure.com/pricing/details/cache/
-[version préliminaire du portail Azure]: https://portal.azure.com/
+[portail Azure en version préliminaire]: https://portal.azure.com/
 
 [Présentation de Cache Redis Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Cache Redis Azure]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -368,4 +369,4 @@ Maintenant que vous avez appris les bases du Cache Redis Azure, suivez ces liens
 
 [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

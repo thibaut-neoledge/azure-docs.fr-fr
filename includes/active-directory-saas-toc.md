@@ -3,7 +3,10 @@
 Cet article fait partie d’une série d’articles sur la gestion des applications SaaS avec Azure Active Directory. Voici tous les articles de cette série :
 
 - [Introduction à l’authentification unique et à la gestion de l’accès aux applications avec Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
+	- [Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](active-directory-sso-certs.md)
+	- [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
+	- [Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)
+	- [Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md)
 - [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 	- [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](active-directory-saas-customizing-attribute-mappings.md)
 	- [Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md)
@@ -14,8 +17,8 @@ Cet article fait partie d’une série d’articles sur la gestion des applicati
 	- [Intégration de Google Apps](active-directory-saas-google-apps-tutorial.md)
 	- [Intégration de Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [Intégration de ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Intégration de Dropbox Entreprises](https://msdn.microsoft.com/fr-fr/library/azure/dn510978.aspx)
-	- [Intégration de Workday](https://msdn.microsoft.com/fr-fr/library/azure/dn510972.aspx) 
+	- [Intégration de Dropbox Entreprises](https://msdn.microsoft.com/library/azure/dn510978.aspx)
+	- [Intégration de Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
 	- [Autres didacticiels sur les applications SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

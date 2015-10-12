@@ -128,9 +128,9 @@ Vous disposez maintenant des chaînes de connexion nécessaire à l’inscriptio
 
 ##Envoi de notification à partir de votre serveur principal
 
-Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d’un serveur principal utilisant l’<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Ce didacticiel montre comment envoyer des notifications à l’aide d’une application de console .NET. Pour découvrir un exemple d’envoi de notifications depuis un serveur principal Azure Mobile Services intégré à Notification Hubs, consultez « Prise en main des notifications Push dans Mobile Services » ([.NET backend](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Pour voir un exemple d’envoi de notifications au moyen des API REST, consultez la rubrique « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+Vous pouvez envoyer des notifications en utilisant Notification Hubs à partir d’un serveur principal utilisant l’<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interface REST</a>. Ce didacticiel montre comment envoyer des notifications à l’aide d’une application de console .NET. Pour découvrir un exemple d’envoi de notifications depuis un serveur principal Azure Mobile Services intégré à Notification Hubs, consultez « Prise en main des notifications Push dans Mobile Services » ([Serveur principal .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Serveur principal JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Pour voir un exemple d’envoi de notifications au moyen des API REST, consultez « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Cliquez avec le bouton droit sur la solution, sélectionnez **Ajouter** et **Nouveau projet...**, puis sous **Visual C#**, cliquez sur **Windows** et **Application Console**, puis cliquez sur **OK**.
+1. Cliquez avec le bouton droit sur la solution, sélectionnez **Ajouter** et **Nouveau projet**, puis sous **Visual C#**, cliquez sur **Windows** et **Application Console**, puis cliquez sur **OK**.
 
    	![][6]
 
@@ -209,11 +209,11 @@ Dans cet exemple simple, vous diffusez des notifications à tous vos appareils W
 [Visual Studio 2012 Express pour Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [portail Azure]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
-[mode MPNS authentifié]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+[MPNS authenticated mode]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Utilisation des Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-phone-send-breaking-news.md
 [catalogue toast]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [catalogue de modèles de vignette]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

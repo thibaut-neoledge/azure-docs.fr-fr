@@ -28,7 +28,7 @@
 
 Cet article explique comment modifier les niveaux de service et de performances de votre base de données SQL à l’aide de PowerShell.
 
-Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
+Exploitez les informations des sections [Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md) et [Niveaux de service et de performance de base de données SQL Azure](sql-database-service-tiers.md) pour déterminer le niveau de service et de performances adéquat pour votre base de données SQL Microsoft Azure.
 
 > [AZURE.IMPORTANT]La modification des niveaux de service et de performances d’une base de données SQL s’effectue en ligne. Cela signifie que votre base de données doit être en ligne et accessible pendant toute la durée de l’opération, sans interruption de service.
 
@@ -134,4 +134,4 @@ Exécutez l’applet de commande **Set-AzureSqlDatabase** et définissez **- Req
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

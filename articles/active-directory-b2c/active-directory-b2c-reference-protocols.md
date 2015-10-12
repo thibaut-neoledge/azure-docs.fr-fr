@@ -49,7 +49,7 @@ Dans presque tous les flux OAuth et OpenID Connect, quatre parties sont concern�
 
 ## Stratégies
 
-En fait, les **stratégies** Azure AD B2C constituent la fonctionnalité la plus importante du service. Azure AD B2C étend les protocoles OAuth 2.0 et OpenID Connect standard en introduisant des stratégies qui permettent à Azure AD B2C d’effectuer des opérations d’authentification et d’autorisation bien plus simples. Les stratégies décrivent entièrement les expériences liées à l’identité du consommateur, telles que l’inscription, la connexion ou la modification de profil. Elles peuvent être définies dans une interface utilisateur d’administration et exécutées à l’aide d’un paramètre de requête spécial dans les requêtes d’authentification HTTP. Les stratégies ne constituant pas une fonctionnalité standard d’OAuth 2.0 et d’OpenID Connect, vous devez prendre le temps de les comprendre. Pour plus d’informations, voir le [Guide de référence de stratégie d’Azure AD B2C](active-directory-b2c-reference-policies).
+En fait, les **stratégies** Azure AD B2C constituent la fonctionnalité la plus importante du service. Azure AD B2C étend les protocoles OAuth 2.0 et OpenID Connect standard en introduisant des stratégies qui permettent à Azure AD B2C d’effectuer des opérations d’authentification et d’autorisation bien plus simples. Les stratégies décrivent entièrement les expériences liées à l’identité du consommateur, telles que l’inscription, la connexion ou la modification de profil. Elles peuvent être définies dans une interface utilisateur d’administration et exécutées à l’aide d’un paramètre de requête spécial dans les requêtes d’authentification HTTP. Les stratégies ne constituant pas une fonctionnalité standard d’OAuth 2.0 et d’OpenID Connect, vous devez prendre le temps de les comprendre. Pour plus d'informations, voir le [Guide de référence de stratégie d'Azure AD B2C](active-directory-b2c-reference-policies.md).
 
 
 ## Jetons
@@ -59,7 +59,7 @@ Pour plus d’informations sur les différents types de jetons utilisés dans Az
 
 ## Protocoles
 
-Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d’aide pour déterminer le flux qui vous convient, voir les [types d’applications que vous pouvez créer avec Azure AD B2C](active-directory-b2c-apps).
+Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacticiels ci-dessous. Chacun d’eux correspond à un scénario d’authentification particulier. Si vous avez besoin d'aide pour déterminer le flux qui vous convient, consultez les [types d'applications que vous pouvez créer avec Azure AD B2C](active-directory-b2c-apps.md).
 
 - [Génération d’une application mobile et native avec OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
 - [Génération d’applications web avec Open ID Connect](active-directory-b2c-reference-oidc.md)
@@ -70,4 +70,4 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

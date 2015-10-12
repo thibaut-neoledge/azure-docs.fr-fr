@@ -122,4 +122,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

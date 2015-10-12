@@ -33,7 +33,7 @@ Les opérations sur des coffres de clés sont authentifiées et autorisées à l
 
 ## Programmation de coffre de clés
 
-Le système de gestion de coffre de clés pour les programmeurs se compose de plusieurs interfaces, avec REST comme base.
+Le système de gestion de coffre de clés pour les programmeurs se compose de plusieurs interfaces, avec REST comme base. Cet article de la référence REST présente les concepts fondamentaux, [À propos des clés et des secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ### REST
 
@@ -47,19 +47,24 @@ L'API .NET est un ensemble de wrappers qui permet la mise en œuvre via le modè
 
 ### Node.js
 
-L'API Node.js est un ensemble de wrappers qui permet la mise en œuvre via le modèle de programmation JavaScript sans avoir besoin d'interagir directement avec le point de terminaison REST. Vous trouverez ici le [Microsoft Azure SDK pour Node.js - Gestionnaire de clés de coffre](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+L'API Node.js est un ensemble de wrappers qui permet la mise en œuvre via le modèle de programmation node.js sans avoir besoin d'interagir directement avec le point de terminaison REST. Vous trouverez ici le [Microsoft Azure SDK pour Node.js - Gestionnaire de clés de coffre](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
 
-## Gestion des clés coffre avec PowerShell et CLI
+## Gestion des coffres de clés
 
-Clés du coffre de clé et les secrets Azure peuvent également être gérés à l'aide de PowerShell et CLI, comme décrit dans les articles suivants :
+Les conteneurs de coffres des clé Azure peuvent également être gérés à l'aide de PowerShell ou CLI, comme décrit dans les articles suivants :
 
 - [Créer et gérer les coffres de clés avec PowerShell](key-vault-get-started.md)
 - [Créer et gérer les coffres de clés avec l'interface de ligne de commande](key-vault-manage-with-cli.md)
+
+
+## Procédures
+
+Les articles suivants fournissent des conseils spécifiques à des tâches :
+
 - [Génération et transfert de clés HSM protégées pour coffre de clés](key-vault-hsm-protected-keys.md)
-- [À propos des clés et des secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
-## Voir aussi
+## Exemples
 
-- [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Ce téléchargement contient l'exemple d'application HelloKeyVault et un exemple de service web Azure. [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -46,4 +46,4 @@ Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

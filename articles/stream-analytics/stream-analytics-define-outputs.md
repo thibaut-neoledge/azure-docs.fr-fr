@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/17/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Présentation des sorties Stream Analytics
@@ -31,7 +31,6 @@ Vous pouvez utiliser une [base de données SQL Azure](http://azure.microsoft.co
 | Nom de la propriété | Description |
 |---------------|-------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
-| Abonnement | Vous pouvez choisir une base de données de votre abonnement ou fournir les informations de connexion à une base de données dans un autre abonnement |
 | Base de données | Nom de la base de données où vous envoyez votre sortie |
 | Nom du serveur | Nom du serveur de base de données SQL |
 | Nom d’utilisateur | Nom de l’utilisateur qui a accès en écriture à la base de données |
@@ -53,10 +52,6 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 <tr>
 <td>Alias de sortie</td>
 <td>Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce stockage d’objets blob.</td>
-</tr>
-<tr>
-<td>Abonnement</td>
-<td>Vous pouvez choisir un compte de stockage d’objets blob de votre abonnement ou fournir les informations de connexion à un compte de stockage dans un autre abonnement</td>
 </tr>
 <tr>
 <td>Compte de stockage</td>
@@ -92,7 +87,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 </tr>
 <tr>
 <td>Délimiteur</td>
-<td>Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge&#160;: virgule, point-virgule, espace, tabulation et barre verticale.</td>
+<td>Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données CSV. Valeurs prises en charge&#160;: virgule, point-virgule, espace, tabulation et barre verticale.</td>
 </tr>
 <tr>
 <td>Format</td>
@@ -110,7 +105,6 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Nom de la propriété | Description |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
-| Abonnement | Vous pouvez choisir un Event Hub de votre abonnement ou fournir les informations de connexion à un Event Hub dans un autre abonnement |
 | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
 | Concentrateur d'événements | Nom de votre sortie Event Hub |
 | Nom de la stratégie de l’Event Hub | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configurer de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
@@ -118,15 +112,17 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 | Colonne de clé de partition [facultatif] | Cette colonne contient la clé de partition pour la sortie du hub d’événements. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
-| Délimiteur | Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
+| Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format | Applicable uniquement pour le type JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. |
 ## Power BI
 
 [Power BI](https://powerbi.microsoft.com/) peut être utilisé comme sortie d’une tâche Stream Analytics pour fournir une expérience de visualisation riche aux utilisateurs de Stream Analytics. Cette fonctionnalité peut être utilisée pour les tableaux de bord opérationnels, la génération de rapports et la création de rapports pilotés par les métriques.
 
+> [AZURE.NOTE]À ce stade, la création et la configuration des sorties Power BI ne sont pas prises en charge dans le portail Azure en version préliminaire.
+
 ### Autorisation d’un compte Power BI
 
-1.	Lorsque Power BI est sélectionné en tant que sortie, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
+1.	Lorsque Power BI est sélectionné en tant que sortie dans le portail de gestion Azure, vous êtes invité à autoriser un utilisateur de Power BI existant ou à créer un compte Power BI.  
 
     ![Autoriser un utilisateur de Power BI](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)
 
@@ -168,7 +164,6 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la propriété | Description |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers ce stockage de tables. |
-| Abonnement | Vous pouvez choisir un compte de stockage de tables de votre abonnement ou fournir les informations de connexion si le compte de stockage est issu d’un autre abonnement |
 | Compte de stockage | Nom du compte de stockage où vous envoyez votre sortie. |
 | Clé du compte de stockage | Clé d’accès associée au compte de stockage. |
 | Nom de la table | Nom de la table. La table sera créée s’il n’existe pas. |
@@ -185,14 +180,13 @@ La table ci-dessous répertorie les noms de propriétés et leur description pou
 | Nom de la propriété | Description |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette file d’attente Service Bus. |
-| Abonnement | Vous pouvez choisir un espace de noms Service Bus de votre abonnement ou fournir les informations de connexion si l’espace de noms est issu d’un autre abonnement |
 | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. |
 | Nom de la file d’attente | Nom de la file d’attente Service Bus. |
 | Nom de la stratégie de file d’attente | Lorsque vous créez une file d’attente, vous pouvez également créer des stratégies d’accès partagé sur l’onglet Configurer de la file d’attente. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | Clé de la stratégie de file d’attente | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
-| Délimiteur | Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
+| Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format | Applicable uniquement pour le type JSON. « Séparé par une ligne » spécifie que la sortie sera mise en forme avec chaque objet JSON séparé par une nouvelle ligne. « Tableau » spécifie que la sortie sera mise en forme en tant que tableau d’objets JSON. |
 
 ## Rubriques Service Bus
@@ -204,14 +198,53 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la propriété | Description |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette rubrique Service Bus. |
-| Abonnement | Vous pouvez choisir un espace de noms Service Bus de votre abonnement ou fournir les informations de chaîne de connexion si l’espace de noms est issu d’un autre abonnement |
 | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
 | Nom de la rubrique | Les rubriques sont des entités de messagerie qui sont similaires aux files d’attente et aux Event Hubs. Il est conçu pour recevoir des flux d’événements à partir d’appareils et de services divers. Quand une rubrique est créée, elle reçoit également un nom. Les messages envoyés à une rubrique ne seront pas disponibles si un abonnement n’a pas été créé. Assurez-vous donc que la rubrique comprend un ou plusieurs abonnements |
 | Nom de la stratégie de rubrique | Lorsque vous créez une rubrique, vous pouvez également créer des stratégies d’accès partagé sur l’onglet Configurer de la rubrique. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
 | Clé de la stratégie de rubrique | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | S’il s’agit du format CSV ou JSON, un encodage doit être spécifié. UTF-8 est le seul format d’encodage actuellement pris en charge |
-| Délimiteur | Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
+| Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
+
+## Base de données de documents
+
+[DocumentDB azure](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d’utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables et permet un développement rapide.
+
+Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
+
+<table>
+<tbody>
+<tr>
+<td>NOM DE LA PROPRIÉTÉ</td>
+<td>DESCRIPTION</td>
+</tr>
+<tr>
+<td>Nom du compte</td>
+<td>Nom du compte DocumentDB. Cela peut également être le point de terminaison du compte.</td>
+</tr>
+<tr>
+<td>Clé du compte</td>
+<td>Clé d’accès partagé du compte DocumentDB.</td>
+</tr>
+<tr>
+<td>Base de données</td>
+<td>Nom de la base de données DocumentDB.</td>
+</tr>
+<tr>
+<td>Modèle de nom de collection</td>
+<td>Modèle de nom de collection des collections à utiliser. Le format de nom de collection peut être construit à l’aide du jeton facultatif {partition}, où les partitions commencent à&#160;0.<BR>Par exemple, Voici les entrées valides&#160;:<BR>MyCollection{partition}<BR>MyCollection<BR>Notez que les collections doivent exister avant que le travail d’analyse de flux de données soit démarré et ne sont pas créées automatiquement.</td>
+</tr>
+<tr>
+<td>Partition Key</td>
+<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections.</td>
+</tr>
+<tr>
+<td>ID du document</td>
+<td>Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.</td>
+</tr>
+</tbody>
+</table>
+
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -232,4 +265,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -324,4 +324,4 @@ Si le fournisseur de services a annulé l’approvisionnement du circuit (l’é
 - [Configuration du routage ExpressRoute (gestion des homologations du circuit)](expressroute-howto-routing-classic.md)
 - [Liaison de réseaux virtuels à un circuit ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

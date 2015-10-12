@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Pour valider votre réseau virtuel Azure, procédez comme suit :
 1. Créez une machine virtuelle Azure dans le sous-réseau du réseau virtuel Azure que vous souhaitez utiliser avec Azure RemoteApp.
 
 2. Connectez-vous à la machine virtuelle à l'aide de l’option **Connexion** sur le portail de gestion.
-3. Associez la machine virtuelle au domaine que vous souhaitez utiliser avec Azure RemoteApp.
+3. Associez la machine virtuelle au domaine que vous souhaitez utiliser avec Azure RemoteApp. Si vous créez une collection hybride qui se connecte à votre réseau local, associez la machine virtuelle à votre domaine local.
 
 Si l'opération réussit, le réseau virtuel Azure est prêt à être utilisé avec RemoteApp.
 
@@ -38,4 +38,4 @@ Pour plus d'informations sur le flux de travail de bout en bout des collections 
 - [Déployer une collection Azure RemoteApp sur votre Azure Virtual Network (avec prise en charge d’ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

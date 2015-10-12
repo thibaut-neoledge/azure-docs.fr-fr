@@ -354,4 +354,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

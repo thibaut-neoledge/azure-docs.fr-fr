@@ -2348,4 +2348,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

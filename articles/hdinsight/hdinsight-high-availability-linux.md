@@ -128,11 +128,7 @@ Chaque nœud principal peut contenir des entrées de journal uniques. Vous devez
 
 ###Ambari
 
-> [AZURE.NOTE]L'accès aux fichiers journaux via Ambari nécessite un tunnel SSH, les sites web pour les services individuels ne sont pas exposés publiquement sur Internet. Pour en savoir plus sur l'utilisation d'un tunnel SSH, consultez l'une des rubriques suivantes :
->
-> * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]L'accès aux fichiers journaux via Ambari nécessite un tunnel SSH, les sites web pour les services individuels ne sont pas exposés publiquement sur Internet. Pour des informations sur l'utilisation d'un tunnel SSH, consultez [Utilisation de SSH Tunneling pour accéder à l'interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d'autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 À partir de l'interface utilisateur Web d'Ambari, sélectionnez le service dont vous souhaitez afficher les journaux (par exemple, YARN) et utilisez **Liens rapides** pour sélectionner le nœud principal dont vous voulez afficher les journaux.
 
@@ -144,7 +140,7 @@ La taille du nœud principal ne peut être sélectionnée que lors de la créati
 
 Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœuds. Les éléments suivants fournissent des informations sur la façon de spécifier la taille à l'aide de la [version préliminaire d'Azure][preview-portal], [Azure PowerShell][azure-powershell] et l'[interface de ligne de commande Azure][azure-cli] :
 
-* **Version préliminaire du portail Azure** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des noeuds principal et de données (worker) les nœuds du cluster :
+* **Portail Azure en version préliminaire** : lorsque vous créez un cluster, vous obtenez la possibilité de définir la taille (niveau de prix) des nœuds principal et de données (worker) du cluster :
 
 	![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -158,7 +154,7 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 
 - [Référence REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Installation et configuration Azure CLI](../xplat-cli.md)
+- [Installation et configuration Azure CLI](../xplat-cli-install.md)
 
 - [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

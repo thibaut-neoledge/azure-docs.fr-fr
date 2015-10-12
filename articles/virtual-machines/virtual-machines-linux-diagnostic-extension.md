@@ -48,7 +48,7 @@ Cet article est centré sur l’activation et la configuration de l’extension 
 
 ## Composants requis
 - Agent Microsoft Azure Linux version 2.0.6 ou ultérieure. Notez que la plupart des images de la galerie Linux de machines virtuelles Azure comprennent la version 2.0.6 ou ultérieure. Vous pouvez exécuter **WAAgent -version** pour vérifier la version installée dans la machine virtuelle. Si la machine virtuelle exécute une version antérieure à 2.0.6, vous pouvez suivre ces [instructions](https://github.com/Azure/WALinuxAgent "instructions") pour la mettre à jour.
-- [Interface de ligne de commande Azure](./xplat-cli.md). Suivez [ce guide](./xplat-cli-install.md) pour configurer l’environnement de l’interface de ligne de commande Azure sur votre ordinateur. Une fois que l’interface de ligne de commande Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal) afin d’accéder aux commandes de l’interface de ligne de commande Azure. Par exemple, exécutez **azure vm extension set --help** pour l’utilisation détaillée, exécutez **azure login** pour vous connecter à Azure, ou exécutez **azure vm list** afin de répertorier l’ensemble des machines virtuelles que vous possédez dans Microsoft Azure.
+- [Interface de ligne de commande Azure](./xplat-cli-install.md). Suivez [ce guide](./xplat-cli-install.md) pour configurer l’environnement de l’interface de ligne de commande Azure sur votre ordinateur. Une fois que l’interface de ligne de commande Azure est installée, vous pouvez utiliser la commande **azure** de votre interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal) afin d’accéder aux commandes de l’interface de ligne de commande Azure. Par exemple, exécutez **azure vm extension set --help** pour l’utilisation détaillée, exécutez **azure login** pour vous connecter à Azure, ou exécutez **azure vm list** afin de répertorier l’ensemble des machines virtuelles que vous possédez dans Microsoft Azure.
 - Un compte de stockage dédié au stockage des données. Vous devez disposer d’un nom de compte de stockage et d’une clé d’accès préalablement créés pour charger les données dans votre stockage.
 
 
@@ -143,4 +143,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 - Pour la version 2.0, si vous avez préalablement activé l’extension de diagnostic Linux via le script, vous ne pouvez pas afficher les données à partir du portail Azure. Si vous activez l’extension à partir du portail dans un premier temps, les scripts fonctionnent.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

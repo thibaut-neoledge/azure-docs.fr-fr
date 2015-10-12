@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="07/19/2015"
+	ms.date="09/23/2015"
     ms.author="tamram"/>
 
 # Utilisation du stockage de table à partir de C++
@@ -414,4 +414,4 @@ Les bases du stockage des tables étant assimilées, consultez les liens suivant
 -	[Référence de la bibliothèque cliente de stockage pour C++](http://azure.github.io/azure-storage-cpp)
 -	[Documentation d’Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

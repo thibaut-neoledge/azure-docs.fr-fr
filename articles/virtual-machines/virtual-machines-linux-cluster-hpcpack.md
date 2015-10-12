@@ -1,20 +1,20 @@
 <properties
  pageTitle="Utiliser des machines virtuelles de calcul Linux dans un cluster HPC Pack | Microsoft Azure"
-	description="Découvrez comment créer un script pour le déploiement d’un cluster HPC Pack dans Azure, contenant un nœud principal exécutant Windows Server et avec des nœuds de calcul Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Découvrez comment créer un script pour le déploiement d’un cluster HPC Pack dans Azure, contenant un nœud principal exécutant Windows Server et avec des nœuds de calcul Linux."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure
 
@@ -43,7 +43,7 @@ Pour une vue d’ensemble des options de déploiement de cluster HPC Pack, con
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Par l’exemple de cet article, vous aurez besoin d’au moins 24 cœurs. Pour augmenter un quota, [ouvrez une demande de service clientèle en ligne](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitement.
 
 ### Créer le fichier de configuration
-Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un petit cluster constitué d’un nœud principal et de deux nœuds de calcul Linux, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de scripts ou la [documentation du script](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un petit cluster constitué d’un nœud principal et de deux nœuds de calcul Linux, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ L’outil **clusrun** de HPC Pack permet d’exécuter des commandes sur des n
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail" 
+	pageTitle="Exemple de code : analyser les données exportées depuis Application Insights" 
 	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# Exemple de code : exporter vers SQL à partir d’Application Insights à l’aide d’un rôle de travail
+# Exemple de code : analyser les données exportées depuis Application Insights
 
-Cet article explique comment déplacer vos données de télémétrie de [Visual Studio Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] sans avoir besoin d’écrire de nombreuses lignes de code.
+Cet article indique comment traiter les données JSON exportées depuis Application Insights. À titre d'exemple, nous allons écrire du code pour déplacer vos données de télémétrie de [Visual Studio Application Insights][start] vers une base de données SQL Azure à l'aide de l'[Exportation continue][export]. (Vous pouvez également y parvenir [à l'aide de Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md), mais notre objectif ici est de vous montrer du code.)
 
 Cette fonctionnalité permet de déplacer vos données de télémétrie vers un stockage Azure au format JSON et nécessite l’écriture de code pour analyser les objets JSON et créer des lignes dans une table de base de données.
 
-(Plus généralement, l’exportation continue est la méthode qui vous permet de réaliser votre propre analyse des données de télémétrie que vos applications transmettent à Application Insights. Vous pourriez adapter cet exemple de code pour effectuer d’autres actions à l’aide des données de télémétrie exportées.)
+Plus généralement, l'exportation continue est la méthode qui vous permet de réaliser votre propre analyse des données de télémétrie que vos applications transmettent à Application Insights. Vous pourriez adapter cet exemple de code pour effectuer d'autres actions à l'aide des données de télémétrie exportées.
 
 Nous allons partir du principe que vous disposez déjà de l’application que vous voulez analyser.
 
@@ -51,7 +51,9 @@ Pour commencer :
 
 ## Créer un stockage dans Azure
 
-1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure][portal].
+Les données d'Application Insights sont toujours exportées vers un compte de stockage Azure au format JSON. C'est à partir de ce système de stockage que votre code lit les données.
+
+1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure][portal].
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
@@ -83,7 +85,7 @@ Pour commencer :
 
     Les données seront également exportées vers votre stockage.
 
-4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer** et ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
 
     ![Dans Visual Studio, ouvrez Explorateur de serveurs, Azure, Stockage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
@@ -92,6 +94,8 @@ Pour commencer :
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions faire toutes sortes de choses avec les données, mais notre objectif aujourd’hui est d’écrire du code pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
 ## Création d’une base de données SQL Azure
+
+Pour cet exemple, nous allons écrire du code pour envoyer les données vers une base de données.
 
 De nouveau, à partir de votre abonnement sur le [portail Azure][portal], créez la base de données (et un nouveau serveur, sauf si vous en avez déjà un) dans laquelle vous allez écrire les données.
 
@@ -539,4 +543,4 @@ Pour voir cet exemple en action, [téléchargez](https://sesitai.codeplex.com/) 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

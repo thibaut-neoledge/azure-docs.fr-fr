@@ -125,4 +125,4 @@ Consultez [Développer des scripts d’action de script pour HDInsight][hdinsigh
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

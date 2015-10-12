@@ -61,7 +61,7 @@ Pour une mise à niveau sur place, les principales étapes sont les suivantes :
 
 ## Mise à niveau sur place - moins de 50 000 objets - SQL Express (Procédure pas à pas)
 
-0. Lancez le programme d’installation d’Azure AD Connect (MSI)
+0. Lancez le programme d’installation d’Azure AD Connect (MSI).
 
 1. Lisez et acceptez les termes du contrat de licence et la déclaration de confidentialité.
 
@@ -83,7 +83,7 @@ Pour une mise à niveau sur place, les principales étapes sont les suivantes :
 
 ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToADDS.png)
 
-6. Vous êtes prêt à passer à la configuration. Lorsque vous cliquez sur Suivant, la synchronisation d’annuaires est désinstallée et Azure AD Connect est configuré et lance la synchronisation.  
+6. Vous êtes prêt à passer à la configuration. Lorsque vous cliquez sur « Suivant », la synchronisation d’annuaires est désinstallée et Azure AD Connect est configuré et lance la synchronisation.  
 
 ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ReadyToConfigure.png)
 
@@ -123,11 +123,11 @@ Une fois vos paramètres exportés, vous pouvez quitter l’Assistant Azure AD 
 
 Lorsque vous installez Azure AD Connect sur un nouveau serveur, il ne trouve pas la synchronisation d’annuaires et suppose que vous souhaitez effectuer une nouvelle installation d’Azure AD Connect. Cette opération comporte quelques étapes spécifiques :
 
-1. Lancez le programme d’installation d’Azure AD Connect (MSI)
-2. Lorsque vous voyez l’écran Bienvenue à Azure AD Connect. Quittez l’Assistant en cliquant sur le X en haut à droite de la fenêtre.
-3. Ouvrez une invite de commandes
+1. Lancez le programme d’installation d’Azure AD Connect (MSI).
+2. Lorsque l’écran « Bienvenue dans Azure AD Connect » s’affiche, quittez l’Assistant en cliquant sur le X en haut à droite de la fenêtre.
+3. Ouvrez une invite de commandes.
 4. À partir de l’emplacement d’installation d’Azure AD Connect (par défaut C:\\Program Files\\Microsoft Azure Active Directory Connect), exécutez la commande suivante :
-    * AzureADConnect.exe /migrate
+    * `AzureADConnect.exe /migrate`
 
 Azure AD Connect se connecte et vous présente l’interface utilisateur suivante :
 
@@ -143,7 +143,7 @@ Consultez ces options dans l’interface utilisateur :
 
 ![Entrez vos informations d’identification Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Cliquez sur Suivant.
+7. Cliquez sur « Suivant ». 
 8. Sur la page « Prêt à configurer », laissez la case « Démarrer le processus de synchronisation dès que la configuration est terminée » cochée.[AZURE.NOTE]La synchronisation entre Windows Server Active Directory et Azure Active Directory commence mais aucune modification n'est exportée vers Azure AD. Les modifications ne peuvent être exportées activement que par un seul outil de synchronisation à la fois.
 9. Cliquez sur Installer.
 
@@ -151,7 +151,7 @@ Consultez ces options dans l’interface utilisateur :
 
 ### Vérifiez qu’Azure AD Connect est prêt à commencer la synchronisation
 
-Afin de déterminer si Azure AD Connect est prêt à prendre le relais de la synchronisation d’annuaires, vous devrez ouvrir le gestionnaire Synchronization Service Manager Azure AD Connect. Recherchez « Synchronisation » dans le menu Démarrer de Windows pour arriver à cette application.
+Afin de déterminer si Azure AD Connect est prêt à prendre le relais de la synchronisation d’annuaires, vous devrez ouvrir le gestionnaire Synchronization Service Manager Azure AD Connect. Recherchez « Synchronisation » dans le menu Démarrer pour arriver à cette application.
 
 Dans l’application, vous devez afficher l’onglet Opérations. Sous cet onglet, vérifiez que les opérations suivantes ont été effectuées :
 
@@ -182,11 +182,11 @@ Les éléments suivants doivent s’afficher :
 
 * Cliquez sur le bouton Installer
 
-Félicitations, vous avez migré vers Azure AD Connect avec un déploiement en parallèle.
+Félicitations ! Vous avez migré vers Azure AD Connect avec un déploiement en parallèle.
 
 ## Composants de prise en charge d’Azure AD Connect
 
-Voici une liste de prérequis et de composants de prise en charge qu’Azure AD Connect installe sur le serveur sur lequel vous configurez Azure AD Connect. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL Server sur la page d’installation des services de synchronisation, les composants SQL Server 2012 ci-dessous ne sont pas installés.
+Voici une liste de prérequis et de composants de prise en charge qu’Azure AD Connect installe sur le serveur sur lequel vous le configurez. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL Server sur la page d’installation des services de synchronisation, les composants SQL Server 2012 ci-dessous ne sont pas installés.
 
 - Connecteur Forefront Identity Manager Azure Active Directory
 - Utilitaires de ligne de commande Microsoft SQL Server 2012
@@ -205,4 +205,4 @@ Voici une liste de prérequis et de composants de prise en charge qu’Azure AD
 * [En savoir plus](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect sur MSDN](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

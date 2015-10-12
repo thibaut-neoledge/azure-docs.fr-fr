@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory
@@ -26,7 +26,7 @@ Cet article concerne uniquement les applications configurées pour utiliser **Au
 
 ##Personnalisation de la date d’expiration de votre certificat de fédération
 
-Les certificats sont configurés par défaut pour expirer après deux ans. Vous pouvez choisir une autre date d’expiration pour votre certificat en procédant comme suit. Les captures d’écran présentées ici ont été prises pendant une utilisation de ServiceNow, mais les étapes peuvent s’appliquer à n’importe quelle application SaaS fédérée.
+Les certificats sont configurés par défaut pour expirer après deux ans. Vous pouvez choisir une autre date d’expiration pour votre certificat en procédant comme suit. Les captures d'écran présentées ici ont été prises pendant une utilisation de Salesforce, mais les étapes peuvent s'appliquer à n'importe quelle application SaaS fédérée.
 
 1. Dans Azure Active Directory, sur la page Démarrage rapide de votre application, cliquez sur **Configurer l’authentification unique**.
 
@@ -76,8 +76,6 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 
 	![Télécharger, puis charger le certificat](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##Voir aussi
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[Accès aux applications et authentification unique dans Azure AD](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

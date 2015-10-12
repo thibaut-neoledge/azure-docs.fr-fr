@@ -275,4 +275,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

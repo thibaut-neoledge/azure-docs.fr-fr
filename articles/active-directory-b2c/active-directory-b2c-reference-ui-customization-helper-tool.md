@@ -22,9 +22,9 @@ Cet article complète le [principal article sur la personnalisation de l'interfa
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obtention d’un annuaire B2C
+## Obtention d'un client B2C
 
-Avant de pouvoir personnaliser quoi que ce soit, vous devrez [obtenir un annuaire Azure AD B2C](active-directory-b2c-get-started.md), si ce n’est déjà fait.
+Avant de pouvoir personnaliser quoi que ce soit, vous devrez [obtenir un client Azure AD B2C](active-directory-b2c-get-started.md), si ce n'est déjà fait.
 
 ## Création d’une stratégie d’inscription
 
@@ -32,23 +32,23 @@ L'exemple de contenu que nous vous avons fourni personnalise deux pages d’une 
 
 ## Inscription d'une application
 
-Vous devrez [inscrire une application](active-directory-b2c-app-registration.md) dans votre annuaire B2C qui permettra d’exécuter votre stratégie. Après avoir inscrit votre application, vous disposez de quelques options pour exécuter votre stratégie d'inscription :
+Vous devrez [inscrire une application](active-directory-b2c-app-registration.md) dans votre client B2C qui permettra d'exécuter votre stratégie. Après avoir inscrit votre application, vous disposez de quelques options pour exécuter votre stratégie d'inscription :
 
 - Générez l’une des applications de démarrage rapide AD B2C répertoriées [ici](active-directory-b2c-overview.md#getting-started).
-- Utilisez l’application [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) préconfigurée. Si vous choisissez d'utiliser l’application Playground, vous devez inscrire une application dans votre annuaire B2C en utilisant l’**URI de redirection** `https://aadb2cplayground.azurewebsites.net/`
+- Utilisez l’application [Azure AD B2C Playground](https://aadb2cplayground.azurewebsites.net) préconfigurée. Si vous choisissez d'utiliser l'application Playground, vous devez inscrire une application dans votre client B2C en utilisant l'**URI de redirection** `https://aadb2cplayground.azurewebsites.net/`
 - Utilisez le bouton **Exécuter maintenant** sur votre stratégie dans le [portail Azure en version préliminaire](https://portal.azure.com).
 
 ## Personnalisation de votre stratégie
 
 Pour personnaliser l'apparence de vos stratégies, vous devez d'abord créer les fichiers HTML et CSS en suivant les conventions spécifiques d'Azure AD B2C. Vous pouvez ensuite charger votre contenu statique vers un emplacement accessible au public afin qu’Azure AD B2C puisse y accéder. Il peut s’agir de votre propre serveur web dédié, d’un stockage d’objets blob Azure, d’Azure CDN, ou n'importe quel autre fournisseur d'hébergement de ressources statiques. Les seules conditions requises exigent que votre contenu soit disponible via le protocole HTTPS et accessible à l'aide de CORS. Après avoir publié votre contenu statique sur le web, vous pouvez modifier votre stratégie pour la pointer vers cet emplacement et présenter ce contenu à vos utilisateurs finaux. Le [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md) décrit en détail la fonctionnalité de personnalisation Azure AD B2C.
 
-Dans le cadre de ce didacticiel, nous avons déjà créé quelques exemples de contenu et les avons hébergés sur un stockage d’objets blob Azure. L'exemple de contenu est une personnalisation très basique dans le thème de notre entreprise fictive, « Fabrikam B2C ». Pour le tester dans votre propre stratégie, procédez comme suit :
+Dans le cadre de ce didacticiel, nous avons déjà créé quelques exemples de contenu et les avons hébergés sur un stockage d’objets blob Azure. L'exemple de contenu est une personnalisation très basique dans le thème de notre entreprise fictive, « Contoso B2C ». Pour le tester dans votre propre stratégie, procédez comme suit :
 
-1. Connectez-vous à votre annuaire dans la [version préliminaire du portail Azure](https://portal.azure.com) et accédez au panneau de fonctionnalités B2C.
+1. Connectez-vous à votre client dans le [portail Azure en version préliminaire](https://portal.azure.com) et accédez au panneau de fonctionnalités B2C.
 2. Cliquez sur **Stratégies d’inscription**, puis cliquez sur votre stratégie d’inscription (par exemple, « b2c\_1\_sign\_up »).
 3. Cliquez sur **Personnalisation d’interface de page**, puis **page de sélection du fournisseur d’identité**.
-4. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/Index.html`. Cliquez sur **OK**.
-5. Cliquez sur **page d’inscription à un compte Local**. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://fabrikamb2c.blob.core.windows.net/aadb2cplayground/EmailVerification.html`. Cliquez deux fois sur **OK** pour fermer les panneaux de personnalisation de l'interface utilisateur.
+4. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://contosob2c.blob.core.windows.net/static/Index.html`. Cliquez sur **OK**.
+5. Cliquez sur **page d’inscription à un compte Local**. Placez le commutateur **Utiliser un modèle personnalisé** sur **Oui**. Dans le champ **URI de la page personnalisée**, entrez `https://contosob2c.blob.core.windows.net/static/EmailVerification.html`. Cliquez deux fois sur **OK** pour fermer les panneaux de personnalisation de l'interface utilisateur.
 6. Cliquez sur **Enregistrer**.
 
 Vous pouvez maintenant tester votre stratégie personnalisée. Vous pouvez utiliser votre propre application ou l’application AAD B2C Playground si vous le souhaitez, mais vous avez aussi la possibilité de cliquer sur la commande **Exécuter maintenant** dans le panneau de la stratégie. Sélectionnez votre application dans la liste déroulante ainsi que l'URI de redirection approprié. Cliquez sur le bouton **Exécuter maintenant**. Un nouvel onglet de navigateur devrait s’ouvrir et vous pouvez vivre l’expérience utilisateur consistant à inscrire votre application avec le nouveau contenu en place !
@@ -72,22 +72,22 @@ Si vous souhaitez utiliser le stockage d'objets blob Azure pour héberger le con
 
 #### Téléchargement de l’outil d’assistance et des fichiers exemples
 
-Vous pouvez télécharger ici l’[outil d'assistance du stockage d’objets blob Azure et les fichiers exemples sous forme d’une archive .zip](https://github.com/azureadsamples/b2c-azureblobstorage-client/archive/master.zip) ou effectuer un clonage à partir de GitHub :
+Vous pouvez télécharger ici l'[outil d'assistance du stockage d'objets blob Azure et les fichiers exemples sous forme d'une archive .zip](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) ou effectuer un clonage à partir de GitHub :
 
 ```
-git clone https://github.com/azureadsamples/b2c-azureblobstorage-client
+git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
 Ce référentiel contient un répertoire `sample_templates\contoso` qui regroupe un exemple de code HTML, CSS et des images. Pour que ces modèles puissent faire référence à votre propre compte de stockage d'objets blob Azure, vous devez modifier les fichiers HTML. Ouvrez `Index.htnml` et `EmailValidation.html` puis remplacez toutes les instances de `https://localhost` par l'URL de votre propre conteneur que vous avez copiée dans les étapes ci-dessus. Il est nécessaire d'utiliser le chemin absolu des fichiers HTML car, dans ce cas, le code HTML sera fourni par Azure AD, sous le domaine `https://login.microsoftonline.com`.
 
 #### Chargement des fichiers exemples
 
-Dans le même référentiel, décompressez `B2CAzureStorageClient.zip` et exécutez le fichier `B2CAzureStorageClient.exe` qu’il contient. Ce programme chargera simplement tous les fichiers dans le répertoire que vous spécifiez pour votre compte de stockage, et activera l'accès CORS pour ces fichiers. Si vous avez suivi les étapes ci-dessus, les fichiers HTML et CSS pointeront désormais vers votre compte de stockage.
+Dans le même référentiel, décompressez `B2CAzureStorageClient.zip` et exécutez le fichier `B2CAzureStorageClient.exe` qu’il contient. Ce programme chargera simplement tous les fichiers dans le répertoire que vous spécifiez pour votre compte de stockage, et activera l'accès CORS pour ces fichiers. Si vous avez suivi les étapes ci-dessus, les fichiers HTML et CSS pointeront désormais vers votre compte de stockage. Notez que le nom de votre compte de stockage est la partie qui précède `blob.core.windows.net`, par exemple, `contoso`. Vous pouvez vérifier que le contenu a été téléchargé correctement en essayant d'accéder à `https://{storage-account-name}.blob.core.windows.net/{container-name}/Index.html` sur un navigateur. Utilisez également [http://test-cors.org/](http://test-cors.org/) pour vous assurer que le contenu est maintenant compatible CORS (recherchez l'état XHR : 200 dans le résultat).
 
 #### Nouvelle personnalisation de votre stratégie
 
-Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de stockage, vous devez modifier votre stratégie d'inscription pour le référencer. Répétez les étapes à partir de la section [« Personnalisation de votre stratégie »](#customize-your-policy) ci-dessus, en utilisant cette fois l'URL de votre propre compte de stockage. Par exemple, l'emplacement de votre fichier `Index.html` serait `<url-of-your-container>/Index.html`.
+Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de stockage, vous devez modifier votre stratégie d'inscription pour le référencer. Répétez les étapes à partir de la section [« Personnalisation de votre stratégie »](#customize-your-policy) ci-dessus, en utilisant cette fois l'URL de votre propre compte de stockage. Par exemple, l'emplacement de votre fichier `Index.html` serait `<url-of-your-container>/Index.html`.
         
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé les mêmes exemples de codes HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance de stockage d'objets blob Azure, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d'informations sur la personnalisation du code HTML et CSS, reportez-vous au [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

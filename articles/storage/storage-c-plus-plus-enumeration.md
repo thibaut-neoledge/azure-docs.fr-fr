@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/19/2015" 
+    ms.date="09/23/2015" 
     ms.author="zhimingyuan;tamram"/>
 
 # Listage des ressources Azure Storage en C++
@@ -184,4 +184,4 @@ Pour plus d'informations sur Azure Storage et la bibliothèque cliente pour C++,
 -	[Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Documentation d'Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

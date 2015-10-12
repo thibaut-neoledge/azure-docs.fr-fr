@@ -64,8 +64,6 @@ Vous pouvez vérifier les propriétés individuelles des ressources dans les sec
 
 [AZURE.INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-lb-include.md)]
-
 [AZURE.INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-nrp-dns-include](../../includes/virtual-networks-nrp-dns-include.md)]
@@ -272,4 +270,4 @@ Vous pouvez déployer des services dans Azure à partir d’un modèle à l’ai
 
 [Déploiements de modèles](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

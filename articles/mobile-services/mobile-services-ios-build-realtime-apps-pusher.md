@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015" 
 	ms.author="donnam"/>
 
 
@@ -440,4 +440,4 @@ Pour en savoir plus sur l'enregistrement et l'utilisation de scripts serveur, co
 
 [Référence de script serveur Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Configurer des environnements intermédiaires pour les applications web dans Azure App Service"
 	description="Découvrez comment utiliser la publication intermédiaire pour les applications web dans Azure App Service."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Configurer des environnements intermédiaires pour les applications web dans Azure App Service
@@ -127,6 +127,11 @@ La configuration de l’échange automatique pour un emplacement est facile. Pou
 
 3. Exécutez une transmission de code de type push vers cet emplacement de déploiement. L’échange automatique se produit peu après, et la mise à jour est appliquée dans l’URL de votre emplacement cible.
 
+<a name="Multi-Phase"></a>
+## Utiliser l’échange multiphase pour votre application web ##
+
+L’échange multiphase est disponible pour simplifier la validation dans le contexte des éléments de configuration conçu conformément à un emplacement tel que des chaînes de connexion. Dans ces cas, il peut être utile d’appliquer de tels éléments de configuration entre la cible d’échange et la source d’échange et de les valider avant que l’échange n’entre réellement en vigueur. Une fois que les éléments de configuration de cibles d’échange sont appliqués à la source d’échange, les actions disponibles effectuent l’échange ou bien rétablissent la configuration d’origine de la source d’échange ce qui a également pour effet d’annuler l’échange. Des exemples pour les applets de commande Azure PowerShell disponibles pour l’échange multiphase figurent dans les applets de commande Azure PowerShell de la section des emplacements de déploiement.
+
 <a name="Rollback"></a>
 ## Pour rétablir une application de production après un échange ##
 Si vous identifiez des erreurs de production après un basculement d'emplacements, rétablissez ces deux emplacements comme ils étaient, en les intervertissant immédiatement.
@@ -147,49 +152,43 @@ Azure PowerShell est un module qui fournit des cmdlets pour gérer Azure via Win
 
 - Pour plus d’informations sur l’installation et la configuration d’Azure PowerShell et sur l’authentification d’Azure PowerShell avec votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).  
 
-- Pour répertorier les cmdlets disponibles pour Azure App Service dans PowerShell, appelez `help AzureWebsite`.
+- Afin d’utiliser le nouveau mode Azure Resource Manager pour les applets de commande PowerShell, commencez par ce qui suit : `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-La cmdlet **Get-AzureWebsite** fournit des informations sur les applications web Azure de l’abonnement en cours, comme dans l’exemple suivant.
+### Créer une application web
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-Vous pouvez créer un emplacement de déploiement à l’aide de la cmdlet **New-AzureWebsite** et en spécifiant les noms de l’application web et de l’emplacement. Lors de la création de l’emplacement de déploiement, indiquez également la même région que celle de l’application web, comme dans l’exemple suivant.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-La cmdlet **Publish-AzureWebsiteProject** permet de déployer du contenu, comme dans l'exemple suivant.
+### Créer un emplacement de déploiement pour une application web
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-Une fois les mises à jour de contenu et de configuration appliquées au nouvel emplacement, vous pouvez les valider en accédant à l'emplacement en utilisant la cmdlet **Show-AzureWebsite**, comme le montre l'exemple suivant.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-La cmdlet **Switch-AzureWebsiteSlot** peut effectuer un basculement pour appliquer l'emplacement de déploiement mis à jour au site de production, comme le montre l'exemple suivant. L’application de production ne subira ni temps d’arrêt, ni démarrage à froid.
+### Initier un échange multiphase et appliquer la configuration d’emplacement cible à l’emplacement source
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supprimer en utilisant la cmdlet **Remove-AzureWebsite**, comme le montre l'exemple suivant.
+### Rétablir la première phase d’échange d’un échange multiphase et restaurer la configuration d’emplacement source
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Échanger des emplacements de déploiement
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Supprimer un emplacement de déploiement
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Si vous n'avez plus besoin d'un emplacement de déploiement, vous pouvez le supp
 
 L’interface de ligne de commande Azure fournit des commandes interplateformes fonctionnant avec Azure, notamment la prise en charge de la gestion des emplacements de déploiement des applications Web.
 
-- Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md).
+- Pour obtenir des instructions sur l’installation et la configuration de l’interface de ligne de commande Azure, et notamment des informations sur la connexion de cette dernière à votre abonnement Azure, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli-install.md).
 
 -  Pour répertorier les commandes disponibles pour Azure App Service dans l’interface de ligne de commande Azure, appelez `azure site -h`.
 
@@ -261,4 +260,4 @@ Pour supprimer un emplacement de déploiement dont vous n'avez plus besoin, util
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

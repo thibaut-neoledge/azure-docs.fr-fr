@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/25/2015" 
 	ms.author="spelluru"/>
 
 # Déplacement de données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory
@@ -571,7 +571,19 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>** PreserveHierarchy : ** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>** FlattenHierarchy : ** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>** MergeFiles : ** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>** PreserveHierarchy : ** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>** FlattenHierarchy : ** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>** MergeFiles : ** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+
+### exemples de valeurs recursive et copyBehavior
+Cette section décrit le comportement résultant de l'opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
+
+recursive | copyBehavior | Comportement résultant
+--------- | ------------ | --------
+true | preserveHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme le dossier source <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>.  
+true | flattenHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour le Fichier5</p>
+true | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Les contenus Fichier1 + Fichier2 + Fichier3 + Fichier4 + Fichier5 seront fusionnés en un seul fichier doté d’un nom généré automatiquement</p>
+false | preserveHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit : <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>.
+false | flattenHierarchy | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier2<br/></p><p>Sous-dossier1 où Fichier3, Fichier4, et Fichier5 ne sont pas récupérés.</p>.
+false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré comme suit :</p> <p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sous-dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fichier5</p>le dossier cible Dossier1 sera structuré comme suit :<p>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Les contenus Fichier1 + Fichier2 seront fusionnés en un seul fichier doté d’un nom généré automatiquement pour Fichier1</p><p>Sous-dossier1 où Fichier3, Fichier4 et Fichier5 ne sont pas récupérés.</p>.
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -587,4 +599,4 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

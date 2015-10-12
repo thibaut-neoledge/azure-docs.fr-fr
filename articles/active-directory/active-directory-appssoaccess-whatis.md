@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?
@@ -80,11 +80,11 @@ L’authentification unique avec mot de passe s’appuie sur une extension de na
 
 Pour l’authentification unique par mot de passe, les navigateurs de l’utilisateur final peuvent être :
 
-- Internet Explorer 8, 9 et 10 -- sur Windows 7 ou ultérieur
+- Internet Explorer 8, 9 et 10 -- sous Windows 7 ou version ultérieure (voir également [Guide de déploiement extension IE](active-directory-saas-ie-group-policy.md))
 - Chrome -- sur Windows 7 ou ultérieur, et sur Mac OS X ou ultérieur
 - Firefox 26.0 ou ultérieur -- sur Windows XP SP2 ou ultérieur, et sur Mac OS X 10.6 ou ultérieur
 
-**Remarque :** l’extension de l’authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
+**Remarque :** l'extension de l'authentification unique par mot de passe sera disponible pour Edge dans Windows 10 quand les extensions de navigateur seront prises en charge pour Edge.
 
 ###Authentification unique existante
 
@@ -98,7 +98,7 @@ Pour certaines applications, Azure AD permet l’approvisionnement automatisé 
 
 Lorsque l’utilisateur est supprimé ou que ses informations sont modifiées dans Azure AD, ces modifications sont également appliquées dans l’application SaaS. Ce qui veut dire que la configuration de la gestion du cycle de vie automatique des identités permet aux administrateurs de contrôler de façon automatisée l’approvisionnement et l’annulation de l’approvisionnement des applications SaaS. Dans Azure AD, cette automatisation de la gestion du cycle de vie des identités se fait via l’approvisionnement de l’utilisateur.
 
-Pour plus d’informations, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
+Pour plus d'informations, consultez [Automatisation de l'approvisionnement et de l'annulation de l'approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md)
 
 ##Prise en main de la galerie d’applications Azure AD
 
@@ -106,15 +106,15 @@ Vous êtes prêt à commencer ? Pour déployer l’authentification unique entr
 
 ###Utilisation de la galerie d’applications Azure AD
 
-La [Galerie d’applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) contient une liste d’applications qui prennent en charge une forme d’authentification unique avec Azure Active Directory.
+La [Galerie d'applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/) contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory.
 
 ![][1]
 
 Voici quelques conseils pour trouver des applications en fonction des fonctionnalités qu’elles prennent en charge :
 
-*	Azure AD prend en charge l’approvisionnement et l’annulation de l’approvisionnement automatique pour toutes les applications de la sélection de la [Galerie d’applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
+*	Azure AD prend en charge l'approvisionnement et l'annulation de l'approvisionnement automatique pour toutes les applications de la sélection de la [Galerie d'applications Azure Active Directory](http://azure.microsoft.com/marketplace/active-directory/all/).
 
-*	Une liste d’applications fédérées qui prennent en charge l’authentification unique fédérée à l’aide d’un protocole comme SAML, WS-Federation ou OpenID Connect est disponible [ici](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+*	Une liste d'applications fédérées qui prennent en charge l'authentification unique fédérée à l'aide d'un protocole comme SAML, WS-Federation ou OpenID Connect est disponible [ici](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Une fois que vous avez trouvé votre application, vous pouvez commencer par suivre les instructions détaillées présentées dans la galerie d’applications et dans le portail de gestion Azure pour activer l’authentification unique.
 
@@ -122,16 +122,16 @@ Une fois que vous avez trouvé votre application, vous pouvez commencer par suiv
 
 Si l’application est introuvable dans la galerie d’applications Azure AD, vous avez plusieurs possibilités :
 
-*	**Ajouter une application non répertoriée que vous utilisez** : utilisez la catégorie Personnalisée dans la galerie d’applications du portail de gestion Azure pour connecter une application non répertoriée utilisée par votre organisation. Vous pouvez ajouter n’importe quelle application qui prend en charge SAML 2.0 comme application fédérée, ou bien toute application qui possède une page de connexion HTML comme étape d’authentification unique avec mot de passe. Pour plus d’informations, consultez cet article sur l’[ajout de votre propre application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+*	**Ajouter une application non répertoriée que vous utilisez** : utilisez la catégorie Personnalisée dans la galerie d'applications du portail de gestion Azure pour connecter une application non répertoriée utilisée par votre organisation. Vous pouvez ajouter n’importe quelle application qui prend en charge SAML 2.0 comme application fédérée, ou bien toute application qui possède une page de connexion HTML comme étape d’authentification unique avec mot de passe. Pour plus d’informations, consultez cet article sur l'[ajout de votre propre application](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
 
-*	**Ajouter une application que vous développez** : si vous avez développé l’application vous-même, suivez les instructions de la documentation développeur d’Azure AD pour implémenter l’authentification unique fédérée ou l’approvisionnement à l’aide de l’API Graph d’Azure AD. Pour plus d’informations, consultez ces ressources :
+*	**Ajouter une application que vous développez** : si vous avez développé l'application vous-même, suivez les instructions de la documentation développeur d'Azure AD pour implémenter l'authentification unique fédérée ou l'approvisionnement à l'aide de l'API Graph d'Azure AD. Pour plus d’informations, consultez ces ressources :
   * [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
-*	**Demander l’intégration d’une application** : demandez à ce que l’application dont vous avez besoin soit prise en charge via le [forum de commentaires Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
+*	**Demander l'intégration d'une application** : demandez à ce que l'application dont vous avez besoin soit prise en charge via le [forum de commentaires Azure AD](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ###À l'aide du portail de gestion Azure
 
@@ -168,13 +168,13 @@ Les méthodes que vous choisissez de déployer dans votre organisation sont à v
 
 ###Panneau d’accès Azure AD
 
-Le panneau d’accès à l’adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d’un compte d’organisation dans Azure Active Directory de voir et de lancer les applications cloud pour laquelle il a reçu des autorisations d’accès de l’administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d’accès.
+Le panneau d'accès à l'adresse https://myapps.microsoft.com est un portail web qui permet à un utilisateur final disposant d'un compte d'organisation dans Azure Active Directory de voir et de lancer les applications cloud pour laquelle il a reçu des autorisations d'accès de l'administrateur Azure AD. Si vous êtes un utilisateur final avec [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/), vous pouvez également utiliser les fonctionnalités de gestion de groupes en libre-service via le panneau d'accès.
 
 ![][3]
 
 Le panneau d’accès est séparé du portail de gestion Azure et ne requiert pas que les utilisateurs aient un abonnement Azure ou Office 365.
 
-Pour plus d’informations sur le panneau d’accès Azure AD, consultez la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
+Pour plus d'informations sur le panneau d'accès Azure AD, consultez la [Présentation du panneau d'accès](active-directory-saas-access-panel-introduction.md).
 
 ###Lanceur d’applications Office 365
 
@@ -182,7 +182,7 @@ Pour les organisations ayant déployé Office 365, les applications affectées 
 
 ![][4]
 
-Pour plus d’informations sur le lanceur d’applications Office 365, consultez [Faire apparaître votre application dans le lanceur d’applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
+Pour plus d'informations sur le lanceur d'applications Office 365, consultez [Faire apparaître votre application dans le lanceur d'applications Office 365](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ###Authentification directe pour les applications fédérées
 
@@ -220,4 +220,4 @@ Ces liens utilisent les mêmes mécanismes de contrôle d’accès que le pannea
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

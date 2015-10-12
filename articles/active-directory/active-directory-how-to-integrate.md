@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Intégration avec Azure Active Directory
@@ -76,7 +76,7 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 ### Développement facile :
 
-**Protocoles standard de l’industrie.** Microsoft s'engage à prendre en charge les normes industrielles. Azure AD prend en charge les protocoles d'authentification SAML 2.0, OpenID Connect 1.0, OAuth 2.0, et WS-Federation 1.2 L'API Graph est conforme à OData 4.0. Si votre application prend déjà en charge les protocoles SAML 2.0 ou OpenID Connect 1.0 pour la connexion fédérée, l’ajout de la prise en charge par Azure AD peut être facile. En savoir plus sur les [protocoles d'authentification pris en charge par Azure AD](../authentication-protocols.md).
+**Protocoles standard de l’industrie.** Microsoft s'engage à prendre en charge les normes industrielles. Azure AD prend en charge les protocoles d'authentification SAML 2.0, OpenID Connect 1.0, OAuth 2.0, et WS-Federation 1.2 L'API Graph est conforme à OData 4.0. Si votre application prend déjà en charge les protocoles SAML 2.0 ou OpenID Connect 1.0 pour la connexion fédérée, l’ajout de la prise en charge par Azure AD peut être facile. En savoir plus sur les [protocoles d'authentification pris en charge par Azure AD](active-directory-authentication-protocols.md).
 
 **Bibliothèques open source.** Microsoft fournit les bibliothèques open source entièrement prises en charge pour les langages et plateformes courants afin d’accélérer le développement. Le code source est acquis sous licence sous Apache 2.0 et vous êtes libre de répliquer et de contribuer aux projets. En savoir plus sur les [bibliothèques d'authentification Azure AD](active-directory-authentication-libraries.md).
 
@@ -90,4 +90,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

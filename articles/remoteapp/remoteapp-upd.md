@@ -1,6 +1,6 @@
 
 <properties 
-    pageTitle="Données de profil utilisateur dans Azure RemoteApp"
+    pageTitle="Données de profil utilisateur dans Azure RemoteApp | Microsoft Azure"
 	description="En savoir plus sur le stockage et l’accès des données utilisateur dans Azure RemoteApp"
 	services="remoteapp"
 	documentationCenter="" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/29/2015" 
     ms.author="elizapo" />
 
 
@@ -35,7 +35,7 @@ Si vous avez besoin d’accéder aux données pour l'un de vos utilisateurs (pou
 
 ## Les données sont-elles sauvegardées ?
 
-Oui, nous enregistrons une sauvegarde des données utilisateur par emplacement géographique. Les données sont en lecture seule et accessibles de la même façon que des données standard (contactez Azure RemoteApp si besoin), si le centre de données principal est arrêté.
+Oui, nous enregistrons une sauvegarde des données utilisateur par emplacement géographique. Les données sont en lecture seule et accessibles de la même façon que des données standard (contactez Azure RemoteApp si besoin), si le centre de données principal est arrêté. Les données sont copiées en temps réel vers l'emplacement de sauvegarde, et nous ne conservons aucune copies des différentes versions. Par conséquent, en cas de corruption des données, nous ne serons pas en mesure de les restaurer à une version correcte connue précédente, mais si le centre de données principal est en panne, vous ne pourrez pas obtenir de données utilisateur de l'autre emplacement.
 
 ## Comment les utilisateurs voient-ils l’UPD côté serveur ?
 
@@ -54,7 +54,7 @@ Oui, Azure RemoteApp prend en charge l'utilisation de solutions de données part
 Vous pouvez configurer Azure RemoteApp pour permettre aux utilisateurs d'accéder aux périphériques locaux en configurant une [redirection](remoteapp-redirection.md). Les périphériques locaux pourront ensuite accéder aux données sur l’UPD.
 
 ## Puis-je utiliser mon UPD comme partage réseau ?
-Non, car l’UPD n'est pas persistant. Un UPD est disponible uniquement lorsque l'utilisateur est connecté activement à Azure RemoteApp.
+Non. Les UPD ne peuvent pas être utilisés comme partage réseau. Un UPD est disponible pour l’utilisateur uniquement lorsque l'utilisateur est connecté activement à Azure RemoteApp.
 
 ## Si je supprime un utilisateur d'une collection, son UPD est-il supprimé ?
 
@@ -69,6 +69,9 @@ Oui, si vous contactez [Azure RemoteApp](mailto:remoteappforum@microsoft.com), n
 ## Les UPD sont-ils disponibles hors connexion ?
 
 Nous ne proposons actuellement pas d'accès hors connexion aux UPD au-delà de la fenêtre d'accès de 10 heures décrite ci-dessus. Cela signifie que nous ne sommes actuellement pas en mesure de vous fournir un accès suffisamment long pour effectuer des tâches plus complexes, par exemple l’exécution de logiciels antivirus sur les UPD ou l'accès aux données en vue d’un audit.
+
+## Les paramètres de clé de registre sont-ils conservés ?
+Oui, tout ce qui écrit dans la clé HKEY\_Current\_User fait partie de l’UPD.
 
 ## Puis-je désactiver les UPD d’une collection ?
 
@@ -123,4 +126,4 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

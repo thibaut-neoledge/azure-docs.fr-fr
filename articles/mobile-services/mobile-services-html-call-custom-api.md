@@ -3,17 +3,17 @@
 	description="Découvrez comment définir une API personnalisée et l'appeler depuis une application HTML qui utilise Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="ggailey777"  
 	manager="dwrede"
 	editor=""/>
 
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Appel d'une API personnalisée à partir d'une application HTML
@@ -92,4 +92,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 [Ajout de Mobile Services à une application existante]: mobile-services-html-get-started-data.md
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

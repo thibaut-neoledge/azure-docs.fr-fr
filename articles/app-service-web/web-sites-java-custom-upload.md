@@ -134,6 +134,22 @@ Comme pour Tomcat, les clients peuvent charger leurs propres instances pour Jett
 
 La configuration Jetty doit être changée dans le fichier start.ini pour définir `java.net.preferIPv4Stack=true`.
 
+### Springboot
+Pour exécuter une application Springboot, vous devez télécharger votre fichier JAR ou WAR, puis ajoutez le fichier web.config suivant. Le fichier web.config est placé dans le dossier wwwroot. Dans le fichier web.config, modifiez les arguments pour pointer vers votre fichier JAR. Dans l'exemple suivant, le fichier .jar se trouve également dans le dossier wwwroot.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 Notre test a utilisé le war Hudson 3.1.2 et l'instance Tomcat 7.0.50 par défaut, mais pas l'interface utilisateur pour la configuration. Comme Hudson est un outil de génération de logiciel, il est recommandé de l’installer sur des instances dédiées où l’indicateur **AlwaysOn** peut être défini sur l’application web.
@@ -229,7 +245,7 @@ Une fois ces changements effectués, redémarrez votre application web exécutan
 
 ## Étapes suivantes
 
-Pour plus d'informations sur Liferay, consultez la page [http://www.liferay.com](http://www.liferay.com).
+Pour plus d’informations sur Liferay, consultez [http://www.liferay.com](http://www.liferay.com).
 
 Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
 
@@ -241,4 +257,4 @@ Pour plus d’informations sur Java, consultez le [Centre pour développeurs Jav
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

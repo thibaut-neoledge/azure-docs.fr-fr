@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Mettre en service une application Web qui utilise une base de données SQL" 
 	description="Utiliser un modèle Azure Resource Manager pour déployer une application Web qui inclut une base de données SQL." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -41,7 +41,7 @@ Dans ce modèle, vous allez déployer :
 
 Pour exécuter automatiquement le déploiement, cliquez sur le bouton ci-dessous :
 
-[![Déploiement sur Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
+[![Déploiement sur Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Paramètres à spécifier
 
@@ -452,4 +452,4 @@ Crée un serveur SQL Server et une base de données SQL. Le nom du serveur est s
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

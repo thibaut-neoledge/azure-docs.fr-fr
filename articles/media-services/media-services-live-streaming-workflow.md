@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,11 +46,10 @@ Un **canal** représente un pipeline de traitement du contenu vidéo en flux con
 
 - Un encodeur dynamique envoie un flux à vitesse de transmission unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTP (MPEG-TS), RTMP ou Smooth Streaming (MP4 fragmenté). Le canal procède ensuite à l’encodage en temps réel du flux à débit binaire unique entrant en flux vidéo à débit binaire multiple (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
-	L’encodage d’un flux en direct avec Media Services est en **version préliminaire**.
 - Un encodeur en direct local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple. Vous pouvez utiliser les encodeurs dynamiques suivants qui produisent un flux Smooth Streaming à débit binaire multiple : Elemental, Envivio, Cisco. Les encodeurs dynamiques suivants produisent un flux au format RTMP : Adobe Flash Live, Telestream Wirecast et transcodeurs Tricaster. Les flux reçus transitent par les **canaux** sans traitement supplémentaire. Votre encodeur dynamique peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le codage en direct, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 
-##Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services
+##Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
 
 
 Le schéma suivant illustre les principales parties de la plateforme AMS impliquées dans le flux de travail de vidéo en flux continu où un canal est activé pour effectuer un encodage live avec Media Services.
@@ -92,4 +91,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestion du contrôle d&#39;accès basé sur un rôle à l&#39;aide de Windows PowerShell"
-	description="Gestion du contrôle d&#39;accès basé sur un rôle à l&#39;aide de Windows PowerShell"
+	pageTitle="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
+	description="Gestion du contrôle d'accès basé sur un rôle à l'aide de Windows PowerShell"
 	services="azure-portal"
 	documentationCenter="na"
 	authors="IHenkel"
@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli.md)
+- [Azure CLI](role-based-access-control-xplat-cli-install.md)
 
 
 Le contrôle d'accès en fonction du rôle (RBAC) dans l'API du portail Azure et l'API de gestion de ressources Azure permet une gestion très fine de l'accès à votre abonnement. Cette fonctionnalité vous permet d'accorder l'accès aux utilisateurs, groupes et principaux du service Active Directory en leur affectant certains rôles avec une étendue spécifique.
@@ -161,7 +161,7 @@ Pour en savoir plus sur le contrôle d'accès en fonction du rôle à l'aide de 
 - [Blog Azure](http://blogs.msdn.com/windowsazure) : découvrez les nouvelles fonctionnalités d'Azure.
 - [Blog Windows PowerShell](http://blogs.msdn.com/powershell) : découvrez les nouvelles fonctionnalités de Windows PowerShell.
 - [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
-- [Configurer le contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](role-based-access-control-xplat-cli.md)
+- [Configurer le contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](role-based-access-control-xplat-cli-install.md)
 - [Résolution des problèmes de contrôle d'accès basé sur les rôles](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

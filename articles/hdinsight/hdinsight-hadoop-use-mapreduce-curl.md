@@ -87,7 +87,7 @@ Pour effectuer les étapes présentées dans cet article, vous avez besoin des �
 
 4. Une fois que le statut de la tâche est passé à **TERMINÉ**, vous pouvez récupérer les résultats depuis le stockage d’objets blob Azure. Le paramètre `statusdir` transmis avec la requête contient l’emplacement du fichier de sortie ; dans notre cas, ****wasb:///example/curl**. Cette adresse stocke la sortie de la tâche dans le répertoire **example/curl** sur le conteneur de stockage par défaut utilisé par votre cluster HDInsight.
 
-Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](../xplat-cli.md). Par exemple, pour répertorier les fichiers dans **example/curl**, utilisez la commande suivante :
+Vous pouvez répertorier et télécharger ces fichiers à l'aide de la [CLI Azure pour Mac, Linux et Windows](../xplat-cli-install.md). Par exemple, pour répertorier les fichiers dans **example/curl**, utilisez la commande suivante :
 
 	azure storage blob list <container-name> example/curl
 
@@ -115,4 +115,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 
 * [Utilisation de Pig avec Hadoop sur HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

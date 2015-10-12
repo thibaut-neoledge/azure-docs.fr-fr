@@ -41,6 +41,7 @@ Dans l’exemple ci-dessous, une base de données nommée **sample\_shard\_2** e
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
+Comme alternative, vous pouvez utiliser Powershell pour créer un gestionnaire de cartes de partitions. Un exemple est disponible [ici](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 ## Pour ajouter une partition pour une partie vide d’une plage existante  
 
 Il peut arriver que vous ayez déjà mappé une plage à une partition et l’ayez partiellement remplie avec des données, mais que vous souhaitiez maintenant que les données futures soient dirigées vers une autre partition. Par exemple, vous partitionnez par plage de jours et avez déjà alloué 50 jours à une partition, mais le jour 24, vous souhaitez que les données futures soient dirigées vers une autre partition. [L’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) de la base de données élastique peut effectuer cette opération, mais s’il n’est pas nécessaire de déplacer des données (par exemple, les données de la plage de jours [25, 50), c’est-à-dire le jour 25 inclus et le jour 50 exclu, qui n’existe pas encore) vous pouvez effectuer cela entièrement en utilisant directement les API de gestion de carte de partition.
@@ -78,4 +79,4 @@ Une base de données nommée « sample\_shard\_2 » et tous les objets de sch�
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

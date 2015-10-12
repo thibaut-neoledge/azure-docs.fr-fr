@@ -20,7 +20,7 @@ DataStax est l'un des principaux acteurs dans le secteur du développement et de
 
 >[AZURE.NOTE]Contrairement à l'édition Community, pour déployer DataStax Enterprise, vous devez disposer d'un compte DataStax valide (nom d'utilisateur et mot de passe) à transmettre en tant que paramètres lors du déploiement du modèle. Consultez le site Web [Datastax](http://www.datastax.com) pour configurer votre compte si ce n'est pas déjà fait.
 
-En plus de ce qui est déjà disponible dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster Datastax Enterprise sur des machines virtuelles Ubuntu à l'aide d'un modèle Resource Manager déployé par le biais d'[Azure PowerShell](../powershell-install-configure.md) ou de l'[interface de ligne de commande Azure](../xplat-cli.md).
+En plus de ce qui est déjà disponible dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster Datastax Enterprise sur des machines virtuelles Ubuntu à l'aide d'un modèle Resource Manager déployé par le biais d'[Azure PowerShell](../powershell-install-configure.md) ou de l'[interface de ligne de commande Azure](../xplat-cli-install.md).
 
 Les clusters récemment déployés basés sur ce modèle disposent de la topologie décrite dans le schéma suivant, bien que d’autres topologies puissent être obtenues facilement grâce à la personnalisation du modèle présenté dans cet article.
 
@@ -498,4 +498,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

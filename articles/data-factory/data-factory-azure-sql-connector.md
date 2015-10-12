@@ -95,7 +95,7 @@ Les données sont écrites dans un nouvel objet blob toutes les heures (fréquen
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -239,7 +239,7 @@ Les données sont récupérées à partir d’un nouvel objet blob toutes les he
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -393,21 +393,74 @@ Pour obtenir la liste complète des sections et des propriétés disponibles pou
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
-Dans le cas d’une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
+### SqlSource
+
+Dans le cas d'une activité de copie, quand la source est de type **SqlSource**, les propriétés suivantes sont disponibles dans la section **typeProperties** :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Utilise la requête personnalisée pour lire des données. | Chaîne de requête SQL. Par exemple : select * from MyTable. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. | Non |
+| sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. | Nom de la procédure stockée. | Non |
+| storedProcedureParameters | Paramètres de la procédure stockée. | Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non | 
+
+### Exemple SqlSource
+
+    "source": {
+        "type": "SqlSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**Définition de la procédure stockée :**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+
+
+### SqlSink 
 
 **SqlSink** prend en charge les propriétés suivantes :
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Nom de procédure stockée spécifié par l’utilisateur pour mettre à jour/insérer des données dans la table cible. | Nom de la procédure stockée. | Non |
-| sqlWriterTableType | Nom du type de table spécifié par l’utilisateur à utiliser dans la procédure stockée qui précède. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. | Nom de type de table. | Non |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer. | (Unité = intervalle de temps) Exemple : « 00:30:00 » (30 minutes). | Non | 
+| writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize | Nombre entier. (unité = nombre de lignes) | Non (Valeur par défaut = 10000)
 | sqlWriterCleanupScript | Requête spécifiée par l'utilisateur pour exécuter l'activité de copie de sorte que les données d'un segment spécifique seront nettoyées. Consultez la section de répétition ci-dessous pour plus de détails. | Une instruction de requête. | Non |
 | sliceIdentifierColumnName | Nom de colonne spécifié par l'utilisateur que l'activité de copie doit remplir avec l'identificateur de segment généré automatiquement, qui sera utilisé pour nettoyer les données d'un segment spécifique lors de la réexécution. Consultez la section de répétition ci-dessous pour plus de détails. | Nom d'une colonne avec le type de données binary(32). | Non |
+| sqlWriterStoredProcedureName | Nom de la procédure stockée qui met à jour/insère les données dans la table cible. | Nom de la procédure stockée. | Non |
+| storedProcedureParameters | Paramètres de la procédure stockée. | Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non | 
+| sqlWriterTableType | Nom du type de table spécifié par l’utilisateur à utiliser dans la procédure stockée qui précède. L’activité de copie place les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. | Nom de type de table. | Non |
+
+#### Exemple SqlSink
+
+    "sink": {
+        "type": "SqlSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+        "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+        "sqlWriterTableType": "CopyTestTableType",
+        "storedProcedureParameters": {
+            "id": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" },
+            "decimalData": { "value": "1", "type": "Decimal" }
+        }
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -418,7 +471,7 @@ Dans le cas d’une activité de copie, quand la source est de type **SqlSource*
 
 ### Mappage de type pour SQL Server et SQL Azure
 
-Comme mentionné dans l’article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l’activité de copie convertit automatiquement des types source en types récepteur à l’aide de l’approche en 2 étapes suivante :
+Comme mentionné dans l'article consacré aux [activités de déplacement des données](data-factory-data-movement-activities.md), l'activité de copie convertit automatiquement des types source en types récepteur à l'aide de l'approche en 2 étapes suivante :
 
 1. Conversion à partir de types de source natifs en types .NET
 2. Conversion à partir du type .NET en type de récepteur natif
@@ -474,4 +527,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
 	 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

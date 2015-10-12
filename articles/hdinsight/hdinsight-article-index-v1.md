@@ -1,20 +1,20 @@
 <properties
    pageTitle="Index d'article HDInsight pour le portail Azure | Microsoft Azure"
-	description="Page d'index avec des liens vers des articles sur HDInsight sur le portail Azure. Microsoft recommande le portail Azure en version préliminaire pour les clusters Hadoop sur HDInsight."
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Page d'index avec des liens vers des articles sur HDInsight sur le portail Azure. Microsoft recommande le portail Azure en version préliminaire pour les clusters Hadoop sur HDInsight."
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Index d'article HDInsight pour le portail Azure
 
@@ -102,6 +102,7 @@ Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark na
 * [Génération de recommandations de films à l'aide d'Apache Mahout avec Hadoop ](hdinsight-mahout.md)
 * [Parcours d'apprentissage : création de solutions d'analyse avancées](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Parcours d'apprentissage : traitement des données avancé](machine-learning-data-science-advanced-data-processing.md)
+* [Prédire les pourboires des taxis avec HDInsight et Machine Learning](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Extensibilité
 
@@ -132,4 +133,4 @@ Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark na
 * [Interprétation des messages d'erreur](hdinsight-debug-jobs.md)
 * [Obtenir de l'aide sur le forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

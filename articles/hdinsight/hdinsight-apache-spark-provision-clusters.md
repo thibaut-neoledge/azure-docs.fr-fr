@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"
    tags="azure-portal"/>
+
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
@@ -433,8 +434,8 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 [powershell-install-configure]: ../install-configure-powershell/
 
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

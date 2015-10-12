@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Configuration de l'authentification mutuelle TLS pour une application Web" 
 	description="Découvrez comment configurer votre application Web pour utiliser l'authentification par certificat client sur TLS." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -179,4 +179,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

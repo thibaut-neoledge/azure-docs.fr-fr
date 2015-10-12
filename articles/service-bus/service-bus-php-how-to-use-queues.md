@@ -200,6 +200,8 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Les principes de base des files d’attente Service Bus étant appris, consultez la rubrique [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

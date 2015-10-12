@@ -253,8 +253,8 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 
 [Présentation d’Azure Resource Manager][resource-group-overview] [Utilisation de la CLI Azure][azure-command-line-tools] [Utilisation d’Azure PowerShell avec Azure Resource Manager][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

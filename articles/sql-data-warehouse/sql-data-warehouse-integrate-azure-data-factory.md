@@ -29,26 +29,26 @@ Azure Data Factory permet le déplacement des données entre des sources local
 + SQL Server local
 + SQL Server sur IaaS
 
-Pour en savoir plus sur la configuration d’une activité de copie de données, voir [Copie de données avec Azure Data Factory (activité de copie)][].
+Pour en savoir plus sur la configuration d’une activité de copie de données, voir [Copie de données avec Azure Data Factory (activité de copie)](../data-factory/data-factory-data-movement-activities.md).
 
 ## Procédures stockées
  De la même manière qu’il peut permettre de planifier le transfert de données, Azure Data Factory peut être utilisé pour orchestrer l’exécution des procédures stockées. Cela vous permet de créer des pipelines plus complexes et d’étendre la capacité de Microsoft Azure Data Factory à valoriser la puissance de calcul de SQL Data Warehouse.
 
 ## Étapes suivantes
-Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique [Vue d’ensemble sur l’intégration de SQL Data Warehouse][]. Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse][].
+Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique [Vue d’ensemble sur l’intégration de SQL Data Warehouse](sql-data-warehouse-overview-integrate.md). Pour obtenir des conseils supplémentaires en matière de développement, consultez la rubrique [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
-[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
-[Vue d’ensemble sur l’intégration de SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/fr-FR/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [documentation relative à ce logiciel]: https://azure.microsoft.com/documentation/services/data-factory/
-[Copie de données avec Azure Data Factory (activité de copie)]: https://azure.microsoft.com/FR-FR/documentation/articles/data-factory-data-movement-activities/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/fr-FR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

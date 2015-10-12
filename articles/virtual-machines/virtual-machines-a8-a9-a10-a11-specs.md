@@ -13,7 +13,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="09/02/2015"
+ ms.date="09/29/2015"
  ms.author="danlep"/>
 
 # À propos des instances de calcul intensif A8, A9, A10 et A11
@@ -84,7 +84,7 @@ Les instances A10 et A11 ont une seule carte réseau Ethernet 10 Gbits/s qui se
 
 HPC Pack n’est pas requis pour utiliser les instances A8, A9, A10 et A11 avec Windows Server, mais c’est un outil recommandé pour créer des clusters HPC Server Windows dans Azure. Dans le cas des instances A8 et A9, HPC Pack est le moyen le plus efficace d’exécuter des applications Windows MPI qui accèdent au réseau RDMA dans Azure. HPC Pack comprend un environnement d’exécution pour l’implémentation Microsoft de MPI pour Windows.
 
-Pour plus d’informations et pour obtenir les listes de vérification pour déployer et utiliser les instances de calcul intensif dans des scénarios IaaS et PaaS avec HPC Pack sur Windows Server, consultez [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Pour plus d'informations et pour obtenir les listes de vérification afin d'utiliser les instances de calcul intensif avec HPC Pack sur Windows Server, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 ## Accès au réseau RDMA
 
@@ -105,7 +105,7 @@ MPI | Intel MPI Library 5
 
 Au sein d’un même service cloud ou groupe à haute disponibilité, les instances A8 et A9 peuvent accéder au réseau RDMA dans Azure pour l’exécution d’applications MPI qui utilisent l’interface Microsoft Network Direct pour communiquer entre les instances. Les instances A10 et A11 n’incluent pas l’accès au réseau RDMA.
 
-Consultez le tableau suivant pour les configurations requises permettant aux applications MPI d’accéder au réseau RDMA dans les déploiements de machines virtuelles (IaaS) et de services cloud (PaaS) des instances A8 et A9. Pour les scénarios de déploiement classiques, consultez [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx).
+Consultez le tableau suivant pour les configurations requises permettant aux applications MPI d’accéder au réseau RDMA dans les déploiements de machines virtuelles (IaaS) et de services cloud (PaaS) des instances A8 et A9. Pour les scénarios de déploiement classiques, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
 
 Configuration requise | Machines virtuelles (IaaS) | Services cloud (PaaS)
@@ -131,6 +131,6 @@ MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2
 
 * Pour plus d’informations sur la disponibilité et la tarification des instances A8, A9, A10 et A11, consultez [Tarification de Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification de Cloud Services](http://azure.microsoft.com/pricing/details/cloud-services/).
 * Pour déployer et configurer un cluster Linux avec des instances A8 et A9 pour accéder au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
-* Pour prendre en main le déploiement et l’utilisation d’instances A8 et A9 avec HPC Pack sur Windows, consultez [Instances de calcul intensif A8 et A9 : démarrage rapide avec HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx) et [Exécuter des applications MPI sur des instances de calcul intensif A8 et A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
+* Pour commencer à déployer et à utiliser des instances A8 et A9 avec HPC Pack sur Windows, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

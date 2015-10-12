@@ -18,7 +18,7 @@
 
 
 
-#Gestion d'Azure HDInsight avec Azure Automation
+#Gérer Azure HDInsight avec Azure Automation
 Ce guide vous présente le service Azure Automation et la manière de l'utiliser pour gérer plus simplement vos clusters et automatiser les tâches courantes dans Azure HDInsight.
 
 ## Qu'est-ce qu'Azure Automation ?
@@ -44,4 +44,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

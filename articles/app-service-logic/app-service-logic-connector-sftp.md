@@ -71,7 +71,7 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 	- **Chemin du dossier** : spécifiez le chemin du dossier dans lequel récupérer les fichiers.
 	- **Type du fichier : texte ou binaire** : sélectionnez le type du fichier.
 	- **Masque de fichiers** : spécifiez le masque à appliquer pour récupérer les fichiers. '*' récupère tous les fichiers dans le dossier spécifié.
-	- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
+- **Masque de fichiers à exclure** : spécifiez le masque à appliquer pour exclure des fichiers. Si la propriété « Masque de fichiers » est également définie, la propriété « Masque de fichiers à exclure » est appliquée en premier.
 
 
 	![][9]  
@@ -92,7 +92,9 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur SFTP 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
-Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
+Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -111,4 +113,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

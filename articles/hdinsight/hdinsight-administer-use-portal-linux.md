@@ -95,7 +95,9 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 
 	- __Sélectionner__ : utilisez cette option pour enregistrer la configuration de la source de données.
 
+	
 8. Sélectionnez __Niveaux de tarification du nœud__ pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Par défaut, le nombre de nœuds de travail est fixé à __4__.
+
 
 	Le coût estimé du cluster s’affiche au bas de ce panneau.
 
@@ -114,8 +116,12 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 		> [AZURE.IMPORTANT]Vous devez créer le réseau virtuel Azure avant de créer le cluster HDInsight, car vous ne pouvez pas créer un nouveau réseau à partir d’une configuration HDInsight.
 		>
 		> Actuellement (25/08/2015) il existe une limite disant qu’un seul cluster HDInsight basé sur Linux peut être présent sur un réseau virtuel Azure.
+        >
+        > Vous ne pouvez pas utiliser un réseau Azure Virtual Network v1 (classique) avec HDInsight sur Linux. Le réseau virtuel doit être v2 (Azure Resource Manager), pour être affiché en tant qu’option pendant le processus de création du cluster HDInsight dans le portail Azure en version préliminaire, ou pour être utilisable pendant la création d’un cluster à partir de l’interface de ligne de commande Azure ou d’Azure PowerShell.
+        >
+        > Si vous disposez de ressources sur un réseau v1 et que vous souhaitez rendre HDInsight directement accessible à ces ressources via un réseau virtuel, consultez [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md) pour plus d’informations sur la connexion d’un réseau virtuel v2 à un réseau virtuel v1. Une fois cette connexion établie, vous pouvez créer le cluster HDInsight dans le réseau virtuel v2.
 
-	* __Actions de script__ : permet de spécifier des scripts Bash qui personnalisent le cluster HDInsight lors de la configuration. Par exemple, il existe un [script qui installe Hue](hdinsight-hadoop-hue-linux.md) (client graphique pour travailler avec Hadoop.) Pour plus d’informations sur les actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
+	* __Actions de script__ : permet de spécifier des scripts Bash qui personnalisent le cluster HDInsight lors de l’approvisionnement. Par exemple, il existe un [script qui installe Hue](hdinsight-hadoop-hue-linux.md) (client graphique pour travailler avec Hadoop.) Pour plus d’informations sur les actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 	* __Clés de stockage azure__ : elle vous permet d’associer des comptes supplémentaires de stockage au serveur HDInsight.
 
@@ -129,7 +135,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le tableau d’accueil](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil, ou l’entrée __Notifications__ à gauche de la page pour vérifier le processus de configuration.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
 
 ## Gérer un cluster
 
@@ -147,19 +153,19 @@ Lisez ce qui suit pour comprendre les icônes affichées en haut de ce panneau, 
 
 * __Mise à l’échelle du cluster__ : permet de modifier le nombre de nœuds de travail pour ce cluster.
 
-* __Supprimer__ : permet de supprimer le cluster HDInsight.
+* __Supprimer__ : permet de supprimer le cluster HDInsight.
 
-* __Démarrage rapide (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png)) __ : affiche des informations qui vous aideront à prendre en main HDInsight.
+* __Démarrage rapide__ (![icône nuage et foudre = démarrage rapide](./media/hdinsight-administer-use-portal-linux/quickstart.png)) : affiche des informations qui vous aideront à prendre en main HDInsight.
 
-* __Utilisateurs (![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png))__ : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
+* __Utilisateurs__ (![icône d’utilisateurs](./media/hdinsight-administer-use-portal-linux/users.png)) : permet de définir des autorisations pour la _gestion via le portail_ de ce cluster pour d’autres utilisateurs dans votre abonnement Azure.
 
 	> [AZURE.IMPORTANT]Ce paramètre affecte _uniquement_ les autorisations d’accès à ce cluster dans le portail Azure en version préliminaire et n’a aucun effet sur les personnes autorisées à se connecter ou à soumettre des tâches au cluster HDInsight.
 
-* __Balises (![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png))__ : les balises vous permettent de définir des paires clé/valeur afin de déterminer une taxonomie personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
+* __Balises__ (![icône de balise](./media/hdinsight-administer-use-portal-linux/tags.png)) : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 
 * __Documentation__ : liens vers la documentation correspondant à Azure HDInsight.
 
-> [AZURE.IMPORTANT]Pour gérer les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Pour gérer les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation de l’interface Ambari, consultez [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="scaling"> </a>Mise à l’échelle
 
@@ -175,7 +181,7 @@ La section __Utilisation__ du panneau du cluster HDInsight affiche des informati
 
 ![Informations sur l’utilisation](./media/hdinsight-administer-use-portal-linux/usage.png)
 
-> [AZURE.IMPORTANT]Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation de l’interface Ambari, voir [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
+> [AZURE.IMPORTANT]Pour surveiller les services fournis par le cluster HDInsight, vous devez utiliser l’interface Ambari Web ou l’API Ambari REST. Pour plus d’informations sur l’utilisation d’Ambari, consultez [Gestion des clusters HDInsight à l’aide d’Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ## Étapes suivantes
 Cet article vous a appris à créer un cluster HDInsight à l’aide du portail Azure et à ouvrir l’outil en ligne de commande Hadoop. Pour en savoir plus, consultez les articles suivants :
@@ -189,4 +195,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

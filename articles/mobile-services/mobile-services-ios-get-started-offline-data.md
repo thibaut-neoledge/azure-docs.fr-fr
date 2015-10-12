@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Prise en main de la synchronisation des données hors connexion dans Mobile Services
@@ -155,7 +155,7 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
 
     #### TodoItem
 
-    | Attribut | Type | Remarque | 
+    | Attribut | Type | Remarque |
     |-------------- |  ------ | -------------------------------------------------------|
     | ID (obligatoire) | Chaîne | clé primaire dans le magasin distant (obligatoire) |
     | terminé | Boolean | champ d'élément todo |
@@ -271,4 +271,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

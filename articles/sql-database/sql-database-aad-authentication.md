@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connexion à la base de données SQL avec l’authentification Azure Active Directory 
@@ -65,7 +65,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu dan
 
 ## Limitations et fonctionnalités azure AD 
 
-Les membres suivants d’Azure Active Directory peuvent être configurés dans le serveur SQL Azure:-membres natifs : un membre créé dans Azure AD dans le domaine géré ou dans un domaine de client. Pour plus d’informations, consultez [Ajouter votre propre nom de domaine Azure AD](active-directory-add-domain.md).-Membres de domaine fédéré : membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez la section [Windows Azure prend désormais en charge la fédération avec Active Directory Windows Server](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - membres importés à partir d’autres annuaires Active Directory Azure membres d’un domaine natif ou fédéré. - Groupes Active Directory créés en tant que groupes de sécurité.
+Les membres suivants d’Azure Active Directory peuvent être configurés dans le serveur SQL Azure:-membres natifs : un membre créé dans Azure AD dans le domaine géré ou dans un domaine de client. Pour plus d’informations, consultez [Ajouter votre propre nom de domaine Azure AD](active-directory-add-domain.md).-Membres de domaine fédéré : membre créé dans Azure AD avec un domaine fédéré. Pour plus d’informations, consultez la section [Microsoft Azure prend désormais en charge la fédération avec Active Directory Windows Server](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - membres importés à partir d’autres annuaires Active Directory Azure membres d’un domaine natif ou fédéré. - Groupes Active Directory créés en tant que groupes de sécurité.
 
 Les comptes Microsoft (par exemple outlook.com, hotmail.com, live.com) ou d’autres comptes d’invité (par exemple gmail.com, yahoo.com) ne sont pas pris en charge. Si vous pouvez vous connecter à [https://login.live.com](https://login.live.com) à l’aide du compte et du mot de passe, c’est que vous utilisez un compte Microsoft qui n’est pas pris en charge pour l’authentification Azure AD pour la base de données SQL Azure.
 
@@ -87,7 +87,7 @@ Créer un annuaire Azure Active Directory et le renseigner avec les utilisateurs
 - Créer le domaine Azure AD géré initial.
 - Fédérer les Services de domaine Active Directory local avec Azure Active Directory.
 
-Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD](active-directory-add-domain.md), [Windows Azure prend désormais en charge la fédération avec Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Pour plus d’informations, consultez [Ajouter votre propre nom de domaine à Azure AD](active-directory-add-domain.md), [Microsoft Azure prend désormais en charge la fédération avec Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administration de votre annuaire Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), et [Gérer Azure Active Directory à l’aide de Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Vérifier que votre base de données se trouve bien dans Azure SQL Database V12
  
@@ -142,7 +142,7 @@ Chaque serveur SQL Azure démarre avec un compte d’administrateur de serveur u
 3. Dans le panneau **Paramètres**, cliquez sur **administrateur Active directory (aperçu)**, et acceptez la clause Preview.
 4. Dans le panneau **Administrateur active directory (aperçu)**, cliquez pour examiner, puis cliquez sur **OK** pour accepter les termes de l’aperçu.
 5. Dans le panneau **Administrateur Active directory (aperçu)**, cliquez sur **Administrateur Active directory**, puis en haut de la page, cliquez sur **Définir admin**.
-6. Dans le panneau **Ajouter admin**, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe en tant qu’administrateur, puis cliquez sur **Sélectionner**. Le panneau d’administration Active Directory affiche tous les membres et les groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Voir la liste des administrateurs pris en charge dans **Fonctionnalités et limitations Azure AD** ci-dessus.)
+6. Dans le panneau **Ajouter admin**, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe en tant qu’administrateur, puis cliquez sur **Sélectionner**. Le panneau d’administration Active Directory affiche tous les membres et les groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Voir la liste des administrateurs pris en charge dans **Fonctionnalités et limitations Azure AD** ci-dessus.) Le contrôle d'accès basé sur les rôles (RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server.
 7. En haut du panneau **Administrateur Active Directory**, cliquez sur **ENREGISTRER**. ![cliquer sur admin][10]
 
 	La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaîtra dans la zone **Administrateur Active Directory**.
@@ -209,7 +209,7 @@ Sur toutes les machines clientes à partir desquelles vos applications ou les ut
 ### Outils
 
 - L’installation de [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou de [SQL Server Data Tools pour Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) est conforme à la configuration requise de .NET Framework 4.6. 
-- SSMS installe la version x86 de **ADALSQL. DLL**. 
+- SSMS installe la version x86 de **ADALSQL. DLL**. (À ce stade, SSMS ne parvient pas à demander le redémarrage requis après l'installation. Ce problème devrait être résolu dans une prochaine version CTP.)
 - SSDT installe la version amd64 de **ADALSQL. DLL**. L’authentification Azure AD n’est prise en charge que partiellement par SSDT.
 - La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n’installe pas la version requise amd64 de **ADALSQL. DLL**.
 
@@ -217,7 +217,7 @@ Sur toutes les machines clientes à partir desquelles vos applications ou les ut
 
 ### À propos des utilisateurs de base de données à relation contenant-contenu
 
-L’authentification Active Directory Azure nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données à relation contenant-contenu. Un utilisateur de base de données à relation contenant-contenu sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données master, et qui est mappé sur une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
+L’authentification Active Directory Azure nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données à relation contenant-contenu. Un utilisateur de base de données à relation contenant-contenu sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données master, et qui est mappé sur une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données à relation contenant-contenu, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx). Les utilisateurs de base de données (à l’exception des administrateurs) ne peuvent pas être créés à l'aide du portail, et les rôles RBAC ne sont pas propagés à SQL Server.
 
 ### Se connecter à la base de données utilisateur à l’aide de SQL Server Management Studio
  
@@ -322,4 +322,4 @@ Pour obtenir des exemples de code spécifiques associés à l’authentification
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

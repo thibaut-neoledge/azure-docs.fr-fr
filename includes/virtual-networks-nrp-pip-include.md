@@ -4,7 +4,7 @@ Une ressource d'adresse IP publique fournit une adresse IP publique réservée
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
 |**publicIPAllocationMethod**|Définit si l’adresse IP est *statique* ou *dynamique*.|static, dynamic|
-|**idleTimeoutInMinutes**|Définit le délai d’inactivité.|Toute valeur aléatoire comprise entre 4 et 30.|
+|**idleTimeoutInMinutes**|Définit le délai d’inactivité, avec une valeur par défaut de 4 minutes. Si aucun autre paquet pour une session donnée n'est reçu dans ce délai, la session est interrompue.|Toute valeur aléatoire comprise entre 4 et 30.|
 |**ipAddress**|Adresse IP assignée à l’objet. Il s’agit d’une propriété en lecture seule.|104\.42.233.77|
 
 ### Paramètres DNS
@@ -13,6 +13,7 @@ Les adresses IP publiques ont un objet enfant nommé **dnsSettings** qui contien
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
 |**domainNameLabel**|Ordinateur hôte nommé utilisé pour la résolution de nom.|www, ftp, vm1|
+|**fqdn**|Nom complet de l'adresse IP publique.|www.westus.cloudapp.azure.com|
 |**reverseFqdn**|Nom de domaine complet (FQDN) qui résout l’adresse IP et est inscrit dans DNS en tant qu’enregistrement PTR.|www.contoso.com.|
 
 Exemple d’adresse IP publique au format JSON :
@@ -27,9 +28,16 @@ Exemple d’adresse IP publique au format JSON :
 		  "ipAddress": "104.42.233.77",
 	      "dnsSettings": {
 	         "domainNameLabel": "mylabel",
+			 "fqdn": "mylabel.westus.cloudapp.azure.com",
 	         "reverseFqdn": "contoso.com."
 	      }
 	   }
 	} 
 
-<!---HONumber=Sept15_HO4-->
+### Ressources supplémentaires
+
+- Obtenez davantage d’informations sur les [adresses IP publiques](virtual-networks-reserved-public-ip.md).
+- En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
+- Consultez la [documentation de référence API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) pour les adresses IP publiques.
+
+<!---HONumber=Oct15_HO1-->

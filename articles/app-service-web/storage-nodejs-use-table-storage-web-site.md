@@ -613,7 +613,7 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Git distant]: http://git-scm.com/docs/git-remote
 
 [Application web Node.js avec MongoDB]: web-sites-nodejs-store-data-mongodb.md
-[interface de ligne de commande Azure]: ../xplat-cli.md
+[interface de ligne de commande Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -640,4 +640,4 @@ Bien que les étapes de cet article décrivent l'utilisation du service de Table
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -43,25 +43,25 @@ HDInsight est une implémentation dans le cloud Microsoft Azure de la pile de te
 
 Azure HDInsight déploie et approvisionne les clusters Hadoop dans le cloud, en utilisant **Linux** ou **Windows** en tant que système d’exploitation sous-jacent.
 
-* **HDInsight sur Linux (version préliminaire)** - Cluster Hadoop sur Ubuntu. Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, effectuez une migration à partir d'une solution Hadoop Linux existante ou souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux.
+* **HDInsight sur Linux** - Cluster Hadoop sur Ubuntu. Vous pouvez utiliser cette option si vous maîtrisez Linux ou Unix, effectuez une migration à partir d'une solution Hadoop Linux existante ou souhaitez intégrer facilement des composants de l'écosystème Hadoop conçus pour Linux.
 
-* **HDInsight sur Windows** - Cluster Hadoop sur Windows Server. Utilisez cette option si vous maîtrisez Windows, migrez à partir d’une solution Hadoop Windows ou souhaitez intégrer des fonctionnalités .NET ou d’autres fonctionnalités de Windows.
+* **HDInsight sur Windows** - Cluster Hadoop sur Windows Server. Utilisez cette option si vous maîtrisez Windows, migrez à partir d’une solution Hadoop Windows ou souhaitez utiliser .NET ou d’autres technologies Windows.
 
 Le tableau suivant compare les deux systèmes d’exploitation :
 
 Catégorie | Hadoop sur Linux | Hadoop sur Windows
 ---------| -------------------| --------------------
 **Système d’exploitation du cluster** | Prise en charge à long terme (LTS) de Ubuntu 12.04 | Windows Server 2012 R2
-**Type de cluster** | Hadoop | Hadoop, Hbase, Storm
-**Déploiement** | Portail Azure, interface de ligne de commande Azure, Azure PowerShell | Portail Azure, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
+**Type de cluster** | Hadoop, Hbase, Storm | Hadoop, Hbase, Storm
+**Déploiement** | Portail Azure en version préliminaire, interface de ligne de commande Azure, Azure PowerShell | Portail Azure, portail Azure en version préliminaire, interface de ligne de commande Azure, Azure PowerShell, Kit de développement logiciel (SDK) HDInsight .NET
 **IU du cluster** | Ambari | Tableau de bord du cluster
-**Accès à distance** | Secure Shell (SSH) | Remote Desktop Protocol (RDP)
+**Accès à distance** | Secure Shell (SSH), API REST, ODBC, JDBC | Protocole RDP (Remote Desktop Protocol), API REST, ODBC, JDBC
 
 
 
 ### Clusters Hadoop, HBase, Storm, Spark et personnalisés
 
-HDInsight fournit des configurations de cluster pour Hadoop, HBase, Storm et Spark. Vous pouvez également <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personnaliser les clusters avec des actions de script</a>.
+HDInsight fournit des configurations de cluster pour Hadoop, HBase ou Storm. Vous pouvez également [personnaliser les clusters avec des actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 * **Hadoop** (charge de travail de requête) : fournit un stockage fiable des données avec [HDFS](#HDFS) et un simple modèle de programmation [MapReduce](#mapreduce) pour traiter et analyser les données en parallèle.
 
@@ -69,13 +69,33 @@ HDInsight fournit des configurations de cluster pour Hadoop, HBase, Storm et Spa
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (charge de travail de flux) : système de calcul distribué et en temps réel permettant le traitement rapide de vastes flux de données. Storm est fourni en tant que cluster géré dans HDInsight. Consultez la rubrique [Analyse de données de capteur en temps réel au moyen de Storm et de Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
-* **<a  target="_blank" href="http://spark.apache.org/">Apache Spark</a>** : infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d’analyse de données volumineuses. Consultez [Apache Spark sur Azure HDInsight](hdinsight-apache-spark-overview.md).
+#### Exemples de scripts de personnalisation
+
+Les actions de script sont des scripts exécutés pendant l’approvisionnement du cluster et peuvent être utilisées pour installer des composants supplémentaires sur le cluster. Pour les clusters HDInsight Windows, utilisez des scripts PowerShell. Pour les clusters Linux, utilisez des scripts Bash.
+
+Voici des exemples de scripts fournis par l’équipe HDInsight :
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+
+	> [AZURE.NOTE]Le script Hue est disponible uniquement pour les clusters Linux.
+	
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+Pour plus d’informations sur le développement de vos propres actions de script, consultez [Développement d’actions de Script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ## Quels sont les composants d'Hadoop ?
 
 Outre les configurations globales précédentes, les composants individuels suivants sont également inclus dans les clusters HDInsight.
 
 * **[Ambari](#ambari)** : approvisionnement, gestion et surveillance des clusters.
+
+	> [AZURE.NOTE]Seul un sous-ensemble de l’API REST Ambari est fourni pour les clusters HDInsight Windows.
 
 * **[Avro](#avro)** (bibliothèque Microsoft .NET pour Avro) : sérialisation de données pour l’environnement Microsoft .NET.
 
@@ -101,7 +121,9 @@ Outre les configurations globales précédentes, les composants individuels suiv
 
 ###<a name="ambari"></a>Ambari
 
-Apache Ambari est destiné à l'approvisionnement, à la gestion et à la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Consultez les pages [Gestion des clusters HDInsight avec Ambari](hdinsight-hadoop-manage-ambari.md) (Linux exclusivement), [Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari](hdinsight-monitor-use-ambari-api.md) et <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Référence des API Apache Ambari</a>.
+Apache Ambari est destiné à l'approvisionnement, à la gestion et à la surveillance des clusters Apache Hadoop. Il comprend une collection intuitive d'outils d'opérateurs et un solide jeu d'API qui masque la complexité de Hadoop, en simplifiant le fonctionnement des clusters. Les clusters HDInsight Linux fournissent tous l’interface utilisateur web Ambari et l’API REST Ambari, tandis que les clusters Windows fournissent un sous-ensemble de l’API REST.
+
+Consultez les pages [Gestion des clusters HDInsight avec Ambari](hdinsight-hadoop-manage-ambari.md) (Linux exclusivement), [Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari](hdinsight-monitor-use-ambari-api.md) et <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Référence des API Apache Ambari</a>.
 
 ### <a name="avro"></a>Avro (bibliothèque Microsoft .NET pour Avro)
 
@@ -153,11 +175,11 @@ Pour plus d'informations sur MapReduce, consultez <a target="_blank" href="http:
 
 En tant que partie intégrante de l'écosystème du cloud Azure, Hadoop dans HDInsight offre une série d'avantages :
 
-* Approvisionnement automatique des clusters Hadoop. Il est beaucoup plus facile de créer des clusters HDInsight que de configurer manuellement des clusters Hadoop. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md).
+* Approvisionnement automatique des clusters Hadoop. Il est beaucoup plus facile de créer des clusters HDInsight que de configurer manuellement des clusters Hadoop. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters Hadoop dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 * Composants Hadoop à la pointe de la technologie. Pour plus d’informations, consultez la rubrique [Nouveautés des versions de cluster Hadoop fournies par HDInsight][component-versioning].
 
-* Disponibilité et fiabilité élevées des clusters. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability.md) pour plus d'informations.
+* Disponibilité et fiabilité élevées des clusters. Consultez la rubrique [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md) pour plus d'informations.
 
 * Stockage efficace et économique des données avec le stockage d'objets blob Azure, une option compatible Hadoop. Consultez la rubrique [Utilisation du stockage d’objets blob Azure avec Hadoop dans HDInsight](hdinsight-hadoop-use-blob-storage.md) pour plus d’informations.
 
@@ -175,11 +197,15 @@ Pour plus d'informations sur les avantages de Hadoop dans HDInsight, consultez l
 Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données volumineuses avec les ressources ci-dessous.
 
 
-### HDInsight sur Linux (version préliminaire)
+### HDInsight sur Linux
+
+* [Documentation HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/) : page de documentation sur Azure HDInsight proposant des liens vers des articles, des vidéos et d’autres ressources.
 
 * [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md) : didacticiel de démarrage rapide pour l’approvisionnement de clusters HDInsight Hadoop sous Linux et l’exécution d’exemples de requêtes Hive.
 
-* [Approvisionnement de HDInsight sur Linux à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md) : apprenez à configurer un cluster Hadoop HDInsight sous Linux à l’aide d’options personnalisées via le portail Azure, l’interface de ligne de commande Azure ou Azure PowerShell.
+* [Prise en main de Storm Linux sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) : un didacticiel de démarrage rapide pour approvisionner Storm sur un cluster HDInsight et exécuter des exemples de topologies Storm.
+
+* [Approvisionnement de HDInsight sur Linux :](hdinsight-hadoop-provision-linux-clusters.md) apprenez à configurer un cluster Hadoop HDInsight sous Linux via le portail Azure, l’interface de ligne de commande Azure ou Azure PowerShell.
 
 * [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md) : obtenez quelques conseils rapides sur l’utilisation de clusters Linux Hadoop approvisionnés sur Azure.
 
@@ -248,4 +274,4 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

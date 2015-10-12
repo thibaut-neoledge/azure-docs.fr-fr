@@ -114,7 +114,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 
 ## Concepts de base
 
-1. [Concepts de base : interface de ligne de commande Microsoft Azure (Azure CLI)](../xplat-cli.md)
+1. [Concepts de base : interface de ligne de commande Microsoft Azure (Azure CLI)](../xplat-cli-install.md)
 4. [Concepts de base : utilisation et gestion des certificats](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Concepts de base : sélection de noms d'utilisateur Linux](virtual-machines-linux-usernames.md)
 6. [Concepts de base : connexion à une machine virtuelle Linux à l'aide du portail Azure](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 17. [Concepts de base : injection de données personnalisées dans une machine virtuelle à utiliser avec Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Blog sur les concepts de base : génération d'une distribution Linux à haute disponibilité dans Azure en 12 étapes](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Blog sur les concepts de base : automatisation de l'approvisionnement de Linux dans Azure avec l'interface de ligne de commande Azure, node.js et jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [Concepts de base : extension de machine virtuelle Docker dans Azure](virtual-machines-docker-vm-extension.md)
 23. Documentation de référence sur l’[API REST de gestion des services Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [GlusterFS sur Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS est une petite distribution optimisée pour la mise à l'échelle pure av
 
 Consultez cette liste qui va très vite s'allonger. Si vous avez des suggestions, envoyez-nous une réponse privée ou laissez-nous un commentaire ci-dessous.
 
-1. [Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [Créer un déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Microsoft Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Référentiel Github Linux Azure de Patrick Chanezon](https://github.com/chanezon/azure-linux)
 3. [Vidéo : Déplacement de données USB locales sur Linux vers Azure à l’aide d’**usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Vidéo : Accès à une GUI Linux dans Azure dans le navigateur avec fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ Cette section présente en premier lieu une entrée de blog contenant une série
 
 1. Docker
 	- [Extension Docker VM pour Linux dans Azure](virtual-machines-docker-vm-extension.md)
-	- [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-docker-with-../xplat-cli.md)
+	- [Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [Utilisation de l’extension Docker VM à partir du portail Azure en version préliminaire](virtual-machines-docker-with-portal.md)
 	- [Prise en main rapide de Docker dans Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Comment utiliser docker-machine sur Azure](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ Cette section présente en premier lieu une entrée de blog contenant une série
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

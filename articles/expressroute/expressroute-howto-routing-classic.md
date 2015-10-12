@@ -310,4 +310,4 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 
 Pour plus d'informations sur l'homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

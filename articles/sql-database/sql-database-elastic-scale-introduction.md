@@ -61,7 +61,7 @@ La mise à l’échelle verticale fait référence à l’augmentation ou à la 
 
 La plupart des applications de base de données à l’échelle du cloud associent ces deux stratégies. Par exemple, une application Software as a Service peut utiliser la mise à l’échelle horizontale pour approvisionner les nouveaux clients finaux et la mise à l’échelle verticale pour permettre l’augmentation ou la diminution des ressources de la base de données du client final, en fonction des besoins de la charge de travail.
 
-* La mise à l’échelle horizontale est gérée à l’aide de la [bibliothèque cliente de base de données élastique](sql-database-elastic-client-overview.md).
+* La mise à l’échelle horizontale est gérée à l’aide de la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md).
 
 * La mise à l'échelle verticale est effectuée à l'aide des applets de commande Azure PowerShell pour modifier le niveau de service, ou en plaçant des bases de données dans un pool de bases de données élastique.
 
@@ -85,13 +85,13 @@ Certaines applications utilisent l'approche la plus simple consistant à créer 
 D'autres scénarios regroupent plusieurs locataires dans des bases de données, plutôt que de les isoler dans des bases de données distinctes. Il s’agit d’un modèle type de **partitionnement à plusieurs locataires** et il peut être requis lorsqu’une application gère un grand nombre de très petits locataires. Dans un partitionnement à plusieurs locataires, les lignes des tables de base de données sont toutes conçues pour comporter une clé identifiant l'ID du locataire ou la clé de partitionnement. Là encore, la couche Application est responsable de l’acheminement de la demande d’un locataire vers la base de données appropriée et la bibliothèque cliente de base de données élastique peut prendre cette procédure en charge. En outre, le dispositif de sécurité au niveau des lignes peut servir à filtrer les lignes auxquelles chaque client peut accéder. Pour plus d’informations, voir [Applications mutualisées avec les outils de base de données élastique et sécurité de niveau de ligne](sql-database-elastic-tools-multi-tenant-row-level-security.md). Il peut être nécessaire de redistribuer les données entre les bases de données à l’aide du modèle de partitionnement à plusieurs locataires. L’outil de fusion et de fractionnement des bases de données élastiques permet de faciliter cette procédure.
 
 ### Déplacement de données de bases de données à plusieurs locataires vers des bases de données à un seul locataire
-Lorsque vous créez une application SaaS, il est courant d'offrir aux clients potentiels une version d'évaluation du logiciel. Dans ce cas, il est plus rentable d'utiliser une base de données à plusieurs locataires pour les données. Toutefois, lorsqu'un prospect devient un client, une base de données à un seul locataire est préférable car elle offre de meilleures performances. Si le client a créé des données pendant la période d’évaluation, utilisez l’[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge) pour déplacer les données de la base de données à plusieurs locataires vers la nouvelle base de données à un seul locataire.
+Lorsque vous créez une application SaaS, il est courant d'offrir aux clients potentiels une version d'évaluation du logiciel. Dans ce cas, il est plus rentable d'utiliser une base de données à plusieurs locataires pour les données. Toutefois, lorsqu'un prospect devient un client, une base de données à un seul locataire est préférable car elle offre de meilleures performances. Si le client a créé des données pendant la période d’évaluation, utilisez l’[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) pour déplacer les données de la base de données à plusieurs locataires vers la nouvelle base de données à un seul locataire.
 
 ## Étapes suivantes
 
 Pour obtenir un exemple d’application illustrant la bibliothèque cliente, voir [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
 
-Pour utiliser l’outil de fusion et de fractionnement, vous devez [configurer la sécurité](sql-database-elastic-scale-split-merge-security-configuration,md).
+Pour utiliser l’outil de fusion et de fractionnement, vous devez [configurer la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Pour plus de détails sur le pool de base de données élastique, voir [Considérations sur les prix et performances pour un pool de base de données élastique](sql-database-elastic-pool-guidance.md), ou créez un pool à l’aide du [didacticiel](sql-database-elastic-pool-portal.md).
 
@@ -108,4 +108,4 @@ Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

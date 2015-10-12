@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du stockage de files d’attente à partir de Python | Microsoft Azure"
-	description="Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Utilisation du stockage de files d’attente à partir de Python | Microsoft Azure" 
+	description="Découvrez comment utiliser le service de File d’attente Azure à partir de Python pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Utilisation du stockage de files d'attente à partir de Python
@@ -107,10 +107,12 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 -   Consultez la référence MSDN suivante : [Stockage et accessibilité des données dans Azure][].
 -   Consultez le [blog de l'équipe Azure Storage][]
 
+Pour plus d’informations, consultez également le [Centre pour développeurs Python](/develop/python/).
+
 [Stockage et accessibilité des données dans Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [package Python Azure Storage]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

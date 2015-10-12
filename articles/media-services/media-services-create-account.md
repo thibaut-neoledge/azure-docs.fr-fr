@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 - [Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l'aide de du Kit de développement logiciel (SDK) .NET](media-services-dotnet-get-started.md)
 
-- [Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
   [portail Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

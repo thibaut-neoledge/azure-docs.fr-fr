@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Écriture de requêtes
@@ -22,9 +22,13 @@ La logique de traitement de flux dans Azure Stream Analytics est implémentée e
 
 ## Pour créer une requête Stream Analytics : ##
 
-1. Dans votre tâche Stream Analytics, cliquez sur **Requête**.
+1. Dans votre tâche Stream Analytics sur le portail de gestion Azure, cliquez sur **Requête**.
 
     ![Sélection d'une requête](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
+
+    Sur le portail Azure en version préliminaire, cliquez sur **Requête**.
+
+    ![Sélection d’un aperçu de requête](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Les nouvelles tâches disposent d'un modèle de requête pour vous aider à commencer. Le modèle de requête effectue une requête « pass-through » qui transfère tous les champs provenant d'événements d'entrée vers la sortie.
 
@@ -36,6 +40,8 @@ La logique de traitement de flux dans Azure Stream Analytics est implémentée e
 ## Pour tester une requête : ##
 
 Vous pouvez vérifier que votre requête se comporte comme prévu en l'exécutant dans le navigateur sur un ou plusieurs fichiers JSON locaux contenant des données de test. Ceci ne démarre pas la tâche et n'a aucune incidence sur la facturation.
+
+> [AZURE.NOTE]Actuellement, le portail Azure en version préliminaire ne prend pas en charge le test d’une requête dans le navigateur.
 
 1.	Assurez-vous que la requête ne contient pas d'erreur (sinon, le bouton Test sera désactivé), puis cliquez sur le bouton Test.  
 
@@ -62,6 +68,6 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+- [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

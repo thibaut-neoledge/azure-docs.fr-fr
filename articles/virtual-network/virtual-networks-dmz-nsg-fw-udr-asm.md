@@ -20,25 +20,25 @@
 
 [Revenir à la page Meilleures pratiques relatives aux limites de sécurité][HOME]
 
-Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveurs Windows, Routage défini par l’utilisateur (UDR), Transfert IP et groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic qui explique en détail et étape par étape comment le trafic progresse via les couches de défense dans le réseau de périmètre. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
+Cet exemple va créer un réseau de périmètre avec un pare-feu, quatre serveurs Windows, Routage défini par l’utilisateur (UDR), Transfert IP et groupes de sécurité réseau. Vous y découvrirez également comment chacune des commandes concernées fournit une meilleure connaissance de chaque opération. Il comporte également une section Scénario de trafic qui explique en détail et étape par étape comment le trafic procède via les couches de défense dans la zone DMZ. Enfin, dans la section de référence se trouve l’intégralité du code et des instructions permettant d’élaborer l’environnement destiné à tester et à expérimenter différents scénarios.
 
 ![DMZ bidirectionnel avec NVA, NSG et UDR][1]
 
 ## Configuration de l’environnement
 Dans cet exemple, il existe un abonnement qui contient les éléments suivants :
 
-- Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
-- Un réseau virtuel « CorpNetwork », avec trois sous-réseaux ; « SecNet », « FrontEnd » et « BackEnd »
+- Trois services cloud : « SecSvc001 », « FrontEnd001 » et « BackEnd001 »
+- Un réseau virtuel « CorpNetwork », avec trois sous-réseaux ; « SecNet », « FrontEnd » et « BackEnd »
 - Une appliance virtuelle du réseau, dans cet exemple un pare-feu, connecté au sous-réseau SecNet
 - un serveur Windows Server représentant un serveur web d’application (« IIS01 »),
-- deux serveurs Windows Servers qui représentent les serveurs principaux d’application (« AppVM01 », « AppVM02 »),
+- Deux serveurs Windows Server qui représentent les serveurs principaux d’applications (« AppVM01 », « AppVM02 »)
 - Un serveur Windows Server qui représente un serveur DNS (« DNS01 »),
 
-Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée dans l’exemple de script, ne figure pas en détail de ce document.
+Dans la section Références ci-dessous figure un script PowerShell qui générera une grande partie l’environnement décrit ci-dessus. La création de machines virtuelles et de réseaux virtuels, bien qu’effectuée par l’exemple de script, ne figure pas en détail dans ce document.
 
 Pour créer l’environnement :
 
-  1.	Enregistrer le fichier xml de configuration réseau contenu dans la section Références (mis à jour avec les noms, l’emplacement et les adresses IP correspondant à un scénario donné)
+  1.	Enregistrer le fichier XML de configuration réseau contenu dans la section Références (mis à jour avec les noms, l’emplacement et les adresses IP correspondant à un scénario donné)
   2.	Mettre à jour les variables de l’utilisateur dans le script pour qu’elles correspondent à l’environnement dans lequel le script est exécuté (abonnements, noms de service, etc.)
   3.	Exécuter le script dans PowerShell
 
@@ -80,14 +80,14 @@ S’il existe deux préfixes identiques dans la table d’itinéraires, voici l�
 2.	« VPNGateway » = un itinéraire dynamique ( BGP en cas d’utilisation avec des réseaux hybrides), ajouté par un protocole réseau dynamique. Ces itinéraires peuvent changer au fil du temps, le protocole dynamique reflétant automatiquement les modifications intervenues dans le réseau associé
 3.	« Default » = les itinéraires du système, le réseau local virtuel et les entrées statiques, comme indiqué dans la table d’itinéraires.
 
->[AZURE.NOTE]Il existe une limite à l’utilisation du routage défini par utilisateur (UDR) et ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil NextHop des sous-réseaux UDR associés. La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
+>[AZURE.NOTE]Il existe une limite à l’utilisation du routage défini par utilisateur (UDR) et ExpressRoute et ce, en raison de la complexité du routage dynamique utilisé sur la passerelle virtuelle Azure. L’UDR ne doit pas être appliqué aux sous-réseaux communiquant avec la passerelle Azure et fournissant la connexion ExpressRoute. La passerelle Azure ne doit pas être l’appareil de tronçon suivant des sous-réseaux UDR associés. La possibilité d’intégrer entièrement UDR et ExpressRoute sera activée dans une future version d’Azure.
 
 #### Création d’itinéraires locaux
 
 Dans cet exemple, deux tables d’itinéraires sont nécessaires, une pour chacun des sous-réseaux principal et frontal. Chaque table est chargée d’itinéraires statiques appropriés au sous-réseau donné. Dans cet exemple, chaque table possède trois routes :
 
 1. Trafic de sous-réseau local avec Tronçon suivant défini pour permettre le trafic du sous-réseau local pour contourner le pare-feu
-2. Trafic réseau virtuel avec un tronçon suivant défini comme pare-feu. Cela remplace la règle par défaut qui autorise un acheminement direct du trafic de réseau virtuel
+2. Trafic du réseau virtuel avec un tronçon suivant défini comme pare-feu. Cela remplace la règle par défaut qui autorise un acheminement direct du trafic de réseau virtuel
 3. Ensemble du trafic restant (0/0) avec le tronçon suivant défini comme pare-feu
 
 Une fois que les tables de routage sont créées, ils sont liés à leurs sous-réseaux. La table d’itinéraire de sous-réseau du serveur frontal, une fois créée et liée au sous-réseau, doit ressembler à ce qui suit :
@@ -137,7 +137,7 @@ Dans cet exemple, les commandes suivantes sont utilisées pour générer la tabl
 ## Transfert IP
 Le transfert IP est associé à UDR. Il s’agit d’un paramètre d’appliance virtuelle qui permet de recevoir du trafic pas spécialement adressé à l’équipement, puis de transférer ce trafic vers sa destination finale.
 
-Par exemple, si le trafic à partir d’AppVM01 fait une demande au serveur DNS01, UDR l’acheminera vers le pare-feu. Lorsque le transfert IP est activé, le trafic de la destination de DNS01 (10.0.2.4) sera accepté par le matériel (10.0.0.4), puis transféré vers sa destination finale (10.0.2.4). Si le routage IP n’est pas activé sur le pare-feu, le trafic ne sera pas accepté par l’équipement, même si le tronçon suivant de la table d’itinéraires est le pare-feu.
+Par exemple, si le trafic à partir d’AppVM01 fait une demande au serveur DNS01, l’UDR l’achemine vers le pare-feu. Lorsque le transfert IP est activé, le trafic de la destination de DNS01 (10.0.2.4) est accepté par l’appliance (10.0.0.4), puis transféré vers sa destination finale (10.0.2.4). Si le routage IP n’est pas activé sur le pare-feu, le trafic ne sera pas accepté par l’équipement, même si le tronçon suivant de la table d’itinéraires est le pare-feu.
 
 >[AZURE.IMPORTANT]Il est essentiel de ne pas oublier d’activer le transfert IP en conjonction avec l’utilisateur défini.
 
@@ -153,7 +153,7 @@ Dans cet exemple, un groupe NSG est créé, puis chargé avec une seule règle. 
 
 1.	Tout le trafic (tous les ports) depuis Internet vers l’ensemble du réseau virtuel entier (tous les sous-réseaux) est refusé.
 
-Bien que dans cet exemple, on utilise des NSG, son principal objectif est celui d’une couche secondaire de défense contre les erreurs de configuration manuelle. Nous voulons bloquer tout trafic entrant en provenance d’Internet vers les sous-réseaux frontal ou principal des sous-réseaux, le trafic doit circuler uniquement via le sous-réseau SecNet vers le pare-feu (puis, le cas échéant, sur les sous-réseaux frontal ou principal). En outre, avec les règles UDR en place, tout trafic ayant atteint les sous-réseaux principal ou frontal est dirigé vers le pare-feu (grâce à UDR). Le pare-feu est considéré comme un flux asymétrique et abandonnerait le trafic sortant. Par conséquent, il existe trois couches de sécurité protégeant les sous-réseaux frontaux et principaux ; (1) aucun point de terminaison n’est ouvert sur les services cloud FrontEnd001 et BackEnd001, (2) NSGs empêche le trafic provenant d’Internet, (3) le pare-feu abandonne le trafic asymétrique.
+Bien que dans cet exemple, on utilise des NSG, son principal objectif est celui d’une couche secondaire de défense contre les erreurs de configuration manuelle. Nous voulons bloquer tout trafic entrant en provenance d’Internet vers les sous-réseaux frontal ou principal des sous-réseaux, le trafic doit circuler uniquement via le sous-réseau SecNet vers le pare-feu (puis, le cas échéant, sur les sous-réseaux frontal ou principal). En outre, avec les règles UDR en place, tout trafic ayant atteint les sous-réseaux principal ou frontal est dirigé vers le pare-feu (grâce à l’UDR). Le pare-feu serait considéré comme un flux asymétrique et abandonnerait le trafic sortant. Par conséquent, il existe trois couches de sécurité protégeant les sous-réseaux frontaux et principaux ; (1) aucun point de terminaison n’est ouvert sur les services cloud FrontEnd001 et BackEnd001, (2) NSGs empêche le trafic provenant d’Internet, (3) le pare-feu abandonne le trafic asymétrique.
 
 Point intéressant concernant le groupe de sécurité réseau dans cet exemple : il contient une seule règle, illustrée ci-dessous, qui consiste à refuser le trafic Internet de l’ensemble du réseau virtuel qui inclut le sous-réseau de sécurité.
 
@@ -175,11 +175,11 @@ Toutefois, étant donné que le NSG est associé uniquement aux sous-réseaux fr
 	    -SubnetName $BESubnet -VirtualNetworkName $VNetName
 
 ## Règles de pare-feu
-Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu. Tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. Une des meilleures pratiques consiste à élaborer un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu et ce, afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
+Sur le pare-feu, vous devrez créer les règles de transfert. Étant donné que le pare-feu bloque ou transfère le trafic entrant, sortant ou intra-réseau virtuel, de nombreuses règles de pare-feu. Tout trafic entrant atteindra l’adresse IP publique de service de sécurité (sur différents ports), pour être traité par le pare-feu. L’une des meilleures pratiques consiste à faire un schéma des flux logiques avant de configurer les règles de sous-réseau et de pare-feu afin d’éviter la reprise du travail par la suite. La figure qui suit est une vue logique des règles de pare-feu de cet exemple :
  
 ![Affichage logique des règles de pare-feu][2]
 
->[AZURE.NOTE]Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, un pare-feu de NG Barracuda utilisant les ports 22 et 801 807 est référencé. Veuillez consulter la documentation du fournisseur d’équipement pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
+>[AZURE.NOTE]Selon l’appliance virtuelle réseau utilisée, les ports de gestion peuvent varier. Dans cet exemple, un pare-feu de NG Barracuda utilisant les ports 22, 801 et 807 est référencé. Veuillez consulter la documentation du fournisseur d’équipement pour rechercher les ports exacts utilisés pour la gestion de l’appareil utilisé.
 
 ### Description de la logique de règle
 Dans le diagramme logique ci-dessus, le sous-réseau de sécurité n’est pas affiché car le pare-feu est la seule ressource de ce sous-réseau, et ce diagramme présente les règles de pare-feu et la façon dont elles autorisent ou refusent les flux et non les itinéraires réels. En outre, les ports externes sélectionnés pour le trafic RDP appartiennent à la plage supérieure de ports (8014 – 8026) et ont été sélectionnés pour s’aligner à peu près sur les deux derniers octets de l’adresse IP locale, pour faciliter la lecture (par exemple, l’adresse du serveur local 10.0.1.4 est associée à un port externe 8014), cependant, tous les ports supérieurs non conflictuels peuvent être utilisés.
@@ -190,7 +190,7 @@ Dans cet exemple, nous avons besoin de 7 types de règles, qui se présentent c
   1.	Règle de gestion de pare-feu : cette règle de redirection de l’application autorise le trafic à traverser les ports de gestion de l’appliance virtuelle du réseau.
   2.	Règles de RDP (pour chaque serveur Windows) : ces quatre réseaux (une pour chaque serveur) permettront la gestion des serveurs individuels via RDP. Ces éléments pourraient être regroupés en une règle, en fonction de la capacité de l’appliance virtuelle réseau utilisée.
   3.	Règles de trafic d’application : elles sont au nombre de deux, la première correspondant au trafic web frontal, et la seconde, pour le trafic de l’ordinateur principal (par exemple, serveur web vers couche de données). La configuration de ces règles dépend de l’architecture réseau (sur lequel sont placés vos serveurs) et les flux de trafic (direction du flux de trafic et ports utilisés).
-      - La première règle permet au trafic d’application réel de parvenir au serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un serveur web sur le port 80, et donc une seule règle d’application redirige le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web. L’adresse réseau de la session de trafic redirigée sera traduite vers le serveur interne.
+      - La première règle permet au trafic d’application réel de parvenir au serveur d’applications. Les autres règles concernent la sécurité, la gestion, etc., les règles d’application sont celles qui permettent aux utilisateurs externes ou aux services d’accéder aux applications. Pour cet exemple, il existe un serveur web sur le port 80, et donc une seule règle d’application redirige le trafic entrant vers l’adresse IP externe, vers l’adresse IP interne des serveurs web. L’adresse réseau de la session de trafic redirigée sera traduite vers le serveur interne.
       - La seconde règle de trafic d’application est la règle du serveur principal qui permet au serveur web de communiquer avec le serveur AppVM01 (et non AppVM02) via n’importe quel port.
 - Règles internes (pour le trafic réseau virtuel interne)
   4.	Sortie vers règle Internet : cette règle autorise le transfert du trafic en provenance de n’importe quel réseau vers les réseaux sélectionnés. Cette règle est généralement une règle par défaut déjà présente sur le pare-feu, mais à l’état désactivé. Pour cet exemple, cette règle doit être activée.
@@ -459,8 +459,8 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 17.	Aucune règle NSG sortante sur le sous-réseau du serveur principal. Le trafic est autorisé.
 18.	Il s’agit d’une session établie sur le pare-feu. La réponse est transmise par le pare-feu sur le serveur IIS
 19.	Le sous-réseau du serveur frontal commence le traitement des règles de trafic entrant :
-  1.	Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, et donc aucune des règles NSG ne s’applique.
-  2.	La règle système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, et donc, le trafic est transmis.
+  1.	Aucune règle NSG ne s’applique au trafic entrant en provenance du sous-réseau du serveur principal vers le sous-réseau du serveur frontal, par conséquent aucune des règles NSG ne s’applique
+  2.	La règle système par défaut autorisant le trafic entre sous-réseaux autorise le trafic, le trafic est donc autorisé
 20.	IIS01 reçoit la réponse de la part de DNS01
 
 #### (Autorisé) Serveur principal vers Serveur frontal
@@ -525,12 +525,12 @@ Rappelez-vous également que les groupes de sécurité réseau sont en place pou
 
 ## Références
 ### Script principal et configuration réseau
-Enregistrez le Script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
+Enregistrez le script complet dans un fichier de script PowerShell. Enregistrez la configuration réseau dans un fichier nommé « NetworkConf2.xml ». Modifiez les variables définies par l’utilisateur selon vos besoins. Exécutez le script, puis suivez les instructions d’installation de règle de pare-feu ci-dessus.
 
 #### Script complet
-Ce script en fonction des variables définies par l’utilisateur ;
+Ce script, en fonction des variables définies par l’utilisateur, exécutera les actions suivantes :
 
-1.	La connexion à un abonnement Azure
+1.	Connexion à un abonnement Azure
 2.	Création d’un nouveau compte de stockage
 3.	Créer un nouveau réseau virtuel et trois sous-réseaux, comme indiqué dans le fichier de configuration du réseau
 4.	Créer cinq machines virtuelles, 1 pare-feu et 4 machines virtuelles Windows Server
@@ -878,8 +878,8 @@ Ce script PowerShell doit être exécuté localement sur un PC ou un serveur con
 	  Write-Host
 	
 
-#### Fichier de configuration de réseau
-Enregistrer ce fichier xml avec l’emplacement mis à jour et ajouter le lien vers ce fichier à la variable $NetworkConfigFile dans le script ci-dessus.
+#### Fichier de configuration réseau
+Enregistrer ce fichier XML avec l’emplacement mis à jour et ajouter le lien vers ce fichier à la variable $NetworkConfigFile dans le script ci-dessus.
 
 	<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
 	  <VirtualNetworkConfiguration>
@@ -914,7 +914,7 @@ Enregistrer ce fichier xml avec l’emplacement mis à jour et ajouter le lien v
 	  </VirtualNetworkConfiguration>
 	</NetworkConfiguration>
 
-#### Exemple de scripts d’application
+#### Exemples de scripts d’application
 Si vous souhaitez installer un exemple de script d’application et d’autres exemples de réseau de périmètre DMZ, vous en trouverez un à l’adresse suivante : [Exemple de script d’application][SampleApp]
 
 <!--Image References-->
@@ -941,4 +941,4 @@ Si vous souhaitez installer un exemple de script d’application et d’autres e
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

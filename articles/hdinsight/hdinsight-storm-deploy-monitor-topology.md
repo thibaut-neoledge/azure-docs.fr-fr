@@ -17,13 +17,15 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#Déploiement et gestion des topologies Apache Storm sur HDInsight
+#Déploiement et gestion des topologies Apache Storm sur HDInsight Windows
 
 Le tableau de bord Storm vous permet de déployer et d’exécuter des topologies Apache Storm sur votre cluster HDInsight à l’aide votre navigateur web. Vous pouvez également utiliser le tableau de bord pour surveiller et gérer des topologies en cours d’exécution. Si vous utilisez Visual Studio, les outils HDInsight pour Visual Studio fournissent des fonctionnalités similaires dans Visual Studio.
 
 Le tableau de bord Storm et les fonctionnalités Storm des outils HDInsight s’appuient sur l’API REST Storm, qui peut être utilisée pour créer vos propres solutions d’analyse et de gestion.
 
-##Configuration requise
+> [AZURE.IMPORTANT]Les étapes décrites dans ce document nécessitent un cluster HDInsight Storm basé sur Windows. Pour obtenir des informations sur l'utilisation d'un cluster Linux, consultez [Déploiement et gestion des topologies Apache Storm sur HDInsight Linux](hdinsight-storm-deploy-monitor-topology-linux.md)
+
+##Composants requis
 
 * **Apache Storm sur HDInsight** : consultez la rubrique <a href="../hdinsight-storm-getting-started/" target="_blank">Prise en main d’Apache Storm sur HDInsight </a> pour connaître les étapes de création d’un cluster
 
@@ -177,4 +179,4 @@ Pour accéder à une liste d’exemples supplémentaires de topologies, consulte
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

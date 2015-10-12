@@ -191,6 +191,8 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 - [Documentation Django]
 - [MySQL]
 
+Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
+
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
@@ -216,4 +218,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -20,7 +20,8 @@
 
 Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications web, avec prise en charge des comptes Microsoft personnels et des comptes professionnels ou scolaires. Dans les applications web ASP.NET, vous pouvez y parvenir en utilisant l’intergiciel OWIN de Microsoft inclus dans .NET Framework 4.5.
 
-  >[AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+    Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
  Ici, nous allons utiliser OWIN pour : 
 - Connecter l’utilisateur à l’application en utilisant Azure AD et le modèle d’application v2.0. 
@@ -54,7 +55,7 @@ Nous allons ici configurer l'intergiciel (middleware) OWIN pour utiliser le prot
     -    La valeur « ida:ClientId » est l'**ID d'application** attribué à votre application dans le portail d'enregistrement.
     -    La valeur « ida:RedirectUri » est l'**URI de redirection** que vous avez saisi dans le portail.
 
--	Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
+-    Ajoutez ensuite les packages NuGet d'intergiciel (middleware) OWIN au projet à l'aide de la console du gestionnaire de package.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -95,6 +96,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
 									 Scope = "openid",
+									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
 									 {
@@ -205,8 +207,8 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Sécuriser une API web avec le modèle d’application v2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Pour obtenir des ressources supplémentaires, consultez :
+Pour obtenir des ressources supplémentaires, consultez : 
 - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

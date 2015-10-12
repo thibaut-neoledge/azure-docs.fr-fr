@@ -82,11 +82,13 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 	L’utilitaire post.jar indexe Solr avec deux exemples de documents : **solr.xml** et **monitor.xml**. L'utilitaire post.jar et les exemples de documents sont disponibles avec l'installation Solr.
 
 3. **Utilisez le tableau de bord Solr pour effectuer une recherche dans les documents indexés**. Dans la session RDP au cluster HDInsight, ouvrez Internet Explorer, puis lancez le tableau de bord Solr à l’adresse ****http://headnodehost:8983/solr/#/**. Dans la liste déroulante **Sélecteur de base** située dans le volet gauche, sélectionnez **collection1** et cliquez ensuite sur **Requête**. Par exemple, pour sélectionner et renvoyer tous les documents dans Solr, renseignez les valeurs suivantes :
-	1. Dans la zone de texte **q**, entrez ***:***. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
-	2. Sélectionnez le format de sortie dans la zone de texte **wt**. La valeur par défaut est **json**. Cliquez sur **Exécuter la requête**.
 
-		![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Exécution d’une requête sur le tableau de bord Solr")
+	* Dans la zone de texte **q**, entrez ***:***. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
+	
+	* Sélectionnez le format de sortie dans la zone de texte **wt**. La valeur par défaut est **json**. Cliquez sur **Exécuter la requête**.
 
+	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Exécution d’une requête sur le tableau de bord Solr")
+	
 	La sortie renvoie les deux documents que nous avions utilisés pour indexer Solr. La sortie se présente comme suit :
 
 			"response": {
@@ -168,11 +170,11 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 		Cette commande copie l’instantané dans /example/data/ sous le conteneur, dans le compte de stockage par défaut associé au cluster.
 
 
-## Voir aussi##
+## Voir aussi
+
 - [Installation et utilisation de Spark sur des clusters HDInsight][hdinsight-install-spark]. Utilisez la personnalisation de clusters pour installer Spark sur des clusters HDInsight Hadoop. Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de « big data ».
 - [Installation de R sur des clusters HDInsight][hdinsight-install-r]. Utilisez la personnalisation de clusters pour installer R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
 - [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques à l’aide de Hadoop et peut être utilisé avec Azure HDInsight.
-
 
 
 [powershell-install-configure]: ../install-configure-powershell.md
@@ -181,4 +183,4 @@ Vous devez commencer par indexer Solr avec quelques fichiers de données. Vous p
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

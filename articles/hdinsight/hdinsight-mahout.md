@@ -374,7 +374,7 @@ Pour éviter les erreurs lors de l’exécution des tâches Mahout, supprimez le
 Les clusters HDInsight 3.1 incluent Mahout. Le chemin d’accès et le nom de fichier comprennent le numéro de version de l’installation de Mahout sur le cluster. L’exemple de script Windows PowerShell dans ce didacticiel utilise un chemin d’accès valide en juillet 2014, mais le numéro de version changera lors des futures mises à jour de HDInsight. Pour déterminer le chemin d’accès actuel du fichier jar Mahout pour votre cluster, utilisez les commandes Windows PowerShell ci-après, puis modifiez le script pour référencer le chemin de fichier renvoyé :
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Classes ne fonctionnant pas avec Windows PowerShell
 
@@ -422,4 +422,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

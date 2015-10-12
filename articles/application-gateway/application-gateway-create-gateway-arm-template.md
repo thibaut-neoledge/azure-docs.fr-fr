@@ -19,7 +19,7 @@
 
 # Créer une passerelle Application Gateway à l’aide du modèle ARM
 
-Une passerelle Application Gateway est un équilibreur de charge de couche 7. Elle assure le basculement, le routage des requêtes HTTP basé sur les performances entre différents serveurs (locaux ou dans le cloud). Une passerelle Application Gateway est dotée des fonctionnalités de livraison d’applications suivantes : l’équilibrage de charge HTTP, l’affinité de session basée sur les cookies et le déchargement SSL.
+Une passerelle Application Gateway est un équilibreur de charge de couche 7. Elle assure le basculement, l’exécution des requêtes HTTP de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL.
 
 > [AZURE.SELECTOR]
 - [Azure Classic Powershell steps](application-gateway-create-gateway.md)
@@ -181,9 +181,9 @@ La sortie générée par la ligne de commande est la suivante :
 
 ## Déployer le modèle ARM à l'aide de l'interface de ligne de commande Azure
 
-Pour déployer le modèle ARM téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
+Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’interface de ligne de commande Azure, suivez les étapes ci-dessous.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, voir [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli-install.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		azure config mode arm
@@ -276,4 +276,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

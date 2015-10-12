@@ -20,7 +20,9 @@
 
 Découvrez comment utiliser Apache Storm dans HDInsight pour traiter les données de capteur à partir d'Azure Event Hub et les visualiser à l'aide de D3.js. Ce document décrit également comment utiliser un réseau virtuel Azure pour connecter Storm sur HDInsight avec HBase sur HDInsight et stocker les données de la topologie dans HBase.
 
-## Composants requis
+> [AZURE.NOTE]Les informations de ce document sont basées sur l'utilisation d'un cluster Storm Windows sur HDInsight. Pour plus d'informations sur l'utilisation d'Azure Event Hub avec Storm Linux sur HDInsight, consultez [Traitement d'événements à partir d'Azure Event Hubs avec Storm dans HDInsight](hdinsight-storm-develop-java-event-hub-topology.md)
+
+## Configuration requise
 
 * Un abonnement Azure. Consultez [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -368,7 +370,7 @@ La partie du nom de domaine commençant par le nom de cluster est le suffixe DNS
 
 	Cela sera utilisé par le bolt HBase pour communiquer avec le cluster HBase.
 
-1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts ** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début. Enregistrez le fichier après avoir apporté ces modifications.
+1. Ouvrez **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** dans un éditeur de texte et annulez les marques de commentaires dans les lignes suivantes en supprimant le `//` du début. Enregistrez le fichier après avoir apporté ces modifications.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -420,4 +422,4 @@ Vous avez à présent appris à utiliser Storm pour lire des données à partir 
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

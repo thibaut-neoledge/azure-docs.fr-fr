@@ -34,25 +34,25 @@ Vous devez maintenant créer dans votre répertoire B2C une application fourniss
 - Créer une **clé secrète d'application** pour votre application et notez-la quelque part. Vous en aurez besoin rapidement.
 - Notez également l'**ID d'application** affecté à votre application. Vous en aurez aussi besoin rapidement.
 
-    > [AZURE.IMPORTANT]Vous ne pouvez pas utiliser les applications enregistrées sous l’onglet **Applications** sur le [portail Azure](https://manage.windowsazure.com/) à cette fin.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. Création de vos stratégies
 
-> [AZURE.NOTE]Pour notre aperçu B2C, vous utilisez les mêmes stratégies sur les installations client et serveur. Si vous avez déjà suivi une procédure pas à pas au cours de laquelle vous avez créé ces stratégies, vous n’avez pas besoin de répéter cette opération. Vous pouvez réutiliser les stratégies que vous avez déjà créées sur le portail si elles répondent aux exigences de l’application.
+Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
 
-Dans Azure AD B2C, chaque expérience utilisateur est définie par une [**stratégie**](active-directory-b2c-reference-policies.md). Cette application contient trois expériences liées à l'identité : l'inscription, la connexion et la connexion avec Facebook. Vous devez créer une stratégie de chaque type, comme décrit dans l’[article de référence de stratégie](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Lors de la création de vos trois stratégies, assurez-vous de :
+- Choisir le **Nom d’affichage** et quelques autres attributs d’inscription dans votre stratégie d’inscription.
+- Choisir les revendications d’application **Nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
+- Noter le **nom** de chaque stratégie après sa création. Il doit porter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement. 
 
-- Choisir le **nom d’affichage** et quelques autres attributs d'inscription dans votre stratégie d'inscription.
-- Choisir les revendications d’application **nom d’affichage** et **ID objet** dans chaque stratégie. Vous pouvez aussi choisir d'autres revendications.
-- Noter le **nom** de chaque stratégie après sa création. Il doit présenter le préfixe `b2c_1_`. Vous aurez besoin des noms de ces stratégies rapidement. 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Une fois vos trois stratégies créées, vous pouvez concevoir votre application.
+Une fois vos trois stratégies créées, vous pouvez générer votre application.
 
-Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Si vous souhaitez en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, vous devriez commencer par lire le [didacticiel sur la prise en main de l’application Web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Remarque : cet article n'explique pas comment utiliser les stratégies que vous venez de créer. Pour en savoir plus sur la façon dont les stratégies fonctionnent dans Azure AD B2C, nous vous recommandons de commencer par lire le [didacticiel sur la prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## 4\. Téléchargement du code
 
-Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous forme de fichier zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip) ou cloner la structure :
+Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). Pour générer l’exemple à mesure que vous avancez, vous pouvez [télécharger une structure de projet sous la forme d’un fichier zip](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip) ou cloner la structure :
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
@@ -106,6 +106,8 @@ Afin que l'application de la tâche iOS communique avec Azure AD B2C, vous devez
 </dict>
 </plist>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ## 6\. Obtention des jetons d'accès et appel de l'API de tâche
 
@@ -455,7 +457,7 @@ Tout d’abord, écrivons notre `getTaskList` :
 
 ```
 
-Le cadre de cette procédure pas à pas n’inclut pas le code de tâche, mais il y a quelque chose d’intéressant que vous avez peut-être remarqué : une méthode `craftRequest` qui prend l’URL de notre tâche. Cette méthode est ce que nous utilisons pour créer la requête, avec le jeton d'accès que nous avons reçu, pour le serveur. Écrivons cela maintenant.
+Le cadre de cette procédure pas-à-pas n’inclut pas le code de tâche, mais il y a quelque chose d’intéressant que vous avez peut-être remarqué : une méthode `craftRequest` qui prend l’URL de notre tâche. Cette méthode est ce que nous utilisons pour créer la requête, avec le jeton d'accès que nous avons reçu, pour le serveur. Écrivons cela maintenant.
 
 Ajoutons le code suivant au fichier `samplesWebAPIConnector.m' :
 
@@ -543,7 +545,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-Cette opération suit le même modèle mais introduit une autre méthode (finale) que nous devons implémenter : `convertTaskToDictionary` qui utilise notre tableau et en fait un objet de dictionnaire qui est plus facilement transformé pour les paramètres de requête que nous devons transmettre au serveur. Ce code est très simple :
+Cette opération suit le même modèle, mais introduit une autre méthode (finale) que nous devons implémenter : `convertTaskToDictionary` qui utilise notre tableau et en fait un objet de dictionnaire qui est plus facilement transformé pour les paramètres de requête que nous devons transmettre au serveur. Ce code est très simple :
 
 ```
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
@@ -650,4 +652,4 @@ Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Par exempl
 
 [Personnalisation de l'UX de l'application B2C >>]()
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

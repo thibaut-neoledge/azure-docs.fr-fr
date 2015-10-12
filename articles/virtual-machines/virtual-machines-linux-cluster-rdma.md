@@ -33,7 +33,7 @@ Voici des méthodes que vous pouvez utiliser pour créer un cluster Linux RDMA a
 
 * **HPC Pack** : créez un cluster Microsoft HPC Pack dans Azure et ajoutez des nœuds de calcul qui exécutent des distributions Linux prises en charge (la prise en charge de nœud de calcul Linux démarre à partir de HPC Pack 2012 R2 Mise à jour 2). Certains nœuds Linux peuvent être configurés pour accéder au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](virtual-machines-linux-cluster.md).
 
-* **Scripts CLI azure** : comme indiqué dans les étapes dans le reste de cet article, utilisez l'[Interface de ligne de commande Azure](../xplat-cli.md) (CLI) pour Mac, Linux et Windows pour créer des scripts afin de déployer un réseau virtuel et les autres composants nécessaires pour la création d'un cluster Linux. La CLI en mode de déploiement classique (Service Management) crée les nœuds de cluster en série : si vous déployez un grand nombre de nœuds de calcul, plusieurs minutes peuvent être nécessaires pour terminer le déploiement.
+* **Scripts CLI azure** : comme indiqué dans les étapes dans le reste de cet article, utilisez l'[Interface de ligne de commande Azure](../xplat-cli-install.md) (CLI) pour Mac, Linux et Windows pour créer des scripts afin de déployer un réseau virtuel et les autres composants nécessaires pour la création d'un cluster Linux. La CLI en mode de déploiement classique (Service Management) crée les nœuds de cluster en série : si vous déployez un grand nombre de nœuds de calcul, plusieurs minutes peuvent être nécessaires pour terminer le déploiement.
 
 * **Modèles Azure Resource Manager** : en créant un simple fichier de modèle JSON Azure Resource Manager et en exécutant des commandes CLI Azure pour Resource Manager ou à l'aide du portail Azure en version préliminaire, déployez plusieurs machines virtuelles Linux A8 et A9 et définissez des réseaux virtuels, des adresses IP statiques, des paramètres DNS et d'autres ressources pour créer un cluster de calcul qui peut tirer parti du réseau RDMA pour exécuter des charges de travail MPI. Vous pouvez [créer votre propre modèle](../resource-group-authoring-templates.md) ou consulter la [page Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour trouver des modèles fournis par Microsoft ou la communauté, pour déployer la solution de votre choix. Les modèles Resource Manager fournissent généralement le moyen le plus rapide et le plus fiable de déploiement d’un cluster Linux.
 
@@ -369,4 +369,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-FR/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

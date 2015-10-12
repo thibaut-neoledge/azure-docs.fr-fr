@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Prise en main de Mobile Services pour Xamarin.Android" 
+	writer="craigd" 
 	description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="lindydonna"/>
+	ms.date="09/25/2015" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services
 
@@ -136,4 +137,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

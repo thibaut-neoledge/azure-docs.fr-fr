@@ -1,20 +1,20 @@
 <properties
    pageTitle="Utilisation de l’écouteur HTTP et de l’action HTTP dans des applications logiques | Microsoft Azure App Service"
-	description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Comment créer et configurer l’écouteur HTTP et l’action HTTP ou une application API et l'utiliser dans une application logique d’Azure App Service"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="prkumar"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="prkumar"/>
 
 
 # Utilisation et ajout de l’écouteur HTTP et de l’action HTTP dans votre application logique
@@ -72,6 +72,8 @@ Affichez la référence d’API REST Swagger sur [Référence de connecteurs et 
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Pour plus d'informations, consultez [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
+> [AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png
@@ -84,4 +86,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

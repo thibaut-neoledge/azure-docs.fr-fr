@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/29/2015"
 	ms.author="juliako"/>
 
 
-#Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples (version préliminaire)
+#Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -37,32 +37,27 @@ Ce didacticiel vous guide tout au long des étapes de création d'un **canal** q
 Les étapes suivantes décrivent les tâches impliquées dans la création d'applications courantes de vidéo en flux continu.
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
-	
-	Cette étape peut également être effectuée après la création du canal.
+
+Cette étape peut également être effectuée après la création du canal.
 
 1. Créez et démarrez un canal.
 
 1. Récupérez l’URL de réception du canal.
 
-	L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
-1. Récupérez l’URL d’aperçu du canal. 
+L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal. 1. Récupérez l’URL d’aperçu du canal.
 
-	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
 2. Créez un élément multimédia.
-3. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit : 	
-	
-	1. 	Créez une clé de contenu. 
-	1. 	Configurez la stratégie d'autorisation de la clé de contenu.
+3. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
+
+1. 	Créez une clé de contenu.
+1. 	Configurez la stratégie d'autorisation de la clé de contenu.
 1. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
 3. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
-1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.  
+1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
 
-	Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
-1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
-2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
-1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
-1. Supprimez le programme (et éventuellement l'élément multimédia).   
+Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu. 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage. 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie. 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement. 1. Supprimez le programme (et éventuellement la ressource).
 
 ##Dans cette rubrique
 
@@ -72,16 +67,16 @@ La rubrique montre comment effectuer les opérations suivantes :
 
 1. Créer et démarrer un canal. Des API de longue durée sont utilisées.
 1. Obtenir le point de terminaison de réception (entrée) du canal. Ce point de terminaison doit être fourni à l'encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
-1. Obtenir le point de terminaison d'aperçu. Ce point de terminaison permet d'afficher un aperçu de votre flux. 
+1. Obtenir le point de terminaison d'aperçu. Ce point de terminaison permet d'afficher un aperçu de votre flux.
 1. Créer un élément multimédia qui sera utilisé pour stocker votre contenu. Les stratégies de remise d'éléments multimédias doivent également être configurées, comme le montre cet exemple.
 1. Créer un programme et spécifier l'utilisation de l'élément multimédia créé précédemment. Démarrer le programme. Des API de longue durée sont utilisées.
 1. Créer un localisateur pour l'élément multimédia de manière à ce que le contenu puisse être publié et diffusé en continu à vos clients.
 1. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
 1. Nettoyer votre canal et toutes les ressources associées.
 
->[AZURE.NOTE]Bien que cette fonctionnalité soit en mode préliminaire, la durée maximale recommandée pour un événement en direct est de 8 heures.
->
-##Composants requis
+>[AZURE.NOTE]La durée maximale recommandée d'un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+
+##Configuration requise
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 - Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
@@ -90,7 +85,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Une webcam et un encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 
 ##Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
- 
+
 1. Créer une application console à l'aide de Visual Studio.
 1. Ajouter le Kit de développement logiciel (SDK) Media Services pour .NET à votre application console à l'aide du package NuGet Media Services.
 
@@ -98,17 +93,11 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 Il est recommandé d'utiliser un fichier app.config pour stocker le nom et la clé du compte Media Services.
 
 >[AZURE.NOTE]Pour obtenir les valeurs Nom et Clé, accédez au portail Azure, sélectionnez votre compte Media Services, puis cliquez sur l'icône « GÉRER LES CLÉS » en bas de la fenêtre du portail. Cliquer sur l'icône en regard de chaque zone de texte copie la valeur dans le Presse-papiers du système.
- 
+
 Ajoutez la section appSettings au fichier app.config, puis définissez les valeurs du nom et de la clé de votre compte Media Services.
 
 
-	<?xml version="1.0"?>
-	<configuration>
-	  <appSettings>
-	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
-	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
-	  </appSettings>
-	</configuration>
+<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
 	 
 	
 
@@ -503,9 +492,9 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

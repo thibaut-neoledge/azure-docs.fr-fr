@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 #Notifications Push sécurisées avec Azure Notification Hubs
@@ -131,4 +131,4 @@ Pour exécuter l'application, procédez comme suit :
 
 4. Dans l'interface utilisateur de l'application Android, cliquez sur **Log in**. Cliquez ensuite sur **Send push**.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

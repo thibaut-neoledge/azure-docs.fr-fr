@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="krisragh"/>
 
 # Comment appeler une API personnalisée à partir d'un client iOS (backend JavaScript)
@@ -56,4 +56,4 @@ Pour plus d'informations sur les rubriques Mobile Services suivantes, consultez�
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [Stockage des scripts serveur dans le contrôle du code source ]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

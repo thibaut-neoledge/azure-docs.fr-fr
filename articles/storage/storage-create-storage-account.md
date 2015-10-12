@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/16/2015"
+	ms.date="09/23/2015"
 	ms.author="tamram"/>
 
 
@@ -25,8 +25,8 @@ Un compte de stockage Azure vous donne accès aux services Azure Objet blob, Fil
 
 Il existe deux types de comptes de stockage :
 
-- un compte de stockage standard qui inclut le stockage d'objets blob, de tables et de files d'attente. Le stockage de fichiers est disponible à la demande dans la [page du portail Azure en version préliminaire](http://azure.microsoft.com/services/preview/).
-- Un compte de stockage Premium prend actuellement en charge uniquement les disques de machine virtuelle Azure. Pour une présentation détaillée du stockage Premium, voir [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
+- Un compte de stockage standard qui inclut le stockage d’objets blob, de tables, de files d’attente et de fichiers. 
+- Un compte de stockage Premium prend actuellement en charge uniquement les disques de machine virtuelle Azure. Pour une présentation détaillée du stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md).
 
 ## Facturation du compte de stockage
 
@@ -63,6 +63,11 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 	Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage. Vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités. Pour plus d’informations sur les groupes d’affinités, consultez [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
 
+	>[AZURE.IMPORTANT]Pour déterminer les emplacements disponibles pour votre abonnement, vous pouvez appeler l’opération [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Pour répertorier les fournisseurs à partir de PowerShell, appelez [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). À partir de .NET, utilisez la méthode [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) de la classe ProviderOperationsExtensions.
+	>
+	>En outre, consultez [Régions Azure](https://azure.microsoft.com/fr-FR/regions/#services) pour plus d’informations sur les services disponibles dans la votre région.
+
+
 5. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage.
 
 6. Dans **Réplication**, sélectionnez le niveau de réplication souhaité pour votre compte de stockage. L’option de réplication recommandée est la réplication géo-redondante qui offre une durabilité maximale pour vos données. Pour en savoir plus sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md).
@@ -92,13 +97,13 @@ Les points de terminaison pour votre compte de stockage sont visibles dans le ta
 
 L’URL permettant d’accéder à un objet dans un compte de stockage est constituée de l’ajout de l’emplacement de l’objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d’objet blob peut avoir ce format : http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Pour en savoir plus, voir [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage-custom-domain-name.md).
+Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Pour en savoir plus, consultez [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage-custom-domain-name.md).
 
 ### Colocalisation de service avec un groupe d’affinités
 
 Un *groupe d'affinités* est un regroupement géographique de vos services et machines virtuelles Azure avec votre compte de stockage Azure. Un groupe d’affinités peut améliorer les performances d’un service en plaçant les charges de travail d’un ordinateur dans le même centre de données ou à proximité des utilisateurs cibles. De même, vous n’êtes pas facturé pour les acheminements lorsque les données d’un compte de stockage sont utilisées par un service faisant partie du même groupe d’affinités.
 
-> [AZURE.NOTE]Pour créer un groupe d’affinités, ouvrez la zone <b>Paramètres</b> du portail Azure, cliquez sur <b>Groupes d’affinités</b>, puis sur <b>Ajouter un groupe d’affinités</b> ou sur le bouton <b>Ajouter</b>. Vous pouvez également créer et gérer des groupes d’affinités à l’aide de l’API de gestion des services Azure. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Opérations sur les groupes d’affinités</a>.
+> [AZURE.NOTE]Pour créer un groupe d’affinités, ouvrez la zone <b>Paramètres</b> du portail Azure, cliquez sur <b>Groupes d’affinités</b>, puis sur <b>Ajouter un groupe d’affinités</b> ou sur le bouton <b>Ajouter</b>. Vous pouvez également créer et gérer des groupes d’affinités à l’aide de l’API de gestion des services Azure. Pour plus d’informations, consultez <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Opérations sur les groupes d’affinités</a>.
 
 ## Affichage, copie et régénération de clés d’accès de stockage
 
@@ -110,7 +115,7 @@ Dans le [portail Azure](http://manage.windowsazure.com), utilisez **Gérer les c
 
 ### Copie d'une clé d'accès de stockage  
 
-L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l’authentification. Pour plus d’informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, voir [Configuration de chaînes de connexion Azure](http://msdn.microsoft.com/library/azure/ee758697.aspx).
+L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l’authentification. Pour plus d’informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, consultez [Configuration de chaînes de connexion Azure](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 1. Dans le [portail Azure](http://manage.windowsazure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
 
@@ -166,4 +171,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

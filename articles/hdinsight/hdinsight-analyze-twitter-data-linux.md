@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Analyse des données Twitter avec Hive dans HDInsight
 
-Dans ce document, vous allez recevoir des tweets à l’aide de l’API de diffusion Twitter, puis utiliser Apache Hive sur un cluster HDInsight sous Linux (version préliminaire) pour traiter les données au format JSON. Une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné vous sera ensuite retournée.
+Dans ce document, vous allez recevoir des tweets à l'aide de l'API de diffusion Twitter, puis utiliser Apache Hive sur un cluster HDInsight sous Linux pour traiter les données au format JSON. Une liste des utilisateurs de Twitter ayant envoyé le plus de tweets contenant un mot donné vous sera ensuite retournée.
 
 > [AZURE.NOTE]Bien que des éléments individuels de ce document puissent être utilisés avec des clusters HDInsight Windows (Python et Hive, par exemple), plusieurs étapes de ce document sont basées sur les clusters HDInsight Linux. Pour les étapes spécifiques à un cluster Windows, consultez la rubrique [Analyse des données Twitter avec Hive dans HDInsight](hdinsight-analyze-twitter-data.md).
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - __Python__ et [pip](https://pypi.python.org/pypi/pip)
 
-- L’__interface de ligne de commande Azure__ Pour plus d’informations, consultez la rubrique [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli.md).
+- L’__interface de ligne de commande Azure__ Pour plus d'informations, consultez la rubrique [Installation et configuration de l'interface de ligne de commande Azure](../xplat-cli-install.md).
 
 ##Obtention du flux Twitter
 
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

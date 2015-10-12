@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Interrogation des données depuis un stockage d’objets blob compatible avec HDFS | Microsoft Azure"
 	description="HDInsight utilise le stockage d’objets blob comme magasin de données volumineuses pour HDFS. Apprenez à interroger des données depuis un stockage d’objets blob et à stocker les résultats de votre analyse."
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -100,7 +101,7 @@ Lorsque vous configurez un cluster HDInsight à partir de la version préliminai
 
 ###Utilisation de l’interface de ligne de commande Azure
 
-Si vous avez [installé et configuré l’interface de ligne de commande Azure](../xplat-cli.md), la commande suivante peut être utilisée sur un compte de stockage et un conteneur.
+Si vous avez [installé et configuré l’interface de ligne de commande Azure](../xplat-cli-install.md), la commande suivante peut être utilisée sur un compte de stockage et un conteneur.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -315,4 +316,4 @@ Pour plus d'informations, consultez les pages suivantes :
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->
