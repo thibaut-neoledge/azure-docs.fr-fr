@@ -105,7 +105,7 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 	- **-n (ou --name)**. Nom de la nouvelle règle. Pour notre scénario, *rdp-rule*.
 	- **-c (ou --access)**. Niveau d’accès de la règle (Deny ou Allow).
 	- **-p (ou --protocol)**. Protocole (TCP, UDP ou *) de la règle.
-- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
+	- **-r (ou --direction)**. Direction de la connexion (Inbound ou Outbound).
 	- **-y (ou --priority)**. Priorité de la règle.
 	- **-f (ou --source-address-prefix)**. Préfixe de l’adresse source dans CIDR ou à l’aide de balises par défaut.
 	- **-o (ou --source-port-range)**. Port source ou plage de ports.
@@ -269,4 +269,4 @@ Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scéna
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
