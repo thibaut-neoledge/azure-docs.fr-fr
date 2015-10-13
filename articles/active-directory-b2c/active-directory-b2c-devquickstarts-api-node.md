@@ -36,7 +36,9 @@ Pour ce faire, vous devez :
 
 Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Pour suivre la procédure, vous pouvez [télécharger la structure de l’application au format .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) ou la cloner :
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
@@ -880,9 +882,11 @@ Vous êtes allé aussi loin que possible avec ce serveur sans utiliser un client
 
 Si vous recherchiez simplement des informations concernant l’implémentation d’une API REST à l’aide de Restify et d’OAuth2, vous avez plus de code que nécessaire pour poursuivre le développement de votre service et l’apprentissage de la création à partir de cet exemple.
 
-Pour référence, l’exemple complet (sans vos valeurs de configuration) [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip). Vous pouvez aussi le cloner à partir de GitHub :
+Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
+```
 
 
 ## Étapes suivantes
@@ -891,4 +895,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [Se connecter à une API web utilisant iOS avec B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

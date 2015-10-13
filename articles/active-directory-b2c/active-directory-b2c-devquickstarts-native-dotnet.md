@@ -329,7 +329,9 @@ Vous pouvez tester librement vos stratégies et observer l'effet sur votre appli
 
 Pour référence, l’exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 
@@ -343,4 +345,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
