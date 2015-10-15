@@ -18,7 +18,9 @@
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ##Vue d’ensemble
 
@@ -210,4 +212,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!-----HONumber=Oct15_HO1-->
