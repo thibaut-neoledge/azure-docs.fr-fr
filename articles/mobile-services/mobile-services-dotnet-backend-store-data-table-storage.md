@@ -20,7 +20,7 @@
 
 Cette rubrique vous explique comment utiliser un magasin de données non relationnelles pour votre service mobile principal .NET. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Azure Mobile Services pour utiliser le stockage de tables Azure à la place de Base de données SQL Azure comme magasin de données par défaut.
 
-Vous devez d’abord suivre le didacticiel [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante]. Vous aurez également besoin d’un compte de stockage Azure.
+Pour suivre ce didacticiel, vous devez avoir effectué le didacticiel [Prise en main de Mobile Services]. Vous aurez également besoin d’un compte de stockage Azure.
 
 ##Configurer le stockage de tables Azure dans votre service mobile principal .NET
 
@@ -40,7 +40,7 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
 5. Notez le **nom du compte de stockage** et la **clé d'accès**.
  
-6. Dans votre service mobile, cliquez sur l’onglet **Configurer**, faites défiler jusqu’à **Chaînes de connexion**, puis entrez une chaîne de connexion composée d’un **Nom** `StorageConnectionString` et d’une **Valeur** au format suivant.
+6. Dans votre service mobile, cliquez sur l’onglet **Configurer**, faites défiler jusqu’à **Chaînes de connexion**, puis entrez une chaîne de connexion composée d’un **Nom** `StorageConnectionString` et d’une **Valeur** qui correspond à la chaîne de connexion de votre compte de stockage au format suivant.
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
 
@@ -62,7 +62,7 @@ Tout d’abord, vous devez configurer votre service mobile et le projet de code 
 
 Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une base de données SQL via Entity Framework, vous devez effectuer certaines mises à jour dans le projet pour utiliser le stockage de tables.
 
-1. Modifiez comme suit le type de données **TodoItem** de manière à ce qu’il soit issu de **StorageData** au lieu de **EntityData**.
+1. Modifiez comme suit le type de données **TodoItem** de manière à ce qu’il soit issu de **StorageData** au lieu d’**EntityData**.
 
 	    public class TodoItem : StorageData
 	    {
@@ -70,7 +70,7 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
 	        public bool Complete { get; set; }
 	    }
 
-	>[AZURE.NOTE]Le type **StorageData** a une propriété d’ID qui requiert une clé composée, laquelle est une chaîne au format *partitionId*,*rowValue*.
+	>[AZURE.NOTE]Le type **StorageData** a une propriété d’ID qui nécessite une clé composée, laquelle est une chaîne au format *partitionId*,*rowValue*.
 
 2. Dans **TodoItemController**, ajoutez l’instruction using suivante :
 
@@ -101,7 +101,7 @@ Le projet de démarrage rapide TodoList étant conçu pour fonctionner avec une 
             return DomainManager.QueryAsync(options);
         } 
 
-	Contrairement à une base de données SQL, cette version ne renvoie pas IQueryable<TEntity>, de sorte que le résultat peut être lié, mais pas plus composé dans une requête.
+	Contrairement à SQL Database, cette version ne retourne pas IQueryable<TEntity> ; le résultat peut donc être lié, mais pas plus composé dans une requête.
 
 ## Mettre à jour l’application cliente
 
@@ -135,8 +135,6 @@ Vous êtes maintenant prêt à tester l’application.
 
 Vous savez désormais qu’il est facile d’utiliser le stockage de table avec le serveur principal .NET. Vous pouvez donc explorer d’autres options de stockage principal :
 
-+ [Utiliser MongoDB comme magasin de données avec votre service principal Mobile Services.NET](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>Comme les didacticiels que vous venez de terminer, cette rubrique vous montre comment utiliser un magasin de données non relationnelles pour votre service mobile. Dans ce didacticiel, vous allez modifier le projet de démarrage rapide Mobile Services pour utiliser MongoDB plutôt que la base de données SQL comme magasin de données.
- 
 + [Connexion à un serveur SQL local à l’aide de connexions hybrides](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br> Les connexions hybrides permettent à votre service mobile de se connecter en toute sécurité à vos ressources locales. De cette façon, vos données locales sont accessibles aux clients mobiles à l'aide d'Azure. Les ressources prises en charge incluent toute ressource s'exécutant sur un port TCP statique, y compris Microsoft SQL Server, MySQL, les API web HTTP et la plupart des services web personnalisés.
 
 + [Télécharger des images dans le stockage Azure à l’aide de Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>Vous montre comment étendre l’exemple de projet TodoList pour vous permettre de télécharger des images à partir de votre application pour le stockage d’objets Blob Azure.
@@ -152,10 +150,9 @@ Vous savez désormais qu’il est facile d’utiliser le stockage de table avec 
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Ajout de Mobile Services à une application existante]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

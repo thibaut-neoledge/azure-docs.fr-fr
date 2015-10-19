@@ -25,6 +25,5 @@ La procédure suivante permet d'inscrire votre application auprès du Windows St
 <!-- URLs. -->
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
-[Import your publishsettings file in Visual Studio 2013]: ../articles/mobile-services/mobile-services-windows-how-to-import-publishsettings.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

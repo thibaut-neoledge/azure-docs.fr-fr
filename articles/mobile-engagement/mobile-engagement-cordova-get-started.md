@@ -30,7 +30,7 @@ Cette rubrique explique comment utiliser Azure Mobile Engagement pour analyser
 
 Dans ce didacticiel, nous allons créer une application Cordova vide à l'aide de Mac et intégrer le Kit de développement logiciel (SDK) Mobile Engagement. Elle collectera des données d'analyse de base et recevra des notifications push à l'aide du système de notifications push Apple (APNS) pour iOS et de Google Cloud Messaging (GCM) pour Android. Nous déploierons cette application sur un appareil iOS ou Android pour le test.
 
-> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -86,6 +86,10 @@ Nous allons créer une application de base à l’aide de Cordova afin d’illus
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
 
+*Icône Android Reach* : doit être le nom de la ressource sans extension ni préfixe dessinable (ex : mynotificationicon), et le fichier icône doit être copié dans votre projet android (platforms/android/res/drawable)
+
+*Icône iOS Reach* : doit être le nom de la ressource avec son extension (ex : mynotificationicon.png), et le fichier icône doit être ajouté à votre projet iOS avec XCode (en utilisant le menu d’ajout de fichiers)
+
 ##<a id="monitor"></a>Activation de la surveillance en temps réel
 
 1. Dans le projet Cordova, modifiez **www/js/index.js** pour ajouter l’appel de Mobile Engagement afin de déclarer une nouvelle activité à la réception de l’événement *deviceReady*.
@@ -122,7 +126,7 @@ Nous allons créer une application de base à l’aide de Cordova afin d’illus
 
 [AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Activation des notifications push et de la messagerie intégrée à l’application
+##<a id="integrate-push"></a>Activation des notifications Push et de la messagerie intégrée à l’application
 
 Mobile Engagement vous permet d'interagir avec vos utilisateurs à l'aide de notifications push et de la messagerie dans l'application, dans le cadre d'une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettront de configurer votre application pour la réception des notifications.
 
@@ -191,7 +195,7 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 
 3. Entrez les informations nécessaires pour créer votre campagne **[Android]**.
 	
-	- Entrez un **Nom** pour votre campagne. 
+	- Entrez un **nom** pour votre campagne. 
 	- Sélectionnez le **Type de distribution** *Notification système* *Simple*.
 	- Sélectionnez le délai de livraison *N’importe quand*.
 	- Entrez un **Titre** pour votre notification, qui constituera la première ligne de la diffusion.
@@ -241,4 +245,4 @@ Nous allons maintenant créer une campagne simple de notification Push qui enver
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

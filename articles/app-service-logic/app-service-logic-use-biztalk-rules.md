@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="10/01/2015"
    ms.author="andalmia"/>
 
 #Règles BizTalk
@@ -34,11 +34,9 @@ Il existe trois principales raisons d'utiliser des règles d'entreprise BizTalk 
 
 ##Vocabulaire
 
-Les termes utilisés pour définir les actions et les conditions des règles sont généralement exprimés par une nomenclature spécifique au domaine ou à l'industrie. Par exemple, un utilisateur de messagerie écrit des règles en termes de messages « reçus de » et « reçus après », tandis qu'un analyste du secteur des assurances écrit des règles en termes de « facteurs de risque » et de « montant de couverture ». 
-Sous-jacents à cette terminologie spécifique à un domaine, il existe des artefacts technologiques (objets, tables de base de données et documents XML) qui implémentent les conditions et actions des règles. Les vocabulaires ont pour but de combler le fossé entre la sémantique d'entreprise et l'implémentation.
-
-Par exemple, une liaison de données pour un état d'approbation peut pointer vers une certaine colonne donnée sur une certaine ligne d'une base de données, représentée sous la forme d'une requête SQL. Au lieu d'insérer cette représentation complexe dans une règle, vous pouvez créer une définition de vocabulaire associée à cette liaison de données avec le nom convivial « État ». Par la suite, vous pouvez inclure « État » dans les règles de votre choix et le moteur de règles peut extraire les données correspondantes de la table. 
 Un _vocabulaire_ est une collection de définitions composée de noms conviviaux pour les objets informatiques utilisés dans les actions et les conditions de règles. Les définitions de vocabulaire simplifient la compréhension, la lecture et le partage de ces règles par des personnes dans un domaine d'entreprise particulier.
+
+Les vocabulaires ont pour but de combler le fossé entre la sémantique d'entreprise et l'implémentation. Par exemple, une liaison de données pour un état d'approbation peut pointer vers une certaine colonne donnée sur une certaine ligne d'une base de données, représentée sous la forme d'une requête SQL. Au lieu d'insérer cette représentation complexe dans une règle, vous pouvez créer une définition de vocabulaire associée à cette liaison de données avec le nom convivial « État ». Par la suite, vous pouvez inclure « État » dans les règles de votre choix et le moteur de règles peut extraire les données correspondantes de la table.
 
 ##Règle
 
@@ -138,7 +136,7 @@ Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées sui
 
 ### Ajouter en bloc
 Les étapes ci-dessus décrivent l'expérience de création de définitions de vocabulaire. Une fois créées, les définitions de vocabulaire sont affichées sous forme de liste. Il existe des exigences pour pouvoir générer plusieurs définitions à partir du même schéma au lieu de répéter chaque fois les étapes ci-dessus. La fonctionnalité « Ajouter en bloc » est très utile dans ce cas. 
-Un clic sur « Ajouter en bloc » vous permet d'accéder à un nouveau panneau. La première étape consiste à sélectionner le schéma pour lequel vous voulez créer plusieurs définitions. Un nouveau panneau s'ouvre, dans lequel vous pouvez choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau.
+Un clic sur « Ajouter en bloc » vous permet d'accéder à un nouveau panneau. La première étape consiste à sélectionner le schéma pour lequel vous voulez créer plusieurs définitions. Un nouveau panneau s'ouvre, dans lequel vous pouvez choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau. 
 La propriété XPATHS est maintenant déverrouillée. Un clic dessus ouvre la Visionneuse de schéma, où vous pouvez sélectionner plusieurs nœuds. 
 Les noms des définitions créées correspondent par défaut au nom du nœud sélectionné. Vous pouvez toujours les modifier après la création.
 
@@ -252,4 +250,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Configurer votre environnement de développement Service Fabric
@@ -66,7 +66,7 @@ Un cluster local est une topologie de plusieurs ordinateurs que vous utilisez pa
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Exécuter
 
     ```powershell
@@ -81,7 +81,7 @@ Quelques instants après, une sortie s'affiche indiquant les informations de nœ
 
 Vous pouvez vérifier que votre cluster a été correctement créé à l'aide de l'outil Service Fabric Explorer fourni avec le SDK.
 
-1. Démarrez Service Fabric Explorer en exécutant 
+1. Démarrez Service Fabric Explorer en exécutant
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Si aucun élément n'est vert ou qu'un message d'erreur s'affiche, attendez quel
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

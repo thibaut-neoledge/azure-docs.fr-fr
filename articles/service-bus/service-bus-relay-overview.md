@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Messagerie par relais Service Bus"
+	pageTitle="Présentation de la messagerie relayée Service Bus | Microsoft Azure"
 	description="Présentation de Service Bus Relay."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -31,12 +31,12 @@ Vous lancez la connexion entre votre service local et le service de relais à l'
 
 ## Étapes suivantes
 
-Pour plus d'informations sur Service Bus Relay, consultez les rubriques suivantes.
+Pour plus de détails sur Service Bus Relay, consultez les rubriques suivantes.
 
-- [Présentation de l'architecture d'Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Présentation de l'architecture d'Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

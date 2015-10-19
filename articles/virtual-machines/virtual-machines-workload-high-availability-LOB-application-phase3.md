@@ -41,6 +41,8 @@ Le bloc de commandes PowerShell suivant permet de créer les machines virtuelle
 
 Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md), et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
+> [AZURE.NOTE]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Les blocs de commande Azure PowerShell dans cet article font actuellement l’objet de tests et de mises à jour pour prendre en charge les nouvelles applets de commande dans les versions Azure PowerShell 1.0.0 et ultérieures. Nous vous remercions de votre patience.
+
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
 	# Set up subscription and key variables
@@ -164,7 +166,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine v
 6.	Cliquez sur **OK** pour fermer la fenêtre.
 7.	Dans le volet gauche, développez le **dossier Sécurité**.
 8.	Cliquez avec le bouton droit sur **Connexions** et sélectionnez **Nouvelle connexion**.
-9.	Dans **Nom de connexion**, entrez *domain*\\sqladmin (où *domain* désigne le nom du domaine dans lequel le compte sqladmin a été créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
+9.	Dans **Nom de connexion**, entrez *domain*\\sqladmin (où *domain* désigne le nom du domaine dans lequel le compte sqladmin a été créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md)). 
 10.	Sous **Sélectionner une page**, cliquez sur **Rôles de serveur**, puis sur **sysadmin** et sur **OK**.
 11.	Fermez SQL Server 2014 Management Studio.
 
@@ -193,7 +195,7 @@ Associez le serveur de nœud majoritaire du cluster au domaine AD DS approprié 
 	Add-Computer -DomainName $domName
 	Restart-Computer
 
-Notez que, lors de l’exécution de la commande **Add-Computer**, vous devez fournir des informations d’identification de compte de domaine.
+Notez que, au moment de l’exécution de la commande **Add-Computer**, vous devez fournir des informations d’identification de compte de domaine.
 
 Après le redémarrage, connectez-vous de nouveau à l'aide d'un compte disposant de privilèges d'administrateur local.
 
@@ -213,12 +215,12 @@ Pour les deux machines virtuelles SQL Server et le nœud majoritaire du cluster
 
 En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au document RFC, il est possible que la création d’un cluster WSFC échoue. Pour plus d’informations, recherchez « Comportement du cluster WSFC sur le réseau Azure » sur la page Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure. Une solution de contournement existe malgré tout. Pour créer le cluster, procédez comme suit :
 
-1.	Connectez-vous à la machine virtuelle SQL Server principale avec le compte sqladmin créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+1.	Connectez-vous à la machine virtuelle SQL Server principale avec le compte sqladmin créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 2.	Sur l’écran d’accueil, entrez **Basculement**, puis cliquez sur **Gestionnaire du cluster de basculement**.
 3.	Dans le volet gauche, cliquez sur **Gestionnaire du cluster de basculement**, puis cliquez sur **Créer le cluster**.
 4.	Dans la page **Avant de commencer**, cliquez sur **Suivant**.
-5.	Dans la page **Sélectionner les serveurs**, entrez le nom de la machine SQL Server principale, cliquez sur **Ajouter**, puis sur **Suivant**.
-6.	Dans la page **Avertissement de validation**, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.**. Ensuite, cliquez sur **Suivant**.
+5.	Dans la page **Sélectionner les serveurs**, entrez le nom de la machine SQL Server principale, cliquez sur **Ajouter**, puis cliquez sur **Suivant**.
+6.	Dans la page **Avertissement de validation**, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.**. Cliquez sur **Suivant**.
 7.	Dans la page **Point d’accès pour l’administration du cluster**, entrez le nom de votre cluster dans la zone de texte **Nom du cluster**, puis cliquez sur **Suivant**.
 8.	Dans la page **Confirmation**, cliquez sur **Suivant** pour lancer la création du cluster. 
 9.	Dans la page **Résumé**, cliquez sur **Terminer**.
@@ -232,7 +234,7 @@ En raison du comportement actuel de DHCP dans Azure, qui n’est pas conforme au
 17.	Pour ajouter les nœuds restants au cluster, cliquez avec le bouton droit sur le nom de votre cluster dans le volet gauche, puis cliquez sur **Ajouter un nœud**.
 18.	Dans la page **Avant de commencer**, cliquez sur **Suivant**. 
 19.	Dans la page **Sélectionner les serveurs**, entrez le nom, puis cliquez sur **Ajouter** pour ajouter la machine SQL Server secondaire et le nœud majoritaire du cluster au cluster. Après avoir ajouté les deux ordinateurs, cliquez sur **Suivant**. Si une machine ne peut pas être ajoutée, et si un message d’erreur indique « Le service d’accès distant au Registre n’est pas en cours d’exécution », procédez comme suit : Connectez-vous à la machine, ouvrez le composant logiciel enfichable Services (services.msc) et activez le service d’accès distant au Registre. Pour plus d’informations, consultez [Impossible de se connecter au service Registre distant](http://technet.microsoft.com/library/bb266998.aspx). 
-20.	Dans la page **Avertissement de validation**, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.**. Ensuite, cliquez sur **Suivant**. 
+20.	Dans la page **Avertissement de validation**, cliquez sur **Non. Je n’ai pas besoin de l’assistance de Microsoft pour ce cluster, et par conséquent, je ne souhaite pas exécuter les tests de validation. Lorsque je clique sur Suivant, poursuivre la création du cluster.**. Cliquez sur **Suivant**. 
 21.	Dans la page **Confirmation**, cliquez sur **Suivant**.
 22.	Dans la page **Résumé**, cliquez sur **Terminer**.
 23.	Dans le volet gauche, cliquez sur **Nœuds**. Les trois ordinateurs doivent s’afficher.
@@ -243,12 +245,12 @@ L’étape suivante consiste à activer les groupes de disponibilité AlwaysOn �
 
 Suivez cette procédure pour activer les groupes de disponibilité AlwaysOn sur SQL Server.
 
-1.	Connectez-vous à la machine virtuelle SQL Server principale avec le compte sqladmin créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+1.	Connectez-vous à la machine virtuelle SQL Server principale avec le compte sqladmin créé au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 2.	Sur l’écran d’accueil, entrez **Configuration de SQL Server**, puis cliquez sur **Gestionnaire de configuration SQL Server**.
 3.	Dans le volet gauche, cliquez sur **Services SQL Server**.
 4.	Dans le volet de contenu, double-cliquez sur **SQL Server (MSSQLSERVER)**.
 5.	Dans **Propriétés de SQL Server (MSSQLSERVER)**, cliquez sur l’onglet **Haute disponibilité AlwaysOn**, sélectionnez **Activer les groupes de disponibilité AlwaysOn**, cliquez sur **Appliquer**, puis cliquez sur **OK** lorsque vous y êtes invité. Ne fermez pas encore la fenêtre Propriétés. 
-6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis, dans **Nom du compte**, entrez Domain**\\sqlservice**. Saisissez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
+6.	Cliquez sur l’onglet virtual-machines-manage-availability, puis, dans **Nom du compte**, entrez [Domain]**\\sqlservice**. Tapez le mot de passe du compte sqlservice dans **Mot de passe** et **Confirmer le mot de passe**, puis cliquez sur **OK**.
 7.	Dans la fenêtre du message, cliquez sur **Oui** pour redémarrer le service SQL Server.
 8.	Connectez-vous à la machine virtuelle SQL Server secondaire avec le compte sqladmin créé au cours des étapes 2 à 7. 
 
@@ -272,4 +274,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

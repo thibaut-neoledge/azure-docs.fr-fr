@@ -166,9 +166,9 @@ Les clusters HDInsight utilisent un conteneur de stockage d’objets blob Azure 
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de la source de données.
 
-8. Sélectionnez **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
+8. Sélectionnez **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds Worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
 
-	![Panneau Niveaux tarifaires du nœud](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.5.png "Spécifier le nombre de nœuds de cluster")
+	![Panneau Niveaux de tarification du nœud](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.5.png "Spécifier le nombre de nœuds de cluster")
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de la tarification du nœud.
 
@@ -386,7 +386,7 @@ L’approvisionnement du cluster peut prendre plusieurs minutes.
 ###<a id="sdk"></a> Utilisation du Kit de développement logiciel (SDK) HDInsight .NET
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Suivez les instructions ci-dessous pour créer une application de console Visual Studio et collez le code pour la création d’un cluster.
 
-**Pour créer une application console Visual Studio**
+**Pour créer une application console Visual Studio C#**
 
 1. Ouvrir Visual Studio 2013 ou 2015
 2. Création d’un projet Visual Studio avec les paramètres suivants
@@ -406,6 +406,8 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 6. Dans l’Explorateur de solutions, double-cliquez sur **Program.cs** pour l’ouvrir, collez le code suivant et fournissez des valeurs pour les variables :
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 
 
-##<a id="nextsteps"></a> Étapes suivantes
+## Étapes suivantes
 Cet article vous a présenté différentes méthodes pour configurer un cluster HDInsight Hadoop sur Linux. Pour en savoir plus, consultez les articles suivants :
 
 - [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md) : familiarisez-vous avec l’utilisation d’un cluster HDInsight sur Linux.
@@ -571,4 +573,4 @@ Cet article vous a présenté différentes méthodes pour configurer un cluster 
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

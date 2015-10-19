@@ -19,7 +19,7 @@
 
 # Ajout de services mobiles à une application existante
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ##Vue d'ensemble
 
@@ -193,4 +193,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

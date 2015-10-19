@@ -1,12 +1,13 @@
 <properties
-	pageTitle="DataStax Enterprise sous Ubuntu avec un modèle Resource Manager"
+	pageTitle="DataStax Enterprise sous Ubuntu avec un modèle Resource Manager | Microsoft Azure"
 	description="Apprenez à déployer facilement un nouveau cluster DataStax Enterprise sur des machines virtuelles Ubuntu en utilisant Azure PowerShell ou l'interface de ligne de commande Azure et un modèle Resource Manager"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -18,9 +19,11 @@
 
 # DataStax Enterprise sous Ubuntu avec un modèle Resource Manager
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
+
 DataStax est l'un des principaux acteurs dans le secteur du développement et de la livraison de solutions basées sur Apache Cassandra™, une technologie de base de données distribuée NoSQL soutenue commercialement et intégrée au sein des entreprises, largement reconnue comme agile, permanente et évolutive de façon prévisible pour n'importe quelle taille. DataStax propose les versions Enterprise (DSE) et Community (DSC). En plus des fonctions proposées par l'édition Community, Datastax Enterprise intègre la technologie Cassandra certifiée en production avec des capacités telles que l'informatique en mémoire, la sécurité de niveau entreprise, l'analyse intégrée rapide et puissante, et la gestion d'entreprise.
 
->[AZURE.NOTE]Contrairement à l'édition Community, pour déployer DataStax Enterprise, vous devez disposer d'un compte DataStax valide (nom d'utilisateur et mot de passe) à transmettre en tant que paramètres lors du déploiement du modèle. Consultez le site Web [Datastax](http://www.datastax.com) pour configurer votre compte si ce n'est pas déjà fait.
+>[AZURE.NOTE]Contrairement à l'édition Community, pour déployer DataStax Enterprise, vous devez disposer d'un compte DataStax valide (nom d'utilisateur et mot de passe) à transmettre en tant que paramètres lors du déploiement du modèle. Consultez le site Web [Datastax](http://www.datastax.com) pour configurer votre compte si ce n’est pas déjà fait.
 
 En plus de ce qui est déjà disponible dans Azure Marketplace, vous pouvez maintenant déployer facilement un nouveau cluster Datastax Enterprise sur des machines virtuelles Ubuntu à l'aide d'un modèle Resource Manager déployé par le biais d'[Azure PowerShell](../powershell-install-configure.md) ou de l'[interface de ligne de commande Azure](../xplat-cli-install.md).
 
@@ -86,7 +89,7 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Lorsque vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\Azure\Templates.
+Quand vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\Azure\Templates.
 <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -277,7 +280,7 @@ Vous pouvez vérifier l’état des différents déploiements de ressources à l
 
 Pour créer un modèle Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que DataStax Enterprise. En tirant parti des capacités de **liaison de modèles** et de **l'itération de ressource** ARM en plus de l'exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n'importe quel déploiement basé sur un modèle complexe.
 <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-Ce schéma décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
+Le schéma ci-après décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
 
 ![datastax-enterprise-fichiers](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -391,7 +394,7 @@ Les modèles liés suivants sont utilisés pour ce déploiement :
 
 Penchons-nous sur l'utilisation de ce dernier modèle, car il s'agit d'un des plus intéressants, du point de vue du développement d'un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé itération de ressource.
 
-Lorsque le fichier ephemeral-nodes-resources.json est appelé à partir du fichier azuredeploy.json principal, un paramètre appelé nodeCount est fourni parmi la liste de paramètres. Dans le modèle enfant, ce paramètre nodeCount (qui détermine le nombre de nœuds à déployer dans le cluster) est utilisé dans l'élément **« copie »** de chaque ressource à déployer en plusieurs copies, comme l'indique l’exemple suivant. Pour tous les paramètres où il est nécessaire de spécifier des valeurs uniques entre différentes instances de la ressource déployée, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière. Dans l’exemple suivant, ce concept est appliqué à plusieurs créations de machines virtuelles pour les nœuds du cluster Datastax Enterprise.
+Lorsque le fichier ephemeral-nodes-resources.json est appelé à partir du fichier azuredeploy.json principal, un paramètre appelé nodeCount est fourni parmi la liste de paramètres. Dans le modèle enfant, ce paramètre nodeCount (qui détermine le nombre de nœuds à déployer dans le cluster) est utilisé dans l’élément **"copy"** de chaque ressource à déployer en plusieurs copies, comme l’indique l’exemple suivant. Pour tous les paramètres où il est nécessaire de spécifier des valeurs uniques entre différentes instances de la ressource déployée, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière. Dans l’exemple suivant, ce concept est appliqué à plusieurs créations de machines virtuelles pour les nœuds du cluster Datastax Enterprise.
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -500,4 +503,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

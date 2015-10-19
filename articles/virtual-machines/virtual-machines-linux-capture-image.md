@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Capturer l’image d'une machine virtuelle Linux | Microsoft Azure"
-	description="Apprenez à capturer l’image d'une machine virtuelle Azure créée avec le modèle de déploiement classique et exécutant Linux."
+	description="Apprenez à capturer l’image d’une machine virtuelle Azure sous Linux créée avec le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -99,4 +99,4 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

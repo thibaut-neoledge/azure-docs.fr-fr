@@ -1,0 +1,94 @@
+<properties 
+	pageTitle="Qu’est ce que le processus d’analyse Cortana ? | Microsoft Azure" 
+	description="Le processus d’analyse de Cortana est une méthode scientifique de traitement systématique des données servant à la création d’applications intelligentes qui exploitent des analyses avancées." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev"
+	manager="paulettm" 
+	editor="cgronlun" />
+
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
+	ms.author="bradsev;gopitk" />
+
+
+# Qu’est-ce que le processus d’analyse Cortana ?
+
+Le processus d’analyse Cortana est une méthode scientifique de traitement systématique des données qui présente une suite d’opérations utilisant des analyses avancées pour générer des applications intelligentes. Les opérations CAP fournissent des **conseils** sur la façon de définir une problématique, d’analyser des données pertinentes, de générer et d’évaluer les modèles prévisionnels, puis de déployer ces modèles dans des applications intelligentes.
+
+Voici les étapes du **processus d’analyse Cortana ** :
+
+![Flux de travail CAP](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
+
+Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
+
+Les étapes du processus sont décrites ci-dessous.
+
+## Étapes de préparation 
+
+## P1. Planifier le projet d’analyse 
+
+Lancer un projet d’analyse en définissant des objectifs d’entreprise et une problématique. Ces éléments sont appelés **impératifs d’entreprise**. L’un des objectifs centraux de cette opération consiste à identifier les variables clés de l’entreprise (prévision de ventes ou probabilité qu’une commande en cours soit de nature frauduleuse, par exemple) que l’analyse doit prévoir pour satisfaire ces impératifs. Une planification supplémentaire est alors essentielle si l’on veut acquérir une bonne connaissance des **sources de données** nécessaires pour atteindre les objectifs fixés pour le projet d’un point de vue analytique. Il n’est pas rare, par exemple, de constater que les systèmes existants doivent collecter et consigner d’autres types de données pour résoudre le problème et atteindre les objectifs du projet.
+
+## P2. Configurer un environnement d’analyse 
+
+Un environnement d’analyse pour le processus d’analyse Cortana fait appel à plusieurs composants :
+
+- **des espaces de travail de données** où les données sont conservées pour analyse et modélisation, 
+- une **infrastructure de traitement** pour le prétraitement, l’exploration et la modélisation des données,
+- une **infrastructure d’exécution** qui sert à faire fonctionner les modèles analytiques et à exécuter les applications clientes intelligentes qui consomment les modèles.  
+
+L’infrastructure d’analyse qui doit être installée fait souvent partie d’un environnement différent des systèmes d’exploitation de base. Cependant, elle utilise généralement des données issues de plusieurs systèmes fonctionnant au sein de l’entreprise ainsi que de sources externes. L’infrastructure d’analyse peut se trouver entièrement sur le cloud, être installée en local, ou présenter un mélange des deux.
+
+## Opérations d’analyse :  
+
+## 1\. Ingérer des données dans l’environnement d’analyse 
+
+La première étape consiste à recueillir les données pertinentes à partir de diverses sources, internes ou extérieures à l’entreprise, dans les environnements d’analyse ciblés pour traiter les données. Le **format** des données source peut différer du format requis par la destination. Il se peut donc qu’une conversion des données doive être réalisée par les outils d’ingestion.
+
+Outre l’acquisition initiale des données, de nombreuses applications intelligentes sont nécessaires pour actualiser les données régulièrement dans le cadre d’un processus d’apprentissage en cours d’exécution. Cette opération est possible grâce à la configuration d’un **pipeline de données** ou d’un flux de travail. Cela fait partie de la partie itérative du processus qui inclut la reconstruction et la réévaluation des modèles analytiques utilisés par l’application intelligente qui déploie la solution.
+
+
+## 2\. Explorer et pré-traiter des données 
+
+L’étape suivante a pour objet d’offrir une meilleure connaissance des données en étudiant les **des statistiques de synthèse**, les relations et en utilisant des techniques de **visualisation**. C’est à ce niveau que les problèmes de **qualité des données** et d’intégrité, telles que les valeurs manquantes, les incompatibilités de type de données et les relations incohérentes entre données sont gérés. Les conversions pré-traitement sont utilisées pour nettoyer les données brutes avant que les analyses et la modélisation puissent avoir lieu.
+
+
+## 3\. Développement de fonctionnalités 
+
+Les analystes des données, en collaboration avec des experts du domaine, doivent identifier les fonctionnalités qui capturent les propriétés dominantes du jeu de données pouvant être utilisées pour prédire les données d’entreprise clés identifiées pendant la planification. Ces nouvelles fonctionnalités peuvent être dérivées de données existantes ou nécessiter la collecte de données supplémentaires. Ce processus est appelé **Conception de fonctionnalités** et est une des principales étapes de la création d’un système efficace d’analyse prédictive. Cette étape nécessite une combinaison inédite d’expertise dans le secteur et d’informations obtenues à partir de l’étape d’exploration de données.
+
+
+## 4\. Créer des modèles prévisionnels 
+
+Les scientifiques de données construisent des modèles permettant de prévoir des variables clés identifiées dans les impératifs d’entreprise définis lors de l’étape grâce aux données nettoyées et analysées. Les systèmes d’apprentissage informatiques prennent en charge plusieurs **algorithmes de modélisation** applicables toutes sortes de cas.
+
+Les scientifiques de données doivent choisir le modèle le mieux adapté à leur tâche de prévision, et il n’est pas rare qu’il faille associer des résultats de différents modèles pour obtenir les meilleurs résultats. Les données en entrée destinées à la modélisation sont généralement divisées aléatoirement en trois parties :
+
+- un jeu de données de formation 
+- un jeu de données de validation 
+- un jeu de données de test 
+
+Les modèles sont construits avec le **jeu de données d’apprentissage**. La combinaison optimale de modèles (avec des paramètres réglés) est sélectionnée par l’exécution des modèles et la mesure des erreurs de prévision du **jeu de données de validation**. Enfin, le **jeu de données de test** sert à évaluer les performances du modèle choisi sur des données indépendantes n’ayant pas été utilisées pour la formation ou la validation du modèle.
+
+
+## 5\. Déployer et utiliser des modèles 
+
+Une fois que notre ensemble de modèles fonctionne correctement, il peut être **mis en œuvre** et être utilisé par d’autres applications En fonction des impératifs de l’entreprise, les prévisions sont faites **en temps réel** ou **par lot**. Pour être mis en œuvre, les modèles doivent être exposés avec une **interface d’API ouverte** facilement utilisables à partir de diverses applications, par exemple, un site web en ligne, des feuilles de calcul, des tableaux de bord ou des applications métier et de serveur principal.
+
+## Résumé et étapes suivantes
+
+Le processus d’analyse de Cortana est construit comme une suite d’opérations itérées qui **fournissent des conseils** sur les tâches indispensables à l’utilisation d’analyses avancées permettant de construire des applications intelligentes. Chaque étape fournit également des détails sur l’utilisation de diverses technologies Microsoft pour effectuer les tâches décrites.
+
+CAP n’impose pas de types d’artefacts de **documentation** spécifiques, cependant, une bonne pratique consiste à documenter les résultats de l’examen, de la modélisation et de l’évaluation des données, et à enregistrer le code pertinent afin que l’analyse puisse être itérée en cas de besoin. Ceci permet également de réutiliser le travail d’analyse lorsque vous travaillez sur d’autres applications impliquant des données et tâches de prévision similaires.
+
+Des procédures pas à pas de bout en bout illustrant toutes les étapes de **scénarios spécifiques** sont également fournis.
+
+ 
+
+<!---HONumber=Oct15_HO2-->

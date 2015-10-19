@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium
@@ -26,7 +26,7 @@ Pour plus d’informations sur les autres fonctionnalités du cache Premium, con
 >[AZURE.NOTE]Le niveau Premium de Cache Redis Azure est actuellement en version préliminaire.
 
 ## Pourquoi un réseau virtuel ?
-le déploiement de [réseau virtuel Azure (VNET)](https://azure.microsoft.com/fr-FR/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
+le déploiement de [réseau virtuel Azure (VNET)](https://azure.microsoft.com/fr-fr/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
 
 ## Prise en charge des réseaux virtuels
 La configuration de la prise en charge du réseau virtuel s’effectue dans le panneau **Nouveau cache Redis** lors de la création du cache. Pour créer un cache, connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
@@ -72,15 +72,17 @@ La liste suivante présente des erreurs de configuration courantes qui peuvent e
 -	Machines virtuelles d’instance de rôle Redis incapables de communiquer entre elles à l’intérieur du sous-réseau. Les instances de rôle Redis doivent être autorisées à communiquer entre elles à l’aide du protocole TCP sur n’importe lequel des ports utilisés (qui peuvent être soumis à modification, mais doivent au moins correspondre à tous les ports utilisés dans le fichier CSDEF Redis).
 -	Impossibilité pour l’équilibreur de charge Azure de se connecter aux machines virtuelles Redis sur le port TCP/HTTP 16001. Le Cache Redis Azure dépend de la sonde d’équilibreur de charge Azure par défaut pour déterminer quelles instances de rôle sont actives. La sonde d’équilibreur de charge Azure par défaut envoie une requête ping à l’Agent invité Azure sur le port 16001. Seules les instances de rôle qui répondent à la requête ping sont placées en rotation pour recevoir le trafic transféré par l’équilibrage de charge. Quand aucune instance n’est en rotation, car les requêtes ping échouent à cause du blocage des ports, l’équilibrage de charge n’accepte aucune connexion TCP entrante.
 -	Blocage du trafic web de l’application cliente utilisé pour la validation de la clé publique SSL. Les clients de Redis (sur le réseau virtuel) doivent pouvoir envoyer du trafic HTTP à l’Internet public pour télécharger des certificats d’autorité de certification et des listes de révocation de certificat pour effectuer la validation de certificat SSL quand ils utilisent le port 6380 pour se connecter à Redis et procéder à l’authentification de serveur SSL.
--	Impossibilité pour l’équilibreur de charge Azure de se connecter aux machines virtuelles Redis dans un cluster via TCP sur le port les 1300x (13 000, 13001, etc.) ou 1500x (15000, 15001, etc.). Les réseaux virtuels sont configurés dans le fichier csdef avec une sonde d’équilibreur de charge pour ouvrir ces ports. L’équilibreur de charge Azure doit être autorisé par les groupes de sécurité réseau. Les groupes de sécurité réseau par défaut effectuent cette opération à l’aide de la balise AZURE\_LOADBALANCER. L’équilibreur de charge Azure a une seule adresse IP statique de 168.63.126.16. Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](..\virtual-network\virtual-networks-nsg.md).
+-	Impossibilité pour l’équilibreur de charge Azure de se connecter aux machines virtuelles Redis dans un cluster via TCP sur le port les 1300x (13 000, 13001, etc.) ou 1500x (15000, 15001, etc.). Les réseaux virtuels sont configurés dans le fichier csdef avec une sonde d’équilibreur de charge pour ouvrir ces ports. L’équilibreur de charge Azure doit être autorisé par les groupes de sécurité réseau. Les groupes de sécurité réseau par défaut effectuent cette opération à l’aide de la balise AZURE\_LOADBALANCER. L’équilibreur de charge Azure a une seule adresse IP statique de 168.63.126.16. Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 ## Puis-je utiliser des réseaux virtuels avec un cache De base ou Standard ?
 
 Vous ne pouvez utiliser des réseaux virtuels qu’avec les caches de niveau Premium.
 
 ## Étapes suivantes
+Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
-Découvrez comment utiliser d’autres fonctionnalités de cache Premium. - [Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md) - [Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
+-	[Comment configurer la persistance pour un Cache Redis Azure Premium](cache-how-to-premium-persistence.md)
+-	[Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ Découvrez comment utiliser d’autres fonctionnalités de cache Premium. - [Com
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

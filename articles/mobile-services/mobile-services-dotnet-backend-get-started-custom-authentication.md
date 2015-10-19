@@ -390,7 +390,7 @@ Cette section décrit les étapes nécessaires pour accéder aux points de termi
 
 	Vous ne devez appeler le point de terminaison **CustomRegistration** qu'une seule fois pour créer un compte pour un utilisateur donné, tant que vous conservez les informations de connexion de l'utilisateur dans la table Accounts. Pour obtenir des exemples montrant comment appeler une API personnalisée sur les différentes plateformes clientes prises en charge, consultez l'article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	 
-	> [AZURE.IMPORTANT]Étant donné que cette étape de configuration de l'utilisateur se produit une seule fois, vous devez envisager de créer le compte d'utilisateur de manière « hors bande ». Pour un point de terminaison d'inscription public, vous devez également envisager de mettre en œuvre un processus de vérification par courrier électronique ou SMS ou une autre mesure pour empêcher la génération de comptes frauduleux. Vous pouvez utiliser Twilio pour envoyer des messages SMS à partir de Mobile Services. Pour plus d'informations, consultez [Procédure : envoi d'un SMS](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). Vous pouvez également utiliser SendGrid pour envoyer des messages électroniques à partir de Mobile Services. Pour plus d'informations, consultez la page [Envoi de courrier électronique à partir de Mobile Services avec SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	> [AZURE.IMPORTANT]Étant donné que cette étape de configuration de l'utilisateur se produit une seule fois, vous devez envisager de créer le compte d'utilisateur de manière « hors bande ». Pour un point de terminaison d'inscription public, vous devez également envisager de mettre en œuvre un processus de vérification par courrier électronique ou SMS ou une autre mesure pour empêcher la génération de comptes frauduleux. Vous pouvez utiliser Twilio pour envoyer des messages SMS à partir de Mobile Services. Vous pouvez également utiliser SendGrid pour envoyer des messages électroniques à partir de Mobile Services. Pour plus d’informations sur l’utilisation de SendGrid, consultez [Envoi de courrier électronique à partir de Mobile Services avec SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
 	
 3. Réutilisez la méthode **invokeApi** appropriée, cette fois pour appeler le point de terminaison **CustomLogin**, en passant le nom d'utilisateur et le mot de passe fournis par le runtime dans le corps du message.
 
@@ -420,4 +420,4 @@ C'est ici que s'achève ce didacticiel.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="08/05/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -313,4 +313,4 @@ Dans ce didacticiel, nous avons passé en revue la procédure d’automatisation
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

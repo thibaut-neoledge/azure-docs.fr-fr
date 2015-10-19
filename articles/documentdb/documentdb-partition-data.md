@@ -1,6 +1,6 @@
 <properties      
     pageTitle="Partitionnement et mise à l’échelle de données dans DocumentDB avec un partitionnement | Microsoft Azure"      
-    description="Examinez comment mettre à l’échelle des données avec une technique appelée partitionnement. Découvrez les partitions, comment partitionner des données dans DocumentDB, et quand utiliser un partitionnement par hachage, par plage et par recherche."         
+    description="Examinez comment mettre à l’échelle des données avec une technique appelée partitionnement. Découvrez les partitions, comment partitionner des données dans DocumentDB, et quand utiliser un partitionnement par hachage et par plage."         
     keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"      
     ms.devlang="na"      
     ms.topic="article"      
-    ms.date="09/14/2015"      
+    ms.date="10/05/2015"      
     ms.author="arramac"/>
 
 # Données de partition et d’échelle dans DocumentDB
@@ -24,7 +24,7 @@ Vous pouvez obtenir une échelle presque illimitée en termes de débit et de st
 
 Après avoir lu cet article sur la mise à l’échelle des données, vous serez en mesure de répondre aux questions suivantes :
 
- - Qu'est le partitionnement par hachage, par plage et par recherche ?
+ - En quoi consistent le hachage et le partitionnement par plage ?
  - Quand utiliser chaque technique de partitionnement et pourquoi ?
  - Comment procéder pour créer une application partitionnée sur Azure DocumentDB ?
 
@@ -56,16 +56,16 @@ Un cas spécial de partitionnement par plage est lorsque la plage est une valeur
 
 Dans le partitionnement par hachage, les partitions sont affectées en fonction de la valeur d'une fonction de hachage, ce qui vous permet de répartir uniformément les demandes et les données entre un certain nombre de partitions. Cette méthode est généralement utilisée pour partitionner des données produites ou consommées par un grand nombre de clients distincts, et elle s’avère utile pour stocker des profils utilisateur, des éléments des catalogue et des données de télémétrie d’appareil IoT (Internet des objets).
 
-> [AZURE.TIP]Vous devez utiliser le partitionnement par hachage lorsqu'il y a trop d'entités à énumérer via le partitionnement par recherche (par exemple, des utilisateurs ou des appareils) et que le taux de demandes est relativement uniforme entre les entités.
+> [AZURE.TIP]Vous devez utiliser le partitionnement par hachage quand il y a trop d’entités à énumérer (par exemple, des utilisateurs ou des appareils) et que le taux de demandes est relativement uniforme entre les entités.
 
 ## Choix de la technique de partitionnement appropriée
 
 Quelle est la technique de partitionnement qui vous convient ? Cela dépend du type de données et de vos modèles d'accès courants. Le choix de la technique de partitionnement appropriée au moment de la conception vous permet d'éviter la dette technique et de gérer la croissance en termes de taille des données et de volume des demandes.
 
-- Le **partitionnement par plages de valeurs** est normalement utilisé dans le contexte des dates, car il offre un mécanisme simple et naturel de vieillissement des partitions par horodatage. Il est également utile lorsque les requêtes sont généralement limitées à une plage de temps, dans la mesure où celle-ci est alignée avec les limites de partitionnement. Il permet également de regrouper et d’organiser des jeux de données non ordonnés et indépendants de façon naturelle, par exemple, de regrouper des clients par organisation ou des États par région géographique. La recherche offre également un contrôle précis pour migrer les données entre les collections. 
+- Le **partitionnement par plages de valeurs** est normalement utilisé dans le contexte des dates, car il offre un mécanisme simple et naturel de vieillissement des partitions par horodatage. Il est également utile lorsque les requêtes sont généralement limitées à une plage de temps, dans la mesure où celle-ci est alignée avec les limites de partitionnement. Il permet également de regrouper et d’organiser des jeux de données non ordonnés et indépendants de façon naturelle, par exemple, de regrouper des clients par organisation ou des États par région géographique. La plage offre également un contrôle précis pour migrer les données entre les collections. 
 - Le **partitionnement de hachage** est utile pour assurer un équilibrage de charge uniforme des demandes afin d’utiliser efficacement le débit et le stockage approvisionnés. L’utilisation d’*algorithmes de hachage* cohérents permet de réduire la quantité de données à déplacer lors de l’ajout ou de la suppression d’une partition.
 
-Vous n'êtes pas obligé de choisir une seule technique de partitionnement. Une *combinaison* de ces techniques (partitionnement composite) peut également être utile selon le scénario. Par exemple, si vous stockez des données télémétriques de véhicules, une approche pertinente consisterait à partitionner les données télémétriques des périphériques par plage pour l'horodatage afin de simplifier la gestion des partitions, puis à créer des partitions secondaires pour le numéro d'identification de véhicule (VIN) afin d'assurer la montée en charge pour le débit (partitionnement composite par plage/hachage).
+Vous n'êtes pas obligé de choisir une seule technique de partitionnement. Une *combinaison* de ces techniques (partitionnement composite) peut également être utile selon le scénario. Par exemple, si vous stockez des données télémétriques de véhicules, une approche pertinente consisterait à partitionner les données télémétriques des appareils par plage pour l'horodatage afin de simplifier la gestion des partitions, puis à créer des partitions secondaires pour le numéro d'identification de véhicule (VIN) afin d'assurer la montée en charge pour le débit (partitionnement composite par plage/hachage).
 
 ## Développement d'une application partitionnée
 Il existe trois zones de conception clés à examiner lors du développement d'une application partitionnée sur DocumentDB.
@@ -78,7 +78,7 @@ Examinons de plus près chacune de ces zones.
 
 ## Routage des créations et des requêtes
 
-Le routage de demandes de création de document est direct pour le partitionnement par hachage et par plage. Le document est créé sur la partition à partir de la valeur de hachage, de recherche ou de plage correspondant à la clé de partition.
+Le routage de demandes de création de document est direct pour le partitionnement par hachage et par plage. Le document est créé sur la partition à partir de la valeur de hachage ou de plage correspondant à la clé de partition.
 
 La portée des lectures et les requêtes doit normalement être limitée à une seule clé de partition, afin que les requêtes puissent être distribuées uniquement sur les partitions correspondantes. Des requêtes sur toutes les données, cependant, vous obligeraient à *distribuer* la demande sur plusieurs partitions, puis à fusionner les résultats. N'oubliez pas que certaines requêtes peuvent être obligées d'exécuter une logique personnalisée pour fusionner les résultats, par exemple, lors de l'extraction des N premiers résultats.
 
@@ -92,7 +92,7 @@ Sinon, vous pouvez la stocker dans n'importe quel magasin persistant. Un modèle
 
 Avec DocumentDB, vous pouvez ajouter et supprimer à tout moment des collections, et les utiliser pour stocker les nouvelles données entrantes ou rééquilibrer les données disponibles sur les collections existantes. Pour connaître le nombre de collections, consultez la page [Limites](documentdb-limits.md). Vous pouvez toujours nous contacter pour augmenter ces limites.
 
-L'ajout et la suppression d'une nouvelle partition avec le partitionnement par recherche et par plage sont des opérations simples. Par exemple, pour ajouter une nouvelle région géographique ou une nouvelle plage de temps pour les données récentes, il vous suffit d'ajouter les nouvelles partitions au mappage de partitions. Le fractionnement d'une partition existante en plusieurs partitions ou la fusion de deux partitions nécessitent un petit effort supplémentaire. Vous devez
+L’ajout et la suppression d’une nouvelle partition avec le partitionnement par plage sont des opérations simples. Par exemple, pour ajouter une nouvelle région géographique ou une nouvelle plage de temps pour les données récentes, il vous suffit d'ajouter les nouvelles partitions au mappage de partitions. Le fractionnement d'une partition existante en plusieurs partitions ou la fusion de deux partitions nécessitent un petit effort supplémentaire. Vous devez
 
 - soit mettre la partition hors connexion pour les lectures ;
 - soit acheminer les lectures vers les deux partitions en utilisant l'ancienne configuration de partitionnement, ainsi que la nouvelle configuration de partitionnement pendant la migration. Notez que les transactions et les garanties de niveau de cohérence ne seront pas disponibles avant la fin de la migration.
@@ -112,4 +112,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

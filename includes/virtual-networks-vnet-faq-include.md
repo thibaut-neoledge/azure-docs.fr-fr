@@ -58,7 +58,7 @@ Il n’existe aucune limite sur le nombre de sous-réseaux que vous utilisez dan
 
 ### Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
 
-Azure réserve des adresses IP dans chaque sous-réseau. La première et la dernière adresse IP des sous-réseaux sont réservées à la conformité du protocole, ainsi que deux adresses supplémentaires utilisées pour les services Azure.
+Azure réserve des adresses IP dans chaque sous-réseau. La première et la dernière adresse IP des sous-réseaux sont réservées à la conformité du protocole, ainsi que 3 adresses supplémentaires utilisées pour les services Azure.
 
 ### Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 
@@ -221,7 +221,8 @@ Vous pouvez uniquement utiliser les services de calcul au sein des réseaux virt
 
 Non. Une application web Azure ne peut pas être déployée dans un réseau virtuel. Toutefois, des applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connectivité de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les liens suivants :
 
-- [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

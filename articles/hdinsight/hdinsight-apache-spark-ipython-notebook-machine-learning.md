@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Utilisation d'Apache Spark pour créer des applications d'apprentissage automatique sur HDInsight | Microsoft Azure"
-	description="Instructions pas à pas sur l’utilisation de blocs-notes avec Apache Spark pour créer des applications d’apprentissage automatique"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Utilisation d'Apache Spark pour créer des applications d'apprentissage automatique sur HDInsight | Microsoft Azure" 
+	description="Instructions pas à pas sur l’utilisation de blocs-notes avec Apache Spark pour créer des applications d’apprentissage automatique" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -43,9 +43,13 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 ##<a name="app"></a>Écrire une application d’apprentissage automatique à l’aide de Spark MLlib
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
- 
-2. Lancez le bloc-notes [Jupyter](https://jupyter.org). Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+
+	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l’URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster :
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
@@ -57,7 +61,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 3. Commencez à créer votre application d’apprentissage automatique. Dans cette application, nous utilisons un pipeline Spark ML pour effectuer une classification de documents. Dans le pipeline, nous fractionnons le document en mots, que nous convertissons en vecteur de fonctionnalité numérique avant de créer un modèle de prédiction utilisant les vecteurs et étiquettes de fonctionnalité.
 
-	Pour créer l’application, commencez par importer les modules requis et affecter des ressources à l’application. Dans la cellule vide du nouveau bloc-notes, collez l’extrait suivant, puis appuyez sur **MAJ + ENTRÉE**.
+	Pour créer l’application, commencez par importer les modules requis et affecter des ressources à l’application. Dans la cellule vide du nouveau bloc-notes, collez l’extrait suivant, puis appuyez sur **Maj + Entrée**.
 
 
 		from pyspark.ml import Pipeline
@@ -92,7 +96,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
  
 4. À présent, vous devez charger les données (hvac.csv), les analyser et les utiliser pour effectuer l’apprentissage du modèle. Pour ce faire, vous devez définir une fonction qui vérifie si la température réelle du bâtiment est supérieure à la température cible. Si la température réelle est supérieure, le bâtiment est chaud, ce qui est indiqué par la valeur **1.0**. Si la température réelle est inférieure, le bâtiment est froid, ce qui est indiqué par la valeur **0.0**.
 
-	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **Maj + Entrée**.
 
 		
 		# List the structure of data for better understanding. Becuase the data will be
@@ -142,7 +146,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 		model = pipeline.fit(training)
 
-7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+7. Vérifiez le document d’apprentissage pour contrôler votre progression dans l’application. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **Maj + Entrée**.
 
 		training.show()
 
@@ -190,7 +194,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
                       (6L, "7 22")]) \
     		.map(lambda x: Document(*x)).toDF() 
 
-9. Pour finir, effectuez des prédictions sur les données de test. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**.
+9. Pour finir, effectuez des prédictions sur les données de test. Collez l’extrait suivant dans une cellule vide, puis appuyez sur **Maj + Entrée**.
 
 		# Make predictions on test documents and print columns of interest
 		prediction = model.transform(test)
@@ -209,7 +213,7 @@ Nous utilisons ces données pour prédire si un bâtiment sera plus chaud ou plu
 
 	Dans la première ligne de la prédiction, vous pouvez voir que pour un système HVAC pourvu de l’ID 20 et d’une ancienneté du système de 25 ans, le bâtiment sera chaud (**prediction=1.0**). La première valeur de DenseVector (0.49999) correspond à la prédiction 0.0, et la seconde valeur (0.5001) correspond à la prédiction 1.0. Dans le résultat, même si la seconde valeur n’est que légèrement supérieure, le modèle indique **prediction=1.0**.
 
-11. À présent, vous pouvez quitter le bloc-notes en redémarrant le noyau. Dans la barre de menus supérieure, cliquez successivement sur **Kernel**, **Restart** et **Restart** à nouveau lorsque vous y êtes invité.
+11. À présent, vous pouvez quitter le bloc-notes en redémarrant le noyau. Dans la barre de menus supérieure, cliquez successivement sur **Kernel**, **Restart** et **Restart** de nouveau quand vous y êtes invité.
 
 	![Redémarrer le noyau Jupyter](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Jupyter.Restart.Kernel.png "Redémarrer le noyau Jupyter")
 	  	   
@@ -243,4 +247,4 @@ Les clusters Apache Spark sur HDInsight incluent des bibliothèques Anaconda, 
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

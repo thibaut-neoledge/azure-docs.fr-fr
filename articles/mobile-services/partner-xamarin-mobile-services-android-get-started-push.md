@@ -28,7 +28,7 @@ Ce didacticiel requiert les éléments suivants :
 + Un compte Google actif.
 + Le composant client [Google Cloud Messaging]. Vous ajouterez ce composant au cours du didacticiel.
 
-Les composants [Xamarin.Android] et [Azure Mobile Services] doivent déjà être installés dans votre projet dès la fin du didacticiel [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante].
+Les composants [Xamarin.Android] et [Azure Mobile Services] doivent déjà être installés dans votre projet dès la fin du didacticiel [Prise en main de Mobile Services].
 
 ##<a id="register"></a>Activation de Google Cloud Messaging
 
@@ -65,8 +65,6 @@ Vous avez terminé ce didacticiel.
 
 Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
-* [Ajouter Mobile Services à une application existante] <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de services mobiles.
-
 * [Prise en main de l'authentification](mobile-services-android-get-started-users.md) <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec des types de comptes différents utilisant des services mobiles.
 
 * [Présentation de Notification Hubs](../notification-hubs-overview.md) <br/>Découvrez comment Notification Hubs opère pour envoyer des notifications à vos applications sur toutes les principales plateformes clientes.
@@ -79,12 +77,10 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 
 <!-- URLs. -->
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
-[Ajout de Mobile Services à une application existante]: mobile-services-android-get-started-data.md
-[Ajouter Mobile Services à une application existante]: mobile-services-android-get-started-data.md
 
 [Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

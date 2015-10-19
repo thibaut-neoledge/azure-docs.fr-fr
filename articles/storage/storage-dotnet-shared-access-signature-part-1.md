@@ -39,7 +39,7 @@ Un service où les utilisateurs lisent et écrivent leurs propres données dans 
 
 ![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
-2\.	Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
+2\. Un service léger authentifie le client en fonction des besoins, puis génère une signature d’accès partagé. Une fois que le client reçoit la signature, il peut accéder aux ressources du compte de stockage directement avec les autorisations définies par la signature d'accès partagé et pendant l'intervalle autorisé par cette dernière. La signature d'accès partagé atténue la nécessité du routage de toutes les données via le service proxy frontal.
 
 ![sas-storage-provider-service][sas-storage-provider-service]
 
@@ -72,7 +72,7 @@ Les jetons de SAP de compte et de SAP de service incluent des paramètres commun
 - **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. 
 - **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d'expiration pour une signature d'accès partagé, soit de l'associer à une stratégie d'accès stockée (voir plus loin).
 - **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
-- **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP dont les demandes doivent être acceptées. 
+- **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute). 
 - **Protocole.** Paramètre facultatif qui spécifie le protocole autorisé pour une demande. Les valeurs possibles sont HTTPS et HTTP à la fois (https,http), qui est la valeur par défaut, ou HTTPS uniquement (https). Notez que HTTP uniquement n’est pas une valeur autorisée.
 - **Signature.** La signature est construite à partir des autres paramètres spécifiés pour le jeton, puis chiffrée. Elle est utilisée pour authentifier la SAP.
 
@@ -320,4 +320,4 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

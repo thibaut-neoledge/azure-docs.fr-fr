@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="10/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 - Ajout d’un gestionnaire d’événements pour vérifier la progression de la tâche.
 - Envoyez le travail.
 		
-		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset, string pathToLocalPresetFile)
+		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		{
 		    // Declare a new job.
 		    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
@@ -125,4 +125,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Comment générer une miniature à l'aide de Media Encoder Standard avec .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Vue d'ensemble du codage Media Services codage](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
- pageTitle="Tailles de machines virtuelles"
+ pageTitle="Tailles des machines virtuelles | Microsoft Azure"
  description="Répertorie les différentes tailles de machines virtuelles et leurs capacités."
  services="virtual-machines"
  documentationCenter=""
@@ -49,7 +49,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 *   Quand vous utilisez SQL Server Enterprise Edition, sélectionnez une machine virtuelle avec 4 ou 8 cœurs de processeur.
 
-*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, voir la rubrique [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/fr-FR/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d’assistance.
+*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, voir la rubrique [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/fr-fr/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d’assistance.
 
 *   Les tailles de machines virtuelles A8/A10 et A9/A11 présentent les mêmes capacités. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n'ont pas besoin d'une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
 
@@ -85,7 +85,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|
-|A0\\ très petite|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 500|
+|A0\\très petite|1|768 Mo|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 20 Go</p>|1|1 x 500|
 |A1\\petite|1|1,75 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 70 Go</p>|2|2 x 500|
 |A2\\moyenne|2|3,5 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 135 Go</p>|4|4 x 500|
 |A3\\grande|4|7 Go|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 285 Go</p>|8|8 x 500|
@@ -167,4 +167,4 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

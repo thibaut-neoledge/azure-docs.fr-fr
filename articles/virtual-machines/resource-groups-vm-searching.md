@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec PowerShell et l’interface de ligne de commande Azure"
-	description="Découvrez comment déterminer l’éditeur, l’offre et le Kit de développement logiciel (SDK) pour les images lorsque vous créez une machine virtuelle Azure avec Resource Manager."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Parcourir et sélectionner des images de machine virtuelle | Microsoft Azure"
+   description="Découvrez comment déterminer l’éditeur, l’offre et la référence SKU pour des images quand vous créez une machine virtuelle Azure avec le modèle de déploiement Resource Manager."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager"
+   />
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="command-line-interface"
+   ms.workload="infrastructure"
+   ms.date="08/25/2015"
+   ms.author="rasquill"/>
 
 # Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure
 
-> [AZURE.NOTE]Lorsque vous recherchez des images de machine virtuelle dans cette rubrique, vous utilisez le [mode Azure Resource Manager](../resource-group-overview.md) avec une installation récente de l’interface de ligne de commande pour Mac, Linux et Windows ou de Windows PowerShell. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`. Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](xplat-cli-azure-resource-manager.md) et [Utiliser PowerShell avec Resource Manager](../powershell-azure-resource-manager.md) pour des informations plus complètes sur la mise à jour et la configuration.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la recherche d’images de machine virtuelle dans le modèle de déploiement Resource Manager. Vous pouvez également rechercher des images dans le [modèle de déploiement classique](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+
+Cet article explique comment parcourir et sélectionner des images de machine virtuelle, à l’aide d’une installation récente d’Azure PowerShell ou de l’interface de ligne de commande Azure. Vous devez au préalable passer en mode Resource Manager. Avec l'interface CLI Azure, entrez ce mode en tapant `azure config mode arm`. Avec PowerShell, tapez `Switch-AzureMode AzureResourceManager`. Consultez les rubriques [Utiliser l’interface de ligne de commande Azure avec Resource Manager](xplat-cli-azure-resource-manager.md) et [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md) pour des informations plus complètes sur la mise à jour et la configuration.
 
 ## Tableau des images couramment utilisées
 
@@ -67,7 +70,7 @@ La façon la plus simple et la plus rapide de rechercher une image à utiliser a
 
 La colonne **Urn** aura le même format que celui que vous passez à `azure vm quick-create`.
 
-Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en détectant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite location avec un emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
+Toutefois, il est fréquent que vous ignoriez encore ce qui est disponible. Dans ce cas, vous pouvez parcourir les images en détectant d’abord les éditeurs à l’aide de la commande `azure vm image list-publishers` et en répondant à l’invite d’emplacement avec un emplacement de centre de données que vous envisagez d’utiliser pour votre groupe de ressources. Par exemple, la liste suivante répertorie tous les éditeurs d'images présents dans l'emplacement « West US » (passez l'argument location en utilisant des minuscules et en supprimant les espaces des emplacements standard).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -134,7 +137,7 @@ Avec ces informations, vous pouvez maintenant trouver exactement l’image souha
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](xplat-cli-azure-resource-manager.md).
+Vous pouvez maintenant choisir précisément l'image que vous voulez utiliser. Pour créer rapidement une machine virtuelle en utilisant les informations d’URN que vous venez de trouver, ou pour utiliser un modèle avec ces informations d’URN, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 
 ### Vidéo de procédure pas à pas
 
@@ -240,4 +243,4 @@ Cette vidéo illustre les étapes ci-dessus à l'aide de PowerShell.
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

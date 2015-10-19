@@ -127,7 +127,7 @@ Azure Media Services vous permet également d’ajouter un chiffrement Widevine.
 	
 	}
 
->[AZURE.NOTE]Lors du chiffrement avec Widevine, vous ne pourriez effectuer une remise qu’avec DASH. Veillez à spécifier DASH (2) dans le protocole de remise de ressources.
+>[AZURE.NOTE]Lors du chiffrement avec Widevine, vous ne pourriez effectuer une remise qu’avec DASH. Veillez à spécifier DASH dans le protocole de distribution d’éléments multimédia.
 
 
 ##Stratégie de remise de ressources DynamicEnvelopeEncryption 
@@ -328,4 +328,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

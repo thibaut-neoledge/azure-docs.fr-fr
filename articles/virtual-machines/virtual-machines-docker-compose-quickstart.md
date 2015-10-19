@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Prise en main de Docker et Compose sur une machine virtuelle Microsoft Azure"
-   description="Brève introduction de l’utilisation de Compose et Docker sur Microsoft Azure"
+   pageTitle="Docker et Compose sur une machine virtuelle | Microsoft Azure"
+   description="Brève introduction de l’utilisation de Compose et Docker sur des machines virtuelles Azure"
    services="virtual-machines"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Prise en main de Docker et Compose sur une machine virtuelle Microsoft Azure
 
 Cet article vous montre comment commencer à utiliser Docker et [Compose](http://github.com/docker/compose) pour définir et exécuter une application complexe sur une machine virtuelle Linux dans Azure. Avec Compose (le successeur de *Fig*), un fichier texte simple vous permet de définir une application composée de plusieurs conteneurs Docker. Faites ensuite tourner votre application dans une seule commande qui fait tout pour l’exécuter sur la machine virtuelle. À titre d’exemple, cet article vous explique comment configurer rapidement un blog WordPress avec une base de données SQL MariaDB principale, mais vous pouvez également utiliser Compose pour configurer des applications plus complexes.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article s’applique à la création de machines virtuelles à l’aide de Resource Manager et des modèles de déploiement classique.
 
 Si vous découvrez Docker et les conteneurs, visionnez la vidéo [Docker high level whiteboard](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/) (en anglais).
 
@@ -84,7 +87,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
 
@@ -123,4 +128,4 @@ L’écran de démarrage de WordPress, vous permettant de terminer l’installat
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@ Azure Site Recovery peut être intégré aux technologies BCDR SQL Server résum
 
 
 
+
+
 Le tableau suivant récapitule nos recommandations pour intégrer les technologies BCDR de SQL Server dans le déploiement d’Azure Site Recovery.
 
 **Version** |**Édition** | **Déploiement** | **Local à local** | **Local vers Azure** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 ou 2012 | Entreprise | Instance de cluster de basculement | Groupes de disponibilité AlwaysOn | Groupes de disponibilité AlwaysOn
  | Entreprise | Groupes de disponibilité AlwaysOn pour la haute disponibilité | Groupe de disponibilité AlwaysOn | Groupe de disponibilité AlwaysOn
  | Standard | Instance de cluster de basculement | Réplication Site Recovery avec miroir local | Réplication Site Recovery avec miroir local
@@ -362,4 +364,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

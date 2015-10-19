@@ -50,7 +50,10 @@ Lorsque vous créez une tâche d'importation ou d'exportation, vous avez égalem
 ### Exigences et portée
 
 1.	**Abonnement et comptes de stockage :** vous devez être titulaire d'un abonnement Azure et posséder un ou plusieurs comptes de stockage pour pouvoir utiliser le service Import/Export. Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une tâche ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md).
-2.	**Disques durs :** seuls les disques durs SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs jusqu'à 6 To sont pris en charge. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l'aide d'un adaptateur USB SATA II/III.
+2.	**Disques durs :** seuls les disques durs internes SATA II/III de 3,5 pouces sont pris en charge par le service Import/Export. Les disques durs jusqu'à 6 To sont pris en charge. Dans le cas des tâches d'importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS. Vous pouvez raccorder un disque SATA II/III par voie externe à la plupart des ordinateurs à l’aide d’un adaptateur USB SATA II/III externe.
+
+  >[AZURE.IMPORTANT]Les disques durs externes équipés d’un adaptateur USB ne sont pas pris en charge par ce service. Ne préparez pas de lecteur de disque dur. Le disque dans le boîtier externe ne peut pas non plus être utilisé pour l’importation de données. Utilisez un lecteur de disque dur **interne** SATA II/III de 3,5 pouces. Si vous ne pouvez pas connecter le disque SATA directement à votre ordinateur, utilisez un adaptateur SATA/USB externe. Consultez la liste des adaptateurs recommandés dans la section Forum aux questions.
+
 3.	**Chiffrement BitLocker :** toutes les données stockées sur les disques durs doivent être chiffrées à l’aide de BitLocker avec des clés de chiffrement protégées par des mots de passe numériques.
 4.	**Cibles de stockage d’objets blob** : les données peuvent être téléchargées vers ou à partir d’objets blob de blocs ou de pages. 
 5.	**Nombre de tâches :** un client peut avoir au maximum 20 tâches actives par compte de stockage.
@@ -188,6 +191,8 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 > [AZURE.NOTE]Si le convertisseur dont vous disposez n’est pas répertorié ci-dessus, vous pouvez tenter de l’utiliser pour exécuter l’outil Microsoft Azure Import/Export pour voir s’il fonctionne avec avant d’en acheter un qui soit pris en charge.
 
+- Les lecteurs de disque dur externes équipés d’un adaptateur USB ne sont pas pris en charge.
+
 **Que faire si je souhaite importer ou exporter plus de 10 lecteurs ?**
 
 - Le service Import/Export limite chaque tâche d’importation ou d’exportation au référencement de 10 lecteurs. Si vous souhaitez en expédier plus, vous pouvez créer plusieurs tâches.
@@ -269,4 +274,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Ajouter une authentification à votre application Mobile Services Android (backend JavaScript)
@@ -108,4 +108,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

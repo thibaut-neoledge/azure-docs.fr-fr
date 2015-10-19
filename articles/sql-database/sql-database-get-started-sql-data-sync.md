@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
-#Prise en main de la synchronisation des données SQL Azure (version préliminaire)
-Dans ce didacticiel, vous allez vous familiariser avec les concepts de base de la synchronisation des données SQL Azure à l’aide de la version préliminaire du portail Azure.
+#Prise en main d’Azure SQL Data Sync (version préliminaire)
+Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’Azure SQL Data Sync à l’aide de la version préliminaire du portail Azure.
 
 
 Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de la base de données SQL Azure. Au cours de ce didacticiel, vous allez créer un groupe de synchronisation hybride (instances SQL Server et base de données SQL) entièrement configuré et synchronisé avec la planification que vous avez définie.
@@ -195,11 +195,11 @@ Félicitations ! Vous avez créé un groupe de synchronisation incluant une ins
 ## Étapes suivantes
 Pour plus d’informations sur la base de données SQL et la synchronisation des données SQL, consultez les pages suivantes :
 
-* [Contenu de synchronisation des données SQL sur MSDN Library](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Télécharger la documentation technique sur la synchronisation des données SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 * [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST" 
-	description="Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide des API REST." 
+	pageTitle="Prendre en main la diffusion de contenus à la demande à l’aide de l’API REST" 
+	description="Ce didacticiel vous présente les étapes d’implémentation d’une application de diffusion de contenu à la demande avec Azure Media Services au moyen de l’API REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -16,7 +16,7 @@
 	ms.date="09/18/2015" 
 	ms.author="juliako"/>
 
-#Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide des API REST 
+#Prendre en main la diffusion de contenus à la demande à l’aide de l’API REST
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -1189,15 +1189,18 @@ Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsp
 Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
 
+##Étapes suivantes
 
-##Parcours d’apprentissage de Media Services
+###Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+### Vous recherchez quelque chose d’autre ?
 
+Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
 ##Ressources supplémentaires
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
@@ -1211,4 +1214,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

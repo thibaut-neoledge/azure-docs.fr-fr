@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Batterie de serveurs SharePoint
@@ -52,7 +52,8 @@ Pour créer votre batterie SharePoint avec le modèle Batterie de serveurs Share
 7. Pour configurer vos serveurs SharePoint, cliquez sur la flèche. Vous pouvez indiquer un préfixe de nom d’hôte (par défaut, il s’agit du nom du groupe de ressources), la taille de vos serveurs SharePoint (A2 par défaut), un compte d’utilisateur SharePoint (par défaut, il s’agit de sp\_setup) et un mot de passe, un nom de compte de batterie de serveurs SharePoint (par défaut, il s’agit de sp\_farm) et un mot de passe, ainsi qu’une phrase secrète de batterie de serveurs SharePoint. Par défaut, vous utiliserez le mot de passe administrateur du compte d'utilisateur SharePoint, le compte de la batterie de serveurs et une phrase secrète.
 8. Pour configurer les paramètres de configuration facultatifs pour le réseau virtuel, le compte de stockage ou les diagnostics, cliquez sur la flèche correspondante.
 9. Pour indiquer l'abonnement, cliquez sur la flèche.
-10. Une fois ces opérations effectuées, cliquez sur **Créer**.
+10. Pour indiquer l’emplacement Azure, cliquez sur la flèche.
+11. Une fois ces opérations effectuées, cliquez sur **Créer**.
 
 > [AZURE.NOTE]Le contrôleur de domaine ne dispose pas des outils de gestion Active Directory installés par défaut. Pour installer ces derniers, exécutez la commande **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** à partir d’une invite de commandes Windows PowerShell de niveau administrateur sur la machine virtuelle du contrôleur de domaine.
 
@@ -81,9 +82,8 @@ Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes 
 
 Remarques :
 
-- Le Portail Azure en version préliminaire crée ces machines virtuelles dans l’abonnement spécifié.
 - La version préliminaire du portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
-- Vous pouvez administrer ces serveurs par le biais de connexions Bureau à distance. Pour plus d’informations, voir l’article [Connexion à une machine virtuelle exécutant Windows Server](virtual-machines-log-on-windows-server.md).
+- Vous pouvez administrer ces serveurs par le biais de connexions Bureau à distance. Pour plus d’informations, consultez [Connexion à la machine virtuelle](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine).
 
 ## Azure Resource Manager
 
@@ -93,10 +93,8 @@ La fonctionnalité Batterie de serveurs SharePoint du portail Azure en version p
 
 [Informations de configuration de la batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[SharePoint Server sur les services d’infrastructure Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

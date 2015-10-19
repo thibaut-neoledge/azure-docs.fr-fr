@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Connexion à une machine virtuelle exécutant Linux dans Azure"
+	pageTitle="Ouvrir une session sur une machine virtuelle Linux dans Azure | Microsoft Azure"
 	description="Apprenez à vous connecter à une machine virtuelle Azure exécutant Linux en utilisant un client SSH (Secure Shell)."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 
 #Connexion à une machine virtuelle exécutant Linux #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation d’une machine virtuelle créée à l’aide du modèle de déploiement classique. Vous pouvez suivre une procédure similaire pour une machine virtuelle créée à l’aide du [modèle de déploiement Resource Manager](virtual-machines-linux-tutorial-portal-rm.md).
 
 Pour une machine virtuelle exécutant un système d'exploitation Linux, vous devez utiliser un client SSH (Secure Shell) pour vous connecter.
 
@@ -53,4 +56,4 @@ Vous pouvez désormais utiliser la machine virtuelle tout comme vous le feriez a
 <!-- LINKS -->
 [Réinitialisation d’un mot de passe ou SSH pour les machines virtuelles Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

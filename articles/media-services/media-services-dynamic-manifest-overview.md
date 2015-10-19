@@ -192,6 +192,9 @@ Pour combiner des filtres, vous devez définir les noms de filtre dans l’URL d
 
 Vous pouvez combiner jusqu’à 3 filtres.
 
+Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support).
+
+
 ##Problèmes connus et limitations
 
 - Le manifeste dynamique fonctionne dans les limites d'un groupe d'images (GOP) (images clés), par conséquent, le découpage est précis au niveau du GOP. 
@@ -203,7 +206,7 @@ Vous pouvez combiner jusqu’à 3 filtres.
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Voir aussi
@@ -230,4 +233,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

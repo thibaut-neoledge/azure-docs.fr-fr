@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="07/24/2015" />
+	ms.date="10/01/2015" />
 
 # Profils de score (API REST Azure Search Version 2015-02-28-Preview)
 
@@ -300,7 +300,7 @@ Cette section présente la syntaxe et le modèle de profils de calcul de score. 
 </tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>Les valeurs autorisées sont true ou false (par défaut). Quand la valeur est true, la valorisation complète continue de s'appliquer aux documents dont la valeur pour le champ cible est supérieure à la limite supérieure de la plage. Quand la valeur est false, la valorisation de cette fonction ne s'applique pas aux documents dont la valeur pour le champ cible se situe en dehors de la plage.</td>
 </tr><tr>
-<td>freshness</td>	<td>La fonction de calcul de score freshness permet de modifier les scores de classement d'éléments en fonction des valeurs des champs DateTimeOffset. Par exemple, un élément dont la date est plus récente peut être classé plus haut que des éléments plus anciens. Dans la version de service actuelle, une extrémité de la plage doit être définie sur l'heure réelle. La vitesse à laquelle la valorisation passe d'une plage maximale à une plage minimale est déterminée par l'interpolation appliquée au profil de calcul de score (voir la figure ci-dessous). Pour inverser le facteur de valorisation appliqué, choisissez un facteur inférieur à 1.</td>
+<td>freshness</td>	<td>La fonction de calcul de score freshness permet de modifier les scores de classement d'éléments en fonction des valeurs des champs DateTimeOffset. Par exemple, un élément dont la date est plus récente peut être classé plus haut que des éléments plus anciens. (Notez qu’il est également possible de classer les éléments tels que les événements de calendrier comportant des dates futures afin que les éléments plus proches de la date du jour soient classés plus haut que les éléments plus éloignés dans le temps). Dans la version de service actuelle, une extrémité de la plage doit être définie sur l'heure réelle. L’autre extrémité est une heure dans le passé basée sur l’attribut «&#160;boostingDuration&#160;». Pour valoriser une plage d’heures à venir, utilisez un attribut «&#160;boostingDuration&#160;» négatif. La vitesse à laquelle la valorisation passe d'une plage maximale à une plage minimale est déterminée par l'interpolation appliquée au profil de calcul de score (voir la figure ci-dessous). Pour inverser le facteur de valorisation appliqué, choisissez un facteur inférieur à 1.</td>
 </tr><tr>
 <td>freshness | boostingDuration</td>	<td>Définit une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Pour en savoir plus sur la syntaxe et découvrir des exemples, consultez [Set boostingDuration ][#bkmk_boostdur] dans la section suivante.</td>
 </tr><tr>
@@ -338,9 +338,9 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 <a name="bkmk_boostdur"></a>
 ##Définition de boostingDuration
 
-`boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants.
+`boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants. Ou pour valoriser des événements qui vont se produire au cours de la semaine à venir, spécifiez « -P7D ».
 
-La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle appliqué est : « P[nD][T[nH][nM][nS]] ».
+La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle appliqué est : « [-]P[nD][T[nH][nM][nS]] ».
 
 Le tableau suivant fournit plusieurs exemples.
 
@@ -370,4 +370,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

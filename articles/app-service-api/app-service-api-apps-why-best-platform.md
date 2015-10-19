@@ -30,7 +30,7 @@ API Apps offre des fonctionnalités de développement, de déploiement, de publi
 
 - **Utilisation facile** : le support [Swagger](http://swagger.io/) intégré facilite l’utilisation de vos API par un certain nombre de clients. Le Kit de développement logiciel (SDK) d’API Apps peut générer le code client de vos API dans divers langages, par exemple C#, Java et Javascript.
 
-- **Contrôle d’accès simple** : les services d’authentification intégrés prennent en charge Azure Active Directory ou d’autres services tiers (comme Facebook et Twitter). Vous pouvez protéger une API d’application de tout accès non authentifié sans apporter de modifications à votre code. Si vous êtes familiarisé avec les services d’authentification fournis par [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication) : les applications API s’appuient sur cette infrastructure et s’étendent aux API hébergées par API Apps. Le Kit de développement logiciel (SDK) d’App Service vous permet également d’utiliser une syntaxe simplifiée pour le code d’autorisation. Pour plus d’informations, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
+- **Contrôle d’accès simple** : les services d’authentification intégrés prennent en charge Azure Active Directory ou d’autres services tiers (comme Facebook et Twitter). Vous pouvez protéger une application API de tout accès non authentifié sans apporter de modifications à votre code. Si vous êtes familiarisé avec les services d’authentification fournis par [Azure Mobile Services](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication) : les applications API s’appuient sur cette infrastructure et s’étendent aux API hébergées par API Apps. Le Kit de développement logiciel (SDK) d’App Service vous permet également d’utiliser une syntaxe simplifiée pour le code d’autorisation. Pour plus d’informations, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
 
 - **Connexion facile aux plateformes SaaS** : les [applications API de connecteur](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) dans Azure Marketplace sont fournies par Microsoft et certaines autres sociétés pour simplifier le code à écrire pour assurer l’interaction avec SalesForce, Office 365, Twitter, Facebook, Dropbox et bien d’autres encore.
 
@@ -70,10 +70,10 @@ La plupart de ces fonctionnalités, comme le Marketplace public et les mises à 
 
 Pour prendre en main les applications API, suivez le didacticiel [Créer une application API](app-service-dotnet-create-api-app.md).
 
-Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/fr-fr/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

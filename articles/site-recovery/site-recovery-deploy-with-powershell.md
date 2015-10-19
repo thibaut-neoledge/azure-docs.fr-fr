@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Automatisation de la protection entre un site local VMM et Azure à l’aide de PowerShell"
-	description="Automatisation du déploiement d&#39;Azure Site Recovery à l&#39;aide de PowerShell."
+	description="Automatisation du déploiement d'Azure Site Recovery à l'aide de PowerShell."
 	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="lauraa"/>
 
 #  Déploiement d'Azure Site Recovery avec PowerShell
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

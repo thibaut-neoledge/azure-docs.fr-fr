@@ -17,15 +17,11 @@
 	ms.author="wesmc"/>
 
 # Utilisation de Notification Hubs à partir de Node.js
-
-> [AZURE.SELECTOR]
-- [Java](notification-hubs-java-backend-how-to.md)
-- [PHP](notification-hubs-php-backend-how-to.md)
-- [Python](notification-hubs-python-backend-how-to)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 ##Vue d'ensemble
 
-Ce guide vous montre comment utiliser Notification Hubs depuis les applications Node.js. Les scénarios abordés comprennent l'**envoi de notifications aux applications Android, iOS, Windows Phone et Windows Store**. Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes](#next).
+Ce guide vous montre comment utiliser Notification Hubs depuis les applications Node.js. Les scénarios abordés comprennent l'**envoi de notifications aux applications Android, iOS, Windows Phone et Windows Store**. Pour plus d'informations sur les hubs de notification, consultez la section [Étapes suivantes](#next).
 
 ##Présentation de Notification Hubs
 
@@ -67,15 +63,15 @@ Pour utiliser Azure Notification Hubs, vous devez télécharger et utiliser le p
 
 ### Configuration d’une connexion Azure Notification Hubs
 
-L'objet **NotificationHubService** vous permet d'utiliser les concentrateurs de notification. Le code suivant crée un objet **NotificationHubService** pour le concentrateur de notification nommé **hubname**. Ajoutez-le vers le début du fichier **server.js**, après l'instruction relative à l'importation du module Azure :
+L'objet **NotificationHubService** vous permet d'utiliser les hubs de notification. Le code suivant crée un objet **NotificationHubService** pour le hub de notification nommé **hubname**. Ajoutez-le vers le début du fichier **server.js**, après l'instruction relative à l'importation du module Azure :
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
 Pour obtenir la valeur de connexion **connectionstring** à partir du portail de gestion Azure, suivez les étapes ci-dessous :
 
-1. Sur le portail de gestion Azure, sélectionnez **Service Bus**, puis l'espace de noms qui contient le concentrateur de notification.
+1. Sur le portail de gestion Azure, sélectionnez **Service Bus**, puis l'espace de noms qui contient le hub de notification.
 
-2. Sélectionnez **NOTIFICATION HUBS**, puis le concentrateur à utiliser.
+2. Sélectionnez **NOTIFICATION HUBS**, puis le hub à utiliser.
 
 3. Sélectionnez **Afficher la chaîne de connexion** dans la section **aperçu rapide** et copiez la valeur de la chaîne de connexion.
 
@@ -217,4 +213,4 @@ Maintenant que vous avez appris les principes de base de l’utilisation de Noti
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

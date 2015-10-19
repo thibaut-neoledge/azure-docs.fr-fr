@@ -43,7 +43,7 @@ Le Kit de développement logiciel (SDK) de service IoT suivant peut être télé
 
 - [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][]
 
-## Documentation de référence d’API
+## Documentation de référence d’API en ligne
 
 Voici une liste de liens de documentation de référence d’API en ligne pour les bibliothèques d’appareils Azure IoT :
 
@@ -73,4 +73,4 @@ Voici une liste de liens de documentation de référence d’API en ligne pour l
 [Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

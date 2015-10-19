@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS"
+	pageTitle="Prise en main de Mobile Services pour les applications Xamarin iOS | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Xamarin iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -7,30 +7,28 @@
 	manager="dwrede"
 	editor=""/>
 
-
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
-
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application <em>To do list</em> qui stocke les données d'application dans le nouveau service mobile.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin.iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile.
 
 Si vous préférez regarder une vidéo, sachez que celle ci-dessous suit la même procédure que ce didacticiel.
 
 Vidéo : « Prise en main de Xamarin et d'Azure Mobile Services » avec Craig Dunn, évangéliste du développement pour Xamarin (durée : 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 Voici une capture d'écran de l'application terminée :
 
@@ -80,7 +78,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet, et démarrez l'application dans l'émulateur iPhone (configuration par défaut pour ce projet).
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_ , puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
@@ -100,17 +98,16 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Prise en main des données] <br/>
-Découvrez comment ajouter une nouvelle table à un service mobile, puis lire cette table et y écrire.
+* [Prise en main de la synchronisation des données hors connexion] Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l’application réactive et robuste.
 
-* [Prise en main de la synchronisation des données hors connexion] <br/>
-Découvrez comment le démarrage rapide utilise la synchronisation des données hors connexion afin de rendre l'application réactive et robuste.
+* [Prise en main de l’authentification] Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Prise en main de l'authentification] <br/>
-En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
+* [Prise en main des notifications Push] Découvrez comment envoyer une notification Push très basique à votre application.
 
-* [Prise en main des notifications Push] <br/>
-En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Comment utiliser le client Xamarin Component pour Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -130,9 +127,8 @@ En savoir plus sur l'envoi d'une notification Push très basique sur votre appli
 
 
 <!-- URLs. -->
-[Prise en main des données]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-xamarin-ios-get-started-offline-data.md
-[Prise en main de l'authentification]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Prise en main de l’authentification]: partner-xamarin-mobile-services-ios-get-started-users.md
 [Prise en main des notifications Push]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
@@ -140,4 +136,4 @@ En savoir plus sur l'envoi d'une notification Push très basique sur votre appli
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

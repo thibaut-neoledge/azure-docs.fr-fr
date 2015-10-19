@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/02/2015"
 	ms.author="markusvi"/>
 
 
@@ -75,13 +75,13 @@ Pour que l'authentification unique fonctionne, Azure AD a besoin de savoir qui 
  
 Pour configurer et tester l'authentification unique Azure AD avec Questetra BPM Suite, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l'authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d'utiliser cette fonctionnalité.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d'un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l'authentification unique Azure AD avec Britta Simon.
-4. **[Création d'un utilisateur de test Questetra BPM Suite](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans Questetra BPM Suite qui soit lié à la représentation Azure AD associée.
+4. **[Création d'un utilisateur de test Questetra BPM Suite](#creating-a-questetra-bpm-suite-test-user)** pour avoir un équivalent de Britta Simon dans Questetra BPM Suite qui soit lié à la représentation Azure AD associée.
 5. **[Affectation d'un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d'utiliser l'authentification unique Azure AD.
 5. **[Test de l'authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### Configuration de l’authentification unique Azure AD
+### Configuration de l’authentification unique Azure AD
 
 L'objectif de cette section est d'activer l'authentification unique Azure AD dans le portail Azure AD et de configurer l'authentification unique dans votre application Questetra BPM Suite.<br>
 
@@ -103,9 +103,9 @@ L'objectif de cette section est d'activer l'authentification unique Azure AD da
  
     a. Sur votre site d'entreprise **Questetra BPM Suite**, dans la section des informations SP, copiez l'**URL ACS** et collez-la dans la zone de texte **URL d'authentification**.
 
-    b. Sur votre site d'entreprise **Questetra BPM Suite**, dans la section des informations SP, copiez l'**ID d'entité** et collez-le dans la zone de texte **URL de l'émetteur** et la zone de texte **URL de réponse**.
+    b. Sur votre site d'entreprise **Questetra BPM Suite**, dans la section des informations SP, copiez l'**ID d'entité** et collez-le dans la zone de texte **URL de l'émetteur**.
 
-    c. Sur votre site d'entreprise **Questetra BPM Suite**, dans la section des informations SP, copiez l'**ID d'entité** et collez-le dans la zone de texte **URL de réponse** et la zone de texte **URL de réponse**.
+    c. Sur votre site d'entreprise **Questetra BPM Suite**, dans la section des informations SP, copiez l'**URL ACS** et collez-la dans la zone de texte **URL de réponse**.
 
     d. Cliquez sur **Next**.
 
@@ -135,10 +135,10 @@ L'objectif de cette section est d'activer l'authentification unique Azure AD da
     h. Cliquez sur **Enregistrer**.
 
 
-9. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l'authentification unique, puis cliquez sur **Suivant**.<br><br>![Qu’est-ce qu’Azure AD Connect ?][17]
+9. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][17]
 
 
-10. Sur la page **Confirmation de l'authentification unique**, cliquez sur **Terminer**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][18]
+10. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][18]
 
 
 
@@ -150,26 +150,26 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Créer un utilisateur de test Azure AD][100] 
 
-2. Dans la liste **Répertoire**, sélectionnez le répertoire pour lequel vous voulez activer l'intégration de répertoire.
+2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3. Pour afficher la liste des utilisateurs, dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Créer un utilisateur de test Azure AD][101]
+3. Pour afficher la liste des utilisateurs, dans le menu du haut, cliquez sur **Utilisateurs**. <br><br>![Créer un utilisateur de test Azure AD][101]
 
-4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d'outils située en bas. <br><br>![Créer un utilisateur de test Azure AD][102]
+4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, dans la barre d’outils en bas, cliquez sur **Ajouter un utilisateur**. <br><br>![Créer un utilisateur de test Azure AD][102]
 
-5. Dans la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][103]
+5. Sur la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][103]
  
-    a. Dans **Type d'utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
+    a. Dans **Type d’utilisateur**, sélectionnez **Nouvel utilisateur dans votre organisation**.
   
-    b. Dans la **zone de texte** Nom d'utilisateur, tapez **BrittaSimon**.
+    b. Dans la zone de texte **Nom d’utilisateur**, tapez **BrittaSimon**.
 
     c. Cliquez sur Suivant.
-6.  Dans la page **Profil utilisateur**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][104] 
+6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][104] 
   
-    a. Dans la zone de texte **Prénom**, tapez **Britta**.
+    a. Dans la zone de texte **First Name**, tapez **Britta**.
  
-    b. Dans la zone de texte **Nom**, tapez **Simon**.
+    b. Dans la zone de texte **Last Name**, tapez **Simon**.
 
-    c. Dans la zone de texte **Nom d'affichage**, tapez **Britta Simon**.
+    c. Dans la zone de texte **Nom d’affichage**, tapez **Britta Simon**.
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**.
 
@@ -177,8 +177,8 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br>![Créer un utilisateur de test Azure AD][105]
 
-8. Dans la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][106]
-  1. Notez la valeur du **Nouveau mot de passe**.
+8. Sur la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Créer un utilisateur de test Azure AD][106]
+  1. Notez la valeur de **Nouveau mot de passe**.
   2. Cliquez sur **Terminé**.   
   
  
@@ -208,17 +208,17 @@ L'objectif de cette section est de permettre à Britta Simon d'utiliser l'authen
 
 **Pour attribuer Britta Simon à Questetra BPM Suite, procédez comme suit :**
 
-1. Dans la vue de répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut.<br><br>![Qu’est-ce qu’Azure AD Connect ?][201]
+1. Dans le portail Azure, pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.<br> <br>![Qu’est-ce qu’Azure AD Connect ?][201]
 2. Dans la liste des applications, sélectionnez **Questetra BPM Suite**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][205]
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][202]
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.<br> <br>![Qu’est-ce qu’Azure AD Connect ?][202]
 1. Dans la liste des utilisateurs, sélectionnez **Britta Simon**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][203]
-2. Dans la barre d'outils située en bas, cliquez sur **Affecter**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][204]
+2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][204]
 
 
 
 ### Test de l’authentification unique
 
-L'objectif de cette section est de tester la configuration de l'authentification unique Azure AD à l'aide du volet d'accès.<br> Lorsque vous cliquez sur la vignette Questetra BPM Suite dans le volet d'accès, vous devez être connecté automatiquement à votre application Questetra BPM Suite.
+L’objectif de cette section est de tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.<br> Lorsque vous cliquez sur la vignette Questetra BPM Suite dans le volet d'accès, vous devez être connecté automatiquement à votre application Questetra BPM Suite.
 
 
 ## Ressources supplémentaires
@@ -265,4 +265,4 @@ L'objectif de cette section est de tester la configuration de l'authentification
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

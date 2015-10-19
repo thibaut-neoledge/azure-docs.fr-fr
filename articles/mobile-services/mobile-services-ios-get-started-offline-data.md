@@ -261,7 +261,6 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [Suppression réversible]: mobile-services-using-soft-delete.md
@@ -271,4 +270,4 @@ Pour synchroniser le magasin local avec le serveur, vous avez utilisé `MSSyncTa
 
 [Démarrage rapide de Mobile Services]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

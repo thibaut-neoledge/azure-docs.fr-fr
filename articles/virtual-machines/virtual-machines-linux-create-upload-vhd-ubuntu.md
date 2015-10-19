@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # Préparation d'une machine virtuelle Linux Ubuntu pour Azure
@@ -36,15 +36,15 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 ##
 
-1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
 2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 
 3.	Remplacez les référentiels actuels dans l'image par les référentiels Azure Ubuntu. Les étapes varient légèrement selon la version d'Ubuntu.
 
-	Avant de modifier /etc/apt/sources.list, il est recommandé d'effectuer une sauvegarde
+	Avant de modifier /etc/apt/sources.list, il est recommandé d’effectuer une sauvegarde :
 
 		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -54,38 +54,26 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
 		# sudo apt-get update
 
-	Ubuntu 12.10 :
-
-		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
-		# sudo apt-get update
-
-	Ubuntu 14.04+ :
+	Ubuntu 14.04 :
 
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Exécutez la commande suivante pour mettre à jour le système d'exploitation avec le dernier noyau :
+4. Les images Ubuntu Azure suivent désormais le noyau *HWE* (HardWare Enablement). Exécutez les commandes suivantes pour mettre à jour le système d’exploitation avec le dernier noyau :
 
 	Ubuntu 12.04 :
 
 		# sudo apt-get update
-		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+		# sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
+		# sudo apt-get install hv-kvp-daemon-init
 		(recommended) sudo apt-get dist-upgrade
 
 		# sudo reboot
 
-	Ubuntu 12.10 :
+	Ubuntu 14.04 :
 
 		# sudo apt-get update
-		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
-		(recommended) sudo apt-get dist-upgrade
-
-		# sudo reboot
-
-	Ubuntu 14.04+ :
-
-		# sudo apt-get update
+		# sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
 		# sudo apt-get install hv-kvp-daemon-init
 		(recommended) sudo apt-get dist-upgrade
 
@@ -124,4 +112,11 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 11. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Sept15_HO4-->
+## Références ##
+
+Noyau HWE (HardWare Enablement) Ubuntu
+
+- [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
+- [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+
+<!---HONumber=Oct15_HO2-->

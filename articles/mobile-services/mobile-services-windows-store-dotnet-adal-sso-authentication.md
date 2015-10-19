@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Authentification de votre application avec le service d&#39;authentification unique de la bibliothèque d&#39;authentification Active Directory (Windows Store) | Microsoft Azure"
-	description="Découvrez comment authentifier les utilisateurs pour l&#39;authentification unique avec la bibliothèque d&#39;authentification AD dans votre application Windows Store."
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (Windows Store) | Microsoft Azure"
+	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application Windows Store."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -35,7 +35,7 @@ Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire vo
 Ce didacticiel requiert les éléments suivants :
 
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
-* L'exécution du didacticiel [Prise en main de Mobile Services] ou [Prise en main de données].
+* Exécution du didacticiel [Prise en main de Mobile Services]
 * Kit de développement logiciel (SDK) Microsoft Azure Mobile Services – Package NuGet
 * Bibliothèque d'authentification Active Directory – Package NuGet
 
@@ -212,9 +212,8 @@ Votre service mobile est maintenant configuré dans AAD de manière à accepter 
 <!-- URLs. -->
 [Inscription auprès d'Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
-[Prise en main de données]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Tableau de bord du centre de développement Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

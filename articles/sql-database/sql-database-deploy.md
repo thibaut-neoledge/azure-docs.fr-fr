@@ -3,7 +3,7 @@
 	description="Déployez une base de données SQL Server sur Azure SQL Database à l’aide de l’Assistant dans SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # Déploiement d’une base de données SQL Server dans Azure SQL Database
@@ -593,4 +593,4 @@ Pour obtenir un didacticiel sur la création d’une base de données SQL Azure,
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

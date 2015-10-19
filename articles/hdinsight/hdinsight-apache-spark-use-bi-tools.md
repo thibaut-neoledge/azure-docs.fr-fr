@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,9 +40,13 @@ Dans cette section, nous allons utiliser le bloc-notes [Jupyter](https://jupyter
 
 Une fois vos données enregistrées dans une table Hive, nous allons nous connecter, dans la prochaine section, à la table Hive à l’aide d’outils décisionnels comme Power BI et Tableau.
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**. 
- 
-2. Lancez le bloc-notes [Jupyter](https://jupyter.org). Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Jupyter**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+
+	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Jupyter pour votre cluster en ouvrant l'URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 2. Créer un nouveau bloc-notes. Cliquez sur **Nouveau**, puis sur **Python 2**.
 
@@ -62,13 +66,13 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
+	À chaque exécution d’une tâche dans Jupyter, le titre de la fenêtre du navigateur web affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s'affiche également en regard du texte **Python 2** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
 	 ![État d’un travail de bloc-notes Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "État d’un travail de bloc-notes Jupyter")
 
-4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Chargez un exemple de données dans une table temporaire. Lorsque vous approvisionnez un cluster Spark dans HDInsight, le fichier exemple de données, **hvac.csv**, est copié vers le compte de stockage associé dans **\\HdiSamples\\SensorSampleData\\hvac**.
 
-	Collez l’extrait suivant dans une cellule vide, puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table Hive appelée **hvac**.
+	Dans une cellule vide, collez l’extrait suivant puis appuyez sur **MAJ + ENTRÉE**. Cet extrait enregistre les données dans une table Hive appelée **hvac**.
 
 
 		# Create an RDD from sample data
@@ -83,7 +87,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 		hvacTable.registerAsTable("hvactemptable")
 		hvacTable.saveAsTable("hvac")
 
-5. Vérifiez que la table a bien été créée. Collez l’extrait suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE**.
+5. Vérifiez que la table a bien été créée. Dans une cellule vide du bloc-notes, collez l’extrait suivant puis appuyez sur **MAJ + ENTRÉE**.
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -96,7 +100,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 	Seules les tables dont la colonne **isTemporary** est définie sur False sont des tables Hive qui sont stockées dans le metastore et qui sont accessibles à partir des outils décisionnels. Dans ce didacticiel, nous allons nous connecter à la table **hvac** que nous venons de créer.
 
-6. Vérifiez que la table contient les données prévues. Collez l’extrait suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE**.
+6. Vérifiez que la table contient les données prévues. Dans une cellule vide du bloc-notes, collez l’extrait suivant puis appuyez sur **MAJ + ENTRÉE**.
 
 		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
 	
@@ -104,7 +108,7 @@ Une fois vos données enregistrées dans une table Hive, nous allons nous connec
 
 	![Redémarrer le noyau Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Restart.Kernel.png "Redémarrer le noyau Jupyter")
 
-##<a name="powerbi"></a>Utiliser Power BI pour analyser les données de la table Hive
+##<a name="powerbi"></a>Utilisation de Power BI pour analyser les données de la table Hive
 
 Une fois que vous avez enregistré les données dans une table Hive, vous pouvez utiliser Power BI pour vous connecter aux données et les visualiser afin de créer des rapports, des tableaux de bord, etc.
 
@@ -208,4 +212,4 @@ Une fois que vous avez enregistré les données dans une table Hive, vous pouvez
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/01/2015" 
 	ms.author="stefsch"/>
 
 # Présentation de l'architecture réseau des environnements App Service
@@ -40,7 +40,9 @@ Pour plus d'informations sur la façon d'autoriser la connectivité Internet sor
 ## Adresses réseau sortantes ##
 Lorsqu'un environnement App Service effectue des appels sortants, une adresse IP est toujours associée aux appels sortants. L'adresse IP spécifique utilisée varie suivant si le point de terminaison appelé se trouve dans la topologie de réseau virtuel ou en dehors de la topologie de réseau virtuel.
 
-Si le point de terminaison appelé est **en dehors** de la topologie de réseau virtuel, alors l'adresse sortante (également appelé adresse NAT sortante) utilisée est l'adresse VIP publique de l'environnement App Service. Cette adresse se trouve dans l'interface utilisateur du portail de l'environnement App Service (remarque : UX en attente).
+Si le point de terminaison appelé est **en dehors** de la topologie de réseau virtuel, alors l'adresse sortante (également appelé adresse NAT sortante) utilisée est l'adresse VIP publique de l'environnement App Service. Cette adresse se trouve dans l'interface utilisateur du portail de l'environnement App Service, dans le panneau Propriétés.
+ 
+![Adresse IP sortante][OutboundIPAddress]
 
 Il est également possible de déterminer cette adresse en créant une application dans l'environnement App Service, puis en effectuant une opération *nslookup* sur l'adresse de l'application. L'adresse IP obtenue est à la fois l'adresse VIP publique et l'adresse NAT sortante de l'environnement App Service.
 
@@ -60,9 +62,13 @@ Dans le diagramme ci-dessus :
 ## Appels entre les environnements App Service ##
 Un scénario plus complexe peut se produire si vous déployez plusieurs environnements App Service dans le même réseau virtuel et effectuez des appels sortants à partir d’un environnement App Service vers un autre environnement App Service. Ces types d’appels entre les environnements App Service seront également traités comme des appels « Internet ».
 
-Comme exemple d’utilisation de l’environnement App Service ci-dessus avec l’adresse IP sortante 192.23.1.2 : si une application s’exécutant sur l’environnement App Service effectue un appel sortant vers une application s’exécutant sur un deuxième environnement App Service situé dans le même réseau virtuel, les appels sortants arrivant sur le deuxième environnement App Service s’affichent comme provenant de l’adresse 192.23.1.2 (autrement dit, pas la plage d’adresses de sous-réseau du premier environnement App Service).
+Le diagramme suivant illustre un exemple d’architecture en couches avec des applications dans un environnement App Service (par exemple, des applications web de « porte d’entrée ») appelant des applications dans un environnement App Service (par exemple, des applications d'API internes principales qui ne sont pas destinées à être accessibles via Internet).
 
-Même si les appels entre les différents environnements App Service sont traités comme des appels « Internet », lorsque les deux environnements App Service se trouvent dans la même région Azure, le trafic réseau reste sur le réseau Azure régional et ne circule pas physiquement sur le réseau Internet public. Par conséquent, vous pouvez utiliser un groupe de sécurité réseau sur le sous-réseau du deuxième environnement App Service pour autoriser uniquement les appels entrants à partir de 192.23.1.2, afin de garantir une communication sécurisée entre les environnements App Service.
+![Appels entre les environnements App Service][CallsBetweenAppServiceEnvironments]
+
+Dans l'exemple ci-dessus, l'environnement App Service « ASE One » possède l’adresse IP sortante 192.23.1.2. Si une application en cours d'exécution sur cet environnement App Service effectue un appel sortant vers une application s'exécutant sur un second environnement App Service (« ASE Two ») situé sur le même réseau virtuel, l'appel sortant sera traité comme un appel « Internet ». Par conséquent, le trafic réseau arrivant sur le deuxième environnement App Service s’affichera comme un appel provenant de l’adresse 192.23.1.2 (et non pas la plage d'adresses de sous-réseau du premier environnement App Service).
+
+Même si les appels entre les différents environnements App Service sont traités comme des appels « Internet », lorsque les deux environnements App Service se trouvent dans la même région Azure, le trafic réseau reste sur le réseau Azure régional et ne circule pas physiquement sur le réseau Internet public. Par conséquent, vous pouvez utiliser un groupe de sécurité réseau sur le sous-réseau du deuxième environnement App Service pour autoriser uniquement les appels entrants à partir du premier environnement App Service (dont l’adresse IP sortante est 192.23.1.2), afin de garantir une communication sécurisée entre les environnements App Service.
 
 ## Informations et liens supplémentaires ##
 Vous trouverez plus d’informations sur les ports entrants utilisés par les environnements App Service et l’utilisation de groupes de sécurité réseau pour contrôler le trafic entrant [ici][controllinginboundtraffic].
@@ -77,6 +83,8 @@ Cet [article][ExpressRoute] contient des informations sur l’utilisation d’it
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
+[OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
+[CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

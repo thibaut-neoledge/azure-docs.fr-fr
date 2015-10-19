@@ -44,8 +44,8 @@ Supprimer l'utilisateur | Suppression de l'utilisateur du répertoire
 Définir les propriétés de licence | Définition des propriétés de la licence pour un utilisateur du répertoire
 Réinitialiser le mot de passe de l'utilisateur | Réinitialisation du mot de passe pour un utilisateur du répertoire
 Modifier le mot de passe de l'utilisateur | Modification du mot de passe pour un utilisateur du répertoire
-Modifier la licence de l'utilisateur | Modification de la licence attribuée à un utilisateur du répertoire
-Mettre à jour l'utilisateur | Mise à jour d'un utilisateur dans le répertoire
+Modifier la licence de l'utilisateur | Modification de la licence attribuée à un utilisateur du répertoire Pour voir quelles licences ont été mises à jour, examinez l’événement « Mettre à jour l’utilisateur » juste avant ou après cet événement.
+Mettre à jour l'utilisateur | Mise à jour d'un utilisateur dans le répertoire [Voir ci-dessous](#quotupdate-userquot-attributes) pour les attributs qui peuvent être mis à jour.
 Définir le mot de passe utilisateur | Définition de la propriété qui force un utilisateur à modifier son mot de passe lors de la connexion
 **Événements liés aux groupes** |
 Créer un groupe | Création d’un groupe dans l’annuaire.
@@ -58,9 +58,9 @@ Ajouter un principal du service | Ajout d'un principal du service dans le réper
 Supprimer le principal du service | Suppression d'un principal du service du répertoire
 Ajouter les informations d'identification du principal du service | Ajout des informations d'identification à un principal du service
 Supprimer les informations d'identification du principal du service | Suppression des informations d'identification d'un principal du service
-Ajouter l'entrée de délégation | Ajout d'une entrée de délégation au répertoire
-Définir l'entrée de délégation | Mise à jour d'une entrée de délégation au répertoire
-Supprimer l'entrée de délégation | Suppression d'une entrée de délégation du répertoire
+Ajouter l'entrée de délégation | Création d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire.
+Définir l'entrée de délégation | Mise à jour d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) dans l’annuaire.
+Supprimer l'entrée de délégation | Suppression d’un [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) de l’annuaire.
 **Événements liés aux rôles** |
 Ajouter un membre au rôle | Ajout d'un utilisateur à un rôle de répertoire
 Supprimer un membre du rôle | Suppression d'un utilisateur d'un rôle de répertoire
@@ -89,7 +89,7 @@ Promote tenant to partner
 
 --->
 
-### Attributs de l'utilisateur inclus dans l'événement d'audit de mise à jour utilisateur
+## Attributs de « Mettre à jour l’utilisateur »
 L'événement d'audit « Mettre à jour l'utilisateur » inclut des informations supplémentaires sur les attributs utilisateur qui ont été mis à jour. Pour chaque attribut, la valeur précédente et la nouvelle valeur sont toutes les deux incluses.
 
 Attribut | Description
@@ -106,6 +106,6 @@ StrongAuthenticationRequirement | Dans le cas où l'authentification multi-facte
 StrongAuthenticationUserDetails | Numéro de téléphone de l'utilisateur, numéro de téléphone alternatif et adresse de messagerie utilisés pour la vérification de l'authentification multi-facteur et de la réinitialisation du mot de passe.
 TelephoneNumber | Numéro de téléphone de l'utilisateur
 
-Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit d’Azure Active Directory Azure puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
+Les enregistrements d'audit sont un contrôle requis pour de nombreuses réglementations de conformité. Pour que les clients utilisant la création de rapports d’audit Azure Active Directory puissent respecter les réglementations de conformité, il leur est recommandé d’envoyer une copie de cette rubrique d’aide avec la copie de leur rapport d’audit exporté afin d’expliquer les détails du rapport. Si vous souhaitez comprendre les réglementations de conformité qui sont actuellement respectées par Azure, dirigez-vous vers la [page de conformité](http://azure.microsoft.com/support/trust-center/compliance/) de Microsoft Azure Trust Center.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

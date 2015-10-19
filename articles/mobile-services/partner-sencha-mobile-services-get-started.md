@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main d&#39;Azure Mobile Services et Sencha"
-	description="Suivez ce didacticiel pour commencer à développer avec Mobile Services et l&#39;infrastructure d&#39;application mobile Sencha HTML5."
+	pageTitle="Prise en main d'Azure Mobile Services et Sencha"
+	description="Suivez ce didacticiel pour commencer à développer avec Mobile Services et l'infrastructure d'application mobile Sencha HTML5."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -12,17 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.topic="get-started-article"
+	ms.date="10/09/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services et de Sencha Touch
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Vue d'ensemble
 
-Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l'aide de Sencha Touch, vous allez créer une simple application To Do List qui utilise un service mobile que vous allez définir dans le portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.
+Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l’aide de Sencha Touch, vous allez créer une simple application *To Do List* qui utilise un service mobile que vous allez définir dans le Portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.
 
 Si vous préférez regarder une vidéo, ce clip suit la même procédure que ce didacticiel. Dans cette vidéo, Arthur Kay explique comment créer une application Sencha Touch à l'aide d'un serveur principal Azure Mobile Services.
 
@@ -708,7 +710,10 @@ L'exemple présenté ici est inclus dans le package d'extensions Sencha Touch po
 
 Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensemble des [guides](http://docs.sencha.com/touch/#!/guide)
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

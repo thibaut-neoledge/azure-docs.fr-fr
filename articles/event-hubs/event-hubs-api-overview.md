@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Présentation de l’API des concentrateurs d’événements"
-	description="Un résumé de certaines API clientes .NET des concentrateurs d'événement."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Présentation des API Event Hubs"
+   description="Résumé de certaines API clientes .NET Event Hubs."
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
-# Présentation de l'API des concentrateurs d’événements
+# Présentation des API Event Hubs
 
-Cet article résume certaines des principales API clientes .NET des concentrateurs d’événements. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l'état d'une entité d’un concentrateur d’événements en créant, en modifiant et en supprimant des entités.
+Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état des entités Event Hubs en créant, modifiant et supprimant des entités.
 
-Les scénarios d'analyse couvrent la gestion et l’exécution. Pour une documentation de référence détaillée sur les API .NET, consultez la [bibliothèque de classes .NET](https://msdn.microsoft.com/library/jj933431.aspx) et les informations de référence de l’[API EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx).
+Les scénarios d'analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez la [bibliothèque de classes .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) et les informations de référence de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
 
 ## API de gestion
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### Supprimer
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## API de runtime
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publier un message
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-L’interface [IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
+L’interface [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) est définie comme suit :
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -176,15 +176,15 @@ public class SimpleEventProcessor : IEventProcessor
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
+Pour en savoir plus sur les scénarios Event Hubs, consultez ces liens :
 
-- [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md)
-- [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
-- [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
+- [Vue d’ensemble d’Event Hubs](event-hubs-overview.md)
+- [Exemples de code Event Hubs](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
 
 Les informations de référence de l'API .NET se trouvent ici :
 
-- [Informations de référence des API .NET de Service Bus et des concentrateurs d'événements](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Informations de référence des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

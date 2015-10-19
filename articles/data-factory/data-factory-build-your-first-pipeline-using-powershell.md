@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Azure PowerShell
@@ -32,12 +32,14 @@ Dans cet article, vous apprendrez à utiliser Azure PowerShell pour créer votr
 
 Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
+> [AZURE.IMPORTANT]Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+
 ## Étape 1 : création de la fabrique de données
 
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée ADFTutorialDataFactoryPSH.
 
 1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous le fermez puis le rouvrez, vous devez réexécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure en version préliminaire.  
+	- Exécutez **Add-AzureAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure en version préliminaire.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail en version préliminaire.
 2. Passez en mode AzureResourceManager, car les cmdlets Azure Data Factory sont disponibles uniquement dans ce mode.
@@ -148,7 +150,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 		  }
 		}
 
-	Dans l’exemple précédent, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d’objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
+	Dans l’exemple précédent, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d’objets blob appelé **data** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
 
 2. Exécutez la commande suivante dans Azure PowerShell pour créer la table Data Factory :
 
@@ -201,7 +203,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
-	Dans l’activité JSON, vous spécifiez que le script Hive s’exécute sur l’ordinateur spécifié par le service lié **HDInsightOnDemandLinkedService**.
+	Dans le code JSON de l’activité, vous spécifiez que le script Hive s’exécute sur l’ordinateur spécifié par le service lié **HDInsightOnDemandLinkedService**.
 2. Exécutez la commande suivante pour créer la table Data Factory :
 
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
@@ -261,9 +263,9 @@ Consultez la [référence des applets de commande Data Factory](https://msdn.mic
 
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster Azure HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
 
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

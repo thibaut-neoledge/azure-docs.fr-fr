@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights :exemples de code et procédures pas à pas
@@ -35,7 +35,7 @@ Il s’agit d’une compilation d’exemples de code qui vous montrent comment u
 Pour analyser les données de télémétrie avec vos propres outils, [exportez-les](app-insights-export-telemetry.md) vers un emplacement de stockage, où vous pouvez les analyser et les traiter.
 
 * [Exporter vers Power BI](app-insights-export-power-bi.md) 
-* [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Analyser des données exportées à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Exporter vers SQL à l’aide de Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 * [Activation de la télémétrie pour Microsoft CRM](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@ Pour analyser les données de télémétrie avec vos propres outils, [exportez-l
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

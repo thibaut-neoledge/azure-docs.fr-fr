@@ -1,26 +1,18 @@
-<properties 
-	pageTitle="Exécution de Cassandra avec Linux sur Azure"
-	description="Comment exécuter un cluster Cassandra sous Linux, à partir d’une application Node.js dans Microsoft Azure Virtual Machines"
-	services="virtual-machines"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
-	editor=""/>
+<properties pageTitle="Exécuter Cassandra avec Linux sur Azure | Microsoft Azure" description="Comment exécuter un cluster Cassandra sur Linux dans Azure Virtual Machines à partir d’une application Node.js" services="virtual-machines" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
 	ms.author="mwasson"/>
 
 
-
-
-
 # exécution de Cassandra avec Linux sur Azure et accès au cluster depuis Node.js 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique. Vous pouvez également créer une ressource avec le [modèle de déploiement Resource Manager](virtual-machines-datastax-template.md) au moyen d’un modèle.
 
 ## Vue d'ensemble
 Microsoft Azure est une plateforme de cloud ouverte qui exécute des logiciels Microsoft et non-Microsoft tels que des systèmes d'exploitation, serveurs d'applications, intergiciels de messagerie, ainsi que des bases de données SQL et NoSQL à partir de modèles commerciaux et open source. La création de services résilients sur des clouds publics, y compris Azure, nécessite une planification soignée et une architecture délibérée pour les serveurs d'applications et les niveaux de stockage. L'architecture de stockage distribuée de Cassandra aide naturellement à créer des systèmes hautement disponibles qui offrent une tolérance de panne en cas de défaillance de cluster. Cassandra est une base de données NoSQL à l'échelle du cloud maintenue par Apache Software Foundation à l'adresse cassandra.apache.org ; Cassandra est écrit en Java et s'exécute donc sur Windows, ainsi que sur les plateformes Linux.
@@ -71,8 +63,8 @@ Configuration de cluster Cassandra à une seule région :
 | Facteur de réplication (RF) | 3 |	Nombre de réplicas d'une ligne donnée |
 | Niveau de cohérence (écriture) | QUORUM[(RF/2) +1) = 2] Le résultat de la formule est arrondi vers le bas. | Écrit au plus deux réplicas avant que la réponse soit envoyée à l'appelant ; le troisième réplica est écrit de façon finalement cohérente. |
 | Niveau de cohérence (lecture) | QUORUM [(RF/2) +1= 2] Le résultat de la formule est arrondi vers le bas. | Lit deux réplicas avant d'envoyer la réponse à l'appelant. |
-| Stratégie de réplication | NetworkTopologyStrategy voir [Réplication des données](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) dans la documentation de Cassandra pour plus d’informations | Comprend la topologie de déploiement et place des réplicas sur les nœuds afin que tous les réplicas ne finissent pas sur le même rack |
-| Snitch | GossipingPropertyFileSnitch voir [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra pour plus d’informations | NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch |
+| Stratégie de réplication | NetworkTopologyStrategy (pour plus d’informations, consultez [Réplication des données](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) dans la documentation de Cassandra) | Comprend la topologie de déploiement et place des réplicas sur les nœuds afin que tous les réplicas ne finissent pas sur le même rack |
+| Snitch | GossipingPropertyFileSnitch (pour plus d’informations, consultez [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra) | NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch |
 
 
 **Considérations relatives à Microsoft Azure pour le cluster Cassandra :** les fonctionnalités de machines virtuelles Microsoft Azure utilisent le stockage d’objets blob Azure pour la persistance des disques ; le stockage Azure enregistre trois réplicas de chaque disque pour une durabilité élevée. Cela signifie que chaque ligne de données insérée dans une table Cassandra est déjà stockée dans trois réplicas ; ainsi, la cohérence des données est déjà prise en charge même si le facteur de réplication (RF) est 1. Le principal problème posé par un facteur de réplication de 1 est que l’application subira un temps d’arrêt même en cas de défaillance d’un seul nœud Cassandra. Toutefois, si un nœud est arrêté suite aux problèmes reconnus par Microsoft Azure Fabric Controller (matériel, défaillances de logiciels système), ce dernier approvisionne un nouveau nœud à la place avec les mêmes lecteurs de stockage. L’approvisionnement d’un nouveau nœud pour remplacer l’ancien peut prendre quelques minutes. De même, pour les activités de maintenance planifiée telles que les modifications du système d’exploitation invité, les mises à niveau de Cassandra et les modifications d’applications, Azure Fabric Controller effectue des mises à niveau cumulatives des nœuds dans le cluster. Les mises à niveau cumulatives peuvent également mettre hors connexion plusieurs nœuds à la fois et, par conséquent, le cluster peut subir une interruption de courte durée pour quelques partitions. Toutefois, les données ne seront pas perdues, grâce à la redondance intégrée à Microsoft Azure Storage.
@@ -107,8 +99,8 @@ Les déploiements distribués doivent être conscients de l'impact de la topolog
 | Facteur de réplication (RF) | 3 | Nombre de réplicas d'une ligne donnée |
 | Niveau de cohérence (écriture) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] Le résultat de la formule est arrondi vers le bas | Deux nœuds seront écrits dans le premier centre de données de façon synchrone ; les deux nœuds supplémentaires nécessaires pour le quorum seront écrits de façon asynchrone dans le deuxième centre de données. |
 | Niveau de cohérence (lecture) | LOCAL\_QUORUM ((RF/2) +1) = 2 Le résultat de la formule est arrondi vers le bas | Les demandes de lecture sont satisfaites à partir d'une seule région ; deux nœuds sont lus avant que la réponse soit envoyée au client. |
-| Stratégie de réplication | NetworkTopologyStrategy voir [Réplication des données](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) dans la documentation de Cassandra pour plus d’informations | Comprend la topologie de déploiement et place des réplicas sur les nœuds afin que tous les réplicas ne finissent pas sur le même rack |
-| Snitch | GossipingPropertyFileSnitch voir [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra pour plus d’informations | NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch | 
+| Stratégie de réplication | NetworkTopologyStrategy (pour plus d’informations, consultez [Réplication des données](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) dans la documentation de Cassandra) | Comprend la topologie de déploiement et place des réplicas sur les nœuds afin que tous les réplicas ne finissent pas sur le même rack |
+| Snitch | GossipingPropertyFileSnitch (pour plus d’informations, consultez [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) dans la documentation de Cassandra) | NetworkTopologyStrategy utilise un concept de snitch pour comprendre la topologie. GossipingPropertyFileSnitch procure un meilleur contrôle lors du mappage de chaque nœud au centre de données et au rack. Le cluster utilise ensuite gossip pour propager ces informations. Cela est beaucoup plus simple pour le paramétrage d'adresses IP dynamiques que PropertyFileSnitch | 
  
 
 ##LA CONFIGURATION LOGICIELLE
@@ -124,7 +116,7 @@ Les versions logicielles suivantes sont utilisées lors du déploiement :
 
 Étant donné que le téléchargement de JRE nécessite l'acceptation manuelle de la licence Oracle, pour simplifier le déploiement, téléchargez tous les logiciels nécessaires sur le bureau en vue de leur chargement ultérieur dans l'image du modèle Ubuntu que nous créerons préalablement au déploiement du cluster.
 
-Téléchargez les logiciels ci-dessus dans un répertoire de téléchargements connu (par exemple, %TEMP%/downloads sur Windows ou ~/downloads sur Linux ou Mac) sur le bureau local.
+Téléchargez les logiciels ci-dessus dans un répertoire de téléchargement connu (par exemple, %TEMP%/downloads sur Windows ou ~/Downloads sur la plupart des distributions Linux ou Mac) sur l’ordinateur local.
 
 ### CRÉATION D’UNE MACHINE VIRTUELLE UBUNTU
 Lors de cette étape du processus, nous allons créer une image Ubuntu avec les logiciels prérequis pour que l'image puisse être réutilisée pour l'approvisionnement de plusieurs nœuds Cassandra.
@@ -700,4 +692,4 @@ Microsoft Azure est une plateforme flexible qui autorise l'exécution de logicie
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->
