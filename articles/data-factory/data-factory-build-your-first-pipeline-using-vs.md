@@ -39,7 +39,10 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 ### Conditions préalables
 
-Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**. Mettez à jour « Visual Studio Tools For Azure Data Factory » avec la version la plus récente en sélectionnant Visual Studio 2013 --> Outils --> Mises à jour --> Galerie Visual Studio, puis en cliquant sur « Mettre à jour » dans l'entrée du plug-in « Visual Studio Tools for Azure Data Factory ».
+Vous devez avoir installé le logiciel suivant sur votre ordinateur :
+- Visual Studio 2013
+- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+- Mettez à jour « Visual Studio Tools For Azure Data Factory » avec la version la plus récente en sélectionnant Visual Studio 2013 --> Outils --> Mises à jour --> Galerie Visual Studio, puis en cliquant sur « Mettre à jour » dans l'entrée du plug-in « Visual Studio Tools for Azure Data Factory ».
 
 
 ### Créer le projet Visual Studio 

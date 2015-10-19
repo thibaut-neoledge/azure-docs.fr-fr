@@ -162,9 +162,9 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
     ![][9]
 
-    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps\_development.cer</strong>.
+    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps_development.cer</strong>.
 
-7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
+7. Double-cliquez sur le certificat Push téléchargé **aps_development.cer**.
 
     Ceci installe le nouveau certificat dans le Trousseau d'accès, comme indiqué ci-dessous :
 
@@ -689,7 +689,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 	>[AZURE.NOTE]Dans ce didacticiel, le service mobile envoie une notification toast à l'appareil. Lorsque vous envoyez une notification par vignette, vous devez appeler la méthode **BindToShellTile** sur le canal.
 
-4. En haut du gestionnaire d'événements **Application\_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
+4. En haut du gestionnaire d'événements **Application_Launching** dans App.xaml.cs, ajoutez l'appel suivant à la nouvelle méthode **AcquirePushChannel** :
 
         AcquirePushChannel();
 
@@ -697,7 +697,7 @@ Pour permettre à votre application de recevoir les notifications Push, vous dev
 
 5. Appuyez sur la touche **F5** pour exécuter l'application. Une boîte de dialogue s'affiche avec la clé d'inscription.
   
-6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** soit activée.
+6.	Dans l'Explorateur de solutions, développez **Propriétés**, ouvrez le fichier WMAppManifest.xml, cliquez sur l'onglet **Fonctionnalités** et veillez à ce que la fonctionnalité **ID___CAP___PUSH_NOTIFICATION** soit activée.
 
    	![Activer les notifications dans VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -765,7 +765,7 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	![Notification toast reçue](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
-	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l’application est active, vous devez gérer l’événement (http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx) [ShellToastNotificationReceived].
+	>[AZURE.NOTE]Vous ne recevrez pas cette notification si vous vous trouvez encore dans l'application. Pour recevoir une notification toast pendant que l’application est active, vous devez gérer l’événement [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
    
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates

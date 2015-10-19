@@ -94,14 +94,23 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 	<pre class="prettyprint">
 &lt;appSettings>
   &lt;add key="webpages:Version" value="3.0.0.0" />
+
   &lt;add key="webpages:Enabled" value="false" />
+
   &lt;add key="ClientValidationEnabled" value="true" />
+
   &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
+
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" />
+</del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" />
+</del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" />
+</del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" />
+</mark>
+  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" />
+</mark>
 
 &lt;/appSettings>
 </pre>Renseignez les valeurs de clé en fonction de votre environnement respectif.

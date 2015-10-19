@@ -89,7 +89,8 @@ Les nouvelles fonctionnalités de niveau de service et des niveaux de performanc
 
 | Article | Description |
 |:--|:--|
-|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
+|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
+| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
 |[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
 |[Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
 
