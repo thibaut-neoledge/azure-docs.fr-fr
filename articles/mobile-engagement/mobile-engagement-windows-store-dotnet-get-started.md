@@ -33,7 +33,7 @@ Ce didacticiel requiert les éléments suivants :
 + Visual Studio 2013
 + Package NuGet [MicrosoftAzure.MobileEngagement]
 
-> [AZURE.IMPORTANT]Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications universelles Windows. Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
+> [AZURE.IMPORTANT]Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications universelles Windows. Pour suivre ce didacticiel, vous avez besoin d'un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
 
 ##<a id="setup-azme"></a>Configuration de Mobile Engagement pour votre application universelle Windows
 
@@ -103,21 +103,21 @@ Vous avez maintenant créé un nouveau projet d’application universelle Window
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-1. 	Dans le fichier **MainPage.xaml.cs**, ajoutez l’instruction `using` :
+1. 	Dans le fichier **MainPage.xaml.cs**, ajoutez l’instruction `using` suivante :
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. Remplacez la classe de base de **MainPage** **Page** par **EngagementPage** :
+2. Remplacez la classe de base de **MainPage** **Page** par **EngagementPageOverlay** :
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. Dans le fichier `MainPage.xaml` :
 
 	a. Ajoutez une déclaration d'espace de noms :
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. Remplacez **Page** dans le nom de balise XML par **engagement:EngagementPage**.
+	b. Remplacez **Page** dans le nom de balise XML par **engagement:EngagementPageOverlay**.
 	
 > [AZURE.IMPORTANT]Si votre page remplace la méthode `OnNavigatedTo`, veillez à appeler `base.OnNavigatedTo(e)`. Sinon, l'activité ne sera pas signalée (la `EngagementPage` appelle `StartActivity` à l'intérieur de sa méthode `OnNavigatedTo`). Ceci est particulièrement important dans un projet Windows Phone où le modèle par défaut dispose d’une méthode `OnNavigatedTo`.
 
@@ -171,13 +171,15 @@ Vous êtes prêt à envoyer un toast. Nous allons maintenant vérifier que vous 
 
 [AZURE.INCLUDE [Création d’une campagne push Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Vous devez maintenant voir une notification toast à partir de votre campagne sur votre périphérique (l'application doit être fermée pour voir cette notification toast). Si l’application était en cours d’exécution, assurez-vous alors qu’elle est fermée depuis quelques minutes avant l’activation de la campagne pour pouvoir recevoir des notifications toast. Si vous souhaitez intégrer la notification intra-application afin que la notification s'affiche dans l'application lorsqu'elle est ouverte, consultez [Applications universelles Windows - intégration de superposition].
+Si l’application était en cours d’exécution, une notification dans l’application s’affiche. Par contre, si l’application était fermée, une notification toast apparaît. Si vous voyez une notification dans l’application, mais pas une notification toast, et que vous exécutez l’application en mode débogage dans Visual Studio, accédez à **Événements de cycle de vie -> Interrompre** dans la barre d’outils pour vous assurer que l’application est effectivement suspendue. Si vous avez simplement cliqué sur le bouton Accueil pendant le débogage de l’application dans Visual Studio, l’application n’est pas systématiquement interrompue et la notification dans l’application ne fait pas place à une notification toast.
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Centre de développement du Windows Store]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[Applications universelles Windows - intégration de superposition]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Vous devez maintenant voir une notification toast à partir de votre campagne su
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

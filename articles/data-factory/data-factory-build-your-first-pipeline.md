@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline en utilisant Azure Data Factory
@@ -176,4 +176,4 @@ Effectuez les actions suivantes :
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide du portail Azure | Microsoft Azure"
+	pageTitle="Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure | Microsoft Azure"
 	description="Ce didacticiel vous présente les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide du portail Azure."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Prise en main de la diffusion de contenus vidéo à la demande (VoD) à l’aide du portail Azure
+# Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ Certaines considérations s’appliquent :
 
 
 
-##Parcours d’apprentissage de Media Services
+##Étapes suivantes
+
+###Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Vous recherchez quelque chose d’autre ?
+
+Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
 ### Ressources supplémentaires
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Mettez votre vidéo en ligne dès maintenant.</a>
@@ -254,4 +261,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

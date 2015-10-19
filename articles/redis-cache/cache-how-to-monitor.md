@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Surveillance du cache Redis Azure
@@ -64,6 +64,8 @@ Pour voir les mesures stockées, examinez les tables de votre compte de stockage
 
 Les mesures de cache font l’objet de rapports à différents intervalles, **Dernière heure**, **Aujourd’hui**, **Semaine dernière** et **Personnalisé**. Le panneau **Mesure** de chaque mesure affiche les valeurs moyennes, minimales et maximales de chaque mesure du graphique et certaines mesures affichent le total pour l’intervalle de création des rapports.
 
+Chaque mesure inclut deux versions. La première version mesure les performances de la totalité du cache, tandis que pour les caches qui utilisent le [clustering](cache-how-to-premium-clustering.md), une seconde version de la mesure comportant `(Shard 0-9)` dans son nom évalue les performances d’une seule partition d’un cache. Par exemple, si un cache comporte 4 partitions, `Cache Hits` est la quantité totale d’accès pour le cache entier, tandis que `Cache Hits (Shard 3)` est simplement le nombre d’accès à cette partition du cache.
+
 >[AZURE.NOTE]Même lorsque le cache est inactif sans applications clientes actives connectées, vous pouvez constater une certaine activité du cache, par exemple les opérations en cours d’exécution, l’utilisation de la mémoire et les clients connectés. Cette activité est normale dans le cadre du fonctionnement d’une instance de cache Redis Azure.
 
 | Mesure | Description |
@@ -77,7 +79,8 @@ Les mesures de cache font l’objet de rapports à différents intervalles, **De
 | Charge du serveur Redis | Pourcentage de cycles dans lesquels le serveur Redis est occupé par le traitement et n’est pas inactif, en attente de messages. Si ce compteur atteint 100, c’est que le serveur Redis a atteint un plafond de performances et que le processeur ne peut pas fonctionner plus rapidement. Si vous voyez une forte charge de serveur Redis, des exceptions d’expiration seront levées dans le client. Dans ce cas, vous devez envisager d’effectuer une mise à l’échelle ou bien de partitionner vos données sur plusieurs caches. |
 | Sets | Nombre d’opérations set dans le cache au cours de l’intervalle de création des rapports spécifié. Cette valeur est la somme des valeurs suivantes obtenues de toutes les commandes Redis INFO : `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` et `cmdstat_setnx`. |
 | Total des opérations | Nombre total de commandes traitées par le serveur de cache au cours de l’intervalle spécifié. Cette valeur correspond à la commande Redis INFO `total_commands_processed`. Notez que lorsque le cache Redis Azure est uniquement utilisé pour publication et téléchargement, il n’y a aucune mesure pour `Cache Hits`, `Cache Misses`, `Gets` ou `Sets`, mais il y aura des mesures de `Total Operations` qui reflètent l’utilisation du cache pour ces opérations. |
-| Mémoire utilisée | Quantité de mémoire cache utilisée (exprimée en Mo) au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `used_memory`. |
+| Mémoire utilisée | Quantité de mémoire cache, exprimée en Mo, utilisée pour les paires clé/valeur dans le cache au cours de l’intervalle de création des rapports. Cette valeur correspond à la commande Redis INFO `used_memory`. Elle n’inclut pas les métadonnées ou la fragmentation. |
+| Taille de la mémoire résidente utilisée | Quantité de mémoire cache utilisée (exprimée en Mo) au cours de l’intervalle de création des rapports, fragmentation et métadonnées comprises. Cette valeur correspond à la commande Redis INFO `used_memory_rss`. |
 | UC | Utilisation du processeur du serveur de cache Redis Azure sous forme de pourcentage au cours de l’intervalle de création des rapports spécifiée. Cette valeur correspond au compteur de performances `\Processor(_Total)\% Processor Time` du système d’exploitation. |
 | Lecture du cache | Quantité de données lues dans le cache en kbit/s au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. |
 | Cache d’écriture | Quantité de données écrites dans le cache en kbit/s au cours de l’intervalle de création des rapports. Cette valeur est dérivée des cartes réseau qui prennent en charge la machine virtuelle qui héberge le cache. Elle n’est pas spécifique de Redis. |
@@ -103,11 +106,11 @@ Pour plus d’informations sur les mesures affichées et la personnalisation des
 
 ## Graphiques d’utilisation
 
-La section **Utilisation** contient les graphiques **Charge du serveur Redis**, **Utilisation de la mémoire**, **Bande passante réseau** et **Utilisation du processeur** et affiche également le **niveau de tarification** de l’instance de cache.
+La section **Utilisation** contient les graphiques **Charge du serveur Redis**, **Utilisation de la mémoire**, **Bande passante réseau** et **Utilisation du processeur** et affiche également le **niveau tarifaire** de l’instance de cache.
 
 ![Graphiques d’utilisation][redis-cache-usage-part]
 
-**Niveau de tarification** affiche le niveau de tarification du cache et peut être utilisé pour la [mise à l’échelle](cache-how-to-scale.md) du cache à un autre niveau de tarification.
+**Niveau tarifaire** affiche le niveau tarifaire du cache et peut être utilisé pour la [mise à l’échelle](cache-how-to-scale.md) du cache à un autre niveau tarifaire.
 
 Les graphiques d’**utilisation** affichent les mesures suivantes.
 
@@ -219,4 +222,4 @@ Pour plus d’informations sur les alertes dans Azure, consultez la page [Récep
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -30,7 +30,7 @@ Ce didacticiel est également illustré par Nick Harris dans la vidéo suivante�
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez d'abord suivre le didacticiel [Ajouter Mobile Services à une application existante].
 
->[AZURE.NOTE]Ce didacticiel explique le flux d'authentification géré par Mobile Services via différents fournisseurs d'identité. Cette méthode est facilement configurable et prend en charge plusieurs fournisseurs. Pour utiliser plutôt Live Connect avec authentification gérée par client afin de fournir une authentification unique dans votre application Windows Phone, consultez la rubrique [Authentification unique pour les applications Windows Phone à l'aide de Live Connect]. En utilisant l'authentification gérée par un client, votre application a accès aux données utilisateur supplémentaires conservées par le fournisseur d'identité. Vous pouvez obtenir les mêmes données utilisateur dans votre service mobile en appelant la fonction **user.getIdentities()** dans des scripts serveur. Pour plus d'informations, consultez [ce billet](http://go.microsoft.com/fwlink/p/?LinkId=506605).
+>[AZURE.NOTE]Ce didacticiel explique le flux d'authentification géré par Mobile Services via différents fournisseurs d'identité. Cette méthode est facilement configurable et prend en charge plusieurs fournisseurs. En utilisant l'authentification gérée par un client, votre application a accès aux données utilisateur supplémentaires conservées par le fournisseur d'identité. Vous pouvez obtenir les mêmes données utilisateur dans votre service mobile en appelant la fonction **user.getIdentities()** dans des scripts serveur. Pour plus d'informations, consultez [ce billet](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
 ##<a name="register"></a>Inscrire votre application pour l'authentification et configurer Mobile Services
 
@@ -77,7 +77,6 @@ Dans le didacticiel suivant, [Autorisation côté service des utilisateurs Mobil
 [Ajouter Mobile Services à une application existante]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Authentification unique pour les applications Windows Phone à l'aide de Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

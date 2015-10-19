@@ -12,13 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version du backend JavaScript] de cette rubrique.
 
@@ -103,6 +105,8 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 * [Résolution des problèmes d'un backend .NET Mobile Services ] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un backend .NET Mobile Services.
 
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
 [Create a new mobile service]: #create-new-service
@@ -127,7 +131,6 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [JavaScript and HTML]: mobile-services-win8-javascript/
 [Management Portal]: https://manage.windowsazure.com/
 [version du backend JavaScript]: mobile-services-ios-get-started.md
-[Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 
@@ -135,4 +138,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="10/05/2015" 
 	ms.author="szark"/>
 
 #Utilisation de SSH avec Linux sur Azure
@@ -179,4 +179,4 @@ Nombre d’utilitaires incluent `openssl` pour Windows. Voici quelques exemples�
 5.	Cliquez sur **Ouvrir** pour vous connecter à la machine virtuelle.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

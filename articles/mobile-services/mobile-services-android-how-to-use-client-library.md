@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/11/2015" 
+	ms.date="10/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -649,7 +649,7 @@ Vous êtes désormais prêt à utiliser la liaison des données. Le code qui sui
 
 Vous devez également appeler l'adaptateur à chaque fois que vous modifiez la table *ToDoItem* si vous voulez afficher les résultats de cette modification. Comme les modifications se font enregistrement par enregistrement, vous ne composez qu'avec une seule ligne, et non une collection. Lorsque vous insérez un élément, vous appelez la méthode *add* de l'adaptateur et lorsque vous supprimez un élément, vous appelez la méthode *remove*.
 
-##<a name="#custom-api"></a>Procédure : appel d'une API personnalisée
+##<a name="custom-api"></a>Procédure : appel d'une API personnalisée
 
 Une API personnalisée vous permet de définir des points de terminaison exposant une fonctionnalité de serveur qui ne mappe pas vers une opération d'insertion, de mise à jour, de suppression ou de lecture. En utilisant une API personnalisée, vous pouvez exercer davantage de contrôle sur la messagerie, notamment lire et définir des en-têtes de message HTTP et définir un format de corps de message autre que JSON. Pour obtenir un exemple montrant comment créer une API personnalisée dans votre service mobile, consultez [Procédure : définition d’un point de terminaison dans une API personnalisée](mobile-services-dotnet-backend-define-custom-api.md).
 
@@ -933,4 +933,4 @@ Cette méthode générale peut être utilisée dès lors que nous sommes en pré
 [Prise en main de Mobile Services]: mobile-services-android-get-started.md
 [Codes de contrôle ASCII C0 et C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

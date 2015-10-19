@@ -156,7 +156,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 >
 >1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
 >2. Arrêter le service System Center Virtual Machine Manager
->3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**. 
+>3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**.
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -175,9 +175,9 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
  - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
  - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
  - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification) 
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
-  
+
 ## Étape 4 : Création d’un compte de stockage Azure
 
 Si vous ne possédez pas de compte de stockage Azure, cliquez sur **Ajouter un compte Azure Storage**. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement.
@@ -349,6 +349,5 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="05/20/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # Prise en main rapide de Docker dans Azure Marketplace
@@ -24,7 +24,7 @@ Le moyen le plus rapide pour se familiariser avec [Docker] consiste à accéder 
 
 Vous pouvez immédiatement vous connecter à la machine virtuelle via SSH et commencer à travailler avec Docker directement, sans procédure supplémentaire.
 
-> [AZURE.NOTE]La machine virtuelle créée par le modèle Azure Marketplace n'héberge pas l'API distante Docker pour la gestion par un client Docker distant. Pour activer le contrôle à distance de l’hôte Docker sur cette machine virtuelle, consultez la page [Exécution de Docker avec HTTPS](https://docs.docker.com/articles/https/) ou suivez les étapes de la rubrique [Utilisation de l’extension Docker VM avec le portail Azure](virtual-machines-docker-with-portal.md) ou [Utilisation de l’extension Docker VM à partir de l’interface interplateforme Azure (xplat-cli)](virtual-machines-docker-with-xplat-cli-install.md). Si vous vous sentez l’âme aventureuse, vous pouvez construire le [client Windows Docker](https://github.com/ahmetalpbalkan/Docker.DotNet) par le biais de Github puis essayer cette méthode (ou simplement le récupérer sur [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
+> [AZURE.NOTE]La machine virtuelle créée par le modèle Azure Marketplace n'héberge pas l'API distante Docker pour la gestion par un client Docker distant. Pour activer le contrôle à distance de l’hôte Docker sur cette machine virtuelle, consultez la page [Exécution de Docker avec HTTPS](https://docs.docker.com/articles/https/) ou suivez les étapes de la rubrique [Utilisation de l’extension Docker VM avec le portail Azure](virtual-machines-docker-with-portal.md) ou [Utilisation de l’extension Docker VM à partir de l’interface interplateforme Azure (xplat-cli)](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Si vous souhaitez automatiser votre machine virtuelle Azure Docker à partir de Windows, vous pouvez [installer la boîte à outils Docker](https://docs.docker.com/installation/windows/) ou obtenir Docker.exe à partir du site [Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Connexion au portail
 
@@ -40,7 +40,7 @@ Cette partie est facile, à moins que vous ne disposiez pas d'un compte Azure. [
 
 > ![Rechercher l’image dans la galerie d’images](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. Indiquez le nom d’utilisateur ou le mot de passe de l’instance, ou un fichier **.pem** pour permettre à SSH d’utiliser un certificat. (Le graphique ci-dessous indique comment définir une combinaison nom d'utilisateur/mot de passe.) Appuyez ensuite sur **Créer**, en bas de l’écran.
+3. Indiquez le nom d’utilisateur ou le mot de passe de l’instance, ou le contenu d’un fichier **.pub** (format ssh-rsa) pour permettre à SSH d’utiliser un certificat. (Le graphique ci-dessous indique comment définir une combinaison nom d'utilisateur/mot de passe.) Appuyez ensuite sur **Créer**, en bas de l’écran.
 
 > ![Configurer l’instance de machine virtuelle](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
@@ -77,4 +77,4 @@ L’idéal est de commencer en utilisant [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -28,7 +28,7 @@ Dans cet exemple, nous avons accès à trois sources de données simulées : te
 
 ### Configurer votre Suite IoT
 
-Si vous n’avez pas configuré votre solution préconfigurée de surveillance à distance, vous pouvez la configurer [ici](www.internetofyourthings.com).
+Si vous n’avez pas approvisionné votre solution préconfigurée de surveillance à distance, vous pouvez l’effectuer [ici](http://www.microsoft.com/fr-fr/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Configurer votre appareil dans la solution de surveillance à distance
@@ -127,7 +127,7 @@ Visualisez l’appareil inscrit et les données
 
 Visualisez l’appareil inscrit et les données
 
-7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste de périphériques. ![][18]
+7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils. ![][18]
 
 8. Cliquez sur le tableau de bord pour voir les données arriver. L’exemple est configuré pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Veuillez noter que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
@@ -149,7 +149,7 @@ Connectez l’appareil
 
 - Connectez la carte à votre réseau avec un câble Ethernet. Cette opération est obligatoire, car l’exemple dépend de l’accès Internet.
 
-- Connectez l’appareil à votre ordinateur à l’aide d’un câble micro USB. Veillez à joindre le câble au port USB de l’appareil adéquat, comme illustré [ici](https://developer.mbed.org/platforms/IBMEthernetKit/), dans la section « Prise en main ».
+- Connectez l’appareil à votre ordinateur à l’aide d’un câble micro USB. Veillez à joindre le câble au port USB de l’appareil adéquat, comme illustré [ici](https://developer.mbed.org/platforms/frdm-k64f/), dans la section « Prise en main ».
 
 - Suivez les [instructions du manuel mbed](https://developer.mbed.org/handbook/SerialPC) pour configurer la connexion série vers votre appareil à partir de votre ordinateur de développement. Si vous êtes sous Windows, installez les pilotes de port série Windows situés [ici](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
@@ -177,7 +177,7 @@ Créez le projet mbed et importez l’exemple de code
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
-3. Remplacez [Device Id], [Device Key] par les données de votre périphérique.
+3. Remplacez [Device Id], [Device Key] par les données de votre appareil.
 
 4. Utilisez les données d’appareil du nom d’hôte IoT Hub pour remplir le nom IoTHub et le suffixe IoTHub. Pour ce faire, vous devez les fractionner comme suit :
 
@@ -195,19 +195,18 @@ Créez et exécutez le projet.
 
 - Cliquez sur **Compiler** pour générer le programme. Vous pouvez sans risque ignorer les avertissements, mais si le traitement génère des erreurs, corrigez-les avant de continuer.
 
-- Si la génération est réussie, un fichier .bin portant le nom de votre projet est généré. Copier le fichier .bin sur le périphérique. L’enregistrement du fichier .bin sur l’appareil provoque la réinitialisation de la session de terminal actuelle. Au moment de la reconnexion, réinitialisez de nouveau le terminal manuellement ou démarrez un nouveau terminal. Le périphérique mbed peut ainsi se réinitialiser et commencer l’exécution du programme.
+- Si la génération est réussie, un fichier .bin portant le nom de votre projet est généré. Copier le fichier .bin sur l’appareil. L’enregistrement du fichier .bin sur l’appareil provoque la réinitialisation de la session de terminal actuelle. Au moment de la reconnexion, réinitialisez de nouveau le terminal manuellement ou démarrez un nouveau terminal. L’appareil mbed peut ainsi se réinitialiser et commencer l’exécution du programme.
 
-- Connectez-vous à l’appareil en utilisant une application cliente SSH, tel que PuTTY. Vous pouvez déterminer le port série que votre appareil va utiliser en consultant le Gestionnaire de périphériques Windows :
+- Connectez-vous à l’appareil en utilisant une application cliente SSH, tel que PuTTY. Vous pouvez déterminer le port série que votre appareil va utiliser en consultant le Gestionnaire de périphériques Windows.
 
-	![][10]
 
-- Dans PuTTY, cliquez sur le type de connexion **série**. L’appareil se connecte au 115200. Saisissez cette valeur dans la zone **Vitesse**. Cliquez ensuite sur **Ouvrir** :
+- Dans PuTTY, cliquez sur le type de connexion **série**. L’appareil se connecte au 115200. Entrez cette valeur dans la zone **Vitesse**. Cliquez ensuite sur **Ouvrir** :
 
 	![][11]
 
 Le programme démarre l’exécution. Il se peut que vous deviez réinitialiser le tableau (appuyez sur CTRL + Retour ou appuyez sur le bouton de réinitialisation du tableau) si le programme ne démarre pas automatiquement à la connexion.
 
-Visualisez l’appareil inscrit et les données 7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste de périphériques. ![][18]
+Visualisez l’appareil inscrit et les données 7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils. ![][18]
 
 8. Cliquez sur le tableau de bord pour voir les données arriver. L’exemple est configuré pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Veuillez noter que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
@@ -266,7 +265,7 @@ node .
 3.  Remplacez chacune des variables par les informations réunies lors de l’étape précédente. Enregistrez les modifications.
 
 
-4. Ouvrez un interpréteur de commande (Linux) ou l’invite de commande Node.js (Windows) et accédez au dossier **node\\samples**. Exécutez ensuite l’exemple d’application à l’aide de la commande suivante :
+4. Ouvrez un interpréteur de commande (Linux) ou l’invite de commandes Node.js (Windows) et accédez au dossier **node\\samples**. Exécutez ensuite l’exemple d’application à l’aide de la commande suivante :
 
     ```
     node simple_sample_remotemonitoring.js
@@ -293,7 +292,8 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 - Sélectionnez la commande que vous souhaitez exécuter : dans ce cas, nous avons choisi « Température définie », car nous voulons modifier la température définie pour l’appareil. Sélectionnez cette commande et choisissez la valeur de température. Cliquez sur Envoyer la commande et la nouvelle température est transmise à l’appareil. Remarque : vous verrez que le résultat de la commande est « En attente » dans l’historique des commandes. C’est pourquoi, pour plus de simplicité, les exemples n’ont pas mis en œuvre la logique dans l’appareil pour répondre à IoT Hub. Vous pouvez faire cela en étendant la solution.
 
 	![][14]
-- Revenez au tableau de bord et assurez-vous que les données mises à jour vous parviennent. Vous devez voir les statistiques mises à jour sur la température et les nouvelles données affichées dans l’historique de télémétrie. ![][15]
+- Revenez au tableau de bord et assurez-vous que les données mises à jour vous parviennent. Vous devez voir les statistiques mises à jour sur la température et les nouvelles données affichées dans l’historique de télémétrie.
+
 
 
 
@@ -305,8 +305,8 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## Extension de votre solution
+## Étapes suivantes
 
-Il existe plusieurs façons d’étendre la fonctionnalité de cet exemple : connecter un capteur réel à votre appareil pour envoyer une vraie date d’envoi, mettre en œuvre des fonctionnalités de contrôle de commande, etc. Utilisez notre guide pour savoir comment étendre la solution de surveillance à distance pour en savoir plus à ce sujet.
+Il existe plusieurs façons d’étendre la fonctionnalité de cet exemple : connecter un capteur réel à votre appareil pour envoyer une vraie date d’envoi, mettre en œuvre des fonctionnalités de contrôle de commande, etc. Utilisez notre [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) pour savoir comment étendre la solution de surveillance à distance pour en savoir plus à ce sujet.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Utilisation de Hadoop Hive et de SSH dans HDInsight | Microsoft Azure"
-	description="Découvrez comment utiliser SSH pour vous connecter à un cluster Hadoop sur HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Découvrez comment utiliser SSH pour vous connecter à un cluster Hadoop sur HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Utilisation de Hive avec Hadoop dans HDInsight via SSH
 
@@ -23,7 +23,7 @@
 
 Dans cet article, vous découvrirez comment utiliser Secure Shell (SSH) pour vous connecter à un cluster Hadoop sur Azure HDInsight, et envoyer ensuite des requêtes Hive à l'aide de l'interface de ligne de commande (CLI) Hive.
 
-> [AZURE.NOTE]Si vous êtes déjà familiarisé avec l'utilisation de serveurs Hadoop sur Linux, mais que vous découvrez HDInsight, consultez la rubrique [Informations sur l’utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md).
+> [AZURE.IMPORTANT]Bien que la commande Hive soit disponible sur les clusters HDInsight sous Linux, vous devez envisager d’utiliser Beeline. Beeline est un client plus récent pour l’utilisation de Hive et est inclus dans votre cluster HDInsight. Pour plus d’informations sur son utilisation, consultez [Utiliser Hive avec Hadoop dans HDInsight avec Beeline](hdinsight-hadoop-use-hive-beeline.md).
 
 ##<a id="prereq"></a>Configuration requise
 
@@ -147,4 +147,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

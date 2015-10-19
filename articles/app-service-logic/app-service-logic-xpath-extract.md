@@ -7,16 +7,14 @@
    manager="dwrede"
    editor=""/>
 
-
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
-
 
 #Extracteur XPath BizTalk
 
@@ -52,4 +50,4 @@ L'action retourne le résultat sous forme de chaîne - Result. Result contient l
 <!-- Links -->
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

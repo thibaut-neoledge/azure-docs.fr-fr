@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/29/2015" 
 	ms.author="huguesv"/>
 
 
@@ -137,8 +137,8 @@ Exemple `web.config` pour Python 2.7 :
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -157,6 +157,7 @@ Exemple `web.config` pour Python 2.7 :
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite"
                       url="handler.fcgi/{R:1}"
@@ -186,8 +187,8 @@ Exemple `web.config` pour Python 3.4 :
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -206,6 +207,7 @@ Exemple `web.config` pour Python 3.4 :
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
             </rule>
@@ -218,13 +220,6 @@ Exemple `web.config` pour Python 3.4 :
 Les fichiers statiques sont directement gérés par le serveur web, sans passer par le code Python, afin d’améliorer les performances.
 
 Dans les exemples précédents, l’emplacement des fichiers statiques sur le disque doit correspondre à celui présent dans l’URL. Cela signifie qu’une demande pour `http://pythonapp.azurewebsites.net/static/site.css` renverra au fichier présent sur le disque à l’emplacement `\static\site.css`.
-
-Il est possible de configurer la règle `Static Files` pour renvoyer des fichiers depuis un emplacement du disque différent de l’emplacement présent dans l’URL. Dans la définition de règle suivante, une demande pour `http://pythonapp.azurewebsites.net/static/site.css` renverra le fichier présent sur le disque à l’emplacement `\FlaskWebProject\static\site.css` au lieu de `\static\site.css`.
-
-    <rule name="Static Files" stopProcessing="true">
-      <match url="^/static/.*" ignoreCase="true" />
-      <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
-    </rule>
 
 `WSGI_ALT_VIRTUALENV_HANDLER` est l’emplacement où vous spécifiez le gestionnaire WSGI. Dans les exemples précédents, il s’agit de `app.wsgi_app`, car le gestionnaire correspond à une fonction nommée `wsgi_app` dans `app.py`, dans le dossier racine.
 
@@ -254,6 +249,7 @@ Contenu de `ptvs_virtualenv_proxy.py` :
     import datetime
     import os
     import sys
+    import traceback
 
     if sys.version_info[0] == 3:
         def to_str(value):
@@ -294,20 +290,22 @@ Contenu de `ptvs_virtualenv_proxy.py` :
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
-            raise Exception('WSGI_HANDLER env var must be set')
-        
+            raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
+    
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-
+    
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
         name_list = [(callable_name, should_call)]
         handler = None
+        last_tb = ''
 
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
+                last_tb = ''
                 for name, should_call in name_list:
                     handler = getattr(handler, name)
                     if should_call:
@@ -319,10 +317,11 @@ Contenu de `ptvs_virtualenv_proxy.py` :
                 callable_name = callable_name[:-2] if should_call else callable_name
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
-
+                last_tb = ': ' + traceback.format_exc()
+    
         if handler is None:
-            raise ValueError('"%s" could not be imported' % handler_name)
-
+            raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
+    
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -343,9 +342,9 @@ Contenu de `ptvs_virtualenv_proxy.py` :
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-        
+    
         site.main()
-        
+    
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -375,7 +374,7 @@ Contenu de `ptvs_virtualenv_proxy.py` :
 
 Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -387,4 +386,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

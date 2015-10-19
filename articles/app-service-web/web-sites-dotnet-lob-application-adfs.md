@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
-
 
 # Créer une application web .NET MVC dans Azure App Service avec authentification AD FS
 
@@ -96,23 +94,14 @@ private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIden
 	<pre class="prettyprint">
 &lt;appSettings>
   &lt;add key="webpages:Version" value="3.0.0.0" />
-
   &lt;add key="webpages:Enabled" value="false" />
-
   &lt;add key="ClientValidationEnabled" value="true" />
-
   &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" />
-</del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" />
-</del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" />
-</del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" />
-</mark>
-  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" />
-</mark>
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Entrez l’URI ID d’application de WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Entrez le nom du client, par exemple contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Entrez l’identifiant de la partie de confiance tel que configuré dans AD&#160;FS, par exemple https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Entrez le nom de domaine complet du service AD&#160;FS, par exemple adfs.contoso.com]" /></mark>
 
 &lt;/appSettings>
 </pre>Renseignez les valeurs de clé en fonction de votre environnement respectif.
@@ -146,7 +135,6 @@ Ici, vous allez publier l’application dans une application web d’App Servic
 	<pre class="prettyprint">
 &lt;appSettings>
    &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-
 &lt;/appSettings></pre>
 
 Lorsque vous avez terminé, deux identificateurs de partie de confiance sont configurés dans votre projet, un pour votre environnement de débogage dans Visual Studio et un pour l’application web publiée dans Azure. Vous allez configurer une approbation de partie de confiance pour chacun des deux environnements dans AD FS. Pendant le débogage, les paramètres d’application du fichier Web.config sont utilisés pour que votre configuration **Debug** fonctionne avec AD FS, et après la publication (par défaut, la configuration de **Release** est publiée), un fichier Web.config transformé est téléchargé et il intègre les modifications de paramètre d’application dans Web.Release.config.
@@ -261,7 +249,7 @@ Jusqu’à présent, vous avez réussi ce qui suit :
 - AD FS a correctement authentifié un utilisateur Active Directory et vous a redirigé vers la page d’accueil de l’application
 - AD FS a correctement envoyé la revendication de nom à votre application (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name), comme l’indique le fait que le nom d’utilisateur soit affiché dans le coin. 
 
-Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, !**. Si vous examinez Views\\Shared\\\_LoginPartial.cshtml, vous constatez qu’il utilise `User.Identity.Name` pour afficher le nom d’utilisateur. Comme mentionné précédemment, ASP.NET alimente cette propriété avec la revendication de nom de l’utilisateur authentifié, si elle est disponible dans le jeton SAML. Pour afficher toutes les revendications qui sont envoyées par AD FS, placez un point d’arrêt dans Controllers\\HomeController.cs, dans la méthode d’action Index. Une fois que l’utilisateur est authentifié, inspectez la collection `System.Security.Claims.Current.Claims`.
+Si la revendication de nom était manquante, vous auriez vu le texte **Bonjour, !**. Si vous examinez Views\\Shared\\_LoginPartial.cshtml, vous constatez qu’il utilise `User.Identity.Name` pour afficher le nom d’utilisateur. Comme mentionné précédemment, ASP.NET alimente cette propriété avec la revendication de nom de l’utilisateur authentifié, si elle est disponible dans le jeton SAML. Pour afficher toutes les revendications qui sont envoyées par AD FS, placez un point d’arrêt dans Controllers\\HomeController.cs, dans la méthode d’action Index. Une fois que l’utilisateur est authentifié, inspectez la collection `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -355,4 +343,4 @@ Azure App Service Web Apps prend en charge l’accès aux bases de données 
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

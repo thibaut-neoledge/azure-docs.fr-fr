@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Java
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 		
 Cette rubrique décrit les principales fonctionnalités du nouveau kit de développement logiciel (SDK) Java officiel pour Azure Notification Hub, entièrement pris en charge. Il s’agit d’un projet open source et vous pouvez afficher tout le code du Kit de développement logiciel (SDK) sur [Kit de développement logiciel (SDK) Java].
 
@@ -56,7 +52,7 @@ Génération de :
 	
 	NamespaceManager namespaceManager = new NamespaceManager("connection string")
 
-**Création d’un concentrateur de notification :**
+**Création d’un hub de notification :**
 	
 	NotificationHubDescription hub = new NotificationHubDescription("hubname");
 	hub.setWindowsCredential(new WindowsCredential("sid","key"));
@@ -66,21 +62,21 @@ Génération de :
 
 	hub = new NotificationHub("connection string", "hubname");
 
-**Obtention d’un concentrateur de notification :**
+**Obtention d’un hub de notification :**
 	
 	hub = namespaceManager.getNotificationHub("hubname");
 
-**Mise à jour d’un concentrateur de notification :**
+**Mise à jour d’un hub de notification :**
 	
 	hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
 	hub = namespaceManager.updateNotificationHub(hub);
 
-**Suppression d’un concentrateur de notification :**
+**Suppression d’un hub de notification :**
 	
 	namespaceManager.deleteNotificationHub("hubname");
 
 ### CRUID d’inscription
-**Création d’un client de concentrateur de notification :**
+**Création d’un client de hub de notification :**
 
 	hub = new NotificationHub("connection string", "hubname");
 
@@ -108,7 +104,7 @@ De même, vous pouvez créer des inscriptions pour Android (GCM), Windows Phone 
 
 **Création d’inscriptions à l’aide du moèle registrationid + upsert**
 
-Supprime les doublons dus à des réponses perdues, si les ID d’inscription sont stockées sur le périphérique :
+Supprime les doublons dus à des réponses perdues, si les ID d’inscription sont stockées sur l’appareil :
 
 	String id = hub.createRegistrationId();
 	WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -128,7 +124,7 @@ Supprime les doublons dus à des réponses perdues, si les ID d’inscription so
 	
 		hub.getRegistration(regid);
 	
-* 	**Obtention de toutes les inscriptions du concentrateur :**
+* 	**Obtention de toutes les inscriptions du hub :**
 	
 		hub.getRegistrations();
 	
@@ -143,7 +139,7 @@ Supprime les doublons dus à des réponses perdues, si les ID d’inscription so
 Toutes les requêtes de collection prennent en charge les jetons $top et de continuation.
 
 ### Utilisation de l’API d’installation
-L’API d’installation est un autre mécanisme de gestion des inscriptions. Au lieu de maintenir plusieurs inscriptions, ce qui n’est pas simple et peut facilement être mal effectué, il est possible d’utiliser un objet d’Installation UNIQUE. L’installation contient tout ce dont vous avez besoin : un canal Push (jeton de périphérique), des balises, des modèles, des vignettes secondaires (pour WNS et APN). Vous n’avez plus besoin d’appeler le service pour obtenir l’Id : il suffit de générer un GUID ou tout autre identificateur, de le conserver sur le périphérique et de l’envoyer à votre serveur principal avec le canal Push (jeton de périphérique). Sur le serveur principal, effectuez simplement un appel unique : CreateOrUpdateInstallation est entièrement idempotent. N’hésitez pas à réessayer si nécessaire.
+L’API d’installation est un autre mécanisme de gestion des inscriptions. Au lieu de maintenir plusieurs inscriptions, ce qui n’est pas simple et peut facilement être mal effectué, il est possible d’utiliser un objet d’Installation UNIQUE. L’installation contient tout ce dont vous avez besoin : un canal Push (jeton d’appareil), des balises, des modèles, des vignettes secondaires (pour WNS et APN). Vous n’avez plus besoin d’appeler le service pour obtenir l’Id : il suffit de générer un GUID ou tout autre identificateur, de le conserver sur l’appareil et de l’envoyer à votre serveur principal avec le canal Push (jeton d’appareil). Sur le serveur principal, effectuez simplement un appel unique : CreateOrUpdateInstallation est entièrement idempotent. N’hésitez pas à réessayer si nécessaire.
 
 L’exemple pour Amazon Kindle Fire ressemble à ceci :
 
@@ -225,7 +221,7 @@ Il est parfois nécessaire d’effectuer une opération en bloc vis-à-vis des i
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI avec signature SAS :** c’est l’URL d’un fichier blob ou d’un conteneur d’objets blob et d’un jeu de paramètres tels que les autorisations et l’heure d’expiration, ainsi que la signature de toutes ces opérations effectuées à l’aide de la clé SAS du compte. Le Kit de développement logiciel (SDK) Azure Storage Java dispose de nombreuses fonctionnalités, notamment la création de ce type d’URI. Vous pouvez également examiner la classe de test ImportExportE2E (à partir de l’emplacement github) qui possède une implémentation très basique et compacte de l’algorithme de signature.
+**URI avec signature SAP :** c’est l’URL d’un fichier blob ou d’un conteneur d’objets blob et d’un jeu de paramètres tels que les autorisations et l’heure d’expiration, ainsi que la signature de toutes ces opérations effectuées à l’aide de la clé SAP du compte. Le Kit de développement logiciel (SDK) Azure Storage Java dispose de nombreuses fonctionnalités, notamment la création de ce type d’URI. Vous pouvez également examiner la classe de test ImportExportE2E (à partir de l’emplacement github) qui possède une implémentation très basique et compacte de l’algorithme de signature.
 
 ###Envoi de notifications
 L’objet de Notification est simplement un corps avec des en-têtes. Certaines méthodes utilitaires vous aident à créer les objets de notifications natives et les modèles.
@@ -307,4 +303,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

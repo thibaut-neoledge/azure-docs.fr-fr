@@ -73,7 +73,7 @@ La base de données et le serveur ne sont pas encore créés. Cela se produit ap
 
 	![Créer un exemple de base de données](./media/sql-database-get-started/adworks_create.png)
 
-	>[AZURE.NOTE]Pour cette procédure rapide, nous n’avons pas modifié les paramètres pour les options **Niveau de tarification**, **Classement**, et **Groupe de ressources**. Vous pouvez modifier le niveau de tarification d’une base de données et évoluer à tout moment, sans interruption de service. Voir [Tarification de base de données SQL](http://azure.microsoft.com/pricing/details/sql-database/) et [Niveaux de tarification de base de données SQL](sql-database-service-tiers.md) pour en savoir plus. Le classement d’une base de données ne peut pas être modifié une fois que vous le configurez ici. Voir [Prise en charge d’Unicode et du classement](https://msdn.microsoft.com/library/ms143726.aspx) pour plus d’informations sur le classement. Voir [Présentation d’Azure Resource Manager](resource-group-overview.md) pour en savoir plus sur les groupes de ressources Azure.
+	>[AZURE.NOTE]Pour cette procédure rapide, nous n’avons pas modifié les paramètres pour les options **Niveau de tarification**, **Classement**, et **Groupe de ressources**. Vous pouvez modifier le niveau tarifaire d’une base de données et procéder à une hausse ou une baisse à tout moment, sans interruption de service. Voir [Tarification SQL Database](http://azure.microsoft.com/pricing/details/sql-database/) et [Niveaux tarifaires SQL Database](sql-database-service-tiers.md) pour en savoir plus. Le classement d’une base de données ne peut pas être modifié une fois que vous le configurez ici. Voir [Prise en charge d’Unicode et du classement](https://msdn.microsoft.com/library/ms143726.aspx) pour plus d’informations sur le classement. Voir [Présentation d’Azure Resource Manager](resource-group-overview.md) pour en savoir plus sur les groupes de ressources Azure.
 
 Vous revenez au tableau d’accueil Azure, où une vignette affiche la progression jusqu’à ce que la base de données soit créée et en ligne. Vous pouvez également cliquer sur **Parcourir tout**, puis sur **Bases de données SQL** pour confirmer que la base de données est en ligne.
 	
@@ -101,7 +101,7 @@ Vous devez définir une règle de pare-feu sur le serveur qui autorise les conne
 
 	![Ajouter l’adresse IP](./media/sql-database-get-started/firewall_config_new_rule.png)
 
-	>[AZURE.IMPORTANT]Votre adresse IP est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une nouvelle règle de pare-feu. Vous pouvez vérifier votre adresse IP à l’aide de [Bing](http://www.bing.com/search?q=my%20ip%20address), puis ajouter une adresse IP unique ou une plage d’adresses IP. Voir [Configuration des paramètres du pare-feu](sql-database-configure-firewall-settings.md) pour plus d’informations.
+	>[AZURE.IMPORTANT]Votre adresse IP du client est susceptible de changer de temps à autre, et vous ne serez peut-être pas en mesure d’accéder à votre serveur jusqu’à ce que vous créiez une règle de pare-feu. Vous pouvez vérifier votre adresse IP à l’aide de [Bing](http://www.bing.com/search?q=my%20ip%20address), puis ajouter une adresse IP unique ou une plage d’adresses IP. Voir [Configuration des paramètres du pare-feu](sql-database-configure-firewall-settings.md) pour plus d’informations.
 
 ## Étapes suivantes
 Maintenant que vous avez une base de données avec des exemples de données, vous êtes prêt pour l’exploration à l’aide de vos outils préférés.
@@ -114,4 +114,4 @@ Maintenant que vous avez une base de données avec des exemples de données, vou
 
 - Si vous souhaitez déplacer vos bases de données SQL Server locales vers Azure, voir [Migration d’une base de données vers la base de données SQL Azure](sql-database-cloud-migrate.md) pour en savoir plus.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

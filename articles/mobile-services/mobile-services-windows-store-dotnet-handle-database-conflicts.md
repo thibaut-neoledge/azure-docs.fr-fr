@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Gestion des conflits d&#39;écriture de base de données avec l&#39;accès concurrentiel optimiste (Windows Store) | Microsoft Azure" 
-	description="Découvrez comment gérer les conflits d&#39;écriture de base de données sur le serveur et dans votre application Windows Store." 
+	pageTitle="Gestion des conflits d'écriture de base de données avec l'accès concurrentiel optimiste (Windows Store) | Microsoft Azure" 
+	description="Découvrez comment gérer les conflits d'écriture de base de données sur le serveur et dans votre application Windows Store." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="10/05/2015" 
 	ms.author="wesmc"/>
 
 # Gestion des conflits d'écriture dans une base de données
@@ -366,4 +366,4 @@ Ce didacticiel a montré comment permettre à une application Windows Store de g
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

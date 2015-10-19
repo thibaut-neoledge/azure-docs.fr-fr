@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-Votre application est désormais configurée dans AAD, et les utilisateurs peuvent donc se connecter à l’aide de l’authentification unique AAD.
+Votre application est désormais configurée dans AAD, et les utilisateurs peuvent donc se connecter à l’aide de l’authentification AAD.
 
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Configuration de votre application mobile avec Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

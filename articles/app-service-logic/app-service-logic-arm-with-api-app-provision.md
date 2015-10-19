@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 # Créer une application logique et une application API à l'aide d'un modèle
@@ -394,4 +394,4 @@ Notez que l'application logique utilise le jeton pour appeler la passerelle.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="anuragdalmia"/>
 
 #Transformation BizTalk
@@ -22,7 +22,7 @@
 ## Vue d'ensemble
 L'application API Transformation BizTalk convertit des données d'un format vers un autre. Par exemple, vous pourriez prendre les adresses d'expédition et de facturation d'un bon de commande et les insérer dans un document de facturation. Ou vous pourriez avoir un message entrant qui contient la date du jour au format *AnnéeMoisJour*. Vous souhaitez remettre en forme la date au format *AnnéeMoisJour* .
 
-Vous pouvez pour cela utiliser l'application API Transformation BizTalk dans Microsoft Azure App Service. Une transformation ou un mappage est composé d'un schéma XML source (l'entrée) et d'un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
+Vous pouvez pour cela utiliser l'application API Transformation BizTalk dans Microsoft Azure App Service. Une transformation, également appelée mappage, est composée d’un schéma XML source (l’entrée) et d’un schéma XML cible (la sortie). Vous pouvez utiliser différentes fonctions intégrées pour aider à manipuler ou à contrôler les données, y compris les manipulations de chaînes, les affectations conditionnelles, les expressions arithmétiques, les formateurs d'heure et de date et même les constructions de bouclage.
 
 Vous pouvez créer des mappages dans Visual Studio à l’aide du [Kit de développement logiciel (SDK) Microsoft Azure BizTalk Services](http://www.microsoft.com/download/details.aspx?id=39087). Une fois que vous avez fini de créer et de tester le mappage, vous téléchargez le mappage (.trfm) dans l'application API Transformation BizTalk.
 
@@ -116,4 +116,4 @@ Une fois le mappage créé et testé, il est prêt pour la consommation.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

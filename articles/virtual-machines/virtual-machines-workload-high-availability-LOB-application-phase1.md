@@ -44,7 +44,7 @@ Pour les paramètres du réseau virtuel (VNet), remplissez la table V.
 5\. | Espace d'adressage du réseau virtuel | L'espace d'adressage (défini dans un préfixe d'adresse privé unique) pour le réseau virtuel. Consultez votre service informatique pour le déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | Le premier serveur DNS pour le réseau virtuel | La quatrième adresse IP possible pour l'espace d'adressage du second sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour la déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Le second serveur DNS pour le réseau virtuel | La cinquième adresse IP possible pour l'espace d'adressage du second sous-réseau du réseau virtuel (voir la table S). Consultez votre service informatique pour la déterminer. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-8\. | Clé IPsec partagée | Une chaîne alphanumérique aléatoire de 128 caractères qui sera utilisée pour authentifier les deux côtés de la connexion VPN de site à site. Consultez votre service informatique ou département de sécurité pour déterminer cette valeur de clé. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | Clé IPsec partagée | Chaîne alphanumérique aléatoire de 32 caractères à utiliser pour authentifier les deux côtés de la connexion VPN de site à site. Consultez votre service informatique ou département de sécurité pour déterminer cette valeur de clé. Vous pouvez également consulter [Créer une chaîne aléatoire pour une clé IPsec prépartagée](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 **Table V : configuration de réseaux virtuels intersite**
@@ -86,11 +86,9 @@ Pour l'ensemble des espaces d'adressage du réseau local, remplissez la table L.
 
 **Table L : préfixes d'adresses pour le réseau local**
 
-Vous devez ensuite disposer d'Azure PowerShell version 0.9.5 ou ultérieure. Pour vérifier votre version d'Azure PowerShell, exécutez cette commande.
+> [AZURE.NOTE]Cet article contient des commandes pour les versions d’Azure PowerShell à partir de la version 0.9.5 et *antérieures* à la version 1.0.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Les blocs de commande Azure PowerShell dans cet article font actuellement l’objet de tests et de mises à jour pour prendre en charge les nouvelles applets de commande dans les versions Azure PowerShell 1.0.0 et ultérieures. Nous vous remercions de votre patience.
 
-	Get-Module azure | format-table version
-
-Si vous devez installer la dernière version d’Azure PowerShell, utilisez les **Programmes et fonctionnalités du panneau de configuration** pour supprimer la version actuelle. Suivez ensuite les instructions de la page [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez une invite Azure PowerShell.
+Ouvrez une invite Azure PowerShell.
 
 Sélectionnez tout d'abord l'abonnement Azure approprié à l'aide des commandes suivantes. Remplacez tous les éléments entre guillemets, y compris les caractères < and >, par les noms appropriés.
 
@@ -251,4 +249,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

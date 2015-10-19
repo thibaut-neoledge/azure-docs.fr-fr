@@ -3,7 +3,7 @@
    description="Quelques pièges potentiels pour les clients qui se familiarisent avec Azure Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : quelques anti-modèles
 
@@ -30,4 +30,4 @@ Nous avons identifié les pièges potentiels suivants pour les clients qui se fa
 
 * Mapper des modèles d'entité à l'aveuglette. Cela concernent les développeurs qui viennent d'un univers relationnel où les problèmes sont modélisés à l'aide d'entités et de leurs relations. Bien que cette approche soit toujours utile pour comprendre le domaine du sujet, elle doit être associée à la pensée orientée service et fusionnée avec le comportement.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

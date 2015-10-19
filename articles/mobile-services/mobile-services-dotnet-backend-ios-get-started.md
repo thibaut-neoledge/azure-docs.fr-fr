@@ -58,15 +58,13 @@ Cette section montre comment exécuter votre nouvelle application cliente sur le
 
 Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Ajout de Mobile Services à une application existante] <br/>En savoir plus sur le stockage et l’interrogation des données à l’aide de Mobile Services.
+* [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment utiliser la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
-* [Prise en main de la synchronisation des données hors connexion] <br/>En savoir plus sur la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
+* [Ajout de l’authentification à une application existante] <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajout de l’authentification à votre application] <br/>Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
 
-* [Ajout de notifications Push à votre application existante] <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
-
-* [Résolution des problèmes d'un service principal .NET Mobile Services ] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un backend .NET Mobile Services.
+* [Résolution des problèmes d’un service principal .NET Mobile Services ] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un backend .NET Mobile Services.
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -88,11 +86,10 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 
 <!-- URLs. -->
-[Ajout de Mobile Services à une application existante]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-ios-get-started-offline-data.md
-[Ajout de l’authentification à votre application]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Ajout de l’authentification à une application existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Résolution des problèmes d'un service principal .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
+[Résolution des problèmes d’un service principal .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
@@ -100,4 +97,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

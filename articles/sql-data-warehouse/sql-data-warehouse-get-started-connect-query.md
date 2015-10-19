@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Prise en main : connexion à SQL Data Warehouse Azure
@@ -179,9 +179,9 @@ Maintenant que nous avons enregistré notre serveur, passons à l’écriture de
 	Pour exécuter la requête, cliquez sur la flèche verte ci-dessous, ou utilisez le raccourci `CTRL`+`SHIFT`+`F5` :
 
 ## Étapes suivantes ##
-Maintenant que vous pouvez vous connecter et faire des requêtes, essayez de [charger un exemple de données][] ou de [développer un code][].
+Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez de [charger un exemple de données][].
 
 [charger un exemple de données]: ./sql-data-warehouse-get-started-load-samples.md
-[développer un code]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

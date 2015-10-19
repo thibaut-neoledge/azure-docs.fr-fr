@@ -24,7 +24,7 @@
 
 Cette rubrique montre comment utiliser le contrôle du code source fourni par Azure Mobile Services pour stocker vos scripts serveur. Les scripts et les autres fichiers de code du backend JavaScript peuvent être promus à partir de votre référentiel Git local sur votre service mobile de production. Cette rubrique indique également comment définir du code partagé requis par plusieurs scripts et comment utiliser le fichier package.json pour ajouter des modules Node.js à votre service mobile.
 
-Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant l'un des deux didacticiels [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante].
+Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen du didacticiel [Prise en main de Mobile Services].
 
 ##<a name="enable-source-control"></a>Activer le contrôle de code source dans votre service mobile
 
@@ -61,7 +61,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 7. Ouvrez le sous-dossier .\\service\\table et remarquez qu'il contient un fichier TodoItem.json, qui est une représentation JSON des autorisations d'opération sur la table TodoItem.
 
-	Lorsque des scripts serveur ont été définis sur cette table, vous avez également un ou plusieurs fichiers nommés <code>TodoItem._&lt;operation&gt;_.js</code> contenant les scripts pour l'opération de table donnée. Les scripts de Scheduler et de l'API personnalisée sont conservés dans des dossiers séparés avec ces noms respectifs. Pour plus d'informations, consultez la page [Contrôle du code source].
+	Quand des scripts serveur ont été définis sur cette table, vous avez également un ou plusieurs fichiers nommés <code>TodoItem._&lt;operation&gt;_.js</code> contenant les scripts pour l’opération de table donnée. Les scripts de Scheduler et de l'API personnalisée sont conservés dans des dossiers séparés avec ces noms respectifs. Pour plus d'informations, consultez la page [Contrôle du code source].
 
 À présent que vous avez créé votre référentiel local, vous pouvez apporter des modifications aux scripts serveur et transmettre ces modifications au service mobile.
 
@@ -93,9 +93,7 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 
 	Une série de commandes indiquant le déploiement de la validation sur le service mobile doit s'afficher.
 
-6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**.
-7. 
-	Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
+6. De retour dans le portail de gestion, cliquez sur l’onglet **Données**, puis sur la table **TodoItem**, cliquez sur **Script**, puis sélectionnez l’opération **Insérer**. Remarquez que le script de l'opération d'insertion affiché est identique au code JavaScript que vous venez de télécharger dans le référentiel.
 
 ##<a name="use-npm"></a>Exploiter le code partagé et les modules Node.js dans vos scripts serveur
 
@@ -103,7 +101,7 @@ Mobile Services fournit un accès au jeu complet de modules principaux de Node.j
 
 Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'ajouter des références au fichier package.json du service. Ajoutez ensuite le module Node.js [node-uuid] à votre service mobile en mettant à jour le fichier package.json. Une fois la mise à jour transmise à Azure, le service mobile est redémarré et le module est installé. Ce module est ensuite utilisé pour générer une nouvelle valeur GUID pour la propriété **uuid** sur les éléments insérés.
 
-2. Accédez au dossier `.\service` du référentiel Git local, puis ouvrez le fichier package.json dans un éditeur de texte et ajoutez le champ suivant à l'objet **dependencies** :
+2. Accédez au dossier `.\service` du référentiel Git local, puis ouvrez le fichier package.json dans un éditeur de texte et ajoutez le champ suivant à l’objet **dependencies** :
 
 		"node-uuid": "~1.4.3"
 
@@ -132,11 +130,7 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 
 Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos scripts dans un contrôle de code source. Pour plus d'informations sur l'utilisation de scripts serveur et d'API personnalisées :
 
-+ [Utilisation des scripts serveur dans Mobile Services] <br/>
-Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
-
-+ [Appel d'une API personnalisée à partir du client] <br/>
- Explique comment créer des API personnalisées pouvant être appelées à partir du client.
++ [Utilisation des scripts serveur dans Mobile Services] <br/>Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -154,11 +148,9 @@ Explique comment utiliser les scripts serveur, le planificateur de travaux et le
 [Contrôle du code source]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installation de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
-[Ajout de Mobile Services à une application existante]: mobile-services-ios-get-started-data.md
 [Utilisation des scripts serveur dans Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Appel d'une API personnalisée à partir du client]: mobile-services-ios-call-custom-api.md
 [Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

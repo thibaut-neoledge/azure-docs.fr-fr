@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Recommandations relatives aux niveaux de tarification de la base de données SQL Microsoft Azure" 
-   description="Lorsque vous modifiez les niveaux de tarification dans le portail Microsoft Azure, vous pouvez consulter les recommandations fournies, qui indiquent le niveau le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Microsoft Azure existante. Les niveaux tarifaires décrivent les niveaux de service et de performances d’une base de données SQL." 
+   pageTitle="Recommandations sur les niveaux tarifaires d’Azure SQL Database" 
+   description="Lorsque vous modifiez les niveaux tarifaires dans le portail Azure, vous pouvez consulter les recommandations fournies, notamment le niveau le mieux adapté à l’exécution de la charge de travail d’une base de données SQL Azure existante. Les niveaux tarifaires décrivent les niveaux de service et de performances d’une base de données SQL." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,26 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
-# Recommandations relatives aux niveaux de tarification des bases de données SQL
+# Recommandations relatives aux niveaux tarifaires des bases de données SQL
 
- Des recommandations de niveau tarifaire sont fournies, qui indiquent les niveaux de service et de performances les mieux adapté à l’exécution d’une charge de travail de Base de données SQL Azure existante.
+ Bénéficiez de recommandations sur les niveaux tarifaires, notamment les niveaux de service et de performances les mieux adaptés à l’exécution d’une charge de travail d’une base de données SQL Azure existante.
 
-> [AZURE.NOTE]Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de base de données élastiques. Elles sont disponibles uniquement sur le [portail Azure en version préliminaire](https://portal.azure.com/).
+> [AZURE.NOTE]Ces recommandations sont disponibles uniquement pour les bases de données Web et Business et les pools de bases de données élastiques. Elles sont disponibles uniquement sur le [portail Azure en version préliminaire](https://portal.azure.com/).
 
 
 Obtenez des recommandations en termes de niveau tarifaire lors des tâches suivantes :
 
-- [Modifier les niveaux de service et de performances (niveau de tarification) d’une base de données SQL](sql-database-scale-up.md)
+- [Modifier les niveaux de service et de performances (niveau tarifaire) d’une base de données SQL](sql-database-scale-up.md)
 - [Mise à niveau d’un serveur SQL Azure vers la version 12](sql-database-v12-upgrade.md)
-- [Création d’un pool de base de données élastique](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+- Accéder à votre serveur V12 : si vos bases de données peuvent [bénéficier d’un pool de bases de données élastiques](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools), le panneau du serveur affiche un message indiquant un pool recommandé. Cliquez sur le message pour créer le pool recommandé.
+- [Créer un pool de bases de données élastiques](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## Vue d'ensemble
 
-Le service de Base de données SQL analyse les performances et les fonctionnalités requises en évaluant un historique de l’utilisation des ressources pour une base de données SQL. Par ailleurs, le niveau de service minimum acceptable est déterminé en fonction de la taille de la base de données et des fonctionnalités de [continuité d’activité](https://msdn.microsoft.com/library/azure/hh852669.aspx) activées.
+Le service SQL Database analyse les performances et les fonctionnalités requises en évaluant un historique de l’utilisation des ressources pour une base de données SQL. Par ailleurs, le niveau de service minimum acceptable est déterminé en fonction de la taille de la base de données et des fonctionnalités de [continuité d’activité](sql-database-business-continuity.md) activées.
 
 Ces informations sont analysées ; ensuite, le système recommande le niveau de service et de performances le plus adapté à l’exécution d’une charge de travail classique d’une base de données et la gestion de son ensemble de fonctionnalités actuel.
 
@@ -50,27 +54,26 @@ Selon l’utilisation de votre base de données, vous pouvez actuellement rencon
 | Mise à niveau | Mise à niveau vers un nouveau niveau. |
 | Non disponible | Une base de données requiert une charge de travail minimale, ou environ 14 jours d’activité. Il n’existe pas suffisamment de données pour fournir une recommandation valide. |
 
-## Obtenir des recommandations sur les niveaux de tarification
+## Obtenir des recommandations sur les niveaux tarifaires
 
-Accédez à des recommandations sur les niveaux de tarification en sélectionnant une base de données « Web ou Business » existante et en cliquant sur la vignette **Niveau de tarification**. (Des recommandations de niveau tarifaire sont également disponibles lorsque vous [mettez à niveau Azure SQL Server vers la version 12](sql-database-v12-upgrade.md).)
+Accédez à des recommandations sur les niveaux tarifaires en sélectionnant une base de données « Web ou Business » existante et en cliquant sur la vignette **Niveau tarifaire**. (Des recommandations sur les niveaux tarifaires sont également disponibles quand vous [mettez à niveau Azure SQL Server vers la version 12](sql-database-v12-upgrade.md).)
 
 1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
-2. Cliquez sur l’option **PARCOURIR** dans le menu de gauche.
-3. Cliquez sur **Bases de données SQL** dans le panneau **Parcourir**.
-4. Dans le panneau **Bases de données SQL**, cliquez sur la base de données que le service doit analyser.
+2. Cliquez sur **PARCOURIR** > **Bases de données SQL**.
+4. Dans le panneau **Bases de données SQL**, cliquez sur la base de données pour laquelle vous voulez afficher une recommandation :
 
     ![Sélectionner la base de données][1]
 
-5. Dans le panneau de la base de données, sélectionnez la vignette **Niveau de tarification**.
+5. Dans le panneau de la base de données, sélectionnez la vignette **Niveau tarifaire**.
 
-    ![Niveau de tarification][2]
+    ![Niveau tarifaire][2]
 
 
 7. Lorsque vous cliquez sur **Niveau de tarification**, le panneau **Niveaux de tarification recommandés** s’affiche, dans lequel vous pouvez cliquer sur le niveau suggéré, puis sur le bouton **Sélectionner** pour le modifier.
 
     ![S’inscrire à la version préliminaire][4]
 
-8. Si vous le voulez, vous pouvez cliquer sur **Afficher les informations sur l’utilisation** pour ouvrir le panneau **Détails sur les recommandations relatives aux niveaux de tarification**, dans lequel vous pouvez afficher le niveau recommandé pour la base de données, comparer les fonctionnalités entre le niveau actuel et le niveau recommandé et afficher un graphique d’analyse de l’utilisation des ressources sur une période donnée.
+8. Si vous le voulez, vous pouvez cliquer sur **Afficher les informations sur l’utilisation** pour ouvrir le panneau **Détails des recommandations en matière de niveau de tarification**, dans lequel vous pouvez afficher le niveau recommandé pour la base de données, comparer les fonctionnalités entre le niveau actuel et le niveau recommandé et afficher un graphique d’analyse de l’utilisation des ressources sur une période donnée.
 
     ![S’inscrire à la version préliminaire][5]
 
@@ -84,7 +87,7 @@ Les recommandations relatives aux niveaux de tarification sont le fruit d’une 
 
 ## Étapes suivantes
 
-Selon les informations de votre base de données spécifique, l’exécution d’une mise à niveau vers un niveau inférieur ou supérieur ne se produit pas de manière instantanée, en général. Le portail de gestion affiche des notifications au moment où la base de données passe au nouveau niveau choisi. Vous pouvez également surveiller l’état de la mise à niveau en affichant la vue [sys.dm\_operation\_status (base de données SQL Microsoft Azure)](https://msdn.microsoft.com/library/dn270022.aspx) dans la base de données principale du serveur de base de données SQL.
+Selon les informations de votre base de données spécifique, l’exécution d’une mise à niveau vers un niveau inférieur ou supérieur ne se produit pas de manière instantanée, en général. Le portail de gestion affiche des notifications au moment où la base de données passe au nouveau niveau choisi. Vous pouvez également surveiller l’état de la mise à niveau en affichant la vue [sys.dm\_operation\_status (Azure SQL Database)](https://msdn.microsoft.com/library/dn270022.aspx) dans la base de données principale du serveur de base de données SQL.
 
 
 <!--Image references-->
@@ -97,4 +100,4 @@ Selon les informations de votre base de données spécifique, l’exécution d�
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

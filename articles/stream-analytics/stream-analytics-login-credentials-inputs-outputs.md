@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 #Remplacement des informations d’identification des entrées/sorties
@@ -120,7 +120,7 @@ Pour les autres entrées/sorties, passez à la partie 2.
 4.	Passez à la partie 5.  
 
 ##Partie 5 – Suppression de l’ancien jeu d’informations d’identification
-Cette partie concerne les entrées/sorties suivantes : \* Stockage d’objets Blob \* Concentrateurs d’événements \* Base de données SQL \* Stockage de tables
+Cette partie concerne les entrées/sorties suivantes : * Stockage d’objets Blob * Concentrateurs d’événements * Base de données SQL * Stockage de tables
 
 ###Stockage d’objets blob/de tables
 Répétez la partie 1 pour la clé d’accès qui était précédemment utilisée par votre travail afin de renouveler la clé d’accès maintenant inutilisée.
@@ -137,7 +137,7 @@ Le message de confirmation suivant s’affiche.
 	Command(s) completed successfully.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -193,4 +193,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

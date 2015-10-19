@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Capturer l'image d'une machine virtuelle exécutant Linux à l'aide de l'interface de ligne de commande"
+	pageTitle="Capturer l’image d’une machine virtuelle exécutant Linux à l’aide de l’interface de ligne de commande | Microsoft Azure"
 	description="Apprenez à capturer une image d'une machine virtuelle Azure exécutant Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="madhana"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+    tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,7 @@
 
 # Capture d’une machine virtuelle Linux à utiliser comme modèle à l’aide de l’interface de ligne de commande##
 
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
 Cet article vous montre comment capturer une machine virtuelle Azure exécutant Linux pour l'utiliser comme modèle afin de créer d'autres machines virtuelles. Ce modèle comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Il ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles utilisant le modèle.
 
@@ -162,4 +163,4 @@ Pour obtenir plus d’informations et découvrir des commandes supplémentaires,
 [Association d’un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

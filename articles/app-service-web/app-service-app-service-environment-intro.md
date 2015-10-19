@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="10/06/2015"
 	ms.author="stefsch"/>
 
 # Présentation de l'environnement App Service
@@ -30,6 +30,10 @@ Les clients peuvent créer plusieurs environnements App Service au sein d’une 
 
 Les environnements App Service sont isolés de façon à exécuter les applications d’un seul client et ils sont toujours déployés dans un réseau virtuel. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux virtuels avec les ressources d’entreprise locales.
 
+Pour avoir une idée générale de la façon dont les environnements App Service permettent l’accès réseau sécurisé à grande échelle, consultez la vidéo [AzureCon Deep Dive][AzureConDeepDive] sur les environnements App Service.
+
+Pour une exploration approfondie de la mise à l’échelle horizontale à l’aide de plusieurs environnements App Service, consultez l’article sur la configuration d’une [empreinte d’application géo-distribuée][GeodistributedAppFootprint].
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Ressources de calcul dédiées ##
@@ -45,7 +49,7 @@ Cela vous permet, par exemple, de créer un pool de travaux avec des ressources 
 
 Pour plus d'informations sur la quantité de ressources de calcul disponibles pour les pools frontaux et de travail, consultez [Comment configurer un environnement App Service][HowToConfigureanAppServiceEnvironment].
 
-Pour plus d'informations sur les tailles de ressources de calcul disponibles prises en charge dans un environnement App Service, consultez la page [Service d'application Tarification][AppServicePricing] et passez en revue les options disponibles pour les environnements App Service dans le niveau de tarification Premium.
+Pour plus d'informations sur les tailles de ressources de calcul disponibles prises en charge dans un environnement App Service, consultez la page [Service d'application Tarification][AppServicePricing] et passez en revue les options disponibles pour les environnements App Service dans le niveau tarifaire Premium.
 
 ## Prise en charge des réseaux virtuels ##
 Un environnement App Service peut être créé sur un réseau virtuel régional « v1 » classique préexistant ou sur un nouveau réseau virtuel régional « v1 » classique ([plus d’informations sur les réseaux virtuels][MoreInfoOnVirtualNetworks]). Étant donné qu'il existe toujours un environnement App Service sur un réseau virtuel régional, et plus précisément sur un sous-réseau d'un réseau virtuel régional, vous pouvez exploiter les fonctionnalités de sécurité des réseaux virtuels pour contrôler les communications réseau entrantes et sortantes.
@@ -83,6 +87,8 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[AzureConDeepDive]: https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
+[GeodistributedAppFootprint]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
@@ -95,4 +101,4 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

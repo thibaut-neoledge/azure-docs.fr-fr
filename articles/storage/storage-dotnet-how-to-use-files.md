@@ -19,7 +19,7 @@
 
 ## Vue d'ensemble
 
-Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Le stockage de fichiers est maintenant mis à la disposition générale et prend en charge SMB 3.0 et SMB 2.1.
+Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. Le stockage de fichiers est maintenant mis à la disposition générale et prend en charge SMB 2.1 et SMB 3.0.
 
 Vous pouvez créer des partages de fichiers Azure à l’aide du portail Azure en version préliminaire, des applets de commande Azure Storage PowerShell, des bibliothèques clientes Azure Storage ou de l’API REST d’Azure Storage. En outre, étant donné que les partages de fichiers sont des partages SMB, vous pouvez y accéder via les API de système de fichiers standard et connues.
 
@@ -61,7 +61,7 @@ Le [portail Azure en version préliminaire](https://ms.portal.azure.com/) offre 
 
 ## Utiliser PowerShell pour gérer un partage de fichiers
 
-Ensuite, nous utiliserons Azure PowerShell pour créer un partage de fichiers. Une fois le partage de fichiers créé, vous pouvez le monter à partir de n’importe quel système de fichiers prenant en charge SMB 2.1.
+Ensuite, nous utiliserons Azure PowerShell pour créer un partage de fichiers. Une fois le partage de fichiers créé, vous pouvez le monter à partir de n’importe quel système de fichiers prenant en charge SMB 2.1 ou SMB 3.0.
 
 ### Installation des applets de commande PowerShell pour Azure Storage
 
@@ -162,14 +162,14 @@ Notez que les informations d’identification sont conservées uniquement dans l
 
 Une fois une connexion à distance établie avec la machine virtuelle, vous pouvez exécuter la commande `net use` pour monter le partage de fichiers à l’aide de la syntaxe suivante. Remplacez `<storage-account-name>` par le nom de votre compte de stockage et `<share-name>` par le nom du partage de stockage de fichiers.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
 Comme vous avez conservé les informations d’identification de votre compte de stockage à l’étape précédente, vous n’avez pas besoin de les préciser avec la commande `net use`. Si vous n’avez pas conservé vos informations d’identification, incluez-les en les transmettant comme paramètres dans la commande `net use`, comme illustré dans l’exemple suivant.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
@@ -540,4 +540,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

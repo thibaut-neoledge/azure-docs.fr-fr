@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/18/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Visual Studio
@@ -33,11 +33,13 @@ Dans cet article, vous apprendrez à utiliser Visual Studio pour créer votre pr
 
 Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
+> [AZURE.IMPORTANT]Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+
 ## Procédure pas à pas : créer et déployer des entités Data Factory à l’aide de Visual Studio 
 
 ### Conditions préalables
 
-Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
+Vous devez avoir installé le logiciel suivant sur votre ordinateur : - Visual Studio 2013 - Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**. Mettez à jour « Visual Studio Tools For Azure Data Factory » avec la version la plus récente en sélectionnant Visual Studio 2013 --> Outils --> Mises à jour --> Galerie Visual Studio, puis en cliquant sur « Mettre à jour » dans l'entrée du plug-in « Visual Studio Tools for Azure Data Factory ».
 
 
 ### Créer le projet Visual Studio 
@@ -235,4 +237,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

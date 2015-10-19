@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });
@@ -84,4 +84,4 @@ Notez que la méthode `Post` n'envoie pas de notification toast. Elle envoie une
 
 24. Sélectionnez Site web Azure comme cible de publication. Connectez-vous avec votre compte Azure et sélectionnez un site web (nouveau ou existant). Notez la propriété de l'**URL de destination** sous l'onglet **Connexion**. Plus loin dans ce didacticiel, nous utiliserons cette URL comme *point de terminaison principal*. Cliquez sur **Publier**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

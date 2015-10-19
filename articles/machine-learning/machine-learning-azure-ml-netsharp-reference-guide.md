@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeannt"/>
 
 
@@ -158,6 +158,11 @@ Une spécification de faisceau de connexion filtré inclut un prédicat, dont la
 Vous pouvez également spécifier un ensemble de poids pour un faisceau filtré. La valeur de l'attribut **Weights** doit être un tuple de valeurs à virgule flottante dont la longueur est égale au nombre de connexions défini par le faisceau. Par défaut, les poids sont générés de façon aléatoire.
 
 Les valeurs de poids sont regroupées par l'index de nœuds de destination. Ainsi, si le premier nœud de destination est connecté à K nœuds sources, les _K_ premiers éléments du tuple **Weights** correspondent aux poids du premier nœud de destination, selon l'ordre de l'index source. Il en va de même pour les nœuds de destination restants.
+
+Il est possible de spécifier les poids directement comme des valeurs constantes. Par exemple, si vous connaissez déjà les poids, vous pouvez les spécifier en tant que constantes à l'aide de cette syntaxe :
+
+	const Weights_1 = [0.0188045055, 0.130500451, ...]
+
 
 ## Faisceaux convolutionnels
 Lorsque les données d’apprentissage présentent une structure homogène, des connexions convolutionnelles sont généralement utilisées pour l’apprentissage des caractéristiques de haut niveau des données. Par exemple, pour les données images, audio ou vidéo, la dimensionnalité spatiale ou temporelle peut être assez uniforme.
@@ -392,12 +397,12 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Le réseau contient une troisième couche masquée, _Hid3_, entièrement connectée à la deuxième couche masquée, _Conv2_.
 -	La couche de sortie, _Digit_, n'est connectée qu'à la troisième couche masquée, _Hid3_. Le mot clé **all** indique que la couche de sortie est entièrement connectée à _Hid3_.
 -	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
--	Le nombre de poids par noyau est de _ 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	Le nombre de poids par noyau est de _ 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
-	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
 -	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 
@@ -409,4 +414,4 @@ Le langage Net # pour la personnalisation de l'architecture des réseaux neurona
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

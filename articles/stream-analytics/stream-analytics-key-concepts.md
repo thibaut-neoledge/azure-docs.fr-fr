@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok" />
 
 
@@ -64,7 +64,7 @@ Selon le type d'entrée utilisé dans le travail, des champs supplémentaires se
 	<tr>
 		<td rowspan="4" valign="top"><strong>Objet blob</strong></td>
 		<td>BlobName</td>
-		<td>Nom de l'objet blob d'entrée d'où provient l'événement.</td>
+		<td>Nom de l’objet blob d’entrée d’où provient l’événement.</td>
 	</tr>
 	<tr>
 		<td>EventProcessedUtcTime</td>
@@ -72,7 +72,7 @@ Selon le type d'entrée utilisé dans le travail, des champs supplémentaires se
 	</tr>
 	<tr>
 		<td>BlobLastModifiedUtcTime</td>
-		<td>Date et heure de la dernière modification apportée à l'objet blob.</td>
+		<td>Date et heure de la dernière modification apportée à l’objet blob.</td>
 	</tr>
 	<tr>
 		<td>PartitionId</td>
@@ -85,7 +85,7 @@ Selon le type d'entrée utilisé dans le travail, des champs supplémentaires se
 	</tr>
 	<tr>
 		<td>EventEnqueuedUtcTime</td>
-		<td>Date et heure de la réception de l'événement par le hub d'événements.</td>
+		<td>Date et heure de la réception de l’événement par le hub d’événements.</td>
 	</tr>
 	<tr>
 		<td>PartitionId</td>
@@ -207,4 +207,4 @@ Maintenant que vous connaissez les concepts clés de Stream Analytics, consulte
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

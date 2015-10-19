@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="09/29/2015"
+	ms.date="10/06/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
@@ -26,7 +26,7 @@ Dans cet article, nous allons expliquer la structure de base du langage de défi
 
 ## Scénarios courants
 
-Un scénario courant consiste à rendre nécessaire l’utilisation de balises de service à des fins de facturation interne. Une organisation peut choisir de n’autoriser des opérations que si le centre de coût approprié est associé. Sinon, elle refuse la demande. Cela l’aide à facturer le centre de coût approprié pour les opérations effectuées.
+Un scénario courant consiste à rendre nécessaire l’utilisation de balises de service à des fins de facturation interne. Une organisation peut choisir de n’autoriser des opérations que si le centre de coût approprié est associé ; sinon, elle rejette la demande. Cela l’aide à facturer le centre de coût approprié pour les opérations effectuées.
 
 Dans un autre scénario courant, l’organisation peut souhaiter contrôler les emplacements où les ressources sont créées. Ou bien elle peut vouloir contrôler l’accès aux ressources en autorisant l’approvisionnement de certains types de ressources uniquement.
 
@@ -42,7 +42,7 @@ Essentiellement, une stratégie contient les éléments suivants :
 
 **Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d’un ensemble d’opérateurs logiques.
 
-**Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui indique de mener un audit si quelqu’un crée une machine virtuelle de grande taille. Il lui suffira ensuite de vérifier les journaux concernés.
+**Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un audit si quelqu’un crée une machine virtuelle de grande taille, puis passer en revue les journaux ultérieurement.
 
     {
       "if" : {
@@ -177,17 +177,17 @@ Les stratégies peuvent être appliquées au niveau de différentes étendues co
 
 ## Création d’une stratégie
 
-Cette section fournit des détails sur la façon dont une stratégie peut être créée à l’aide de l’API REST et de PowerShell.
+Cette section fournit des détails sur la façon dont une stratégie peut être créée à l’aide de l’API REST.
 
 ### Créer la définition de stratégie avec l’API REST
 
-Vous pouvez créer une stratégie avec l’API REST pour le service Policy L’API REST vous permet de créer et de supprimer des stratégies, ainsi que d’obtenir des informations sur les stratégies existantes.
+Vous pouvez créer une stratégie avec l’[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
 
 Pour créer une stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Voici à quoi peut ressembler le corps de la demande :
+Avec un corps de demande semblable au suivant :
 
     {
       "properties":{
@@ -211,21 +211,21 @@ Voici à quoi peut ressembler le corps de la demande :
     }
 
 
-La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez API REST pour le service Policy.
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ## Application d’une stratégie
 
 ### Affectation de stratégie avec l’API REST
 
-Vous pouvez appliquer la définition de stratégie au niveau de l’étendue souhaitée par le biais de l’API REST pour l’affectation de stratégies. Grâce à cette API, vous pouvez créer et supprimer des affectations de stratégie, ainsi qu’obtenir des informations sur les affectations existantes.
+Vous pouvez appliquer la définition de stratégie à l’étendue souhaitée par le biais de l’[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
 Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez API REST pour l’affectation de stratégies.
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2015-10-01-preview*.
 
-Voici à quoi peut ressembler le corps de la demande :
+Avec un corps de demande semblable au suivant :
 
     {
       "properties":{
@@ -238,4 +238,6 @@ Voici à quoi peut ressembler le corps de la demande :
       "name":"VMPolicyAssignment"
     }
 
-<!---HONumber=Oct15_HO1-->
+Pour plus d’informations et des exemples, consultez [API REST pour l’affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+
+<!---HONumber=Oct15_HO2-->

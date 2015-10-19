@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,6 +17,8 @@
 	ms.author="scoriani"/>
 
 # DataStax sous Ubuntu avec un modèle Microsoft Azure Resource Manager
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
 
 DataStax est l’un des principaux acteurs dans le secteur du développement et de la livraison de solutions basées sur Apache Cassandra, une technologie de base de données distribuée NoSQL soutenue commercialement et intégrée au sein des entreprises, largement reconnue comme agile, permanente et évolutive de façon prévisible pour n’importe quelle taille. DataStax propose les versions Enterprise (DSE) et Community (DSC). Cette solution fournit également des fonctionnalités de calcul en mémoire, de sécurité au niveau de l’entreprise, d’analyses intégrées rapides et puissantes et de recherche d’entreprise.
 
@@ -84,7 +86,7 @@ Clonez le référentiel de modèles entier en utilisant un client Git de votre c
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Uen fois le clonage terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\\Azure\\Templates.
+Une fois le clonage terminé, recherchez le dossier **datastax-on-ubuntu** dans le répertoire C:\\Azure\\Templates.
 
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
@@ -229,11 +231,11 @@ Lors du déploiement, n’oubliez pas qu’un compte de stockage Azure doit êtr
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation située sur la gauche, cliquez sur **Parcourir**, puis faites défiler les options vers le bas et cliquez sur **Groupes de ressources**.  
 - Cliquez sur le groupe de ressources que vous venez de créer pour afficher le panneau « Groupe de ressources ».  
-- En cliquant sur l’histogramme « Événements » dans la partie **Surveillance** du panneau « Groupe de ressources », vous pouvez voir les événements de votre déploiement :
+- En cliquant sur l’histogramme « Événements » dans la partie **Analyse** du panneau « Groupe de ressources », vous pouvez voir les événements de votre déploiement.
 - En cliquant sur les différents événements, vous pouvez accéder à des informations plus détaillées sur chaque opération menée pour le compte du modèle.
 
 Après vos tests, si vous devez supprimer ce groupe de ressources et toutes ses ressources (le compte de stockage, la machine virtuelle et le réseau virtuel), utilisez cette commande unique :
@@ -321,7 +323,7 @@ En étudiant cet exemple plus en détail, vous pouvez voir deux approches diffé
 	      },
 
 	 
-Dans ce deuxième fragment, la variable **scripts** est un tableau JSON où chaque élément est calculé lors de l’exécution via une fonction de langage du modèle (concat) et la valeur d’une autre variable, ainsi que des constantes de chaîne :
+Dans ce deuxième fragment, la variable **scripts** est un tableau JSON où chaque élément est calculé pendant l’exécution par le biais d’une fonction de langage du modèle (concat) et de la valeur d’une autre variable, ainsi que de constantes de chaîne :
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -361,14 +363,14 @@ Ce premier exemple présente clairement la façon dont azuredeploy.json est orga
 
 Vous pouvez notamment remarquer les modèles liés suivants qui sont utilisés pour ce déploiement :
 
--	**shared-resource.json** : contient la définition de toutes les ressources partagées lors du déploiement. Par exemple, c’est le cas des comptes de stockage utilisés pour stocker des disques de système d’exploitation de machines virtuelles et des réseaux virtuels.
+-	**shared-resource.json** : contient la définition de toutes les ressources partagées pendant le déploiement. Par exemple, c’est le cas des comptes de stockage utilisés pour stocker des disques de système d’exploitation de machines virtuelles et des réseaux virtuels.
 -	**opscenter-resources.json** : déploie une machine virtuelle OpsCenter et toutes les ressources qui lui sont associées, y compris une interface réseau et une adresse IP publique.
--	**opscenter-install-resources.json** : déploie l’extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d’interpréteur de commandes spécifique (opscenter.sh) requis pour configurer le service OpsCenter au sein de cette machine virtuelle.
--	**ephemeral-nodes-resources.json** : déploie tous les nœuds de cluster de machines virtuelles et les ressources connectées (par exemple, des cartes réseau, des adresses IP privées, etc.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d'interpréteur de commandes (dsenode.sh) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
+-	**opscenter-install-resources.json** : déploie l’extension de machine virtuelle OpsCenter (script personnalisé pour Linux) qui appelle le fichier de script d’interpréteur de commandes spécifique (opscenter.sh) nécessaire pour configurer le service OpsCenter au sein de cette machine virtuelle.
+-	**ephemeral-nodes-resources.json** : déploie toutes les machines virtuelles à nœud de cluster et les ressources connectées (par exemple, des cartes réseau, des adresses IP privées, etc.). Ce modèle déploie également des extensions de machine virtuelle (scripts personnalisés pour Linux) et appelle un script d'interpréteur de commandes (dsenode.sh) pour installer physiquement les bits Apache Cassandra sur chaque nœud.
 
 Penchons-nous sur l'utilisation de ce dernier modèle, car il s'agit d'un des plus intéressants, du point de vue du développement d'un modèle. Un concept important à retenir est la façon dont un fichier de modèle unique peut déployer plusieurs copies d'un type de ressource unique et, pour chaque instance, définir des valeurs uniques pour les paramètres requis. Ce concept est appelé **itération de ressource**.
 
-Lorsque le fichier ephemeral-nodes-resources.json est appelé à partir du fichier azuredeploy.json principal, un paramètre appelé *nodeCount* est fourni parmi la liste de paramètres. Dans le modèle enfant, ce paramètre *nodeCount* (qui détermine le nombre de nœuds à déployer dans le cluster) est utilisé dans l’élément **copy** de chaque ressource à déployer en plusieurs copies, comme l’indique le fragment ci-dessous. Pour tous les paramètres où il est nécessaire de spécifier des valeurs uniques entre différentes instances de la ressource déployée, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière. Dans le fragment suivant, ce concept est appliqué à plusieurs créations de machines virtuelles pour les nœuds du cluster DataStax :
+Quand le fichier ephemeral-nodes-resources.json est appelé à partir du fichier azuredeploy.json principal, un paramètre appelé *nodeCount* est fourni parmi la liste de paramètres. Dans le modèle enfant, ce paramètre *nodeCount* (qui détermine le nombre de nœuds à déployer dans le cluster) est utilisé dans l’élément **copy** de chaque ressource à déployer en plusieurs copies, comme l’indique le fragment ci-dessous. Pour tous les paramètres où il est nécessaire de spécifier des valeurs uniques entre différentes instances de la ressource déployée, vous pouvez utiliser la fonction **copyindex()** pour obtenir une valeur numérique indiquant l'index actuel dans cette création d'itération de ressource particulière. Dans le fragment suivant, ce concept est appliqué à plusieurs créations de machines virtuelles pour les nœuds du cluster DataStax :
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -477,4 +479,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

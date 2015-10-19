@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -16,10 +17,9 @@
    ms.date="09/03/2015"
    ms.author="yurid"/>
 
-#Meilleures pratiques pour les mises à jour sur Microsoft Azure IaaS
+#Bonnes pratiques pour les mises à jour sur Microsoft Azure IaaS
 
-
-Avant d’aborder un quelconque sujet sur les bonnes pratiques dans l’environnement IaaS Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles. Le diagramme ci-dessous aide :
+Avant d’entamer une discussion quelle qu’elle soit sur les bonnes pratiques dans l’environnement IaaS Azure, il est important de connaître les scénarios dont vous devrez gérer les mises à jour logicielles. Le diagramme ci-dessous devrait vous y aider :
 
 ![Modèles et responsabilités de cloud](./media/azure-security-best-practices-software-updates-iaas/sec-cloudstack.png)
 
@@ -71,11 +71,11 @@ Dans les grandes organisations, il est souvent utile de diviser les ordinateurs 
 
 Une fois que vous effectuez un audit initial du logiciel en cours d’utilisation dans votre entreprise, vous devez déterminer la meilleure méthode pour recevoir des notifications de nouvelles mises à jour pour chaque produit logiciel et la version. Selon le produit logiciel, la meilleure méthode de notification peut être les notifications par courrier électronique, les sites web ou les publications de l’ordinateur.
 
-Par exemple, Microsoft Security Response Center (MSRC) répond à tous les problèmes liés à la sécurité sur les produits Microsoft et fournit le Service de Bulletin de sécurité Microsoft, une notification par courrier électronique gratuite des vulnérabilités récemment identifiées et des mises à jour logicielles publiées pour résoudre ces vulnérabilités. Vous pouvez vous abonner à ce service à <http://www.microsoft.com/technet/security/bulletin/notify.mspx>
+Par exemple, Microsoft Security Response Center (MSRC) répond à tous les problèmes liés à la sécurité sur les produits Microsoft et fournit le Service de Bulletin de sécurité Microsoft, une notification par courrier électronique gratuite des vulnérabilités récemment identifiées et des mises à jour logicielles publiées pour résoudre ces vulnérabilités. Vous pouvez vous abonner à ce service à l’adresse http://www.microsoft.com/technet/security/bulletin/notify.mspx
 
 ## Considérations relatives à la mise à jour logicielle
 
-Une fois l’audit initial du logiciel en cours d’utilisation dans votre entreprise effectué, vous devez déterminer les exigences de configuration de votre système de gestion des mises à jour logicielle, qui varient en fonction du système de gestion des mises à jour logicielles que vous utilisez. S’il s’agit de WSUS, lisez [Meilleures pratiques des services de mise à jour Windows Server](https://technet.microsoft.com/fr-FR/library/Cc708536). S’il s’agit de System Center, lisez [Planification des mises à jour de logiciel dans le gestionnaire de configuration](https://technet.microsoft.com/fr-FR/library/gg712696).
+Une fois l’audit initial du logiciel en cours d’utilisation dans votre entreprise effectué, vous devez déterminer les exigences de configuration de votre système de gestion des mises à jour logicielle, qui varient en fonction du système de gestion des mises à jour logicielles que vous utilisez. S’il s’agit de WSUS, lisez [Meilleures pratiques des services de mise à jour Windows Server](https://technet.microsoft.com/fr-fr/library/Cc708536). S’il s’agit de System Center, lisez [Planification des mises à jour de logiciel dans le gestionnaire de configuration](https://technet.microsoft.com/fr-fr/library/gg712696).
 
 Toutefois, il existe certaines considérations générales et des meilleures pratiques que vous pouvez appliquer quelle que soit la solution que vous utilisez, comme indiqué dans les sections qui suivent.
 
@@ -87,19 +87,19 @@ Prenez en compte les pratiques suivantes lors de la planification de la configur
 
 -   **Créer des regroupements de préproduction qui incluent les ordinateurs de référence** : le regroupement de préproduction doit inclure les configurations représentatives des versions de système d’exploitation, la ligne de logiciel d’organisation et d’autres logiciels s’exécutant dans votre entreprise.
 
-Vous devez également prendre en compte l’emplacement dans lequel le serveur de mise à jour sera situé, s’il sera placé dans l’infrastructure IaaS Azure dans le cloud ou s’il sera sur site. Il s’agit d’une décision importante, car vous devez évaluer le volume de trafic entre des ressources locales et l’infrastructure Azure. Lisez la section [Connecter un réseau local à un réseau virtuel Microsoft Azure](https://technet.microsoft.com/fr-FR/library/Dn786406.aspx) pour plus d’informations sur la façon de connecter votre infrastructure sur site à Azure.
+Vous devez également prendre en compte l’emplacement dans lequel le serveur de mise à jour sera situé, s’il sera placé dans l’infrastructure IaaS Azure dans le cloud ou s’il sera sur site. Il s’agit d’une décision importante, car vous devez évaluer le volume de trafic entre des ressources locales et l’infrastructure Azure. Lisez la section [Connecter un réseau local à un réseau virtuel Microsoft Azure](https://technet.microsoft.com/fr-fr/library/Dn786406.aspx) pour plus d’informations sur la façon de connecter votre infrastructure sur site à Azure.
 
-Les options de conception qui déterminent l’emplacement du serveur de mise à jour varient également en fonction de votre infrastructure actuelle et de la mise à jour logicielle système que vous utilisez actuellement. Pour WSUS, lisez [Déployer les services de mise à jour Windows dans votre organisation](https://technet.microsoft.com/fr-FR/library/hh852340.aspx) et, pour System Center Configuration Manager, lisez [Planification des sites et des hiérarchies dans Gestionnaire de configuration](https://technet.microsoft.com/fr-FR/library/Gg712681.aspx).
+Les options de conception qui déterminent l’emplacement du serveur de mise à jour varient également en fonction de votre infrastructure actuelle et de la mise à jour logicielle système que vous utilisez actuellement. Pour WSUS, lisez [Déployer les services de mise à jour Windows dans votre organisation](https://technet.microsoft.com/fr-fr/library/hh852340.aspx) et, pour System Center Configuration Manager, lisez [Planification des sites et des hiérarchies dans Gestionnaire de configuration](https://technet.microsoft.com/fr-fr/library/Gg712681.aspx).
 
 ### Sauvegarde
 
-Les mises à jour régulières sont importantes, non seulement pour la plateforme de gestion des mises à jour logicielles, mais également pour les serveurs qui doivent être mis à jour. Les organisations ayant mis en place un [processus de gestion du changement](https://technet.microsoft.com/fr-FR/library/cc543216.aspx) auront besoin de l’informatique pour justifier les raisons pour lesquelles le serveur doit être mis à jour, les temps d’arrêt estimés et l’impact possible. Pour vous assurer que vous disposez d’une configuration de restauration en cas d’échec de la mise à jour, assurez-vous d’effectuer régulièrement une sauvegarde système.
+Les mises à jour régulières sont importantes, non seulement pour la plateforme de gestion des mises à jour logicielles, mais également pour les serveurs qui doivent être mis à jour. Les organisations ayant mis en place un [processus de gestion du changement](https://technet.microsoft.com/fr-fr/library/cc543216.aspx) auront besoin de l’informatique pour justifier les raisons pour lesquelles le serveur doit être mis à jour, les temps d’arrêt estimés et l’impact possible. Pour vous assurer que vous disposez d’une configuration de restauration en cas d’échec de la mise à jour, assurez-vous d’effectuer régulièrement une sauvegarde système.
 
 Certaines options de sauvegarde d’IaaS d’Azure incluent :
 
 -   [Protection de la charge de travail IaaS Azure à l’aide de Data Protection Manager](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Sauvegarde des machines virtuelles Azure](https://azure.microsoft.com/fr-FR/documentation/articles/backup-azure-vms/)
+-   [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md)
 
 ### Surveillance
 
@@ -119,4 +119,4 @@ Outre les considérations générales expliquées dans cet article, vous devez p
 
 Utilisez les directives décrites dans cet article pour déterminer les meilleures options de mises à jour logicielles de machines virtuelles au sein d’IaaS Azure. Il existe de nombreuses similitudes entre les pratiques recommandées de mise à jour de logiciel dans un centre de données traditionnel et Azure IaaS, et il est par conséquent recommandé d’évaluer vos stratégies de mise à jour logicielle en cours pour inclure des machines virtuelles Azure et les meilleures pratiques figurant dans cet article dans votre processus de mise à jour logicielle globale.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

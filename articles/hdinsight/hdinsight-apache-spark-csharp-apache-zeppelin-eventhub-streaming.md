@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -90,9 +90,13 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 ### Créer une application de diffusion en continu à l’aide de Zeppelin
 
-1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://ms.portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
+1. Dans le tableau d’accueil du [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur la vignette de votre cluster Spark (si vous avez épinglé ce dernier au tableau d’accueil). Vous pouvez également accéder à votre cluster sous **Parcourir tout** > **Clusters HDInsight**.   
 
-2. Lancez le bloc-notes Zeppelin. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Zeppelin**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster. Pour lancer le bloc-notes, suivez les instructions indiquées dans la page qui s’ouvre.
+2. Dans le panneau du cluster Spark, cliquez sur **Liens rapides**, puis dans le panneau **Tableau de bord du cluster**, cliquez sur **Bloc-notes Zeppelin**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+
+	> [AZURE.NOTE]Vous pouvez également atteindre le bloc-notes Zeppelin pour votre cluster en ouvrant l’URL suivante dans votre navigateur. Remplacez __CLUSTERNAME__ par le nom de votre cluster :
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. Créer un nouveau bloc-notes. Dans le volet d’en-tête, cliquez sur **Bloc-notes** et, à partir de la liste déroulante, cliquez sur **Créer un nouveau bloc-notes**.
 
@@ -135,7 +139,7 @@ Pour obtenir des instructions sur la façon d’allouer des ressources dans un c
 
 ##<a name="runapps"></a>Exécuter les applications
 
-1. À partir du bloc-notes Zeppelin, exécutez le paragraphe avec l'extrait de code. Appuyez sur **MAJ + ENTRÉE** ou sur le bouton **Lire** en haut à droite.
+1. À partir du bloc-notes Zeppelin, exécutez le paragraphe avec l'extrait de code. Appuyez sur **Maj + Entrée** ou sur le bouton **Lire** en haut à droite.
 
 	L'état en haut à droite du paragraphe doit progresser de PRÊT, EN ATTENTE, EN COURS D'EXÉCUTION jusqu’à TERMINÉ. La sortie s'affiche en bas du même paragraphe. La capture d'écran ressemble à ceci :
 
@@ -188,4 +192,4 @@ Les instructions sur la façon d’effectuer ces étapes et un exemple d’appli
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

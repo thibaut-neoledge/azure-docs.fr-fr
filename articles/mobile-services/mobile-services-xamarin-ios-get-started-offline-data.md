@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Microsoft Azure"
-	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
+	pageTitle="Utilisation des données hors connexion dans Mobile Services (Xamarin iOS) | Microsoft Azure" 
+	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Xamarin iOS application" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -174,7 +174,6 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 
 <!-- URLs. -->
 [Gestion des conflits liés à la prise en charge hors connexion de Mobile Services]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Prise en main de Mobile Services]: mobile-services-ios-get-started.md
 [Utilisation du client Xamarin Component pour Azure Mobile Services]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [Suppression réversible]: mobile-services-using-soft-delete.md
@@ -183,4 +182,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [extension Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

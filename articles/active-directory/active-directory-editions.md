@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Éditions d’Azure Active Directory
@@ -54,11 +54,11 @@ L’édition Azure Active Directory Premium est une offre payante d’Azure Acti
 
 - **Multi-Factor Authentication** : Multi-Factor Authentication est maintenant inclus avec l’édition Premium et peut vous aider à sécuriser l’accès à des applications locales (VPN, RADIUS, etc.), à Azure, à des services Microsoft Online Services, comme Office 365 et Dynamics CRM Online, ainsi qu’à des milliers de services cloud tiers préintégrés dans Azure Active Directory. Il suffit d’activer Multi-Factor Authentication pour les identités Azure Active Directory. Les utilisateurs sont ensuite invités à configurer des paramètres de vérification supplémentaires lors de leur prochaine connexion.
 
-    Pour plus d’informations, consultez la page [Qu’est-ce que Azure Multi-Factor Authentication ?](multi-factor-authentication.md)
+    Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](multi-factor-authentication.md)
 
-- **Microsoft Identity Manager (MIM, gestionnaire d’identité Microsoft)** : l’édition Premium offre la possibilité d’accorder les droits d’utilisation d’un serveur MIM (et des licences d’accès client) dans votre réseau local pour prendre en charge n’importe quelle combinaison de solutions d’identité hybride. Il s’agit d’une option intéressante si vous avez plusieurs répertoires et bases de données locaux que vous souhaitez synchroniser directement avec Azure Active Directory. Il n’existe aucune limite quant au nombre de serveurs MIM que vous pouvez utiliser ; toutefois, les licences d’accès client MIM accordées reposent sur l’attribution d’une licence d’utilisateur Active Directory Azure Premium.
+- **Microsoft Identity Manager (MIM, gestionnaire d’identité Microsoft)** : l’édition Premium offre la possibilité d’accorder les droits d’utilisation d’un serveur MIM (et des licences d’accès client) dans votre réseau local pour prendre en charge n’importe quelle combinaison de solutions d’identité hybride. Il s’agit d’une option intéressante si vous avez plusieurs répertoires et bases de données locaux que vous souhaitez synchroniser directement avec Azure Active Directory. Il n’existe aucune limite quant au nombre de serveurs MIM que vous pouvez utiliser ; toutefois, les licences d’accès client MIM accordées reposent sur l’attribution d’une licence d’utilisateur Azure Active Directory Premium.
 
-    Pour plus d’informations, consultez la rubrique [Déploiement de MIM 2010 R2](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx).
+    Pour plus d’informations, consultez [Microsoft Identity Manager](http://www.microsoft.com/fr-fr/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **Contrat SLA professionnel avec 99,9 % de disponibilité** : nous garantissons au moins 99,9 % de disponibilité du service Azure Active Directory Premium.
 
@@ -396,7 +396,7 @@ L’édition Azure Active Directory Premium est une offre payante d’Azure Acti
 	<tr>
 		<td>
 		<p>
-		<a href="https://msdn.microsoft.com/fr-FR/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a> pour surveiller l’intégrité de l’infrastructure locale Active Directory et bénéficier d’une analyse de l’utilisation.</p>
+		<a href="https://msdn.microsoft.com/fr-fr/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a> pour surveiller l’intégrité de l’infrastructure locale Active Directory et bénéficier d’une analyse de l’utilisation.</p>
 		</td>
 		<td>
 		<p></p>
@@ -450,4 +450,4 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

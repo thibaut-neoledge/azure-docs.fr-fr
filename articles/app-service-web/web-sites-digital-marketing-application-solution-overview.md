@@ -7,16 +7,14 @@
 	services="app-service\web" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
-
 
 # Créer une campagne marketing numérique sur Azure App Service Web Apps
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps est l’outil de prédilection des campagnes marketing numériques. Les campagnes marketing numériques sont des entités à durée de vie limitée, conçues pour promouvoir des objectifs marketing à court terme. Il y a deux scénarios principaux à envisager. Dans le premier scénario, une agence de marketing crée et gère une campagne pour un client pendant toute la durée de la promotion. Dans le second scénario, l’agence de marketing crée une campagne marketing numérique, puis transfère les droits de propriété sur les ressources associées au client. Ce dernier lance et gère ensuite seul la campagne. est approprié dans les deux cas.
@@ -143,4 +141,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

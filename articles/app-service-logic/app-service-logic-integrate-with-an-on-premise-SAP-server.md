@@ -13,25 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="sameerch"/>
 
 
 # Intégrer un serveur SAP local
-Avec le connecteur SAP, vous pouvez connecter des applications web, mobiles et logiques Azure App Services à votre serveur SAP existant. Vous pouvez appeler des RFC, BAPI et des tRFC, et envoyer des IDOC au serveur SAP.
+Avec le connecteur SAP, vous pouvez connecter des applications web, mobiles et logiques Azure App Services à votre serveur SAP existant. Vous pouvez ainsi appeler des RFC, BAPI, tRFC, et envoyer des Idoc au serveur SAP, même s’il se trouve derrière votre pare-feu local.
 
-Le serveur SAP peut même se trouver derrière votre pare-feu local. Dans le cas d'un serveur local, la connectivité est établie via un écouteur hybride, comme illustré ci-dessous :
+Si vous disposez d’un serveur SAP local, utilisez un écouteur hybride pour établir la connectivité avec le connecteur SAP comme indiqué ci-après :
 
 ![Flux de connectivité hybride][1]
 
-Un connecteur SAP dans le cloud ne peut pas se connecter directement à un serveur SAP derrière un pare-feu. L'écouteur hybride assume le rôle d'intermédiaire en hébergeant un point de terminaison relais qui permet au connecteur d'établir une connectivité sécurisée avec le serveur SAP.
+Bien qu’un connecteur SAP dans le cloud ne puisse pas se connecter directement à un serveur SAP derrière un pare-feu en local, vous pouvez utiliser l’écouteur hybride pour combler l’écart. Pour ce faire, vous hébergez un point de terminaison relais qui permet au connecteur d’établir une connectivité sécurisée avec le serveur SAP.
 
 
 ## Différentes façons d'intégrer SAP
 Les actions suivantes sont prises en charge :
 
 - Appel de RFC
-- Appel de TRFC
+- Appel de tRFC
 - Appel de BAPI
 - Envoi d'IDoc
 
@@ -39,7 +39,7 @@ Les actions suivantes sont prises en charge :
 Les bibliothèques clientes spécifiques à SAP doivent se trouver sur l'ordinateur client où l'écouteur hybride est installé et en cours d'exécution. Les détails précis sont indiqués [ici][9] dans la section intitulée **Pour l’adaptateur SAP**.
 
 
-## Créer un adaptateur SAP
+## Créer un connecteur SAP
 1. Connectez-vous au portail de gestion Azure.
 2. Sélectionnez **Nouveau**.
 3. Dans le panneau de création, sélectionnez **Calculer** > **Azure Marketplace**.
@@ -77,13 +77,13 @@ Dans le panneau du connecteur, notez que l'état de la connexion hybride est En 
 
 ![Panneau Connexion hybride][3]
 
-Copiez la chaîne de configuration de passerelle principale. Vous l'utiliserez ultérieurement dans le cadre de la configuration de l'écouteur hybride.
+Copiez la chaîne de configuration de passerelle principale. Vous l’utiliserez ultérieurement dans le cadre de la configuration de l’écouteur hybride.
 
-Sélectionnez le lien **Télécharger et configurer**, puis exécutez le programme d’installation ClickOnce :
+Sélectionnez le lien **Télécharger et configurer**. Le programme d’installation ClickOnce s’ouvre :
 
 ![Installation ClickOnce de la connexion hybride][4]
 
-Sélectionnez **Installer**, puis entrez le paramètre de configuration de passerelle que vous avez copié précédemment :
+Sélectionnez **Installer**, puis entrez la chaîne de configuration de passerelle principale que vous avez copiée précédemment :
 
 ![Chaîne de connexion d’écoute du relais][5]
 
@@ -102,11 +102,9 @@ Dans le panneau du connecteur, notez que l’état de la connexion hybride est *
 
 
 ## Utilisation du connecteur SAP dans des applications logiques
-Une fois le connecteur SAP créé, vous pouvez l'utiliser dans votre flux de travail d'application logique.
+Une fois le connecteur SAP créé, vous pouvez l'utiliser dans votre flux de travail d'application logique. Pour ce faire, créez une application logique par le biais de **Nouveau** > **Applications logiques** > **Créer**. Entrez les métadonnées de l'application logique, y compris le groupe de ressources.
 
-Créez une application logique via **Nouveau** > **Applications logiques** > **Créer**. Entrez les métadonnées de l'application logique, y compris le groupe de ressources.
-
-Sélectionnez Déclencheurs et actions. Le concepteur de flux de travail d'applications logiques s'ouvre.
+Sélectionnez **Déclencheurs et actions**. Le concepteur de flux de travail d'applications logiques s'ouvre.
 
 Sélectionnez le connecteur SAP dans le volet de droite et sélectionnez une action sous l'onglet Actions.
 
@@ -125,4 +123,4 @@ Pour l'action sélectionnée, les paramètres d'entrée et de sortie sont affich
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Déployer les ressources Microsoft Azure à l’aide des bibliothèques de traitement, réseau et de stockage .NET"
-	description="Ce didacticiel vous montre comment utiliser certains des clients disponibles dans les bibliothèques de calcul, de stockage et réseau .NET afin de créer et de supprimer des ressources dans Microsoft Azure."
+	pageTitle="Déployer des ressources à l’aide de bibliothèques .NET | Microsoft Azure"
+	description="Ce didacticiel vous montre comment utiliser les bibliothèques de calcul, de stockage et réseau .NET pour créer et supprimer des ressources dans Microsoft Azure à l’aide de Resource Manager."
 	services="virtual-machines,virtual-network,storage"
 	documentationCenter=""
 	authors="davidmu1"
@@ -29,7 +29,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Un compte Azure Storage](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-fr/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 Ces étapes prennent environ 30 minutes.
@@ -189,7 +189,7 @@ Un compte de stockage est nécessaire pour stocker le fichier du disque dur virt
 		CreateStorageAccount(credential);
 		Console.ReadLine();
 
-###Créez un réseau virtuel
+###Créer la configuration de la mise en réseau
 
 Une machine virtuelle est plus productive lorsqu’elle est ajoutée à un réseau virtuel.
 
@@ -390,4 +390,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

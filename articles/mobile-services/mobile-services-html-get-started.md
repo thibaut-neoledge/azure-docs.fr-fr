@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d'Azure Mobile Services pour les applications HTML 5"
+	pageTitle="Prendre en main Azure Mobile Services pour les applications HTML/JavaScript | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement HTML."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Vue d'ensemble 
 
@@ -117,13 +119,12 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 ## <a name="next-steps"> </a>Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* **[Prise en main des données]** <br/>En savoir plus sur le stockage et l'interrogation des données à l'aide de Mobile Services.
+* **[Ajouter l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* **[Appel d'une API personnalisée à partir d'une application HTML]** <br/>Connectez votre application HTML à l'aide d'une API personnalisée hébergée sur Mobile Services.
+* **[Guide de fonctionnement Mobile Services HTML/JavaScript]** Découvrez plus en détail comment utiliser Mobile Services avec le HTML/JavaScript.
 
-* **[Prise en main de l'authentification]** <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
 
-* **[Guide de fonctionnement Mobile Services HTML/JavaScript]** <br/>: découvrez plus en détail comment utiliser Mobile Services avec le HTML/JavaScript
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 
 <!-- URLs. -->
-[Prise en main des données]: mobile-services-html-get-started-data.md
-[Prise en main de l'authentification]: mobile-services-html-get-started-users.md
-[Appel d'une API personnalisée à partir d'une application HTML]: mobile-services-html-call-custom-api.md
+[Ajouter l’authentification à votre application]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [programme d'installation de la plate-forme Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

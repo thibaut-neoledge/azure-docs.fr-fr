@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="cabailey"/>
 
 # Prise en main du coffre de clés Azure #
@@ -35,8 +35,8 @@ Pour plus d’informations générales sur Azure Key Vault, consultez la page [P
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - Un abonnement Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](../../../../pricing/free-trial) dès aujourd’hui.
-- Azure PowerShell, version 0.9.1 ou ultérieure. Pour installer la dernière version et l’associer à votre abonnement Azure, consultez la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-- Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-FR/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
+- Azure PowerShell version 0.9.1 à 0.9.8. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+- Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans ce didacticiel. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/fr-fr/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi fourni.
 
 
 Ce didacticiel s'adresse aux utilisateurs novices de Windows PowerShell, mais il part du principe que vous comprenez les concepts fondamentaux (modules, cmdlets et sessions). Pour plus d'informations sur Windows PowerShell, consultez la page [Prise en main de Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -244,4 +244,4 @@ Pour obtenir la liste des applets de commande Windows PowerShell pour Azure Key 
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

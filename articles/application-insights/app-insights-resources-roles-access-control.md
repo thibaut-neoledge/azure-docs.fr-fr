@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="10/01/2015" 
 	ms.author="awills"/>
  
 # Contrôle d’accès, rôles et ressources dans Application Insights
@@ -38,7 +38,6 @@ Quelques définitions pour commencer :
 
     
     ![Cliquez sur Parcourir, Groupes de ressources, puis choisissez un groupe](./media/app-insights-resources-roles-access-control/11-group.png)
-
 
 * [**Abonnement**](https://manage.windowsazure.com) : pour utiliser Application Insights ou d’autres ressources Azure, vous devez vous connecter à un abonnement Azure. Chaque groupe de ressources appartient à un abonnement Azure, où vous choisissez votre package de prix et, s’il s’agit d’un abonnement d’organisation, sélectionnez les membres et leurs autorisations d’accès.
 * [**Compte Microsoft**][account] : le nom d’utilisateur et mot de passe que vous utilisez pour vous connecter à vos abonnements Microsoft Azure, XBox Live, Outlook.com et d’autres services Microsoft.
@@ -111,4 +110,4 @@ Si l’utilisateur n’est pas dans le répertoire, vous pouvez inviter toute pe
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

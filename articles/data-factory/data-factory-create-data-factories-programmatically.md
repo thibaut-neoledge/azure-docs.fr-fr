@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory"
-	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory" 
+	description="Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Créer, surveiller et gérer des fabriques de données Azure à l'aide du Kit de développement logiciel (SDK) Data Factory .NET
@@ -56,8 +56,8 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="<subscription ID>" />
-    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
+		    <add key="SubscriptionId" value="your subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
 6. Ajoutez les instructions **using** suivantes au fichier source (Program.cs) dans le projet.
 
@@ -71,7 +71,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les tables d'entrée et de sortie, ainsi qu'un pipeline. Cet objet vous permet également d'analyser les tranches d'une table au moment de l'exécution.    
+6. Ajoutez à la méthode **Main** le code suivant, qui crée une instance de la classe **DataPipelineManagementClient**. Cet objet vous permet de créer une fabrique de données, un service lié, les jeux de données d’entrée et de sortie, ainsi qu’un pipeline. Cet objet vous permet également d’analyser les tranches d’un jeu de données au moment de l’exécution.    
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,25 +123,25 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 }
             }
         );
-9. Ajoutez à la méthode **Main** le code suivant, qui crée des **tables d'entrée et de sortie**. 
+9. Ajoutez à la méthode **Main** le code suivant, qui crée des **jeux de données d’entrée et de sortie**. 
 
 	Notez que le paramètre **FolderPath** de l'objet blob d'entrée a la valeur **adftutorial/**, où **adftutorial** est le nom du conteneur dans votre stockage d'objets blob. Si ce conteneur n'existe pas dans votre stockage d'objets blob Azure, créez un conteneur nommé **adftutorial** et chargez un fichier texte sur celui-ci.
 	
 	Notez que le paramètre FolderPath de l'objet blob de sortie est défini sur **adftutorial/apifactoryoutput/{Slice}** où la valeur **Slice** est calculée dynamiquement en fonction de la valeur de **SliceStart** (date/heure de début de chaque tranche).
 
  
-        // create input and output tables
-        Console.WriteLine("Creating input and output tables");
-        string Table_Source = "TableBlobSource";
-        string Table_Destination = "TableBlobDestination";
+        // create input and output datasets
+        Console.WriteLine("Creating input and output datasets");
+        string Dataset_Source = "DatasetBlobSource";
+        string Dataset_Destination = "DatasetBlobDestination";
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Source,
-                    Properties = new TableProperties()
+                    Name = Dataset_Source,
+                    Properties = new DatasetProperties()
                     {
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
@@ -167,13 +167,13 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                 }
             });
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Destination,
-                    Properties = new TableProperties()
+                    Name = Dataset_Destination,
+                    Properties = new DatasetProperties()
                     {
 
                         LinkedServiceName = "LinkedService-AzureStorage",
@@ -233,14 +233,14 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
                                 Inputs = new List<ActivityInput>()
                                 {
                                     new ActivityInput() {
-                                        Name = Table_Source
+                                        Name = Dataset_Source
                                     }
                                 },
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination
+                                        Name = Dataset_Destination
                                     }
                                 },
                                 TypeProperties = new CopyActivity()
@@ -297,7 +297,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Ajoutez le code suivant à la méthode **Main** pour obtenir l'état d'une tranche de données de la table de sortie. Une seule tranche est attendue dans cet exemple.
+13. Ajoutez le code suivant à la méthode **Main** pour obtenir l’état d’une tranche de données du jeu de données de sortie. Une seule tranche est attendue dans cet exemple.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -309,7 +309,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
             // wait before the next status check
             Thread.Sleep(1000 * 12);
 
-            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
+            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
@@ -342,7 +342,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
-                Table_Destination,
+                Dataset_Destination,
                 new DataSliceRunListParameters()
                 {
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
@@ -363,16 +363,17 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. Si vous obtenez une erreur à propos de la classe **ConfigurationManager**, ajoutez une référence à l’assembly **System.Configuration** et réessayez de générer le projet.
+15. Dans l’Explorateur de solutions, développez le projet (**DataFactoryAPITestApp**), cliquez avec le bouton droit sur **Références**, puis cliquez sur **Ajouter une référence**. Cochez la case de l’assembly **System.Configuration**, puis cliquez sur **OK**.
+16. Générez l'application console. Dans le menu, cliquez sur **Générer**, puis sur **Générer la solution**. 
 16. Vérifiez qu'il existe au moins un fichier dans le conteneur adftutorial de votre stockage d'objets blob Azure. Si ce n'est pas le cas, créez le fichier Emp.txt dans le bloc-notes avec le contenu suivant, puis chargez-le sur le conteneur adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **ENTRÉE**.
+17. Exécutez l'exemple en cliquant dans le menu sur **Déboguer** -> **Démarrer le débogage**. Si **Obtention des détails d’exécution d’une tranche de données** s’affiche, patientez quelques minutes, puis appuyez sur **Entrée**.
 18. Utilisez le portail Azure en version préliminaire pour vérifier que la fabrique de données **APITutorialFactory** est créée avec les artefacts suivants : 
 	- Service lié : **LinkedService\_AzureStorage** 
-	- Tables : **TableBlobSource** et **TableBlobDestination**
+	- Jeu de données : **DatasetBlobSource** et **DatasetBlobDestination**.
 	- Pipeline : **PipelineBlobSample** 
 18. Vérifiez qu'un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
 
@@ -394,4 +395,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

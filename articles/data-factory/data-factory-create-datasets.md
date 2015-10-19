@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Création de jeux de données"
-	description="Comprendre les jeux de données Azure Data Factory et apprendre à les créer."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Création de jeux de données" 
+	description="Comprendre les jeux de données Azure Data Factory et apprendre à les créer." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="spelluru"/>
 
 # Jeux de données
@@ -48,12 +48,12 @@ Un jeu de données est une description logique des données. Les données décri
 
 | Propriété | Description | Requis | Default |
 | -------- | ----------- | -------- | ------- |
-| Nom | Nom du jeu de données | Oui | N/D |
-| Structure | <p>Schéma du jeu de données</p><p>Consultez la section [Structure d'un jeu de données](#Structure) pour plus de détails</p> | Non. | N/D |
-| Type | Type du jeu de données | Oui | N/D |
+| name | Nom du jeu de données | Oui | N/D |
+| structure | <p>Schéma du jeu de données</p><p>Consultez la section [Structure d'un jeu de données](#Structure) pour plus de détails</p> | Non. | N/D |
+| type | Type du jeu de données | Oui | N/D |
 | typeProperties | <p>Propriétés correspondant au type sélectionné</p><p>Consultez la section [Type du jeu de données](#Type) pour plus d'informations sur les types pris en charge et leurs propriétés.</p> | Oui | N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non | Non | false | 
-| Availability | <p>Définit la fenêtre de traitement ou le modèle de découpage pour la production du jeu de données. </p><p>Consultez la rubrique [Disponibilité du jeu de données](#Availability) pour plus de détails</p><p>Consultez l'article [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d'informations sur le modèle de découpage du jeu de données</p> | Oui | N/D
+| availability | <p>Définit la fenêtre de traitement ou le modèle de découpage pour la production du jeu de données. </p><p>Consultez la rubrique [Disponibilité du jeu de données](#Availability) pour plus de détails</p><p>Consultez l'article [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d'informations sur le modèle de découpage du jeu de données</p> | Oui | N/D
 | policy | Définit les critères ou la condition que les segments du jeu de données doivent remplir. <p>Consultez la rubrique [Stratégie du jeu de données](#Policy) pour plus de détails</p> | Non | N/D |
 
 ### Exemple
@@ -109,13 +109,13 @@ La section Disponibilité dans un jeu de données définit la fenêtre de traite
 | -------- | ----------- | -------- | ------- |
 | frequency | Spécifie l'unité de temps pour la production du segment du jeu de données.<p>**Fréquence prise en charge** : minute, heure, jour, semaine, mois</p> | Oui | N/D |
 | interval | Spécifie un multiplicateur de fréquence<p>« Fréquence x intervalle » détermine la fréquence à laquelle le segment est généré.</p><p>Si vous voulez que le jeu de données soit segmenté toutes les heures, vous définissez **Fréquence** sur **Heure** et **Intervalle** sur **1**.</p><p>**Remarque :** Si vous définissez la fréquence en minutes, nous vous recommandons de définir l'intervalle au minimum sur 15</p> | Oui | N/D |
-| style | Spécifie si le segment doit être généré au début / à la fin de l'intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Si la fréquence est définie sur Mois et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.<.p><p>Si la fréquence est définie sur Jour et style défini sur EndOfInterval, le segment est généré durant la dernière heure du jour.</p>Si la fréquence est définie sur Heure et le style défini sur EndOfInterval, le segment est généré à la fin de l'heure. Par exemple, pour un segment de la période 13h-14h, le segment est généré à 14h.</p> | Non | EndOfInterval |
-| anchorDateTime | Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites du segment du jeu de données.<p>**Remarque :** si AnchorDateTime a des parties de date qui sont plus granulaires que la fréquence, alors les parties les plus granulaires seront ignorées. Par exemple, si l'**intervalle** est défini sur **toutes les heures** (fréquence : heure et intervalle : 1) et si **AnchorDateTime** contient **minutes et secondes**, alors les parties **minutes et secondes** de la valeur AnchorDateTime seront ignorées.</p>| Non | 01/01/0001 |
+| style | Spécifie si le segment doit être généré au début / à la fin de l'intervalle.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><p>Si la fréquence est définie sur Mois et le style défini sur EndOfInterval, le segment est généré le dernier jour du mois. Si le style est défini sur StartOfInterval, le segment est généré le premier jour du mois.</p><p>Si la fréquence est définie sur Jour et style défini sur EndOfInterval, le segment est généré durant la dernière heure du jour.</p>Si la fréquence est définie sur Heure et le style défini sur EndOfInterval, le segment est généré à la fin de l’heure. Par exemple, pour un segment de la période 13h-14h, le segment est généré à 14h.</p> | Non | EndOfInterval |
+| anchorDateTime | Définit la position absolue dans le temps utilisée par le planificateur pour calculer les limites du segment du jeu de données.<p>**Remarque :** si AnchorDateTime a des parties de date qui sont plus granulaires que la fréquence, les parties les plus granulaires sont ignorées. Par exemple, si l’**intervalle** est défini sur **toutes les heures** (fréquence : heure et intervalle : 1) et si **AnchorDateTime** contient **minutes et secondes**, les parties **minutes et secondes** de la valeur AnchorDateTime sont ignorées.</p>| Non | 01/01/0001 |
 | Offset | Intervalle selon lequel le début et la fin de tous les segments du jeu de données sont déplacés.<p>**Remarque :** si les valeurs anchorDateTime et offset sont spécifiées, le résultat correspond au décalage combiné.</p> | Non | N/D |
 
 ### exemples anchorDateTime
 
-**Exemple :** segments du jeu de données de 23 heures qui démarrent le 2007-04-19T08:00:00
+**Exemple :** segments du jeu de données de 23 heures qui démarrent le 2007-04-19T08:00:00
 
 	"availability":	
 	{	
@@ -182,14 +182,14 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
 | Nom | Description | Requis | Valeur par défaut |
 | ---- | ----------- | -------- | -------------- |
-| dataDelay | <p>Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont supposées être disponibles toutes les heures, la vérification pour déterminer si les données externes sont réellement disponibles et si le segment correspondant dispose de l'état Ready, peut être différée selon la valeur de dataDelay.</p><p>S'applique uniquement à l'heure actuelle ; par exemple, s'il est 13h et cette valeur est de 10 minutes, la validation commencera à 13h10.</p><p>Ce paramètre n'affecte pas les segments dans le passé (segments avec Slice End Time + dataDelay < maintenant) qui seront traités sans délai.</p> <p>Toute heure supérieure à 23h59 doit être spécifiée à l'aide du format day.hours:minutes:seconds. Par exemple, pour spécifier 24 heures, n'utilisez pas 24:00:00 ; utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur sera traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. </p>| Non | 0 |
-| retryInterval | Délai d'attente entre un échec et la nouvelle tentative. S'applique à l'heure actuelle ; si la tentative précédente a échoué, le système laisse ce délai s'écouler après la dernière tentative. <p>S'il est 13h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l'opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13h02. </p><p>Pour les segments dans le passé, il n'y a aucun délai. La nouvelle tentative a lieu immédiatement.</p> | Non | 00:01:00 (1 minute) | 
-| retryTimeout | Le délai d'attente pour chaque nouvelle tentative.<p>Si cela est défini sur 10 minutes, la validation doit être effectuée dans les 10 minutes. S'il faut plus de 10 minutes pour effectuer la validation, la nouvelle tentative expirera.</p><p>Si toutes les tentatives de validation expirent, le segment sera marqué TimedOut.</p> | Non | 00:10:00 (10 minutes) |
+| dataDelay | <p>Durée du délai de la vérification de la disponibilité des données externes pour le segment donné. Par exemple, si les données sont supposées être disponibles toutes les heures, la vérification pour déterminer si les données externes sont réellement disponibles et si le segment correspondant dispose de l’état Ready peut être différée selon la valeur de dataDelay.</p><p>S’applique uniquement à l’heure actuelle ; par exemple, s’il est 13h et que cette valeur est de 10 minutes, la validation commence à 13h10.</p><p>Ce paramètre n’affecte pas les segments dans le passé (segments avec Slice End Time + dataDelay < maintenant) qui sont traités sans délai.</p> <p>Toute heure supérieure à 23h59 doit être spécifiée à l’aide du format day.hours:minutes:seconds. Par exemple, pour spécifier 24 heures, n'utilisez pas 24:00:00 ; utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur sera traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. </p>| Non | 0 |
+| retryInterval | Délai d'attente entre un échec et la nouvelle tentative. S'applique à l'heure actuelle ; si la tentative précédente a échoué, le système laisse ce délai s'écouler après la dernière tentative. <p>S’il est 13h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l'opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13h02. </p><p>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative a lieu immédiatement.</p> | Non | 00:01:00 (1 minute) | 
+| retryTimeout | Le délai d’attente pour chaque nouvelle tentative.<p>S’il est défini sur 10 minutes, la validation doit être effectuée en 10 minutes maximum. S’il faut plus de 10 minutes pour effectuer la validation, la nouvelle tentative expire.</p><p>Si toutes les tentatives de validation expirent, le segment est marqué TimedOut.</p> | Non | 00:10:00 (10 minutes) |
 | maximumRetry | Nombre de fois où la disponibilité des données externes est vérifiée. La valeur maximale autorisée est de 10. | Non | 3 | 
 
 #### Exemples supplémentaires
 
-Si vous avez besoin d'exécuter un pipeline tous les mois à une date et une heure spécifiques (par exemple, le 3e jour de chaque mois à 8h), vous pouvez utiliser la balise **offset** pour définir la date et l'heure d'exécution.
+Si vous avez besoin d’exécuter un pipeline tous les mois à une date et une heure spécifiques (par exemple, le 3e jour de chaque mois à 8h), vous pouvez utiliser la balise **offset** pour définir la date et l’heure d’exécution.
 
 	{
 	  "name": "MyDataset",
@@ -217,4 +217,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
   
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

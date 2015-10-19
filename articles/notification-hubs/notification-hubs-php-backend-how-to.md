@@ -17,13 +17,9 @@
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de PHP
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des concentrateurs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des hubs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -198,12 +194,12 @@ Munis de cette classe, nous pouvons à présent écrire les méthodes d'envoi de
 		}
 	} 
 
-Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /messages de votre concentrateur de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
+Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
 
 ##<a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent suivre le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal PHP.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du concentrateur comme indiqué dans le [didacticiel de prise en main]) : $hub = new NotificationHub("connection string", "hubname");
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) : $hub = new NotificationHub("connection string", "hubname");
 
 Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible.
 
@@ -261,4 +257,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

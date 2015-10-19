@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,7 +64,7 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 
 ####<a name="land"></a> Quelle est la fonction de la commande « Ajouter Application Insights » ?
 
-Cette commande effectue les opérations suivantes (que vous pouvez exécuter manuellement si vous préférez) :
+Cette commande effectue les opérations suivantes (que vous pouvez [exécuter manuellement](app-insights-start-monitoring-app-health-usage.md) si vous préférez) :
 
 * Elle crée une ressource Application Insights dans [le portail Azure][portal]. Il s’agit de l’endroit où s’afficheront vos données. Elle récupère la *clé d’instrumentation*, qui identifie la ressource.
 * Elle ajoute le package NuGet du Kit de développement logiciel (SDK) Web Application Insights à votre projet. Pour le visualiser dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
@@ -99,8 +99,9 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 
 #### Pas de données ?
 
-* Ouvrez la vignette [Rechercher][diagnostic] pour afficher les événements individuels.
+* Assurez-vous que vous regardez les bonnes informations. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur « Parcourir », « Application Insights », puis sélectionnez votre application.
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
+* Ouvrez le panneau [Rechercher][diagnostic] pour afficher les événements individuels. Parfois, les événements mettent un peu plus de temps pour parcourir le pipeline de métriques.
 * Attendez quelques secondes, puis cliquez sur Actualiser.
 * Consultez la rubrique [Résolution des problèmes][qna].
 
@@ -111,15 +112,13 @@ Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-
 
 ## Ajouter une surveillance du navigateur
 
-La surveillance côté navigateur ou client vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le navigateur.
+La surveillance du navigateur vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le navigateur.
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
 
-Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu’au niveau du nombre de clics et de frappes sur les touches.
+Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu'au niveau du nombre de clics et de frappes sur les touches.
 
-#### Si vos clients sont des navigateurs web
-
-Si votre application affiche des pages web, ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
+Ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
 
 ![Dans votre application web, ouvrez Démarrage rapide, puis cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@ Notez que le code contient la clé d’instrumentation qui identifie la ressourc
 
 [En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
 
-#### Si vos clients sont des applications pour appareil
-
-Si votre application sert des clients tels que des téléphones ou d’autres appareils, ajoutez le [Kit de développement logiciel (SDK) correspondant](app-insights-platforms.md) à votre application pour appareil.
-
-Si vous configurez le Kit de développement logiciel (SDK) client avec la même clé d’instrumentation que le SDK serveur, les deux flux sont intégrés et apparaissent ensemble.
 
 ## Suivi de l’utilisation
 
@@ -196,7 +190,7 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(L’extension s’applique uniquement à une application générée avec le Kit de développement logiciel. Contrairement à Status Monitor, elle ne peut pas instrumentaliser une application existante.)
+(Vous pouvez également ajouter l’extension à une application qui est déjà active, même si vous n’avez pas installé le Kit de développement logiciel (SDK) qu’elle contient).
 
 #### Pour surveiller les rôles de services cloud Azure
 
@@ -248,4 +242,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

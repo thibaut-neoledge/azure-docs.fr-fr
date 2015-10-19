@@ -4,10 +4,9 @@
    description="Modèle de conception Acteurs fiables Service Fabric qui utilise des acteurs avec état pour conserver l'état entre les appels de service ainsi que les précédents résultats de service mis en cache. L'état peut être persistant ou transitoire."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
-
 
 <tags
    ms.service="service-fabric"
@@ -16,8 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
-
+   ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : composition de service avec état
 Les développeurs ont passé les 15 dernières années à créer des services sans état à N niveaux dans l'entreprise. Ils ont créé des services au-dessus des bases de données, des services d'ordre élevé au-dessus d'autres services ainsi que des moteurs d'orchestration et des intergiciels orientés messages pour coordonner ces services. À mesure que les charges de travail de l'utilisateur évoluent, qu'elles exigent plus d'interactivité ou d'échelle, l'architecture orientée services sans état a commencé à montrer ses limites.
@@ -93,4 +91,4 @@ Nous consistons qu'un « service sans état » présente des inconvénients dans
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

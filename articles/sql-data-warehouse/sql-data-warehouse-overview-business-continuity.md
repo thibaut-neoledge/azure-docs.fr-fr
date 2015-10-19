@@ -51,7 +51,7 @@ Dans la mesure où SQL Data Warehouse sépare le calcul du stockage, l’ensem
 
 ### Restauration de base de données
 
-Cette fonctionnalité est utilisée pour restaurer votre base de données à un point antérieur dans le temps. Le service SQL Data Warehouse d’Azure protège toutes les bases de données avec des captures instantanées de stockage automatiques au moins toutes les 4 heures et les conserve pendant 7 jours afin de vous offrir un ensemble discret de points de restauration. Ces sauvegardes sont stockées sur un espace de stockage géo-redondant avec accès en lecture Microsoft Azure (RA-GRS). Les fonctionnalités automatiques de sauvegarde et de restauration, qui sont proposées gratuitement, ne requièrent aucun coût d’administration pour protéger les bases de données d’une corruption ou d’une suppression accidentelles. Pour en savoir plus sur la restauration de base de données, consultez la section [Récupérer après une erreur d’utilisateur][].
+Cette fonctionnalité est utilisée pour restaurer votre base de données à un point antérieur dans le temps. Le service SQL Data Warehouse d’Azure protège toutes les bases de données avec des captures instantanées de stockage automatiques au moins toutes les 8 heures et les conserve pendant 7 jours afin de vous offrir un ensemble discret de points de restauration. Ces sauvegardes sont stockées sur un espace de stockage géo-redondant avec accès en lecture Microsoft Azure (RA-GRS). Les fonctionnalités automatiques de sauvegarde et de restauration, qui sont proposées gratuitement, ne requièrent aucun coût d’administration pour protéger les bases de données d’une corruption ou d’une suppression accidentelles. Pour en savoir plus sur la restauration de base de données, consultez la section [Récupérer après une erreur d’utilisateur][].
 
 ### Restauration géographique
 
@@ -78,4 +78,4 @@ Pour en savoir plus sur les fonctionnalités de continuité d’activité d’au
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

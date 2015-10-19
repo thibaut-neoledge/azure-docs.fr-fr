@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Configurer la protection entre des sites VMM locaux avec la réplication SAN" 
-	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles Hyper-V entre les sites locaux en utilisant la réplication SAN." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="Configurer la protection entre des sites VMM locaux avec la réplication SAN"
+	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles Hyper-V entre les sites locaux en utilisant la réplication SAN."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 # Configurer la protection entre des sites VMM locaux avec la réplication SAN
 
 Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour en savoir plus sur les scénarios de déploiement, consultez [Présentation d’Azure Site Recovery](site-recovery-overview.md).
 
-Cette procédure explique comment déployer Azure Site Recovery pour orchestrer et automatiser la protection des charges de travail d’ordinateur virtuel sur un serveur Hyper-V local géré par System Center VMM vers un autre site VMM local, à l'aide de la réplication basée sur des groupes de stockage (SAN).
+Cette procédure explique comment déployer Azure Site Recovery pour orchestrer et automatiser la protection des charges de travail de machine virtuelle sur un serveur Hyper-V local géré par System Center VMM vers un autre site VMM local, à l'aide de la réplication basée sur des groupes de stockage (SAN).
 
 Les avantages pour l'entreprise sont les suivants :
 
 - Fournir une solution de réplication évolutive et automatisée par Site Recovery.
 - Tirer parti des fonctionnalités de réplication SAN fournies par des partenaires de stockage d'entreprise sur les stockages Fibre Channel et iSCSI. Découvrez nos [partenaires de stockage SAN](http://go.microsoft.com/fwlink/?LinkId=518669).
-- Tirer parti de votre infrastructure SAN pour protéger les applications critiques déployées dans des clusters Hyper-V. 
+- Tirer parti de votre infrastructure SAN pour protéger les applications critiques déployées dans des clusters Hyper-V.
 - Prendre en charge les clusters invités.
 - Garantir la cohérence de la réplication entre les différentes couches d’une application avec réplication synchronisée SAN pour un RTO et une RPO faibles, et une réplication synchronisée pour une haute flexibilité, selon les capacités des groupes de stockage.  
 - L'intégration dans VMM fournit une gestion SAN dans la console VMM et SMI-S dans VMM détecte un stockage existant.  
@@ -39,13 +39,13 @@ Cet article fournit une vue d'ensemble et décrit les conditions requises pour l
 Si vous rencontrez des problèmes, posez vos questions sur le [Forum Azure Recovery Services](http://go.microsoft.com/fwlink/?LinkId=313628).
 
 ## Vue d'ensemble
-Ce scénario protège vos charges de travail en sauvegardant les ordinateurs virtuels Hyper-V à partir d'un site VMM local sur un autre à l'aide de la réplication SAN.
+Ce scénario protège vos charges de travail en sauvegardant les machines virtuelles Hyper-V à partir d'un site VMM local sur un autre à l'aide de la réplication SAN.
 
 ![Architecture SAN](./media/site-recovery-vmm-san/ASRSAN_Arch.png)
 
 ### Composants du scénario
 
-- **Ordinateurs virtuels locaux** : vos serveurs Hyper-V locaux gérés dans des clouds privés VMM contiennent des ordinateurs virtuels que vous souhaitez protéger.
+- **Machines virtuelles locales** : vos serveurs Hyper-V locaux gérés dans des clouds privés VMM contiennent des machines virtuelles que vous souhaitez protéger.
 - **Serveurs VMM locaux** : vous pouvez avoir un ou plusieurs serveurs VMM sur le site primaire que vous souhaitez protéger et sur le site secondaire.
 - **Stockage SAN** : un groupe SAN sur le site primaire et un sur le site secondaire.
 -  **Coffre Azure Site Recovery** : le coffre coordonne et orchestre le réplica, le basculement et la récupération des données entre vos sites locaux.
@@ -64,14 +64,14 @@ Ce scénario protège vos charges de travail en sauvegardant les ordinateurs vir
 	- un ou plusieurs groupes hôtes VMM ;
 	- un ou plusieurs clusters Hyper-V dans chaque groupe hôte ;
 	- une ou plusieurs machines virtuelles situées sur le serveur Hyper-V source dans le cloud.
-		
+
 ### Configuration requise pour Hyper-V
 
 - Vous devez disposer d'un cluster hôte Hyper-V déployé dans les sites principaux et secondaires, exécutant au moins Windows Server 2012 avec les dernières mises à jour.
 
 ### Configuration requise pour la réplication SAN
 
-- La réplication SAN vous permet de répliquer des ordinateurs virtuels en cluster invité avec un stockage iSCSI ou Fibre Channel ou bien de disques durs virtuels partagés (VHDX). La configuration requise pour SAN est la suivante :
+- La réplication SAN vous permet de répliquer des machines virtuelles en cluster invité avec un stockage iSCSI ou Fibre Channel ou bien de disques durs virtuels partagés (VHDX). La configuration requise pour SAN est la suivante :
 	- Vous devez disposer de deux groupes SAN configurés, l'un dans le site principal et l'autre dans le site secondaire.
 	- Une infrastructure réseau doit être configurée entre les groupes. L'homologation et la réplication doivent être configurées. Des licences de réplication doivent être configurées conformément aux exigences des baies de stockage.
 	- La mise en réseau doit être configurée entre les serveurs hôtes Hyper-V et la baie de stockage pour que les hôtes puissent communiquer avec les LUN de stockage via iSCSI ou Fibre Channel.
@@ -83,12 +83,12 @@ Ce scénario protège vos charges de travail en sauvegardant les ordinateurs vir
 
 ### Configuration requise pour le réseau
 
-Si vous le souhaitez, vous pouvez configurer le mappage réseau pour vous assurer que les ordinateurs virtuels de réplica sont placés de manière optimale sur les serveurs hôtes Hyper-V après le basculement et qu’ils peuvent se connecter aux réseaux d’ordinateurs virtuels appropriés. Notez les points suivants :
+Si vous le souhaitez, vous pouvez configurer le mappage réseau pour vous assurer que les machines virtuelles de réplica sont placées de manière optimale sur les serveurs hôtes Hyper-V après le basculement et qu’elles peuvent se connecter aux réseaux de machines virtuelles appropriés. Notez les points suivants :
 
 - Quand le mappage réseau est activé, une machine virtuelle à l'emplacement principal est connectée à un réseau et son réplica à l'emplacement cible est connecté à son réseau mappé.
 - Si vous ne configurez pas le mappage réseau, les machines virtuelles ne seront pas connectées aux réseaux VM après le basculement.
-- Les réseaux d'ordinateurs virtuels doivent être configurés dans VMM. Pour en savoir plus, consultez Configuration de réseaux d'ordinateurs virtuels et de passerelles dans VMM.
-- Les ordinateurs virtuels sur le serveur VMM source doivent être connectés à un réseau d’ordinateurs virtuels. Ce réseau doit être relié à un réseau logique lui-même associé au cloud.
+- Les réseaux de machines virtuelles doivent être configurés dans VMM. Pour en savoir plus, consultez Configuration de réseaux de machines virtuelles et de passerelles dans VMM.
+- Les machines virtuelles sur le serveur VMM source doivent être connectées à un réseau de machines virtuelles. Ce réseau doit être relié à un réseau logique lui-même associé au cloud.
 
 
 ## Étape 1 : Préparer l'infrastructure VMM
@@ -99,11 +99,11 @@ Pour préparer votre infrastructure VMM, vous devez :
 2. Intégrez et classez le stockage SAN dans VMM.
 3. Créer des LUN et allouer de l'espace de stockage
 4. Créer des groupes de réplication
-5. Configurer les réseaux d'ordinateurs virtuels
+5. Configurer les réseaux de machines virtuelles
 
 ### Vérifier que les clouds VMM sont configurés
 
-Site Recovery orchestre la protection des ordinateurs virtuels situés sur des serveurs hôtes Hyper-V dans des clouds VMM. Vous devez vérifier que ces clouds sont configurés correctement avant de commencer le déploiement de Site Recovery. Voici quelques sources fiables :
+Site Recovery orchestre la protection des machines virtuelles situées sur des serveurs hôtes Hyper-V dans des clouds VMM. Vous devez vérifier que ces clouds sont configurés correctement avant de commencer le déploiement de Site Recovery. Voici quelques sources fiables :
 
 - [Nouveautés sur le cloud privé](http://go.microsoft.com/fwlink/?LinkId=324952)
 - [VMM 2012 et les clouds](http://go.microsoft.com/fwlink/?LinkId=324956) dans le blog de Gunter Danzeisen.
@@ -139,10 +139,10 @@ Ajoutez une classification SAN dans la console VMM :
 
 1. Une fois le stockage SAN intégré à VMM, vous créez (approvisionnez) des LUN :
 
-- [Comment sélectionner une méthode de création d'unités logiques dans VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [Comment approvisionner les unités logiques de stockage dans VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [Comment sélectionner une méthode de création d'unités logiques dans VMM](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [Comment approvisionner les unités logiques de stockage dans VMM](http://go.microsoft.com/fwlink/?LinkId=518491)
 
-2. Ensuite, allouez de l'espace de stockage au cluster hôte Hyper-V pour que VMM puisse déployer les données des machines virtuelles vers le stockage approvisionné : 
+2. Ensuite, allouez de l'espace de stockage au cluster hôte Hyper-V pour que VMM puisse déployer les données des machines virtuelles vers le stockage approvisionné :
 
 	- Avant d'allouer de l'espace de stockage au cluster, vous devez en allouer au groupe hôte VMM sur lequel réside le cluster. Consultez [Comment allouer des unités logiques de stockage à un groupe hôte](http://go.microsoft.com/fwlink/?LinkId=518493) et [Comment faire pour affecter des pools de stockage à un groupe hôte](http://go.microsoft.com/fwlink/?LinkId=518492).</a>.
 	- Allouez une capacité de stockage au cluster comme décrit dans [Comment configurer du stockage sur un cluster hôte Hyper-V dans VMM](http://go.microsoft.com/fwlink/?LinkId=513017).</a>.
@@ -161,10 +161,10 @@ Créez un groupe de réplication qui recense tous les LUN devant être répliqu�
 Si vous souhaitez configurer le mappage réseau, procédez comme suit :
 
 1. Pour en savoir plus sur le mappage réseau, [cliquez ici](https://msdn.microsoft.com/library/azure/dn801052.aspx).
-2. Préparez les réseaux d'ordinateurs virtuels dans VMM :
- 
+2. Préparez les réseaux de machines virtuelles dans VMM :
+
 	- Pour en savoir plus sur la configuration des réseaux logiques, consultez [Présentation de la configuration de réseaux logiques dans VMM](http://go.microsoft.com/fwlink/?LinkId=386307).
-	- [Configurez les réseaux d'ordinateurs virtuels](http://go.microsoft.com/fwlink/?LinkId=386308).
+	- [Configurez les réseaux de machines virtuelles](http://go.microsoft.com/fwlink/?LinkId=386308).
 
 ## Étape 2 : Créer un coffre
 
@@ -176,7 +176,7 @@ Si vous souhaitez configurer le mappage réseau, procédez comme suit :
 
 
 3. Cliquez sur **Créer nouveau** > **Création rapide**.
-	
+
 4. Dans **Name**, entrez un nom convivial pour identifier le coffre.
 
 5. Dans **Region**, sélectionnez la région géographique du coffre. Pour découvrir les régions prises en charge, référez-vous à la disponibilité géographique de la page [Détails des prix d'Azure Site Recovery](href="http://go.microsoft.com/fwlink/?LinkId=389880)
@@ -218,7 +218,7 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 
 5. Sur la page **Connexion Internet**, indiquez la façon dont le fournisseur exécuté sur le serveur VMM se connecte à Internet. Sélectionnez *Utiliser les paramètres proxy par défaut du système* pour utiliser les paramètres de connexion Internet par défaut configurés sur le serveur.
 
-	![Paramètres Internet](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous n’utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez entrer les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
+	![Paramètres Internet](./media/site-recovery-vmm-san/VMMASRRegisterProxyDetailsScreen.png) - Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d’installer le fournisseur. Quand vous configurez les paramètres de proxy personnalisé, un test s’exécute pour vérifier la connexion proxy. - Si vous utilisez effectivement un proxy personnalisé ou que votre proxy par défaut nécessite une authentification, vous devez entrer les détails du proxy, y compris l’adresse du proxy et le port. - Les URL suivantes doivent être accessibles à partir du serveur VMM et des hôtes Hyper-V. - *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Autorisez les adresses IP décrites dans [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
 	- Si vous utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) est créé automatiquement avec les informations d'identification du proxy spécifiées. Configurez le serveur proxy pour que ce compte puisse s'authentifier correctement. Vous pouvez modifier les paramètres du compte RunAs VMM dans la console VMM. Pour cela, ouvrez l'espace de travail Paramètres, développez Sécurité, cliquez sur Comptes d'identification, puis modifiez le mot de passe de DRAProxyAccount. Vous devez redémarrer le service VMM pour que ce paramètre prenne effet.
 
@@ -243,7 +243,7 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
 >
 >1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
 >2. Arrêter le service System Center Virtual Machine Manager
->3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**. 
+>3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**.
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -261,8 +261,8 @@ Vérifiez la barre d'état pour vous assurer que le coffre a été créé correc
  - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l’extension **.pfx**.
  - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
  - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
- - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification).
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification). 
+ - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
 
 ## Étape 4 : Mapper les groupes et pools de stockage
@@ -287,7 +287,7 @@ Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de pr
 2. Sous l'onglet **Protected Items**, sélectionnez le cloud que vous souhaitez configurer, puis accédez à l'onglet **Configuration**. Notez les points suivants :
 3. Dans <b>Cible</b>, sélectionnez <b>VMM</b>.
 4. Dans <b>Emplacement cible</b>, sélectionnez le serveur VMM local qui gère le cloud à utiliser pour la récupération.
-5. Dans <b>Cloud cible</b>, sélectionnez le cloud cible à utiliser pour le basculement des ordinateurs virtuels du cloud source. Notez les points suivants :
+5. Dans <b>Cloud cible</b>, sélectionnez le cloud cible à utiliser pour le basculement des machines virtuelles du cloud source. Notez les points suivants :
 	- Nous vous recommandons de choisir un cloud cible qui remplisse les conditions requises pour la récupération des machines virtuelles que vous prévoyez de protéger.
 	- Un cloud ne peut appartenir qu'à une seule paire de clouds, que ce soit en qualité de cloud principal ou de cloud cible.
 6. Azure Site Recovery vérifie que les clouds ont accès au stockage compatible avec la réplication SAN et que les baies de stockage sont homologuées. Les groupes homologues participant sont indiqués.
@@ -303,7 +303,7 @@ Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de pr
 
 	![Architecture SAN](./media/site-recovery-vmm-san/ASRSAN_NetworkMap1.png)
 
-4. Dans la boîte de dialogue, sélectionnez l'un des réseaux d’ordinateurs virtuels du serveur VMM cible.
+4. Dans la boîte de dialogue, sélectionnez l'un des réseaux de machines virtuelles du serveur VMM cible.
 
 	![Architecture SAN](./media/site-recovery-vmm-san/ASRSAN_NetworkMap2.png)
 
@@ -315,7 +315,7 @@ Une fois les serveurs VMM inscrits, vous pouvez configurer les paramètres de pr
 
 Avant d'activer la protection des machines virtuelles, vous devez activer la réplication des groupes de réplication de stockage.
 
-1. Dans le portail Azure Site Recovery, dans la page des propriétés du cloud primaire, ouvrez l'onglet **Ordinateurs virtuels**. Cliquez sur **Ajouter un groupe de réplication**.
+1. Dans le portail Azure Site Recovery, dans la page des propriétés du cloud primaire, ouvrez l'onglet **Machines virtuelles**. Cliquez sur **Ajouter un groupe de réplication**.
 2. Sélectionnez un ou plusieurs groupes de réplication VMM associés au cloud, vérifiez les groupes source et cible, puis spécifiez la fréquence de réplication.
 
 Une fois cette opération terminée, Azure Site Recovery, VMM et les fournisseurs SMI-S approvisionnent les LUN de stockage du site cible et activent la réplication du stockage. Si le groupe de réplication est déjà répliqué, Azure Site Recovery réutilise la relation de réplication existant et met à jour les informations dans Azure Site Recovery.
@@ -324,16 +324,16 @@ Une fois cette opération terminée, Azure Site Recovery, VMM et les fournisseur
 
 Au terme de la réplication de la baie de stockage, activez la protection des machines virtuelles dans la console VMM à l'aide de l'une des méthodes suivantes :
 
-- **Nouvel ordinateur virtuel** : dans la console VMM, lorsque vous créez un ordinateur virtuel, vous activez la protection Azure Site Recovery et associez l’ordinateur virtuel au groupe de réplication. Si vous choisissez cette option, VMM place de manière optimale le stockage des machines virtuelles sur les LUN du groupe de réplication. Azure Site Recovery orchestre la création d'une machine virtuelle masquée sur le site secondaire et alloue de l'espace de stockage pour que les machines virtuelles de réplication puissent être démarrées après le basculement.
-- **Ordinateur virtuel existant** : si un ordinateur virtuel est déjà déployé dans VMM, vous pouvez activer la protection Azure Site Recovery et effectuer une migration du stockage vers un groupe de réplication. Au terme de l'opération, VMM et Azure Site Recovery détectent la nouvelle machine virtuelle et commencent à la gérer dans Azure Site Recovery à des fins de protection. Une machine virtuelle masquée est créée sur le site secondaire et un espace de stockage est alloué pour que la machine virtuelle de réplication puisse être démarrée après le basculement.
+- **Nouvelle machine virtuelle** : dans la console VMM, lorsque vous créez une machine virtuelle, vous activez la protection Azure Site Recovery et associez la machine virtuelle au groupe de réplication. Si vous choisissez cette option, VMM place de manière optimale le stockage des machines virtuelles sur les LUN du groupe de réplication. Azure Site Recovery orchestre la création d'une machine virtuelle masquée sur le site secondaire et alloue de l'espace de stockage pour que les machines virtuelles de réplication puissent être démarrées après le basculement.
+- **Machine virtuelle existante** : si une machine virtuelle est déjà déployée dans VMM, vous pouvez activer la protection Azure Site Recovery et effectuer une migration du stockage vers un groupe de réplication. Au terme de l'opération, VMM et Azure Site Recovery détectent la nouvelle machine virtuelle et commencent à la gérer dans Azure Site Recovery à des fins de protection. Une machine virtuelle masquée est créée sur le site secondaire et un espace de stockage est alloué pour que la machine virtuelle de réplication puisse être démarrée après le basculement.
 
 
 	![Activer la protection](./media/site-recovery-vmm-san/SRSAN_EnableProtection.png)
-	
 
-<P>Une fois la protection des ordinateurs virtuels activée, ceux-ci s’affichent dans la console Azure Site Recovery. Vous pouvez afficher les propriétés des machines virtuelles, suivre leur état et basculer des groupes de réplication contenant plusieurs machines virtuelles. Notez que dans le cadre de la réplication SAN, toutes les machines virtuelles associées à un groupe de réplication doivent basculer ensemble. Cela vient du fait que le basculement se produit d'abord au niveau de la couche de stockage. Il est important de regrouper vos groupes de réplication correctement et de ne placer ensemble que les ordinateurs virtuels associés.</P>
 
-Suivez la progression de l'action d'activation de la protection, y compris la réplication initiale, dans l'onglet **Tâches**. Lorsque la tâche de finalisation de la protection est terminée, l’ordinateur virtuel est prêt pour le basculement. ![Tâche de protection de la machine virtuelle](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
+<P>Une fois la protection des machines virtuelles activée, celles-ci s’affichent dans la console Azure Site Recovery. Vous pouvez afficher les propriétés des machines virtuelles, suivre leur état et basculer des groupes de réplication contenant plusieurs machines virtuelles. Notez que dans le cadre de la réplication SAN, toutes les machines virtuelles associées à un groupe de réplication doivent basculer ensemble. Cela vient du fait que le basculement se produit d'abord au niveau de la couche de stockage. Il est important de regrouper vos groupes de réplication correctement et de ne placer ensemble que les machines virtuelles associées.</P>
+
+Suivez la progression de l'action d'activation de la protection, y compris la réplication initiale, dans l'onglet **Tâches**. Lorsque la tâche de finalisation de la protection est terminée, la machine virtuelle est prête pour le basculement. ![Tâche de protection de la machine virtuelle](./media/site-recovery-vmm-san/SRSAN_JobPropertiesTab.png)
 
 ## Étape 8 : Tester le déploiement</h3>
 
@@ -344,8 +344,8 @@ Pour vous assurer que les machines virtuelles et les données basculent comme pr
 
 4. Dans **Sélectionner la machine virtuelle**, sélectionnez les groupes de réplication. Toutes les machines virtuelles associées au groupe de réplication sont sélectionnées et ajoutées au plan de récupération. Ces machines virtuelles sont ajoutées au groupe par défaut du plan de récupération, à savoir le groupe 1. Vous pouvez ajouter d'autres groupes si nécessaire. Notez qu'après la réplication, les machines virtuelles démarrent dans l'ordre des groupes du plan de récupération.
 
-	![Ajouter des machines virtuelles](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. Une fois un plan de récupération créé, il s’affiche dans la liste de l'onglet **Plans de récupération**. 
+	![Ajouter des machines virtuelles](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
+5. Une fois un plan de récupération créé, il s’affiche dans la liste de l'onglet **Plans de récupération**.
 6. Dans l'onglet **Plans de récupération**, sélectionnez le plan et cliquez sur **Test de basculement**.
 7. Dans la page **Confirmer le test de basculement**, sélectionnez **Aucun**. Si cette option est activée, les machines virtuelles de réplication basculées ne sont connectées à aucun réseau. Le test vérifie que la machine virtuelle bascule comme prévu, mais il ne vérifie pas l'environnement de votre réseau de réplication. Si vous voulez exécuter un test de basculement plus complet, consultez la page <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Tester un déploiement d'un serveur local vers un serveur local sur MSDN</a>.
 
@@ -381,7 +381,5 @@ Depuis l'onglet **Jobs**, vous pouvez afficher les tâches, accéder aux détail
 Depuis **Dashboard**, vous pouvez télécharger la dernière version des fichiers d'installation fournisseur et agent, obtenir des informations sur la configuration du coffre, découvrir le nombre de machines virtuelles dont la protection est assurée par le coffre, afficher les tâches récentes, gérer le certificat de coffre et resynchroniser des machines virtuelles.
 
 Pour plus d'informations sur les interactions avec les tâches et le tableau de bord, consultez la page [Opérations et surveillance](http://go.microsoft.com/fwlink/?LinkId=398534).
-	
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -93,17 +93,17 @@ Les modules PowerShell contiennent des applets de commande que vous pouvez utili
 6. Vous revenez au portail Azure en version préliminaire dans un volet **Déploiement personnalisé**. Spécifiez si vous allez installer le module dans un **compte Automation nouveau ou existant** et le **nom du compte Automation**. L’**emplacement du compte Automation** est ignoré si vous utilisez un compte existant. 
 7. Sélectionnez **Groupe de ressources** et spécifiez un groupe de ressources existant ou créez-en un pour le module.
 6. Vous devez sélectionner **Mentions légales** et cliquer sur **Acheter**. Notez que, malgré le nom de ce bouton, vous n’êtes pas réellement facturé pour l’installation d’un module.
-7. Cliquez sur **Créer** pour importer le module.  
+7. Cliquez sur **Créer** pour importer le module. Cette opération peut prendre quelques minutes, car chaque activité doit être extraite.  
 8. Vous recevrez une notification indiquant que le module est en cours de déploiement et une notification indiquant que le processus est terminé. 
 
 
 ## Demande d’un runbook ou d’un module
 
-Vous pouvez envoyer des demandes à [User Voice] http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation). Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Vous pouvez envoyer des demandes à [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Si vous avez besoin d’aide pour écrire un runbook ou si vous avez une question à propos de PowerShell, publiez une question sur notre [forum](http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Articles connexes
 
 - [Création ou importation d’un runbook dans Azure Automation](automation-creating-importing-runbook.md)
 - [Apprentissage du workflow PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

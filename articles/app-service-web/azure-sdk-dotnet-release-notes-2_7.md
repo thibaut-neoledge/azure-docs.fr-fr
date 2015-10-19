@@ -1,21 +1,21 @@
 
 <properties 
-   pageTitle="Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1"
-	description="Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1" 
+   description="Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1" 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="Juliako" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/26/2015"
-	ms.author="juliako"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/26/2015"
+   ms.author="juliako"/>
 
 
 # Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1
@@ -150,6 +150,7 @@ Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [
 
 L’installation du Kit de développement logiciel Azure 2.6 ou 2.7.1 pour Visual Studio Community 2013 sur un système d'exploitation non anglais affiche un avertissement qui indique que les ressources anglaises et non anglaises de Visual Studio peuvent ne pas correspondre. Cet avertissement peut être ignoré en toute sécurité. Il survient uniquement si l'ordinateur ne contient pas une installation antérieure de Visual Studio Community 2013 et que vous installez le Kit de développement logiciel (SDK) sur un système d'exploitation qui n’est pas en anglais. L'avertissement s'affiche une fois que le module linguistique applique les ressources RTM sur Visual Studio, mais avant l’application de la mise à jour 4. Si vous ignorez l'avertissement, cela permettra au module linguistique de continuer et de terminer l'application de la version 4 de la mise à jour du contenu du module linguistique.
 
+Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème sera résolu avec la prochaine version du Kit de développement logiciel (SDK).
 
 ##Voir aussi
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850)
@@ -158,4 +159,4 @@ L’installation du Kit de développement logiciel Azure 2.6 ou 2.7.1 pour Vis
 
 [Informations relatives à la prise en charge et au retrait pour le Kit de développement logiciel Azure SDK pour .NET et les API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="Ce didacticiel vous guide dans les étapes de création, de débogage et de déploiement d'un service HelloWorld canonique à l'aide des acteurs fiables Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Acteurs fiables : scénario canonique HelloWorld étape par étape
 Cet article explique les notions de base des acteurs fiables Service Fabric et vous présente la création, le débogage et le déploiement d'une application HelloWorld simple dans Visual Studio.
@@ -158,4 +158,4 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

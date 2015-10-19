@@ -3,10 +3,9 @@
    description="Présentation du modèle de programmation Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
-
 
 <tags
    ms.service="service-fabric"
@@ -15,8 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
-
+   ms.author="vturecek"/>
 
 # Présentation des Acteurs fiables Service Fabric
 L’API avec acteurs fiables constitue l’une des deux infrastructures générales fournies par [Service Fabric](service-fabric-technical-overview.md), en plus de l’[API avec services fiables](service-fabric-reliable-services-introduction.md).
@@ -200,4 +198,4 @@ Les rappels de minuterie peuvent être marqués avec l'attribut `Readonly` de la
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

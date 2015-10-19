@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 
@@ -135,4 +135,4 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 Maintenant que vous avez une meilleure compréhension du mappage réseau, lisez les [meilleures pratiques](site-recovery-best-practices.md) relatives à la préparation du déploiement.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

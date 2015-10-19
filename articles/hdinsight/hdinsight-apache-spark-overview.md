@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 # Vue d’ensemble : Apache Spark sur Azure HDInsight 
@@ -41,7 +41,7 @@ Azure HDInsight propose un service Spark entièrement géré. Les avantages li�
 | Fonctionnalité | Description |
 |-------------------------------------|-------------------|
 | Facilité d’approvisionnement | Vous pouvez approvisionner un nouveau cluster Spark sur HDInsight en quelques minutes à l’aide du portail de gestion Azure, d’Azure PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Voir [Approvisionner un cluster Spark sur HDInsight](hdinsight-apache-spark-provision-clusters.md) |
-| Simplicité d'utilisation | Les clusters Spark dans HDInsight incluent des blocs-notes Zeppelin et Jupyter préconfigurés. Vous pouvez les utiliser pour le traitement interactif et la visualisation des données. Vous pouvez démarrer ces blocs-notes à partir du tableau de bord du cluster pour travailler directement sur un cluster Spark.|
+| Simplicité d'utilisation | Les clusters Spark dans HDInsight incluent des blocs-notes Zeppelin et Jupyter préconfigurés. Vous pouvez les utiliser pour le traitement interactif et la visualisation des données. Les URL de ces blocs-notes sont https://CLUSTERNAME.azurehdinsight.net/zeppelin et https://CLUSTERNAME.azurehdinsight.net/jupyter. Remplacez __CLUSTERNAME__ par le nom de votre cluster HDInsight.|
 | API REST | Spark dans HDInsight inclut Spark Job Server. Il s’agit d’un serveur d’API REST qui permet aux utilisateurs de soumettre et de surveiller à distance des travaux en cours d’exécution. |
 | Requêtes simultanées | Spark dans HDInsight prend en charge les requêtes simultanées. Ainsi, plusieurs requêtes d’un même utilisateur ou plusieurs requêtes de différents utilisateurs et applications peuvent partager les mêmes ressources de cluster. |
 | Mise en cache sur des disques SSD | Vous pouvez choisir de mettre en cache des données en mémoire ou dans les disques SSD attachés aux nœuds de cluster. La mise en cache en mémoire fournit les meilleures performances de requêtes, mais peut s’avérer coûteuse. La mise en cache sur des disques SSD constitue une très bonne option pour améliorer les performances des requêtes sans nécessité de créer un cluster d’une taille requise pour tenir l’ensemble du jeu de données en mémoire.|
@@ -67,7 +67,7 @@ Apache Spark dans HDInsight stocke les données dans des objets blob Azure. Des
 
 [Consulter un didacticiel](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 
-Apache Spark est fourni avec[MLlib](http://spark.apache.org/mllib/), une bibliothèque d’apprentissage automatique basée sur Spark. Spark sur HDInsight inclut également Anaconda, une distribution de Python avec une variété de packages pour l’apprentissage automatique. Ajoutez à cela la prise en charge intégrée des blocs-notes Jupyter, et vous disposez d’un environnement haut de gamme pour la création d’applications d’apprentissage automatique.
+Apache Spark est fourni avec[MLlib](http://spark.apache.org/mllib/), bibliothèque d’apprentissage automatique basée sur Spark. Spark sur HDInsight inclut également Anaconda, une distribution de Python avec une variété de packages pour l’apprentissage automatique. Ajoutez à cela la prise en charge intégrée des blocs-notes Jupyter, et vous disposez d’un environnement haut de gamme pour la création d’applications d’apprentissage automatique.
 
 ### Analyse des données de diffusion en continu et en temps réel
 
@@ -100,4 +100,4 @@ Spark dans HDInsight fournit également un [pilote ODBC](http://go.microsoft.co
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

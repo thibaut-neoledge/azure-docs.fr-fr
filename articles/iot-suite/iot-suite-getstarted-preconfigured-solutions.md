@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
+     ms.date="09/29/2015"
      ms.author="araguila"/>
 
 # Prise en main des solutions préconfigurées IoT
@@ -22,7 +22,7 @@
 
 Les solutions préconfigurées Azure IoT connectent plusieurs services Azure IoT pour illustrer une solution de bout en bout qui répond à un scénario d’entreprise IoT (Internet des objets).
 
-Ce didacticiel montre comment configurer une solution préconfigurée nommée Surveillance à distance. Il montre également comment afficher les fonctionnalités de base de la solution préconfigurée Surveillance à distance.
+Ce didacticiel montre comment configurer une solution préconfigurée nommée **Surveillance à distance**. Il montre également comment afficher les fonctionnalités de base de la solution préconfigurée Surveillance à distance.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -30,9 +30,9 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
     Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure][].
 
-## Configurer une solution préconfigurée Surveillance à distance
+## Configurer la solution préconfigurée Surveillance à distance
 
-1.  Ouvrez une session sur <https://azureiotsuite.com>, puis cliquez sur **+** pour créer une solution.
+1.  Ouvrez une session sur https://www.azureiotsuite.com, puis cliquez sur **+** pour créer une solution.
 
 2.  Sélectionnez **Surveillance à distance** comme type de solution.
 
@@ -60,7 +60,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 1.  Cliquez sur **Envoyer la commande** dans le volet d’informations de l’appareil simulé sélectionné.
 
-2.  Sélectionnez **PingDevice** dans la liste déroulante de commandes.
+2.  Sélectionnez **PingDevice** dans la liste de commandes.
 
 3.  Cliquez sur **Envoyer la commande**.
 
@@ -90,7 +90,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 3.  Cliquez sur **Règles** dans le menu de gauche pour accéder aux règles de cette solution.
 
-4.  Lors de l’approvisionnement, vous verrez une règle déjà activée.
+4.  Pendant l’approvisionnement, vous verrez une règle déjà activée.
 
 5.  Cliquez sur la **règle** dans la liste des règles pour afficher ses propriétés.
 
@@ -106,10 +106,13 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Maintenant que vous avez créé une solution préconfigurée opérationnelle, vous pouvez passer aux scénarios suivants :
 
--   Conseils sur la personnalisation des solutions préconfigurées
+-   [Conseils sur la personnalisation des solutions préconfigurées][]
 
--   Vue d’ensemble d’IoT Suite
+-   [Vue d’ensemble d’IoT Suite][]
 
-[Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
-<!---HONumber=Oct15_HO1-->
+[Conseils sur la personnalisation des solutions préconfigurées]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[Vue d’ensemble d’IoT Suite]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
+
+<!---HONumber=Oct15_HO2-->

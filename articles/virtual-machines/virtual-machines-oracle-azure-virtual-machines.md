@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Logiciel Oracle hébergé sur des machines virtuelles Azure
@@ -43,24 +43,16 @@ La rubrique [Création d’une machine virtuelle Oracle WebLogic Server 12c dan
 
 La rubrique [Création d’une machine virtuelle Oracle WebLogic Server 12c et Oracle Database 12c dans Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) vous guide lors de la création et la configuration de machines virtuelles et de bases de données.
 
-## Cluster Oracle WebLogic Server 12c
-
-La page [Création d’un cluster Oracle WebLogic Server 12c dans Azure](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md) vous guide lors de la création de clusters et le déploiement d’applications.
-
-## Oracle WebLogic Server 11g
-
-La rubrique [Création d’une machine virtuelle Oracle WebLogic Server 11g dans Azure](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md) vous guide lors de la création de machines virtuelles, et la configuration et l’installation d’applications.
-
 ## Préparer une machine virtuelle Oracle Linux
 
 La rubrique [Préparer une machine virtuelle Oracle Linux pour Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) vous guide à travers les conditions préalables et la création de machines virtuelles pour Oracle Linux 6.4+ et Oracle Linux 7.0+.
 
 ## Oracle Data Guard
 
-La page [Configuration d’Oracle Data Guard pour Azure](virtual-machines-configuring-oracle-data-guard.md) vous guide lors de la configuration de l’environnement de veille et de l’écouteur.
+La page [Configuration d’Oracle Data Guard pour Azure](virtual-machines-configuring-oracle-data-guard.md) vous guide tout au long de la configuration de l’environnement de veille et de l’écouteur.
 
 ## Oracle GoldenGate
 
-La page [Configuration d’Oracle GoldenGate pour Azure](virtual-machines-configuring-oracle-goldengate.md) vous guide lors de l’installation des bases de données et des réplications.
+La page [Configuration d’Oracle GoldenGate pour Azure](virtual-machines-configuring-oracle-goldengate.md) vous guide tout au long de l’installation des bases de données et des réplications.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

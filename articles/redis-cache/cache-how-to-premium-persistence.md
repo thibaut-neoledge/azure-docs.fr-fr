@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Comment configurer la persistance des données pour un Cache Redis Azure Premium
@@ -81,8 +81,10 @@ L’intervalle de fréquence de sauvegarde ne démarre qu’une fois le processu
 Toutes les sauvegardes à l’exception de la plus récente sont supprimées automatiquement. Cette suppression peut ne pas avoir lieu immédiatement, mais les anciennes sauvegardes ne sont pas conservées indéfiniment.
 
 ## Étapes suivantes
+Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Premium.
 
-Découvrez comment utiliser d’autres fonctionnalités de cache Premium. - [Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md) - [Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium](cache-how-to-premium-vnet.md)
+-	[Comment configurer le clustering pour un Cache Redis Azure Premium](cache-how-to-premium-clustering.md)
+-	[Comment configurer la prise en charge de réseau virtuel pour un Cache Redis Azure Premium](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -94,4 +96,4 @@ Découvrez comment utiliser d’autres fonctionnalités de cache Premium. - [Com
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

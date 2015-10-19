@@ -66,7 +66,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[InterCloud](https://www.intercloud.com/)** | Pris en charge | Non pris en charge | Amsterdam, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** | Pris en charge | Non pris en charge | Amsterdam, Londres |
 | **Interxion** | Pris en charge | Non pris en charge | Amsterdam |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Amsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Pris en charge | Non pris en charge | Melbourne, Sydney |
 | **MTN** | Pris en charge | Non pris en charge | Londres |
 | **NTT Communications** | Bientôt disponible | Non pris en charge | Tokyo+ |
@@ -127,4 +127,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Voir [Conditions préalables pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

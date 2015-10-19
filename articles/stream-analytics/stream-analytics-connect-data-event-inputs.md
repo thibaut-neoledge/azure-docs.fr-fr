@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/13/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 # Créer des entrées Stream Analytics
@@ -141,7 +141,7 @@ Le seul cas où les objets blob de données de référence précédents sont pri
 
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 ## Étapes suivantes
 
@@ -151,4 +151,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

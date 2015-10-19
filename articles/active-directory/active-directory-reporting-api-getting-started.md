@@ -1,20 +1,20 @@
 <properties
    pageTitle="Prise en main de l'API de création de rapports Azure AD"
-	description="Prise en main de l'API de création de rapports Active Directory Azure"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Prise en main de l'API de création de rapports Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Prise en main de l'API de création de rapports Azure AD
@@ -157,10 +157,15 @@ Une fois que vous avez terminé la modification du script, exécutez-le, puis v�
 
 Le script renvoie des listes qui répertorient tous les rapports disponibles et renvoie le contenu du rapport AccountProvisioningEvents dans la fenêtre PowerShell au format JSON. Il crée également des fichiers avec le même résultat dans JSON, texte et XML. Vous pouvez commenter l'expérience en modifiant le script pour renvoyer des données à partir d'autres rapports, et également commenter les formats de sortie dont vous n'avez pas besoin.
 
+## Remarques
+
+- Il n’existe aucune limite quant au nombre d’événements retournés par l’API de création de rapports Azure AD (à l’aide de la pagination OData).
+	- Pour connaître les limites de rétention de données de rapports, consultez [Stratégies de rétention des rapports](active-directory-reporting-retention.md).
+
 
 ## Étapes suivantes
 - Curieux de savoir quels rapports de sécurité, d'audit et d'activité sont disponibles ? Découvrez [Rapports de sécurité, d'audit et d'activité d'Azure AD](active-directory-view-access-usage-reports.md)
 - Consultez [Événements de rapport d'audit d'Azure AD](active-directory-reporting-audit-events.md) pour plus d'informations sur le rapport d'audit
 - Consultez [Rapports et événements Azure AD (aperçu)](https://msdn.microsoft.com/library/azure/mt126081.aspx) pour plus d'informations sur le service REST d'API Graph
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

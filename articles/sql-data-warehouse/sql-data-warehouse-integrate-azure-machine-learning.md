@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # Utilisation de Microsoft Azure Machine Learning avec SQL Data Warehouse
 
 Microsoft Azure Machine Learning est un service d’analyse prédictive entièrement géré qui vous permet de développer des modèles d’analyse prédictive de vos données dans SQL Data Warehouse et de les publier en tant que services Web prêts à l’emploi. Pour découvrir les principes de base de l’analyse prédictive et de Machine Learning, consultez l’[Introduction à Machine Learning sur Microsoft Azure][]. Vous pouvez ensuite apprendre comment créer, former, évaluer et tester un modèle Machine Learning à l’aide du [didacticiel consacré à la création d’une expérience][].
 
-Dans cet article, vous apprendrez comment effectuer les opérations suivantes à l’aide de [Microsoft Azure Machine Learning Studio][] : - Lire des données de votre base de données pour créer, former et évaluer un modèle prédictif - Écrire des données sur votre base de données
+Dans cet article, vous allez apprendre à effectuer les opérations suivantes en utilisant [Azure Machine Learning Studio][] :
+
+- Lire des données à partir de votre base de données pour créer, former et évaluer un modèle d’analyse prédictive
+- Écrire des données dans votre base de données 
 
 
 ## Lire des données à partir de SQL Data Warehouse
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## Créer, former et évaluer un modèle
 
-Vous pouvez désormais utiliser cet ensemble de données pour : - Créer un modèle : traitez les données et définissez des fonctions - Former le modèle : sélectionnez et appliquez un algorithme d’apprentissage - Évaluer et tester le modèle : prédisez le prix du nouveau vélo
-	
+Vous pouvez désormais utiliser ce jeu de données pour effectuer les opérations suivantes :
+
+- Créer un modèle : traiter des données et définir des fonctionnalités.
+- Former le modèle : sélectionner et appliquer un algorithme d’apprentissage.
+- Évaluer et tester le modèle : prédire le nouveau prix d’un vélo.
+ 
+
 ![][model]
 
 Pour en savoir plus sur la création, la formation, l’évaluation et le test d’un modèle Machine Learning, utilisez le [didacticiel consacré à la création d’une expérience][].
@@ -130,9 +138,9 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Vue d’ensemble sur l’intégration de SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
-[didacticiel consacré à la création d’une expérience]: ./machine-learning-create-experiment/
-[Introduction à Machine Learning sur Microsoft Azure]: ./machine-learning-what-is-machine-learning/
-[Microsoft Azure Machine Learning Studio]: https://studio.azureml.net/Home
+[didacticiel consacré à la création d’une expérience]: https://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-create-experiment/
+[Introduction à Machine Learning sur Microsoft Azure]: https://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-what-is-machine-learning/
+[Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [portail Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
@@ -141,4 +149,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

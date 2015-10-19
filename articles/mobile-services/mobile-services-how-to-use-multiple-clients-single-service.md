@@ -42,7 +42,7 @@ Les tables des sections suivants renvoient vers les didacticiels propres aux cli
 
 Dans un service mobile de backend .NET, vous envoyez des notifications en appelant la méthode [SendAsync] sur l'objet [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) obtenu depuis la propriété [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx). La notification Push envoyée (native ou de modèle) dépend de l'objet spécifique dérivé de [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) transmis à la méthode [SendAsync], comme indiqué dans la table suivante :
 
-|Plateforme |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
+|Plateforme |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) | MPNS
 |-----|-----|----|----|-----|
 |Native|[Message Push Apple](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx) |[Message Push Google](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx) |[Message Push Windows](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [Message Push MPNS](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -169,4 +169,4 @@ Des outils interplateforme sont disponibles et fournissent une expérience nativ
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Surveillance et gestion des travaux Stream Analytics à l’aide de PowerShell | Microsoft Azure" 
 	description="Découvrez comment utiliser Azure PowerShell et les applets de commande pour surveiller et gérer des travaux Stream Analytics." 
+	keywords="azure powershell,azure powershell cmdlets,powershell command"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -258,7 +259,7 @@ Teste la capacité de Stream Analytics à se connecter à une sortie spécifiée
 Cette commande PowerShell teste l’état de la connexion de la sortie Output dans StreamingJob.
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -287,4 +288,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->
