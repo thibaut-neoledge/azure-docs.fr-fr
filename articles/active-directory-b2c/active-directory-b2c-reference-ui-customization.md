@@ -18,7 +18,7 @@
 
 # Version préliminaire d’Azure Active Directory B2C : comment personnaliser l’interface utilisateur B2C Interface Azure AD (IU)
 
-L’expérience utilisateur est primordiale dans une application utilisée par les consommateurs. Elle fait la différence entre une bonne application et une excellente, et entre les consommateurs simplement actifs et ceux qui sont réellement engagés. B2C Active Directory Azure (AD) vous permet de personnaliser les pages d’inscription, de connexion (*voir la remarque ci-dessous*) et d’édition de profil de l’utilisateur avec le contrôle pixel-perfect.
+L’expérience utilisateur est primordiale dans une application utilisée par les consommateurs. Elle fait la différence entre une bonne application et une excellente, et entre les consommateurs simplement actifs et ceux qui sont réellement engagés. Azure Active Directory (AD) B2C vous permet de personnaliser les pages d’inscription, de connexion (*voir la remarque ci-dessous*) et d’édition de profil de l’utilisateur avec le contrôle pixel-perfect.
 
 > [AZURE.NOTE]Actuellement, les pages d’inscription au compte local, les courriers électroniques de vérification et les pages de réinitialisation de mot de passe en libre-service ne sont personnalisables qu’avec la [fonction de personnalisation de la société](./active-directory/active-directory-add-company-branding.md) et non par le biais des mécanismes décrits dans cet article.
 
@@ -33,9 +33,9 @@ Cet article portera sur les éléments suivants :
 
 ## La fonctionnalité de personnalisation de l’interface utilisateur (UI) de page
 
-La fonctionnalité de personnalisation de l’interface utilisateur de page vous permet de personnaliser l’apparence des pages d’inscription, de connexion et de modification de profil du consommateur (en configurant [stratégies](active-directory-b2c-references.policies.md)). Vos clients auront des expériences cohérentes lors de la navigation entre votre application et les pages fournies par le service Azure AD B2C.
+La fonctionnalité de personnalisation de l’interface utilisateur de page vous permet de personnaliser l’apparence des pages d’inscription, de connexion et de modification de profil du consommateur (en configurant des [stratégies](active-directory-b2c-reference-policies.md)). Vos clients auront des expériences cohérentes lors de la navigation entre votre application et les pages fournies par le service Azure AD B2C.
 
-Contrairement aux autres services où les options sont limitées ou ne sont disponibles que via les API, Azure AD B2C utilise une approche moderne (et plus simple) de l’interface utilisateur de personnalisation de page. Voici comment cela fonctionne : Azure AD B2C exécute le code dans l’explorateur client et utilise une approche moderne appelée [partage de ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger le contenu depuis une URL spécifiée au préalable dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Le code fusionne le contenu de B2C Azure AD (appelés des éléments d’interface utilisateur) et le contenu chargé depuis votre URL et affiche la page pour le consommateur. Il vous suffit de faire est créer un contenu HTML5 correct avec un élément `<div id="api"></div>` situé quelque part dans `<body>`. C’est l’endroit où le contenu B2C Active Directory Azure est fusionné. Et héberger ce contenu sur un point de terminaison HTTPS (avec CORS activé). Vous pouvez également totalement mettre en forme des éléments d’interface utilisateur de B2C Azure AD.
+Contrairement aux autres services où les options sont limitées ou ne sont disponibles que via les API, Azure AD B2C utilise une approche moderne (et plus simple) de l’interface utilisateur de personnalisation de page. Voici comment cela fonctionne : Azure AD B2C exécute le code dans l’explorateur client et utilise une approche moderne appelée [partage de ressources cross-origin (CORS)](http://www.w3.org/TR/cors/) pour charger le contenu depuis une URL spécifiée au préalable dans une stratégie. Vous pouvez spécifier des URL différentes pour différentes pages. Le code fusionne le contenu de B2C Azure AD (appelés des éléments d’interface utilisateur) et le contenu chargé depuis votre URL et affiche la page pour le consommateur. Il vous suffit de faire est créer un contenu HTML5 correct avec un élément `<div id="api"></div>` situé quelque part dans `<body>`. C’est l’endroit où le contenu Azure AD B2C est fusionné. Et héberger ce contenu sur un point de terminaison HTTPS (avec CORS activé). Vous pouvez aussi totalement personnaliser les éléments d’interface utilisateur d’Azure AD B2C.
 
 ## Test de la fonctionnalité de personnalisation de l'interface
 
@@ -276,4 +276,4 @@ Si vous envisagez d’utiliser la fonctionnalité de personnalisation d’interf
 	- Mozilla Firefox 38.0
 	- Mozilla Firefox 37.0
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

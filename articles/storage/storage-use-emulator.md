@@ -203,6 +203,10 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 ## Notes de publication de l’émulateur de stockage
 
+### Version 4.2
+
+- L’émulateur de stockage prend maintenant en charge la version 2015-04-05 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
+
 ### Version 4.1
 
 - L’émulateur de stockage prend maintenant en charge la version 2015-02-21 des services de stockage sur les points de terminaison des services de Blob, de File d’attente et de Table, à l’exception des nouvelles fonctionnalités des objets blob d’ajout. 
@@ -228,4 +232,4 @@ Le stockage de files d’attente dans l’émulateur ne présente aucune différ
 
 - La version 2013-08-15 des services de stockage Azure est maintenant entièrement prise en charge. (Auparavant, cette version était uniquement prise en charge par la version préliminaire de l’émulateur de stockage version 2.2.1.)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

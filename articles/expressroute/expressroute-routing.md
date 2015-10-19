@@ -12,17 +12,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 
 # Configuration requise pour le routage ExpressRoute  
 
-Pour vous connecter aux services de cloud Microsoft à l'aide d'ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre un tel service. Si ce n'est pas le cas, vous devez respecter les conditions décrites ci-dessous.
+Pour vous connecter aux services de cloud Microsoft à l'aide d'ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions décrites ci-dessous.
 
-Reportez-vous à l’article [Circuit et domaines de routage](expressroute-circuit-peerings.md) pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité.
+Reportez-vous à l’article [Circuits et domaines de routage](expressroute-circuit-peerings.md) pour obtenir une description des sessions de routage qui doivent être configurées afin d’établir la connectivité.
 
-**Remarque :** Microsoft ne prend pas en charge les protocoles de redondance de routeur (HSRP, VRRP, par exemple) pour les configurations à haute disponibilité. Nous nous appuyons sur une paire de sessions BGP par homologation pour la haute disponibilité.
+**Remarque :** Microsoft ne prend pas en charge les protocoles de redondance de routeur (HSRP, VRRP, par exemple) pour les configurations à haute disponibilité. Nous nous appuyons sur une paire de sessions BGP par homologation pour la haute disponibilité.
 
 ## Adresses IP pour les homologations
 
@@ -36,9 +36,9 @@ Pour configurer les homologations, vous pouvez utiliser des adresses IP privées
  - Les sous-réseaux utilisés pour le routage peuvent être des adresses IP privées ou publiques.
  - Les sous-réseaux ne doivent pas entrer en conflit avec la plage réservée par le client pour une utilisation dans le cloud Microsoft.
  - Si un sous-réseau /29 est utilisé, il est subdivisé en deux sous-réseaux /30. 
- - Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
- - Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
- - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) soit valide.  
+	 - Le premier sous-réseau /30 sera utilisé pour le lien principal, et le second sous-réseau /30 servira pour le lien secondaire.
+	 - Pour chacun des sous-réseaux /30, vous devez utiliser la première adresse IP du sous-réseau /30 sur votre routeur. Microsoft utilisera la deuxième adresse IP du sous-réseau /30 configurer une session BGP.
+	 - Vous devez configurer les deux sessions BGP pour que notre [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) soit valide.  
 
 #### Exemple pour l'homologation privée
 
@@ -46,7 +46,7 @@ Si vous choisissez d'utiliser un sous-réseau a.b.c.d/29 pour configurer l'homol
 
 a.b.c.d/29 sera scindé en a.b.c.d/30 et a.b.c.d+4/30 puis transmis à Microsoft via les API d’approvisionnement. Vous utiliserez a.b.c.d+1 comme l'IP VRF pour le PE principal et Microsoft utilisera a.b.c.d+2 comme IP VRF pour le MSEE principal. Vous allez utiliser a.b.c.d+5 comme l'IP VRF pour le PE secondaire et Microsoft utilisera a.b.c.d+6 IP VRF pour le MSEE secondaire.
 
-Prenons le cas où vous avez sélectionné 192.168.100.128/29 pour configurer l'homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.133, parmi lesquelles :
+Imaginons que vous sélectionnez 192.168.100.128/29 pour configurer l’homologation privée. 192.168.100.128/29 inclut les adresses de 192.168.100.128 à 192.168.100.135, parmi lesquelles :
 
 - 192\.168.100.128/30 sera attribuée à link1, et le fournisseur utilisera 192.168.100.129 tandis que Microsoft utilisera 192.168.100.130.
 - 192\.168.100.132/30 sera attribuée à link2, et le fournisseur utilisera 192.168.100.133 tandis que Microsoft utilisera 192.168.100.134.
@@ -70,12 +70,12 @@ Assurez-vous que votre adresse IP et votre numéro AS sont enregistrés à votre
 - [RIPE NCC](https://www.ripe.net/)
 - [RADB](http://www.radb.net/)
 - [ALTDB](http://altdb.net/)
-- [LEVEL3](rr.Level3.net)
+- [LEVEL3](http://rr.Level3.net/)
 
 
 ## Échange de routage dynamique
 
-L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L'authentification des sessions BGP n'est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Examinez le workflow de configuration de routage pour plus d'informations sur la configuration des sessions BGP.
+L’échange de routage s’effectuera via le protocole eBGP. Des sessions EBGP sont établies entre les MSEE et les routeurs. L'authentification des sessions BGP n'est pas obligatoire. Si nécessaire, un hachage MD5 peut être configuré. Pour plus d’informations sur la configuration des sessions BGP, consultez [Configuration du routage](expressroute-howto-routing-classic.md) et [Workflows d’approvisionnement du circuit et états du circuit](expressroute-workflows.md).
 
 ## Numéros système autonomes
 
@@ -102,7 +102,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d'homologat
  - L’homologation publique Azure est activée pour acheminer le trafic vers les points de terminaison publics
  - Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l'utilisateur.
 
-**Remarque :** la publication des routages par défaut arrêtera Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
+**Remarque :** la publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
 
 ## Prise en charge des communautés BGP
 
@@ -112,9 +112,9 @@ Si vous vous connectez à Microsoft via ExpressRoute dans n’importe quel empla
 
 Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés en Europe du Nord et en Europe occidentale.
 
-Reportez-vous à la page [Partenaires ExpressRoute et emplacements d'homologation](expressroute-locations.md) pour obtenir une liste détaillée des régions géopolitiques, des zones Azure associées et des emplacements d’homologation ExpressRoute correspondants.
+Reportez-vous à la page [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md) pour obtenir une liste détaillée des régions géopolitiques, des régions Azure associées et des emplacements d’homologation ExpressRoute correspondants.
 
-Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de leur réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services.
+Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. Le fait de disposer de plusieurs connexions vous offre des avantages significatifs en termes de haute disponibilité en raison de la redondance géographique. Si vous avez plusieurs circuits ExpressRoute, vous recevrez le même jeu de préfixes publiés par Microsoft sur les chemins d'homologation publiques et Microsoft. Cela signifie que vous disposez de plusieurs chemins de votre réseau vers Microsoft. Vous risquez ainsi de prendre des décisions de routage non optimales au sein de votre réseau. Et par conséquent, vous risquez de rencontrer des problèmes de connectivité non optimale avec différents services.
 
 Microsoft marquera les préfixes publiés via l'homologation publique et l’homologation Microsoft avec les valeurs de communauté BGP appropriées indiquant la région dans laquelle les préfixes sont hébergés. Vous pouvez compter sur les valeurs de communauté pour prendre des décisions de routage avisées et offrir aux clients un routage optimal.
 
@@ -156,13 +156,14 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 
 ### Manipulation des préférences de routage
 
-Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez configurer une paire de sessions BGP par homologation afin de garantir que les conditions requises pour le [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) sont remplies. Vous pouvez toutefois configurer votre réseau pour préférer un lien plutôt qu’un autre en vous appuyant sur les techniques de manipulation de routage BGP standard. Vous pouvez appliquer différentes préférences locales BGP à chaque lien afin de favoriser un chemin d'accès plutôt qu’un autre de votre réseau vers Microsoft. Vous pouvez ajouter le chemin aux publications de routage afin de forcer le flux de trafic de Microsoft vers votre réseau.
+Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez configurer une paire de sessions BGP par homologation afin de garantir que les conditions requises pour le [contrat SLA de disponibilité](http://azure.microsoft.com/support/legal/sla/) sont remplies. Vous pouvez toutefois configurer votre réseau pour préférer un lien plutôt qu’un autre en vous appuyant sur les techniques de manipulation de routage BGP standard. Vous pouvez appliquer différentes préférences locales BGP à chaque lien afin de favoriser un chemin d'accès plutôt qu’un autre de votre réseau vers Microsoft. Vous pouvez ajouter l’attribut AS-PATH aux publications de routage pour forcer le flux de trafic de Microsoft vers votre réseau.
 
 ## Étapes suivantes
 
 - Configurez votre connexion ExpressRoute.
+
 	- [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

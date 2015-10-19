@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # Encodeur de fichier plat BizTalk
 
-Le connecteur encodeur décodeur de fichier plat BizTalk aide votre application à interopérer entre des données de fichiers plats (par exemple des fichiers excel, csv) et des données au format XML. Il peut convertir une instance de fichier plat donnée au format XML et vice versa.
+Utilisez le connecteur encodeur de fichier plat BizTalk pour faciliter les interactions entre des données de fichiers plats (par exemple, des fichiers excel, csv) et des données au format XML. Il peut convertir une instance de fichier plat donnée au format XML et vice versa.
 
 ##Utilisation de l’encodeur de fichier plat BizTalk
-1. Pour utiliser l'encodeur de fichier plat BizTalk, vous devez d'abord créer une instance de l'application API d’encodeur de fichier plat BizTalk. Cela est possible inline, lors de la création d'une application logique, ou en sélectionnant l'application API d’encodeur de fichier plat BizTalk dans Azure Marketplace.
+Pour utiliser l'encodeur de fichier plat BizTalk, vous devez d'abord créer une instance de l'application API d’encodeur de fichier plat BizTalk. Cela est possible inline, lors de la création d'une application logique, ou en sélectionnant l'application API d’encodeur de fichier plat BizTalk dans Azure Marketplace.
 
 ###Configurer l’encodeur de fichier plat BizTalk
 L’encodeur de fichier plat BizTalk utilise des schémas dans le cadre de sa configuration. Les utilisateurs peuvent lancer le panneau de configuration de l'application API soit en lançant directement l'application API depuis le portail Azure, soit en double-cliquant sur l'application API dans l'aire du concepteur.
@@ -74,4 +74,4 @@ L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie c
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

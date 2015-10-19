@@ -44,8 +44,6 @@ Ce didacticiel requiert les éléments suivants :
 
 Avec le didacticiel [Ajout de l'authentification à votre application], vous avez créé une inscription pour l'application intégrée pendant l'étape [Inscription pour utiliser une connexion Azure Active Directory]. Dans cette section, vous allez générer la clé devant être utilisée pour lire les informations d'annuaire avec l'ID client de cette application intégrée.
 
-Si vous êtes arrivé au terme du didacticiel [Accès aux informations Azure Active Directory Graph], vous avez déjà effectué cette étape et vous pouvez ignorer cette section.
-
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
@@ -389,7 +387,6 @@ Dans cette section, vous allez créer un attribut d'autorisation personnalisé p
 [Inscription pour utiliser une connexion Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [API REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Accès aux informations Azure Active Directory Graph]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Bibliothèque d'authentification Azure AD pour .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

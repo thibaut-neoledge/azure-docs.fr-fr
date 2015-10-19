@@ -158,7 +158,7 @@ Le filtre **MatchAll** est le filtre utilisé par défaut si aucun filtre n'est 
 
 Vous pouvez également configurer des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
 
-Le type de filtre le plus flexible pris en charge par les abonnements est la classe [SqlFilter], qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][].
+Le type de filtre le plus flexible pris en charge par les abonnements est la classe [SqlFilter][], qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][].
 
 Dans l’exemple suivant, l’abonnement **HighMessages** est créé avec un objet [SqlFilter] qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3.
 
@@ -299,4 +299,4 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   [Didacticiel .NET sur la messagerie répartie Service Bus]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Exemples Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

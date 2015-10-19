@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
@@ -30,7 +30,7 @@ Les applications API suivantes activent ces fonctionnalités à l'aide d'une exp
 
 
 ## Gestion des partenaires commerciaux BizTalk
-- Création et gestion de partenaires, de profils et d'identités
+- Création et gestion de partenaires, de profils et d’identités
 - Stockage et gestion de schémas EDI
 - Stockage et gestion de certificats (utilisés dans le protocole AS2)
 - Création et gestion d'accords AS2
@@ -63,10 +63,10 @@ Comme indiqué précédemment, les applications API AS2, X12 et EDIFACT nécessi
 Pour créer des accords de partenariat commercial
 
 1. Créez une instance du connecteur **Gestion des partenaires commerciaux BizTalk**. Cela nécessite une base de données SQL vide. Avant de commencer, veillez à disposer d'une base de données vide et prête à l'emploi.
-2. Téléchargez les schémas et les certificats requis par les accords. Vous devez pour cela parcourir l'instance de Gestion des partenaires commerciaux créée et parcourir pas à pas la partie « Schémas » et/ou « Certificats ».
+2. Téléchargez les schémas et les certificats requis par les accords. Pour ce faire, parcourez l’instance de Gestion des partenaires commerciaux créée et parcourez pas à pas la partie « Schémas » et/ou « Certificats ».
 3. Accédez à l’instance de Gestion des partenaires commerciaux créée et parcourez pas à pas la partie **Partenaires**.
 4. Créez des partenaires selon les besoins. Modifiez également les profils selon les besoins et ajoutez les identités nécessaires.
-5. Maintenant, utilisez la partie **Accords** pour créer des accords. Durant la création de l'accord, l'une des étapes initiales consiste à choisir le protocole. Le reste de la configuration de l'accord varie selon le protocole choisi.
+5. Maintenant, utilisez la partie **Accords** pour créer des accords. Quand vous créez un accord, vous devez sélectionner le protocole à utiliser. Les options de configuration restantes sont basées sur le protocole que vous avez sélectionné.
 
 ![][2]
 
@@ -78,4 +78,4 @@ Pour créer des accords de partenariat commercial
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

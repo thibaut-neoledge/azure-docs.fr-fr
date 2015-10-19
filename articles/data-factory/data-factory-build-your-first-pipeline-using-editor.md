@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Data Factory Editor (portail Azure)
@@ -32,6 +32,8 @@ Dans cet article, vous apprendrez à utiliser le [portail Azure en version prél
 
 Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
+> [AZURE.IMPORTANT]Passez en revue l'article [Vue d'ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+
 ## Étape 1 : création de la fabrique de données
 
 1.	Après la connexion au [portail Azure en version préliminaire](http://portal.azure.com/), procédez comme suit :
@@ -45,7 +47,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 	![Panneau Nouvelle fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique.
+	> [AZURE.IMPORTANT]Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
 3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
 	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
 	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
@@ -76,7 +78,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 	![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur. 
-4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d'accès. Pour découvrir comment obtenir votre clé d'accès, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)
+4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -123,7 +125,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commandes, puis sélectionnez **Stockage d’objets Blob Azure**.  
 
 	![Nouveau jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
+2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -221,16 +223,16 @@ Dans cette étape, vous allez créer votre premier pipeline.
 9. Lorsque le traitement est terminé, l’état du segment devient **Ready**. Notez que la création d'un cluster HDInsight à la demande prend généralement un certain temps. 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Lorsque le segment indique l’état **Prêt**, vérifiez le dossier **partitioneddata** du conteneur de **données** de votre stockage d'objets blob pour les données de sortie.  
+10. Lorsque la tranche indique l’état **Prêt**, vérifiez le dossier **partitioneddata** du conteneur de **données** de votre stockage d'objets blob pour les données de sortie.  
  
 
  
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # Configurer la protection entre des machines virtuelles ou des serveurs physiques VMWare locaux et Azure
@@ -139,10 +139,8 @@ DS4 standard | 1 disque (1 * 1 023 Go) | 1 disque (1 * 1 023 Go) | 15 disqu
 
 La planification de la capacité pour le serveur cible maître dépend des points suivants :
 
-- Limitations et performances de stockage azure
-	- 500 IOPS par disque
-	- 20 000 requêtes par compte de stockage
-	- En fonction de ces chiffres, idéalement 40 disques sont pris en charge par un compte de stockage, chaque disque gérant 500 IOPS. 
+- Limitations et performances de stockage Azure
+	- Pour une machine virtuelle de niveau standard, le nombre maximal de disques fortement sollicités est d'environ 40 (20 000/500 IOPS par disque) dans un seul compte de stockage. Pour en savoir plus, consultez la rubrique [Objectifs d’extensibilité des comptes de stockage standard](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts). De même, pour plus d’informations sur le compte de stockage Premium, consultez la rubrique [Objectifs d’extensibilité pour les comptes de stockage Premium](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts).
 -	Taux de modification quotidien 
 -	Stockage de volume de rétention.
 
@@ -274,7 +272,7 @@ Le serveur de configuration est déployé dans un service cloud Azure créé aut
 	- Si vous souhaitez utiliser un proxy personnalisé, vous devez le configurer avant d'installer le fournisseur.
 	- Lorsque vous cliquez sur **Suivant**, un test est exécuté pour vérifier la connexion proxy.
 	- Si vous n'utilisez pas de proxy personnalisé ou si votre proxy par défaut nécessite une authentification, vous devez saisir les détails du proxy, y compris l'adresse du proxy, le port et les informations d’identification.
-	- Les URL suivantes doivent être accessibles via le proxy ::
+	- Les URL suivantes doivent être accessibles via le proxy :
 		- *.hypervrecoverymanager.windowsazure.com
 		- *.accesscontrol.windows.net
 		- *.backup.windowsazure.com
@@ -765,12 +763,12 @@ Si un serveur de traitement est dans un état critique, un avertissement d'état
 
 Do Not Translate or Localize
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”). Microsoft is the not original author of the Third Party Code. The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only. This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Le fichier complet se trouve dans le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
-<!--------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

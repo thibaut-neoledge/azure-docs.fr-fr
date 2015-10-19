@@ -29,6 +29,8 @@ Vous devez procéder à cette opération avant de passer à la [Phase 5](virtua
 
 Il existe deux serveurs Web virtuels dans lesquels vous pouvez déployer des applications ASP.NET ou des applications plus anciennes pouvant être hébergées par les Internet Information Services (IIS) 8 dans Windows Server 2012 R2.
 
+> [AZURE.NOTE]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Les blocs de commande Azure PowerShell dans cet article font actuellement l’objet de tests et de mises à jour pour prendre en charge les nouvelles applets de commande dans les versions Azure PowerShell 1.0.0 et ultérieures. Nous vous remercions de votre patience.
+
 Tout d'abord, vous configurez l'équilibrage de charge interne de manière à ce qu'Azure répartisse le trafic client vers l'application métier de manière équitable entre les deux serveurs Web. Pour cela, vous devez spécifier une instance d'équilibrage de charge interne comportant un nom et une adresse IP propre qui sont affectés à partir de l'espace d'adressage du sous-réseau que vous avez affecté à votre réseau virtuel Azure. Pour déterminer si l'adresse IP que vous avez choisie pour l'équilibrage de charge interne est disponible, utilisez les commandes suivantes dans l'invite de commandes Azure PowerShell. Spécifiez les valeurs des variables et supprimez les caractères < and >.
 
 	Switch-AzureMode AzureServiceManagement
@@ -36,7 +38,7 @@ Tout d'abord, vous configurez l'équilibrage de charge interne de manière à ce
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-Si le champ **IsAvailable** de la commande Test-AzureStaticVNetIP a la valeur **True**, vous pouvez utiliser l’adresse IP.
+Si le champ **IsAvailable** de la commande Test-AzureStaticVNetIP est défini sur **True**, vous pouvez utiliser l’adresse IP.
 
 Revenez au mode Resource Manager de PowerShell avec cette commande.
 
@@ -68,7 +70,7 @@ Utilisez ensuite le bloc de commandes PowerShell suivant permet de créer les m
 - Table ST pour vos comptes de stockage ;
 - Table A pour les groupes à haute disponibilité ;
 
-Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md) et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
+Souvenez-vous que vous avez défini la table M au cours de la [Phase 2](virtual-machines-workload-high-availability-LOB-application-phase2.md), et les tables V, S, ST et A au cours de la [Phase 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc résultant dans l'invite de commandes Azure PowerShell.
 
@@ -118,7 +120,7 @@ Une fois que vous avez fourni toutes les valeurs requises, exécutez le bloc ré
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ni d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure en version préliminaire. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle.
+> [AZURE.NOTE]Étant donné que ces machines virtuelles sont destinées à une application intranet, elles ne reçoivent pas d’adresse IP publique ou d’étiquette de nom de domaine DNS, et ne sont pas exposées à Internet. Toutefois, cela signifie également que vous ne pouvez pas vous y connecter à partir du portail Azure en version préliminaire. Le bouton **Se connecter** n’est pas disponible quand vous affichez les propriétés de la machine virtuelle.
 
 Utilisez le client Bureau à distance de votre choix et créez une connexion Bureau à distance à chaque machine virtuelle de serveur Web. Utilisez son nom d'ordinateur ou DNS intranet et les informations d'identification du compte d'administrateur local.
 
@@ -158,7 +160,7 @@ Ce diagramme représente la configuration résultant de l'exécution de cette ph
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 5 : Créer le groupe de disponibilité et ajouter les bases de données de l’application](virtual-machines-workload-high-availability-LOB-application-phase5.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 5 : création du groupe de disponibilité et ajout des bases de données de l’application](virtual-machines-workload-high-availability-LOB-application-phase5.md).
 
 ## Ressources supplémentaires
 
@@ -172,4 +174,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

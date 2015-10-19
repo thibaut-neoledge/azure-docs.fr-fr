@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Planifier votre mise à niveau vers SQL Database V12 | Microsoft Azure"
-	description="Décrit la préparation et les limitations relatives à la mise à niveau vers la version 12 de la base de données SQL Azure."
+	description="Décrit la préparation et les limitations relatives à la mise à niveau vers la version V12 d’Azure SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
-# Planification et préparation de l’installation de la mise à niveau V12 de la base de données SQL
+# Planification et préparation de la mise à niveau vers SQL Database V12
 
 
-Cette rubrique décrit la planification et la préparation nécessaires pour mettre à jour vos bases de données SQL Azure de la version V11 vers la V12.
+Cette rubrique décrit la planification et la préparation nécessaires pour mettre à niveau vos bases de données SQL Azure de la version V11 vers la V12.
 
 
 Un nouveau [portail Azure, en version préliminaire](http://portal.azure.com/), est disponible pour assurer la prise en charge de la mise à niveau vers la version 12.
@@ -32,9 +32,8 @@ Le tableau suivant répertorie les autres rubriques d’aide relatives à la ver
 
 | Titre et lien | Description du contenu |
 | :--- | :--- |
-| [Nouveautés de la base de données SQL V12](sql-database-v12-whats-new.md) | Décrit les détails du rapprochement de la parité complète de la base de données SQL Microsoft Azure avec Microsoft SQL Server, grâce à la version 12. |
-| [Procédure pas à pas : inscription à la dernière mise à jour V12 de la base de données SQL](sql-database-v12-sign-up.md) | Décrit la procédure à suivre pour mettre à niveau vos bases de données SQL Microsoft Azure vers la version 12. |
-| [Création d’une base de données dans la mise à jour V12 de la base de données SQL](sql-database-create.md) | Décrit la procédure à suivre pour créer une base de données SQL Microsoft Azure version 12. Cette section décrit également les différentes options disponibles à partir d’une simple base de données vide. |
+| [Nouveautés de SQL Database V12](sql-database-v12-whats-new.md) | Décrit en détail comment V12 permet d’arriver à une parité presque totale entre Azure SQL Database et Microsoft SQL Server. |
+| [Création d’une base de données dans SQL Database V12](sql-database-get-started.md) | Décrit la procédure à suivre pour créer une base de données SQL Azure V12. Cette section décrit également les différentes options disponibles à partir d’une simple base de données vide. |
 
 
 ## Planification
@@ -45,7 +44,7 @@ Les sous-sections suivantes décrivent les connaissances nécessaires et les dé
 ### Clarification de version
 
 
-Ce document concerne la mise à niveau de la base de données SQL Microsoft Azure de la V11 à la V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
+Ce document concerne la mise à niveau de Microsoft Azure SQL Database de la version V11 à la version V12. De manière plus formelle, les numéros de version sont proches des deux valeurs suivantes, comme indiqué par l’instruction Transact-SQL **SELECT @@version;** :
 
 
 - 12\.0.2000.8 *(ou légèrement supérieure, version 12)*
@@ -55,14 +54,14 @@ Ce document concerne la mise à niveau de la base de données SQL Microsoft Azur
 ### Planification du niveau de service
 
 
-À partir de la V12, la base de données SQL Azure prend en charge uniquement les niveaux de service de base, Standard et Premium. Les niveaux de service Web et Business ne sont pas pris en charge dans la V12. Par conséquent, si vous prévoyez de mettre à jour votre base de données SQL Azure actuellement définie sur le niveau de service Web ou Business, vous devez choisir un niveau de service.
+À partir de la version V12, Azure SQL Database prend en charge uniquement les niveaux de service De base, Standard et Premium. Les niveaux de service Web et Business ne sont pas pris en charge dans la V12. Par conséquent, si vous prévoyez de mettre à jour votre base de données SQL Azure actuellement définie sur le niveau de service Web ou Business, vous devez choisir un niveau de service.
 
 
-Pour obtenir des informations détaillées sur les niveaux de service de base, Standard et Premium, voir :
+Pour obtenir des informations détaillées sur les niveaux de service De base, Standard et Premium, voir :
 
-
+- [Niveaux de service SQL Database](sql-database-service-tiers.md)
 - [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
-- [Tarification des bases de données SQL Azure](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### Examen de la configuration de géo-réplication
@@ -77,19 +76,19 @@ La stratégie consiste à laisser la source intacte et à effectuer les tests su
 ## Préparation
 
 
-Une fois que vous avez terminé votre planification, vous pouvez effectuer les actions décrites dans les sous-sections suivantes pour vous préparer à la phase finale de la mise à jour.
+Une fois que vous avez terminé votre planification, vous pouvez effectuer les actions décrites dans les sous-sections suivantes pour vous préparer à la phase finale de la mise à niveau.
 
 
-Une description détaillée de la dernière phase de la mise à jour est disponible à partir des liens vers les rubriques d’aide en haut de cette page.
+Une description détaillée de la dernière phase de la mise à niveau est disponible à partir des liens vers les rubriques d’aide en haut de cette page.
 
 
 ### Actions relatives au niveau de service
 
 
-Les niveaux de tarification de service Web et Business ne sont pas pris en charge dans la V12.
+Le niveau tarifaire du service Web et Business n’est pas pris en charge dans V12.
 
 
-Si votre base de données SQL Azure V11 est une base de données Web ou Business, le processus de mise à jour vous propose de basculer votre base de données sur un niveau pris en charge. La mise à jour recommande un niveau qui correspond à l’historique de la charge de travail de votre base de données. Toutefois, vous pouvez choisir n’importe quel niveau pris en charge.
+Si votre base de données SQL Azure V11 est une base de données Web ou Business, le processus de mise à jour vous propose de basculer votre base de données sur un niveau pris en charge. La mise à niveau recommande un niveau qui correspond à l’historique de la charge de travail de votre base de données. Toutefois, vous pouvez choisir n’importe quel niveau pris en charge.
 
 
 Vous pouvez réduire le nombre d’étapes nécessaires pour la mise à jour en changeant le niveau Web et Business de votre base de données V11 avant de commencer le processus. Pour ce faire, utilisez le nouveau [portail Azure, en version préliminaire](http://portal.azure.com/).
@@ -101,10 +100,10 @@ Si vous n’êtes pas sûr du niveau de service vers lequel basculer, nous vous 
 ### Suspension de la géo-réplication pendant la mise à niveau
 
 
-La mise à jour vers la V12 ne peut pas s’exécuter si la géo-réplication est active sur votre base de données. Vous devez d’abord reconfigurer votre base de données pour qu’elle n’utilise plus la géo-réplication.
+La mise à niveau vers la V12 ne peut pas s’exécuter si la géo-réplication est active sur votre base de données. Vous devez d’abord reconfigurer votre base de données pour qu’elle n’utilise plus la géo-réplication.
 
 
-Une fois la mise à jour terminée, vous pouvez configurer votre base de données pour qu’elle utilise à nouveau la géo-réplication.
+Une fois la mise à niveau terminée, vous pouvez configurer votre base de données pour qu’elle utilise à nouveau la géo-réplication.
 
 
 ### Client sur une machine virtuelle Azure
@@ -125,7 +124,7 @@ Cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md) pour plus d
 ### Portails relatifs à la version 12
 
 
-Il existe trois portails pour Microsoft Azure ; chacun d’eux présente des capacités différentes concernant la version 12 de la base de données SQL.
+Il existe trois portails pour Microsoft Azure ; chacun d’eux présente des capacités différentes concernant SQL Database V12.
 
 
 - [http://portal.azure.com/](http://portal.azure.com/)<br/>Ce nouveau portail Microsoft Azure est toujours en version préliminaire. Il n’a pas encore atteint le niveau de disponibilité générale. Ce portail :
@@ -138,11 +137,11 @@ Il existe trois portails pour Microsoft Azure ; chacun d’eux présente des c
  - ne peut *pas* mettre à niveau votre base de données version 11 vers la version 12.
 
 
-- (http://*yourservername*.database.windows.net)<br/> Portail de gestion de base de données SQL :
+- (http://*yourservername*.database.windows.net)<br/> Portail de gestion Azure SQL Database :
  - ne peut *pas* gérer les serveurs version 12.
 
 
-Nous vous encourageons à vous connecter à votre base de données SQL Microsoft Azure avec Visual Studio 2013 (VS2013). VS2013 peut être utilisé pour les tâches suivantes :
+Nous vous encourageons à vous connecter à vos bases de données SQL Azure avec Visual Studio 2013 (VS2013). VS2013 peut être utilisé pour les tâches suivantes :
 
 
 - Pour exécuter une instruction Transact-SQL.
@@ -150,13 +149,13 @@ Nous vous encourageons à vous connecter à votre base de données SQL Microsoft
 - Pour développer une base de données en ligne ou hors connexion.
 
 
-Vous pouvez également vous connecter avec [Visual Studio Community 2013](https://www.visualstudio.com/fr-FR/news/vs2013-community-vs.aspx/), qui est une version gratuite et complète de VS2013.
+Vous pouvez également vous connecter avec [Visual Studio Community 2013](https://www.visualstudio.com/fr-fr/news/vs2013-community-vs.aspx/), qui est une version gratuite et complète de VS2013.
 
 
-Dans l’ancien portail de gestion Azure, sur la page des bases de données, vous pouvez cliquer sur **Ouvrir dans Visual Studio** pour lancer VS2013 sur votre ordinateur afin de vous connecter à votre base de données SQL Microsoft Azure.
+Dans l’ancien portail de gestion Azure, sur la page des bases de données, vous pouvez cliquer sur **Ouvrir dans Visual Studio** pour lancer VS2013 sur votre ordinateur afin de vous connecter à votre base de données SQL Azure.
 
 
-Vous pouvez également utiliser SQL Server Management Studio (SSMS) 2014 avec [CU6](http://support.microsoft.com/kb/3031047/) pour vous connecter à la base de données SQL Microsoft Azure. Pour en savoir plus, consultez ce billet de blog :<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
+Vous pouvez également utiliser SQL Server Management Studio (SSMS) 2014 avec [CU6](http://support.microsoft.com/kb/3031047/) pour vous connecter à la base de données SQL Azure. Pour en savoir plus, consultez ce billet de blog :<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
 
 
 ### Limitations à prendre en compte *durant* la mise à niveau vers la version 12
@@ -169,7 +168,7 @@ La base de données V11 est toujours disponible pour l’accès aux données pen
 | :--- | :--- |
 | Durée de la mise à niveau | La durée de la mise à niveau dépend de la taille, de l’édition et du nombre de bases de données sur le serveur. La mise à niveau peut prendre plusieurs heures ou plusieurs jours, notamment pour les serveurs dont les bases de données présentent les caractéristiques suivantes :<br/><br/>* Taille supérieure à 50 Go, ou <br/>* Un niveau de service autre que Premium<br/><br/>La création de bases de données sur le serveur pendant la mise à niveau peut également augmenter la durée de cette opération. |
 | Aucune géo-réplication | La géo-réplication n’est pas prise en charge sur un serveur V12 impliqué dans une mise à niveau à partir de V11. |
-| La base de données est temporairement indisponible à l’étape finale de la mise à niveau vers V12. | Les bases de données appartenant à votre serveur V11 restent disponibles pendant le processus de mise à niveau. Toutefois, la connexion au serveur et aux bases de données est temporairement indisponible à l’étape finale, lorsque le basculement commence du serveur V11 vers le serveur V12 prêt.<br/><br/>La période de basculement peut varier de 40 secondes à 5 minutes. Pour la plupart des serveurs, le basculement ne prend pas plus de 90 secondes. Le temps de basculement augmente pour les serveurs qui ont un grand nombre de bases de données ou lorsque les bases de données ont des charges de travail d’écriture lourdes. |
+| La base de données est temporairement indisponible à l’étape finale de la mise à niveau vers V12. | Les bases de données appartenant à votre serveur V11 restent disponibles pendant le processus de mise à niveau. Toutefois, la connexion au serveur et aux bases de données est temporairement indisponible à l’étape finale, quand le basculement commence du serveur V11 vers le serveur V12 prêt.<br/><br/>La période de basculement peut varier de 40 secondes à 5 minutes. Pour la plupart des serveurs, le basculement ne prend pas plus de 90 secondes. Le temps de basculement augmente pour les serveurs qui ont un grand nombre de bases de données ou lorsque les bases de données ont des charges de travail d’écriture lourdes. |
 
 
 ### Limitations à prendre en compte *après* la mise à niveau vers la version 12
@@ -198,7 +197,7 @@ Toutefois, pour utiliser les outils, vous devez d’abord installer leurs derni�
 
 - [Mise à jour cumulative 6 pour SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3031047)
 - [Mise à jour de février 2015 pour les outils de base de données SQL Server dans Visual Studio 2013](https://msdn.microsoft.com/data/hh297027)
-- [Infrastructure d’application de la couche Données (DacFx) de février 2015 pour la base de données SQL Azure V12](http://www.microsoft.com/download/details.aspx?id=45886)
+- [Infrastructure d’application de la couche Données (DacFx) de février 2015 pour Azure SQL Database V12](http://www.microsoft.com/download/details.aspx?id=45886)
 
 
 > [AZURE.NOTE]Les liens des outils précédents ont été mis à jour le 2 mars 2015 ou après. Nous vous recommandons d’utiliser les mises à jour plus récentes de ces outils.
@@ -224,7 +223,7 @@ Le scénario suivant explique qu’une base de données SQL Azure V11 supprimée
 ### Applets de commande PowerShell
 
 
-Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers la version 12 de la base de données SQL Microsoft Azure, à partir d’une version 11 ou antérieure.
+Des applets de commande PowerShell sont disponibles pour démarrer, arrêter ou surveiller une mise à niveau vers Azure SQL Database V12, à partir d’une version 11 ou antérieure.
 
 
 Pour obtenir une documentation de référence sur ces applets de commande Powershell, consultez :
@@ -241,7 +240,7 @@ L’applet de commande Stop- signifie « annuler », et non « interrompre �
 ## Résolution des problèmes
 
 
-Si la mise à jour échoue pour une raison quelconque, votre base de données V11 reste active et disponible comme d’habitude.
+Si la mise à niveau échoue pour une raison quelconque, votre base de données V11 reste active et disponible comme d’habitude.
 
 
 ## Liens connexes
@@ -254,4 +253,4 @@ Si la mise à jour échoue pour une raison quelconque, votre base de données V1
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

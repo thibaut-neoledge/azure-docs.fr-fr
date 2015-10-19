@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/08/2015"
 	ms.author="klam"/>
 
 #Qu'est-ce qu'une application logique ?
@@ -75,4 +75,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

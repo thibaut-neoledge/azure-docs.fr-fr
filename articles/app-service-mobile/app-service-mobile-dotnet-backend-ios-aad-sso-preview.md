@@ -1,5 +1,5 @@
 <properties
-        pageTitle="Authentification des utilisateurs de votre application iOS à l'aide de l'authentification unique Azure Active Directory"
+        pageTitle="Authentifier les utilisateurs de votre application iOS à l’aide de l’authentification Azure Active Directory"
         description="Découvrez comment connecter des utilisateurs dans votre application iOS à l'aide de la bibliothèque d'authentification Active Directory."
         documentationCenter="Mobile"
         authors="mattchenderson"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.date="09/14/2015"
 ms.author="mahender" />
 
-# Ajout de l'authentification unique Azure Active Directory à votre application iOS
+# Ajouter l’authentification Azure Active Directory à votre application iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
@@ -124,4 +124,4 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
  [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Ajout d’une authentification à votre application]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

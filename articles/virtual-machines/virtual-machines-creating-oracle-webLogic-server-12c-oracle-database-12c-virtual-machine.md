@@ -1,9 +1,26 @@
-<properties pageTitle="Création d’une machine virtuelle Oracle WebLogic Server 12c et Oracle Database 12c dans Azure" description="Parcourez un exemple vous indiquant comment créer une image Oracle WebLogic Server 12c et Oracle Database 12c exécutée sur Windows Server 2012 dans Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Machine virtuelle Oracle WebLogic Server et Oracle Database | Microsoft Azure"
+	description="Créez une image Oracle WebLogic Server 12c et Oracle Database 12c s’exécutant sur Windows Server 2012, à l’aide du modèle de déploiement Resource Manager."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 
 #Création d’une machine virtuelle Oracle WebLogic Server 12c et Oracle Database 12c dans Azure
 
 Cet article indique comment créer une machine virtuelle basée sur une image Oracle WebLogic Server 12c et Oracle Database 12c fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article présente la création d’un serveur et d’une base de données Oracle WebLogic à l’aide du modèle de déploiement Resource Manager.
+
 
 ##Pour créer une machine virtuelle Oracle WebLogic Server 12c et Oracle Database 12c dans Azure
 
@@ -19,7 +36,7 @@ Cet article indique comment créer une machine virtuelle basée sur une image Or
 
 6.	Spécifiez un mot de passe pour la machine virtuelle et confirmez-le, ou fournissez une clé publique SSH (Secure Shell).
 
-7.	Sélectionnez un **niveau de tarification**. Notez que les niveaux de tarification recommandés sont affichés par défaut. Pour afficher toutes les options de configuration, cliquez sur **Afficher tout** dans le coin supérieur droit.
+7.	Sélectionnez un **niveau tarifaire**. Notez que les niveaux de tarification recommandés sont affichés par défaut. Pour afficher toutes les options de configuration, cliquez sur **Afficher tout** dans le coin supérieur droit.
 
 8. Définissez les configurations facultatives selon vos besoins. Tenez compte des remarques suivantes :
 
@@ -31,9 +48,9 @@ Cet article indique comment créer une machine virtuelle basée sur une image Or
 
 9.	Choisissez ou créez un groupe de ressources. Pour plus d’informations, consultez la page [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
 
-10. Choisissez un **abonnement**.
+10. Choisissez un **Abonnement**.
 
-11. Choisissez un **emplacement**.
+11. Choisissez un **Emplacement**.
 
 
 ##Pour créer votre base de données hébergée sur cette machine virtuelle
@@ -54,4 +71,4 @@ Suivez les instructions dans la page [Création d’une machine virtuelle Oracle
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

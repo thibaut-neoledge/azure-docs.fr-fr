@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Fonctionnalités de système d’exploitation sur Azure App Service Web Apps #
@@ -111,4 +111,4 @@ L'accès en écriture au registre est bloqué, y compris l'accès aux éventuell
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

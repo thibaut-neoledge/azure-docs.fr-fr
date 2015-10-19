@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -480,7 +480,7 @@ DocumentDB prend en charge les types d'index de hachage et de plage pour chaque 
 - **Hachage** prend en charge les requêtes d’égalité efficaces et JOIN. Dans la plupart des cas d’utilisation, les index de hachage ne nécessitent pas une précision plus élevée que la valeur par défaut de 3 octets.
 - **Plage** prend en charge les requêtes d’égalité efficaces, les requêtes de plage (avec >, <, >=, <=, !=) et les requêtes Trier par. Par défaut, les requêtes Trier par nécessitent également une précision d’index maximale (-1).
 
-DocumentDB prend également en charge le type d'index spatial pour chaque chemin d'accès, qui peut être spécifié pour le type de données de point. La valeur dans le chemin d'accès spécifié doit être un point GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
+DocumentDB prend également en charge le type d’index spatial pour chaque chemin d’accès, qui peut être spécifié pour le type de données de point. La valeur dans le chemin d'accès spécifié doit être un point GeoJSON valide, comme `{"type": "Point", "coordinates": [0.0, 10.0]}`.
 
 - **Spatial** prend en charge les requêtes spatiales efficaces (within et distance)
 
@@ -541,7 +541,7 @@ Voici les types d'index pris en charge et les exemples de requêtes qui peuvent 
 
 Par défaut, une erreur est renvoyée pour les requêtes disposant d’opérateurs de plage tels que >= s'il n'existe aucun index de plage (de n’importe quelle précision) pour signaler qu'une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans un index de plage à l'aide de l'en-tête x-ms-documentdb-enable-scans header dans l'API REST ou l'option de requête EnableScanInQuery à l'aide du Kit de développement logiciel (SDLK) .NET. Si d'autres filtres de la requête peuvent être utilisés par DocumentDB sur l’index, aucune erreur ne vous sera renvoyée.
 
-Les mêmes règles s'appliquent pour les requêtes spatiales. Par défaut, une erreur est renvoyée pour les requêtes spatiales s'il n'existe pas d'index spatial. Elles peuvent être effectuées en tant qu'analyse à l'aide de x-ms-documentdb-enable-scan/EnableScanInQuery.
+Les mêmes règles s'appliquent pour les requêtes spatiales. Par défaut, une erreur est renvoyée pour les requêtes spatiales s’il n’existe aucun index spatial et qu’aucun autre filtre ne peut être fourni à partir de l’index. Elles peuvent être effectuées en tant qu'analyse à l'aide de x-ms-documentdb-enable-scan/EnableScanInQuery.
 
 #### Précision d’index
 
@@ -664,6 +664,8 @@ Quand pouvez-vous apporter des modifications de stratégie d'indexation à vos c
 - Ajuster la précision d'indexation pour améliorer les performances de requête ou réduire le stockage utilisé
 
 >[AZURE.NOTE]Pour modifier la stratégie d'indexation à l'aide de ReplaceDocumentCollectionAsync, vous devez utiliser la version 1.3.0 (ou une version ultérieure) du Kit de développement logiciel (SDK) .NET
+>
+> Pour que la transformation d’index se déroule correctement, vous devez vous assurer qu’il existe suffisamment d’espace libre sur la collection. Si la collection atteint son quota de stockage, la transformation d’index est interrompue. La transformation d’index reprend automatiquement dès que de l’espace de stockage est disponible, par exemple, si vous supprimez certains documents.
 
 ## Réglage des performances
 
@@ -767,4 +769,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

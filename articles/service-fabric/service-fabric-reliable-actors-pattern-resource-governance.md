@@ -3,7 +3,7 @@
    description="Modèle de conception montrant comment utiliser Service Fabric Actors pour modéliser une application à mettre à l'échelle mais avec des ressources limitées"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : gestion des ressources
 Ce modèle et les scénarios associés sont facilement identifiables par les développeurs (entreprises ou autres) qui disposent de ressources limitées sur site ou dans le cloud qu'ils ne peuvent pas mettre immédiatement à l'échelle, ou qui souhaitent transférer des applications et des données volumineuses vers le cloud.
@@ -417,4 +417,4 @@ Ce modèle est très courant dans les scénarios où des développeurs doivent t
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

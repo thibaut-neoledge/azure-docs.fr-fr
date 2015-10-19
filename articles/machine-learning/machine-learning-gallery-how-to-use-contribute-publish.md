@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/29/2015"
+	ms.date="10/01/2015"
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -37,7 +37,7 @@ Connectez-vous à l’aide de votre compte Microsoft pour profiter d’avantages
 - Apportez votre contribution et présentez vos expériences et vos collections d’analyse prédictive
 
 ## Découvrez et apprenez
-Recherchez et parcourez les différentes solutions qui ont été proposées par Microsoft et la communauté d’analyse avancée. Utilisez ces ressources pour accélérer la résolution de vos problèmes d’analyse de données.
+Recherchez et parcourez les différents types de solutions qui ont été proposés par Microsoft et la communauté d’analyse avancée. Utilisez ces ressources pour accélérer la résolution de vos problèmes d’analyse de données.
 
 Recherchez facilement les solutions les plus appréciées récemment publiées dans la galerie ou effectuez des recherches par nom, balises, algorithmes ou d’autres attributs. Consultez les contributions d’un auteur spécifique en cliquant sur son nom depuis n’importe quelle vignette.
 
@@ -136,4 +136,4 @@ Le rendu de la description complète n'est pas disponible de façon étendue à 
 
 **[ALLER À LA GALERIE >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

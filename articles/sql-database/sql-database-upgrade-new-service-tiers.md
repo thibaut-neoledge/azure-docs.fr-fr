@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,11 +19,29 @@
 
 # Mise à jour des bases de données SQL des éditions Web ou Business vers les nouveaux niveaux de service
 
-Les bases de données Web et Business Azure SQL sont déconseillées et seront [retirées en septembre 2015](http://msdn.microsoft.com/library/azure/dn741330.aspx). Il est donc temps de commencer à planifier la mise à niveau des bases de données Web ou Business vers les niveaux de service de base, Standard ou Premium.
+Les [bases de données Web et Business Azure SQL seront retirées](sql-database-web-business-sunset-faq.md) et il est donc temps d mettre à niveau les bases de données Web ou Business vers les [niveaux de service de base, Standard, Premium ou Elastic](sql-database-service-tiers.md).
 
-Téléchargez le [Guide de la Migration des base de données Web et Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
 
-> [AZURE.NOTE] [Pricing tier recommendations](sql-database-service-tier-advisor.md) pour les bases de données Web et Business sont désormais disponibles.
+> [AZURE.IMPORTANT]La mise à niveau des bases de données Web ou Business vers un nouveau niveau de service ne met pas la base de données hors connexion. La base de données reste en ligne et disponible pour l'ensemble de l'opération de mise à niveau.
+
+
+Pour vous aider lors de la mise à niveau, le service Base de données SQL recommande un niveau de service et de performances approprié (niveau tarifaire) pour chaque base de données. En analysant l’historique d’utilisation de chaque base de données, le service recommande un niveau qui convient le mieux pour l’exécution des charges de travail de votre base de données existante.
+
+Le niveau tarifaire recommandé pour chaque base de données est fourni au cours du processus de modification d'un niveau de service de bases de données Web ou Business, ou lors de la mise à niveau vers SQL Database V12.
+
+En fonction de votre environnement spécifique, le service peut recommander la mise à niveau de tout ou partie de vos bases de données dans un [pool de base de données élastiques](sql-database-elastic-pool.md).
+
+Pour afficher les niveaux de service recommandés pour vos bases de données qui seront retirées, vous pouvez utiliser le [portail Azure en version préliminaire](https://portal.azure.com) ou PowerShell. Pour des instructions détaillées, consultez :
+
+- [Mise à niveau vers SQL Database V12 (portail Azure en version préliminaire)](sql-database-v12-upgrade.md)
+- [Mise à niveau vers la Base de données SQL V12 (PowerShell)](sql-database-upgrade-server.md)
+
+
+Il est important de noter que votre base de données SQL n’est pas verrouillée sur un niveau de performances ou de service spécifique. De cette façon, si les exigences de votre base de données changent, vous pouvez facilement passer à un autre niveau de service ou de performances disponible. En fait, les bases de données SQL De base, Standard et Premium sont facturées à l’heure et peuvent être augmentées ou réduites 4 fois par période de 24 heures. Cela signifie que vous pouvez ajuster le niveau de service et le niveau de performances pour optimiser les performances, l’ensemble de fonctionnalités et le coût de votre base de données, selon les besoins de votre application et les différentes charges de travail. Cela signifie également que l’évaluation et la modification du niveau de service et du niveau de performances de votre base de données (augmentation ou réduction) est un processus continu qui doit faire partie de votre routine de réglage des performances et de maintenance.
+ 
+Pour plus d'informations sur les différences entre Web/Business et les nouveaux niveaux de service, et pour obtenir d’autres détails sur la migration, téléchargez le [Guide de la Migration des base de données Web et Business](http://download.microsoft.com/download/3/C/9/3C9FF3D8-E702-4F5D-A38C-5EFA1DBA73E6/Azure_SQL_Database_Migration_Cookbook.pdf).
+
+
 
 ## Vue d'ensemble
 
@@ -36,8 +54,6 @@ La question est maintenant d’évaluer les nouveaux niveaux de service et de ch
 Finalement, le meilleur choix est la combinaison du niveau de service et de performances qui fournit l’équilibre optimal entre les fonctionnalités, les performances et les coûts, tout en répondant entièrement aux besoins de votre entreprise et aux exigences de votre application.
 
 Ce document propose une méthodologie interactive pour la mise à jour d’une base de données Web ou Business vers l’un des nouveaux niveaux de service/niveaux de performances.
-
-Il est important de noter que les bases de données SQL Azure ne sont pas verrouillées sur un niveau de performances ou de service spécifique. De cette façon, si les exigences de votre base de données changent, vous pouvez facilement passer à un autre niveau de service ou de performances disponible. Les bases de données SQL Basic, Standard et Premium sont facturées à l’heure et vous avez la possibilité d’augmenter ou de réduire chaque base de données 4 fois par période de 24 heures (à l’aide du [portail Azure ou par programme](http://msdn.microsoft.com/library/azure/ff394116.aspx)). Cela signifie que vous pouvez ajuster le niveau de service et le niveau de performances pour optimiser les performances, l’ensemble de fonctionnalités et le coût de votre base de données, selon les besoins de votre application et les différentes charges de travail. Cela signifie également que l’évaluation et la modification du niveau de service et du niveau de performances de votre base de données (augmentation ou réduction) est un processus continu qui doit faire partie de votre routine de réglage des performances et de maintenance.
 
 
 ## Mise à niveau des bases de données Web et Business
@@ -61,7 +77,7 @@ La mise à jour d’une base de données Web ou Business vers un nouveau niveau 
 
 Les niveaux de service De base, Standard et Premium proposent des fonctions différentes. La première étape de la sélection d’un niveau approprié consiste à déterminer le niveau de service qui fournit le niveau minimal de fonctionnalités requis pour votre entreprise et application.
 
-Par exemple, vous devez prendre en compte la durée de conservation des longues sauvegardes, si des fonctions de [géo-réplication Standard ou Active](http://msdn.microsoft.com/library/azure/dn783447.aspx) sont requises, la taille globale maximale de la base de données nécessaire, etc. Ces exigences déterminent votre choix de niveau de service minimal.
+Par exemple, vous devez prendre en compte la durée de conservation des longues sauvegardes, si des fonctions de [géo-réplication Standard ou Active](sql-database-business-continuity.md) sont requises, la taille globale maximale de la base de données nécessaire, etc. Ces exigences déterminent votre choix de niveau de service minimal.
 
 Le niveau « De base » est principalement utilisé pour les bases de données très petites et avec une faible activité. Par conséquent, s’il s’agit d’une mise à jour, il convient généralement de choisir le niveau « Standard » ou « Premium », en fonction du niveau minimal de fonctionnalités requis.
 
@@ -73,7 +89,8 @@ Les nouvelles fonctionnalités de niveau de service et des niveaux de performanc
 
 | Article | Description |
 |:--|:--|
-|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
+|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
+| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
 |[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
 |[Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
 
@@ -90,16 +107,16 @@ Le service de base de données SQL Azure présente des informations dans le port
 Dans la mesure où les bases de données Web et Business ne sont associées à aucune limite de ressources/DTU garantie, nous normalisons les valeurs de pourcentage en termes de quantité de ressources disponibles pour une base de données au niveau de performances S2. Le pourcentage DTU moyen utilisé par une base de données dans un intervalle donné peut être calculé comme la valeur de pourcentage la plus élevée entre l’utilisation du processeur, les E/S et le journal dans cet intervalle.
 
 
-Utilisez le portail de gestion pour obtenir une vue d’ensemble du pourcentage d’utilisation DTU, puis explorez les détails à l’aide de vues système.
+Utilisez le portail Azure en version préliminaire pour obtenir une vue d’ensemble du pourcentage d’utilisation DTU, puis explorez les détails à l’aide de vues système.
 
-Vous pouvez également utiliser le nouveau portail de gestion Azure pour afficher le niveau de service recommandé pour votre base de données Web ou Business lorsque vous mettez à niveau un serveur vers la base de données SQL Azure v12 ([version préliminaire dans certaines régions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)).
+Vous pouvez également utiliser le portail Azure en version préliminaire pour afficher le niveau de service recommandé pour votre base de données Web ou Business lorsque vous mettez à niveau un serveur vers la base de données SQL Azure V12.
 
-### Comment afficher le niveau de service recommandé dans le nouveau portail de gestion Azure
-Le portail de gestion recommande le niveau de service approprié pour votre base de données Web ou Business lors du processus de mise à niveau d’un serveur vers une base de données SQL Azure v12. La recommandation est basée sur une analyse historique de la consommation des ressources de la base de données.
+### Comment afficher le niveau de service recommandé dans le portail Azure en version préliminaire
+Le portail Azure recommande le niveau de service approprié pour votre base de données Web ou Business lors du processus de mise à niveau d’un serveur vers une base de données SQL V12. La recommandation est basée sur une analyse historique de la consommation des ressources de la base de données.
 
 **Nouveau portail de gestion**
 
-1. Connectez-vous au [nouveau portail de gestion](https://portal.azure.com) et accédez à un serveur contenant une base de données Web ou Business.
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et accédez à un serveur contenant une base de données Web ou Business.
 2. Cliquez sur la partie **Dernière mise à jour** du panneau serveur.
 3. Cliquez sur **Mettre à niveau ce serveur**.
 
@@ -242,7 +259,7 @@ Après avoir déterminé le niveau de service et le niveau de performances appro
 | [API REST de gestion de service](http://msdn.microsoft.com/library/azure/dn505719.aspx) | Utilisez la commande [Mettre à jour la base de données](http://msdn.microsoft.com/library/dn505718.aspx).|
 | [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | Utilisez l’instruction [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
 
-Pour plus d’informations, consultez la page [Modification des niveaux de service et des niveaux de performance de base de données](http://msdn.microsoft.com/library/dn369872.aspx)
+Pour plus d’informations, consultez la page [Modification des niveaux de service et des niveaux de performance de base de données](sql-database-scale-up.md)
 
 
 ## 6\. Contrôle de la mise à jour du nouveau niveau de service/niveau de performances
@@ -257,10 +274,6 @@ La base de données SQL Azure fournit des informations sur la progression des op
     ORDER BY o.last_modify_time DESC;
 
 Si vous avez utilisé le portail de gestion pour la mise à jour, une notification est également disponible à partir du portail pour l’opération.
-
-### Que se passe-t-il quand la charge de travail de la base de données atteint les limites de ressources après la mise à jour ?
-Les niveaux de performances sont étalonnés et régis pour fournir les ressources nécessaires permettant d’exécuter la charge de travail de votre base de données dans les limites maximales autorisées pour le niveau de service/niveau de performances sélectionné (c’est-à-dire que la consommation de ressources atteint 100 %). Si votre charge de travail atteint les limites d’utilisation du processeur, d’E/S des données ou d’E/S du journal, vous continuerez à recevoir les ressources au niveau maximum autorisé, mais la latence de vos requêtes sera augmentée. L’atteinte de l’une de ces limites ne génère pas d’erreur, seulement un ralentissement de votre charge de travail, sauf si le ralentissement s’accentue au point que les requêtes arrivent à expiration. Si vous atteignez les limites maximales autorisées de sessions/demandes utilisateur simultanées (threads de travail), l’[erreur 10928 ou 10929](http://msdn.microsoft.com/library/azure/dn338078.aspx) s’affiche.
-
 
 ## 7\. Contrôle de la base de données après la mise à niveau
 Après la mise à jour de la base de données Web/Business vers le nouveau niveau de service, nous vous recommandons de surveiller activement la base de données pour vous assurer que les applications s’exécutent au niveau de performances souhaité et optimiser l’utilisation en fonction des besoins. Les étapes supplémentaires suivantes sont recommandées pour la surveillance de la base de données.
@@ -283,17 +296,17 @@ La [documentation](http://msdn.microsoft.com/library/dn800981.aspx) additionnell
 
 - **Alertes :** configurer les « alertes » dans le portail de gestion Azure pour vous avertir quand la consommation DTU d’une base de données mise à niveau approche d’un niveau élevé. Les alertes de la base de données peuvent être configurées dans le portail de gestion Azure à des fins de diverses mesures de performances comme DTU, UC, E/S et journal. 
 
-	Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Comment : recevoir des notifications d'alerte et gérer les règles d'alerte dans Azure](http://msdn.microsoft.com/library/azure/dn306638.aspx) pour en savoir plus sur la configuration des notifications d'alerte.
+	Par exemple, vous pouvez configurer une alerte par courrier électronique sur « Pourcentage DTU » si la valeur moyenne du pourcentage DTU est supérieure à 75 % pendant les 5 dernières minutes. Reportez-vous à [Réception de notifications d'alerte](insights-receive-alert-notifications.md) pour en savoir plus sur la configuration des notifications d'alerte.
 
 
-- **Mise à niveau/rétrogradation planifiée au niveau des performances :** si votre application comporte des scénarios spécifiques qui ne nécessitent de meilleures performances qu’à certains moments de la journée/semaine, vous pouvez utiliser [Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx) pour augmenter ou réduire la taille de votre base de données avec un niveau de performance supérieur/inférieur comme opération planifiée.
+- **Mise à niveau/rétrogradation planifiée au niveau des performances :** si votre application comporte des scénarios spécifiques qui ne nécessitent de meilleures performances qu’à certains moments de la journée/semaine, vous pouvez utiliser [Azure Automation](https://azure.microsoft.com/documentation/services/automation/) pour augmenter ou réduire la taille de votre base de données avec un niveau de performance supérieur/inférieur comme opération planifiée.
 
 	Par exemple, mettez à jour la base de données vers un niveau de performances supérieur pour la durée d’une tâche de maintenance/un traitement par lots hebdomadaire et réduisez-la à la fin de la tâche. Ce type de planification est également utile pour les opérations gourmandes en ressources volumineuses, comme la reconstruction d’index, le chargement de données, etc. Notez que le modèle de facturation de la base de données SQL Azure est basé sur l’utilisation horaire d’un niveau de performance/niveau de service. Cette flexibilité vous permet de planifier des mises à jour à moindre coût.
 
 
 
 ## Résumé
-Le service Azure SQL Database fournit des données et des outils de télémétrie permettant d’évaluer les charges de travail de vos bases de données Web/Business et de déterminer le niveau de service qui convient le mieux pour la mise à jour. Le processus de mise à jour est assez simple et peut être effectué sans déconnecter la base de données et sans perte de données. Les bases de données mises à jour bénéficient de performances prévisibles et de fonctionnalités supplémentaires fournies par les nouveaux niveaux de service.
+Le service Azure SQL Database fournit des données et des outils de télémétrie permettant d’évaluer les charges de travail de vos bases de données Web/Business et de déterminer le niveau de service pour la mise à jour. Le processus de mise à jour est assez simple et peut être effectué sans déconnecter la base de données et sans perte de données. Les bases de données mises à jour bénéficient de performances prévisibles et de fonctionnalités supplémentaires fournies par les nouveaux niveaux de service.
 
 
 
@@ -305,4 +318,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

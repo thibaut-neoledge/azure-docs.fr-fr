@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation des files d’attente Service Bus (Java) | Microsoft Azure"
+	pageTitle="Utilisation des files d’attente Service Bus avec Java | Microsoft Azure"
 	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,25 +13,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
 
-Ce guide décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][]. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception de messages** et **suppression de files d'attente**.
+Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][]. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception de messages** et **suppression de files d'attente**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Configuration de votre application pour l'utilisation de Service Bus
-Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet : ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Ajoutez les instructions import suivantes au début du fichier Java :
+Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
+
+Ajoutez les instructions `import` suivantes au début du fichier Java :
+
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
 
 ## Création d’une file d’attente
 
@@ -60,7 +65,7 @@ La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et
         System.exit(-1);
     }
 
-Il existe des méthodes sur QueueInfo qui permettent de paramétrer des propriétés de la file d’attente (par exemple : la valeur par défaut « time-to-live » à appliquer aux messages envoyés à la file d’attente). L'exemple suivant montre comment créer une file d'attente nommée « TestQueue » avec une taille maximale de 5 Go :
+Il existe des méthodes sur **QueueInfo** qui permettent de paramétrer des propriétés de la file d’attente (par exemple : la valeur de durée de vie (TTL) par défaut à appliquer aux messages envoyés à la file d’attente). L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go :
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@ Il existe des méthodes sur QueueInfo qui permettent de paramétrer des proprié
 
 Notez que vous pouvez utiliser la méthode **listQueues** sur les objets **ServiceBusContract** pour vérifier s'il existe déjà une file d'attente d'un nom déterminé dans un espace de noms de service.
 
-## Envoi de messages à une file d’attente
+## Envoi de messages à une file d'attente
 
-Pour envoyer un message à une file d'attente Service Bus, votre application obtient un objet **ServiceBusContract**. Le code ci-dessous montre comment créer un message pour la file d'attente « TestQueue » créée précédemment à l'aide de l'espace de noms de service « HowToSample » :
+Pour envoyer un message à une file d’attente Service Bus, votre application obtient un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message pour la file d’attente `TestQueue` créée plus haut dans l’espace de noms `HowToSample` :
 
     try
     {
@@ -85,9 +90,9 @@ Pour envoyer un message à une file d'attente Service Bus, votre application obt
         System.exit(-1);
     }
 
-Les messages envoyés aux files d'attente Service Bus (et ceux en provenance de celle-ci) sont des instances de la classe **BrokeredMessage**. Les objets **BrokeredMessage** possèdent un ensemble de méthodes standard (telles que **getLabel**, **getTimeToLive**, **setLabel** et **setTimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet **BrokeredMessage** ; le sérialiseur approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.IO.InputStream**.
+Les messages envoyés aux files d’attente Service Bus et ceux en provenance de celles-ci sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][] possèdent un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][] ; le sérialiseur approprié est alors utilisé pour sérialiser l'objet. Vous pouvez également fournir un objet **java.IO.InputStream**.
 
-L'exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** « TestQueue » obtenu dans l'extrait de code précédent :
+L’exemple suivant montre comment envoyer cinq messages de test au **MessageSender** `TestQueue` obtenu dans l’extrait de code précédent :
 
     for (int i=0; i<5; i++)
     {
@@ -101,7 +106,7 @@ L'exemple suivant montre comment envoyer cinq messages de test au client **Messa
 
 Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go.
 
-## Réception des messages d’une file d’attente
+## Réception des messages d'une file d'attente
 
 Le moyen principal pour recevoir des messages d'une file d'attente consiste à utiliser un objet **ServiceBusContract**. Ces messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
 
@@ -109,7 +114,7 @@ Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opérat
 
 En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **Delete** pour le message reçu. Lorsque Service Bus obtient l'appel **Delete**, il marque le message comme étant consommé et le supprime de la file d'attente.
 
-L'exemple ci-dessous montre comment les messages peuvent être reçus et traités avec le mode **PeekLock** (et pas le mode par défaut). Dans cet exemple, une boucle infinie est créée et les messages sont traités à mesure qu'ils parviennent à la file d'attente « TestQueue » :
+L’exemple suivant montre comment les messages peuvent être reçus et traités à l’aide du mode **PeekLock** (qui n’est pas le mode par défaut). Dans cet exemple, une boucle infinie est créée et les messages sont traités à mesure qu'ils parviennent à la file d'attente « TestQueue » :
 
     	try
 	{
@@ -174,22 +179,13 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 Les principes de base des files d’attente Service Bus étant appris, consultez [Files d’attente, rubriques et abonnements][] pour plus d’informations.
 
-Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
+Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 
   [Kit de développement logiciel (SDK) Azure pour Java]: http://azure.microsoft.com/develop/java/
-  [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/fr-FR/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Kit de ressources Azure pour Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

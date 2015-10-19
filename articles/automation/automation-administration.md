@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Administration d’Azure Automation
@@ -60,4 +60,4 @@ Il est impossible de récupérer la valeur des variables chiffrées ou du champ 
 
 Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez vous assurer que tous les certificats sont disponibles en dehors d'Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

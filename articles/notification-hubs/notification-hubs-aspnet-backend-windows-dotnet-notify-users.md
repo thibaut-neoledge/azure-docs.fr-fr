@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 #Notification des utilisateurs via Azure Notification Hubs
@@ -23,16 +23,20 @@
 
 ##Vue d'ensemble
 
-La prise en charge des notifications Push dans Azure vous permet d’accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal WebAPI ASP.NET est utilisé pour authentifier les clients. Il ajoute automatiquement une balise à l’enregistrement des notifications en se basant sur l’utilisateur du client authentifié. Cette balise sera utilisée pour l’envoi par le serveur principal afin de générer des notifications pour un utilisateur spécifique. Pour plus d’informations sur l’enregistrement pour les notifications à l’aide d’un serveur principal d’application, consultez la rubrique d’aide [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Ce didacticiel fait intervenir le concentrateur de notification et le projet que vous avez créés dans le didacticiel intitulé [Prise en main de Notification Hubs].
+La prise en charge des notifications Push dans Azure vous permet d’accéder à une infrastructure Push conviviale, multi-plateforme et avec montée en charge qui simplifie fortement l’implémentation des notifications Push pour les applications consommateur et entreprise pour les plateformes mobiles. Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un serveur principal WebAPI ASP.NET est utilisé pour authentifier les clients. Il ajoute automatiquement une balise à l’enregistrement des notifications en se basant sur l’utilisateur du client authentifié. Cette balise sera utilisée pour l’envoi par le serveur principal afin de générer des notifications pour un utilisateur spécifique. Pour plus d’informations sur l’enregistrement pour les notifications à l’aide d’un serveur principal d’application, consultez la rubrique d’aide [Inscription auprès du serveur principal de votre application](http://msdn.microsoft.com/library/dn743807.aspx). Ce didacticiel fait intervenir le hub de notification et le projet que vous avez créés dans le didacticiel intitulé [Prise en main de Notification Hubs].
 
 Ce didacticiel est également un prérequis pour le didacticiel [sur les notifications Push sécurisées]. Une fois que vous avez suivi la procédure de ce didacticiel, vous pouvez passer au didacticiel [Notifications Push sécurisées] qui explique comment modifier le code de ce didacticiel pour envoyer une notification Push en toute sécurité.
+
+
+Le code complet de ce didacticiel est disponible sur GitHub [ici](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+
 
 
 ##Composants requis
 
 Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Services suivants :
 
-+ [Prise en main de Notification Hubs]<br/>Ce didacticiel vous permet de créer votre concentrateur de notification, de réserver le nom de l’application et de vous inscrire pour recevoir des notifications. Ce didacticiel part du principe que vous avez déjà effectué ces étapes. Si ce n’est pas le cas, suivez les étapes de la rubrique [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md), en particulier les sections [Inscription de votre application pour le Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) et [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). En particulier, assurez-vous que vous avez bien entré les valeurs de **SID du package** et **Clé secrète client** dans le portail, dans l'onglet **Configurer** de votre concentrateur de notification. Cette procédure de configuration est décrite dans la section [Configuration de votre concentrateur de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). Il s’agit d’une étape importante : si les informations d’identification sur le portail ne correspondent pas à celles spécifiées pour le nom d’application que vous avez choisi, la notification Push ne fonctionnera pas.
++ [Prise en main de Notification Hubs]<br/>Ce didacticiel vous permet de créer votre hub de notification, de réserver le nom de l’application et de vous inscrire pour recevoir des notifications. Ce didacticiel part du principe que vous avez déjà effectué ces étapes. Si ce n’est pas le cas, suivez les étapes de la rubrique [Prise en main de Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md), en particulier les sections [Inscription de votre application pour le Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) et [Configuration de votre hub de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). En particulier, assurez-vous que vous avez bien entré les valeurs de **SID du package** et **Clé secrète client** dans le portail, dans l'onglet **Configurer** de votre hub de notification. Cette procédure de configuration est décrite dans la section [Configuration de votre hub de notification](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). Il s’agit d’une étape importante : si les informations d’identification sur le portail ne correspondent pas à celles spécifiées pour le nom d’application que vous avez choisi, la notification Push ne fonctionnera pas.
 
 
 
@@ -46,7 +50,7 @@ Avant de commencer ce didacticiel, vous devez suivre les didacticiels Mobile Ser
 
 ## Mise à jour du code pour le projet client
 
-Dans cette section, vous allez mettre à jour le code du projet que vous avez terminé lors du didacticiel [Prise en main de Notification Hubs]. Il doit déjà être associé au magasin et configuré pour votre concentrateur de notification. Dans cette section, vous allez ajouter du code pour appeler le nouveau serveur principal WebAPI et l’utiliser pour l’enregistrement et l’envoi de notifications.
+Dans cette section, vous allez mettre à jour le code du projet que vous avez terminé lors du didacticiel [Prise en main de Notification Hubs]. Il doit déjà être associé au magasin et configuré pour votre hub de notification. Dans cette section, vous allez ajouter du code pour appeler le nouveau serveur principal WebAPI et l’utiliser pour l’enregistrement et l’envoi de notifications.
 
 1. Dans Visual Studio, ouvrez la solution que vous avez créée lors du didacticiel [Prise en main de Notification Hubs didacticiel].
 
@@ -111,7 +115,7 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
-                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" Name="SendPushButton" />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -254,7 +258,7 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 
         public RegisterClient(string backendEndpoint)
         {
-            PostURL = backendEndpoint + "/api/register";
+            POST_URL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)
@@ -375,4 +379,4 @@ Dans cette section, vous allez mettre à jour le code du projet que vous avez te
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

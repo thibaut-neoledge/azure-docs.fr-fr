@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Authentification de votre application avec le service d&#39;authentification unique de la bibliothèque d&#39;authentification Active Directory (iOS) | Microsoft Azure"
-	description="Découvrez comment authentifier les utilisateurs pour l&#39;authentification unique avec la bibliothèque d&#39;authentification AD dans votre application iOS."
+	pageTitle="Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory (iOS) | Microsoft Azure"
+	description="Découvrez comment authentifier les utilisateurs pour l'authentification unique avec la bibliothèque d'authentification AD dans votre application iOS."
 	documentationCenter="ios"
 	authors="mattchenderson"
 	manager="dwrede"
@@ -36,7 +36,7 @@ Pour qu'il soit possible d'authentifier les utilisateurs, vous devez inscrire vo
 Ce didacticiel requiert les éléments suivants :
 
 * XCode 4.5 et iOS 6.0 (ou versions ultérieures)
-* L'exécution du didacticiel [Prise en main de Mobile Services] ou [Prise en main de données].
+* Exécution du didacticiel [Prise en main de Mobile Services]
 * Kit de développement logiciel (SDK) de Microsoft Azure Mobile Services
 * [Bibliothèque d'authentification Active Directory pour iOS]
 
@@ -114,11 +114,10 @@ Ce didacticiel requiert les éléments suivants :
 
 
 <!-- URLs. -->
-[Prise en main de données]: mobile-services-ios-get-started-data.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Inscription auprès d'Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

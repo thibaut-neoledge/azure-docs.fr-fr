@@ -25,12 +25,12 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 - Rapports d'anomalies : contiennent des événements de connexion qui peuvent nous sembler anormaux. Notre objectif est de vous faire part de ces activités et de vous permettre de déterminer si un événement est suspect.
 - Rapports d’application intégrée : fournissent des indications sur l'utilisation des applications du cloud au sein de votre société. Azure Active Directory permet d’intégrer des milliers d'applications du cloud.
 - Rapports d'erreurs : indiquent les erreurs qui peuvent survenir lors de la configuration de comptes sur des applications externes.
-- Rapports spécifiques à l'utilisateur : affichent les données d'activité relatives aux périphériques/connexions d’un utilisateur spécifique.
+- Rapports spécifiques à l'utilisateur : affichent les données d'activité relatives aux appareils/connexions d’un utilisateur spécifique.
 - Journaux d'activité : contiennent un enregistrement de tous les événements audités durant les 24 dernières heures, 7 derniers jours ou 30 derniers jours, des modifications d’activité de groupes, et des activités d'enregistrement et de réinitialisation de mot de passe.
 
 > [AZURE.NOTE]
 >
-- Certains rapports d'utilisation de ressources et d’anomalies avancés ne sont disponibles que lorsque vous activez [Azure Active Directory Premium](active-directory-get-started-premium.md). Des rapports avancés vous permettent d'améliorer la sécurité d'accès, de répondre aux menaces potentielles et d'accéder aux analyses relatives à l'utilisation de l’application et à l’accès au périphérique.
+- Certains rapports d'utilisation de ressources et d’anomalies avancés ne sont disponibles que lorsque vous activez [Azure Active Directory Premium](active-directory-get-started-premium.md). Des rapports avancés vous permettent d'améliorer la sécurité d'accès, de répondre aux menaces potentielles et d'accéder aux analyses relatives à l'utilisation de l’application et à l’accès à l’appareil.
 - Les clients situés en Chine peuvent accéder à Azure Active Directory Premium ainsi qu’aux éditions De base à l'aide de l'instance mondiale d'Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Rapports
@@ -42,7 +42,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md) |	Peut indiquer une attaque en force brute réussie. |
 |	[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md) |	Peut indiquer que plusieurs utilisateurs se connectent avec le même compte. |
 |	[Connexions à partir d’adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md) |	Peut indiquer une connexion réussie après une tentative d'intrusion insistante. |
-|	[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Peut indiquer une tentative de connexion à partir de périphériques potentiellement infectés. |
+|	[Connexions à partir d’appareils potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md) |	Peut indiquer une tentative de connexion à partir d’appareils potentiellement infectés. |
 |	[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md) |	Peut indiquer les événements anormaux des modèles de connexion des utilisateurs. |
 |	[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md) |	Indique des utilisateurs dont les comptes ont été compromis. |
 |	Utilisateurs avec des informations d’identification volées |	Utilisateurs avec des informations d’identification volées |
@@ -59,7 +59,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	**Gestion des droits**
 |	Utilisation de RMS |	Fournit un résumé de l'utilisation de Rights Management |
 |	Utilisateurs RMS les plus actifs |	Répertorie les 1 000 premiers utilisateurs actifs ayant accédé aux fichiers protégés par RMS |
-|	Utilisation d’un périphérique RMS |	Répertorie les périphériques utilisés pour l'accès aux fichiers protégés par RMS |
+|	Utilisation d’un appareil RMS |	Répertorie les appareils utilisés pour l'accès aux fichiers protégés par RMS |
 |	Utilisation d’applications fonctionnant avec RMS |	Fournit des applications activées pour l'utilisation de RMS |
 
 ## Éditions de rapport
@@ -71,7 +71,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	Connexions après plusieurs échecs |	✓ |	✓ |	✓ |
 |	Connexions depuis plusieurs zones géographiques |	✓ |	✓ |	✓ |
 |	Connexions à partir d’adresses IP affichant une activité suspecte | | |	✓ |
-|	Connexions à partir de périphériques potentiellement infectés | | |	✓ |
+|	Connexions à partir d’appareils potentiellement infectés | | |	✓ |
 |	Activité de connexion anormale | | |	✓ |
 |	Utilisateurs ayant une activité de connexion anormale | | |	✓ |
 |	Utilisateurs avec des informations d’identification volées | | |	✓ |
@@ -88,7 +88,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 |	**Gestion des droits**
 |	Utilisation de RMS | | |	RMS uniquement |
 |	Utilisateurs RMS les plus actifs | | |	RMS uniquement |
-|	Utilisation d’un périphérique RMS | | |	RMS uniquement |
+|	Utilisation d’un appareil RMS | | |	RMS uniquement |
 |	Utilisation d’applications fonctionnant avec RMS | | |	RMS uniquement |
 
 
@@ -96,7 +96,7 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 ## Rapports d’activités anormales
 <p>Les rapports d'activités de connexion anormales signalent les connexions suspectes à Office365, au portail de gestion Azure, au panneau d'accès Azure&#160;AD, à Sharepoint Online, Dynamics CRM Online, et d'autres services en ligne de Microsoft.</p>
 <p>Tous ces rapports, à l'exception du rapport «&#160;Connexions après plusieurs échecs&#160;», signalent également les connexions <i>fédérées</i> suspectes aux services susmentionnés, quel que soit le fournisseur de fédération. </p>
-<p>Les rapports suivants sont disponibles : </p><ul> <li>[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d'adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir de périphériques potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d'identification volées</li></ul>
+<p>Les rapports suivants sont disponibles : </p><ul> <li>[Connexions à partir de sources inconnues](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Connexions après plusieurs échecs](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Connexions depuis plusieurs zones géographiques](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Connexions à partir d'adresses IP affichant une activité suspecte](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Activité de connexion anormale](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Connexions à partir d’appareils potentiellement infectés](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Utilisateurs ayant une activité de connexion anormale](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Utilisateurs avec des informations d'identification volées</li></ul>
 
 
 
@@ -198,13 +198,13 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 
 | Description | Emplacement du rapport |
 | :-------------     | :-------        |
-| Utilisez ce rapport lorsque vous souhaitez découvrir l'adresse IP et l'emplacement géographique des périphériques qu’un utilisateur spécifique a utilisés pour accéder à Azure Active Directory. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
+| Utilisez ce rapport lorsque vous souhaitez découvrir l'adresse IP et l'emplacement géographique des appareils qu’un utilisateur spécifique a utilisés pour accéder à Azure Active Directory. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Périphériques |
 
 ### Activité
 
 | Description | Emplacement du rapport |
 | :-------------     | :-------        |
-| Indique les activités de connexion d'un utilisateur. Le rapport inclut des informations telles que l'application à laquelle l’utilisateur s’est connecté, le périphérique utilisé, l’adresse IP et l’emplacement. Nous ne récupérons pas l'historique des utilisateurs qui se connectent à l’aide d’un compte Microsoft. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Activités |
+| Indique les activités de connexion d'un utilisateur. Le rapport inclut des informations telles que l'application à laquelle l’utilisateur s’est connecté, l’appareil utilisé, l’adresse IP et l’emplacement. Nous ne récupérons pas l'historique des utilisateurs qui se connectent à l’aide d’un compte Microsoft. | Répertoire > Utilisateurs > <i>Utilisateur</i> > onglet Activités |
 
 #### Événements de connexion inclus dans le rapport d'activité de l'utilisateur
 
@@ -222,7 +222,7 @@ Seuls certains types d'événements de connexion apparaîtront dans le rapport d
 | Connexions à une application métier personnalisée qui a été ajoutée au répertoire | Non (bientôt disponible) |
 | Connexions à une application de proxy de l'application Azure AD qui a été ajoutée au répertoire | Non (bientôt disponible) |
 
-> Remarque : pour limiter le nombre de parasites dans ce rapport, les connexions effectuées par le biais de l'[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-FR/w/sso/534.aspx) ne sont pas indiquées.
+> Remarque : pour limiter le nombre de parasites dans ce rapport, les connexions effectuées par le biais de l'[Assistant de connexion de Microsoft Online Services](http://community.office365.com/fr-fr/w/sso/534.aspx) ne sont pas indiquées.
 
 
 
@@ -256,6 +256,7 @@ Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’
 	- Près de 1 000 événements seront affichés dans le portail de gestion Azure.
 5. Le cas échéant, cliquez sur **Télécharger** pour télécharger le rapport dans un fichier compressé au format de valeurs séparées par des virgules (CSV) pour une lecture hors connexion ou à des fins d'archivage.
 	- Près de 75 000 événements figureront dans le fichier téléchargé.
+	- Pour obtenir plus de données, consultez l’[API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md).
 
 ## Ignorer un événement
 
@@ -270,4 +271,4 @@ Pour plus d’informations sur les notifications de création de rapport Azure 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

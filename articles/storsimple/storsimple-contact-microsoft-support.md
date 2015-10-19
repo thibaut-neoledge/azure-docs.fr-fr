@@ -1,23 +1,28 @@
 <properties 
    pageTitle="Contacter le support Microsoft | Microsoft Azure"
-	description="Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Découvrez comment créer une demande de support et démarrer une session de support sur votre appareil StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="10/06/2015"
+   ms.author="alkohli" />
 
 # Contacter le support Microsoft
 
-Si vous rencontrez des problèmes avec votre solution Microsoft Azure StorSimple, vous pouvez créer une demande de service pour le support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long du processus de création d'une demande de support et de démarrage d’une session de prise en charge dans l'interface Windows PowerShell de votre appareil StorSimple.
+Si vous rencontrez des problèmes avec votre solution Microsoft Azure StorSimple, vous pouvez créer une demande de service pour le support technique. Lors d’une session en ligne avec votre ingénieur de support, vous devrez également démarrer une session de support sur votre appareil StorSimple. Cet article vous guide tout au long des procédures suivantes :
+
+- Création d’une demande de support
+- Démarrage d’une session de support dans l’interface Windows PowerShell de votre appareil StorSimple
+
+Examinez les [informations et les contrats de niveau de service relatifs à la prise en charge de la gamme StorSimple 8000](https://msdn.microsoft.com/library/mt433077.aspx) avant de créer une demande de support.
 
 ## Création d’une demande de support
 
@@ -25,15 +30,15 @@ Procédez comme suit pour créer une demande de support.
 
 #### Création d’une demande de support
 
-1. Une demande de support peut être créée via le [Portail de gestion](http://manage.windowsazure.com/). Dans le [Portail de gestion](http://manage.windowsazure.com/), cliquez sur votre **nom de compte**, puis sur **Contact Microsoft Support**.
+1. Une demande de support peut être créée par le biais du [Portail de gestion](http://manage.windowsazure.com/). Dans le [Portail de gestion](http://manage.windowsazure.com/), cliquez sur votre **nom de compte**, puis sur **Contact Microsoft Support**.
 
 	![Contacter le support MS via le Portail de gestion](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-2. Dans la boîte de dialogue **Contact Microsoft Support** :
+2. Dans la boîte de dialogue **Contact Microsoft Support** :
 
-	1. Dans la liste déroulante, sélectionnez l'option **Abonnement** cible associée à votre service StorSimple Manager. Définissez **Support Type** sur **Technical**. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
+	1. Dans la liste déroulante, sélectionnez l’option **Abonnement** cible associée à votre service StorSimple Manager. Définissez **Support Type** sur **Technical**. Vous avez besoin d'un plan de support payant pour bénéficier du support technique.
 
-	2. Cliquez sur l'icône en forme de coche ![Icône en forme de coche](./media/storsimple-contact-microsoft-support/IC740895.png) pour la définir sur **Create Ticket**.
+	2. Cliquez sur l’icône en forme de coche ![Icône en forme de coche](./media/storsimple-contact-microsoft-support/IC740895.png) pour la définir sur **Create Ticket**.
 
 3. Dans la fenêtre **Microsoft Support**, dans la liste déroulante **Product**, choisissez **StorSimple**.
 
@@ -51,9 +56,9 @@ Procédez comme suit pour démarrer une session de support :
 
 #### Démarrage d’une session de support
 
-1. Accédez directement à l’appareil à l'aide de la console série ou via une session telnet à partir d'un ordinateur distant. Pour cela, suivez les étapes de la section [Utilisation de PuTTY pour se connecter à la console série de l'appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+1. Accédez directement à l’appareil à l'aide de la console série ou via une session telnet à partir d'un ordinateur distant. Pour cela, suivez les étapes de la section [Utilisation de PuTTY pour se connecter à la console série de l’appareil](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
 
-2. Dans la session qui s'ouvre, appuyez sur la touche **Entrée** pour afficher une invite de commande.
+2. Dans la session qui s’ouvre, appuyez sur la touche **Entrée** pour afficher une invite de commandes.
 
 3. Dans le menu de la console série, sélectionnez l’option 1, **Ouvrir une session avec un accès total**.
 
@@ -69,6 +74,6 @@ Procédez comme suit pour démarrer une session de support :
 
 7. Enregistrez cette chaîne et envoyez-la par e-mail au support Microsoft.
 
-> [AZURE.IMPORTANT]Vous pouvez désactiver l'accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
+> [AZURE.IMPORTANT]Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

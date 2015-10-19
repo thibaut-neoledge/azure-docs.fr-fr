@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="08/05/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Procédure de restauration automatique de Microsoft Azure vers VMware
@@ -558,4 +558,4 @@ Une fois que la restauration rapide a été effectuée, vous pouvez souhaiter r�
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

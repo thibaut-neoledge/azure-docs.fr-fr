@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Prise en main de Stream Analytics : détection des fraudes en temps réel | Microsoft Azure"
 	description="Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel."
+	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok" />
 
 
@@ -27,7 +28,7 @@ Stream Analytics est un service entièrement géré permettant de traiter des é
 
 ## Scénario : détection des fraudes de télécommunication et SIM en temps réel
 
-Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : \* Les réduire en une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans différentes régions géographiques. \* Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant les clients ou en arrêtant le service.
+Une société de télécommunication dispose d’un volume important de données pour les appels entrants. Elle souhaite effectuer les opérations suivantes sur ses données : * Les réduire en une quantité gérable pour dégager des informations sur l'utilisation des clients au fil du temps et dans différentes régions géographiques. * Détecter les fraudes SIM (plusieurs appels provenant de la même identité quasiment au même moment mais dans des zones géographiques différentes) en temps réel afin d'y répondre facilement en avertissant les clients ou en arrêtant le service.
 
 Dans les scénarios de type Internet des objets où des tonnes de données télémétriques ou de capteur sont générées, les clients veulent les agréger ou être alertés en cas d’anomalie en temps réel.
 
@@ -245,7 +246,7 @@ Utilisez un outil comme [Azure Storage Explorer](https://azurestorageexplorer.co
 ![Détection des fraudes : événements frauduleux affichés en temps réel](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Obtenir de l'aide
-Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
 
 
 ## Étapes suivantes
@@ -256,4 +257,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -13,14 +13,14 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Création et modification d’un circuit ExpressRoute
 
 Cet article vous guide tout au long des étapes de création d'un circuit ExpressRoute à l'aide des applets de commande PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement d'un circuit ExpressRoute.
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md)
+>[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 ## Conditions préalables à la configuration
 
@@ -153,27 +153,27 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 	Lorsque vous créez un circuit ExpressRoute, ce circuit affichera l’état suivant :
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	ServiceProviderProvisioningState fournit des informations sur l'état actuel de l’approvisionnement du côté du fournisseur de service et Status indique l'état du côté de Microsoft. Un circuit ExpressRoute doit être dans l'état suivant pour pouvoir être utilisé.
+	*ServiceProviderProvisioningState* fournit des informations sur l’état actuel de l’approvisionnement du côté du fournisseur de service et Status indique l’état du côté de Microsoft. Un circuit ExpressRoute doit être dans l’état suivant pour pouvoir être utilisé.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	Le circuit passera à l'état suivant lorsque le fournisseur de connectivité est sur le point de l’activer pour vous.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
 5. **Vérifiez régulièrement le statut et l'état de la clé du circuit.**
 
-	Cela vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, *ServiceProviderProvisioningState* s'affiche avec l’état *Provisioned* comme indiqué dans l'exemple ci-dessous.
+	Cela vous permet de savoir quand votre fournisseur a activé votre circuit. Une fois le circuit configuré, *ServiceProviderProvisioningState* s’affiche avec l’état *Provisioned* comme indiqué dans l’exemple ci-dessous.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -192,11 +192,11 @@ Cet article vous guide tout au long des étapes de création d'un circuit Expres
 
 7. **Liaison d’un réseau virtuel à un circuit ExpressRoute.**
 
-	Liez ensuite un VNet à votre circuit ExpressRoute. Reportez-vous à la rubrique [Liaison de circuits ExpressRoute à des réseaux virtuels](expressroute-howto-linkvnet-classic.md) pour obtenir des instructions étape par étape. Si vous avez besoin créer un réseau virtuel pour ExpressRoute, consultez la rubrique [Création d'un réseau virtuel pour ExpressRoute](expressroute-howto-createvnet-classic.md) afin d’obtenir des instructions.
+	Liez ensuite un VNet à votre circuit ExpressRoute. Reportez-vous à la rubrique [Liaison de circuits ExpressRoute à des réseaux virtuels](expressroute-howto-linkvnet-classic.md) pour obtenir des instructions étape par étape. Si vous avez besoin de créer un réseau virtuel pour ExpressRoute, consultez la rubrique [Création d’un réseau virtuel pour ExpressRoute](expressroute-howto-createvnet-classic.md) afin d’obtenir des instructions.
 
 ##  Comment obtenir l'état d'un circuit ExpressRoute
 
-Vous pouvez récupérer ces informations à tout moment à l'aide de l'applet de commande *Get-AzureCircuit*. L'appel sans paramètre répertorie tous les circuits.
+Vous pouvez récupérer ces informations à tout moment à l’aide de l’applet de commande *Get-AzureCircuit*. L'appel sans paramètre répertorie tous les circuits.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -276,8 +276,8 @@ Vous pouvez désactiver le module complémentaire ExpressRoute premium pour votr
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 Le composant additionnel premium est maintenant désactivé pour votre circuit.
 
@@ -315,13 +315,13 @@ Vous pouvez supprimer votre circuit ExpressRoute en exécutant la commande suiva
 
 Notez que vous devez dissocier tous les réseaux virtuels du circuit ExpressRoute pour que cette opération réussisse. Si cette opération échoue, vérifiez si certains de vos réseaux virtuels sont liés au circuit.
 
-Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l'état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
+Si l’état d’approvisionnement du fournisseur de services du circuit ExpressRoute est activé, l’état passe de l’état activé à l’état *disabling* (désactivation). Vous devez contacter votre fournisseur de services pour annuler l’approvisionnement du circuit de son côté. Nous continuerons à réserver des ressources et à vous facturer jusqu'à ce que le fournisseur de services termine l'annulation de l’approvisionnement et nous envoie une notification.
 
-Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur *not provisioned* - non approvisionné) avant que vous n’exécutiez l'applet de commande ci-dessus, nous annulerons l’approvisionnement du circuit et cesserons la facturation.
+Si le fournisseur de services a annulé l’approvisionnement du circuit (l’état d’approvisionnement du fournisseur de services affiche la valeur *not provisioned* - non approvisionné) avant que vous n’exécutiez l’applet de commande ci-dessus, nous annulerons l’approvisionnement du circuit et cesserons la facturation.
 
 ## Étapes suivantes
 
-- [Configuration du routage ExpressRoute (gestion des homologations du circuit)](expressroute-howto-routing-classic.md)
-- [Liaison de réseaux virtuels à un circuit ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Configuration du routage](expressroute-howto-routing-classic.md)
+- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

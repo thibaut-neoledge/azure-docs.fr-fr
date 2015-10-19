@@ -7,16 +7,14 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
-
 
 # Créer une application web .NET MVC dans Azure App Service avec authentification Azure Active Directory #
 
@@ -221,7 +219,7 @@ public class GroupClaimContext : DbContext
 
 9.	Ouvrez Controllers\\WorkItemsController.cs
 
-11. Ajoutez les décorations [Authorize\] en surbrillance aux actions correspondantes ci-dessous.
+11. Ajoutez les décorations [Authorize] en surbrillance aux actions correspondantes ci-dessous.
 	<pre class="prettyprint">
 ...
 
@@ -255,7 +253,7 @@ public class WorkItemsController : Controller
     ...
 }</pre>Sachant que vous vous occupez des mappages de rôles dans le contrôleur Roles, il vous suffit de vérifier que chaque action autorise les rôles appropriés.
 
-	> [AZURE.NOTE]Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken\]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), votre HTTP POST risque d’échouer lors de la validation du jeton d’anti-contrefaçon pour les motifs suivants : + Azure Active Directory n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui, par défaut, est nécessaire au jeton d’anti-contrefaçon. + S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS. Vous vous chargerez de cela à l’étape suivante.
+	> [AZURE.NOTE]Vous avez peut-être remarqué la décoration <code>[ValidateAntiForgeryToken]</code> sur certaines des actions. En raison du comportement décrit par [Brock Allen](https://twitter.com/BrockLAllen) dans son article intitulé [MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), votre HTTP POST risque d’échouer lors de la validation du jeton d’anti-contrefaçon pour les motifs suivants : + Azure Active Directory n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, qui, par défaut, est nécessaire au jeton d’anti-contrefaçon. + S’il y a synchronisation d’annuaire entre Azure Active Directory et AD FS, l’approbation AD FS par défaut n’envoie pas la revendication http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, même si vous pouvez configurer manuellement l’envoi de cette revendication par les services AD FS. Vous vous chargerez de cela à l’étape suivante.
 
 12.  Dans App\_Start\\Startup.Auth.cs, ajoutez la ligne de code suivante dans la méthode `ConfigureAuth` :
 
@@ -263,7 +261,7 @@ public class WorkItemsController : Controller
 	
 	`ClaimTypes.NameIdentifies` spécifie la revendication `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, qu’Azure Active Directory ne fournit pas. Maintenant que vous en avez fini avec la partie autorisation (sérieusement, cela n’a pas pris beaucoup de temps), vous pouvez vous consacrer à la fonctionnalité effective des actions.
 
-13.	Dans Create() et Edit(), ajoutez le code suivant pour permettre à votre code JavaScript d’accéder par la suite à certaines variables : ViewData[»token»\] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData[»tenant»\] = ConfigHelper.Tenant;
+13.	Dans Create() et Edit(), ajoutez le code suivant pour permettre à votre code JavaScript d’accéder par la suite à certaines variables : ViewData[»token»] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData[»tenant»] = ConfigHelper.Tenant;
 
 14.	Dans Views\\WorkItems\\Create.cshtml (élément généré automatiquement), recherchez la méthode d’assistance `Html.BeginForm` et modifiez-la comme suit :
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -339,7 +337,7 @@ public class WorkItemsController : Controller
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. Complétez le reste du formulaire, puis cliquez sur **Créer**. La page \~/WorkItems/Index affiche maintenant l’élément de travail nouvellement créé. Vous remarquerez également dans la capture d’écran ci-dessous que j’ai supprimé la colonne `AssignedToID` dans Views\\WorkItems\\Index.cshtml.
+16. Complétez le reste du formulaire, puis cliquez sur **Créer**. La page ~/WorkItems/Index affiche maintenant l’élément de travail nouvellement créé. Vous remarquerez également dans la capture d’écran ci-dessous que j’ai supprimé la colonne `AssignedToID` dans Views\\WorkItems\\Index.cshtml.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
@@ -370,4 +368,4 @@ Maintenant que vous avez configuré les autorisations et la fonctionnalité mét
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

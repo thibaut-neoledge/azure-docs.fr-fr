@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Attachement d’un disque à une machine virtuelle Linux | Microsoft Azure"
-	description="Découvrez comment attacher un disque à une machine virtuelle Linux exécutée sur Azure et l'initialiser pour le rendre opérationnel."
+	description="Découvrez comment attacher un disque à une machine virtuelle Azure exécutant Linux et l’initialiser pour le rendre opérationnel."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -150,7 +150,7 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 	Ou, sur les systèmes basés sur SUSE Linux, vous pouvez êtes amené à devoir utiliser un format légèrement différent :
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	Vous pouvez désormais vérifier si le système de fichiers est monté correctement en le démontant puis en le remontant, par exemple en utilisant l'exemple de point de montage `/datadrive` créé lors des étapes précédentes :
 
@@ -173,4 +173,4 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

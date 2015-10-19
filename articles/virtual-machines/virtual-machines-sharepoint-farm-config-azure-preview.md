@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ Voici les informations de configuration :
 -	Serveurs de base de données :
 	-	Image de machine virtuelle : SQL Server 2014 RTM Enterprise sur Windows Server 2012 R2.
 	-	Préfixe du nom d’hôte : défini lors de la configuration initiale.
-	-	Taille : A5 (par défaut) pour les serveurs de base de données, A0 (par défaut) pour le témoin de partage de fichiers.
+	-	Taille : A5 (par défaut) pour les serveurs de base de données, A0 (par défaut) pour le témoin de partage de fichiers (SQL0).
 	-	Nom de compte d’accès à la base de données : défini lors de la configuration initiale.
 	-	Mot de passe de compte d’accès à la base de données : défini lors de la configuration initiale.
 	-	Nom du compte du service SQL Server : sqlservice (par défaut).
@@ -137,8 +137,8 @@ La fonctionnalité Batterie de serveurs SharePoint du portail Azure en version p
 
 [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint sur Azure Virtual Machines](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Batteries de serveurs SharePoint hébergés dans des services d’infrastructure Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

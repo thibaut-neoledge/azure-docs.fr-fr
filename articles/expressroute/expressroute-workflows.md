@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Workflows d’approvisionnement du circuit ExpressRoute et états du circuit
@@ -30,9 +30,9 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 
 4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
 
-	1. Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels. 
-	2. Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
-	3. Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online. 
+	-  Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels.
+	-  Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
+	-  Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et CRM Online. 
 	
 	>[AZURE.IMPORTANT]Si vous activez l'homologation Microsoft, assurez-vous que l'homologation publique Azure est également activée pour accéder à Azure AD. Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
 
@@ -116,8 +116,9 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 ## Étapes suivantes
 
 - Configurez votre connexion ExpressRoute.
+
 	- [Création d’un circuit ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

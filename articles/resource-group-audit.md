@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
@@ -26,15 +26,15 @@ Vous pouvez récupérer des informations à partir des journaux d’audit par le
 
 ## PowerShell
 
-Pour récupérer les entrées de journal, exécutez la commande **Get-AzureResourceGroupLog**. Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
+Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version 1.0 Preview). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
 
 L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
 En fonction de l’heure de début que vous spécifiez, la commande précédente peut renvoyer une longue liste des actions pour ce groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous tentez de rechercher la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante et voir qu’une action d’arrêt a été effectuée par someone@example.com.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -54,11 +54,11 @@ En fonction de l’heure de début que vous spécifiez, la commande précédente
 
 Dans l’exemple suivant, nous allons rechercher uniquement les actions qui ont échoué après l’heure de début spécifiée. Nous allons également inclure le paramètre **DetailedOutput** pour voir les messages d’erreur.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibler vos efforts d’audit en récupérant la propriété **properties**.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -68,7 +68,7 @@ Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibl
 
 En outre, vous pouvez affiner les résultats en examinant le message d’état.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -151,4 +151,4 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 - Pour savoir comment autoriser l’accès pour un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # Validateur XML BizTalk
 
-Le connecteur de validation XML BizTalk aide votre application à valider les données XML par rapport à des schémas XML prédéfinis. Les utilisateurs peuvent se servir des schémas existants ou en générer de nouveaux basés sur une instance de fichier plat, une instance JSON ou des connecteurs existants.
+Utilisez le connecteur Validateur XML BizTalk dans votre application pour valider les données XML par rapport à des schémas XML prédéfinis. Les utilisateurs peuvent se servir des schémas existants ou en générer de nouveaux basés sur une instance de fichier plat, une instance JSON ou des connecteurs existants.
 
 ##Utilisation du Validateur XML BizTalk
-1. Pour utiliser le Validateur XML BizTalk, vous devez d'abord créer une instance de l'application API du Validateur XML BizTalk. Cela est possible inline, lors de la création d'une application logique ou en sélectionnant l'application API du Validateur XML BizTalk à partir d'Azure Marketplace.
+Pour utiliser le Validateur XML BizTalk, créez d’abord une instance de l’application API du Validateur XML BizTalk. Cela est possible inline, lors de la création d'une application logique ou en sélectionnant l'application API du Validateur XML BizTalk à partir d'Azure Marketplace.
 
 ###Configurer le Validateur XML BizTalk
-Le Validateur XML BizTalk utilise des schémas dans le cadre de sa configuration. Les utilisateurs peuvent lancer le panneau de configuration de l'application API soit en lançant directement l'application API depuis le portail Azure, soit en double-cliquant sur l'application API dans l'aire du concepteur.
+Le Validateur XML BizTalk utilise des schémas dans le cadre de sa configuration. Les utilisateurs peuvent lancer le panneau de configuration de l’application API soit en lançant directement l’application API à partir du portail Azure, soit en double-cliquant sur l’application API dans l’aire du concepteur.
 
 ![Configuration du Validateur XML BizTalk][1]
 
-Dans le panneau de l'application API, les utilisateurs peuvent configurer des schémas en cliquant sur la partie *Schémas*
+Dans le panneau de l’application API, les utilisateurs peuvent configurer des schémas en sélectionnant *Schémas*.
 
 ![Partie du schéma du Validateur XML BizTalk][2]
 
@@ -38,7 +38,7 @@ Les utilisateurs peuvent télécharger des schémas à partir d’un disque ou e
 
 
 ###Utilisation de l’encodeur de fichier plat BizTalk dans l’aire de conception
-Une fois celui-ci configuré, les utilisateurs peuvent cliquer sur *->* et choisir une action dans une liste.
+Une fois celui-ci configuré, les utilisateurs peuvent sélectionner *->* et choisir une action dans une liste.
 
 ![Liste d'actions du Validateur XML BizTalk][4]
 
@@ -52,9 +52,8 @@ Paramètre|Type|Description du paramètre
 ---|---|---
 XML d'entrée|string|Xml d'entrée à valider
 
-L'action renvoie la sortie sous forme d'objet. La sortie contient le modèle qui représente la réponse du Validateur Xml. Il se compose du résultat, du nom de schéma, du nœud racine et de la description d'erreur.
+L'action renvoie la sortie sous forme d'objet. La sortie contient le modèle qui représente la réponse issue du Validateur Xml. Il se compose du résultat, du nom de schéma, du nœud racine et de la description d'erreur.
 
-![6]
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG
@@ -62,7 +61,5 @@ L'action renvoie la sortie sous forme d'objet. La sortie contient le modèle qui
 [3]: ./media/app-service-logic-xml-validator/XmlValidator.SchemaUpload.PNG
 [4]: ./media/app-service-logic-xml-validator/XmlValidator.ListOfActions.PNG
 [5]: ./media/app-service-logic-xml-validator/XmlValidator.ValidateXml.PNG
-[6]: ./media/app-service-logic-xml-validator/img1.PNG
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -21,10 +21,7 @@
 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) Media Services .NET pour coder un élément multimédia et générer des miniatures à l’aide de Media Encoder Standard. La rubrique définit les présélections de miniatures XML et JSON que vous pouvez utiliser pour créer une tâche de codage et de génération de miniatures en même temps. [Ce](https://msdn.microsoft.com/library/mt269962.aspx) document contient des descriptions d’éléments utilisés par ces présélections.
 
-Les considérations suivantes s'appliquent :
-
-- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
-
+Assurez-vous d’examiner la section [Considérations](media-services-dotnet-generate-thumbnail-with-mes.md#considerations).
 
 ##Exemple
 
@@ -177,7 +174,7 @@ Le code suivant utilise le Kit de développement logiciel (SDK) .NET de Media Se
 
 ##<a id="json"></a>JSON de miniature prédéfini
 
-Pour plus d’informations sur le schéma, voir [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
+Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 
 	{
 	  "Version": 1.0,
@@ -280,7 +277,7 @@ Pour plus d’informations sur le schéma, voir [cette](https://msdn.microsoft.c
 
 ##<a id="xml"></a>XML de miniature prédéfini
 
-Pour plus d’informations sur le schéma, voir [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
+Pour plus d’informations sur le schéma, consultez [cette](https://msdn.microsoft.com/library/mt269962.aspx) rubrique.
 	
 	<?xml version="1.0" encoding="utf-16"?>
 	<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -355,6 +352,25 @@ Pour plus d’informations sur le schéma, voir [cette](https://msdn.microsoft.c
 	  </Outputs>
 	</Preset>
 
+##Considérations
+
+Les considérations suivantes s'appliquent :
+
+- L’utilisation d’horodatages explicites pour Début/Étape/Plage suppose que la source d’entrée a une longueur minimale de 1 minute.
+- Les éléments Jpg/Png/BmpVideo possèdent les attributs de chaîne Start, Step et Range, qui peuvent être interprétés comme suit selon leur format :
+
+	- Entiers non négatifs : nombre d’images, par exemple "Start": "120"
+	- Présence du suffixe % : durée par rapport à la source, par exemple "Start": "15%"
+	- Format HH:MM:SS : horodatage, par exemple "Start": "00: 01:00"
+
+	Vous pouvez combiner et apparier les notations à votre guise.
+	
+	En outre, Start prend également en charge une macro spéciale, {Best}, qui tente de déterminer la première image de contenu « intéressante ». REMARQUE : Step et Range sont ignorés quand Start est défini sur {Best}.
+	
+	- La configuration par défaut est « Start:{Best} ».
+- Le format de sortie doit être fourni explicitement pour chaque format d’image : Png/Jpg/BmpFormat. Quand il est présent, AMS fait correspondre JpgVideo à JpgFormat et ainsi de suite. OutputFormat introduit une nouvelle macro spécifique au codec d’image, {Index}, qui doit être présente (une fois seulement) pour les formats de sortie d’image.
+
+
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
@@ -366,4 +382,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

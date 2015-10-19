@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Ajouter Mobile Services à une application Android existante (backend JavaScript)
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ## Résumé
 
@@ -35,7 +33,7 @@
 </div>
 
 
-<p>Ce didacticiel vous aide à comprendre plus en détail comment Azure Mobile Services peut stocker et récupérer des données d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes déjà exécutées automatiquement dans le didacticiel du démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-FR/develop/mobile/tutorials/get-started-android">Prise en main de Mobile Services</a>.</p>
+<p>Ce didacticiel vous aide à comprendre plus en détail comment Azure Mobile Services peut stocker et récupérer des données d'une application Android. À cet effet, il vous guide tout au long des nombreuses étapes déjà exécutées automatiquement dans le didacticiel du démarrage rapide Mobile Services. Si vous n'avez aucune expérience de Mobile Services, nous vous invitons à suivre d'abord le didacticiel <a href="/fr-fr/develop/mobile/tutorials/get-started-android">Prise en main de Mobile Services</a>.</p>
 
 ## Composants requis
 
@@ -151,4 +149,4 @@ Une fois que vous avez terminé les séries de données, essayez ces autres dida
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

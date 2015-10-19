@@ -1,13 +1,15 @@
 <properties
- pageTitle="Prise en main d’un cluster HPC Pack pour exécuter des charges de travail Excel et SOA | Microsoft Azure"
- description="."
+ pageTitle="Cluster HPC Pack pour Excel et SOA | Microsoft Azure"
+ description="Prise en main d'un cluster HPC Pack pour exécuter des charges de travail Excel et SOA, à l'aide du modèle de déploiement Resource Manager."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-resource-manager"/>
+
 <tags
-ms.service="virtual-machines"
+ ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
@@ -19,15 +21,17 @@ ms.service="virtual-machines"
 
 Cet article vous montre comment déployer un cluster HPC Pack dans les services d'infrastructure Azure (IaaS) à l'aide d'un modèle de démarrage rapide Azure ou d’un script de déploiement Azure PowerShell. Vous utiliserez des images de machine virtuelle Azure Marketplace conçues pour exécuter des charges de travail d’architecture orientée services (SOA) ou Microsoft Excel avec HPC Pack. Vous pouvez utiliser le cluster pour exécuter des services Excel HPC et SOA simples à partir d'un ordinateur client local. Les services Excel HPC incluent le déchargement de classeurs Excel et les fonctions Excel définies par l'utilisateur (UDF).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+
 Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
 ![Cluster HPC avec des nœuds exécutant des charges de travail Excel][scenario]
 
 ## Composants requis
 
-* **Un ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
+* **Ordinateur client** : vous aurez besoin d'un ordinateur client Windows pour exécuter le script de déploiement de cluster Azure PowerShell (si vous choisissez cette méthode de déploiement) et pour soumettre des exemples de tâches Excel et SOA au cluster.
 
-* **Un abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* **Abonnement Azure** : si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 * **Quota de cœurs** : vous devrez peut-être augmenter le quota de cœurs, en particulier si vous choisissez de déployer plusieurs nœuds de cluster avec des tailles de machines virtuelles multiprocesseurs. Si vous utilisez un modèle de démarrage rapide Azure, sachez que le quota de cœurs dans le Gestionnaire de ressources dépend de la région Azure et que vous devrez peut-être l’augmenter dans une région spécifique. Consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md). Pour augmenter un quota, [ouvrez une demande de support client en ligne gratuitement](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
@@ -58,13 +62,13 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
 
     >[AZURE.NOTE]La machine virtuelle du nœud principal est créée automatiquement à partir de la [dernière image Marketplace](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) de HPC Pack 2012 R2 sur Windows Server 2012 R2. Actuellement, l'image repose sur HPC Pack 2012 R2 Update 2.
     >
-    >Les machines virtuelles du nœud de calcul sont créées à partir de la dernière image de la famille de nœuds de calcul sélectionnée. Sélectionnez l’option **ComputeNode** pour l’image de calcul à des fins générales HPC Pack 2012 R2 Update 2 la plus récente. Sélectionnez l’option **ComputeNodeWithExcel** pour la dernière image de nœud de calcul comprenant une version d’évaluation de Microsoft Excel Professional Plus 2013. Si vous souhaitez déployer un cluster pour les sessions SOA générales ou pour le déchargement Excel UDF, choisissez l’option **ComputeNode** (sans Excel installé).
+    >Les machines virtuelles du nœud de calcul sont créées à partir de la dernière image de la famille de nœuds de calcul sélectionnée. Sélectionnez l'option **ComputeNode** pour l'image de calcul à des fins générales HPC Pack 2012 R2 Update 2 la plus récente. Sélectionnez l'option **ComputeNodeWithExcel** pour la dernière image de nœud de calcul HPC Pack comprenant une version d'évaluation de Microsoft Excel Professional Plus 2013. Si vous souhaitez déployer un cluster pour les sessions SOA générales ou pour le déchargement Excel UDF, choisissez l'option **ComputeNode** (sans Excel installé).
     >
-    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Dans le cas contraire, la version d'évaluation de Microsoft Excel pourrait expirer dans les 30 jours et l'exécution du classeur Excel échouerait en permanence avec l’exception COMExeption (0x800AC472). Dans ce cas, vous pouvez connecter le nœud principal à clusrun « % ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe » sur tous les nœuds de calcul Excel via la console HPC Cluster Manager pour rallonger la période d’évaluation d’Excel de 30 jours. Le nombre de renouvellements de la période de gratuité est de 2, ensuite vous devrez peut-être fournir une licence Excel valide.
+    >En cas d'utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Dans le cas contraire, la version d'évaluation de Microsoft Excel pourrait expirer dans les 30 jours et l'exécution du classeur Excel échouerait en permanence avec l’exception COMExeption (0x800AC472). Dans ce cas, vous pouvez connecter le nœud principal à clusrun « % ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe » sur tous les nœuds de calcul Excel via la console HPC Cluster Manager pour rallonger la période d’évaluation d’Excel de 30 jours. Le nombre de renouvellements de la période de gratuité est de 2, ensuite vous devrez peut-être fournir une licence Excel valide.
 
     c. Choisissez l’abonnement.
 
-    d. Créez un nouveau groupe de ressources pour le cluster, tel que *hpc01RG*.
+    d. Créez un groupe de ressources pour le cluster, tel que *hpc01RG*.
 
     e. Choisissez un emplacement pour le groupe de ressources, comme l’Est des États-Unis.
 
@@ -92,11 +96,11 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 * **Azure PowerShell** : [installez et configurez Azure PowerShell](../powershell-install-configure.md) (version 0.8.10 ou ultérieure) sur votre ordinateur client.
 
-* **Script de déploiement de HPC Pack IaaS** : Téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 ou ultérieure du script.
+* **Script de déploiement IaaS de HPC Pack** : téléchargez et décompressez la dernière version du script à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Vérifiez la version du script en exécutant `New-HPCIaaSCluster.ps1 –Version`. Cet article est basé sur la version 4.4.0 ou ultérieure du script.
 
 **Création du fichier de configuration**
 
- Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
+ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d'informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -142,7 +146,7 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Notes relatives au fichier de configuration**
 
-* Le **VMName** du nœud principal doit être exactement identique à **ServiceName**. Autrement, l’exécution de la tâche SOA échouera.
+* Le **VMName** du nœud principal doit être exactement identique à **ServiceName**. Autrement, l'exécution de la tâche SOA échouera.
 
 * Veillez à spécifier **EnableWebPortal** afin que le certificat du nœud principal soit généré et exporté.
 
@@ -228,9 +232,9 @@ Suivez ces étapes pour décharger un classeur Excel à exécuter sur le cluster
     </runtime>
 </configuration>
 ```
-4.	Téléchargez la version complète de l’[installation HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) et installez le client HPC Pack, ou téléchargez et installez les [utilitaires clients HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) et le redistributable Visual C++ 2010 adapté à votre ordinateur ([x 64](http://www.microsoft.com/download/details.aspx?id=14632), [x 86](https://www.microsoft.com/download/details.aspx?id=5555)).
+4.	Téléchargez la version complète de l'[installation HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47755) et installez le client HPC Pack, ou téléchargez et installez les [utilitaires clients HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) et le redistributable Visual C++ 2010 adapté à votre ordinateur ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	Dans cet exemple, nous utilisons un exemple de classeur Excel nommé ConvertiblePricing\_Complete.xlsb, qui peut être téléchargé [ici](https://www.microsoft.com/fr-FR/download/details.aspx?id=2939).
+5.	Dans cet exemple, nous utilisons un exemple de classeur Excel nommé ConvertiblePricing\_Complete.xlsb, qui peut être téléchargé [ici](https://www.microsoft.com/fr-fr/download/details.aspx?id=2939).
 
 6.	Copiez le classeur Excel dans un dossier de travail comme D:\\Excel\\Run.
 
@@ -267,7 +271,7 @@ Suivez ces étapes pour décharger un classeur Excel à exécuter sur le cluster
 
 Pour exécuter des UDF Excel, suivez les étapes 1 à 3 précédentes pour configurer l'ordinateur client. Pour des UDF Excel, vous n'avez pas besoin de disposer de l'application Excel installée sur les nœuds de calcul, vous pouvez donc choisir une image de nœud de calcul normale à l'étape 1 plutôt que l'image de nœud de calcul Excel.
 
->[AZURE.NOTE]Il existe une limite de 34 caractères dans la boîte de dialogue de connecteur de cluster dans Excel 2010 et 2013. Si le nom de cluster complet est plus long, par exemple hpcexcelhn01.southeastasia.cloudapp.azure.com, il ne rentre pas dans la boîte de dialogue. La solution de contournement consiste à appliquer l’Update 2 KB3085833 de QFE (télécharger [ici](http://www.microsoft.com/fr-FR/download/details.aspx?id=48725)) pour l’API de session SOA sur l'ordinateur client, puis à définir une variable à l'échelle de l’ordinateur, par exemple *CCP\_IAASHN* avec la valeur du nom du cluster long et à entrer *% CCP\_IAASHN %* dans la boîte de dialogue comme nom de nœud principal du cluster.
+>[AZURE.NOTE]Il existe une limite de 34 caractères dans la boîte de dialogue de connecteur de cluster dans Excel 2010 et 2013. Si le nom de cluster complet est plus long, par exemple hpcexcelhn01.southeastasia.cloudapp.azure.com, il ne rentre pas dans la boîte de dialogue. La solution de contournement consiste à appliquer l'Update 2 KB3085833 de QFE (télécharger [ici](http://www.microsoft.com/fr-fr/download/details.aspx?id=48725)) pour l'API de session SOA sur l'ordinateur client, puis à définir une variable à l'échelle de l'ordinateur, par exemple *CCP\_IAASHN* avec la valeur du nom du cluster long et à entrer *% CCP\_IAASHN %* dans la boîte de dialogue comme nom de nœud principal du cluster.
 
 Une fois le cluster déployé, poursuivez avec les étapes suivantes pour exécuter un exemple intégré d’UDF Excel. Pour les UDF Excel personnalisées, consultez ces [ressources](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) pour générer les XLL et les déployer sur le cluster IaaS.
 
@@ -275,7 +279,7 @@ Une fois le cluster déployé, poursuivez avec les étapes suivantes pour exécu
 
     ![Sélection de l'UDF][udf]
 
-2.	Cliquez sur **Fichier** > **Options** > **Avancé**. Sous **Formules**, cochez **Autoriser les fonctions XLL définies par l’utilisateur à s’exécuter sur un cluster de calcul**. Puis, cliquez sur **Options** et saisissez le nom de cluster complet dans **Nom de nœud principal du cluster**. (Comme indiqué précédemment, cette zone de saisie est limitée à 34 caractères, un nom de cluster plus long peut ne pas entrer. Vous pouvez appliquer la mise à jour Update 2 QFE KB3085833 sur le client, puis définir une variable au niveau de la machine pour le nom de cluster plus long).
+2.	Cliquez sur **Fichier** > **Options** > **Avancé**. Sous **Formules**, cochez **Autoriser les fonctions XLL définies par l'utilisateur à s'exécuter sur un cluster de calcul**. Puis, cliquez sur **Options** et saisissez le nom de cluster complet dans **Nom de nœud principal du cluster**. (Comme indiqué précédemment, cette zone de saisie est limitée à 34 caractères, un nom de cluster plus long peut ne pas entrer. Vous pouvez appliquer la mise à jour Update 2 QFE KB3085833 sur le client, puis définir une variable au niveau de la machine pour le nom de cluster plus long).
 
     ![Configuration de l’UDF][options]
 
@@ -293,7 +297,7 @@ Pour exécuter des applications SOA générales sur le cluster HPC Pack IaaS, ut
 
 2. Installez le [Kit de développement logiciel (SDK) HPC Pack 2012 R2 Update 2](http://www.microsoft.com/download/details.aspx?id=47756) et les [utilitaires clients HPC Pack 2012 R2 Update 2](https://www.microsoft.com/download/details.aspx?id=47754) afin de pouvoir développer et exécuter des applications clientes SOA.
 
-3. Téléchargez l’[exemple de code](https://www.microsoft.com/download/details.aspx?id=41633) HellowWorldR2. Ouvrez HelloWorldR2.sln dans Visual Studio 2010 ou 2012.
+3. Téléchargez l'[exemple de code](https://www.microsoft.com/download/details.aspx?id=41633) HellowWorldR2. Ouvrez HelloWorldR2.sln dans Visual Studio 2010 ou 2012.
 
 4. Créez d'abord le projet EchoService et déployez le service sur le cluster IaaS de la même façon que pour un déploiement sur un cluster local. Pour des instructions détaillées, consultez le fichier Readme.doc dans HelloWordR2. Modifiez et générez le projet HellowWorldR2 et d’autres comme décrit ci-dessous pour générer les applications clientes SOA qui s’exécutent sur un cluster IaaS Azure à partir d'un ordinateur client local.
 
@@ -384,4 +388,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

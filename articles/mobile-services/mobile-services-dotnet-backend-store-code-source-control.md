@@ -24,7 +24,7 @@
 
 Cette rubrique montre comment utiliser le contrôle de code source fourni par Azure Mobile Services pour stocker votre projet de service de backend .NET. Vous pouvez publier votre projet en le téléchargeant simplement à partir de votre référentiel Git local dans votre service mobile de production.
 
-Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant l'un des deux didacticiels [Prise en main de Mobile Services] ou [Ajout de Mobile Services à une application existante].
+Pour suivre ce didacticiel, vous devez avoir créé un service mobile au moyen du didacticiel [Prise en main de Mobile Services].
 
 ##<a name="enable-source-control"></a>Activer le contrôle de code source dans votre service mobile
 
@@ -99,7 +99,6 @@ Pour suivre ce didacticiel, vous devez avoir créé un service mobile en suivant
 [Prise en main de Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
 [Ajout de Mobile Services à une application existante]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Modifications des modèles de données pour un service mobile de backend .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

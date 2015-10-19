@@ -3,7 +3,7 @@
    description="Traite des exigences de base pour la définition des classes sérialisables pouvant servir à définir les interfaces et l'état des Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Remarques sur la sérialisation de type des Acteurs fiables Service Fabric
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

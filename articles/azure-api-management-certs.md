@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015"
+	ms.date="10/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -50,6 +50,6 @@ Une fois le certificat de gestion créé (fichier .cer contenant uniquement la c
 
 ## Étapes suivantes
 
-Maintenant que vous disposez d’un certificat de gestion associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’[API REST de Service Management](https://msdn.microsoft.com/library/azure/ee460799.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
+Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’[API REST de Service Management](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

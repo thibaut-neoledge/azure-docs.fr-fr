@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Contrôle du trafic des applications web Azure avec Azure Traffic Manager"
-	description="Cet article fournit des informations globales sur Azure Traffic Manager et son rapport aux applications web Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Contrôle du trafic des applications web Azure avec Azure Traffic Manager" 
+	description="Cet article fournit des informations globales sur Azure Traffic Manager et son rapport aux applications web Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Contrôle du trafic des applications web Azure avec Azure Traffic Manager
@@ -62,4 +63,4 @@ Pour plus d'informations sur l'équilibrage de charge dans Azure Traffic Manager
 Pour plus d’informations sur l’utilisation de Traffic Manager avec Web Apps, consultez les billets de blog [Utilisation de Windows Azure Traffic Manager avec WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Environnement de test de la configuration de base
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique. Vous pouvez également créer ces ressources avec le [modèle de déploiement Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
-Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Azure, à l’aide de machines virtuelles créées dans Service Management.
+Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Azure.
 
 Vous pouvez utiliser l’environnement de test obtenu :
 
@@ -51,7 +51,7 @@ La configuration du sous-réseau de réseau d’entreprise de l’environnement 
 3.	Configuration d’APP1
 4.	Configuration de CLIENT1
 
-Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit sur la page [Essayer Azure](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai gratuit dans la page [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/). Si vous avez un abonnement MSDN, consultez la page [Avantage Azure pour les abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]Les machines virtuelles dans Azure entraînent des frais lors de leur utilisation. Ce coût est facturé sur votre abonnement de version d’évaluation gratuite, votre abonnement MSDN ou votre abonnement payant. Pour plus d’informations sur les coûts des machines virtuelles Azure, consultez les pages [Détails de la tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Calculatrice de tarification Azure](http://azure.microsoft.com/pricing/calculator/). Afin de réduire les coûts, consultez la page [Réduction des coûts des machines virtuelles de l’environnement de test dans Azure](#costs).
 
@@ -59,7 +59,7 @@ Si vous ne disposez pas déjà d’un compte Azure, vous pouvez obtenir un essai
 
 Tout d’abord, vous créez le réseau virtuel TestLab qui hébergera le sous-réseau Corpnet de la configuration de base.
 
-1.	Dans la barre des tâches du portail de gestion Azure, cliquez sur **Nouveau > Services réseau > Réseau virtuel > Création personnalisée**.
+1.	Dans la barre des tâches du [portail Azure](https://manage.windowsazure.com), cliquez sur **Nouveau > Services réseau > Réseau virtuel > Création personnalisée**.
 2.	Dans la page Détails du réseau virtuel, tapez **TestLab** dans **Nom**.
 3.	Dans **Emplacement**, sélectionnez la région souhaitée.
 4.	Cliquez sur la flèche Suivant.
@@ -81,7 +81,7 @@ Ensuite, vous créez un service cloud Azure. Le service cloud agit comme une lim
 
 Vous devez choisir un nom unique pour votre service cloud. *Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d’union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.*
 
-Par exemple, vous pouvez nommer votre service cloud TestLab-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
+Par exemple, vous pouvez nommer votre service cloud TestLab-*séquence\_unique*, où *séquence\_unique* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
 
 Vous pouvez vérifier si le nom est unique avec cette commande Azure PowerShell.
 
@@ -254,6 +254,8 @@ Votre configuration de base dans Azure est maintenant prête pour le développem
 
 ## Ressources supplémentaires
 
+[Laboratoire de test Azure](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
+
 [Environnements de test de cloud hybride](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 [Environnement de test de configuration de base avec Azure Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md)
@@ -286,4 +288,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

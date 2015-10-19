@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Prise en main d&#39;Azure Mobile Services pour les applications Android" 
-	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Prise en main d'Azure Mobile Services pour les applications Android"
+	description="Suivez ce didacticiel pour commencer à utiliser Azure Mobile Services pour le développement Android."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="get-started-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 
@@ -26,7 +26,7 @@ Ce didacticiel présente l'ajout d'un service backend cloud à une application A
 
 Voici une capture d'écran de l'application terminée :
 
-![][0]
+![](./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png)
 
 Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android][Android Studio], qui incluent l'environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
 
@@ -71,7 +71,7 @@ Dans cette section, vous allez créer une application Android connectée à votr
 1. Dans le [portail de gestion], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Android** sous **Choisissez une plateforme** et développez **Créer une application Android**.
- 
+
 	![][2]
 
 3. Si ce n'est pas déjà fait, téléchargez et installez les [outils de développement Android][Android SDK] sur votre ordinateur local ou sur votre machine virtuelle.
@@ -87,9 +87,9 @@ Dans cette section, vous allez créer une application Android connectée à votr
 ## <a name="next-steps"> </a>Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Prise en main de l'authentification] <br/>En savoir plus sur l'authentification des utilisateurs de votre application avec un fournisseur d'identité.
+* [Ajouter les notifications push à votre application] <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
-* [Prise en main des notifications Push] <br/>En savoir plus sur l'envoi d'une notification Push très basique sur votre application.
+* [Ajouter une fonction d’authentification à votre application] <br/>Découvrez comment limiter l’accès à vos données principales à certains utilisateurs inscrits de votre application.
 
 * [Résolution des problèmes d'un backend .NET Mobile Services ] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un backend .NET Mobile Services.
 
@@ -118,15 +118,13 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 <!-- URLs. -->
 [Prise en main (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
-[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
-[Prise en main de l'authentification]: mobile-services-dotnet-backend-android-get-started-users.md
-[Prise en main des notifications Push]: mobile-services-dotnet-backend-android-get-started-push.md
+[Ajouter les notifications push à votre application]: mobile-services-dotnet-backend-android-get-started-push.md
+[Ajouter une fonction d’authentification à votre application]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [portail de gestion]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

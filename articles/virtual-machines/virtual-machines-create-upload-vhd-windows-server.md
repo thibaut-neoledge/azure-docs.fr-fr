@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Création et téléchargement d’un VHD Windows Server dans Azure à l’aide de Powershell"
+	pageTitle="Créer et télécharger un disque dur virtuel Windows Server à l’aide de PowerShell | Microsoft Azure"
 	description="Découvrez comment créer et télécharger un disque dur virtuel (VHD) basé sur Windows Server à l'aide du modèle de déploiement classique et d’Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,11 +17,15 @@
 	ms.date="09/10/2015"
 	ms.author="cynthn"/>
 
-# Création et téléchargement d’un disque dur virtuel Windows Server dans Azure#
+# Création et téléchargement d’un disque dur virtuel Windows Server dans Azure
 
-Cet article vous montre comment télécharger un disque dur virtuel avec un système d'exploitation pour que vous puissiez l'utiliser comme image de base afin de créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans Microsoft Azure, consultez la rubrique [À propos des disques et VHD pour machines virtuelles](virtual-machines-disks-vhds.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
 
-## Composants requis##
+Cet article vous montre comment télécharger un disque dur virtuel avec un système d'exploitation pour que vous puissiez l'utiliser comme image de base afin de créer des machines virtuelles. Pour en savoir plus sur les disques et les disques durs virtuels dans Microsoft Azure, consultez [À propos des disques et des VHD pour les machines virtuelles Azure](virtual-machines-disks-vhds.md).
+
+
+
+## Composants requis
 
 Cet article suppose que vous disposez de :
 
@@ -29,11 +33,11 @@ Cet article suppose que vous disposez de :
 
 2. **Microsoft Azure PowerShell** : le module Microsoft Azure PowerShell est installé et configuré de façon à utiliser votre abonnement. Pour télécharger le module, consultez la page [Téléchargements Microsoft Azure](http://azure.microsoft.com/downloads/). Un didacticiel sur l'installation et la configuration du module est disponible [ici](../powershell-install-configure.md). Utilisez l’applet de commande [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) pour télécharger le fichier VHD.
 
-3. **Système d’exploitation de Windows pris en charge stocké dans un fichier .vhd et associé à une machine virtuelle**; Il existe plusieurs outils pour créer des fichiers .vhd. Vous pouvez utiliser des solutions de virtualisation comme Hyper-V pour créer une machine virtuelle et installer le système d’exploitation. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d’une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). Pour plus d’informations sur les systèmes d’exploitation, voir [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550).
+3. **Système d’exploitation Windows pris en charge stocké dans un fichier .vhd et associé à une machine virtuelle** ; il existe plusieurs outils pour créer des fichiers .vhd. Vous pouvez utiliser des solutions de virtualisation comme Hyper-V pour créer une machine virtuelle et installer le système d’exploitation. Pour obtenir des instructions, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx). Pour plus d’informations sur les systèmes d’exploitation, consultez [Prise en charge du logiciel serveur Microsoft pour les machines virtuelles Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=393550).
 
-> [AZURE.IMPORTANT]Microsoft Azure ne prend pas en charge le format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Pour plus de détail, consultez [ce blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.IMPORTANT]Microsoft Azure ne prend pas en charge le format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la [cmdlet Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Pour plus de détail, consultez [ce billet de blog](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
 
-## Étape 1 : Préparer le disque dur virtuel ##
+## Étape 1 : Préparer le disque dur virtuel 
 
 Avant de télécharger le disque dur virtuel vers Azure, vous devez le généraliser à l’aide de l’outil Sysprep. Cette opération prépare le disque dur virtuel à utiliser en tant qu’image. Pour plus d’informations sur Sysprep, consultez [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -49,13 +53,13 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation a été in
 
 	![Démarrer Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
-4.  Dans **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case à cocher **Généraliser** est activée.
+4.  Dans **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case **Généraliser** est cochée.
 
 5.  Dans **Shutdown Options**, sélectionnez **Shutdown**.
 
 6.  Cliquez sur **OK**.
 
-## Étape 2 : Créer ou obtenir des informations à partir de votre compte de stockage Azure##
+## Étape 2 : Créer ou obtenir des informations à partir de votre compte de stockage Azure
 
 Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacement pour télécharger le fichier .vhd. Cette étape vous montre comment créer un compte, ou obtenir les informations dont vous avez besoin d’un compte existant.
 
@@ -93,7 +97,7 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
 	![Nom du conteneur](./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png)
 
-	> [AZURE.NOTE]Par défaut, le conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser l’accès public en lecture aux objets blob du conteneur, mais pas à ses propriétés et ses métadonnées, utilisez l’option **Objet blob public**. Pour autoriser un accès public total en lecture au conteneur et aux objets blob, utilisez l’option **Conteneur public**.
+	> [AZURE.NOTE]Par défaut, le conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser l’accès public en lecture aux objets blob du conteneur, mais pas à ses propriétés et ses métadonnées, utilisez l’option **Objet blob public**. Pour autoriser un accès public total en lecture pour le conteneur et les objets blob, utilisez l’option **Conteneur public**.
 
 ### Option 2 : Obtention des informations du compte de stockage
 
@@ -103,13 +107,13 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
 3.	Cliquez sur le nom du compte de stockage pour ouvrir le tableau de bord, puis cliquez sur **Tableau de bord**.
 
-4.	Dans le tableau de bord, sous **Services**, placer le curseur sur l’URL des objets Blob, cliquez sur l’icône du Presse-papier pour copier l’URL, puis collez et enregistrez-la. Vous allez l’utiliser au moment de générer la commande permettant de télécharger le disque dur virtuel.
+4.	Dans le tableau de bord, sous **Services**, placez le curseur sur l’URL des objets Blob, cliquez sur l’icône du Presse-papier pour copier l’URL, puis collez et enregistrez-la. Vous allez l’utiliser au moment de générer la commande permettant de télécharger le disque dur virtuel.
 
 ## Étape 3 : Connectez-vous à votre abonnement depuis Azure PowerShell
 
 Avant de pouvoir télécharger un fichier .vhd, vous devez établir une connexion sécurisée entre votre ordinateur et votre abonnement Azure. Pour ce faire, vous pouvez utiliser la méthode Microsoft Azure Active Directory ou la méthode par certificat.
 
-> [AZURE.TIP]Pour commencer à utiliser Microsoft Azure PowerShell, consultez la page [Installation et configuration de Microsoft Azure PowerShell](../install-configure-powershell.md). Pour des informations, consultez la page [Prise en main des applets de commande Microsoft Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
+> [AZURE.TIP]Pour commencer à utiliser Microsoft Azure PowerShell, consultez la page [Installation et configuration de Microsoft Azure PowerShell](../install-configure-powershell.md). Pour des informations générales, consultez [Prise en main des applets de commande Microsoft Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
 ### Option 1 : Utilisation de Microsoft Azure AD
 
@@ -175,7 +179,7 @@ Pour plus d'informations sur la cmdlet Add-AzureVhd, consultez [Add-AzureVhd](ht
 
     ![Sélection du disque dur virtuel](./media/virtual-machines-create-upload-vhd-windows-server/Select_VHD.png)
 
-5.	Après être revenu dans la fenêtre **Créer une image depuis un disque dur virtuel**, sous **Famille de système d’exploitation**, sélectionnez votre système d’exploitation. Activez la case à cocher **J’ai exécuté Sysprep sur la machine virtuelle associée à ce disque dur virtuel** pour confirmer la généralisation du système d’exploitation, puis cliquez sur **OK**.
+5.	Après être revenu dans la fenêtre **Créer une image depuis un disque dur virtuel**, sous **Famille de système d’exploitation**, sélectionnez votre système d’exploitation. Cochez la case **J’ai exécuté Sysprep sur la machine virtuelle associée à ce disque dur virtuel** pour confirmer la généralisation du système d’exploitation, puis cliquez sur **OK**.
 
     ![Ajouter une image](./media/virtual-machines-create-upload-vhd-windows-server/Create_Image_From_VHD.png)
 
@@ -183,7 +187,7 @@ Pour plus d'informations sur la cmdlet Add-AzureVhd, consultez [Add-AzureVhd](ht
 
 	![image personnalisée](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	Cette nouvelle image est maintenant disponible dans **Mes Images** lorsque vous créez une machine virtuelle. Pour obtenir des instructions, consultez la page [Création d’une machine virtuelle personnalisée exécutant Windows](virtual-machines-windows-create-custom.md).
+	Cette nouvelle image est maintenant disponible dans **Mes Images** lorsque vous créez une machine virtuelle. Pour obtenir des instructions, consultez [Création d’une machine virtuelle personnalisée exécutant Windows](virtual-machines-windows-create-custom.md).
 
 	![créer un disque dur virtuel à partir d'une image personnalisée](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -191,11 +195,11 @@ Pour plus d'informations sur la cmdlet Add-AzureVhd, consultez [Add-AzureVhd](ht
 
 ## Étapes suivantes ##
 
-Une fois que vous avez créé une machine virtuelle, essayez de créer une machine virtuelle SQL Server. Pour obtenir des instructions, consultez [Configuration d’une machine virtuelle SQL Server sur Microsoft Azure](virtual-machines-provision-sql-server.md).
+Une fois que vous avez créé une machine virtuelle, essayez de créer une machine virtuelle SQL Server. Pour obtenir des instructions, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Microsoft Azure](virtual-machines-provision-sql-server.md).
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

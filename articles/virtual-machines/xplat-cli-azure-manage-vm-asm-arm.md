@@ -21,9 +21,12 @@
 # Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les tâches de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows
 Cet article illustre les commandes équivalentes de l’interface de ligne de commande Azure (Azure CLI) pour créer et gérer des machines virtuelles Azure dans la gestion des services Azure et le Gestionnaire de ressources Azure. Ces informations vous serviront de guide pratique pour migrer des scripts d'un mode de commande à l'autre.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le Gestionnaire de ressources et les modèles de déploiement classique (c’est-à-dire, Gestion des services).
+
+
 * Si vous n'avez pas déjà installé l'interface de ligne de commande Azure et si vous n'êtes pas encore connecté à votre abonnement, consultez [Installation de l'interface de ligne de commande Azure](../xplat-cli-install.md) et [Connexion à un abonnement Azure à partir de l'interface de ligne de commande Azure](../xplat-cli-connect.md). Lorsque vous souhaitez utiliser les commandes du mode Gestionnaire de ressources, veillez à vous connecter avec la méthode par connexion.
 
-* Pour prendre en main le mode Gestionnaire de ressources dans les modes Azure CLI et de basculement de commandes, consultez la rubrique [Utilisation de l'interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md). Par défaut, l’interface de ligne de commande démarre en mode gestion des services Azure. Pour passer au mode Gestionnaire de ressources, exécutez `azure config mode arm`. Pour revenir au mode gestion des services, exécutez `azure config mode asm`.
+* Pour prendre en main le mode Gestionnaire de ressources dans les modes Azure CLI et de basculement de commandes, consultez la rubrique [Utilisation de l’interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md). Par défaut, l’interface de ligne de commande démarre en mode gestion des services Azure. Pour passer au mode Gestionnaire de ressources, exécutez `azure config mode arm`. Pour revenir au mode Gestion des services, exécutez `azure config mode asm`.
 
 * Pour les options et l'aide en ligne de commande, tapez `azure <command> <subcommand> --help` ou `azure help <command> <subcommand>`.
 
@@ -34,7 +37,7 @@ Le tableau suivant compare les tâches courantes de machine virtuelle que vous p
 
 Task | Gestion des services | Gestionnaire de ressources
 -------------- | ----------- | -------------------------
-Créer la machine virtuelle de base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenir le `image-urn` à partir de la commande `azure vm image list`.)
+Créer la machine virtuelle de base | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password>`<br/><br/>(Obtenir l’`image-urn` à partir de la commande `azure vm image list`.)
 Créer une machine virtuelle Linux | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Linux"`
 Créer une machine virtuelle Windows | `azure vm create [options] <dns-name> <image> [userName] [password]` | `azure  vm create [options] <resource-group> <name> <location> -y "Windows"`
 Énumérer les machines virtuelles | `azure  vm list [options]` | `azure  vm list [options] <resource_group>`
@@ -64,7 +67,7 @@ Obtenir toutes les tailles de machines virtuelles disponibles | Non disponible |
 
 ## Étapes suivantes
 
-* Pour plus d'informations sur l'utilisation de l'interface de ligne de commande Azure avec des ressources du Gestionnaire de ressources, consultez les rubriques [Utilisation de l'interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md) et [Gestion du contrôle d'accès en fonction du rôle à l'aide de l'interface de ligne de commande Azure](../role-based-access-control-xplat-cli-install.md).
-* Pour d'autres exemples de commandes de l'interface de ligne de commande, consultez [Utilisation de l'interface de ligne de commande Azure avec Azure Service Management](../virtual-machines-command-line-tools.md) et [Utilisation de l'interface de ligne de commande Azure avec Azure Resource Manager](azure-cli-arm-commands.md).
+* Pour plus d’informations sur l’utilisation de l’interface de ligne de commande Azure avec des ressources du Gestionnaire de ressources, consultez les rubriques [Utilisation de l’interface de ligne de commande Azure avec le Gestionnaire de ressources](xplat-cli-azure-resource-manager.md) et [Gestion du contrôle d’accès en fonction du rôle à l’aide de l’interface de ligne de commande Azure](../role-based-access-control-xplat-cli-install.md).
+* Pour d’autres exemples de commandes de l’interface de ligne de commande, consultez [Utilisation de l’interface de ligne de commande Azure avec Azure Service Management](../virtual-machines-command-line-tools.md) et [Utilisation de l’interface de ligne de commande Azure avec Azure Resource Manager](azure-cli-arm-commands.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

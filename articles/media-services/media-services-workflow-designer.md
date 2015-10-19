@@ -20,7 +20,7 @@
 #Créer des flux de travail d’encodage avancé avec le Concepteur de flux de travail
 
 ##Vue d'ensemble
-Le **Concepteur de flux de travail** est un outil autonome qui permet de créer des flux de travail/graphiques à encoder avec **Media Encoder Premium Workflow**.
+Le **Concepteur de flux de travail** est un outil de bureau Windows qui permet de concevoir et de générer des flux de travail personnalisés à encoder avec **Media Encoder Premium Workflow**.
 
 Cet outil permet aussi de modifier des [flux de travail existants](media-services-workflow-designer.md#existing_workflows).
 
@@ -79,4 +79,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Vidéos de formation pour le Concepteur de flux de travail Azure Premium Encoder](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

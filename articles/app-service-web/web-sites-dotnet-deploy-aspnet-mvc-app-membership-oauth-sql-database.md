@@ -41,7 +41,7 @@ Vous apprendrez ce qui suit :
 
 ## Configuration requise
 
-Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](../fr-fr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](../fr-fr/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Pour configurer votre environnement de développement, vous devez installer [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) ou une version ultérieure, ainsi que la dernière version du [Kit de développement logiciel (SDK) Azure pour Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Cet article a été écrit pour Visual Studio Update 4 et le Kit de développement logiciel SDK 2.5.1.
 
@@ -97,7 +97,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@ Commencez par créer un modèle de données simple dans le code.
 
 	![Boîte de dialogue Ajouter un nouvel élément][adddb002]
 
-3. Remplacez le contenu du fichier Contacts.cs par le code suivant.
+3. Remplacez le contenu du fichier Contact.cs par le code suivant.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@ Commencez par créer un modèle de données simple dans le code.
                 public string Email { get; set; }
             }
         }
-La classe **Contacts** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire *ContactID* requise par la base de données.
+La classe **Contact** définit les données que vous allez stocker pour chaque contact, ainsi que la clé primaire *ContactID* dont la base de données a besoin.
 
 ### Création de pages Web permettant aux utilisateurs de l’application d’utiliser des contacts
 
@@ -720,4 +720,4 @@ Ce didacticiel et son exemple d'application ont été écrits par [Rick Anderson
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->
