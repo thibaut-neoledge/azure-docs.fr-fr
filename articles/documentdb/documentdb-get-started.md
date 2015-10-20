@@ -19,6 +19,10 @@
 
 #Prendre en main le Kit de développement logiciel (SDK) .NET de DocumentDB  
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-get-started.md)
+- [Node.js](documentdb-nodejs-get-started.md)
+
 Bienvenue dans la prise en main du Kit de développement logiciel (SDK) .NET de DocumentDB ! À la fin de ce didacticiel, vous disposerez d’une application console qui crée et interroge des ressources DocumentDB.
 
 Nous allons aborder les points suivants :
@@ -31,7 +35,7 @@ Nous allons aborder les points suivants :
 - Interrogation de la collection
 - Suppression de la base de données
 
-Vous n’avez pas le temps ? Ne vous inquiétez pas ! La solution complète est disponible sur [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Pour obtenir des instructions rapides, consultez [Obtenir la solution complète](#GetSolution).
+Vous n’avez pas le temps ? Ne vous inquiétez pas ! La solution complète est disponible sur [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). Pour obtenir des instructions rapides, consultez [Obtenir la solution complète](#GetSolution).
 
 À la fin, utilisez les boutons de vote en haut ou en bas de cette page pour nous faire part de vos commentaires. Si vous souhaitez que nous vous contactions directement, n’hésitez pas à inclure votre adresse de messagerie dans vos commentaires.
 
@@ -42,7 +46,7 @@ Commençons dès maintenant !
 Vérifiez que vous disposez des éléments suivants :
 
 - Un compte Azure actif. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit des services Azure](http://azure.microsoft.com/pricing/free-trial/) dès aujourd’hui.
-- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+- [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Étape 1 : créer un compte DocumentDB
 
@@ -102,7 +106,7 @@ Appelez la tâche asynchrone à partir de la méthode **Main**, comme dans le co
 		}
 	}
 
-> [AZURE.WARNING]Ne stockez jamais d'informations d'identification dans du code source. Pour ne pas compliquer cet exemple, elles sont indiquées dans le code source. Pour plus d'informations sur le stockage des informations d'identification dans un environnement de production, consultez [Azure Web Sites : fonctionnement des chaînes d'application et de connexion](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Examinez notre exemple d'application sur [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) pour obtenir un exemple sur le stockage d'informations d'identification en dehors du code source.
+> [AZURE.WARNING]Ne stockez jamais d'informations d'identification dans du code source. Pour ne pas compliquer cet exemple, elles sont indiquées dans le code source. Pour plus d'informations sur le stockage des informations d'identification dans un environnement de production, consultez [Azure Web Sites : fonctionnement des chaînes d'application et de connexion](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Examinez notre exemple d'application sur [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs) pour obtenir un exemple sur le stockage d'informations d'identification en dehors du code source.
 
 Maintenant que vous savez comment vous connecter à un compte DocumentDB et comment créer une instance de la classe **DocumentClient**, voyons comment utiliser les ressources DocumentDB.
 
@@ -456,7 +460,7 @@ Félicitations ! Vous venez de créer votre première application DocumentDB !
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :
 
 -   [Un compte DocumentDB][documentdb-create-account].
--   La solution [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) disponible sur GitHub.
+-   La solution [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) disponible sur GitHub.
 
 Pour restaurer les références au Kit de développement logiciel (SDK) .NET de DocumentDB dans Visual Studio, cliquez avec le bouton droit sur la solution **GetStarted** dans l’Explorateur de solutions, puis cliquez sur **Activer la restauration des packages NuGet**. Ensuite, dans le fichier App.config, mettez à jour les valeurs pour EndpointUrl et AuthorizationKey comme décrit à la section [Se connecter à un compte DocumentDB](#Connect).
 
@@ -474,4 +478,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -59,4 +59,4 @@ Après deux redémarrages, si vous continuez de rencontrer des problèmes de con
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

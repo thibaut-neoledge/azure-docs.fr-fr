@@ -30,4 +30,4 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

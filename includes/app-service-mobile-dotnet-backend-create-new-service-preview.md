@@ -35,4 +35,4 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

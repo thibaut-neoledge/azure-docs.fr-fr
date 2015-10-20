@@ -10,6 +10,6 @@ La liste ci-dessous répertorie certains autres didacticiels, que vous pouvez co
 - PHP : [Utilisation de Notification Hubs à partir de PHP](../articles/notification-hubs/notification-hubs-php-backend-how-to.md).
 
 
-Dans la section suivante du didacticiel, vous allez apprendre à utiliser l’[interface REST des concentrateurs de notification](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) pour envoyer le message de notification directement dans votre application. Tous les appareils inscrits reçoivent la notification envoyée par n’importe quel appareil.
+Dans la section suivante du didacticiel, vous allez apprendre à utiliser l’[interface de Notification Hub REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) pour envoyer le message de notification directement dans votre application. Tous les appareils inscrits reçoivent la notification envoyée par n’importe quel appareil.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Découverte de Hadoop dans HDInsight à l’aide de la galerie d’exemples | Microsoft Azure"
-	description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
-	services="hdinsight"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Apprenez rapidement à utiliser Hadoop en exécutant des exemples d’applications dans la galerie de prise en main de HDInsight. Utilisez les exemples de données ou vos propres données."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="jgao"/>
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.date="08/11/2015"
+   ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight
 
@@ -68,4 +68,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

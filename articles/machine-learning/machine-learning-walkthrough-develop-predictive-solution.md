@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@ Dans ce guide pas à pas détaillé, nous allons suivre le processus de dévelop
 
 Ouvrez Machine Learning Studio : [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Pour en savoir plus sur la prise en main de Machine Learning Studio, consultez la [page d'accueil de Microsoft Azure Machine Learning Studio](https://studio.azureml.net/).
 
+>[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
+
 Pour créer une solution d'évaluation des risques de crédit, nous allons suivre ces étapes :
 
 1.	[Créer un espace de travail Machine Learning](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@ Pour créer une solution d'évaluation des risques de crédit, nous allons suivr
 
 Cette procédure pas à pas est basée sur une version simplifiée de l'[Exemple d'expérience de prédiction du risque de crédit](../machine-learning-sample-credit-risk-prediction.md) inclus dans Machine Learning Studio.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -197,4 +197,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

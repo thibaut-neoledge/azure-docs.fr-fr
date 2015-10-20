@@ -146,4 +146,4 @@ Microsoft et la communauté Azure Automation fournissent des exemples de Runbook
 
 **Envoyez-nous vos commentaires !** Si vous recherchez un module d'intégration ou une solution de Runbook Azure Automation, envoyez une demande de script au Centre de scripts. Le cas échéant, publiez vos commentaires ou demandes de fonctionnalités pour Azure Automation sur [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Merci !
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

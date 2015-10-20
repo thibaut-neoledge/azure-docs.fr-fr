@@ -496,4 +496,4 @@ Pour cibler des utilisateurs spécifiques, reportez-vous au didacticiel [Notific
 [Notification des utilisateurs via Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Dernières nouvelles via Azure Notification Hubs]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!-----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

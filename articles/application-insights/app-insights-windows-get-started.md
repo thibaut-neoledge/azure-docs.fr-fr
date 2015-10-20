@@ -232,4 +232,4 @@ Quand un nouveau [Kit de développement logiciel (SDK) et publié](app-insights-
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

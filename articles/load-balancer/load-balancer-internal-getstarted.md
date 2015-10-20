@@ -332,4 +332,4 @@ Pour obtenir plus d’informations sur les applets de commande d’équilibrage 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

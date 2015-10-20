@@ -1,23 +1,20 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SQL Server Management Studio (SSMS)"
-	pageTitle="Connexion à une base de données SQL Azure à l'aide de SSMS | Microsoft Azure"
-	metaKeywords=""
-	description="Découvrez comment vous connecter à une base de données SQL Azure à l'aide de SSMS"
-	metaCanonical=""
-	services="sql-database"
-	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
-
+   pageTitle="Connexion à une base de données SQL Azure à l'aide de SSMS | Microsoft Azure"
+   description="Découvrez comment vous connecter à une base de données SQL Azure à l'aide de SSMS"
+   services="sql-database"
+   documentationCenter=""
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""
+   tags=""/>
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/14/2015"
-	ms.author="sidneyh" />
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="09/14/2015"
+   ms.author="sidneyh"/>
 
 # Se connecter avec SQL Server Management Studio (SSMS)
 
@@ -43,7 +40,7 @@ Pour vous connecter à votre base de données, vous devez disposer du nom comple
 
 
 
-## Se connecter à la base de données SQL
+## Se connecter à votre base de données SQL
 
 1. Ouvrez SSMS.
 2. Cliquez sur **Connexion** > **Moteur de base de données...**
@@ -98,4 +95,4 @@ Vous pouvez utiliser les instructions Transact-SQL pour créer ou gérer les bas
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

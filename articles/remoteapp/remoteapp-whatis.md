@@ -77,4 +77,4 @@ OK Faites un essai. Ces articles vous aident à prendre en main RemoteApp :
 - [FAQ Azure RemoteApp](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

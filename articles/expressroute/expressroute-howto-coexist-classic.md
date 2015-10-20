@@ -51,7 +51,7 @@ Vous pouvez configurer votre réseau là où certains sites se connectent direct
 
 Vous pouvez choisir entre deux procédures différentes pour configurer vos connexions afin qu’elles coexistent. La procédure de configuration que vous sélectionnez varie selon que vous disposez déjà d’un réseau virtuel auquel vous connecter ou que vous voulez créer un réseau virtuel.
 
-- **Créer un réseau virtuel et des connexions qui coexistent  :**
+- **Créer un réseau virtuel et des connexions qui coexistent :**
 	
 	Si vous ne disposez pas déjà d’un réseau virtuel, cette procédure vous guide dans la création d’un réseau virtuel et dans l’établissement de nouvelles connexions ExpressRoute et VPN de site à site. Pour la configuration, suivez les étapes décrites dans la section **Créer un réseau virtuel avec la connectivité ExpressRoute et de site à site** de l’article.
 
@@ -145,9 +145,9 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
 	Utilisez l’exemple suivant en remplaçant les valeurs par les vôtres.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	**Remarque :** si votre réseau local possède plusieurs itinéraires, vous pouvez tous les transmettre sous la forme d’un tableau. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE]Si votre réseau local possède plusieurs itinéraires, vous pouvez tous les transmettre sous la forme d’un tableau. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	Pour récupérer les paramètres de la passerelle de réseau virtuel, y compris l’ID de passerelle et l’adresse IP publique, utilisez l’applet de commande `Get-AzureVirtualNetworkGateway`. Consultez l’exemple qui suit.
@@ -204,10 +204,10 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
 
-5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer des passerelles et finaliser vos connexions, vous pouvez passer à l’**étape 3** dans la section [Créer un réseau virtuel avec la connectivité ExpressRoute et de site à site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) de l’article.
+5. À ce stade, vous disposez d’un réseau virtuel sans passerelles. Pour créer des passerelles et finaliser vos connexions, vous pouvez passer à l’**étape 3** dans la section [Créer un réseau virtuel avec les connectivités ExpressRoute et site à site](#create-a-new-virtual-network-with-both-expressroute-and-site-to-site-connectivity) de l’article.
 
 ## Étapes suivantes
 
-Pour plus d’informations sur ExpressRoute, consultez le [Forum aux questions ExpressRoute](expressroute-faqs.md).
+Pour plus d’informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

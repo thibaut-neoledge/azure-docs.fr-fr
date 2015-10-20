@@ -20,10 +20,8 @@
 	    <array>
 	    <string>remote-notification</string>
 	    </array>
-	    ...
-    
-7. Si vous utilisez **Xcode 7** et **iOS 9**, vous devez effectuer les étapes supplémentaires suivantes :
-	- Définissez **Activer Bitcode** sur **Non** sous Cibles > Paramètres de génération. Assurez-vous de sélectionner TOUT en haut de la barre. 
-	- Activer **Notifications Push** dans Cibles > Votre nom cible > Fonctionnalités.
 
-<!---HONumber=Oct15_HO1-->
+7. Si vous utilisez **Xcode 7+** et **iOS 9 +** :
+	- Activer **Notifications Push** dans Cibles > Nom de cible > Fonctionnalités.
+
+<!---HONumber=Oct15_HO3-->

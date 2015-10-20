@@ -237,4 +237,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

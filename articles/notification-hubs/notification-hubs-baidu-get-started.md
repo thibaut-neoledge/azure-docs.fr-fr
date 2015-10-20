@@ -479,4 +479,4 @@ Pour envoyer une notification de test lorsque vous utilisez l’application cons
 [portail Azure]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

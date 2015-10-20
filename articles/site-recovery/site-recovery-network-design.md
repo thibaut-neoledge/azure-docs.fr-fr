@@ -62,7 +62,7 @@ En cas de récupération d’urgence, vous pouvez récupérer les charges de tra
 ### Serveur VMM en cluster
 
 
-Le [déploiement de VMM dans un cluster](https://technet.microsoft.com/fr-fr/library/gg610675.aspx) fournit une haute disponibilité et une protection contre le basculement du matériel. Si vous déployez votre cluster VMM avec Site Recovery, notez que :
+Le [déploiement de VMM dans un cluster](https://technet.microsoft.com/fr-FR/library/gg610675.aspx) fournit une haute disponibilité et une protection contre le basculement du matériel. Si vous déployez votre cluster VMM avec Site Recovery, notez que :
 
 Le serveur VMM doit être déployé dans un cluster étiré sur des sites géographiquement distincts. La base de données SQL Server utilisée par VMM doit être protégée avec des groupes de disponibilité SQL Server AlwaysOn avec un réplica sur le site secondaire. Si un problème survient, le serveur VMM et son serveur SQL correspondant basculent automatiquement vers le site de récupération. Vous pouvez ensuite basculer les charges de travail à l'aide de Site Recovery.
 
@@ -190,4 +190,4 @@ Le [billet de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infras
 
 [Découvrir](site-recovery-network-mapping.md) comment Site Recovery mappe les réseaux source et cible.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

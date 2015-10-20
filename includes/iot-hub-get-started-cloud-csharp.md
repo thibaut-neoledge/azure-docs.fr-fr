@@ -4,15 +4,17 @@ Dans cette section, vous écrirez une application console Windows qui crée une 
 
 1. Dans Visual Studio, créez un projet d'application de bureau Visual C# à l'aide du modèle de projet d'**application de console**. Nommez le projet **CreateDeviceIdentity**.
 
-   	![][10]
+	![][10]
 
 2. Dans l'Explorateur de solutions, cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet pour la solution...**.
 
-	La fenêtre Gérer les packages NuGet s’affiche.
+	La fenêtre **NuGet Package Manager** s’ouvre.
 
-3. Recherchez `Microsoft Azure Devices`, cliquez sur **Installer** et acceptez les conditions d'utilisation.
+3. Assurez-vous que l’option **Inclure la version préliminaire** est activée. Ensuite, recherchez `Microsoft Azure Devices`, cliquez sur **Installer** et acceptez les conditions d’utilisation.
 
-	Cette opération lance le téléchargement, l’installation et ajoute une référence au [package Azure IoT - Service SDK NuGet].
+	![][11]
+
+4. Cette opération lance le téléchargement, l’installation et ajoute une référence au package NuGet de [kit de développement logiciel Microsoft Azure Devices](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
 4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
@@ -56,9 +58,10 @@ Dans cette section, vous écrirez une application console Windows qui crée une 
 > [AZURE.NOTE]Il est important de noter que le Registre d’identité du concentrateur IoT est uniquement utilisé pour stocker les identités des appareils en vue d’un accès sécurisé, par exemple, stocker les informations d’identification de sécurité et activer/désactiver l’accès à l’appareil individuel. Les métadonnées de l’application de l’appareil doivent être stockées dans un magasin spécifique à l’application. Reportez-vous au [Guide du développeur IoT Hub][IoT Hub Developer Guide - Identity Registry] pour plus d’informations.
 
 ## Recevoir des messages des appareils vers le cloud
-Dans cette section, vous allez créer une application console Windows qui lit les messages des appareils vers le cloud à partir d’IoT Hub. IOT Hub expose un point de terminaison compatible avec les [concentrateurs d’événements][Event Hubs Overview] pour lire les messages des appareils vers le cloud. Par souci de simplicité, ce didacticiel crée un lecteur simplifié qui ne convient pas dans le cas d’un déploiement à débit élevé. Vous trouverez plus d’informations sur la façon de traiter les messages des appareils vers le cloud d’IoT Hub dans le didacticiel [Traiter les messages des appareils vers le cloud]. Pour plus d’informations sur la façon de traiter des messages à partir du concentrateurs d’événements, vous pouvez vous reporter au didacticiel [Prise en main des concentrateurs d’événements].
 
-1. Dans la solution Visual Studio actuelle, cliquez sur **Fichier->Ajouter->Projet** pour créer un projet d’application de bureau Visual C# à l’aide du modèle de projet d’**application console**. Nommez le projet **ReadDeviceToCloudMessages**.
+Dans cette section, vous allez créer une application console Windows qui lit les messages des appareils vers le cloud à partir d’IoT Hub. IOT Hub présente un point de terminaison compatible avec [Event Hubs][Event Hubs Overview] pour lire les messages appareils vers cloud. Par souci de simplicité, ce didacticiel crée un lecteur simplifié qui ne convient pas dans le cas d’un déploiement à débit élevé. Vous trouverez plus d’informations sur la façon de traiter les messages des appareils vers le cloud d’IoT Hub dans le didacticiel [Traiter les messages des appareils vers le cloud]. Pour plus d’informations sur la façon de traiter les messages à partir d’Event Hubs, vous pouvez vous reporter au didacticiel [Prise en main d’Event Hubs].
+
+1. Dans la solution Visual Studio actuelle, cliquez sur **Fichier->Ajouter->Projet** pour créer un projet d’application de bureau Visual C# à l’aide du modèle de projet **Application console**. Nommez le projet **ReadDeviceToCloudMessages**.
 
     ![][10]
 
@@ -72,10 +75,9 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 
 4. Ajoutez l'instruction `using` suivante en haut du fichier **Program.cs** :
 
-        using Microsoft.Azure.Devices.Common;
         using Microsoft.ServiceBus.Messaging;
 
-5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs d’espace réservé par le nom du concentrateur IoT que vous avez créé dans la section précédente et sa chaîne de connexion :
+5. Ajoutez les champs suivants à la classe **Program**, en remplaçant les valeurs d’espace réservé par le nom du concentrateur IoT créé dans la section précédente et sa chaîne de connexion :
 
         static string connectionString = "{iothub connection string}";
         static string iotHubD2cEndpoint = "messages/events";
@@ -96,7 +98,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
             }
         }
 
-    Cette méthode utilise un client EventHub pour recevoir toutes les partitions de réception des messages des appareils vers le cloud de votre concentrateur IoT. Notez comment un paramètre `DateTime.Now` est passé lors de la création d’un EventHubReceiver. Cela crée un destinataire qui recevra uniquement les messages qui sont envoyés après son démarrage.
+    Cette méthode utilise un client EventHub pour recevoir toutes les partitions de réception des messages des appareils vers le cloud de votre concentrateur IoT. Notez comment, lors de la création d’un EventHubReceiver, un paramètre `DateTime.Now` est transmis. Cela crée un destinataire qui recevra uniquement les messages qui sont envoyés après son démarrage.
 
 7. Enfin, ajoutez les lignes suivantes à la méthode **Main** :
 
@@ -114,9 +116,9 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 
 <!-- Links -->
 
-[package Azure IoT - Service SDK NuGet]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
-[Prise en main des concentrateurs d’événements]: event-hubs-csharp-ephcs-getstarted.md
+[Prise en main d’Event Hubs]: event-hubs-csharp-ephcs-getstarted.md
 [IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
 
 [Event Hubs Overview]: event-hubs-overview.md
@@ -129,6 +131,7 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 
 <!-- Images -->
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -34,4 +34,4 @@ Pour sauvegarder les fichiers et les données de votre serveur Windows Server ve
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 - [Forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

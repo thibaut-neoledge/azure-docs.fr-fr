@@ -6,4 +6,4 @@
 
 Pour une version de ce document qui utilise le portail Azure, consultez le lien suivant :
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

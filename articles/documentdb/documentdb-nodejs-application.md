@@ -19,6 +19,12 @@
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 Ce didacticiel Node.js vous montre comment utiliser le service Azure DocumentDB pour stocker des données et y accéder à partir d’une application Node.js Express hébergée sur Sites Web Azure.
 
 Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle vous apprendrez à approvisionner un compte de base de données Azure DocumentDB et à stocker des documents JSON dans votre application Node.js.
@@ -55,7 +61,7 @@ Commençons par créer un compte DocumentDB. Si vous possédez déjà un compte,
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Étape 2 : création d’une application Node.js
+## <a name="_Toc395783178"></a>Étape 2 : Création d’une application Node.js
 
 Voyons maintenant comment créer un projet Node.js « Hello World » de base à l’aide de l’infrastructure [Express](http://expressjs.com/).
 
@@ -536,7 +542,7 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 4. Pour terminer une tâche, activez simplement la case à cocher dans la colonne Complete, puis cliquez sur **Update tasks**.
 
-## <a name="_Toc395783182"></a>Étape 7 : déploiement de votre projet de développement d’application sur Sites Web Azure
+## <a name="_Toc395783182"></a>Étape 7 : Déploiement de votre projet de développement d’application sur Sites Web Azure
 
 1. Si vous ne l'avez pas encore fait, activez un référentiel git pour votre site web Azure. Vous trouverez des instructions sur la façon de procéder [ici](../web-sites-publish-source-control-git.md#step4).
 
@@ -554,13 +560,13 @@ Intéressons-nous à présent à la création de l'interface utilisateur pour pe
 
 Félicitations ! Vous venez de créer votre première application web Express Node.js avec Azure DocumentDB et de la publier sur Azure Websites.
 
-Vous pouvez télécharger le code source de l'application de référence complète sur [GitHub][].
+Vous pouvez télécharger le code source de l’application de référence complète sur [GitHub][].
 
-Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

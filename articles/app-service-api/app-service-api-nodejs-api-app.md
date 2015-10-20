@@ -171,7 +171,7 @@ Dans cette section, vous exécutez l'application localement pour vérifier qu'el
 
 Dans cette section, vous créez un référentiel Git local et vous effectuez une transmission de type push depuis ce référentiel vers Azure pour déployer votre exemple d'application dans l'application API qui s'exécute dans Azure App Service.
 
-1. Si Git n'est pas installé, installez-le à partir de [la page de téléchargement de Git](http://git-scm.com/download%20target="_blank").
+1. Si Git n'est pas installé, installez-le à partir de [la page de téléchargement de Git](http://git-scm.com/download).
 
 1. Depuis la ligne de commande, accédez au répertoire de l'exemple d'application, puis entrez les commandes suivantes pour initialiser un référentiel Git local.
 
@@ -249,4 +249,4 @@ Vous avez déployé dans Azure une application web Node.js qui utilise un backen
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

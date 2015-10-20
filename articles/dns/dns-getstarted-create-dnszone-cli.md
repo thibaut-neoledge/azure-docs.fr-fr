@@ -173,4 +173,4 @@ L’exemple suivant utilise DIG pour interroger le domaine contoso.com à l’ai
 
 [Prise en main de la création de jeux d'enregistrements et d'enregistrements](dns-getstarted-create-recordset-cli.md)<BR> [Gestion des zones DNS](dns-operations-dnszones-cli.md)<BR> [Gestion des enregistrements DNS](dns-operations-recordsets-cli.md)<BR> [Automatisation des opérations Azure avec le Kit de développement logiciel (SDK) .NET](dns-sdk.md)<BR> [Référence de l'API REST d'Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
