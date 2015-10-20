@@ -33,14 +33,14 @@ Votre magasin en ligne Microsoft Azure Marketplace comporte différentes proc
 
 Une fois que la machine virtuelle Linux s’exécute avec Docker, connectez-vous à celle-ci à partir de votre ordinateur client à l’aide de SSH. Si vous en avez besoin, installez [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) en exécutant les deux commandes suivantes.
 
->[AZURE.TIP]Si vous avez utilisé l’extension de machine virtuelle Docker pour créer votre machine virtuelle, Compose est déjà installé. Ignorez ces commandes et passez à l’étape 3. Vous ne devez installer Compose que si vous avez installé vous-même Docker sur la machine virtuelle.
+>[AZURE.TIP] Si vous avez utilisé l’extension de machine virtuelle Docker pour créer votre machine virtuelle, Compose est déjà installé. Ignorez ces commandes et passez à l’étape 3. Vous ne devez installer Compose que si vous avez installé vous-même Docker sur la machine virtuelle.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE]Si une erreur d’autorisation refusée est générée, cela signifie que le répertoire /usr/local/bin de la machine virtuelle n’est pas modifiable et que vous devez installer Compose en tant que superutilisateur. Exécutez `sudo -i`, puis les deux commandes ci-dessus, et enfin `exit`.
+>[AZURE.NOTE] Si une erreur d’autorisation refusée est générée, cela signifie que le répertoire /usr/local/bin de la machine virtuelle n’est pas modifiable et que vous devez installer Compose en tant que superutilisateur. Exécutez `sudo -i`, puis les deux commandes ci-dessus, et enfin `exit`.
 
 Pour tester votre installation de Compose, exécutez la commande ci-dessous.
 
@@ -75,23 +75,23 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## Étape 4 : Démarrer les conteneurs avec Compose
 
-In the working directory on your VM, simply run the following command.
+Dans le répertoire de tavail de votre machine virtuelle, exécutez simplement la commande suivante.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+Cette action démarre les conteneurs Docker spécifiés dans `docker-compose.yml`. Le résultat doit être similaire à ceci :
 
 ```
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ```
 
->[AZURE.NOTE]Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
+>[AZURE.NOTE] Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
 
 Pour vérifier que les contrôleurs sont en cours d’exécution, tapez `docker-compose ps`. Le résultat suivant devrait s’afficher :
 
@@ -128,4 +128,4 @@ L’écran de démarrage de WordPress, vous permettant de terminer l’installat
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!-----HONumber=Oct15_HO2-->
