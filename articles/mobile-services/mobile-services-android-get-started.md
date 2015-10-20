@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/08/2015"
 	ms.author="ricksal"/>
 
 # Prendre en main Mobile Services pour Android (backend JavaScript)
@@ -32,7 +32,7 @@ Voici une capture d’écran de l’application terminée : ![](./media/mobile-
 
 ## Composants requis
 
-Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android][Android Studio], qui incluent l'environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
+Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
 
 Le projet de démarrage rapide téléchargé contient le Kit de développement logiciel (SDK) Azure Mobile Services pour Android.
 
@@ -59,27 +59,17 @@ Dans cette section, vous allez créer une application Android connectée à votr
 
   	![](./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png)
 
-3. Si ce n'est pas déjà fait, téléchargez et installez les [outils de développement Android][Android SDK] sur votre ordinateur local ou sur votre machine virtuelle.
+3. Si ce n'est pas déjà fait, téléchargez et installez les [outils de développement Android](https://go.microsoft.com/fwLink/p/?LinkID=280125) sur votre ordinateur local ou sur votre machine virtuelle.
 
 4. Cliquez sur **Create TodoItem table** pour créer une table permettant de stocker les données d'application.
 
 
-5. Téléchargez maintenant votre application :
-	- La dernière version de l’application utilise la version 2.0 du Kit de développement logiciel (SDK) Mobile Services pour Android. Vous pouvez télécharger cette version <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">ici</a>. Cliquez sur **Télécharger le Zip** et décompressez-le : le projet se trouve dans Prise en main sous le dossier Android.
-
-	- Une version antérieure utilise la version précédente du Kit de développement logiciel (SDK). Pour l’utiliser, sous **Télécharger et exécuter l’application**, cliquez sur **Télécharger**. Cette opération télécharge le projet de votre exemple d'application _To do list_ qui est connectée à votre service mobile. Les fichiers projet sont compressés. Accédez à leur emplacement et décompressez-les sur votre ordinateur.
-
+5. Téléchargez alors votre application en appuyant sur le bouton **Télécharger**.
 
 ## Exécution de votre application Android
 
 [AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
-### Consulter le code (facultatif)
-
-Pour consulter le code source de l'application terminée, cliquez [ici](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio).
-
-
-Si vous souhaitez consulter la version Eclipse de ce didacticiel, allez à : [Prise en main (Eclipse)](mobile-services-android-get-started-ec.md)
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Maintenant que vous avez effectué le démarrage rapide, découvrez comment exécuter d'autres tâches importantes dans Mobile Services :
@@ -93,32 +83,14 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]: #getting-started
-[Create a new mobile service]: #create-new-service
-[Define the mobile service instance]: #define-mobile-service-instance
-[Next Steps]: #next-steps
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png
-[8]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [Prise en main des données]: mobile-services-android-get-started-data.md
 [Prise en main de l'authentification]: mobile-services-android-get-started-users.md
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

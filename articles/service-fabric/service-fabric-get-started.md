@@ -106,4 +106,4 @@ Si aucun élément n'est vert ou qu'un message d'erreur s'affiche, attendez quel
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Didacticiel Apache Storm : prise en main de Storm | Microsoft Azure"
-	description="Prise en main de l'analyse des big data avec Apache Storm et les exemples Starter Storm sur HDInsight. Découvrez comment utiliser Storm pour traiter les données en temps réel."
+	pageTitle="Didacticiel Apache Storm : prise en main de Storm sur HDInsight basé sur Linux | Microsoft Azure"
+	description="Prise en main de l’analyse Big Data avec Apache Storm et des exemples Starter Storm sur HDInsight basé sur HDInsight. Découvrez comment utiliser Storm pour traiter les données en temps réel."
 	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 
@@ -40,7 +40,7 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel Ap
 
 Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fichiers journaux et les topologies envoyés au cluster. Utilisez les étapes suivantes pour créer un compte de stockage Azure à utiliser avec votre cluster :
 
-1. Connectez-vous à la [version préliminaire du portail Azure][preview-portal].
+1. Connectez-vous au [portail Azure en version préliminaire][preview-portal].
 
 2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__.
 
@@ -88,7 +88,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	
 7. Sélectionnez __Niveaux tarifaires de nœud__ pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Par défaut, le nombre de nœuds worker est fixé à __4__. Le coût estimé du cluster s’affiche au bas de ce panneau.
 
-	![Panneau Niveaux tarifaires du nœud](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
+	![Panneau Niveaux de tarification du nœud](./media/hdinsight-apache-storm-tutorial-get-started-linux/nodepricingtiers.png)
 	
 	Utilisez le bouton __Sélectionner__ pour enregistrer les informations de __Niveaux tarifaires de nœud__.
 
@@ -144,7 +144,7 @@ Procédez comme suit pour afficher l’interface utilisateur Storm.
 
 	> [AZURE.NOTE]Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster. Vous pouvez être invité à vous authentifier deux fois, une fois par le navigateur et une deuxième fois par l’interface utilisateur web Ambari. Utilisez les mêmes informations d’identification pour les deux.
 
-2. Dans la liste des services, à gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __Storm UI__ dans __Quick Links__.
+2. Dans la liste des services, à gauche de la page, sélectionnez __Storm__. Sélectionnez ensuite __UI Storm__ dans __Liens rapides__.
 
     ![Saisie de l’interface utilisateur Storm dans liens rapides](./media/hdinsight-apache-storm-tutorial-get-started-linux/ambari-storm.png)
 
@@ -217,7 +217,7 @@ Retournez à la page **Résumé de la topologie**, puis sélectionnez le bouton 
 
 ##Résumé
 
-Dans ce didacticiel sur Apache Storm, vous avez appris à créer un cluster Storm sur HDInsight à l’aide de Storm Starter et à déployer, surveiller et gérer des topologies Storm à l’aide du tableau de bord Storm.
+Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Storm sur HDInsight à l’aide de Storm Starter et à déployer, surveiller et gérer des topologies Storm à l’aide du tableau de bord Storm.
 
 ##<a id="next"></a>Étapes suivantes
 
@@ -233,4 +233,4 @@ Dans ce didacticiel sur Apache Storm, vous avez appris à créer un cluster Stor
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

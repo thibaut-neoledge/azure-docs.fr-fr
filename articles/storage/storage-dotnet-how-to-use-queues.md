@@ -263,4 +263,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -106,4 +106,4 @@ Vous pouvez utiliser l’interface de ligne de commande Azure pour gérer vos re
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

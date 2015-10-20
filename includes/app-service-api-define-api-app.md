@@ -103,4 +103,4 @@ Pour afficher la page de test des API, procédez comme suit.
 
 3. Dans Visual Studio, cliquez sur **Déboguer > Arrêter le débogage**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

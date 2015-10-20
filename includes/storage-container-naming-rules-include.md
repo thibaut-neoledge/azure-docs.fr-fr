@@ -12,4 +12,4 @@ Un conteneur doit posséder un nom DNS valide, conforme aux règles de nommage s
 
 > [AZURE.IMPORTANT]Notez que le nom d'un conteneur doit toujours être en minuscules. Si vous incluez une majuscule dans un nom de conteneur ou si vous ne respectez pas les règles d'affectation de noms, vous pouvez recevoir une erreur 400 (demande incorrecte).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

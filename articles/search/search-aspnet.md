@@ -462,4 +462,4 @@ Pour mieux comprendre l’intégration entre Azure Search et ASP.NET, consultez 
 - [Étude de cas d’un développeur Azure Search](search-dev-case-study-whattopedia.md)
 - [Flux de travail typique de développement Azure Search](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

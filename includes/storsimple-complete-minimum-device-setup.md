@@ -38,4 +38,4 @@
 
 Pour visionner une vidéo qui montre comment effectuer l’installation minimale de l’appareil, cliquez [ici](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

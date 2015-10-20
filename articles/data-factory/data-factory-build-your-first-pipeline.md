@@ -62,8 +62,8 @@ La disponibilité définie sur le jeu de données **AzureBlobOutput** détermine
 ## Préparer le stockage Azure en vue du didacticiel
 En premier lieu, vous devez préparer le compte de stockage Azure et ses fichiers nécessaires pour commencer ce didacticiel.
 
-1. Ouvrez le Bloc-notes, collez le texte suivant, puis enregistrez-le sous le nom **partitionweblogs.hql** dans le dossier C:\\adfgettingstarted sur le disque dur. Les scripts Hive créent deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**.
-
+1. Lancez **Bloc-notes** et collez le script HQL suivant. Les scripts Hive créent deux tables externes : **WebLogsRaw** et **WebLogsPartitioned**. Cliquez sur **Fichier** sur le menu et sélectionnez **Enregistrer sous**. Basculez vers le dossier **C:\\adfgettingstarted** sur votre disque dur. Sélectionnez **Tous les fichiers (*.*)** pour le champ **Type de fichier**. Entrez **partitionweblogs.hql** pour le **Nom de fichier**. Vérifiez que le champ **Codage** au bas de la boîte de dialogue est défini sur **ANSI**. Si ce n’est pas le cas, définissez-le sur **ANSI**.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,8 +142,7 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. Pour préparer le stockage Azure en vue du didacticiel, procédez comme suit :
 	1. Téléchargez la [dernière version d’**AzCopy**](http://aka.ms/downloadazcopy) ou la [version préliminaire la plus récente](http://aka.ms/downloadazcopypr). Consultez l’article [Utilisation d’AzCopy](../storage/storage-use-azcopy.md) pour obtenir des instructions sur l’utilisation de l’utilitaire.
 	2. Après l'installation d'AzCopy, vous pouvez l'ajouter au chemin d'accès système en exécutant la commande suivante à une invite de commandes. 
@@ -154,7 +153,7 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]La commande ci-dessus crée un conteneur nommé **script** dans votre stockage d'objets Blob Azure et copie le fichier **partitionweblogs.hql** depuis votre disque local dans le conteneur d'objets Blob.
+		> [AZURE.NOTE]La commande ci-dessus crée un conteneur nommé **script** dans votre stockage d’objets blob Azure et copie le fichier **partitionweblogs.hql** depuis votre disque local dans le conteneur d’objets blob.
 	>
 	5. Une fois que le fichier a été chargé, vous verrez la sortie suivante d’AzCopy.
 	
@@ -176,4 +175,4 @@ Effectuez les actions suivantes :
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

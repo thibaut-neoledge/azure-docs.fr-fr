@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/23/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 #  Configuration de la protection entre un site local VMM et Azure
@@ -156,7 +156,7 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 >
 >1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
 >2. Arrêter le service System Center Virtual Machine Manager
->3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**. 
+>3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**.
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -175,9 +175,9 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
  - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
  - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
  - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification) 
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
-  
+
 ## Étape 4 : Création d’un compte de stockage Azure
 
 Si vous ne possédez pas de compte de stockage Azure, cliquez sur **Ajouter un compte Azure Storage**. La géo-réplication doit être activée pour ce compte. Ce dernier doit se trouver dans la même région que le service Azure Site Recovery et être associé au même abonnement.
@@ -235,7 +235,7 @@ Avant de commencer le mappage réseau, vérifiez que les machines virtuelles sur
 
 	![Cloud replication settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_MapNetworks.png)
 
-Une fois les paramètres enregistrés, une tâches commence à suivre la progression du mappage et vous pouvez la surveiller sous l'onglet Tâches. Toute machine virtuelle de réplication existante qui correspond au réseau de machines virtuelles source sera connectée aux réseaux Azure cibles. Les nouvelles machines virtuelles qui sont connectées au réseau de machines virtuelles source seront connectées au réseau Azure mappé après la réplication. Si vous modifiez un mappage existant avec un nouveau réseau, les machines virtuelles de réplication seront connectées à l'aide des nouveaux paramètres.
+Une fois les paramètres enregistrés, une tâche commence à suivre la progression du mappage et vous pouvez la surveiller sous l'onglet Tâches. Toute machine virtuelle de réplication existante qui correspond au réseau de machines virtuelles source sera connectée aux réseaux Azure cibles. Les nouvelles machines virtuelles qui sont connectées au réseau de machines virtuelles source seront connectées au réseau Azure mappé après la réplication. Si vous modifiez un mappage existant avec un nouveau réseau, les machines virtuelles de réplication seront connectées à l'aide des nouveaux paramètres.
 
 Notez que si le réseau cible a plusieurs sous-réseaux et que l'un d'entre eux a le même nom que le sous-réseau où se trouve la machine virtuelle source, la machine virtuelle de réplication sera connectée à ce sous-réseau cible après le basculement. S’il n’existe aucun sous-réseau cible avec un nom correspondant, la machine virtuelle sera connectée au premier sous-réseau du réseau.
 
@@ -306,13 +306,10 @@ Il existe deux manières d’exécuter un test de basculement vers Azure.
 - Tester le basculement sans réseau Azure : ce type de test de basculement vérifie que la machine virtuelle s’affiche correctement dans Azure. La machine virtuelle ne sera connectée à aucun réseau Azure après le basculement.
 - Tester le basculement avec un réseau Azure : ce type de basculement vérifie que l’ensemble de l’environnement de réplication s’affiche comme prévu et qu’après le basculement les machines virtuelles seront connectées au réseau Azure cible spécifié. Pour la gestion de sous-réseau, pour le test de basculement le sous-réseau de la machine virtuelle test sera déterminé en fonction du sous-réseau de la machine virtuelle de réplication. Ceci diffère de la réplication normale, selon laquelle le sous-réseau d’une machine virtuelle de réplication est basé sur le sous-réseau de la machine virtuelle source.
 
-Si vous souhaitez exécuter un test de basculement pour une machine virtuelle activée pour la protection dans Azure sans spécifier de réseau Azure cible, vous n’avez pas besoin de rien préparer. Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure) et configurer l’infrastructure pour que la machine virtuelle répliquée fonctionne comme prévu. Par exemple, une machine virtuelle sur laquelle le contrôleur de domaine et DNS sont installés peut être répliquée sur Microsoft Azure via Microsoft Azure Site Recovery et peut être créée dans le réseau de test, via le test de basculement. Pour exécuter un test de basculement, procédez comme suit :
+Si vous souhaitez exécuter un test de basculement pour une machine virtuelle activée pour la protection dans Azure sans spécifier de réseau Azure cible, vous n’avez pas besoin de rien préparer. Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). Découvrez comment [exécuter un test de basculement](site-recovery-failover.md#run-a-test-failover) pour plus de détails.
 
-1. Effectuez un test de basculement de la machine virtuelle avec le contrôleur de domaine et DNS, dans le même réseau que celui que vous utiliserez pour le test de basculement réel de la machine virtuelle locale.
-2. Notez les adresses IP allouées à la machine virtuelle DNS soumise au basculement.
-3. Sur le réseau virtuel Microsoft Azure qui sera utilisé pour le basculement, ajoutez l’adresse IP en tant qu’adresse du serveur DNS.
-4. Exécutez le test de basculement des machines virtuelles locales sources, en spécifiant le réseau de test Microsoft Azure.
-5. Après avoir vérifié que le test de basculement a fonctionné comme prévu, signalez qu’il a abouti pour le plan de récupération, puis pour le contrôleur de domaine et les machines virtuelles DNS.
+
+Vous devez également configurer l’infrastructure pour que la machine virtuelle répliquée fonctionne comme prévu. Par exemple, une machine virtuelle sur laquelle le contrôleur de domaine et DNS sont installés peut être répliquée sur Microsoft Azure via Microsoft Azure Site Recovery et peut être créée dans le réseau de test, via le test de basculement. Consultez la rubrique [Considérations relatives au test de basculement](site-recovery-active-directory.md#considerations-for-test-failover) pour plus de détails.
 
 Pour exécuter un test de basculement, procédez comme suit :
 
@@ -321,7 +318,7 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 	![Pas de réseau](./media/site-recovery-vmm-to-azure/ASRE2AVMM_TestFailoverNoNetwork.png)
 
-1. Si le chiffrement des données est activé pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat qui a été émis pendant l’installation du fournisseur sur le serveur VMM, quand vous avez activé l’option d’activation du chiffrement des données pour un cloud.
+1. Si le chiffrement des données est activé pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat émis pendant l’installation du fournisseur sur le serveur VMM au moment où vous avez activé le chiffrement des données pour un cloud.
 1. Sur l’onglet **Tâches**, vous pouvez suivre la progression du basculement. Vous devriez aussi pouvoir voir le réplica de test de la machine virtuelle dans le portail Azure. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle.
 1. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération. Sous l’onglet **Tâches**, vous pouvez suivre la progression et l’état du basculement et effectuer toutes les actions nécessaires.
 1. Après le basculement, vous pouvez voir le réplica de test de la machine virtuelle dans le portail Azure. Si vous êtes autorisé à accéder aux machines virtuelles à partir de votre réseau local, vous pouvez initier une connexion Bureau à distance à la machine virtuelle. Notez les points suivants :
@@ -334,7 +331,7 @@ Pour exécuter un test de basculement, procédez comme suit :
 	- Cliquez sur **Le test de basculement est terminé**. Nettoyez l’environnement de test afin qu’il mette hors tension et supprime automatiquement les machines virtuelles de test.
 	- Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
 
-## <a id="runtest" name="runtest" href="#runtest"></a>Suivi de l’activité
+## <a id="runtest" name="runtest" href="#runtest"></a> Suivi de l’activité
 <p>Vous pouvez utiliser l'onglet *Jobs* et le *tableau de bord* pour afficher et surveiller les tâches principales effectuées par le coffre Azure&#160;Site&#160;Recovery, telles que la configuration de la protection d'un cloud, l'activation et la désactivation de la protection d'une machine virtuelle, l'exécution d'un basculement (planifié, non planifié ou test) et la validation d'un basculement non planifié.</p>
 
 <p>Depuis l'onglet *Jobs*, vous pouvez afficher les tâches, accéder aux détails de l'une d'entre elles ainsi qu'aux erreurs précédemment rencontrées lors de l'exécution de celle-ci, exécuter des requêtes de tâches pour récupérer les tâches qui correspondent à des critères spécifiques, exporter des tâches sur Excel et redémarrer celles qui ont échoué.</p>
@@ -350,4 +347,4 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -109,7 +109,7 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 	| Pendant l’approvisionnement | Approvisionnement terminé |
 	| ------------------ | --------------------- |
-	| ![Indicateur de configuration sur le tableau d'accueil](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
+	| ![Indicateur d’approvisionnement sur le tableau d'accueil](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-hadoop-tutorial-get-started-windows/provisioned.png) |
 
 	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d'accueil, ou l'entrée **Notifications** à gauche de la page pour vérifier le processus de d'approvisionnement.
 
@@ -282,4 +282,4 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -30,4 +30,4 @@
 7. Cliquez sur **Ouvrir** pour démarrer une session série.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

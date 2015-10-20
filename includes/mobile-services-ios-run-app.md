@@ -15,4 +15,4 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
  	</div>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

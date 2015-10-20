@@ -2,7 +2,7 @@
 	pageTitle="Application Insights pour les applications Web JavaScript | Microsoft Azure"
 	description="Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -184,4 +184,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

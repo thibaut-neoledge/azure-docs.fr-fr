@@ -194,4 +194,4 @@ Le code suivant illustre une implémentation simple de ParallelTaskProcessor.Run
 ###Envoi de travaux à Batch Apps
 Un travail décrit une charge de travail à exécuter et doit inclure toutes les informations sur la charge de travail à l'exception du contenu du fichier. Par exemple, le travail contient des paramètres de configuration qui vont du client à l'outil de fractionnement du travail, puis aux tâches. Les exemples fournis sur MSDN montrent comment envoyer des tâches et fournir plusieurs clients, y compris un portail web et un client de ligne de commande.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

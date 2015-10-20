@@ -19,7 +19,13 @@
 
 # Créer une application web Java avec DocumentDB
 
-Ce didacticiel d’application web Java vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d’une application Java hébergée sur Azure Websites. Dans cette rubrique, vous allez apprendre à :
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
+Ce didacticiel d’application web Java vous montre comment utiliser le service [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) pour stocker les données et y accéder à partir d’une application Java hébergée sur Sites Web Azure. Dans cette rubrique, vous allez apprendre à :
 
 - Créer une application de base JSP dans Eclipse.
 - Utiliser le service Azure DocumentDB avec le [Kit de développement logiciel (SDK) Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
@@ -49,7 +55,7 @@ Pour configurer un compte de base de données DocumentDB dans Azure :
 ![Création d’un compte DocumentDB – Didacticiel de base de données Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
 
 
-##<a id="CreateJSP"></a>Étape 2 : création de l’application JSP Java
+##<a id="CreateJSP"></a>Étape 2 : Création de l’application JSP Java
 
 Pour créer l'application JSP :
 
@@ -358,7 +364,7 @@ Pour ce faire, vous devez convertir votre projet en projet Maven en procédant c
 	    }
 
 
-##<a id="Wire"></a>Étape 5 : association des éléments restants du projet de développement d’applications Java
+##<a id="Wire"></a>Étape 5 : Association des éléments restants du projet de développement d’applications Java
 
 Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une interface utilisateur rapide et à l'associer à notre objet d'accès aux données.
 
@@ -735,7 +741,7 @@ Maintenant que nous avons terminé l'aspect amusant, il nous reste à créer une
 
 6. Une fois que l’élément s’affiche, vous pouvez le mettre à jour s’il est terminé en cochant la case et en cliquant sur **Update Tasks**.
 
-##<a id="Deploy"></a>Étape 6 : déploiement de votre application Java sur Azure Websites
+##<a id="Deploy"></a>Étape 6 : Déploiement de votre application Java sur Sites Web Azure
 
 Azure Websites permet de déployer facilement les applications Java en exportant votre application sous forme de fichier WAR et en la téléchargeant via le contrôle de code source (GIT, par exemple) ou FTP.
 
@@ -780,4 +786,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 
 <properties
    pageTitle="Prise en main de la configuration de votre équilibreur de charge accessible sur Internet | Microsoft Azure"
-	description="Définissez votre premier jeu d'équilibrage de charge accessible sur Internet pour vos machines virtuelles ou vos services cloud."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Définissez votre premier jeu d'équilibrage de charge accessible sur Internet pour vos machines virtuelles ou vos services cloud."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/12/2015"
+   ms.author="joaoma" />
 
 # Prise en main de la configuration de votre équilibreur de charge accessible sur Internet
 
@@ -136,4 +136,4 @@ Dans l'exemple ci-dessous, vous allez ajouter un équilibrage de charge appelé 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

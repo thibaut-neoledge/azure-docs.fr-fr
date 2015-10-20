@@ -35,4 +35,4 @@ Pour créer un réseau virtuel selon le scénario ci-dessus à l’aide du porta
 
 	![Liste des sous-réseaux dans le réseau virtuel](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

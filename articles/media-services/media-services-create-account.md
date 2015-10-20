@@ -92,4 +92,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
   [portail Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

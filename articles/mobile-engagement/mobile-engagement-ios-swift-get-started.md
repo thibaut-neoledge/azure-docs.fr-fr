@@ -210,4 +210,4 @@ Mobile Engagement vous permet d'interagir et d'atteindre vos utilisateurs à l'
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

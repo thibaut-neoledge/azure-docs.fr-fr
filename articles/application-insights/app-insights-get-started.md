@@ -75,4 +75,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

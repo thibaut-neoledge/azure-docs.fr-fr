@@ -39,4 +39,4 @@ Lorsque vous souhaitez créer une expérience, recherchez des exemples d'expéri
 - [Créez une API de service web](machine-learning-publish-a-machine-learning-web-service.md)
 - [Parcourez des applications prêtes à l'emploi](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

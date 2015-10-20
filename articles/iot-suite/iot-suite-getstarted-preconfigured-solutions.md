@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Didacticiel de prise en main des solutions préconfigurées Microsoft Azure IoT Suite | Microsoft Azure"
+	pageTitle="Prise en main des solutions préconfigurées | Microsoft Azure"
 	description="Suivez ce didacticiel pour apprendre à déployer une solution préconfigurée Azure IoT Suite."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# Prise en main des solutions préconfigurées IoT
+# Didacticiel : prise en main des solutions préconfigurées IoT
 
 ## Introduction
 
@@ -110,9 +110,9 @@ Maintenant que vous avez créé une solution préconfigurée opérationnelle, vo
 
 -   [Vue d’ensemble d’IoT Suite][]
 
-[Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-fr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
 [Conseils sur la personnalisation des solutions préconfigurées]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [Vue d’ensemble d’IoT Suite]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

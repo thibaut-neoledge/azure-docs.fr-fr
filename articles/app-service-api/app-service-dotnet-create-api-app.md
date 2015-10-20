@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="10/08/2015"
 	ms.author="tdykstra"/>
 
 # Créer une application API ASP.NET dans Azure App Service
@@ -28,7 +28,7 @@
 
 Ce didacticiel montre comment créer un projet d’API web ASP.NET configuré pour un déploiement dans le cloud en tant qu’[application API dans Azure App Service](app-service-api-apps-why-best-platform.md). Pour plus d'informations sur la configuration d'un projet d'API web existant pour le déploiement en tant qu'application API, consultez la rubrique [Configurer un projet d'API web comme une application API](app-service-dotnet-create-api-app-visual-studio.md).
 
-Les didacticiels suivants de la série montrent comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API que vous créez dans ce didacticiel.
+Il s’agit d’un didacticiel rapide et simple qui affiche uniquement la création d’un projet Visual Studio à l’aide d’un modèle. C’est le premier d’une série qui montre également comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API que vous créez dans ce didacticiel. Pour plus d’informations approfondies sur l’utilisation des applications API, consultez la section [Étapes suivantes](#next-steps) à la fin du didacticiel.
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
@@ -50,4 +50,14 @@ Lorsque les instructions vous invitent à saisir un nom pour le projet, saisisse
 
 Votre application API est maintenant prête à être déployée et vous pouvez pour cela suivre le didacticiel [Déployer une application API](app-service-dotnet-deploy-api-app.md).
 
-<!---HONumber=Oct15_HO1-->
+Pour plus d’informations sur l’utilisation du code client généré automatiquement pour appeler les applications API, consultez [Utiliser une application API à partir d’un client .NET](app-service-api-dotnet-consume.md).
+
+Pour plus d’informations sur la personnalisation des métadonnées Swagger générées automatiquement pour une application API, consultez [Personnaliser des définitions d’API générées par Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+
+Pour plus d’informations sur la façon de créer, supprimer et configurer les applications API dans le portail Azure en version préliminaire, consultez [Gérer des applications API](app-service-api-manage-in-portal.md).
+
+Pour plus d’informations sur l’authentification des utilisateurs des applications API, consultez [Authentification pour les applications API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
+
+Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

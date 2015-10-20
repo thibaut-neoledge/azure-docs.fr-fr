@@ -89,4 +89,4 @@ Pour déployer le modèle ARM que vous avez téléchargé à l’aide de l’int
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

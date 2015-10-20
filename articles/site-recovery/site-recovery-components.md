@@ -178,4 +178,4 @@ Pour plus d’informations sur la planification de ces composants, consultez la 
 
 Commencez à configurer les composants pour votre scénario de déploiement. [En savoir plus](site-recovery-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

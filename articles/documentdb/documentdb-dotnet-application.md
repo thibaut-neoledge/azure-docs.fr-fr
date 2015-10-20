@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>Développement d’une application web avec ASP.NET MVC et DocumentDB.
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure DocumentDB pour stocker et interroger les documents JSON, cet article fournit une procédure de bout en bout vous montrant comment créer une application web de liste todo à l'aide d'Azure DocumentDB. Ces dernières sont stockées en tant que documents JSON dans Azure DocumentDB.
 
 ![Capture d'écran de l'application web todo list créée dans ce didacticiel](./media/documentdb-dotnet-application/image1.png)
@@ -85,7 +91,7 @@ Maintenant que vous avez un compte, nous allons créer notre nouveau projet ASP.
 
 	Nous allons sauter l'exécution du projet localement, car je suis sûr que nous avons tous vu l'application « Hello World » ASP.NET. Nous allons maintenant ajouter DocumentDB à ce projet et créer notre application.
 
-## <a name="_Toc395637767"></a>Étape 3 : ajout de DocumentDB à votre projet d’application Web
+## <a name="_Toc395637767"></a>Étape 3 : Ajout de DocumentDB à votre projet d’application Web
 
 Maintenant que nous avons la plupart des éléments ASP.NET MVC nécessaires à cette solution, passons au véritable objectif de ce didacticiel, à savoir, ajouter Azure DocumentDB à notre application web.
 
@@ -249,7 +255,7 @@ Dans cette section, nous allons ajouter du code pour gérer les éléments suiva
 - [Ajout d'éléments](#_Toc395637771).
 - [Modification d'éléments](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Établissement de la liste des éléments incomplets dans votre application Web
+### <a name="_Toc395637770"></a>Établissement de la liste des éléments incomplets dans votre application web
 
 La première chose à faire ici est d'ajouter une classe qui contient toute la logique permettant de se connecter à DocumentDB et de l'utiliser. Pour ce didacticiel, nous allons encapsuler toute cette logique dans une classe de référentiel appelée DocumentDBRepository.
 
@@ -448,7 +454,7 @@ Ouvrez ***App\_Start\\RouteConfig.cs***. Recherchez la ligne commençant par «�
 
 Ce code indique maintenant à ASP.NET MVC que vous n'avez pas spécifié de valeur dans l'URL pour contrôler le comportement de routage qui, au lieu de **Home**, utilise **Item** comme contrôleur et **Index** comme vue.
 
-Maintenant, si vous exécutez l'application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
+Maintenant, si vous exécutez l’application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
 
 Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
 
@@ -627,4 +633,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

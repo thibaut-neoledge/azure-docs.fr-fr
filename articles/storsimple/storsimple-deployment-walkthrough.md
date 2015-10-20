@@ -51,7 +51,7 @@ Suivez ces étapes requises pour configurer votre appareil StorSimple et le conn
 | Étape 4 : Fin de l'installation minimale de l'appareil</br>Facultatif : mise à jour de votre appareil StorSimple. | Utilisez le service de gestion pour terminer la configuration de l'appareil et lui permettre d'assurer le stockage. |
 | Étape 5 : Création d'un conteneur de volumes. | Créez un conteneur pour mettre en service les volumes. Un conteneur de volumes dispose de paramètres de compte de stockage, de bande passante et de chiffrement pour tous les volumes qu’il contient. |
 | Étape 6 : Création d'un volume. | Mettez en service le(s) volume(s) de stockage sur l'appareil StorSimple pour vos serveurs. |
-| Étape 7 : Montage, initialisation et formatage d'un volume.</br>Facultatif : Configuration de solution MPIO | Connectez vos serveurs au stockage iSCSI fourni par l'appareil. Configurez éventuellement la solution MPIO pour vous assurer que vos serveurs peuvent tolérer une panne de liaison, de réseau et d'interface. |
+| Étape 7 : Montage, initialisation et formatage d'un volume.</br>Facultatif : Configuration de solution MPIO | Connectez vos serveurs au stockage iSCSI fourni par l'appareil. Vous avez la possibilité de configurer la solution MPIO pour vous assurer que vos serveurs peuvent tolérer une panne de liaison, de réseau et d’interface. |
 | Étape 8 : Sauvegarde. | Configurez votre stratégie de sauvegarde pour protéger vos données. |
 | | |
 | **AUTRES PROCÉDURES** | Vous devrez peut-être faire référence à ces procédures lors du déploiement de votre solution. |
@@ -93,7 +93,7 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | **Création d’un volume** | Détails de chaque volume | Nom du volume : | |
 | | | Taille : | |
 | | | Type d'utilisation : | |
-| | | Nom ACR : | |
+| | | Nom ACR : | |
 | | | Stratégie de sauvegarde par défaut : | |
 | | | | |
 | **Monter, initialiser et formater un volume** | Détails pour chaque serveur hôte se connectant au stockage | Nom du serveur Windows : | |
@@ -141,7 +141,7 @@ Avant de commencer, assurez-vous que :
 | **DNS** | Est-ce un nom DNS valide qui peut résoudre des URL Azure ? | `Resolve-DnsName -Name www.bing.com -Server <DNS server IP address>` </br>Une autre commande qui peut être utilisée est la suivante :</br>`nslookup --dns-ip=<DNS server IP address> www.bing.com` |
 | | Vérifiez si le port 53 est ouvert. Ceci s'applique uniquement si vous utilisez un DNS externe pour votre appareil. Le DNS interne doit résoudre automatiquement les URL externes. | `Test-Port -comp dc1 -port 53 -udp -UDPtimeout 10000` </br>[Plus d'informations sur cette applet de commande](http://learn-powershell.net/2011/02/21/querying-udp-ports-with-powershell/)|
 | | | |
-| **NTP** | Nous déclenche une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
+| **NTP** | Nous déclenchons une synchronisation horaire dès que le serveur NTP est en entrée. Vérifiez que le port UDP 123 est ouvert lorsque vous entrez `time.windows.com` ou des serveurs horaires publics. | [Télécharger et utiliser ce script](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
 | **Proxy (facultatif)** | S'agit-il d'un URI et d'un port de proxy valides ? </br> Le mode d'authentification est-il correct ? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>Cette commande doit être exécutée immédiatement après la configuration du proxy Web. Si un code d’état de 200 est retourné, cela indique que la connexion est établie. |
 | | Le trafic est-il acheminé via le proxy ? | Exécutez la validation DNS, la vérification NTP ou la vérification HTTP une fois après la configuration du proxy sur votre appareil. Ceci vous indique clairement si le trafic est bloqué au niveau du proxy ou ailleurs. |
@@ -255,7 +255,7 @@ Pour vous connecter à Windows PowerShell pour StorSimple, vous devez utiliser u
 
 ## Recherche et application des mises à jour
 
-La mise à jour de votre appareil peut prendre entre 1 et 4 heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
+La mise à jour de votre appareil peut prendre entre 1 et 4 heures. Procédez comme suit pour rechercher et appliquer des mises à jour sur votre appareil.
 
 > [AZURE.NOTE]Si vous avez une passerelle configurée sur une interface réseau différente de Data 0, vous devrez désactiver les interfaces réseau Data 2 et Data 3 avant d'installer la mise à jour. Accédez à **Périphériques > Configurer** et désactivez les interfaces Data 2 et Data 3. Vous devrez réactiver ces interfaces après la mise à jour de l'appareil.
 
@@ -290,4 +290,4 @@ Procédez comme suit dans le portail Azure pour créer une sauvegarde manuelle �
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
