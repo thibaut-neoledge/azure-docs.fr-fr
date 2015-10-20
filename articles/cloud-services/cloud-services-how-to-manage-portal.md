@@ -44,9 +44,9 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 5. Si la mise à jour change le nombre de rôles ou la taille d'un des rôles, activez la case à cocher **Autoriser la mise à jour si la taille de rôle ou le nombre de rôles change** afin de permettre à la mise à jour de continuer.
 
-	>[AZURE.WARNING]Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
+	>[AZURE.WARNING] Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
 
-6. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Update even if one or more role contain a single instance** afin de permettre à la mise à niveau de continuer.
+6. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Modifier même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
 
 	Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour du service cloud que si chaque rôle dispose d'au moins deux instances de rôle (machines virtuelles). Cela permet à une machine virtuelle de traiter les demandes du client pendant que l'autre est mise à jour.
 
@@ -102,7 +102,8 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 
 5. Pour supprimer le service cloud, cliquez sur **Delete cloud service**. Ensuite, à l'invite de confirmation, cliquez sur **Yes**.
 
-> [AZURE.NOTE]Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
+> [AZURE.NOTE]
+> Si la surveillance détaillée est configurée pour votre service cloud, Azure ne supprime pas les données de surveillance de votre compte de stockage lorsque vous supprimez le service cloud. Vous devez supprimer manuellement les données. Pour plus d'informations sur les tables de mesures, consultez [cet](cloud-services-how-to-monitor.md) article.
 
 [portail Azure en version préliminaire]: https://portal.azure.com
 
@@ -113,4 +114,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
