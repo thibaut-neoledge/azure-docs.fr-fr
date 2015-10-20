@@ -82,7 +82,7 @@ Le Runbook que nous venons de créer est toujours en mode brouillon. Nous devons
 
 ## Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
 
-Nous avons testé et publié notre runbook mais, jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne peut le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Nous utilisons pour cela l’applet de commande **Add-AzureAccount**.
+Nous avons testé et publié notre Runbook, mais jusqu'à présent, il ne fait rien d'utile. Nous voulons qu’il gère les ressources Azure. Il ne peut le faire que si nous le configurons pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Nous utilisons pour cela l’applet de commande **Add-AzureAccount**.
 
 1.  Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Workflow.<br> ![Modifier un Runbook](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  La ligne **Write-Output** ne nous est plus utile. Vous pouvez donc la supprimer.
@@ -122,4 +122,4 @@ Pour l’instant, notre Runbook démarre la machine virtuelle que nous avons cod
 
 - [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

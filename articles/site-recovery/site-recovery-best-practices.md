@@ -82,7 +82,7 @@ Quel que soit le scénario de déploiement envisagé avec Site Recovery, vous d
 - [Nouveautés du cloud privé avec System Center 2012 R2 VMM](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 et les clouds](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [Planifier l’infrastructure VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Création d’un cloud privé dans VMM](https://technet.microsoft.com/fr-fr/library/jj860425.aspx)
+- [Création d’un cloud privé dans VMM](https://technet.microsoft.com/fr-FR/library/jj860425.aspx)
 - [Procédure pas à pas : Création de clouds privés avec System Center 2012 SP1 VMM](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -194,4 +194,4 @@ Après avoir consulté ces meilleures pratiques, vous pouvez amorcer le déploie
 - [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -26,4 +26,4 @@ Le service de file d’attente contient les composants suivants :
 
 - **Message :** message de tout format, d’une taille maximale de 64 Ko.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

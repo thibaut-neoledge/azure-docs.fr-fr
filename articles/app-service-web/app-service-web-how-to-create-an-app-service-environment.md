@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # Comment créer un environnement App Service #
@@ -39,12 +39,12 @@ Chaque déploiement d'ASE est un service hébergé qu'Azure gère et tient à jo
 Il existe deux façons d'accéder à l'interface utilisateur de création d'un ASE. Il est possible de la trouver en recherchant ***environnement App Service *** dans Azure Marketplace ou en accédant à Nouveau -> Web et mobilité.
 
 ### Création rapide ###
-Après avoir accédé à l'interface utilisateur de création, vous pouvez rapidement créer un ASE en entrant simplement un nom pour le déploiement. Cela crée ensuite un réseau virtuel comportant 512 adresses, un sous-réseau comportant 256 adresses sur ce réseau virtuel et un environnement ASE comportant 2 serveurs frontaux et 2 travaux dans le pool de travaux 1. Veillez à sélectionner l'emplacement où placer le système et l'abonnement dans lequel vous voulez qu'il soit. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
+Après avoir accédé à l'interface utilisateur de création, vous pouvez rapidement créer un ASE en entrant simplement un nom pour le déploiement. Cela crée ensuite un réseau virtuel comportant 512 adresses, un sous-réseau comportant 256 adresses sur ce réseau virtuel et un environnement ASE comportant 2 serveurs frontaux et 2 travaux dans le pool de travaux 1. Assurez-vous de créer un *plan App Service * ou sélectionnez-en un existant, ainsi que l’abonnement dans lequel vous souhaitez qu’il soit. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
 
 Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l’ASE est appsvcenvdemo, le nom de domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
 
 
-![][1]
+![][1] ![][4]
 
 ### Pools de ressources de calcul ###
 
@@ -76,7 +76,7 @@ La tarification pour les environnements App Service est fonction des ressources 
 ### Création d'un réseau virtuel ###
 Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant (à l’heure actuelle, seuls les réseaux virtuels « v1 » classiques sont pris en charge) s’il est suffisamment grand pour prendre en charge le déploiement d’un environnement App Service. Le réseau virtuel doit avoir au moins 512 adresses. Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses.
 
-Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquez les éléments suivants :
+Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquer les éléments suivants :
 
 - Nom du réseau virtuel
 - Plage d'adresses du réseau virtuel en notation CIDR
@@ -138,6 +138,7 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

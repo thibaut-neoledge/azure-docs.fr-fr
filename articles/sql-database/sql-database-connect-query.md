@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # Connexion et interrogation de votre base de données SQL avec C&#x23;
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 Vous souhaitez écrire un programme C# qui utilise ADO.NET pour vous connecter à une base de données SQL Azure dans le cloud.
 
@@ -64,7 +68,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 
 2. Cliquez sur **PARCOURIR* TOUT** > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
 
-3. Dans la zone de texte de filtre, vers le haut, commencez à taper le nom de votre base de données **AdventureWorksLT**.
+3. Dans la zone de texte de filtre près du haut, commencez à saisir le nom de votre base de données **AdventureWorksLT**.
 
 4. Lorsque la ligne correspondant à votre base de données sur votre serveur s’affiche, cliquez dessus. Un volet s’ouvre pour votre base de données.
 
@@ -74,11 +78,11 @@ Si vous devez installer Visual Studio, vous pouvez :
  
 	![Bouton Ouvrir dans Visual Studio][20-OpenInVisualStudioButton]
 
-7. Cliquez sur le lien **Community (gratuit) ** ou sur un lien similaire. Une nouvelle page web est ajoutée.
+7. Cliquez sur le lien **Community (gratuit)** ou sur un lien similaire. Une nouvelle page web est ajoutée.
 
 8. Utilisez les liens de la nouvelle page web pour installer Visual Studio.
 
-9. Une fois que Visual Studio est installé, sur le volet **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
+9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
 
 10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
  - Sélectionnez **Authentification SQL Server** et non **Authentification Windows**.
@@ -99,20 +103,20 @@ Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le 
 
 	![Boîte de dialogue Nouveau projet][30-VSNewProject]
 
-2. Pour le **nom**, entrez **ConnectAndQuery\_Example**. Cliquez sur **OK**.
+2. Pour le **Nom**, saisissez **ConnectAndQuery\_Example**. Cliquez sur **OK**.
 
 
 ## Étape 3 : Ajouter une référence d’assembly pour le processus de configuration
 
 
-Notre exemple de code C# utilise l’assembly .NET Framework **System.Configuration.dll**, nous allons donc ajouter y une référence.
+Notre exemple de code C# utilise l’assembly .NET Framework **System.Configuration.dll**, nous allons donc y ajouter une référence.
 
 
 1. Dans le volet **Explorateur de solutions**, cliquez avec le bouton droit sur **Références** > **Ajouter une référence**. La fenêtre **Gestionnaire de références** s’ouvre.
 
 2. Développez **Assemblys** > **Framework**.
 
-3. Faites défiler et cliquez pour surligner **System.Configuration**. Vérifiez que la case est sélectionnée.
+3. Faites défiler l’écran, puis cliquez pour surligner **System.Configuration**. Vérifiez que la case est sélectionnée.
 
 4. Cliquez sur **OK**.
 
@@ -173,7 +177,7 @@ Votre première utilisation permettra de connecter Visual Studio à votre base d
 	![Coller dans notre exemple de code de programme C#][40-VSProgramCsOverlay]
 
 2. Remplacez l’ensemble du code de démarrage dans Program.cs en collant l’exemple de code C# suivant.
- - Si vous souhaitez un exemple de code plus court, vous pouvez affecter la chaîne de connexion entière en tant que littéral pour la variable **SQLConnectionString**. Ensuite, vous pouvez effacer les deux méthodes **GetConnectionStringFromExeConfig** et **GatherPasswordFromConsole**.
+ - Si vous souhaitez un exemple de code plus court, vous pouvez affecter l’ensemble de la chaîne de connexion en tant que littéral pour la variable **SQLConnectionString**. Ensuite, vous pouvez effacer les deux méthodes **GetConnectionStringFromExeConfig** et **GatherPasswordFromConsole**.
 
 
 ```
@@ -319,7 +323,7 @@ Vous pouvez utiliser le [portail Azure en version préliminaire](http://portal.a
 
 
 
-Pour plus d’informations, consultez <br/> [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md)
+Pour plus d’informations, consultez <br/> [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
 
 
 
@@ -353,4 +357,4 @@ Pour plus d’informations, consultez <br/> [Configuration des paramètres du pa
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

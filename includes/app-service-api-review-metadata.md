@@ -25,4 +25,4 @@ Notez le point de terminaison `apiDefinition` de `/swagger/docs/v1` : par défa
 
 Pour ce didacticiel, vous pouvez accepter les valeurs par défaut. La section [Métadonnées d’une application API](#api-app-metadata) plus loin dans ce didacticiel explique comment personnaliser ces métadonnées.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

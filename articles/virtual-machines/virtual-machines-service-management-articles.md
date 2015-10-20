@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Articles pour les machines virtuelles dans la gestion des services
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Il s’agit d’une liste d’articles sur la création et la gestion des ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de gestionnaire de ressources.
+
 
 ## Prise en main
 
@@ -87,8 +88,6 @@
 
 [Comment configurer des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md)
 
-[Gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows](virtual-machines-manage-vms-azure-cli.md)
-
 ## Création de charges de travail
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [Informations de référence sur l’API REST de la gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

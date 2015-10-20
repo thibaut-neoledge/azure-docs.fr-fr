@@ -41,9 +41,9 @@ Une fois que chaque collection contient des documents, vous pouvez utiliser [Doc
 
 Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 
--	[Carte d’apprentissage de DocumentDB](documentdb-learning-map.md)
+-	[Parcours d’apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Modèle de ressource et concepts de DocumentDB](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

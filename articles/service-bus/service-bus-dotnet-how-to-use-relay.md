@@ -278,4 +278,4 @@ Maintenant que vous avez appris les principes de base du service Service Bus Rel
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [vue d’ensemble des exemples Service Bus]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

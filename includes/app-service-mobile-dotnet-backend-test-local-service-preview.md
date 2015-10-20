@@ -6,4 +6,4 @@ Le projet d'application mobile vous permet d'exécuter votre nouveau serveur pri
 
 2. Sélectionnez le projet indiqué en bas qui doit être le nom de votre application mobile, avec le terme Service ajouté à la fin. Appuyez sur  **CTRL-F5** pour télécharger les packages NuGet, générer le projet et démarrer le serveur principal d’applications mobiles localement. Lorsque vous exécutez le client de votre application mobile, pointé vers localhost, il est en communication avec votre serveur principal local.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

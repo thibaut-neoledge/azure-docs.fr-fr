@@ -11,4 +11,4 @@ Dans ce scénario, vous allez créer un réseau virtuel nommé **TestVNet** avec
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

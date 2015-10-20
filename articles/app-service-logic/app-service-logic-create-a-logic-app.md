@@ -46,7 +46,7 @@ Tout d’abord, vous devez créer les deux connecteurs que vous utiliserez : [C
 4. Sélectionnez **Paramètres de package** : vous devrez entrer ici les informations de votre application Twitter. Vous pouvez configurer une application gratuite en suivant ces étapes :
 	1. Accédez à la [Page d'inscription des applications Twitter](http://apps.twitter.com).
 	2. Créez une application.
-	3. Attribuez-lui un nom et une description. Vous pouvez entrer n'importe quelle URL pour le site web et laisser vide l'URL de rappel.
+	3. Attribuez-lui un nom et une description. Vous pouvez entrer n’importe quelle URL pour le site web et l’URL de rappel (ne pas laisser les champs vides).
 	4. Une fois l’application inscrite, copiez la **Clé du client** de Twitter dans le champ **clientId** dans Azure et la **Question secrète du client** de Twitter dans **clientSecret**.
 	5. Cliquez sur **OK** dans le volet Azure pour revenir aux autres paramètres de l’API.
 
@@ -184,4 +184,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

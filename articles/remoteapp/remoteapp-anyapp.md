@@ -110,4 +110,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

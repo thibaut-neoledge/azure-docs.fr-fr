@@ -78,4 +78,4 @@ L'Explorateur de requête vous permet de créer, de modifier et d'exécuter faci
 - Pour en savoir plus sur la syntaxe du langage SQL DocumentDB prise en charge par l’Explorateur de requête, cliquez [ici](documentdb-sql-query.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

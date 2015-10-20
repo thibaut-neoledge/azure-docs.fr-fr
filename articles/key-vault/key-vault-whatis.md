@@ -65,4 +65,4 @@ Pour plus d’informations sur l’utilisation des clés et des secrets avec Azu
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

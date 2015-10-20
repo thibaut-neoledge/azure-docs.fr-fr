@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -212,4 +212,4 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

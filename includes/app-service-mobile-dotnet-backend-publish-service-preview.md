@@ -3,4 +3,4 @@
 
 2. Sélectionnez votre service dans **Applications web existantes**, cliquez sur **OK**, puis vérifiez les informations de publication et cliquez sur **Publier**. Une fois le backend d’application mobile publié, une page vous indique que l’opération a réussi.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

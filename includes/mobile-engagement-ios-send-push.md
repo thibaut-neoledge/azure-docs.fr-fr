@@ -45,4 +45,4 @@ Nous allons maintenant créer une campagne simple de notification push qui enver
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

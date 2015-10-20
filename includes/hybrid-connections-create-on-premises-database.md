@@ -78,4 +78,4 @@ Pour terminer, vous allez créer un compte de connexion SQL Server avec des aut
 
 4. **Exécutez** la requête pour créer un compte de connexion et accorder les autorisations requises dans la base de données locale.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

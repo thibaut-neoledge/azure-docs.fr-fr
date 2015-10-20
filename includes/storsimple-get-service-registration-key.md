@@ -22,4 +22,4 @@
 
 Pour visionner une vidéo qui montre comment obtenir la clé d’inscription du service, cliquez [ici](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

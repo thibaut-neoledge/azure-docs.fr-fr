@@ -79,4 +79,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!-----HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO3-->

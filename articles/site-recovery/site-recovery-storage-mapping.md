@@ -105,4 +105,4 @@ MV5 | C:\\ClusterStorage\\SourceVolume3 | N/A | Aucun mappage. Donc, l’emplace
 
 Maintenant que vous avez une meilleure compréhension du mappage de stockage, lisez les [meilleures pratiques](site-recovery-best-practices.md) de préparation du déploiement.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

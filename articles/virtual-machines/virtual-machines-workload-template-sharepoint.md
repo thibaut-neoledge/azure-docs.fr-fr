@@ -19,7 +19,7 @@
 
 # Déployer des batteries de serveurs avec des modèles Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Suivez les instructions de cet article afin de déployer une nouvelle batterie SharePoint Server 2013 à trois ou neuf serveurs à l’aide de modèles Resource Manager.
 
@@ -184,4 +184,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

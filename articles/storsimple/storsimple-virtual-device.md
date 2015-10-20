@@ -388,4 +388,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Pour administrer votre appareil virtuel, reportez-vous à la liste détaillée des flux de travail de la section [Administrer l’appareil StorSimple à l’aide du service StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->
