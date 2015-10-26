@@ -65,4 +65,4 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

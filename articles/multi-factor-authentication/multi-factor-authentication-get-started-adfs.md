@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)"
-	description="Ceci est la page d'Azure Multi-Factor Authentication qui explique la prise en main d’Azure MFA et des services AD FS."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)" 
+	description="Ceci est la page d'Azure Multi-Factor Authentication qui explique la prise en main d’Azure MFA et des services AD FS." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
@@ -55,4 +55,4 @@ Pour plus d'informations sur la configuration d’Azure Multi-Factor Authenticat
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

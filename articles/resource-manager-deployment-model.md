@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/07/2015"
    ms.author="tomfitz"/>
 
 # Présentation du déploiement de Resource Manager et du déploiement classique
@@ -46,16 +46,20 @@ Les ressources créées par le biais de Resource Manager partagent les caractér
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Pour calculer, stocker et mettre en réseau des ressources, vous avez la possibilité d'utiliser le Gestionnaire des ressources ou le déploiement classique. Sélectionnez **Gestionnaire des ressources**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
-  - Commandes PowerShell exécutées en mode **AzureResourceManager**.
+  - Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, les commandes PowerShell s’exécutent en mode **AzureResourceManager**.
 
             PS C:\> Switch-AzureMode -Name AzureResourceManager
 
+  - Pour la version préliminaire d’Azure PowerShell 1.0, utilisez la version Resource Manager des commandes. Ces commandes ont le format *verbe-AzureRm*, comme illustré ci-dessous.
+
+            PS C:\> Get-AzureRmResourceGroupDeployment
+
   - [API REST d’Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790568.aspx) pour les opérations REST.
-  - Commandes Azure CLI exécutées en mode **arm**.
+  - Commandes de l’interface de ligne de commande Azure exécutées en mode **arm**.
 
             azure config mode arm
 
@@ -73,16 +77,20 @@ Les ressources créées dans le modèle de déploiement classique partagent les 
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Vous pouvez également accéder au portail préliminaire et spécifier qu'il s'agit d'un déploiement **classique** (pour les catégories Calcul, Stockage et Mise en réseau).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
-  - Commandes PowerShell exécutées en mode **AzureServiceManagement** (celui-ci étant le mode par défaut, si vous ne passez pas de façon spécifique à AzureResourceManager, vous êtes en mode AzureServiceManagement).
+  - Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, les commandes PowerShell s’exécutent en mode **AzureServiceManagement** (celui-ci étant le mode par défaut, si vous ne passez pas explicitement en mode AzureResourceManager, vous êtes en mode AzureServiceManagement).
 
             PS C:\> Switch-AzureMode -Name AzureServiceManagement
 
+  - Pour la version préliminaire d’Azure PowerShell 1.0, utilisez la version Service Management des commandes. Ces noms de commande **n’ont pas** le format *verbe-AzureRm*, comme illustré ci-dessous.
+
+            PS C:\> Get-AzureDeployment
+
   - [API REST de gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx) pour les opérations REST.
-  - Commandes Azure CLI exécutées en mode **asm** ou par défaut.
+  - Commandes de l’interface de ligne de commande Azure exécutées en mode **asm** ou par défaut.
 - Le type de ressource inclut **(classique)** dans le nom. L’illustration ci-dessous indique le type en tant que **compte de stockage (classique)**.
 
     ![type classique](./media/resource-manager-deployment-model/classic-type.png)
@@ -117,7 +125,7 @@ Pour plus d’informations sur l’utilisation de balises dans Resource Manager,
 
 Les ressources que vous avez créées dans le modèle de déploiement classique ne prennent pas en charge les opérations de Resource Manager. Dans certains cas, une commande Resource Manager peut récupérer des informations sur une ressource créée via un déploiement classique ou effectuer des tâches d’administration, telles que le déplacement d’une ressource classique vers un autre groupe de ressources, mais ces exemples ne doivent pas donner l’impression que le type prend en charge les opérations de Resource Manager. Par exemple, supposons que vous avez un groupe de ressources qui contient des machines virtuelles qui ont été créées avec Resource Manager et un déploiement classique. Si vous exécutez la commande PowerShell suivante, vous verrez toutes les machines virtuelles :
 
-    PS C:\> Get-AzureResourceGroup -Name ExampleGroup
+    PS C:\> Get-AzureRmResourceGroup -Name ExampleGroup
     ...
     Resources :
      Name                 Type                                          Location
@@ -147,7 +155,7 @@ Plusieurs points importants sont à prendre en compte lors de l’utilisation de
 - Les machines virtuelles déployées avec le modèle de déploiement de Resource Manager doivent être incluses dans un réseau virtuel.
 - Les machines virtuelles déployées avec le modèle de déploiement classique ne doivent pas être incluses dans un réseau virtuel.
 
-Pour obtenir une liste des commandes Azure CLI équivalentes lors de la transition d’un déploiement classique vers Resource Manager, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
+Pour obtenir une liste des commandes de l’interface de ligne de commande Azure équivalentes lors de la transition d’un déploiement classique vers Resource Manager, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
 Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
@@ -158,4 +166,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

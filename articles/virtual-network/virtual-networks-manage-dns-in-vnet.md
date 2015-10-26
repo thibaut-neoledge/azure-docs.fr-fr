@@ -65,4 +65,4 @@ Pour modifier une liste de serveurs DNS à l’aide d’un fichier de configurat
 
 [Suppression d’un réseau virtuel](../virtual-networks-delete-vnet)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

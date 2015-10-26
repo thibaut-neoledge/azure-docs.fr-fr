@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’application **SAP HANA Cloud Platform**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique \*\*.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **SAP HANA Cloud Platform**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique **.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC778552.png "Configurer l’authentification unique")
 
@@ -65,7 +65,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurer l’authentification unique")
 
-3.  Dans une autre fenêtre de navigateur web, connectez-vous à SAP HANA Cloud Platform Cockpit à l’adresse https://account.\<hôte landscape>.ondemand.com/cockpit (par exemple : \**https://account.hanatrial.ondemand.com/cockpit*).
+3.  Dans une autre fenêtre de navigateur web, connectez-vous à SAP HANA Cloud Platform Cockpit à l’adresse https://account.\<hôte landscape>.ondemand.com/cockpit (par exemple : **https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Cliquez sur l’onglet **Trust**.
 
@@ -82,7 +82,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application **SAP HANA Cloud Platform**. Il s’agit de l’URL spécifique au compte d’une ressource protégée de votre application SAP HANA Cloud Platform. L’URL est basée sur le modèle suivant :*https://\<nomApplication><nomCompte>.< hôte paysage>.ondemand.com/<chemin\_vers\_ressource\_protégée>*(par exemple : \**https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application **SAP HANA Cloud Platform**. Il s’agit de l’URL spécifique au compte d’une ressource protégée de votre application SAP HANA Cloud Platform. L’URL est basée sur le modèle suivant :*https://\<nomApplication><nomCompte>.< hôte paysage>.ondemand.com/<chemin\_vers\_ressource\_protégée>*(par exemple : **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
 		>[AZURE.NOTE]Il s’agit de l’URL de votre application SAP HANA Cloud Platform sur laquelle l’utilisateur doit s’authentifier.
 
@@ -143,7 +143,7 @@ Comme étape facultative, vous pouvez configurer des groupes basés sur une asse
 
 >[AZURE.NOTE]L’utilisation de SAP HANA Cloud Platform vous permet d’attribuer de manière dynamique un ou plusieurs utilisateurs à un ou plusieurs rôles dans vos applications SAP HANA Cloud Platform, en fonction des valeurs des attributs de l’assertion SAML 2.0. Par exemple, si l’assertion contient l’attribut « *contract=temporaire* », vous souhaiterez peut-être que tous les utilisateurs affectés soient ajoutés au groupe « *TEMPORAIRE* ». Le groupe « *TEMPORAIRE* » peut contenir un ou plusieurs rôles d’une ou plusieurs applications déployées dans votre compte SAP HANA Cloud Platform.
 >  
->Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « \*\*Autorisations\*\* » de SAP HANA Cloud Platform Cockpit.
+>Utilisez des groupes basés sur une assertion si vous souhaitez affecter en masse plusieurs utilisateurs à un ou plusieurs rôles d’applications dans votre compte SAP HANA Cloud Platform. Si vous ne souhaitez attribuer qu’un seul utilisateur ou un petit nombre d’utilisateurs à un ou des rôles spécifiques, nous vous recommandons de les attribuer directement dans l’onglet « **Autorisations** » de SAP HANA Cloud Platform Cockpit.
 
 ##Affectation d’un rôle à un utilisateur
   
@@ -179,6 +179,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

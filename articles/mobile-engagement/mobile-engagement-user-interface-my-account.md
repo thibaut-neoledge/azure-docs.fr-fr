@@ -145,4 +145,4 @@ Pour utiliser l'API Push ou l'API de l'appareil, vous devez connaître l'identif
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

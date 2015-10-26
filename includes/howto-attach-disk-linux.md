@@ -92,4 +92,4 @@ Pour attacher un disque existant, vous devez disposer d’un fichier .vhd dans u
 
 > [AZURE.NOTE]Après avoir ajouté un disque de données, vous devez vous connecter à la machine virtuelle et initialiser le disque. La machine virtuelle pourra alors utiliser ce disque pour le stockage.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

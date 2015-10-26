@@ -70,4 +70,4 @@ La capture d’écran suivante présente un exemple de la boîte de dialogue ass
   
 Vous pouvez maintenant créer un compte de test, attendre 10 minutes, puis vérifier la synchronisation du compte à Jive.com.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

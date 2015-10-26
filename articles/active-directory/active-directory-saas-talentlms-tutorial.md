@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **TalentLMS** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans la page d’intégration d’applications **TalentLMS** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-talentlms-tutorial/IC777292.png "Configurer l’authentification unique")
 
@@ -93,10 +93,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     4.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion distante**.
     5.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur TalentLMS** du portail Azure, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion distante**.
-    6.  Dans la zone de texte **ID ciblé**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-7.  Dans la zone de texte **Prénom**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Dans la zone de texte **Nom**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-9.  Dans la zone de texte **Adresse de messagerie**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    6.  Dans la zone de texte **ID ciblé**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+7.  Dans la zone de texte **Prénom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  Dans la zone de texte **Nom**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+9.  Dans la zone de texte **Adresse de messagerie**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 10. Cliquez sur **Enregistrer**.
 
 9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -130,7 +130,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte test.
 
-2.  Dans la page d’intégration d’applications \*\*TalentLMS\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **TalentLMS**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-talentlms-tutorial/IC777300.png "Affecter des utilisateurs")
 
@@ -138,6 +138,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-talentlms-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

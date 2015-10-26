@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Création d’une application web dans Azure App Service à l’aide du Kit de développement logiciel (SDK) Azure pour Java"
-	description="Apprenez à créer une application web sur Azure App Service par programme à l’aide du Kit de développement logiciel (SDK) Azure pour Java."
+	pageTitle="Création d’une application web dans Azure App Service à l’aide du Kit de développement logiciel (SDK) Azure pour Java" 
+	description="Apprenez à créer une application web sur Azure App Service par programme à l’aide du Kit de développement logiciel (SDK) Azure pour Java." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -432,7 +432,7 @@ Pour plus d’informations sur le déploiement de fichiers WAR, consultez la pag
 
 Sélectionnez un client FTP tiers pour publier l’application. Cette procédure décrit deux options : la console Kudu intégrée à Azure ; et FileZilla, un outil populaire présentant une interface utilisateur graphique pratique.
 
-> **Remarque :** le plug-in Azure pour Eclipse avec Java 2.4 prend en charge le déploiement vers les comptes de stockage et les services cloud, mais ne prend actuellement pas en charge le déploiement sur des applications web. Vous pouvez effectuer un déploiement sur des comptes de stockage et des services cloud à l’aide d’un projet de déploiement Azure comme décrit dans [Création d’une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), mais pas sur des applications web. Utilisez d’autres méthodes telles que FTP ou GitHub pour transférer des fichiers vers votre application web.
+> **Remarque :** le Kit de ressources Azure pour Eclipse prend en charge le déploiement vers les comptes de stockage et les services cloud, mais pas le déploiement sur des applications web pour le moment. Vous pouvez effectuer un déploiement sur des comptes de stockage et des services cloud à l’aide d’un projet de déploiement Azure comme décrit dans [Création d’une application Hello World pour Azure dans Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), mais pas sur des applications web. Utilisez d’autres méthodes telles que FTP ou GitHub pour transférer des fichiers vers votre application web.
 
 > **Remarque :** nous ne recommandons pas d’utiliser le client FTP à partir de l’invite de commandes Windows (l’utilitaire FTP.EXE de ligne de commandes fourni avec Windows). Les clients FTP qui utilisent le mode FTP actif, par exemple FTP.EXE, ne fonctionnent souvent pas sur les pare-feu. Le mode FTP actif spécifie une adresse basée sur le réseau local interne, à laquelle un serveur FTP ne parviendra probablement pas à se connecter.
 
@@ -600,4 +600,4 @@ Cette procédure crée une application web App Service. La ressource vous sera f
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

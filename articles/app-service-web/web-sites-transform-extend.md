@@ -182,4 +182,4 @@ Il est possible de désactiver toutes les extensions privées (non préinstallé
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

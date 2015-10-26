@@ -15,4 +15,4 @@ Le Gestionnaire de connexions hybrides permet à votre ordinateur local de se co
 
 Le programme d’installation de la connexion hybride est maintenant terminé.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

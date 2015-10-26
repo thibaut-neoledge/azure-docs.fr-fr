@@ -93,4 +93,4 @@ Les appliances virtuelles dépendent des [itinéraires définis par l’utilisat
 - [Réserver une adresse IP publique](../virtual-networks-reserved-public-ip.md).
 - En savoir plus sur les [Itinéraires définis par l’utilisateur et le transfert IP](virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

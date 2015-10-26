@@ -28,7 +28,7 @@ De quel type d’application disposez-vous ?
 
 * [Application web Azure : rôles Web et de travail](app-insights-cloudservices.md)
 * [Application web sur IIS dans Azure VM](../insights-perf-analytics.md)
-* [Application hors d’Azure](app-insights-get-started.md)
+* [Application hors d’Azure](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@ De quel type d’application disposez-vous ?
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

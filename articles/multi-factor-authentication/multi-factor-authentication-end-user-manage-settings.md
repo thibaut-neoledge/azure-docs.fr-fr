@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Gestion de vos paramètres Azure MFA"
-	description="Ce document fournit aux utilisateurs des informations sur l’emplacement auquel accéder pour gérer leurs paramètres Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Gestion de vos paramètres Azure MFA" 
+	description="Ce document fournit aux utilisateurs des informations sur l’emplacement auquel accéder pour gérer leurs paramètres Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Modification des paramètres avec Azure Multi-Factor Authentication
@@ -71,4 +71,4 @@ Si vous utilisez l’authentification multifacteur avec Azure, vous pouvez chang
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

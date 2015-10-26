@@ -242,4 +242,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 - [Consignes et limitations générales de base de données Azure SQL](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Gestion des ressources](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

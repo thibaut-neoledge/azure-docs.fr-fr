@@ -40,4 +40,4 @@ Joindre votre ordinateur à Azure AD à partir du menu Paramètres
 * [En savoir plus sur les scénarios d'utilisation et les considérations relatives au déploiement pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

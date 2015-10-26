@@ -52,4 +52,4 @@ Ouvrez ensuite une invite de commandes sur l’ordinateur Windows 7 et exécute
 
 Le journal des événements Windows sur l’ordinateur Windows 7 affiche des messages liés à la jonction d’espace de travail. Vous pouvez y trouver des messages pour les événements de jonction d’espace de travail qui ont réussi et pour ceux qui ont échoué. Le journal des événements se trouve dans l’Observateur d’événements, sous Journaux des services et Applications > Microsoft > Jonction d’espace de travail.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

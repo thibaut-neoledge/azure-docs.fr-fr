@@ -1,5 +1,5 @@
 ## Adresse IP publique
-Une ressource d'adresse IP publique fournit une adresse IP publique réservée ou une adresse IP publique dynamique. Bien que vous puissiez créer une adresse IP publique en tant qu’objet autonome, vous devez l’associer à un autre objet pour utiliser réellement l’adresse. Vous pouvez associer une adresse IP publique à un équilibrage de charge, à une passerelle d’application ou à une carte réseau pour fournir un accès Internet à ces ressources.
+Une ressource d’adresse IP publique fournit une adresse IP réservée ou une adresse IP dynamique accessible sur Internet. Bien que vous puissiez créer une adresse IP publique en tant qu’objet autonome, vous devez l’associer à un autre objet pour utiliser réellement l’adresse. Vous pouvez associer une adresse IP publique à un équilibrage de charge, à une passerelle d’application ou à une carte réseau pour fournir un accès Internet à ces ressources.
 
 |Propriété|Description|Exemples de valeurs|
 |---|---|---|
@@ -40,4 +40,4 @@ Exemple d’adresse IP publique au format JSON :
 - En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md).
 - Consultez la [documentation de référence API REST](https://msdn.microsoft.com/library/azure/mt163638.aspx) pour les adresses IP publiques.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

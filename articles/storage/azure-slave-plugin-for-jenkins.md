@@ -1,11 +1,11 @@
 <properties
     pageTitle="Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Jenkins | Microsoft Azure"
-	description="Décrit comment utiliser le plug-in subordonné Azure avec la solution d’intégration continue Jenkins"
+    description="Décrit comment utiliser le plug-in subordonné Azure avec la solution d’intégration continue Jenkins"
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe" />
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="v-dedomi"/>
+    ms.author="v-dedomi"/>
 
 # Utilisation du plug-in subordonné Azure avec la solution d’intégration continue Jenkins
 
@@ -204,4 +204,4 @@ Dans cette section, vous allez créer un travail Jenkins qui s'exécutera sur un
 
 Jenkins crée ensuite un nœud subordonné à l’aide du modèle créé dans la section précédente, puis il exécute le script que vous avez spécifié dans l’étape de build pour cette tâche.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

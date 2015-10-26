@@ -38,4 +38,4 @@ Service Fabric introduit un modèle d'intégrité qui fournit une fonctionnalit�
 - [Utilisation des rapports d'intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Ajout de rapports d'intégrité de Service Fabric personnalisés](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

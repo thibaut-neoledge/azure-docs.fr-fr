@@ -45,4 +45,4 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 * Consultez le [didacticiel de mise en route](../automation-create-runbook-from-samples.md) d'Azure Automation.
 * Consultez les [scripts PowerShell pour Azure Key Vault](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

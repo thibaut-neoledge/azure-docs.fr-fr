@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données depuis Sybase | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis une base de données Sybase à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données depuis Sybase | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis une base de données Sybase à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis Sybase à l’aide d’Azure Data Factory 
@@ -264,4 +264,4 @@ Sybase prend en charge les types T-SQL et T-SQL. Pour une table de mappage de ty
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

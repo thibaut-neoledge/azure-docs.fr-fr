@@ -1,20 +1,20 @@
 <properties 
-    pageTitle="Utilisation de données géographiques dans Azure DocumentDB | Microsoft Azure"
-	description="Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB."
-	services="documentdb"
-	documentationCenter=""
-	authors="arramac"
-	manager="jhubbard"
-	editor="monicar"/>
+    pageTitle="Utilisation de données géographiques dans Azure DocumentDB | Microsoft Azure" 
+    description="Comprendre comment créer, indexer et interroger les objets spatiaux avec Azure DocumentDB." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="arramac" 
+    manager="jhubbard" 
+    editor="monicar"/>
 
 <tags 
-    ms.service="documentdb"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="08/11/2015"
-	ms.author="arramac"/>
+    ms.service="documentdb" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="data-services" 
+    ms.date="08/11/2015" 
+    ms.author="arramac"/>
     
 # Utilisation de données géospatiales dans Azure DocumentDB
 
@@ -355,4 +355,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

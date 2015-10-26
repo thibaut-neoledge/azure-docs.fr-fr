@@ -92,4 +92,4 @@
 Le service utilise maintenant la balise de l'identifiant utilisateur pour envoyer une notification Push (avec le texte de l'élément inséré) à toutes les inscriptions créées par l'utilisateur connecté.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

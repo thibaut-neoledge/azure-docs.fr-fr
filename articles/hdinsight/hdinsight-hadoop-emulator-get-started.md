@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Prise en main de l'émulateur Hadoop pour HDInsight | Microsoft Azure"
 	description="Utiliser un émulateur installé avec un didacticiel MapReduce et d'autres exemples pour en savoir plus l'écosystème Hadoop. L'émulateur HDInsight fonctionne comme un bac à sable (sandbox) Hadoop."
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -13,7 +14,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
@@ -497,4 +498,4 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

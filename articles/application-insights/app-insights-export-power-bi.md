@@ -36,7 +36,7 @@ Noam Ben Zeev montre ce que nous décrivons dans cet article.
 
 ## Analyser votre application avec Application Insights
 
-Si vous n’avez pas encore essayé, c’est le moment ou jamais. Application Insights peut analyser n’importe quelle application web ou pour appareil sur un large éventail de plateformes, y compris Windows, iOS, Android et J2EE. [Mise en route](app-insights-get-started.md)
+Si vous n’avez pas encore essayé, c’est le moment ou jamais. Application Insights peut analyser n’importe quelle application web ou pour appareil sur un large éventail de plateformes, y compris Windows, iOS, Android et J2EE. [Mise en route](app-insights-overview.md)
 
 ## Créer un stockage dans Azure
 
@@ -239,4 +239,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

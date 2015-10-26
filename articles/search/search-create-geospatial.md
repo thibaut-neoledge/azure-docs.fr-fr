@@ -7,7 +7,6 @@
 	manager="mblythe" 
 	editor=""/>
 
-
 <tags 
 	ms.service="search" 
 	ms.devlang="rest-api" 
@@ -16,7 +15,6 @@
 	ms.tgt_pltfrm="na" 
 	ms.date="07/08/2015" 
 	ms.author="heidist"/>
-
 
 # Création d'une application de recherche géospatiale à l'aide de Azure Search
 
@@ -169,4 +167,4 @@ Pour votre apprentissage personnel, essayez d'ajouter d'autres fonctionnalités 
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

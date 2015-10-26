@@ -55,7 +55,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD puis dans la page d’intégration d’application **InsideView**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD puis dans la page d’intégration d’application **InsideView**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-insideview-tutorial/IC794131.png "Configurer l’authentification unique")
 
@@ -63,7 +63,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-insideview-tutorial/IC794132.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de réponse d’InsideView**, tapez votre URL d’authentification InsideView (par exemple, \*`https://my.insideview.com/iv/<STS Name>/login.iv`), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de réponse d’InsideView**, tapez votre URL d’authentification InsideView (par exemple, *`https://my.insideview.com/iv/<STS Name>/login.iv`), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-insideview-tutorial/IC794133.png "Configurer l’URL de l’application")
 
@@ -88,20 +88,20 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 		>[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
     4.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **STS Certificate**.
-    5.  Dans la zone de texte **Crm User Id Mapping**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-6.  Dans la zone de texte **Crm Email Mapping**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Dans la zone de texte **Crm First Name Mapping**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-8.  Dans la zone de texte **Crm lastName Mapping**, entrez \*\***http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    5.  Dans la zone de texte **Crm User Id Mapping**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+6.  Dans la zone de texte **Crm Email Mapping**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+7.  Dans la zone de texte **Crm First Name Mapping**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+8.  Dans la zone de texte **Crm lastName Mapping**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 9.  Cliquez sur **Enregistrer**.
 
-8.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-insideview-tutorial/IC794137.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
   
 Pour permettre aux utilisateurs Azure AD de se connecter à InsideView, vous devez les approvisionner dans InsideView. Dans le cas d’InsideView, l’approvisionnement est une tâche manuelle.
   
-Pour obtenir des utilisateurs ou des contacts créés dans InsideView, contactez votre responsable de réussite client ou envoyez un courrier électronique à \*\***support@insideview.com**
+Pour obtenir des utilisateurs ou des contacts créés dans InsideView, contactez votre responsable de réussite client ou envoyez un courrier électronique à ****support@insideview.com**
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte d’utilisateur, fourni par InsideView, pour approvisionner des comptes utilisateur AAD.
 
@@ -113,14 +113,14 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*InsideView\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **InsideView**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-insideview-tutorial/IC794138.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-insideview-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -52,4 +52,4 @@ Enfin, consultez la [vue d’ensemble sur le chargement][] qui présente différ
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

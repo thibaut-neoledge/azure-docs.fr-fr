@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -45,15 +45,14 @@ Exploitez les informations des sections [Mise à jour des bases de données SQL 
 
 - Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - base de données SQL Azure. Si vous n’avez pas de base de données SQL, créez-en une en procédant de la manière décrite dans [Créer votre première base de données SQL Azure](sql-database-get-started.md).
-- Azure PowerShell. Vous pouvez télécharger et installer les modules Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+- Azure PowerShell.
 
-Les applets de commande permettant de modifier le niveau de service de bases de données SQL Azure figurent dans le module Azure Resource Manager. Si vous démarrez Azure PowerShell, les applets de commande du module Azure sont importées par défaut. Pour passer au module Azure Resource Manager, utilisez l'applet de commande Switch-AzureMode.
+> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-	Switch-AzureMode -Name AzureResourceManager
 
-Si vous exécutez l’applet de commande **Switch-AzureMode** et recevez l’avertissement « *L’applet de commande Switch-AzureMode est déconseillée et sera supprimée dans une version future* », ce n’est pas un problème ; passez simplement à l’étape suivante pour configurer vos informations d’identification.
+Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
+
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
 
@@ -79,7 +78,7 @@ Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l
 
 ## Modification des niveaux de service et de performances de votre base de données SQL
 
-Exécutez l’applet de commande **Set-AzureSqlDatabase** et définissez **- RequestedServiceObjectiveName** sur le niveau de performances correspondant au niveau de tarification souhaité. Par exemple *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, et ainsi de suite.
+Exécutez l’applet de commande **Set-AzureRMSqlDatabase** et définissez **- RequestedServiceObjectiveName** sur le niveau de performances correspondant au niveau de tarification souhaité. Par exemple *S0*, *S1*, *S2*, *S3*, *P1*, *P2*, et ainsi de suite.
 
     $ResourceGroupName = "resourceGroupName"
     
@@ -100,7 +99,7 @@ Exécutez l’applet de commande **Set-AzureSqlDatabase** et définissez **- Req
 ## Exemple de script PowerShell pour modifier les niveaux de service et de performances de votre base de données SQL
 
     
-	Switch-AzureMode -Name AzureResourceManager
+
     
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     
@@ -116,7 +115,7 @@ Exécutez l’applet de commande **Set-AzureSqlDatabase** et définissez **- Req
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ScaleRequest = Set-AzureSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
+    $ScaleRequest = Set-AzureRMSqlDatabase -DatabaseName $DatabaseName -ServerName $ServerName -ResourceGroupName $ResourceGroupName -Edition $NewEdition -RequestedServiceObjectiveName $NewPricingTier
     
     $ScaleRequest
     
@@ -125,13 +124,14 @@ Exécutez l’applet de commande **Set-AzureSqlDatabase** et définissez **- Req
 
 ## Étapes suivantes
 
-- [Montée et descente en puissance](sql-database-elastic-scale-get-started.md)
-- [Connexion à une base de données SQL et interrogation avec SSMS](sql-database-connect-query-ssms.md)
-- [Exportation d’une base de données SQL Azure](sql-database-export-powershell.md)
+- [Faire monter ou descendre en puissance](sql-database-elastic-scale-get-started.md)
+- [Se connecter à une base de données SQL et l’interroger avec SSMS](sql-database-connect-query-ssms.md)
+- [Exporter une base de données SQL Azure](sql-database-export-powershell.md)
 
 ## Ressources supplémentaires
 
 - [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Applets de commande de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/mt163521.aspx).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

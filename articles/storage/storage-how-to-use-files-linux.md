@@ -3,7 +3,7 @@
         description="Créez un partage de fichiers dans le cloud et montez-le à partir d’une machine virtuelle Azure ou une application locale en cours d’exécution sur Linux."
         services="storage"
         documentationCenter="na"
-        authors="jutang"
+        authors="jasontang501"
         manager="jahogg"
         editor="" />
 
@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="09/28/2015"
+      ms.date="10/06/2015"
       ms.author="jutang;tamram" />
 
 
@@ -28,7 +28,7 @@ Les applications exécutées dans Azure permettent de monter facilement des part
 
 Notez que dans la mesure où le client SMB Linux ne prend pas encore en charge le chiffrement, le montage d’un partage de fichiers à partir de Linux requiert toujours que le client soit situé dans la même région Azure que le partage de fichiers. Toutefois, la prise en charge du chiffrement pour Linux est prévu par les développeurs Linux responsables de la fonctionnalité SMB. Les distributions Linux qui prendront en charge le chiffrement à l’avenir seront en mesure de monter un partage de fichiers Azure à partir de n’importe quel endroit.
 
-## Distribution Linux à utiliser ##
+## Sélection d'une distribution Linux à utiliser ##
 
 Lorsque vous créez une machine virtuelle Linux dans Azure, vous pouvez spécifier une image Linux qui prend en charge SMB 2.1 ou version ultérieure à partir de la galerie d’images Azure. Voici une liste d’images Linux recommandées :
 
@@ -51,15 +51,13 @@ Ensuite, vous devez effectuer point de montage (mkdir mymountpoint) avant d’é
 
 Vous pouvez également ajouter des paramètres dans votre répertoire /etc/fstab pour monter le partage.
 
-Veuillez noter qu’ici, 0777 représente un code d’autorisation de fichier/répertoire qui octroie des autorisations d’exécution, de lecture ou d’écriture à tous les utilisateurs. Vous pouvez le remplacer avec un autre code d’autorisation de fichier en fonction du document d’autorisation de fichier Linux.
+Veuillez noter que 0777 représente un code d’autorisation de fichier/répertoire qui octroie des autorisations d'exécution, de lecture ou d'écriture à tous les utilisateurs. Vous pouvez le remplacer avec un autre code d’autorisation de fichier en fonction du document d’autorisation de fichier Linux.
  
 De même, pour conserver le montage d’un partage de fichiers après le redémarrage, vous pouvez ajouter un paramètre comme ci-dessous dans votre répertoire /etc/fstab :
 
     //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 
-Pour être plus précis, Voici un exemple.
-
-Si vous avez créé une machine virtuelle Azure à l’aide de l’image Linux Ubuntu Server 15.04 disponible sur Azure Marketplace, vous pouvez monter le fichier comme indiqué ci-dessous :
+Par exemple, si vous avez créé une machine virtuelle Azure à l'aide de l'image Linux Ubuntu Server 15.04 (disponible dans la galerie d'images Azure), vous pouvez monter le fichier comme indiqué ci-dessous :
 
     azureuser@azureconubuntu:~$ sudo apt-get install apt-file
     azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
@@ -85,6 +83,28 @@ Si vous utilisez Open SUSE 13.2, vous pouvez monter le fichier comme indiqué c
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+## Gestion du partage de fichiers ##
+
+Désormais, le [portail Azure en version préliminaire](https://portal.azure.com/) offre une interface utilisateur permettant de gérer le stockage de fichiers Azure. Vous pouvez effectuer les actions suivantes à partir de votre navigateur web :
+
+- Charger et télécharger des fichiers vers et à partir de votre partage de fichiers.
+- Surveiller l'utilisation réelle de chaque partage de fichiers.
+- Ajuster le quota de la taille de partage.
+- Copier la commande `net use` à utiliser pour monter le partage de fichiers à partir d'un client Windows. 
+
+Vous pouvez également utiliser l'interface de ligne de commande Azure (Azure CLI) interplateforme à partir de Linux pour gérer le partage de fichiers. L'interface de ligne de commande Azure offre un ensemble de commandes open source, interplateforme, vous permettant d'utiliser le stockage Azure, y compris le stockage de fichiers. Elle offre des fonctionnalités similaires à celles du portail Azure, ainsi que des fonctions étendues d'accès aux données. Pour obtenir des exemples, consultez [Utilisation de la CLI Azure avec Azure Storage](storage-azure-cli.md).
+
+## Développement avec le stockage de fichiers ##
+
+En tant que développeur, vous pouvez créer une application avec le stockage de fichiers à l'aide de la [bibliothèque cliente Azure Storage pour Java](https://github.com/azure/azure-storage-java). Pour obtenir des exemples de code, consultez [Utilisation du stockage de fichiers à partir de Java](storage-java-how-to-use-file-storage.md).
+
+Vous pouvez également utiliser la [bibliothèque cliente Azure Storage pour Node.js](https://github.com/Azure/azure-storage-node) pour développer sur le stockage de fichiers.
+
+## Commentaires et informations supplémentaires ##
+
+Utilisateurs de Linux, nous attendons votre avis !
+
+Le stockage de fichiers Azure pour le groupe d'utilisateurs Linux propose un forum vous permettant de partager vos commentaires lorsque vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un courrier électronique aux [utilisateurs Linux du stockage de fichiers Azure](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d'utilisateurs.
 
 ## Étapes suivantes
 
@@ -110,4 +130,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

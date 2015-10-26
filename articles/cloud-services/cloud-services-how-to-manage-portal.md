@@ -44,7 +44,7 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 5. Si la mise à jour change le nombre de rôles ou la taille d'un des rôles, activez la case à cocher **Autoriser la mise à jour si la taille de rôle ou le nombre de rôles change** afin de permettre à la mise à jour de continuer.
 
-	>[AZURE.WARNING] Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
+	>[AZURE.WARNING]Notez que si vous modifiez la taille d'un rôle (c'est-à-dire la taille de la machine virtuelle qui héberge une instance de rôle) ou le nombre de rôles, l'image de chaque instance de rôle (machine virtuelle) doit être recréée et toutes les données locales sont perdues.
 
 6. Si un des rôles de service ne comporte qu'une seule instance, activez la case à cocher **Modifier même si un ou plusieurs rôles contiennent une seule instance** afin de permettre à la mise à niveau de continuer.
 
@@ -114,4 +114,4 @@ Utiliser la procédure suivante pour supprimer un déploiement ou un service clo
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name-portal.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate-portal.md).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

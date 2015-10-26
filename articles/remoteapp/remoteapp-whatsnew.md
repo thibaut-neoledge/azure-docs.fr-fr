@@ -40,7 +40,7 @@ Que de changements ! L’équipe a été bien occupée en juin :
 - La [page d’accueil](https://www.remoteapp.windowsazure.com/) Azure RemoteApp a été repensée, constatez-le vous-même ! 
 - Le logiciel a été mis à jour dans toutes les images disponibles dans le cadre de votre abonnement.
 - Des améliorations ont été apportées aux collections hybrides, dont la compatibilité avec le tunneling forcé et la vérification de la taille du sous-réseau IP avant d’essayer de créer la collection.
-- Nous avons découvert que le caractère générique \* ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
+- Nous avons découvert que le caractère générique * ne fonctionne pas pour les webcams. À la place, vous devez spécifier l’ID d’instance ou le GUID. Nous mettrons à jour les informations de redirection pour refléter ces modifications.
 - Vous pouvez désormais ajouter un logiciel antivirus personnalisé à votre image lorsque vous créez une image de modèle à partir de la galerie Azure.
 
 Et d’autres modifications seront ajoutées en juillet. Nous reviendrons donc bientôt avec une autre mise à jour.
@@ -61,4 +61,4 @@ Vous avez besoin de voir Azure RemoteApp en action ? Découvrez le didacticiel 
 
 Merci de nous rester fidèle. Nous serons de retour le mois prochain avec d’autres mises à jour.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

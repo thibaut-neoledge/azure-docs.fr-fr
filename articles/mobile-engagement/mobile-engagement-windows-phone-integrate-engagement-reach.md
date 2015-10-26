@@ -266,4 +266,4 @@ Vous pouvez définir le rappel dans la méthode `Application_Launching` de votre
 [exigences supplémentaires pour les types d'application spécifiques]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,12 +1,12 @@
-<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN Microsoft Azure | Microsoft Azure" description="Si vous disposez d'un réseau virtuel avec une passerelle VPN entre sites, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
+<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN Microsoft Azure | Microsoft Azure" description="Si vous disposez d'un réseau virtuel avec une passerelle VPN entre sites, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
 <tags  
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Configurer un tunneling forcé ?
 
@@ -151,4 +151,4 @@ Voici d'autres applets de commande PowerShell pouvant se révéler utiles lors d
 
 Pour plus d'informations sur la sécurisation de votre trafic réseau, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 # Comment choisir les algorithmes dans Microsoft Azure Machine Learning
@@ -36,6 +36,8 @@ Ces recommandations sont des commentaires et des conseils compilés d'un grand n
 Lisez les chemins et les étiquettes d’algorithme sur l’aide-mémoire comme « Pour *&lt;étiquette de chemin&gt;* utilisez *&lt;algorithme&gt;*. ». Par exemple, « Pour *Vitesse*, utilisez la *régression logistique à deux classes*. ». Parfois, plusieurs branches sont utiles. Parfois, aucune ne sera parfaite. Ce sont des recommandations générales, donc ne vous inquiétez pas de leur exactitude. Plusieurs scientifiques des données auxquels j’ai parlé m’ont affirmé que la seule façon de trouver le meilleur algorithme est de tous les essayer.
 
 Voici un exemple d’une expérience de la [Galerie Cortana Analytics](http://gallery.azureml.net/) qui essaie plusieurs algorithmes sur les mêmes données et compare les résultats : [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+
+>[AZURE.TIP]Pour télécharger et imprimer un diagramme offrant une vue d’ensemble des fonctionnalités de Machine Learning Studio, consultez [Diagramme de vue d’ensemble des fonctionnalités d’Azure Machine Learning Studio](machine-learning-studio-overview-diagram.md).
 
 ## Types d'apprentissage automatique
 
@@ -172,7 +174,7 @@ Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azu
 
 ### Machines à vecteurs de support (SVM)
 
-Les machines à vecteurs de support (SVM) recherchent la limite qui sépare les classes par une marge aussi grande que possible. Lorsque les deux classes ne peuvent pas être clairement séparées, les algorithmes trouvent la meilleure limite possible. Comme présenté dans Azure Machine Azure, la [SVM à deux classes](https://msdn.microsoft.com/library/azure/dn905835.aspx) le fait uniquement avec une ligne droite. (Dans le jargon SVM, elle utilise un noyau linéaire). Étant donné qu’elle utilise cette approximation linéaire, elle est capable de s'exécuter assez rapidement. Elle est particulièrement utile pour les données avec de nombreuses fonctionnalités comme les données textuelles ou de génome. Dans ces cas, les SVM sont en mesure de séparer les classes plus rapidement et avec moins de surajustement que la plupart des autres algorithmes, tout en utilisant une petite quantité de mémoire.
+Les machines à vecteurs de support (SVM) recherchent la limite qui sépare les classes par une marge aussi grande que possible. Lorsque les deux classes ne peuvent pas être clairement séparées, les algorithmes trouvent la meilleure limite possible. Comme présenté dans Azure Machine Learning, la [SVM à deux classes](https://msdn.microsoft.com/library/azure/dn905835.aspx) le fait uniquement avec une ligne droite. (Dans le jargon SVM, elle utilise un noyau linéaire). Étant donné qu’elle utilise cette approximation linéaire, elle est capable de s'exécuter assez rapidement. Elle est particulièrement utile pour les données avec de nombreuses fonctionnalités comme les données textuelles ou de génome. Dans ces cas, les SVM sont en mesure de séparer les classes plus rapidement et avec moins de surajustement que la plupart des autres algorithmes, tout en utilisant une petite quantité de mémoire.
 
 ![Frontière de classe de machine à vecteurs de support][7]
 
@@ -222,4 +224,4 @@ Azure Machine Learning inclut également l'accès à une puissante infrastruct
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

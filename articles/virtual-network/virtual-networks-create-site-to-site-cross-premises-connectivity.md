@@ -99,7 +99,7 @@ Pour créer un réseau virtuel d'illustration connecté à un réseau d'entrepri
 	
 4.	Sur la page **Serveurs DNS et connectivité VPN**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 
-> [AZURE.NOTE] Sur cette page, vous pouvez sélectionner simultanément les configurations **Pointer vers un site** et **Site à site.** Dans le cadre de ce didacticiel, seule la configuration **Site à site** est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section **Serveurs DNS et connectivité VPN** dans [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=248092).
+> [AZURE.NOTE]Sur cette page, vous pouvez sélectionner simultanément les configurations **Pointer vers un site** et **Site à site.** Dans le cadre de ce didacticiel, seule la configuration **Site à site** est sélectionnée. Pour plus d'informations sur la configuration de cette page, consultez la section **Serveurs DNS et connectivité VPN** dans [À propos de la configuration d'un réseau virtuel à l'aide du portail de gestion](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -272,4 +272,4 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

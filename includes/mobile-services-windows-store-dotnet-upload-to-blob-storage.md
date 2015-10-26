@@ -142,4 +142,4 @@ La dernière étape consiste à tester l'application et à confirmer que les té
 
    	>[AZURE.NOTE]L'image est automatiquement téléchargée depuis le service de stockage d'objets blob lorsque la propriété <code>imageUri</code> du nouvel élément est liée au contrôle <strong>Image</strong>.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

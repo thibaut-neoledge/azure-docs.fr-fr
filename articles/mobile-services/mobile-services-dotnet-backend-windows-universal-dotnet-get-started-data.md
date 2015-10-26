@@ -121,4 +121,4 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

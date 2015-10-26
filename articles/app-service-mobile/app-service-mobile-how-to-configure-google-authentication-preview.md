@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Comment configurer l'authentification Google pour votre application App Services"
 	description="Découvrez comment configurer l'authentification Google pour votre application App Services."
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -67,4 +67,4 @@ Vous êtes maintenant prêt à utiliser Google pour l'authentification dans votr
 [portail de gestion Azure]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -10,4 +10,4 @@ Les propriétés clés d'une passerelle VPN sont les suivantes :
 - **Type de passerelle** : passerelle acheminée de manière dynamique ou de manière statique. 
 - **Préfixe du pool d'adresses du client VPN** : adresses IP à affecter aux clients qui se connectent dans une configuration de point à site.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

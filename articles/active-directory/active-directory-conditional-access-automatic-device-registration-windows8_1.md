@@ -52,4 +52,4 @@ Le journal des événements Windows sur l’ordinateur Windows 8.1 affiche des 
 
 La stratégie de groupe autorise une tâche planifiée sur le système qui s’exécute dans le contexte de l’utilisateur et qui est déclenchée à la connexion de l’utilisateur. La tâche inscrit l’utilisateur et l’appareil auprès d’Azure AD en mode silencieux une fois que le processus de connexion est terminé. La tâche planifiée se trouve sur les appareils Windows 8.1 dans la bibliothèque du Planificateur de tâches, sous **Microsoft** > **Windows** > **Jonction d’espace de travail**. La tâche s’exécute et inscrit tous les utilisateurs Active Directory qui s’y connectent.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

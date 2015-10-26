@@ -1,20 +1,20 @@
 <properties
    pageTitle="Migration vers la base de données SQL via SSMS"
-	description="Microsoft Azure SQL Database, migrer une base de données SQL, migration via SSMS"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Microsoft Azure SQL Database, migrer une base de données SQL, migration via SSMS"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Migration d’une base de données compatible à l’aide de SSMS
 
@@ -76,4 +76,4 @@ Le processus de déploiement peut être divisé en deux étapes : l’exportati
 ##Autres solutions
 Vous pouvez également utiliser l’utilitaire de ligne de commande appelé sqlpackage.exe pour déployer la base de données, ou exporter et importer un fichier BACPAC. L’utilitaire sqlpackage.exe utilise la même technologie DAC que le logiciel SSMS ; le résultat est donc le même. Pour plus d’informations, consultez [SqlPackage.exe sur MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -271,4 +271,4 @@ Le mode rafale accroît légèrement l'autonomie de la batterie, mais il affecte
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

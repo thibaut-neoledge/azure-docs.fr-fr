@@ -101,4 +101,4 @@ Pour plus d’informations sur l’utilisation d’un environnement App Service 
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -216,8 +216,8 @@ Si vous rencontrez les avertissements suivants lors de l'exécution du script, v
 
 Une fois le script terminé, il génère le nombre d’eDTU estimé nécessaire pour qu’un pool élastique puisse contenir toutes les bases de données candidates sur le serveur cible. Cette estimation du nombre d’eDTU peut être utilisée pour créer et configurer un pool élastique de bases de données contenant ces bases de données. Une fois que le pool est créé et que les bases de données ont été déplacées dans le pool, il doit être étroitement surveillé pendant quelques jours et les réglages de la configuration des eDTU du pool doivent être réalisés en fonction des besoins.
 
+> [AZURE.IMPORTANT]Ce script contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Pour sélectionner la totalité du script en vue de le copier, cliquez 3 fois (triple clic) sur n'importe quelle partie de texte dans le script.
 
     
     param (
@@ -435,4 +435,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

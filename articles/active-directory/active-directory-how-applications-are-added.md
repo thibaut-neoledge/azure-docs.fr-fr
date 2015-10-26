@@ -7,7 +7,6 @@
    manager="kbrint"
    editor=""/>
 
-
    <tags
       ms.service="active-directory"
       ms.devlang="na"
@@ -16,7 +15,6 @@
       ms.workload="identity"
       ms.date="07/30/2015"
       ms.author="shoatman"/>
-
 
 # Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -148,4 +146,4 @@ En savoir plus sur les procédures d'ajout d'applications à Azure AD et de con
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

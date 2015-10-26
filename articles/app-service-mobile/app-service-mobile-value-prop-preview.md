@@ -57,4 +57,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

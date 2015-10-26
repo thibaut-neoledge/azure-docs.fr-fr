@@ -1,22 +1,76 @@
 ## Groupe de sécurité réseau
-Une ressource de groupe de sécurité réseau permet de créer des limites de sécurité pour les charges de travail, en implémentant des règles d'autorisation et de refus. Ces règles peuvent être appliquées au niveau de la carte d'interface réseau (niveau des instances de machine virtuelle) ou au niveau du sous-réseau (groupe de machines virtuelles).
+Une ressource de groupe de sécurité réseau permet de créer des limites de sécurité pour les charges de travail, en implémentant des règles d'autorisation et de refus. Ces règles peuvent être appliquées à une machine virtuelle, une carte réseau ou un sous-réseau.
 
-Les propriétés clés d'une ressource de groupe de sécurité réseau sont les suivantes :
+|Propriété|Description|Exemples de valeurs|
+|---|---|---|
+|**Sous-réseaux**|Liste des ID de sous-réseau auxquels le groupe de sécurité réseau s'applique.|/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd|
+|**securityRules**|Liste des règles de sécurité qui composent le groupe de sécurité réseau|Voir [Règle de sécurité](#Security-rule) ci-dessous|
+|**defaultSecurityRules**|Liste des règles de sécurité par défaut présentes dans chaque groupe de sécurité réseau|Voir [Règles de sécurité par défaut](#Default-security-rules) ci-dessous|
 
 - **Règle de sécurité** : plusieurs règles de sécurité peuvent être définies pour un groupe de sécurité réseau. Chaque règle peut autoriser ou refuser différents types de trafic.
 
 ### Règle de sécurité
-Une règle de sécurité est une ressource enfant d'un groupe de sécurité réseau.
+Une règle de sécurité est une ressource enfant d'un groupe de sécurité réseau qui contient les propriétés ci-dessous.
 
-Les propriétés clés d'une règle de sécurité sont les suivantes :
+|Propriété|Description|Exemples de valeurs|
+|---|---|---|
+|**description**|Description de la règle|Autoriser le trafic entrant pour toutes les machines virtuelles dans un sous-réseau X|
+|**protocol**|Protocole à faire correspondre pour la règle|TCP, UDP ou *| |**sourcePortRange**|Plage de ports source à faire correspondre pour la règle|80, 100-200, *| |**destinationPortRange**|Plage de ports de destination à faire correspondre pour la règle|80, 100-200, *| |**sourceAddressPrefix**|Préfixe d'adresse source à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**destinationAddressPrefix**|Préfixe d'adresse de destination à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VirtualNetwork|
+|**direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|
+|**priority**|Priorité de la règle. Les règles sont vérifiées dans l'ordre de priorité ; une fois qu'une règle s'applique, plus aucune règle n'est testée pour la correspondance.|10, 100, 65000|
+|**access**|Type d'accès à appliquer si la règle correspond|autoriser ou refuser|
 
-- **Protocole** : protocole réseau auquel cette règle s'applique.
-- **Plage du port source** : port source, ou plage comprise entre 0 et 65535. Un caractère générique peut être utilisé pour faire correspondre tous les ports. 
-- **Plage du port de destination** : port de destination, ou plage comprise entre 0 et 65535. Un caractère générique peut être utilisé pour faire correspondre tous les ports.
-- **Préfixe d'adresse source** : plage d'adresses IP sources. 
-- **Préfixe d'adresse de destination** : plage d'adresses IP de destination.
-- **Accès** : *Autoriser* ou *Refuser* le trafic.
-- **Priorité** : valeur comprise entre 100 et 4096. Le numéro de priorité doit être unique pour chaque règle de la collection de règles de sécurité. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée.
-- **Sens** : spécifie si la règle sera appliquée au trafic dans le sens *entrant* ou *sortant*. 
+Exemple de groupe de sécurité réseau au format JSON :
 
-<!---HONumber=Sept15_HO4-->
+	{
+	    "name": "NSG-BackEnd",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	    "type": "Microsoft.Network/networkSecurityGroups",
+	    "location": "westus",
+	    "tags": {
+	        "displayName": "NSG - Front End"
+	    },
+	    "properties": {
+	        "provisioningState": "Succeeded",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	        "securityRules": [
+	            {
+	                "name": "rdp-rule",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/rdp-rule",
+	                "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+	                "properties": {
+	                    "provisioningState": "Succeeded",
+	                    "description": "Allow RDP",
+	                    "protocol": "Tcp",
+	                    "sourcePortRange": "*",
+	                    "destinationPortRange": "3389",
+	                    "sourceAddressPrefix": "Internet",
+	                    "destinationAddressPrefix": "*",
+	                    "access": "Allow",
+	                    "priority": 100,
+	                    "direction": "Inbound"
+	                }
+	            }
+	        ],
+	        "defaultSecurityRules": [
+	            { [...],
+	        "subnets": [
+	            {
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
+	            }
+	        ]
+	    }
+	}
+
+### Règles de sécurité par défaut
+Les règles de sécurité par défaut ont les mêmes propriétés que les règles de sécurité. Elles existent pour fournir une connectivité de base entre les ressources qui ont un groupe de sécurité réseau appliqué. Assurez-vous de savoir quelles [règles de sécurité par défaut](./virtual-networks-nsg.md#Default-Rules) existent.
+
+### Ressources supplémentaires
+
+- Obtenez davantage d'informations sur les [groupes de sécurité réseau](virtual-networks-nsg.md).
+- Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163615.aspx) pour les groupes de sécurité réseau.
+- Consultez la [documentation de référence d'API REST](https://msdn.microsoft.com/library/azure/mt163580.aspx) pour les règles de sécurité.
+
+<!---HONumber=Oct15_HO3-->

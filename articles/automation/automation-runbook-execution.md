@@ -109,4 +109,4 @@ Lorsque vous créez un Runbook, vous devez vous assurer que la durée d'exécuti
 
 - [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

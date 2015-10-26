@@ -21,7 +21,8 @@
 
 Une pile « LAMP » est un groupe de logiciels open source généralement installés ensemble pour permettre à un serveur d'héberger des sites web dynamiques et des applications web. Ce terme est en fait un acronyme qui représente le système d'exploitation Linux avec le serveur web Apache. Les données de site sont stockées dans une base de données MySQL et le contenu dynamique est traité par PHP.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement du Gestionnaire des ressources ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Dans ce guide, nous allons installer une pile LAMP sur une image Linux et la déployer sur Microsoft Azure.
 
@@ -455,4 +456,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

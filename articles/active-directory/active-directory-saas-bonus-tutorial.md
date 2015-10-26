@@ -53,7 +53,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Bonus.ly**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Bonus.ly**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bonus-tutorial/IC749323.png "Configurer l’authentification unique")
 
@@ -121,7 +121,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonus.ly, vous devez
 
     ![Ajouter un utilisateur](./media/active-directory-saas-bonus-tutorial/IC781045.png "Ajouter un utilisateur")
 
-    1.  Tapez les « \*\*adresse de messagerie\*\*, **prénom**, **nom** » d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
+    1.  Tapez les « **adresse de messagerie**, **prénom**, **nom** » d’un compte AAD valide que vous souhaitez approvisionner dans les zones de texte correspondantes.
     2.  Cliquez sur **Enregistrer**.
 
     >[AZURE.NOTE]Le détenteur du compte AAD recevra un message électronique contenant un lien à suivre pour confirmer le compte avant qu’il ne soit activé.
@@ -146,4 +146,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

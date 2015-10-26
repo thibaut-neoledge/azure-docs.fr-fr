@@ -34,4 +34,4 @@ Emplacement de la nouvelle application API. Vous pouvez obtenir les emplacement
       "type": "string"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

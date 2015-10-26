@@ -119,4 +119,4 @@ Le tableau suivant décrit le comportement de surveillance de Traffic Manager po
 [Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

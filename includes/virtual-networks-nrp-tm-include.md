@@ -20,4 +20,4 @@ Les propriétés clé d'un point de terminaison sont les suivantes :
 - **Poids** : poids du point de terminaison utilisé dans la gestion du trafic. 
 - **Priorité** : priorité du point de terminaison, utilisée pour définir une action de basculement. 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

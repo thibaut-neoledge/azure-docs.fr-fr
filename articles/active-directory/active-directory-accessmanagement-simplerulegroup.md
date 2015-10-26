@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -28,12 +28,10 @@
 
 3. Ensuite, sélectionnez une condition (Non égal à, Égal à, Ne commence pas par, Commence par, Ne contient pas, Contient, Ne correspond pas, Correspond), puis spécifiez une valeur pour la propriété d’utilisateur sélectionnée. Par exemple, si un groupe est affecté à une application SaaS et que vous activez l’appartenance dynamique à ce groupe en définissant une règle selon laquelle **Ajouter des utilisateurs où** a la valeur jobTitle qui est égale à (-eq) Sales Rep, tous les utilisateurs au sein de votre annuaire Azure AD dont la propriété jobTitle a la valeur Sales Rep ont accès à cette application SaaS.
 
-Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory.
+Les rubriques suivantes fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
-
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
-
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

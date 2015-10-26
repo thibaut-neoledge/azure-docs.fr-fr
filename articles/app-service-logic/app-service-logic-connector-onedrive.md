@@ -97,4 +97,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Création d'une application logique]: app-service-logic-create-a-logic-app.md
 [Définition des API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

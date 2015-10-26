@@ -117,4 +117,4 @@ Vous pouvez par exemple utiliser l'URI suivant pour accéder à un formulaire W
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Mappage du contenu CDN à un domaine personnalisé</a>
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

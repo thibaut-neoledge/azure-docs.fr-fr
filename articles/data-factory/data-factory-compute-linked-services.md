@@ -247,4 +247,4 @@ Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité 
  
    
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

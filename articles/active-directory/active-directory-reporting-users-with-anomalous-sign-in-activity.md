@@ -22,4 +22,4 @@ Il s'agit d'un rapport global qui combine les connexions suspectes des rapports 
 
 ![Utilisateurs ayant une activité de connexion anormale](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

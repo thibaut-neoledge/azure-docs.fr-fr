@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Résolution des problèmes du backend .NET Mobile Services | Microsoft Azure"
-	description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l&#39;aide du backend .NET"
+	description="Découvrez comment diagnostiquer et résoudre les problèmes liés à vos services mobiles à l'aide du backend .NET"
 	services="mobile-services"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -154,4 +154,4 @@ Les migrations peuvent être complexes et nécessitent que l'état de la base de
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

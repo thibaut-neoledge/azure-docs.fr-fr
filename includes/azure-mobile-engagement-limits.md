@@ -9,4 +9,4 @@ Critères par segment|10
 Campagnes Push actives|50 par application
 Total des campagnes Push (actives et terminées)|1 000 par application
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

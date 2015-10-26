@@ -3,7 +3,7 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 |Nom du quota|Étendue|Type|Comportement en cas de dépassement|Valeur|
 |---|---|---|---|---|
 | Nombre maximal d’espaces de noms par abonnement Azure|Espace de noms|Statique|Les demandes suivantes pour les espaces de noms supplémentaires sont rejetées par le portail de gestion Azure.|100|
-|Taille de la file d’attente/rubrique|Entité|Définie lors de la création de la file d’attente/rubrique.|Les messages entrants sont rejetés et le code appelant reçoit une exception.|1, 2, 3, 4 ou 5 Go.<br /><br />Si le [partitionnement](https://msdn.microsoft.com/library/dn520246.aspx) est activé, la taille maximale de la file d’attente/rubrique est de 80 Go.|
+|Taille de la file d’attente/rubrique|Entité|Définie lors de la création de la file d’attente/rubrique.|Les messages entrants sont rejetés et le code appelant reçoit une exception.|1, 2, 3, 4 ou 5 Go.<br /><br />Si le [partitionnement](service-bus-partitioning.md) est activé, la taille maximale de la file d’attente/rubrique est de 80 Go.|
 |Nombre de connexions simultanées sur un espace de noms|Espace de noms|Statique|Les demandes de connexions supplémentaires suivantes sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées.|NetMessaging : 1 000<br /><br />AMQP : 5 000|
 |Nombre de connexions simultanées sur une entité de file d’attente/rubrique/abonnement|Entité|Statique|Les demandes de connexions supplémentaires suivantes sont rejetées et le code appelant reçoit une exception. Les opérations REST ne sont pas comptées parmi les connexions TCP simultanées.|Limitée par la limite de connexions simultanées par espace de noms.|
 |Nombre de demandes de réception simultanées sur une entité de file d’attente/rubrique/abonnement|Entité|Statique|Les demandes de réception suivantes sont rejetées et le code appelant reçoit une exception. Ce quota s’applique au nombre combiné d’opérations de réception simultanées sur tous les abonnements à une rubrique.|5 000|
@@ -24,4 +24,4 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 |Nombre de filtres de corrélation par rubrique|À l’échelle du système|Statique|Les demandes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception.|100 000|
 |Taille des filtres SQL/actions|À l’échelle du système|Statique|Les demandes de création de filtres supplémentaires sont rejetées et le code appelant reçoit une exception.|Longueur maximale de chaîne de condition de filtre : 1 024 (1 Ko).<br /><br />Longueur maximale de chaîne d'action de règle : 1 024 (1 Ko).<br /><br />Nombre maximal d'expressions par action de règle : 32.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

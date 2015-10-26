@@ -126,4 +126,4 @@ Quand vous utilisez des tables de synchronisation, votre code client détermine 
 [Xamarin Android : activer la synchronisation hors connexion]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
 [Windows 8.1 : activer la synchronisation hors connexion]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

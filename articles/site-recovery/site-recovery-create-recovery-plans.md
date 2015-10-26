@@ -54,7 +54,7 @@ Pour créer un plan de récupération, procédez comme suit :
 	- Si vous exécutez une réplication de VMM à VMM à l’aide de SAN, sélectionnez VMM dans le champ **Type de source**, puis les serveurs VMM source et cible. Pour afficher les clouds configurés pour la réplication SAN, cliquez sur **SAN**.
 	- Si vous exécutez une réplication de VMM vers Microsoft Azure, sélectionnez VMM dans le champ **Type de source**. Sélectionnez le serveur VMM source et **Azure** en tant que cible.
 	- Si vous effectuez une réplication à partir d’un site Hyper-V, sélectionnez Site Hyper-V dans le champ Type de source. Sélectionnez le site en tant que source et **Azure **en tant que cible.
-- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
+	- Si vous exécutez une réplication de VMware ou d’un serveur physique local vers Microsoft Azure, sélectionnez un serveur de configuration en tant que source et **Azure** en tant que cible.
 
 2\. Dans **Sélectionner les machines virtuelles**, sélectionnez les machines virtuelles (ou le groupe de réplication) que vous souhaitez ajouter au groupe par défaut (Groupe 1) dans le plan de récupération.
 
@@ -124,4 +124,4 @@ Vous pouvez exécuter différents types de basculement de plan de récupération
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

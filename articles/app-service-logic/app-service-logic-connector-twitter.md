@@ -41,15 +41,15 @@ Le déclencheur **Nouveau Tweet** a été archivé. Actuellement, il est toujour
 
 ## Création d’un connecteur Twitter
 
-> [AZURE.IMPORTANT]La création d'un connecteur Twitter nécessite actuellement l'inscription d'une application API avec Twitter. Vous pouvez enregistrer une application gratuitement sur [http://apps.twitter.com](http://apps.twitter.com). Vous aurez besoin de la clé et de la clé secrète d'API Twitter pour créer un connecteur.
+> [AZURE.IMPORTANT]Lorsque vous créez un connecteur Twitter, vous pouvez choisir d’enregistrer votre propre application auprès de Twitter et d’utiliser les clés de l'application avec le connecteur Twitter. Vous pouvez enregistrer une application gratuitement sur [http://apps.twitter.com](http://apps.twitter.com). Lors de l'enregistrement, assurez-vous de fournir des URL de rappel. Vous pouvez modifier l’URL de rappel ultérieurement lorsque vous avez créé votre connecteur Twitter. Vous aurez besoin de la clé et de la clé secrète d'API Twitter pour créer un connecteur.
 
 Un connecteur peut être créé dans une application logique ou directement à partir d'Azure Marketplace. Pour créer un connecteur à partir de Marketplace :
 
-1. Créez une application Twitter gratuite à l'adresse [http://apps.twitter.com](http://apps.twitter.com)
-    * Lors de l'inscription de l'application, vous pouvez saisir n'importe quelle URL pour le site Web et laisser vide l'URL de rappel.
+1. [Facultatif] Créez une application Twitter gratuite à l'adresse [http://apps.twitter.com](http://apps.twitter.com).
+    * Lors de l'inscription de l'application, vous pouvez saisir n'importe quelle URL pour le site web. Indiquez n’importe quelle URL que vous pourrez mettre à jour ultérieurement (ne laissez pas le champ vide).
 2. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 3. Recherchez « Connecteur Twitter », sélectionnez-le et sélectionnez **Créer**.
-4. Cliquez sur les « Paramètres du package » et copiez-collez la « Clé du client » de votre application Twitter dans le champ « clientId ». Copiez-collez la « Question secrète du client » de votre application Twitter dans le champ « clientSecret » : ![][10]
+4. [Facultatif] Cliquez sur les « Paramètres du package » et copiez-collez la « Clé du client » de votre application Twitter dans le champ « clientId ». Copiez-collez la « Question secrète du client » de votre application Twitter dans le champ « clientSecret » : ![][10]
 5. Entrez les autres paramètres requis : nom du connecteur, App Service et groupe de ressources.
 6.	Cliquez sur **Create**.
 
@@ -72,9 +72,9 @@ De la même façon, vous pouvez utiliser les actions Twitter dans votre flux. S�
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic Apps](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Consultez la référence d'API REST Swagger à la page [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -90,4 +90,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-twitter/settings.PNG
 [10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

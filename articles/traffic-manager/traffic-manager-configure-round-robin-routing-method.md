@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configurer une méthode de routage du trafic en tourniquet de Traffic Manager | Microsoft Azure"
-	description="Cet article vous aide à configurer l’équilibrage de charge de tourniquet pour vos points de terminaison Traffic Manager."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Cet article vous aide à configurer l’équilibrage de charge de tourniquet pour vos points de terminaison Traffic Manager."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurer la méthode de routage du trafic en tourniquet (round robin)
 
@@ -52,4 +52,4 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

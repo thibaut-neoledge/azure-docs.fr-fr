@@ -129,4 +129,4 @@ Consultez [Modèles de messagerie asynchrone et haute disponibilité] pour une d
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [Modèles de messagerie asynchrone et haute disponibilité]: service-bus-async-messaging.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

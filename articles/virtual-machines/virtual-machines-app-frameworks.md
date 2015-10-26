@@ -21,7 +21,8 @@
 
 Ceci permet des créations efficaces, rapidement.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 | Modèle | Description | Afficher le modèle | Le déployer dès maintenant |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@ Découvrez tous les modèles à votre disposition sur [GitHub](https://github.co
 
 En savoir plus sur [Azure Resource Manager](../resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

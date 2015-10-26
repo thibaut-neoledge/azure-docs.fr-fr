@@ -21,4 +21,4 @@ Longueur du nom de la mesure | 100 | 100
  
 [Tarification et quotas dans Application Insights](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

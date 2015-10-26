@@ -19,7 +19,8 @@
 
 # Configuration d’une application métier web dans un cloud hybride pour le test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride pour tester une application métier intranet hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
@@ -198,4 +199,4 @@ Cet environnement est maintenant prêt pour le déploiement de votre application
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

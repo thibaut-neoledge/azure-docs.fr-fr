@@ -337,4 +337,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Pour configurer le routage et le transfert IP, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](virtual-network/virtual-networks-udr-how-to.md) 
 - Pour obtenir une présentation du contrôle d’accès basé sur les rôles, consultez [Contrôle d’accès basé sur les rôles dans le portail Azure de Microsoft](role-based-access-control-configure.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

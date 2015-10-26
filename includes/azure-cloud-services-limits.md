@@ -7,4 +7,4 @@ Ressource|Limite par défaut|Limite maximale
 
 <sup>1</sup>Chaque service cloud avec des rôles de travail/web peut posséder deux déploiements, un pour la production et un autre pour le développement intermédiaire. Notez aussi que cette limite s'applique au nombre de rôles distincts (configuration) et non au nombre d'instances par rôle (extensibilité).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

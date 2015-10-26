@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingestion d'événements d'application et de télémétrie à grande échelle" 
+	pageTitle="Ingestion d’événements d’application et de télémétrie à grande échelle | Microsoft Azure" 
 	description="Découvrez comment ingérer des événements d'application et de télémétrie à grande échelle dans l'ensemble de vos solutions d'entreprise." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Ingestion d’événements d’application et de télémétrie à grande échelle
@@ -29,11 +29,12 @@ Les applications modernes créent une énorme quantité d'informations lorsqu'el
  
 ## Créer
 - [Informations de référence de l'API REST des concentrateurs d'événements](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Exemples de code des concentrateurs d'événements](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Exemples de code des concentrateurs d'événements](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Services connexes
-- [Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Service Bus](http://azure.microsoft.com/services/service-bus/)
+- [Azure Storage](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

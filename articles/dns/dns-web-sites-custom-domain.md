@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Création d’enregistrements DNS personnalisés pour une application web | Microsoft Azure"
-	description="Création d’enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS. Vérification étape par étape de votre propriété de domaine à l'aide de CNAME ou de l’enregistrement A"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Création d’enregistrements DNS personnalisés pour une application web | Microsoft Azure" 
+   description="Création d’enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS. Vérification étape par étape de votre propriété de domaine à l'aide de CNAME ou de l’enregistrement A" 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # Création d’enregistrements DNS pour des applications web dans un domaine personnalisé
 
@@ -165,4 +165,4 @@ Maintenant, vous pouvez continuer à suivre les étapes dans [Configuration d'un
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

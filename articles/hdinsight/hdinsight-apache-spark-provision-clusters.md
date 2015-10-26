@@ -438,4 +438,4 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Utilisation de Sqoop avec HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -11,4 +11,4 @@ Nombre maximal d’indexeurs|10 par service de recherche
 Nombre maximal de sources de données|10 par service de recherche
 Nombre maximal de documents pouvant être indexés dans un appel unique d’indexeur|Illimité
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

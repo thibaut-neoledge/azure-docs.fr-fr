@@ -19,13 +19,14 @@
 
 # Phase 3 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de l’infrastructure SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Au cours de la phase de déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec les groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux ordinateurs SQL Server et l’ordinateur du nœud majoritaire du cluster dans la gestion des services, puis vous les combinez dans un cluster Windows Server.
 
 Vous devez procéder à cette opération avant de passer à la [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Consultez [Déploiement de SharePoint avec des groupes de disponibilité SQL Server AlwaysOn dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) pour prendre connaissance de toutes les phases.
 
-> [AZURE.NOTE]Ces instructions utilisent une image SQL Server dans la galerie d’images Azure et les coûts fixes liés à l’utilisation de la licence de SQL Server vous sont facturés. Il est également possible de créer des machines virtuelles dans Azure et d’installer vos propres licences SQL Server, mais vous devez bénéficier des avantages Software Assurance et License Mobility pour utiliser votre licence SQL Server sur une machine virtuelle, y compris une machine virtuelle Azure. Pour plus d’informations sur l’installation de SQL Server sur une machine virtuelle, consultez [Installation de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
+> [AZURE.NOTE]Ces instructions utilisent une image SQL Server dans la galerie d’images Azure et les coûts fixes liés à l’utilisation de la licence de SQL Server vous sont facturés. Vous pouvez également créer des machines virtuelles dans Azure et installer vos propres licences SQL Server, mais vous devez disposer de Software Assurance et de License Mobility pour utiliser votre licence SQL Server sur une machine virtuelle, y compris une machine virtuelle Azure. Pour plus d’informations sur l’installation de SQL Server sur une machine virtuelle, voir [Installation de SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
 
 ## Création de machines virtuelles de cluster SQL Server dans Azure
 
@@ -232,4 +233,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

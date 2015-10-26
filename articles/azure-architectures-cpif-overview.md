@@ -59,4 +59,4 @@ Pour prendre en charge le développement d'architectures de solution dans Azure,
 
 [Azure Search](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,21 @@
-<properties
-	pageTitle="Réplication Azure Storage | Microsoft Azure"
-	description="Les données de votre compte de stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)." 
-	services="storage" 
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Réplication Azure Storage | Microsoft Azure" 
+  description="Les données de votre compte de stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS)." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Réplication Azure Storage
 
@@ -55,7 +56,7 @@ Même si le stockage géo-redondant (GRS) est recommandé pour la plupart des ap
 Le stockage redondant dans une zone (ZRS) réplique vos données dans deux ou trois installations au sein d’une même région ou dans deux régions distinctes, ce qui confère aux données une durabilité supérieure à celle offerte par le stockage LRS. Si le ZRS est activé pour votre compte de stockage, vos données restent durables, même en cas de défaillance de l’une des installations.
 
 
->[AZURE.NOTE]Actuellement, le stockage ZRS est uniquement disponible pour les objets blob de blocs. Notez qu’une fois votre compte de stockage créé et la réplication ZRS sélectionnée, vous ne pouvez pas revenir en arrière et utiliser un autre type de réplication (et vice-versa).
+>[AZURE.NOTE]ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures. Notez qu’une fois votre compte de stockage créé et la réplication ZRS sélectionnée, vous ne pouvez pas revenir en arrière et utiliser un autre type de réplication (et vice-versa).
 
 
 ## Stockage géo-redondant
@@ -103,4 +104,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Émulateur de stockage Microsoft Azure 3.1 avec RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

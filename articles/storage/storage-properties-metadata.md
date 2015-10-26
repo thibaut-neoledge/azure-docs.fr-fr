@@ -106,4 +106,4 @@ L’exemple de code suivant crée un conteneur et configure ses métadonnées, p
 - [Prise en main du stockage d’objets blob pour .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

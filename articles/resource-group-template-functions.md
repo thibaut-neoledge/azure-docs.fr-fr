@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="10/13/2015"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles de gestionnaire des ressources Azure
@@ -493,6 +493,41 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
     }
 
 
+## uniqueString
+
+**uniqueString (stringForCreatingUniqueString, ...)**
+
+Effectue un hachage 64 bits des chaînes de caractères fournies pour créer une chaîne unique. Cette fonction est utile lorsque vous avez besoin créer un nom unique pour une ressource. Vous fournissez des valeurs de paramètre qui représentent le niveau d'unicité pour le résultat. Vous pouvez spécifier si le nom est unique pour votre abonnement, le groupe de ressources ou le déploiement.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| stringForCreatingUniqueString | Oui | La chaîne de base utilisée dans la fonction de hachage pour créer une chaîne unique.
+| paramètres supplémentaires le cas échéant | Non | Vous pouvez ajouter autant de chaînes que nécessaire pour créer la valeur qui spécifie le niveau d'unicité.
+
+La valeur renvoyée n'est pas une chaîne entièrement aléatoire, mais plutôt le résultat d'une fonction de hachage. La valeur renvoyée comprend 13 caractères. Son unicité globale n'est pas garantie Il se peut que vous souhaitiez associer un préfixe de votre convention d'affectation de noms à la valeur pour créer un nom plus convivial.
+
+Les exemples suivants montrent comment utiliser uniqueString pour créer une valeur unique pour différents niveaux couramment utilisés.
+
+Unique au niveau de l'abonnement
+
+    "[uniqueString(subscription().subscriptionId)]"
+
+Unique au niveau du groupe de ressources
+
+    "[uniqueString(resourceGroup().id)]"
+
+Unique au niveau du déploiement pour un groupe de ressources
+
+    "[uniqueString(resourceGroup().id, deployment().name)]"
+    
+L'exemple suivant montre comment créer un nom unique pour un compte de stockage basé sur votre groupe de ressources.
+
+    "resources": [{ 
+        "name": "[concat('ContosoStorage', uniqueString(resourceGroup().id))]", 
+        "type": "Microsoft.Storage/storageAccounts", 
+        ...
+
+
 ## variables
 
 **variables (nom\_variable)**
@@ -507,7 +542,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 ## Étapes suivantes
 - Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
-- Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour effectuer une itération un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

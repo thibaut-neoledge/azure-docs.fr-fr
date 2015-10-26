@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="v-sharos" />
 
 # Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des groupes de volumes
@@ -23,7 +23,11 @@ Vous pouvez utiliser le nœud **Groupes de volumes** du volet **Étendue** pour 
 
 Les groupes de volumes sont des pools de volumes associés utilisés pour vérifier que les sauvegardes sont cohérentes au niveau applicatif. Pour plus d’informations, consultez les sections [Volumes et groupes de volumes](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) et [Intégration avec le service VSS de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
->[AZURE.IMPORTANT]Lorsque vous configurez des groupes de volumes, ne mélangez pas des volumes partagés de cluster et des volumes non partagés de cluster dans un groupe de volumes. Le Gestionnaire d’instantanés StorSimple ne prend pas en charge les combinaisons de volumes partagés de cluster et non partagés de cluster dans un même instantané.
+>[AZURE.IMPORTANT]
+>
+> * Tous les volumes d’un groupe de volumes doivent provenir d’un fournisseur de services cloud unique.
+> 
+> * Lorsque vous configurez des groupes de volumes, ne mélangez pas des volumes partagés de cluster et des volumes non partagés de cluster dans un groupe de volumes. Le Gestionnaire d’instantanés StorSimple ne prend pas en charge les combinaisons de volumes partagés de cluster et non partagés de cluster dans un même instantané.
  
 ![Nœud de groupes de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
@@ -64,7 +68,7 @@ Exécutez la procédure suivante pour créer un groupe de volumes.
 
     ![Création d’un groupe de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
  
-    La boîte de dialogue **Créer un groupe de volumes** s’affiche.
+    La boîte de dialogue **Créer un groupe de volumes** apparaît.
 
     ![Boîte de dialogue Créer un groupe de volumes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
 
@@ -134,7 +138,7 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 
 2. Dans le volet **Étendue**, développez le nœud **Groupes de volumes**, cliquez avec le bouton droit sur un nom de groupe de volumes, puis cliquez sur **Supprimer**.
 
-3. La boîte de dialogue **Supprimer le groupe de volumes** apparaît. Tapez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
+3. La boîte de dialogue **Supprimer le groupe de volumes** apparaît. Entrez **Confirmer** dans la zone de texte, puis cliquez sur **OK**.
 
     Le groupe de volumes supprimé disparaît de la liste du volet **Résultats** et toutes les sauvegardes associées à ce groupe de volumes sont supprimées du catalogue des sauvegardes.
 
@@ -143,4 +147,4 @@ Exécutez la procédure suivante pour supprimer un groupe de volumes.
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - Découvrez comment [utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -3,9 +3,9 @@
 	description="Configurez une machine virtuelle Azure pour l’utiliser dans un environnement de science des données avec un serveur IPython à des fins d’analyse avancée."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Configurer une machine virtuelle Azure comme serveur IPython Notebook pour des analyses avancées
 
@@ -122,7 +122,7 @@ Cette opération libère la machine virtuelle, mais ne la supprime pas. Vous pou
 
 ## Étapes suivantes une fois votre machine virtuelle Azure prête à être utilisée
 
-Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine virtuelle est également utilisable sous forme de serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le Processus d’analyse avancé et technologie en action.
+Votre machine virtuelle est désormais prête à l’emploi dans vos exercices de science des données. Cette machine est également utilisable sous la forme d’un serveur Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus d’analyse Cortana (CAP).
 
 Les étapes suivantes du processus d’analyse avancé et technologie et dans Azure sont présentées dans le [Guide d'apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement, de traitement et d'échantillonnage des données dans HDInsight en vue d'en extraire de l'information pertinente avec Azure Machine Learning.
 
@@ -143,4 +143,4 @@ Les étapes suivantes du processus d’analyse avancé et technologie et dans Az
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

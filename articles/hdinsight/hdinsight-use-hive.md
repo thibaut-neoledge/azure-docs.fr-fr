@@ -159,9 +159,9 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/fr-fr/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/fr-fr/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/fr-fr/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/fr-FR/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/fr-FR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/fr-FR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -183,4 +183,4 @@ Maintenant que vous connaissez Hive et que vous avez vu comment l’utiliser ave
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -25,7 +25,7 @@
 
 Azure Active Directory (Azure AD) est le service Microsoft de gestion des annuaires et des identités basé sur le cloud mutualisé.
 
-Azure AD fournit une solution économique pour donner aux employés et aux partenaires commerciaux un accès par authentification unique pour [des milliers d’Applications SaaS de cloud](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx), comme Office 365, Salesforce.com, DropBox et Concur.
+Azure AD fournit une solution économique pour donner aux employés et aux partenaires commerciaux un accès par authentification unique à [des milliers d’Applications SaaS de cloud](http://blogs.technet.com/b/ad/archive/2014/09/03/50-saas-apps-now-support-federation-with-azure-ad.aspx), comme Office 365, Salesforce.com, DropBox et Concur.
 
 Azure AD permet également aux développeurs d’applications de se concentrer sur le développement de leur application en simplifiant et en accélérant son intégration dans une solution de gestion des identités de classe mondiale utilisée par des millions d’organisations dans le monde.
 
@@ -58,7 +58,7 @@ Votre organisation peut utiliser Azure AD pour améliorer la productivité de se
 -	En permettant aux employés d’accéder à des applications et des services cloud, ainsi que des fonctionnalités libre-service de classe mondiale où qu’ils soient et sur les appareils de leur choix.
 -	En gérant facilement et en toute sécurité l’accès employé et fournisseur à vos comptes de réseaux sociaux d’entreprise.
 -	En améliorant la sécurité des applications grâce à l’authentification multifacteur et l’accès conditionnel Azure AD.
--	En implémentant une gestion des accès aux applications cohérente et en libre-service, pour permettre aux responsables de se déplacer rapidement tout en réduisant les coûts informatiques et les frais généraux.
+-	En implémentant une gestion des accès aux applications cohérente et en libre-service, pour permettre aux responsables d'agir rapidement tout en réduisant les coûts informatiques et les frais généraux.
 -	En surveillant l’utilisation des applications et en protégeant votre entreprise contre les menaces avancées, grâce à des fonctionnalités de création de rapports et de surveillance.
 -	En fournissant un accès mobile (distant) aux applications locales.
 
@@ -104,4 +104,4 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 - [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

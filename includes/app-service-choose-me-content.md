@@ -5,8 +5,7 @@ Azure Virtual Machines peut gérer un large éventail de tâches d’hébergemen
 
 App Service est le meilleur choix pour de nombreux types de charges de travail applicatives. Une entreprise peut avoir besoin de générer ou de faire migrer un site commercial capable de gérer des millions d’accès par semaine et pouvant être déployé dans plusieurs centres de données répartis dans le monde entier. Cette même entreprise peut également avoir une application métier qui assure le suivi des notes de frais pour les utilisateurs authentifiés dans le service Active Directory d'entreprise et l'application peut avoir un composant d'appareil mobile et se connecter à des ressources et des processus d'entreprise locaux. Les notes de frais peuvent nécessiter des tâches en arrière-plan périodiques pour calculer et résumer de gros volumes d’informations. Un consultant en informatique peut adapter une application open source populaire pour configurer un système de gestion de contenu destiné à une petite entreprise. La figure ci-dessous illustre quelques-uns des types d'applications Web pouvant être exécutés dans Azure App Service.
 
-<a name="appservice_diagram"></a>
-![Diagramme d'App Service](media/app-service-choose-me-content/diagram.png)
+<a name="appservice_diagram"></a> ![Diagramme d'App Service](media/app-service-choose-me-content/diagram.png)
  
 **Figure : Azure App Service prend en charge les pages Web statiques, les applications Web populaires et les applications Web personnalisées créées avec diverses technologies. Vous pouvez également exécuter des backends mobiles, des applications API et des charges de travail de calcul non web (à l'aide de la fonctionnalité WebJobs).**
 
@@ -20,4 +19,4 @@ Les développeurs peuvent créer des applications Web volumineuses et évolutive
 
 Comme indiqué dans la [figure](#appservice_diagram) ci-dessus, vous pouvez publier du code et d'autres contenus Web dans Azure App Service de différentes manières. Vous pouvez utiliser FTP, FTPS ou la technologie WebDeploy de Microsoft. Azure App Service prend également en charge la publication de code provenant des systèmes de contrôle de code source, y compris Git, GitHub, CodePlex, BitBucket, Dropbox, Mercurial, Team Foundation Server et Team Foundation Service basé dans le cloud.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

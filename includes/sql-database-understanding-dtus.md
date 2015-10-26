@@ -10,4 +10,4 @@ La DTU pour les bases de données uniques se traduit directement par l’eDTU po
 
 Voici un exemple simple pour mieux comprendre. Prenons un pool de bases de données élastiques simple avec 1 000 DTU et plaçons-y 800 bases de données. Tant qu’il n’y a pas plus de 200 bases de données sur les 800 qui sont utilisées à n’importe quel moment (5 DTU X 200 = 1 000), vous n’atteignez pas le seuil de capacité du pool et les performances de la base de données ne sont pas affectées. Cet exemple est simplifié à des fins de clarté. Le calcul mathématique réel est un peu plus complexe. Le portail effectue le calcul pour vous et émet une recommandation basée sur l’utilisation historique de la base de données. Consultez [Considérations sur les prix et performances pour un pool de bases de données élastique](../articles/sql-database/sql-database-elastic-pool-guidance.md) pour comprendre le fonctionnement des recommandations ou effectuer les calculs vous-même.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

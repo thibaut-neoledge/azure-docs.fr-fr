@@ -238,4 +238,4 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

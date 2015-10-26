@@ -23,4 +23,4 @@ Dans cette étape, vous créez manuellement l'écouteur du groupe de disponibili
 
 1. Dans la même fenêtre de propriétés **Adresse IP**, modifiez le **Nom de l'adresse IP**. Ce nom d'adresse IP sera utilisé dans la variable **$IPResourceName** du script PowerShell. Répétez cette étape pour chaque ressource IP si votre solution couvre plusieurs réseaux virtuels Azure.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

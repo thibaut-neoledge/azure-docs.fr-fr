@@ -44,7 +44,7 @@ Cette section décrit l’activation de l’intégration d’application pour Sa
 
 6.  Dans la **zone de recherche**, tapez **Samanage**.
 
-    ![Galerie d'applications](./media/active-directory-saas-samanage-tutorial/IC771707.png "Galerie d’applications")
+    ![Galerie d’applications](./media/active-directory-saas-samanage-tutorial/IC771707.png "Galerie d’applications")
 
 7.  Dans le volet des résultats, sélectionnez **Samanage**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -57,13 +57,13 @@ Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment con
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Samanage**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Samanage**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/IC771709.png "Configurer l’authentification unique")
 
 2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Samanage**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
-    ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/IC771710.png "Authentification unique Microsoft Azure AD")
+    ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/IC771710.png "Authentification unique avec Microsoft Azure AD")
 
 3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.samanage.com* », puis cliquez sur **Suivant**.
 
@@ -139,7 +139,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Samanage\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Samanage**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-samanage-tutorial/IC771728.png "Affecter des utilisateurs")
 
@@ -147,6 +147,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-samanage-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!--------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

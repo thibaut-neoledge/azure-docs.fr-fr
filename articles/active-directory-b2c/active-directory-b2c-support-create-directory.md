@@ -34,4 +34,4 @@ Il existe des problèmes connus que vous pourriez rencontrer lors de la [créati
 	- Supprimez le client que vous venez de créer, puis réessayez.
 - Si aucune des solutions ci-dessus ne fonctionne pour vous, contactez le support technique. Lisez [cet article](active-directory-b2c-support.md) sur l’archivage des demandes de support pour Azure AD B2C.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

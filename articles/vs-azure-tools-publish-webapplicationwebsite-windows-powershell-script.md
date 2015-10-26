@@ -129,4 +129,4 @@ Vous pouvez modifier le fichier de configuration JSON pour modifier ce qui est d
 
 Pour plus d’informations, consultez [Publish-WebApplicationVM (script Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

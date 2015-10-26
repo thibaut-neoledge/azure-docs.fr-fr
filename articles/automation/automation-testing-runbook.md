@@ -55,4 +55,4 @@ Vous pouvez uniquement travailler avec des [runbooks de workflow PowerShell](aut
 - [Modification des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
 - [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

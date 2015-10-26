@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/14/2015" 
 	ms.author="tdykstra"/>
 
 # Créer une application API ASP.NET dans Azure App Service avec Visual Studio 2015
@@ -25,7 +25,7 @@
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez apprendre à créer un projet d’API Web ASP.NET 2 avec [Visual Studio 2015 RC](https://www.visualstudio.com/fr-fr/downloads/visual-studio-2015-downloads-vs.aspx) et à le configurer pour le déployer dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous apprendrez également à déployer le projet dans Azure. À la fin du didacticiel, vous aurez une application API qui s’exécutera dans le cloud Azure.
+Dans ce didacticiel, vous allez apprendre à créer un projet d’API Web ASP.NET 2 avec [Visual Studio 2015 RC](https://www.visualstudio.com/fr-FR/downloads/visual-studio-2015-downloads-vs.aspx) et à le configurer pour le déployer dans le cloud en tant qu’[application API](app-service-api-apps-why-best-platform.md) dans [Azure App Service](../app-service/app-service-value-prop-what-is.md). Vous apprendrez également à déployer le projet dans Azure. À la fin du didacticiel, vous aurez une application API qui s’exécutera dans le cloud Azure.
 
 Ce didacticiel suppose que vous savez utiliser les fichiers et les dossiers dans l’**Explorateur de solutions** de Visual Studio.
 
@@ -297,4 +297,4 @@ Dans cette section, vous accédez au portail pour afficher la définition d'API 
 Vous avez maintenant créé et déployé une application API à l’aide de Visual Studio 2015 RC. Pour plus d’informations sur les applications API, consultez les entrées dans le volet de navigation qui s’affiche sur le côté gauche de la page (pour les grandes fenêtres de navigateur) ou en haut de la page (pour les fenêtres de navigateur étroites). La plupart des documents relatifs aux applications API font actuellement référence à Visual Studio 2013, mais la plus grande partie peut être utilisée avec Visual Studio 2015, car l’interface utilisateur est similaire, le code que vous écrivez est le même et l’interface utilisateur du portail est identique.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

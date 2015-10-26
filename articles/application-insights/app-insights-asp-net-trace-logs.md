@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Exploration des journaux .NET dans Application Insights"
-	description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Exploration des journaux .NET dans Application Insights" 
+	description="Effectuez une recherche dans les journaux générés avec Trace, NLog ou Log4Net." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
  
 # Exploration des journaux .NET dans Application Insights  
@@ -120,8 +120,8 @@ Jusqu'à 500 événements par seconde pour chaque application. Les événements
 [exceptions]: app-insights-web-failures-exceptions.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

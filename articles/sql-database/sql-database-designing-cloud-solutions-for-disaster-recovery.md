@@ -3,7 +3,7 @@
    description="Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié."
    services="sql-database"
    documentationCenter="" 
-   authors="sashan" 
+   authors="anosov1960" 
    manager="jeffreyg" 
    editor="monicar"/>
 
@@ -85,8 +85,7 @@ Traffic Manager doit être configuré pour que le routage de performances dirige
 Si une panne de la base de données est détectée dans la région primaire, vous initiez le basculement de la base de données primaire vers l’une des régions secondaires, ce qui modifie l’emplacement de la base de données primaire. Traffic Manager exclut automatiquement le point de terminaison hors connexion de la table de routage, mais continue le routage du trafic de l’utilisateur final vers les instances en ligne restantes. Étant donné que la base de données primaire est maintenant dans une autre région, toutes les instances en ligne doivent modifier leur chaîne de connexion SQL de lecture-écriture pour se connecter à la nouvelle région primaire. Il est important que vous effectuiez cette modification avant d’initier le basculement de la base de données. Les chaînes de connexion SQL en lecture seule doivent rester inchangées car elles pointent toujours vers la base de données dans la même région. Les étapes de basculement sont les suivantes :
 
 1. Modifier les chaînes de connexion SQL en lecture-écriture pour pointer vers la nouvelle région primaire
-2. Appeler la base de données secondaire désignée pour [initier le basculement de la base de données.](https://msdn.microsoft.com/
-3. /library/azure/dn509573.aspx) 
+2. Appeler la base de données secondaire désignée pour [initier le basculement de la base de données](https://msdn.microsoft.com/library/azure/dn509573.aspx) 
 
 Le diagramme suivant illustre la nouvelle configuration après le basculement. ![Figure 5](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/pattern2-2.png)
 
@@ -148,4 +147,4 @@ Votre stratégie de récupération d’urgence spécifique peut combiner ou éte
 | Déploiement actif / actif pour l’équilibrage de charge d’applications | Accès en lecture-écriture < 5 s | Temps de détection de défaillance + appel des API de basculement + modification des chaînes de connexion SQL + test de vérification des applications
 | Déploiement actif / passif pour la conservation des données | Accès en lecture seule < 5 s Accès en lecture-écriture = zéro | Accès en lecture seule = temps de détection de défaillance de connectivité + test de vérification des applications <br>Accès en lecture-écriture = temps pour atténuer la panne 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

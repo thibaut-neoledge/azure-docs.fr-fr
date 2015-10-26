@@ -70,4 +70,4 @@ Si vous êtes prêt à voir des exemples de demandes, entamez l’un des didacti
 
 <!-- [Call the Azure AD Graph API using the OAuth 2.0 Client Credentials Flow](active-directory-reference-graph.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

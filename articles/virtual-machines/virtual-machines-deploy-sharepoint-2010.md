@@ -20,7 +20,8 @@
 
 # Déploiement de SharePoint 2010 sur des machines virtuelles Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Microsoft SharePoint Server 2010 offre une grande flexibilité de déploiement, qui permet aux organisations de déterminer les scénarios de déploiement appropriés afin d’aligner leurs besoins et leurs objectifs. Hébergé et géré dans Microsoft Azure, Azure Virtual Machines offre une infrastructure complète, fiable et disponible afin de prendre en charge les charges de travail des différentes applications et bases de données à la demande, par exemple les déploiements Microsoft SQL Server et SharePoint.
 
@@ -287,4 +288,4 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
 [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

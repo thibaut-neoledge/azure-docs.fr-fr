@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/11/2015"
+   ms.date="10/13/2015"
    ms.author="shkurhek"/>
 
 # Niveaux du service relatifs aux bases de données SQL
 
 ## Vue d'ensemble
-La [base de données SQL Azure](sql-database-technical-overview.md) fournit plusieurs niveaux de service pour gérer les différents types de charges de travail. Vous avez la possibilité de créer une base de données unique avec des caractéristiques et une tarification définies. Autre choix, vous pouvez créer plusieurs bases de données dans un pool de base de données élastique. Dans les deux cas, les niveaux **De base**, **Standard** et **Premium** sont inclus. Cela étant, les caractéristiques de ces niveaux varient selon que vous créez une base de données unique ou une base de données dans un pool de base de données élastique. Cet article fournit une vue d'ensemble des niveaux de service dans les deux contextes.
+La [base de données SQL Azure](sql-database-technical-overview.md) fournit plusieurs niveaux de service pour gérer les différents types de charges de travail. Vous avez la possibilité de [créer une base de données unique](sql-database-get-started.md) avec des caractéristiques et une tarification définies. Vous pouvez également gérer plusieurs bases de données en [créant un pool de bases de données élastiques](sql-database-elastic-pool-portal.md). Dans les deux cas, les niveaux **De base**, **Standard** et **Premium** sont inclus. Cela étant, les caractéristiques de ces niveaux varient selon que vous créez une base de données unique ou une base de données dans un pool de base de données élastique. Cet article fournit une vue d'ensemble des niveaux de service dans les deux contextes.
 
 ## Niveaux de service
 Les niveaux de service De base, Standard et Premium proposent un contrat SLA garantissant un temps d'activité de 99,99 %. Par ailleurs, ils proposent des performances prévisibles, des options de continuité d'activité d'entreprise professionnelles, des fonctionnalités de gestion de la sécurité et une facturation à l'heure. Le tableau suivant fournit des exemples de niveaux adaptés à différentes charges de travail d'application.
@@ -35,12 +35,12 @@ Les niveaux de service De base, Standard et Premium proposent un contrat SLA ga
 ### Niveaux de service pour bases de données uniques
 Pour des bases de données uniques, il existe plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir celui qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter le système en puissance ou de réduire son échelle, vous pouvez très simplement modifier ses niveaux dans le portail Microsoft Azure, sans occasionner de coupure de service pour votre application. Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
 
-Les caractéristiques de performances répertoriées ici s'appliquent aux bases de données créées à l'aide de [SQL Database V12](sql-database-v12-whats-new.md).
+Les caractéristiques de performances répertoriées ici s’appliquent aux bases de données créées à l’aide de [SQL Database V12](sql-database-v12-whats-new.md).
 
 [AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
 
 ### Niveaux de service pour les pools de bases de données élastiques
-Outre la création et la mise à l'échelle d'une base de données unique, vous avez également la possibilité de gérer plusieurs bases de données dans un [pool de base de données élastique](sql-database-elastic-pool.md). Toutes les bases de données dans un pool de base de données élastique partagent un ensemble commun de ressources. Les caractéristiques de performances sont mesurées par les *unités de transaction de base de données élastiques* (eDTU). Comme avec les bases de données uniques, les pools de base de données élastiques sont fournis en trois niveaux de performances : **de base**, **standard**, et **premium**. Pour les bases de données élastiques, ces trois niveaux de service définissent toujours les limites de performances globales et les fonctionnalités proposées.
+Outre la création et la mise à l’échelle d’une base de données unique, vous avez également la possibilité de gérer plusieurs bases de données dans un [pool de bases de données élastiques](sql-database-elastic-pool.md). Toutes les bases de données dans un pool de base de données élastique partagent un ensemble commun de ressources. Les caractéristiques de performances sont mesurées par les *unités de transaction de base de données élastique* (eDTU). Comme avec les bases de données uniques, les pools de bases de données élastiques sont fournis en trois niveaux de performances : **De base**, **Standard** et **Premium**. Pour les bases de données élastiques, ces trois niveaux de service définissent toujours les limites de performances globales et les fonctionnalités proposées.
 
 Les pools de base de données élastiques permettent à ces bases de données de partager et de consommer des ressources DTU sans avoir à affecter un niveau de performances spécifique aux bases de données dans le pool. Par exemple, une base de données unique dans un pool standard peut être offerte avec de 0 eDTU au nombre d'eDTU maximum de la base de données (100 eDTU définis par le niveau de service ou un nombre personnalisé que vous configurez). Cela permet à plusieurs bases de données avec différentes charges de travail d'utiliser efficacement les ressources eDTU disponibles pour l'ensemble du pool.
 
@@ -61,14 +61,14 @@ L'analyse des performances d'une base de données SQL démarre par l'analyse de 
 
 2.	Vues de gestion dynamique dans la base de données utilisateur et dans la base de données master du serveur qui contient la base de données utilisateur.
 
-Dans le [portail Azure en version préliminaire](https://portal.azure.com/), vous pouvez surveiller l'utilisation d'une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre de **mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [portail Azure en version préliminaire](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre **Mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU
 - Pourcentage E/S données
 - Pourcentage de stockage
 
-Une fois que vous avez ajouté ces mesures, vous pouvez continuer à les afficher dans le graphique **Analyse** avec plus de détails dans la fenêtre **Mesure**. Les quatre métriques affichent le pourcentage d'utilisation moyen relatif au **DTU** de votre base de données.
+Une fois que vous avez ajouté ces mesures, vous pouvez continuer à les afficher dans le graphique **Analyse** avec plus de détails dans la fenêtre **Mesure**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données.
 
 ![analyse niveau de service](./media/sql-database-service-tiers/sqldb_service_tier_monitoring.png)
 
@@ -78,16 +78,16 @@ Par exemple, si vous pensez que la charge de travail dans votre base de données
 
 Les mesures de performance peuvent également vous aider à déterminer si vous pouvez passer à un niveau inférieur. Supposons que vous utilisez une base de données standard S2 et que toutes les mesures de performance indiquent que la base de données n'utilise pas plus de 10 % des performances en moyenne. Cette base de données fonctionnerait très bien en version S1 standard. Toutefois, prenez en considération les éventuels pics ou baisses de charges de travail avant de décider de passer à un niveau de performances inférieur.
 
-Les mêmes mesures qui sont exposées dans le portail sont également disponibles via des vues système : [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) dans la base de données master logique de votre serveur, et [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans la base de données utilisateur (**sys.dm\_db\_resource\_stats** est créé dans chaque base de données utilisateur de base, standard et premium. Les bases de données éditions Web et Business retournent un jeu de résultats vide). Utilisez **sys.resource\_stats** si vous avez besoin d'analyser des données moins granulaires sur une longue période de temps. Utilisez **sys.dm\_db\_resource\_stats** si vous avez besoin d'analyser des données plus granulaires dans un laps de temps plus petit. Pour en savoir plus, consultez [Guide des performances de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn369873.aspx).
+Les mêmes mesures exposées dans le portail sont également disponibles via des vues système : [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) dans la base de données master logique de votre serveur, et [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans la base de données utilisateur (**sys.dm\_db\_resource\_stats** est créé dans chaque base de données utilisateur De base, Standard et Premium. Les bases de données éditions Web et Business retournent un jeu de résultats vide). Utilisez **sys.resource\_stats** si vous devez analyser des données moins granulaires sur une longue période de temps. Utilisez **sys.dm\_db\_resource\_stats** si vous devez analyser des données plus granulaires dans un laps de temps plus court. Pour en savoir plus, consultez [Guide des performances de base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn369873.aspx).
 
-Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, voir [Surveiller et gérer un pool élastique de bases de données](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
+Pour les pools de base de données élastiques, vous pouvez surveiller des bases de données dans le pool avec les techniques décrites dans cette section. Mais vous pouvez également surveiller le pool dans son ensemble. Pour en savoir plus, consultez [Surveiller et gérer un pool de bases de données élastiques](sql-database-elastic-pool-portal.md#monitor-and-manage-an-elastic-database-pool).
 
 ## Étapes suivantes
 Pour en savoir plus sur la tarification de ces niveaux, voir [Base de données SQL - Tarification](http://azure.microsoft.com/pricing/details/sql-database/).
 
-Si vous êtes intéressé par la gestion de plusieurs bases de données en tant que groupe, considérez les [pools de base de données élastiques](sql-database-elastic-pool-guidance.md) en tenant compte des [considérations sur les prix et performances pour un pool de bases de données élastique](sql-database-elastic-pool-guidance.md).
+Si vous êtes intéressé par la gestion de plusieurs bases de données en tant que groupe, envisagez les [pools de bases de données élastiques](sql-database-elastic-pool-guidance.md) en tenant compte des [considérations sur les prix et performances pour un pool de bases de données élastiques](sql-database-elastic-pool-guidance.md).
 
 Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre version [d’essai gratuit](http://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md) !
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

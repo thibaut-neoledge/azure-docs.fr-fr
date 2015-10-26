@@ -19,7 +19,7 @@
 
 #<a name="DocumentDB-HDInsight"></a>Exécution d’une tâche Hadoop avec DocumentDB et HDInsight
 
-Ce didacticiel vous montre comment exécuter des tâches [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de DocumentDB. Le connecteur Hadoop de DocumentDB permet à DocumentDB d’agir en tant que source et récepteur pour les tâches Hive, Pig et MapReduce. Ce didacticiel utilise DocumentDB en tant que source de données et destination pour les tâches Hadoop. 
+Ce didacticiel vous montre comment exécuter des tâches [Apache Hive][apache-hive], [Apache Pig][apache-pig] et [Apache Hadoop][apache-hadoop] MapReduce dans Azure HDInsight avec le connecteur Hadoop de DocumentDB. Le connecteur Hadoop de DocumentDB permet à DocumentDB d’agir en tant que source et récepteur pour les tâches Hive, Pig et MapReduce. Ce didacticiel utilise DocumentDB en tant que source de données et destination pour les tâches Hadoop.
 
 Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux questions suivantes :
 
@@ -70,7 +70,7 @@ Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des
 
 ## <a name="CreateStorage"></a>Étape 1 : Création d’un compte Azure Storage
 
-> [AZURE.IMPORTANT] Si vous disposez **déjà** d’un compte Azure Storage et souhaitez créer un conteneur d’objets blob dans ce compte, vous pouvez passer à l’[Étape 2 : Création d’un cluster HDInsight personnalisé](#ProvisionHDInsight).
+> [AZURE.IMPORTANT]Si vous disposez **déjà** d’un compte Azure Storage et souhaitez créer un conteneur d’objets blob dans ce compte, vous pouvez passer à l’[Étape 2 : Création d’un cluster HDInsight personnalisé](#ProvisionHDInsight).
 
 Azure HDInsight utilise le stockage d'objets blob Azure pour stocker des données. Il s'intitule *WASB* ou *Azure Storage - Blob*. WASB correspond à l'implémentation Microsoft du HDFS sur le stockage d'objets blob Azure. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
@@ -85,11 +85,11 @@ Lors de l'approvisionnement d'un cluster HDInsight, vous spécifiez un compte Az
 2. Cliquez sur **+ NOUVEAU** dans le coin inférieur gauche, pointez sur **SERVICES DE DONNÉES** et sur **STOCKAGE**, puis cliquez sur **CRÉATION RAPIDE**.
 	![Portail Azure où vous pouvez utiliser l'option Création rapide pour configurer un nouveau compte de stockage.][image-storageaccount-quickcreate]
 
-3. Entrez l’**URL**, sélectionnez les valeurs **EMPLACEMEN**T et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge. 
+3. Entrez l’**URL**, sélectionnez les valeurs **EMPLACEMEN**T et **RÉPLICATION**, puis cliquez sur **CRÉER UN COMPTE DE STOCKAGE**. Les groupes d'affinités ne sont pas pris en charge.
 	
 	Le nouveau compte de stockage figure dès lors dans la liste de stockage.
 
-	> [AZURE.IMPORTANT] Pour obtenir des performances optimales, assurez-vous que votre compte de stockage, le cluster HDInsight et le compte DocumentDB se trouvent dans la même région Azure. Les régions Azure qui prennent en charge les trois services sont : **Asie orientale**, **Asie du Sud-Est**, **Europe du Nord**, **Europe de l’Ouest**, **Est des États-Unis** et **Ouest des États-Unis**.
+	> [AZURE.IMPORTANT]Pour obtenir des performances optimales, assurez-vous que votre compte de stockage, le cluster HDInsight et le compte DocumentDB se trouvent dans la même région Azure. Les régions Azure qui prennent en charge les trois services sont : **Asie orientale**, **Asie du Sud-Est**, **Europe du Nord**, **Europe de l’Ouest**, **Est des États-Unis** et **Ouest des États-Unis**.
 
 4. Attendez que le **statut** du nouveau compte de stockage passe à **Online**.
 
@@ -192,11 +192,11 @@ Ce didacticiel utilise une action de script à partir du portail de gestion Azur
 
 1. Installez Azure PowerShell. Vous trouverez des instructions [ici][powershell-install-configure].
 
-	> [AZURE.NOTE] Pour les requêtes Hive, vous pouvez également utiliser l'éditeur Hive en ligne de HDInsight. Pour ce faire, connectez-vous au [portail de gestion Azure][azure-classic-portal], cliquez sur **HDInsight** dans le volet gauche pour afficher la liste de vos clusters HDInsight. Cliquez sur le cluster sur lequel vous souhaitez exécuter des requêtes Hive, puis sur **Console de requête**.
+	> [AZURE.NOTE]Pour les requêtes Hive, vous pouvez également utiliser l'éditeur Hive en ligne de HDInsight. Pour ce faire, connectez-vous au [portail de gestion Azure][azure-classic-portal], cliquez sur **HDInsight** dans le volet gauche pour afficher la liste de vos clusters HDInsight. Cliquez sur le cluster sur lequel vous souhaitez exécuter des requêtes Hive, puis sur **Console de requête**.
 
 2. Ouvrez l'environnement de script intégré Azure PowerShell :
 	- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’accueil, tapez **powershell ise**, puis cliquez sur **Entrée**. 
-	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell_ise**, puis cliquez sur **Entrée**.
+	- Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans la zone de recherche du menu Démarrer, tapez **Invite de commandes**, puis, dans la liste des résultats, cliquez sur **Invite de commandes**. Dans l’invite de commandes, tapez **powershell\_ise**, puis cliquez sur **Entrée**.
 
 3. Ajoutez votre compte Azure.
 	1. Dans le volet de la console, tapez **Add-AzureAccount**, puis cliquez sur **Entrée**. 
@@ -210,7 +210,7 @@ Ce didacticiel utilise une action de script à partir du portail de gestion Azur
 
 ## <a name="RunHive"></a>Étape 4 : Exécution d’une tâche Hive à l’aide de DocumentDB et HDInsight
 
-> [AZURE.IMPORTANT] Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
+> [AZURE.IMPORTANT]Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
 
 1. Définissez les variables suivantes dans le volet Script PowerShell.
 
@@ -311,7 +311,7 @@ Ce didacticiel utilise une action de script à partir du portail de gestion Azur
 
 ## <a name="RunPig"></a>Étape 5 : Exécution d’une tâche Pig à l’aide de DocumentDB et HDInsight
 
-> [AZURE.IMPORTANT] Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
+> [AZURE.IMPORTANT]Toutes les variables indiquées par < > doivent être renseignées à l’aide de vos paramètres de configuration.
 
 1. Définissez les variables suivantes dans le volet Script PowerShell.
 
@@ -493,4 +493,4 @@ Pour en savoir plus, consultez les articles suivants :
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

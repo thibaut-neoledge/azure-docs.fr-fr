@@ -69,4 +69,4 @@ SQL Server est largement reconnu pour son expertise en matière de sécurité de
 
 - Commencez par [créer votre première base de données](sql-database-get-started.md). Puis, créez votre première application en [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) ou [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -39,4 +39,4 @@ Pour obtenir des informations sur le développement, consultez la [vue d’ensem
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

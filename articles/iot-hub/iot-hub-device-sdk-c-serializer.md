@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Kit de développement logiciel (SDK) IoT Azure pour C - En savoir plus sur le serializer | Microsoft Azure"
-	description="Vous trouverez des détails supplémentaires sur la bibliothèque serializer dans le Kit SDK d’appareils Azure IoT pour C"
+	pageTitle="Kit de développement logiciel (SDK) IoT Azure pour C - Serializer | Microsoft Azure"
+	description="En savoir plus sur la bibliothèque Serializer dans le Kit de développement logiciel (SDK) d’appareil Azure IoT pour C ."
 	services="iot-hub"
 	documentationCenter=""
 	authors="MichelBarnett"
-	manager="andrewmc"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="na"
+     ms.workload="nana"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -140,7 +140,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 {
 	unsigned char* destination;
 	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) == 
+	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
 	{
 		// null terminate the string
 		char* destinationAsString = (char*)malloc(destinationSize + 1);
@@ -151,7 +151,7 @@ void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent
 			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
 			if (messageHandle != NULL)
 			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);	
+				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
 				IoTHubMessage_Destroy(messageHandle);
 			}
@@ -642,4 +642,4 @@ Cet article détaille les aspects uniques de la bibliothèque **serializer** con
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit SDK d’appareils Azure IoT pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Si vous cherchez des informations supplémentaires, quelques exemples dans le SDK n’ont pas été abordés ci-dessus. Sinon, la [documentation du SDK](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

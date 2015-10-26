@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/11/2015" 
 	ms.author="awills"/>
 
 # Comment ... dans Application Insights ?
@@ -32,6 +32,11 @@ Définissez une [alerte](app-insights-alerts.md) sur le **Temps de réponse du s
 Votre application peut également indiquer des signes de surcharge en retournant des codes d’erreur. Définissez une alerte sur les **Demandes ayant échoué**.
 
 Si vous voulez définir une alerte sur les **Exceptions du serveur**, vous devrez peut-être effectuer une [installation supplémentaire](app-insights-asp-net-exceptions.md) pour afficher les données.
+
+### Envoyer un message électronique en cas d’exceptions
+
+1. [Configurer la surveillance des exceptions](app-insights-asp-net-exceptions.md)
+2. [Définir une alerte](app-insights-alert.md) sur la métrique Nombre d’exceptions
 
 
 ### Envoyer un message électronique en réponse à un événement dans mon application
@@ -71,10 +76,29 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 * Un message électronique est envoyé uniquement quand l’état change. C’est pourquoi vous devez envoyer à la fois des métriques de valeur haute et faible. 
 * Pour évaluer l’alerte, la moyenne est calculée à partir des valeurs reçues pendant la période précédente. Comme cela se produit chaque fois qu’une métrique est reçue, des messages électroniques peuvent être envoyés plus fréquemment que la période que vous avez définie.
 * Étant donné que les messages électroniques sont envoyés à la fois pour les états « alerte » et « intègre », vous devrez peut-être remplacer votre événement à déclenchement unique par une condition à deux états. Par exemple, au lieu d’un événement « tâche terminée », définissez une condition « tâche en cours », pour laquelle vous obtenez des messages électroniques au début et à la fin d’une tâche.
- 
-## Filtre de version d’application
 
-Quand vous publiez une nouvelle version de votre application, vous voulez pouvoir distinguer la télémétrie des différentes versions.
+### Configurer automatiquement des alertes
+
+[Utiliser PowerShell pour créer des alertes](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Utiliser PowerShell pour gérer Application Insights
+
+* [Créer des ressources](app-insights-powershell-script-create-resource.md)
+* [Créer des alertes](app-insights-alerts/#set-alerts-by-using-powershell)
+
+## Horodatages et versions d’application
+
+### Séparer les résultats de développement, de test et de production
+
+* Pour différents environnements, configurez différents ikeys
+* Pour différents horodatages (développement, test, production), marquez la télémétrie avec différentes valeurs de propriété
+
+[En savoir plus](app-insights-separate-resources.md)
+ 
+
+### Filtrer sur le numéro de build
+
+Quand vous publiez une nouvelle version de votre application, vous voulez pouvoir distinguer la télémétrie des différentes builds.
 
 Vous pouvez définir la propriété Version de l’application pour filtrer les résultats de [recherche](app-insights-diagnostic-search.md) et de [Metrics Explorer](app-insights-metrics-explorer.md).
 
@@ -119,4 +143,85 @@ Il existe plusieurs méthodes de définition de la propriété Version de l’ap
 
     Pour permettre à MSBuild de générer des numéros de version, définissez la version comme `1.0.*` dans AssemblyReference.cs
 
-<!---HONumber=Oct15_HO1-->
+## Surveiller les serveurs principaux
+
+[Utiliser l’API de base](app-insights-windows-desktop.md)
+
+
+## Visualiser les données
+
+#### Tableau de bord avec des métriques de plusieurs applications
+
+* Dans [Metrics Explorer](app-insights-metrics-explorer.md), personnalisez votre graphique et enregistrez-le en tant que favori. Épinglez-le au tableau de bord Azure.
+* 
+
+#### Tableau de bord avec des données provenant d’autres sources et d’Application Insights
+
+* [Exportez la télémétrie dans Power BI](app-insights-export-power-bi.md). 
+
+Ou
+
+* Utilisez SharePoint comme tableau de bord, pour afficher les données des composants WebPart de SharePoint. [Utilisez l’exportation continue et Stream Analytics pour exporter vers SQL](app-insights-code-sample-export-sql-stream-analytics.md). Utilisez PowerView pour examiner la base de données et créer un composant WebPart de SharePoint pour PowerView.
+
+
+### Filtrage complexe, segmentation et jointures
+
+* [Utilisez l’exportation continue et Stream Analytics pour exporter vers SQL](app-insights-code-sample-export-sql-stream-analytics.md). Utilisez PowerView pour examiner la base de données.
+
+<a name="search-specific-users"></a>
+### Filtrer les utilisateurs authentifiés ou anonymes
+
+Si vos utilisateurs se connectent, vous pouvez définir l’[ID d’utilisateur authentifié](app-insights-api-custom-events-metrics.md#authenticated-users). (Cela n’est pas automatique.)
+
+Vous pouvez ensuite effectuer les opérations suivantes :
+
+* Rechercher des ID d’utilisateur spécifiques
+
+![](./media/app-insights-how-do-i/110-search.png)
+
+* Filtrer des métriques sur les utilisateurs anonymes ou authentifiés
+
+![](./media/app-insights-how-do-i/115-metrics.png)
+
+## Répertorier les utilisateurs spécifiques et leur utilisation
+
+Si vous voulez simplement [rechercher des utilisateurs spécifiques](#search-specific-users), vous pouvez définir l’[ID d’utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users).
+
+Si vous voulez une liste des utilisateurs avec des données telles que les pages qu’ils ont consultées ou leur fréquence de connexion, deux options s’offrent à vous :
+
+* [Définissez l’ID d’utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users), [exportez vers une base de données](app-insights-code-sample-export-sql-stream-analytics.md) et utilisez des outils pour analyser les données de votre utilisateur.
+* Si vous ne disposez que d’un petit nombre d’utilisateurs, envoyez des événements ou des métriques personnalisés, en utilisant les données d’intérêt comme le nom de l’événement ou la valeur de la métrique et en définissant l’id d’utilisateur en tant que propriété. Pour analyser les vues de page, remplacez l’appel standard de trackPageView JavaScript. Pour analyser la télémétrie côté serveur, utilisez un initialiseur de télémétrie pour ajouter l’id d’utilisateur à toute la télémétrie de serveur. Vous pouvez ensuite filtrer et segmenter les métriques et les recherches sur l’id d’utilisateur.
+
+
+## Réduire le trafic de mon application vers Application Insights
+
+* Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme les compteurs de performances.
+* Si vous utilisez [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calculez l’agrégat des lots de valeurs de métriques avant d’envoyer le résultat. Il existe une surcharge de TrackMetric() qui se charge de cette tâche.
+
+En savoir plus sur la [tarification et les quotas](app-insights-pricing.md).
+
+## Afficher les compteurs de performances système
+
+Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d’entre eux.
+
+![Ouvrez votre ressource Application Insights et cliquez sur Serveurs.](./media/app-insights-how-do-i/121-servers.png)
+
+### Si aucune donnée de compteur de performances ne s’affiche
+
+* **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Site web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
+* **Serveur Unix** : [Installer collectd](app-insights-java-collectd.md)
+
+### Pour afficher davantage de compteurs de performances
+
+* Tout d’abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
+* Dans le cas contraire, [ajoutez le compteur à l’ensemble collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
+
+
+ 
+
+### Rôles web Azure
+
+Nous ne surveillons pas actuellement les compteurs de performance sur
+
+<!---HONumber=Oct15_HO3-->

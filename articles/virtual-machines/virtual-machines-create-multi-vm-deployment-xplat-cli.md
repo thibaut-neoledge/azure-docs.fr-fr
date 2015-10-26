@@ -19,7 +19,8 @@
 
 # Déploiement de plusieurs machines virtuelles à l’aide de l’interface de ligne de commande Azure
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 Le script suivant vous montre comment configurer un déploiement de plusieurs services cloud avec plusieurs machines virtuelles dans un réseau virtuel à l’aide de l’interface de ligne de commande Microsoft Azure.
 
@@ -70,4 +71,4 @@ Bien que vous puissiez trouver plus d'informations à l'aide de l'option –help
 * [Connexion à une machine virtuelle exécutant Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 Cette rubrique décrit l’utilisation de [Docker](https://www.docker.com/) avec [Machine](https://github.com/docker/machine) et l’[interface de ligne de commande Microsoft Azure](https://github.com/Azure/azure-xplat-cli) pour créer une machine virtuelle Microsoft Azure vous permettant de gérer rapidement et en toute simplicité les conteneurs Linux à partir d’un ordinateur exécutant Ubuntu. À fin d’illustration, le didacticiel montre comment déployer l’[image Docker Hub busybox ](https://registry.hub.docker.com/_/busybox/) et l’[image Docker Hub nginx](https://registry.hub.docker.com/_/nginx/) et configurer le conteneur pour acheminer les requêtes Web vers le conteneur nginx. (La documentation Docker **Machine** vous explique comment modifier ces instructions sur d’autres plateformes.)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
 Il existe certaines conditions préalables pour suivre ce didacticiel. Vous devez installer les éléments suivants :
@@ -213,4 +214,4 @@ Accédez au [guide de l’utilisateur Docker](https://docs.docker.com/userguide/
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

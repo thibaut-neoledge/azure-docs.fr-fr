@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Gestion des extensions de machine virtuelle
+
 Décrit comment trouver, ajouter, modifier ou supprimer des extensions de machines virtuelles Windows ou Linux dans Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion des extensions à l’aide du modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Mode Resource Manager
 
 
 ##Utilisation d'extensions de machines virtuelles
@@ -141,4 +142,4 @@ Vous pouvez utiliser les API REST suivantes pour savoir si une extension nécess
 
 >[AZURE.NOTE]Des extensions peuvent également utiliser des configurations définies avec JSON. En cas d’utilisation de ces types d’extension, seul l’élément **SampleConfig** est utilisé.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 1.  Activation de l’intégration d’applications pour Cisco Webex
 2.  Configuration de l’authentification unique
-3.  Configuration de l’approvisionnement des utilisateurs
+3.  Configuration de l'approvisionnement des utilisateurs
 4.  Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-cisco-webex-tutorial/IC777614.png "Scénario")
@@ -28,9 +28,9 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
     ![Active Directory](./media/active-directory-saas-cisco-webex-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l’annuaire pour lequel vous voulez activer l’intégration d’annuaire.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-cisco-webex-tutorial/IC700994.png "Applications")
 
@@ -57,7 +57,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Cisco Webex**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Cisco Webex**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cisco-webex-tutorial/IC777617.png "Configurer l’authentification unique")
 
@@ -65,12 +65,12 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cisco-webex-tutorial/IC777618.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-cisco-webex-tutorial/IC777619.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion**, tapez l’URL de votre locataire Cisco Webex (par exemple, \**http://contoso.webex.com*).
-2.  Dans la zone de texte **URL de réponse Cisco Webex**, tapez votre **URL AssertionConsumerService Cisco Webex ** (par exemple, \**https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
+    1.  Dans la zone de texte **URL de connexion**, tapez l’URL de votre locataire Cisco Webex (par exemple, **http://contoso.webex.com*).
+2.  Dans la zone de texte **URL de réponse Cisco Webex**, tapez votre **URL AssertionConsumerService Cisco Webex ** (par exemple, **https://company.webex.com/dispatcher/SAML2AuthService?siteurl=company*).
 
 4.  Dans la page **Configurer l’authentification unique sur Cisco Webex**, pour télécharger votre certificat, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -137,14 +137,14 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Cisco Webex\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Cisco Webex**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

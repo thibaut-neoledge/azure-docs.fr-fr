@@ -20,4 +20,4 @@ Les étapes suivantes montrent le processus de création d’une application Dro
 
 	![Créer une application Dropbox](./media/app-service-api-create-dropbox-app/dbappsettings.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

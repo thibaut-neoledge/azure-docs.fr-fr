@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Ressources Application Insights distinctes pour le développement, le test et la production"
-	description="Surveillez les performances et l'utilisation de votre application à différentes étapes du développement"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Ressources Application Insights distinctes pour le développement, le test et la production" 
+	description="Surveillez les performances et l'utilisation de votre application à différentes étapes du développement" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="awills"/>
 
 # Ressources Application Insights distinctes pour le développement, le test et la production
 
 
-Pour éviter le mélange des valeurs de télémétrie des versions de débogage, de test et de production de votre application, créez des ressources [Application Insights][start] distinctes pour recevoir les données à partir de chaque version.
+Pour éviter le mélange des valeurs de télémétrie des versions de débogage, de test et de production de votre application, créez des ressources [Application Insights][start] distinctes pour recevoir les données de chaque version.
 
 Les données reçues de votre application sont stockées et traitées par Application Insights dans une *ressource* Microsoft Azure. Chaque ressource est identifiée par une *clé d’instrumentation*. Dans votre application, la clé est fournie au SDK Application Insights afin qu'il puisse envoyer les données collectées à la ressource appropriée. La clé peut être fournie dans le code ou dans ApplicationInsights.config. En modifiant la clé dans le SDK, vous pouvez diriger les données vers différentes ressources.
 
@@ -94,8 +94,8 @@ L'iKey est également utilisée dans les pages web de votre application, dans le
 [api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

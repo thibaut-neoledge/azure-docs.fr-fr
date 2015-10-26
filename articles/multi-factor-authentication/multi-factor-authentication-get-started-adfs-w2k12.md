@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Sécuriser les ressources de cloud et locales à l'aide du serveur Azure MFA avec Windows Server 2012 R2 AD FS"
-	description="Voici la page d'authentification multifacteur Azure qui explique la prise en main de Azure MFA et d’AD FS sur Windows Server 2012 R2."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Sécuriser les ressources de cloud et locales à l'aide du serveur Azure MFA avec Windows Server 2012 R2 AD FS" 
+	description="Voici la page d'authentification multifacteur Azure qui explique la prise en main de Azure MFA et d’AD FS sur Windows Server 2012 R2." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -229,4 +229,4 @@ Modifiez le script Register-MultiFactorAuthenticationAdfsAdapter.ps1 en ajoutant
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -69,4 +69,4 @@ Maintenant que vous avez lu une présentation du fonctionnement de Service Bus, 
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Une solution de messages de file d'attente utilisant les files d'attente Service Bus](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -77,4 +77,4 @@ Les [cmdlets de mise en réseau Azure](https://msdn.microsoft.com/library/azure/
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

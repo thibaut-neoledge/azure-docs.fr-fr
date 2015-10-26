@@ -85,4 +85,4 @@ Le modèle d’application v2.0 prend en charge Open ID Connect et OAuth 2.0. To
 
 Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans le modèle d’application v2.0, consultez notre page de [Référence sur le protocole OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

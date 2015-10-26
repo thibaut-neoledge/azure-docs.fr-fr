@@ -75,4 +75,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="10/15/2015"
 	ms.author="billmath"/>
 
 # Opérations Azure AD Connect Health
@@ -21,7 +21,8 @@
 La rubrique suivante décrit les différentes opérations pouvant être effectuées à l’aide d’Azure AD Connect Health.
 
 ## Activer les notifications par courrier électronique
-Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie des notifications par courrier électronique quand des alertes sont générées pour indiquer que votre infrastructure d’identité présente un défaut d’intégrité. Cela se produit lorsqu’une alerte est générée, et quand elle est marquée comme résolue. Pour configurer les notifications par courrier électronique, suivez les instructions ci-dessous. Notez que les notifications par courrier électronique sont désactivées par défaut.
+Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie des notifications par courrier électronique quand des alertes sont générées pour indiquer que votre infrastructure d’identité présente un défaut d’intégrité. Cela se produit lorsqu’une alerte est générée, et quand elle est marquée comme résolue. Pour configurer les notifications par courrier électronique, suivez les instructions ci-dessous.
+>[AZURE.NOTE]Les notifications par courrier électronique sont désactivées par défaut.
 
 
 ### Pour activer les notifications par courrier électronique Azure AD Connect Health
@@ -33,13 +34,9 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 5. Si vous souhaitez recevoir des notifications par courrier électronique sur d’autres adresses, indiquez-les dans la zone Destinataire d’e-mail supplémentaire. Pour supprimer une adresse de messagerie de cette liste, cliquez avec le bouton droit sur l’entrée, puis sélectionnez Supprimer.
 6. Pour valider les modifications, cliquez sur Enregistrer. Les modifications prendront effet une fois que vous avez cliqué sur Enregistrer.
 
+## Supprimer une instance de serveur ou de service
 
-
-
-
-
-## Supprimer un serveur du service Azure AD Connect Health
-
+### Supprimer un serveur du service Azure AD Connect Health
 Dans certains cas, vous pouvez envisager de retirer un serveur de la surveillance. Pour supprimer un serveur du service Azure AD Connect Health, suivez les instructions ci-dessous.
 
 Lorsque vous supprimez un serveur, tenez compte des points suivants :
@@ -50,7 +47,7 @@ Lorsque vous supprimez un serveur, tenez compte des points suivants :
 - Après avoir effectué cette opération, si vous souhaitez commencer à surveiller de nouveau le même serveur, il vous faudra désinstaller puis réinstaller l’agent Health sur ce serveur.
 
 
-### Pour supprimer un serveur du service Azure AD Connect Health
+#### Pour supprimer un serveur du service Azure AD Connect Health
 
 1. Sélectionnez le nom du serveur à supprimer afin d’ouvrir le panneau Serveur du panneau Liste des services.
 2. Sur le panneau Serveur, cliquez sur le bouton Supprimer de la barre d’actions.
@@ -58,12 +55,7 @@ Lorsque vous supprimez un serveur, tenez compte des points suivants :
 4. Cliquez sur le bouton Supprimer.
 
 
-
-
-
-
-
-## Supprimer une instance du service Azure AD Connect Health
+### Supprimer une instance du service Azure AD Connect Health
 
 Dans certains cas, vous pouvez envisager de supprimer une instance de service. Pour supprimer une instance du service Azure AD Connect Health, suivez les instructions ci-dessous.
 
@@ -75,57 +67,65 @@ Lorsque vous supprimez une instance de service, tenez compte des éléments suiv
 - Après avoir effectué cette opération, si vous souhaitez commencer à surveiller le service, désinstallez puis réinstallez l’agent Health de l’ensemble des serveurs à surveiller. Après avoir effectué cette opération, si vous souhaitez commencer à surveiller de nouveau le même serveur, il vous faudra désinstaller puis réinstaller l’agent Health sur ce serveur.
 
 
-### Pour supprimer une instance du service Azure AD Connect Health
+#### Pour supprimer une instance du service Azure AD Connect Health
 
 1. À partir du panneau Liste des services, ouvrez le panneau Service en sélectionnant l’identificateur de service (nom de batterie) que vous souhaitez supprimer.
 2. Sur le panneau Serveur, cliquez sur le bouton Supprimer de la barre d’actions.
 3. Pour valider le nom du service, saisissez-le dans la zone de confirmation (par exemple : sts.contoso.com).
-4. Cliquez sur le bouton Supprimer.
-
-## Activer l’audit pour AD FS
-
-Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les données et les analyser, l’agent Azure AD Connect Health doit avoir les informations à disposition dans les journaux d’audit AD FS. Ces journaux ne sont pas activés par défaut. Cette règle s’applique uniquement aux serveurs de fédération AD FS. Il est inutile d’activer l’audit sur les serveurs proxy AD FS ou sur les serveurs proxy d’application web. Utilisez les procédures suivantes pour activer l’audit AD FS et localiser les journaux d’audit AD FS.
-
-#### Pour activer l’audit pour AD FS 2.0
-
-1. Cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur **Stratégie de sécurité locale**.
-2. Accédez au dossier **Security Settings\\Local Policies\\User Rights Management**, puis double-cliquez sur Générer des audits de sécurité.
-3. Sous l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS 2.0 est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit.<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Fermez Stratégie de sécurité locale, puis ouvrez le composant logiciel enfichable Gestion. Pour ouvrir le composant logiciel enfichable Gestion, cliquez sur **Démarrer**, pointez sur **Programmes**, pointez sur **Outils d’administration**, puis cliquez sur Gestion AD FS 2.0.
-6. Dans le volet Actions, cliquez sur Modifier les propriétés du service FS (Federation Service).
-7. Dans la boîte de dialogue **Propriétés du service de fédération**, cliquez sur l’onglet **Événements**.
-8. Cochez les cases **Audits des succès** et **Audits des échecs**.
-9. Cliquez sur **OK**.
-
-#### Pour activer l’audit pour AD FS sur Windows Server 2012 R2
-
-1. Ouvrez **Stratégie de sécurité locale** en ouvrant **Gestionnaire de serveur** sur l’écran d’accueil, ou Gestionnaire de serveur dans la barre des tâches sur le bureau, puis cliquez sur **Outils/Stratégie de sécurité locale**.
-2. Accédez au dossier **Security Settings\\Local Policies\\User Rights Assignment**, puis double-cliquez sur **Générer des audits de sécurité**.
-3. Sous l’onglet **Paramètre de sécurité locale**, vérifiez que le compte de service AD FS est répertorié. S’il n’est pas présent, cliquez sur **Ajouter un utilisateur ou un groupe** et ajoutez-le à la liste, puis cliquez sur **OK**.
-4. Ouvrez une invite de commandes avec des privilèges élevés et exécutez la commande suivante pour activer l’audit : <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Fermez **Stratégie de sécurité locale**, puis ouvrez le composant logiciel enfichable **Gestion AD FS** (dans Gestionnaire de serveur, cliquez sur Outils, puis sélectionnez Gestion AD FS).
-6. Dans le volet Actions, cliquez sur **Modifier les propriétés du service de fédération**.
-7. Dans la boîte de dialogue Propriétés du service de fédération, cliquez sur l’onglet **Événements**.
-8. Cochez les cases **Audits des succès et Audits des échecs**, puis cliquez sur **OK**.
+4. Cliquez sur le bouton « Supprimer ». <br><br>
 
 
+[//]: # "Début de la section RBAC"
+## Gérer l’accès avec le contrôle d’accès en fonction du rôle (RBAC)
+### Vue d'ensemble
+Le [contrôle d’accès en fonction du rôle (RBAC)](role-based-access-control-configure.md) pour Azure AD Connect Health fournit l’accès au service Azure AD Connect Health aux utilisateurs et/ou groupes en dehors des administrateurs généraux. Pour ce faire, des rôles sont affectés aux groupes et/ou utilisateurs concernés et un mécanisme permet de limiter les administrateurs généraux dans votre annuaire.
+
+#### Rôles
+Azure AD Connect Health prend en charge les rôles prédéfinis suivants.
+
+| Rôle | Autorisations |
+| ----------- | ---------- |
+| Propriétaire | Les propriétaires peuvent ***gérer l’accès*** (par exemple, affecter un rôle à un utilisateur/groupe), ***afficher toutes les informations*** (par exemple, afficher des alertes) à partir du portail et ***modifier les paramètres*** (par exemple, envoyer des notifications par courrier électronique) au sein d’Azure AD Connect Health. <br>Par défaut, ce rôle est affecté de manière immuable aux administrateurs généraux Azure AD. |
+|Collaborateur| Les collaborateurs peuvent ***afficher toutes les informations*** (par exemple, afficher des alertes) à partir du portail et ***modifier les paramètres*** (par exemple, envoyer des notifications par courrier électronique) au sein d’Azure AD Connect Health.|
+|Lecteur| Les lecteurs peuvent ***afficher toutes les informations*** (par exemple, afficher des alertes) à partir du portail au sein d’Azure AD Connect Health.|
+
+Tous les autres rôles (comme « Administrateurs de l’accès utilisateur » ou « Utilisateurs DevTest Lab ») n’ont aucun impact sur l’accès au sein d’Azure AD Connect Health, même s’ils sont disponibles au cours de l’utilisation du portail.
+
+#### Étendue de l’accès
+
+Azure AD Connect prend en charge la gestion des accès à deux niveaux :
+
+- ***Annuaire*** : ceci est le chemin d’accès recommandé pour la plupart des clients et contrôle l’accès pour toutes les instances de service (par exemple, une batterie de serveurs ADFS) dans tous les types de rôles surveillés par Azure AD Connect Health.
+
+- ***Instance de service*** : dans certains cas, vous pouvez être amené à paramétrer l’accès en fonction d’un type de rôle ou d’une instance de service. Dans ce cas, vous pouvez gérer l’accès au niveau de l’instance de service.
+
+L’autorisation est accordée si un utilisateur final a accès au niveau Annuaire ou Instance de service.
 
 
+### Comment autoriser l’accès des utilisateurs ou des groupes à Azure AD Connect Health
+#### Étape 1 : sélectionner l’étendue d’accès appropriée
+Pour autoriser un accès utilisateur au niveau *annuaire* dans Azure AD Connect Health, ouvrez le panneau principal dans Azure AD Connect Health.<br> [//]\: # (RBAC\_MainBladeSS)
+#### Étape 2 : ajouter des utilisateurs, des groupes et affecter des rôles
+1. Cliquez sur la partie « Utilisateurs » de la section Configurer.<br> [//]\: # (RBAC\_MainBladeUserPart)
+2. Sélectionnez « Ajouter ».
+3. Sélectionnez le « Rôle ».<br> [//]\: # (RBAC\_AddRole)
+4. Tapez le nom ou l’identificateur du groupe ou de l’utilisateur cible. Vous pouvez sélectionner un ou plusieurs utilisateurs ou groupes en même temps.
+5. Sélectionnez « OK ».<br> [//]\: # (RBAC\_LastStep)
+6. Une fois l’affectation de rôle terminée, les utilisateurs et/ou les groupes apparaissent dans la liste.<br> [//]\: # (RBAC\_ListofUsersAndGroups)
 
+Au terme de ces étapes, les utilisateurs et groupes répertoriés bénéficient d’un accès en fonction des rôles qui leur ont été affectés.
+>[AZURE.NOTE]-Les administrateurs généraux disposent toujours d’un accès complet à toutes les opérations, mais les comptes d’administrateurs généraux ne sont pas présents dans la liste ci-dessus. - La fonctionnalité « Inviter des utilisateurs » N’EST PAS prise en charge dans Azure AD Connect Health.
 
-#### Pour localiser les journaux d’audit AD FS
+#### Étape 3 : partager l’emplacement du panneau avec des utilisateurs ou des groupes
+1. Une fois les autorisations affectées, un utilisateur peut accéder à Azure AD Connect Health à l’adresse [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
+2. Une fois sur le panneau, l’utilisateur peut épingler ce dernier ou différentes parties au tableau de bord en cliquant simplement sur « Épingler au tableau de bord »<br> [//]\: # (RBAC\_PinBlade)
 
+>[AZURE.NOTE]Un utilisateur qui détient le rôle « Lecteur » ne peut pas effectuer l’opération de création pour obtenir l’extension Azure AD Connect Health à partir d’Azure Marketplace. Cet utilisateur peut toujours accéder au panneau en suivant le lien ci-dessus. Pour une utilisation ultérieure, il peut épingler le panneau au tableau de bord.
 
-1. Ouvrez l’**Observateur d’événements**.
-2. Accédez à Journaux Windows et sélectionnez **Sécurité**.
-3. Sur la droite, cliquez sur **Filtrer les journaux actuels**.
-4. Dans Source de l’événement, sélectionnez **Audit AD FS**.
+### Supprimer des utilisateurs et/ou des groupes
+Vous pouvez supprimer un utilisateur ou un groupe de la partie du contrôle d’accès en fonction du rôle d’Azure AD Connect Health en cliquant avec le bouton droit et en sélectionnant Supprimer.<br> [//]\: # (RBAC\_RemoveUser)
 
-![Journaux d’audit AD FS](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
-
-> [AZURE.WARNING]Si vous disposez d’une stratégie de groupe qui désactive l’audit AD FS, l’agent Azure AD Connect Health ne pourra pas collecter les informations. Assurez-vous de ne pas disposer de stratégie de groupe susceptible de désactiver l’audit.
-
+[//]: # "Fin de la section RBAC"
 
 ## Liens connexes
 
@@ -134,4 +134,4 @@ Pour que la fonctionnalité d’analyse de l’utilisation puisse collecter les 
 * [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
 * [Forum Aux Questions (FAQ) Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

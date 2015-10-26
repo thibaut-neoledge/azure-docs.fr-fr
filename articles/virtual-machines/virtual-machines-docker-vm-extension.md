@@ -82,4 +82,4 @@ Pour obtenir une liste complète, consultez la page [Extensions de machine virtu
 [Extensions de machine virtuelle pour Linux et Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

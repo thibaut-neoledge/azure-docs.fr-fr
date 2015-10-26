@@ -35,7 +35,8 @@ Pour la version 2.0, les données comprennent :
 - Toutes les données système spécifiées dans ce [document](https://scx.codeplex.com/wikipage?title=xplatproviders").
 - Les fichiers journaux spécifiés par l’utilisateur.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 ## Comment activer l’extension
 L’extension peut être activée via le [portail Azure](https://ms.portal.azure.com/#), Azure PowerShell ou des scripts de l’interface de ligne de commande Azure.
@@ -143,4 +144,4 @@ Si vous avez activé les éléments fileCfg ou perfCfg spécifiés dans les scé
 - Pour la version 2.0, les informations de Rsyslog et le fichier journal spécifié par l’utilisateur sont accessibles seulement via un script.
 - Pour la version 2.0, si vous avez préalablement activé l’extension de diagnostic Linux via le script, vous ne pouvez pas afficher les données à partir du portail Azure. Si vous activez l’extension à partir du portail dans un premier temps, les scripts fonctionnent.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

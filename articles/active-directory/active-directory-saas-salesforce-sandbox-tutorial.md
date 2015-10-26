@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox | Microsoft Azure" description="Apprenez à utiliser Salesforce Sandbox avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
 #Didacticiel : Intégration d’Azure Active Directory à Salesforce Sandbox
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521878).
   
@@ -54,7 +54,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Configurer l’authentification unique")
 
@@ -62,9 +62,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Salesforce Sandbox](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Salesforce Sandbox")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Salesforce Sandbox**, tapez votre URL selon le modèle suivant « http://company.my.salesforce.com », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Mindflash**, tapez votre URL selon le modèle suivant `http://company.my.salesforce.com`, puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurer l’URL de l’application")
+
+4. Si vous avez déjà configuré l'authentification unique pour une autre instance Salesforce Sandbox dans votre annuaire, vous devez également configurer l’**URL de l'émetteur** en utilisant la même valeur que pour l’**URL d’authentification**. Le champ **URL de l'émetteur** peut être trouvé en cochant la case **Afficher les paramètres avancés** à la page **Configurer l’URL de l’application** de la boîte de dialogue.
 
 4.  Dans la page **Configurer l’authentification unique à Salesforce Sandbox**, cliquez sur **Télécharger le certificat**, puis enregistrez le fichier de certificat sur votre ordinateur.
 
@@ -84,7 +86,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Paramètres d’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Paramètres d’authentification unique")
 
-    1.  Sélectionnez **SAML Enabled**.
+    1.  Sélectionnez **SAML enabled**.
     2.  Cliquez sur **Nouveau**.
 
 9.  Dans la section SAML Single Sign-On Settings, procédez comme suit :
@@ -93,18 +95,19 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     1.  Dans la zone de texte Name, indiquez le nom de votre configuration (par exemple, *SPSSOWAAD\_Test*).
     2.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **Entity id**, tapez \*\***https://test.salesforce.com**.
+    3.  Dans la zone de texte **ID d’entité**, tapez ****https://test.salesforce.com** s'il s'agit de la première instance Salesforce Sandbox que vous ajoutez à votre annuaire. Si vous avez déjà ajouté une instance Salesforce Sandbox, pour l’**ID d'entité**, tapez l’**URL d'authentification**, qui doit être au format : `http://company.my.salesforce.com`
 4.  Cliquez sur **Parcourir** pour charger le certificat téléchargé.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentifier element of the Subject statement**.
     7.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Identity Provider Login URL**.
     8.  Dans la page **Configurer l’authentification unique sur Salesforce Sandbox** du portail Azure, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Identity Provider Logout URL**.
-    9.  Pour **Service Provider Initiated Request Binding**, sélectionnez **HTTP POST**.
+    9.  Comme **Liaison de demande initiée par le fournisseur de services**, sélectionnez **HTTP POST**.
     10. Cliquez sur **Enregistrer**.
 
-10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Configurer l’authentification unique")
+
 ##Activation de votre domaine
   
 Cette section suppose que vous avez déjà créé un domaine. Pour plus d’informations, consultez [Définition de votre nom de domaine](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
@@ -117,7 +120,7 @@ Cette section suppose que vous avez déjà créé un domaine. Pour plus d’info
 
     >[AZURE.NOTE]Vérifiez que votre domaine a été correctement configuré.
 
-2.  Dans la section **Login Page Settings**, cliquez sur **Edit**, puis, pour **Authentication Service**, sélectionnez le nom du paramètre d’authentification unique de la section précédente, avant de cliquer sur **Save**.
+2.  Dans la section **Login Page Settings**, cliquez sur **Edit**, puis, pour **Authentication Service**, sélectionnez le nom du paramètre d’authentification unique SAML de la section précédente, avant de cliquer sur **Save**.
 
     ![Mon domaine](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "Mon domaine")
   
@@ -142,7 +145,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     ![Nouveau jeton](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Nouveau jeton")
 
-5.  Recherchez dans votre boîte de réception un courrier électronique provenant de Salesforce.com ayant pour objet « \*\*salesforce.com.com security confirmation\*\* ».
+5.  Recherchez dans votre boîte de réception un courrier électronique provenant de Salesforce.com ayant pour objet « **salesforce.com.com security confirmation** ».
 
 6.  Lisez ce courrier électronique et copiez la valeur du jeton de sécurité.
 
@@ -160,7 +163,7 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
     3.  Dans la zone de texte **User Security Token**, collez la valeur du jeton de sécurité.
 
-    4.  Cliquez sur **Validate** pour vérifier votre configuration.
+    4.  Cliquez sur **Valider** pour vérifier votre configuration.
 
     5.  Cliquez sur le bouton **Suivant** pour ouvrir la page **Confirmation**.
 
@@ -173,16 +176,16 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Salesforce Sandbox\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Salesforce Sandbox**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Oui")
   
 À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Salesforce Sandbox.
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -98,4 +98,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [créer et déployer un site Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

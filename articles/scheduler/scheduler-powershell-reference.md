@@ -21,18 +21,18 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
 |Applet de commande|Description de l'applet de commande|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722516.aspx)**|Obtient une liste de tâches de planificateur ou une tâche de planificateur spécifique.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn722471.aspx)**|Obtient des collections de tâches de planificateur.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/fr-fr/library/azure/dn722514.aspx)**|Obtient l'historique d'une tâche de planificateur.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/fr-fr/library/azure/dn722505.aspx)**|Obtient les emplacements de planificateur disponibles.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722492.aspx)**|Crée une tâche de planificateur qui a une action HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn759640.aspx)**|Crée une collection de tâches de planificateur.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722518.aspx)**|Crée une tâche de planificateur qui a une action de stockage.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722477.aspx)**|Supprime une tâche de planificateur.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn722530.aspx)**|Supprime une collection de tâches de planificateur.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722474.aspx)**|Met à jour une tâche de planificateur qui a une action HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-fr/library/azure/dn759626.aspx)**|Met à jour une collection de tâches de planificateur.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-fr/library/azure/dn722476.aspx)**|Met à jour une tâche de planificateur qui a une action de stockage.|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722516.aspx)**|Obtient une liste de tâches de planificateur ou une tâche de planificateur spécifique.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-FR/library/azure/dn722471.aspx)**|Obtient des collections de tâches de planificateur.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/fr-FR/library/azure/dn722514.aspx)**|Obtient l'historique d'une tâche de planificateur.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/fr-FR/library/azure/dn722505.aspx)**|Obtient les emplacements de planificateur disponibles.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722492.aspx)**|Crée une tâche de planificateur qui a une action HTTP.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-FR/library/azure/dn759640.aspx)**|Crée une collection de tâches de planificateur.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722518.aspx)**|Crée une tâche de planificateur qui a une action de stockage.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722477.aspx)**|Supprime une tâche de planificateur.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-FR/library/azure/dn722530.aspx)**|Supprime une collection de tâches de planificateur.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722474.aspx)**|Met à jour une tâche de planificateur qui a une action HTTP.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/fr-FR/library/azure/dn759626.aspx)**|Met à jour une collection de tâches de planificateur.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/fr-FR/library/azure/dn722476.aspx)**|Met à jour une tâche de planificateur qui a une action de stockage.|
 
 
 ## Voir aussi
@@ -55,4 +55,4 @@ Le tableau suivant décrit chacune des principales applets de commande disponibl
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 
 # Créer un cluster de calcul haute performance (HPC) dans les machines virtuelles Azure avec le script de déploiement du HPC Pack IaaS
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article concerne la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 
 Exécutez le script PowerShell de déploiement du HPC Pack IaaS sur un ordinateur client pour déployer un cluster HPC Pack complet dans les services d’infrastructure Azure (IaaS). Le script fournit plusieurs options de déploiement et peut ajouter des nœuds de calcul de cluster exécutant des distributions Linux prises en charge ou des systèmes d’exploitation Windows Server.
@@ -389,4 +390,4 @@ Le fichier de configuration suivant déploie un cluster HPC Pack dans une forêt
 
 * Essayez les outils de HPC Pack pour démarrer, arrêter, ajouter et supprimer des nœuds de calcul à partir d’un cluster que vous créez. Consultez [Gérer des nœuds de calcul dans un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-node-manage.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

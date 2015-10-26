@@ -19,4 +19,4 @@
 
 5. Vous êtes invité à confirmer l’opération. Saisissez **O** pour poursuivre l’installation du correctif logiciel.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -71,7 +71,7 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 
     Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
 
-    1.   Accédez au portail Azure : [*https://portal.azure.com*](https://portal.azure.com)
+    1.   Accédez au portail Azure : [**https://portal.azure.com*](https://portal.azure.com)
 
     2.    Cliquez sur Parcourir tout -&gt; Toutes les ressources.
 
@@ -111,4 +111,4 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 # Création de NSG dans PowerShell
@@ -33,51 +33,37 @@ Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement 
 Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, voir [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivre les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
-2. À partir d’une invite de commandes Azure PowerShell, exécutez l’applet de commande **Switch-AzureMode** pour passer en mode Gestionnaire des ressources, comme illustré ci-dessous.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Sortie attendue :
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]L’applet de commande Switch-AzureMode sera bientôt obsolète. Lorsque ce sera le cas, toutes les applets de commande Resource Manager seront renommées.
 
 3. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 3389.
 
-		$rule1 = New-AzureNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+		$rule1 = New-AzureRMNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 3389
 
 4. Créer une règle de sécurité autorisant l'accès à partir d'Internet vers le port 80.
 
-		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+		$rule2 = New-AzureRMNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 80
 
 5. Ajouter les règles créées précédemment à un nouveau NSG nommé **NSG-FrontEnd**.
 
-		New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
+		$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
 			-SecurityRules $rule1,$rule2
 
-	Sortie attendue (n’affichant pas les règles par défaut) :
+6. Vérifier les règles créées dans le NSG.
 
-		Name                 : NSG-FrontEnd
-		ResourceGroupName    : TestRG
-		Location             : westus
-		Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroup
-		                       s/NSG-FrontEnd
-		Etag                 : W/"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398"
-		ProvisioningState    : Succeeded
-		Tags                 : 
-		SecurityRules        : [	
+		$nsg
+
+	La sortie affiche uniquement les règles de sécurité :
+
+		SecurityRules        : [
 		                         {
 		                           "Name": "rdp-rule",
-		                           "Etag": "W/"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398"",
-		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSe
-		                       curityGroups/NSG-FrontEnd/securityRules/rdp-rule",
+		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/rdp-rule",
 		                           "Description": "Allow RDP",
 		                           "Protocol": "Tcp",
 		                           "SourcePortRange": "*",
@@ -91,9 +77,8 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		                         },
 		                         {
 		                           "Name": "web-rule",
-		                           "Etag": "W/"6e0d0b50-5b92-4a21-9517-aa7ee8d3b398"",
-		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSe
-		                       curityGroups/NSG-FrontEnd/securityRules/web-rule",
+		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd/securityRules/web-rule",
 		                           "Description": "Allow HTTP",
 		                           "Protocol": "Tcp",
 		                           "SourcePortRange": "*",
@@ -106,133 +91,91 @@ Pour créer un groupe de sécurité réseau nommé *NSG-FrontEnd* selon le scén
 		                           "ProvisioningState": "Succeeded"
 		                         }
 		                       ]
-		DefaultSecurityRules : [ ... ]
-		NetworkInterfaces    : []
-		Subnets              : []		
 
-6. Associer le NSG créé ci-dessus au sous-réseau *FrontEnd*.
+6. Associer le NSG créé précédemment au sous-réseau *FrontEnd*.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
-	Sortie attendue indiquant seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
+	La sortie indique seulement les paramètres du sous-réseau *FrontEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"42bc8afe-f843-4a09-9c5f-d294c6338a4f"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb2/ipConfigurations/ipconfig1"
 		                          },
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICWeb1/ipConfigurations/ipconfig1"
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": null,
 		                        "ProvisioningState": "Succeeded"
 		                      }
+
+7. Enregistrer les nouveaux paramètres de réseau virtuel dans Azure.
+
+		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet
+
+	La sortie affiche uniquement la partie NSG :
+
+		"NetworkSecurityGroup": {
+		  "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		}
 
 ## Création du NSG pour le sous-réseau BackEnd
 Pour créer un groupe de sécurité réseau nommé *NSG-BackEnd* selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
 1. Créer une règle de sécurité permettant l’accès depuis le sous-réseau frontal vers le port 1433 (port par défaut utilisé par SQL Server).
 
-		$rule1 = New-AzureNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
+		$rule1 = New-AzureRMNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 1433
 
 4. Créer une règle de sécurité bloquant l'accès à Internet.
 
-		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
+		$rule2 = New-AzureRMNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
 		    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
 		    -SourceAddressPrefix * -SourcePortRange * `
 		    -DestinationAddressPrefix Internet -DestinationPortRange *
 
 5. Ajouter les règles créées précédemment à un nouveau NSG nommé **NSG-BackEnd**.
 
-		New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRMNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
-
-	Sortie attendue (n’affichant pas les règles par défaut) :
-
-		Name                 : NSG-BackEnd
-		ResourceGroupName    : TestRG
-		Location             : westus
-		Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroup
-		                       s/NSG-BackEnd
-		Etag                 : W/"3ca4eb9f-03a7-4e72-be25-6c066c0d8928"
-		ProvisioningState    : Succeeded
-		Tags                 : 
-		SecurityRules        : [
-		                         {
-		                           "Name": "frontend-rule",
-		                           "Etag": "W/"3ca4eb9f-03a7-4e72-be25-6c066c0d8928"",
-		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/frontend-rule",
-		                           "Description": "Allow FE subnet",
-		                           "Protocol": "Tcp",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "1433",
-		                           "SourceAddressPrefix": "192.168.1.0/24",
-		                           "DestinationAddressPrefix": "*",
-		                           "Access": "Allow",
-		                           "Priority": 100,
-		                           "Direction": "Inbound",
-		                           "ProvisioningState": "Succeeded"
-		                         },
-		                         {
-		                           "Name": "web-rule",
-		                           "Etag": "W/"3ca4eb9f-03a7-4e72-be25-6c066c0d8928"",
-		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd/securityRules/web-rule",
-		                           "Description": "Block Internet",
-		                           "Protocol": "*",
-		                           "SourcePortRange": "*",
-		                           "DestinationPortRange": "*",
-		                           "SourceAddressPrefix": "*",
-		                           "DestinationAddressPrefix": "Internet",
-		                           "Access": "Deny",
-		                           "Priority": 200,
-		                           "Direction": "Outbound",
-		                           "ProvisioningState": "Succeeded"
-		                         }
-		                       ]
-		DefaultSecurityRules : [...]
-		NetworkInterfaces    : []
-		Subnets              : []		
 
 6. Associer le NSG créé ci-dessus au sous-réseau *BackEnd*.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
-	Sortie attendue indiquant seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
+	La sortie indique seulement les paramètres du sous-réseau *BackEnd*. Notez la valeur de la propriété **NetworkSecurityGroup** :
 
 		Subnets           : [
                       {
                         "Name": "BackEnd",
-                        "Etag": "W/"42bc8afe-f843-4a09-9c5f-d294c6338a4f"",
-                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                         "AddressPrefix": "192.168.2.0/24",
-                        "IpConfigurations": [
-                          {
-                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICSQL1/ipConfigurations/ipconfig1"
-                          },
-                          {
-                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNICSQL2/ipConfigurations/ipconfig1"
-                          }
-                        ],
+                        "IpConfigurations": [...],
                         "NetworkSecurityGroup": {
-                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
                         },
                         "RouteTable": null,
                         "ProvisioningState": "Succeeded"
                       }
 
-<!---HONumber=Oct15_HO2-->
+7. Enregistrer les nouveaux paramètres de réseau virtuel dans Azure.
+
+		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet
+
+<!---HONumber=Oct15_HO3-->

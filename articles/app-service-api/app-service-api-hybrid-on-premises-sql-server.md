@@ -32,9 +32,9 @@ Pour réaliser ce didacticiel, vous avez besoin des produits suivants. Tous sont
 
 - **Visual Studio** - Pour télécharger une version d’évaluation gratuite de Visual Studio 2013 ou Visual Studio 2015, consultez [Téléchargements de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Installez-en une des deux avant de continuer. (Les captures d’écran de ce didacticiel ont été effectuées à l’aide de Visual Studio 2013)
 
-- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-fr/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
+- **SQL Server 2014 Express with Tools** - Téléchargez gratuitement Microsoft SQL Server Express sur la [page des bases de données Microsoft Web Platform](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299). Plus loin dans ce didacticiel, vous verrez comment [installer SQL Server](#InstallSQLDB) pour vous assurer qu’il est correctement configuré.
 
-- **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](https://www.microsoft.com/fr-fr/download/details.aspx?id=42299).
+- **SQL Server Management Studio Express** : cet outil est inclus dans le téléchargement de SQL Server 2014 Express with Tools mentionné plus haut, mais si vous avez besoin de l'installer séparément, vous pouvez le télécharger et l'installer à partir de la [page de téléchargement de SQL Server Express](https://www.microsoft.com/fr-FR/download/details.aspx?id=42299).
 
 Ce didacticiel part du principe que vous possédez un abonnement Azure, que vous avez installé Visual Studio 2013 et que vous avez installé ou activé .NET Framework 3.5. Il explique comment installer SQL Server 2014 Express dans une configuration adaptée à la fonctionnalité Connexions hybrides d'Azure (une instance par défaut avec un port IP statique). Avant de commencer ce didacticiel, téléchargez (sans l’installer) SQL Server 2014 Express with Tools depuis l’emplacement mentionné ci-dessus si vous n’avez pas installé SQL Server.
 
@@ -430,4 +430,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

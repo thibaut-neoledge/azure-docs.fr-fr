@@ -19,7 +19,8 @@
 
 # Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du téléchargement d’un VHD avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Cet article vous montre comment créer et télécharger un disque dur virtuel pour que vous puissiez l'utiliser comme image personnelle pour créer des machines virtuelles dans Azure. Vous apprendrez comment préparer le système d'exploitation pour créer plusieurs machines virtuelles basées sur cette image. Notez que cet article fait référence aux machines virtuelles créées à l'aide du modèle de déploiement classique.
 
@@ -152,7 +153,7 @@ Depuis la fenêtre Azure PowerShell utilisée lors de l'étape précédente, tap
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
-Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
+Pour plus d'informations, consultez la page Add-AzureVhd((https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 
 
@@ -161,4 +162,4 @@ Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microso
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

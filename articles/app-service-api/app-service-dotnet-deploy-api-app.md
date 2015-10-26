@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tdykstra"/>
 
 # Déployer une application API dans Azure App Service 
 
 ## Vue d'ensemble
 
-Dans ce didacticiel, vous allez déployer le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous allez utiliser Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) et déployer votre code d’API web avec vers l’application API Azure.
+Dans ce didacticiel, vous déployez le projet d’API web que vous avez créé dans le [didacticiel précédent](app-service-dotnet-create-api-app.md) vers une nouvelle [application API](app-service-api-apps-why-best-platform.md). Vous utilisez Visual Studio pour créer la ressource d’application API dans [Azure App Service](../app-service/app-service-value-prop-what-is.md) et déployez votre code d’API web vers l’application API Azure.
 
 ### Autres options de déploiement
 
@@ -121,7 +121,10 @@ Ensuite, vous apporterez une modification à la définition de l'API et vous vis
 
 ## Étapes suivantes
 
-Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent l'itération et le déploiement rapide de votre API ainsi que le test permettant de vérifier qu'elle fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
- 
+Vous avez vu comment les fonctionnalités de déploiement direct dans Visual Studio facilitent le test permettant de vérifier que l’API fonctionne correctement. Dans le [didacticiel suivant](../app-service-dotnet-remotely-debug-api-app.md), vous verrez comment déboguer votre application API pendant son exécution dans Azure.
 
-<!---HONumber=Oct15_HO2-->
+Les application API sont des applications web avec des fonctionnalités supplémentaires pour l’hébergement d’API, ce qui signifie que vous pouvez utiliser n’importe quelle méthode qui fonctionne avec des applications web. Pour plus d’informations sur les options de déploiement des applications web, voir [Déployer une applications web dans Azure App Service](../app-service-web/web-sites-deploy.md).
+
+Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

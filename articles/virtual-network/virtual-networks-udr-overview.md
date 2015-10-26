@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="10/12/2015"
    ms.author="telmos" />
 
 # Itinéraires définis par l’utilisateur et transfert IP
@@ -32,9 +32,11 @@ La figure ci-dessous représente une configuration simple avec un réseau virtue
 
 Les itinéraires système permettent la circulation automatique du trafic lié au déploiement, mais il existe des cas où il peut s’avérer utile d’acheminer les paquets au moyen d’une appliance virtuelle. Pour ce faire, créez des itinéraires personnalisés qui redirigent le prochain tronçon de paquets circulant vers un sous-réseau spécifique vers votre appliance virtuelle, et activer le transfert d’adresses IP pour la machine virtuelle exécutée en tant qu’appliance virtuelle.
 
-La figure ci-dessous représente un exemple d’itinéraires personnalisés et de transfert d’IP redirigeant les paquets cheminant d’un sous-réseau frontal vers Internet vers une appliance virtuelle, et l’ensemble des paquets cheminant du sous-réseau frontal vers le sous-réseau principal vers une appliance différente. Notez que le trafic entre le sous-réseau principal et le sous-réseau frontal emprunte toujours l’itinéraire système ; il contourne l’appliance.
+La figure ci-dessous montre un exemple d’itinéraires définis par l’utilisateur et le transfert IP pour forcer les paquets envoyés d’un sous-réseau à un autre à passer par un équipement virtuel sur un troisième sous-réseau.
 
 ![Itinéraires système dans Azure](./media/virtual-networks-udr-overview/Figure2.png)
+
+>[AZURE.IMPORTANT]Les itinéraires définis par l’utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d’itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d’Internet, par exemple. En outre, l’équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d’où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements.
 
 ## Routage
 Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itinéraires définie sur chaque nœud du réseau physique. Une table d’itinéraires est une collection d’itinéraires individuels permettant de déterminer où transférer les paquets en fonction de l’adresse IP de destination. Un itinéraire se compose des éléments suivants :
@@ -52,7 +54,7 @@ Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itiné
 Chaque sous-réseau créé dans un réseau virtuel est automatiquement associé à une table de routage qui comporte les règles suivantes d’itinéraires du système :
 
 - **Règle locale Vnet** : cette règle est automatiquement créée pour chaque sous-réseau d’un réseau virtuel. Elle indique qu’il existe un lien direct entre les machines virtuelles et le réseau virtuel, et qu’aucun tronçon intermédiaire suivant n’est à signaler.
-- **Règle locale** : cette règle s’applique à tout le trafic destiné à la plage d’adresses locales et utilise une passerelle VPN en tant que tronçon suivant de destination.
+- **Règle locale** : cette règle s’applique à tout le trafic destiné à la plage d’adresses locale et utilise une passerelle VPN en tant que tronçon suivant de destination.
 - **Règle Internet** : cette règle traite l’ensemble du trafic destiné à l’Internet public et utilise la passerelle Internet d’infrastructure en tant que tronçon suivant pour l’ensemble du trafic destiné au réseau Internet.
 
 ## Itinéraires définis par l’utilisateur
@@ -83,11 +85,9 @@ Comme décrit ci-dessus, une des raisons principales pour créer un itinéraire 
 
 La machine virtuelle d’appliance virtuelle doit être capable de recevoir le trafic entrant qui ne lui est pas adressé. Pour permettre à une machine virtuelle de recevoir le trafic adressé à d’autres destinations, vous devez activer le transfert IP pour la machine virtuelle. Il s’agit d’un paramètre Azure, pas d’un paramètre du système d’exploitation invité.
 
-Pour savoir comment activer le transfert IP pour une machine virtuelle dans Microsoft Azure, consultez la section [Création d’itinéraires et activation du transfert IP dans Azure](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding).
-
 ## Étapes suivantes
 
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](../virtual-network-create-udr-arm-template) et les associer à des sous-réseaux. 
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](../virtual-network-create-udr-classic-ps) et les associer à des sous-réseaux.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

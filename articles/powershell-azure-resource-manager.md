@@ -7,7 +7,6 @@
 	manager="wpickett" 
 	editor=""/>
 
-
 <tags 
 	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
-
 
 # Utilisation d’Azure PowerShell avec Azure Resource Manager
 
@@ -187,7 +185,7 @@ Notez que le paramètre **administratorLoginPassword** utilise une chaîne sécu
 
 La section **resources** du modèle répertorie les ressources que le modèle crée. Ce modèle crée un serveur de base de données SQL et une base de données SQL, une batterie de serveurs et un site web, ainsi que plusieurs paramètres de gestion.
   
-La définition de chaque ressource inclut les propriétés correspondantes, telles que le nom, le type et l'emplacement, ainsi que les paramètres pour les valeurs définies par l'utilisateur. Par exemple, cette section du modèle définit la base de données SQL. Elle inclut les paramètres associés au nom de la base de données ([parameters('databaseName')\]), l'emplacement du serveur de base de données [parameters('serverLocation')\] et la propriété collation [parameters('collation')\].
+La définition de chaque ressource inclut les propriétés correspondantes, telles que le nom, le type et l'emplacement, ainsi que les paramètres pour les valeurs définies par l'utilisateur. Par exemple, cette section du modèle définit la base de données SQL. Elle inclut les paramètres associés au nom de la base de données ([parameters('databaseName')]), l'emplacement du serveur de base de données [parameters('serverLocation')] et la propriété collation [parameters('collation')].
 
     {
         "name": "[parameters('databaseName')]",
@@ -379,4 +377,4 @@ Le module AzureResourceManager inclut des cmdlets vous permettant d'éviter les 
 - Pour savoir comment déployer des modèles, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](./resource-group-template-deploy.md).
 - Pour obtenir un exemple détaillé de déploiement d'un projet, consultez [Déploiement prévisible de microservices dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

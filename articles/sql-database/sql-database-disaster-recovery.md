@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Récupération d'urgence de bases de données SQL"
-	description="Découvrez comment récupérer une base de données en cas de panne d'un centre de données régional grâce aux fonctionnalités de géo-réplication de base de données SQL Azure et de restauration géographique."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Récupération d'urgence de bases de données SQL" 
+   description="Découvrez comment récupérer une base de données en cas de panne d'un centre de données régional grâce aux fonctionnalités de géo-réplication de base de données SQL Azure et de restauration géographique." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # Récupérer une base de données SQL Azure en cas de défaillance
 
@@ -103,4 +103,4 @@ Utilisez REST pour exécuter la récupération de base de données par programma
 Une fois la base de données récupérée, vous pouvez la configurer pour l'utiliser en suivant le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

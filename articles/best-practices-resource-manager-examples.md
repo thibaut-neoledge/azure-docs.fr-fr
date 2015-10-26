@@ -254,4 +254,4 @@ Enfin, on peut souhaiter s’assurer que certaines ressources ne sont pas suppri
 - Pour obtenir des recommandations sur la façon de gérer la sécurité dans Azure Resource Manager, consultez [Considérations de sécurité pour Azure Resource Manager](best-practices-resource-manager-security.md).
 - Pour en savoir plus sur le partage d’état vers et depuis des modèles, consultez [Partage d’état dans les modèles Azure Resource Manager](best-practices-resource-manager-state.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

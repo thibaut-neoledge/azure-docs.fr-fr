@@ -7,7 +7,7 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -41,6 +41,4 @@ Regardez cette vidéo pour découvrir combien il est facile d'étendre votre Act
 
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
 
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

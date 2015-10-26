@@ -86,4 +86,4 @@ L’exemple suivant montre comment activer l’authentification multifacteur loc
 
 En plus de définir cet indicateur, vous devez configurer l’instance AD FS du client fédéré pour effectuer une authentification multifacteur. Suivez les instructions permettant de déployer Azure Multi-Factor Authentication localement.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

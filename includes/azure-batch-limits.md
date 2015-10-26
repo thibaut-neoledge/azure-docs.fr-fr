@@ -7,4 +7,4 @@ Nombre maximal de tâches par nœud de calcul|4 x nombre de cœurs de nœud|4�
 
 <sup>1</sup> Vous pouvez augmenter le nombre de cœurs par compte Batch, mais le nombre maximal n'est pas spécifié. Contactez l'assistance clientèle pour vous informer sur les possibilités d'augmentation. <sup>2</sup>Inclut des tâches actives à exécution unique et des planifications de tâches actives.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

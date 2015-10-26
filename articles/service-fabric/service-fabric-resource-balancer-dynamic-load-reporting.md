@@ -36,4 +36,4 @@ Notez que lorsqu'un service rapporte la charge, ces rapports de charge remplacen
 Pour plus d'informations : [Architecture de l'équilibreur de ressources](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

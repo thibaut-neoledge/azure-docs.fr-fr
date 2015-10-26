@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Vue d’ensemble de la suite Microsoft Azure IoT | Microsoft Azure"
-	description="Cette section fournit une vue d'ensemble de la suite Azure IoT."
+	description="Ceci offre une vue d’ensemble d’Azure IoT Suite, notamment l’empaquetage et les solutions préconfigurées."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,7 +12,7 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
@@ -38,4 +38,4 @@ Des solutions préconfigurées sont incluses dans la suite Azure IoT pour permet
 
 La première solution préconfigurée disponible est la [surveillance à distance](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,6 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
@@ -16,7 +15,6 @@
    ms.workload="NA"
    ms.date="08/05/2015"
    ms.author="abhisram"/>
-
 
 # Diagnostics et surveillance des performances pour les acteurs fiables
 Le runtime Acteurs fiables émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et des [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) qui fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
@@ -157,4 +155,4 @@ Le runtime Acteurs fiables émet les événements suivants liés à l'[activatio
 |ActorActivated|5|Informations|0x1|Un acteur a été activé.|
 |ActorDeactivated|6|Informations|0x1|Un acteur a été désactivé.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

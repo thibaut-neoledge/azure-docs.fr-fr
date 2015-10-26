@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Matériel pour les interfaces StorSimple 10 GbE | Microsoft Azure"
-	description="Décrit les transmetteurs, câbles et commutateurs à petit facteur de forme enfichables pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit les transmetteurs, câbles et commutateurs à petit facteur de forme enfichables pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
 
@@ -112,4 +112,4 @@ Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils
 
 [En savoir plus sur les composants matériels StorSimple et leur état](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

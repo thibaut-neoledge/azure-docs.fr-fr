@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Prévention des suppressions accidentelles
@@ -44,7 +44,8 @@ Si vous souhaitez que tous les éléments soient supprimés, procédez comme sui
 3. Pour réactiver la protection, exécutez l'applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold`
 
 ## Étapes suivantes
+En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
 
-Pour en savoir plus sur la configuration d'Azure AD Connect Sync, consultez la rubrique [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

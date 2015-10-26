@@ -46,4 +46,4 @@ Le panneau d'accès d’Azure AD vous permet de publier vos applications locales
 1. Activez le proxy d'application dans Azure AD, puis installez et inscrivez le connecteur. Pour obtenir des instructions détaillées, consultez [Activation du proxy d’application Azure AD](active-directory-application-proxy-enable/#step-1-enable-application-proxy-in-azure-ad.md).
 2. Publication d’applications à l'aide du proxy d’application Azure AD - Pour obtenir des instructions détaillées, consultez [Publication d’applications via le proxy d'application Azure AD](active-directory-application-proxy-publish.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

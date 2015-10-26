@@ -40,4 +40,4 @@ Quand vous spécifiez la propriété compression dans un jeu de données JSON d�
 - Lire les données d’un fichier de texte brut dans le système de fichiers local, les compresser en utilisant le format GZIP et écrire les données compressées dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objets blob Azure de sortie avec propriété JSON compression.  
 - Lire les données compressées au format GZIP à partir d’un objet blob Azure, les décompresser, les compresser en utilisant le format BZIP2 et écrire les données résultantes dans un objet blob Azure. Dans ce cas, vous définissez le jeu de données d’objet blob Azure d’entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.   
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

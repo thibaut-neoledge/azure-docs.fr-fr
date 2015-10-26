@@ -1,20 +1,20 @@
 <properties
    pageTitle="Connexion aux sources de données"
-	description="Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/19/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 
 # Connexion aux sources de données
@@ -51,4 +51,4 @@ Même si **Azure Data Catalog** rend les sources de données détectables, l’a
 ##Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite et détectée, les utilisateurs peuvent se connecter à la source de données à partir du menu « Ouvrir dans... » du portail **Azure Data Catalog** ou à l’aide des outils de données de leur choix.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

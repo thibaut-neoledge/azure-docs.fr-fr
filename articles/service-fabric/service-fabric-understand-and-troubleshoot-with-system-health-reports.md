@@ -530,4 +530,4 @@ System.Hosting consigne la valeur Error si la validation de la mise à niveau é
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

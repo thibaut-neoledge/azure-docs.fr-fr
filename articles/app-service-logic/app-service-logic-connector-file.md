@@ -85,4 +85,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Définition des API du connecteur File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

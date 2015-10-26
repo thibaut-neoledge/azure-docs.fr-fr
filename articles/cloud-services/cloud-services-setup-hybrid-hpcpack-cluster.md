@@ -58,13 +58,13 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 
 2. Dans les fichiers d'installation HPC Pack, lancez l'Assistant Installation en exécutant Setup.exe.
 
-3. Sur l'écran **HPC Pack 2012 R2 Setup**, cliquez sur **Nouvelle installation ou ajouter de nouvelles fonctionnalités à une installation existante**.
+3. Sur l'écran **HPC Pack 2012 R2 Setup**, cliquez sur **New installation or add new features to an existing installation**.
 
 	![Configuration de HPC Pack 2012][install_hpc1]
 
-4. Sur la page **Page du Contrat de licence logicielle Microsoft**, cliquez sur **Suivant**.
+4. Sur la page **Microsoft Software User Agreement page**, cliquez sur **Suivant**.
 
-5. Sur la page **Sélectionner le type d’installation**, cliquez sur **Créer un cluster HPC en créant un nœud principal**, puis sur **Suivant**.
+5. Sur la page **Sélectionner le type d’installation**, cliquez sur **Create a new HPC cluster by creating a head node**, puis sur **Suivant**.
 
 	![Sélectionner le type d'installation][install_hpc2]
 
@@ -80,7 +80,7 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 
 	![Installer][install_hpc6]
 
-9. Une fois l'installation terminée, désactivez **Démarrer HPC Cluster Manager**, puis cliquez sur **Terminer**. Vous lancerez HPC Cluster Manager à une étape ultérieure pour terminer la configuration du nœud principal.
+9. Une fois l'installation terminée, désactivez **Start HPC Cluster Manager**, puis cliquez sur **Finish**. Vous lancerez HPC Cluster Manager à une étape ultérieure pour terminer la configuration du nœud principal.
 
 	![Terminer][install_hpc7]
 
@@ -152,7 +152,7 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 4. Cliquez sur **Suivant** pour accepter les valeurs par défaut sur les pages suivantes de l'Assistant. Ensuite, sous l'onglet **Review**, cliquez sur **Configure** pour terminer la configuration réseau.
 
-5. Dans la liste **Deployment To-do List**, cliquez sur **Fournir des informations d'identification pour l'installation**.
+5. Dans la liste **Deployment To-do List**, cliquez sur **Provide installation credentials**.
 
 6. Dans la boîte de dialogue **Installation Credentials**, entrez les informations d'identification du compte de domaine utilisé pour installer HPC Pack. Cliquez ensuite sur **OK**.
 
@@ -168,7 +168,7 @@ Effectuez quelques unes des étapes de configuration de cluster requises afin qu
 
 	>[AZURE.NOTE]La série de noms génère des noms uniquement pour les nœuds de calcul joints au domaine. Les nœuds Azure sont nommés de façon automatique.
 
-9. Dans la liste **Deployment To-do List**, cliquez sur **Créer un modèle de nœud**. Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster.
+9. Dans la liste **Deployment To-do List**, cliquez sur **Create a node template**. Le modèle de nœud vous sert d'exemple pour ajouter des nœuds Azure au cluster.
 
 10. Procédez comme suit dans l'Assistant Create Node Template :
 
@@ -210,7 +210,7 @@ Dans le cadre de ce didacticiel, vous allez ajouter deux petits nœuds.
 
 	Pour plus d'informations sur les tailles de machines virtuelles disponibles, consultez la page [Tailles de machines virtuelles et services cloud pour Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-4. Sur la page **Completing the Add Node Wizard**, cliquez sur **Terminer**.
+4. Sur la page **Completing the Add Node Wizard**, cliquez sur **Finish**.
 
 	 Deux nœuds Azure, nommés **AzureCN-0001** et **AzureCN-0002**, sont désormais affichés dans HPC Cluster Manager. Leur état est **Not-Deployed**.
 
@@ -347,4 +347,4 @@ Après avoir testé le cluster, utilisez HPC Cluster Manager pour arrêter les n
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

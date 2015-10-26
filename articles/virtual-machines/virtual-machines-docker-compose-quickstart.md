@@ -21,7 +21,8 @@
 
 Cet article vous montre comment commencer à utiliser Docker et [Compose](http://github.com/docker/compose) pour définir et exécuter une application complexe sur une machine virtuelle Linux dans Azure. Avec Compose (le successeur de *Fig*), un fichier texte simple vous permet de définir une application composée de plusieurs conteneurs Docker. Faites ensuite tourner votre application dans une seule commande qui fait tout pour l’exécuter sur la machine virtuelle. À titre d’exemple, cet article vous explique comment configurer rapidement un blog WordPress avec une base de données SQL MariaDB principale, mais vous pouvez également utiliser Compose pour configurer des applications plus complexes.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article s’applique à la création de machines virtuelles à l’aide de Resource Manager et des modèles de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Si vous découvrez Docker et les conteneurs, visionnez la vidéo [Docker high level whiteboard](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/) (en anglais).
 
@@ -33,14 +34,14 @@ Votre magasin en ligne Microsoft Azure Marketplace comporte différentes proc
 
 Une fois que la machine virtuelle Linux s’exécute avec Docker, connectez-vous à celle-ci à partir de votre ordinateur client à l’aide de SSH. Si vous en avez besoin, installez [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md) en exécutant les deux commandes suivantes.
 
->[AZURE.TIP] Si vous avez utilisé l’extension de machine virtuelle Docker pour créer votre machine virtuelle, Compose est déjà installé. Ignorez ces commandes et passez à l’étape 3. Vous ne devez installer Compose que si vous avez installé vous-même Docker sur la machine virtuelle.
+>[AZURE.TIP]Si vous avez utilisé l’extension de machine virtuelle Docker pour créer votre machine virtuelle, Compose est déjà installé. Ignorez ces commandes et passez à l’étape 3. Vous ne devez installer Compose que si vous avez installé vous-même Docker sur la machine virtuelle.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE] Si une erreur d’autorisation refusée est générée, cela signifie que le répertoire /usr/local/bin de la machine virtuelle n’est pas modifiable et que vous devez installer Compose en tant que superutilisateur. Exécutez `sudo -i`, puis les deux commandes ci-dessus, et enfin `exit`.
+>[AZURE.NOTE]Si une erreur d’autorisation refusée est générée, cela signifie que le répertoire /usr/local/bin de la machine virtuelle n’est pas modifiable et que vous devez installer Compose en tant que superutilisateur. Exécutez `sudo -i`, puis les deux commandes ci-dessus, et enfin `exit`.
 
 Pour tester votre installation de Compose, exécutez la commande ci-dessous.
 
@@ -51,7 +52,7 @@ $ docker-compose --version
 Vous verrez une sortie semblable à
 ```
 docker-compose 1.3.2
-```.
+```
 
 
 ## Étape 3 : Créer un fichier de configuration docker-compose.yml
@@ -87,11 +88,11 @@ $ docker-compose up -d
 Cette action démarre les conteneurs Docker spécifiés dans `docker-compose.yml`. Le résultat doit être similaire à ceci :
 
 ```
-Creating wordpress_db_1...
-Creating wordpress_wordpress_1...
+Creating wordpress\_db\_1...
+Creating wordpress\_wordpress\_1...
 ```
 
->[AZURE.NOTE] Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
+>[AZURE.NOTE]Veillez à utiliser l’option **-d** au démarrage, de manière à ce que les conteneurs s’exécutent en continu en arrière-plan.
 
 Pour vérifier que les contrôleurs sont en cours d’exécution, tapez `docker-compose ps`. Le résultat suivant devrait s’afficher :
 
@@ -128,4 +129,4 @@ L’écran de démarrage de WordPress, vous permettant de terminer l’installat
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!-----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

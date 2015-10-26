@@ -8,4 +8,4 @@ Dans la session Bureau à distance, téléchargez [KB2854082](http://support.mic
 > - tous les nœuds du cluster sont en ligne avant l'installation du correctif logiciel sur n'importe quel nœud, et
 > - autorisez l'installation complète du correctif sur un nœud, notamment avec un redémarrage complet du serveur, avant d'installer le correctif logiciel sur tout autre nœud du cluster.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015" 
+	ms.date="10/08/2015" 
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,15 @@ En outre, vous devez utiliser une SAP pour authentifier l’objet source d’une
 - Lorsque vous copiez un objet blob dans un autre fichier qui réside dans un autre compte de stockage, vous devez utiliser une SAP pour authentifier le fichier source. Avec la version 2015-04-05, vous pouvez éventuellement utiliser une SAP pour authentifier également le fichier de destination.
 - Lorsque vous copiez un objet blob dans un fichier ou un fichier dans un objet blob, vous devez utiliser une SAP pour authentifier l’objet source, même si les objets source et de destination résident dans le même compte de stockage.
 
+>[AZURE.NOTE]La SAP de compte est actuellement prise en charge uniquement pour les services Blob et Fichier. Elle sera prise en charge pour les services Table et File d’attente prochainement.
+
 ## Types de signatures d’accès partagé
 
 La version 2015-04-05 d’Azure Storage introduit un nouveau type de signature d’accès partagé : la SAP de compte. Vous pouvez maintenant créer deux types de signatures d’accès partagé différents :
 
 - **SAP de compte.** La SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent à un service donné, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l’accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d’objets blob, les tables, les files d’attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. Pour obtenir des informations détaillées sur la construction du jeton de SAP de compte, consultez la page [Construction d’une SAP de compte](https://msdn.microsoft.com/library/mt584140.aspx).
 
-- **SAP de service.** Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service BLOB, de File d’attente, de Table ou de fichiers. Pour obtenir des informations détaillées sur la construction du jeton de SAP de compte, consultez les pages [Construction d’une SAP de service](https://msdn.microsoft.com/library/dn140255.aspx) et [Exemples de SAP de service](https://msdn.microsoft.com/library/dn140256.aspx).
+- **SAP de service.** Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service BLOB, de File d’attente, de Table ou de fichiers. Pour obtenir des informations détaillées sur la construction du jeton de SAP de service, consultez les pages [Construction d’une SAP de service](https://msdn.microsoft.com/library/dn140255.aspx) et [Exemples de SAP de service](https://msdn.microsoft.com/library/dn140256.aspx).
 
 ## Fonctionnement d’une signature d’accès partagé
 
@@ -72,7 +74,7 @@ Les jetons de SAP de compte et de SAP de service incluent des paramètres commun
 - **Heure de début.** Il s'agit de l'heure à laquelle la signature d'accès partagé devient valide. L'heure de début pour une signature d'accès partagé est facultative ; si elle est omise, la signature d'accès partagé prend effet immédiatement. 
 - **Heure d’expiration.** Il s'agit de l'heure à laquelle la signature d'accès partagé cesse d'être valide. Les meilleures pratiques recommandent soit de spécifier une heure d'expiration pour une signature d'accès partagé, soit de l'associer à une stratégie d'accès stockée (voir plus loin).
 - **Autorisations.** Les autorisations spécifiées sur la signature d'accès partagé indiquent quelles opérations le client peut exécuter avec cette dernière sur la ressource de stockage. Les autorisations disponibles ne sont pas les mêmes pour une SAP de compte et une SAP de service.
-- **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute). 
+- **IP.** Paramètre facultatif qui spécifie une adresse IP ou une plage d’adresses IP en dehors d’Azure en provenance de laquelle accepter les demandes (consultez la section [État de configuration d’une session de routage](../expressroute/expressroute-workflows.md#routing-session-configuration-state) pour ExpressRoute). 
 - **Protocole.** Paramètre facultatif qui spécifie le protocole autorisé pour une demande. Les valeurs possibles sont HTTPS et HTTP à la fois (https,http), qui est la valeur par défaut, ou HTTPS uniquement (https). Notez que HTTP uniquement n’est pas une valeur autorisée.
 - **Signature.** La signature est construite à partir des autres paramètres spécifiés pour le jeton, puis chiffrée. Elle est utilisée pour authentifier la SAP.
 
@@ -322,4 +324,4 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
  
 
-<!-----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -194,4 +194,4 @@ Pour en savoir plus sur la migration, consultez la section [Migration de votre s
 [Adaptateur de destination ADO.NET]: https://msdn.microsoft.com/fr-FR/library/bb934041.aspx
 [documentation relative à SSIS]: https://msdn.microsoft.com/fr-FR/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

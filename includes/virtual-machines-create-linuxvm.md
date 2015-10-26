@@ -39,4 +39,4 @@
 
 Pour plus d’informations sur toutes les commandes des machines virtuelles Azure CLI, consultez [Utilisation de l’interface de ligne de commande Azure avec l’API Service Management](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

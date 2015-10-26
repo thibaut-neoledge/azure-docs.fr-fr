@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 
@@ -81,13 +81,22 @@ Si l’inscription échoue pendant l’installation de l’Assistant Connecteur,
 
 
 ## Voir aussi
+Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
-[Utilisation d’un proxy d’application pour publier des applications pour un accès à distance sécurisé](active-directory-application-proxy-configure.md)
 
-[Activer les services de proxy d’application](active-directory-application-proxy-enable.md)
+- [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
+- [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
+- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
+- [Activer l’accès conditionnel](active-directory-application-proxy-conditional-access.md)
+- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
+
+## En savoir plus sur le Proxy d’application
+- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
+- [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
+- [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

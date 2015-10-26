@@ -397,7 +397,7 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	Le réseau contient une troisième couche masquée, _Hid3_, entièrement connectée à la deuxième couche masquée, _Conv2_.
 -	La couche de sortie, _Digit_, n'est connectée qu'à la troisième couche masquée, _Hid3_. Le mot clé **all** indique que la couche de sortie est entièrement connectée à _Hid3_.
 -	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
--	Le nombre de poids par noyau est de _ 1 + **KernelShape**\[0] * **KernelShape**\[1] * **KernelShape**\[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
+-	Le nombre de poids par noyau est de _ 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
 	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
 	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
@@ -414,4 +414,4 @@ Le langage Net # pour la personnalisation de l'architecture des réseaux neurona
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

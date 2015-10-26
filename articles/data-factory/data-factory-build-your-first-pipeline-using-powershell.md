@@ -152,9 +152,9 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
 	Dans l’exemple précédent, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d’objets blob appelé **data** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
 
-2. Exécutez la commande suivante dans Azure PowerShell pour créer la table Data Factory :
+2. Exécutez la commande suivante dans Azure PowerShell pour créer le jeu de données Data Factory :
 
-		New-AzureDataFactoryTable $df -File .\OutputTable.json
+		New-AzureDataFactoryDataset $df -File .\OutputTable.json
 
 ## Étape 3 : création de votre premier pipeline
 Dans cette étape, vous allez créer votre premier pipeline.
@@ -268,4 +268,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

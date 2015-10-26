@@ -19,7 +19,7 @@
 
 # Environnement de test de la configuration de base
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique. Vous pouvez également créer ces ressources avec le [modèle de déploiement Resource Manager](virtual-machines-base-configuration-test-environment-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-base-configuration-test-environment-resource-manager.md).
 
 Cet article vous présente des instructions détaillées vous permettant de créer l’environnement de test de la configuration de base au sein d’un réseau virtuel Azure.
 
@@ -81,7 +81,7 @@ Ensuite, vous créez un service cloud Azure. Le service cloud agit comme une lim
 
 Vous devez choisir un nom unique pour votre service cloud. *Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d’union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.*
 
-Par exemple, vous pouvez nommer votre service cloud TestLab-*séquence\_unique*, où *séquence\_unique* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
+Par exemple, vous pouvez nommer votre service cloud TestLab-*UniqueSequence*, où *UniqueSequence* est l’abréviation de votre entreprise. Par exemple, si le nom de votre organisation est Tailspin Toys, vous pouvez appeler le service cloud TestLab-Tailspin.
 
 Vous pouvez vérifier si le nom est unique avec cette commande Azure PowerShell.
 
@@ -288,4 +288,4 @@ Pour démarrer les machines virtuelles dans l’ordre avec Azure PowerShell, ind
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

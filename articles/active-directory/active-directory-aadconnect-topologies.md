@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Topologies pour Azure AD Connect
@@ -159,7 +159,12 @@ Les annuaires Azure AD sont isolés par conception. La modification de la config
 
 L’utilisation de FIM2010/MIM2016 local pour effectuer une synchronisation des utilisateurs de la liste d’adresses globale entre deux organisations Exchange est prise en charge. Les utilisateurs d’une organisation apparaissent alors comme des utilisateurs/contacts externes dans l’autre organisation. Ces différents annuaires AD locaux peuvent ensuite être synchronisés vers leurs propres annuaires Azure AD.
 
-## Étapes suivantes
-Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Pour en savoir plus sur la configuration d’Azure AD Connect Sync, consultez [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO4-->
+## Étapes suivantes
+Pour savoir comment installer Azure AD Connect pour ces scénarios, consultez [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+
+En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

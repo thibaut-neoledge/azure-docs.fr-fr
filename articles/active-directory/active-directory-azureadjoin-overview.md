@@ -7,7 +7,6 @@
 	manager="stevenpo" 
 	editor=""/>
 
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/30/2015" 
 	ms.author="femila"/>
-
 
 # Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join
 
@@ -73,4 +71,4 @@ Azure AD Join a les caractéristiques suivantes :
 * [En savoir plus sur les scénarios d'utilisation et les considérations relatives au déploiement pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -22,7 +22,8 @@
 
 L’injection d’un script ou d’autres données dans une machine virtuelle Azure lors de son approvisionnement est un scénario très commun, que le système d’exploitation soit Windows ou une distribution Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Cette rubrique montre comment :
 
@@ -82,4 +83,4 @@ Pour plus d'informations, consultez la [documentation cloud-init pour Ubuntu](ht
 
 [Interface de ligne de commande Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

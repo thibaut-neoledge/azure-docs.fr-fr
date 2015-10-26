@@ -87,4 +87,4 @@ Pour plus d’informations sur la tarification, voir l’article [Tarification d
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

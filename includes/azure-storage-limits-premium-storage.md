@@ -14,4 +14,4 @@ Taille du disque | 128 Go | 512 Go | 1024 Go (1 To)
 IOPS par disque | 500 | 2 300 | 5 000
 Débit par disque | 100 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -18,4 +18,4 @@
 Avec le contrôle de code source activé dans votre service mobile, vous pouvez utiliser Git pour cloner le référentiel sur votre ordinateur local.
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

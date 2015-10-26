@@ -53,4 +53,4 @@ Cette étape concerne uniquement les ressources personnalisées. Si vous avez pe
 
 Consultez la rubrique [Procédures de mise à niveau](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -234,4 +234,4 @@ Le regroupement et la minimisation peuvent être gérés par ASP.NET. Dans un pr
 + [Intégration d’un service cloud à Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Meilleures pratiques pour le réseau de distribution de contenu Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

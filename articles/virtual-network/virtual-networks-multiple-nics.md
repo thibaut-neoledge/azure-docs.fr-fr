@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Créer une machine virtuelle avec plusieurs cartes d’interface réseau"
-	description="Découvrir comment créer et configurer des machines virtuelles avec plusieurs cartes réseau"
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Découvrir comment créer et configurer des machines virtuelles avec plusieurs cartes réseau"
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # Créer une machine virtuelle avec plusieurs cartes d’interface réseau
 
@@ -249,4 +249,4 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 
 Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

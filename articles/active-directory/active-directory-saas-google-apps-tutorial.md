@@ -7,7 +7,6 @@
    manager="TerryLanfear"
    editor=""/>
 
-
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="identity"
    ms.date="07/15/2015"
    ms.author="liviodlc"/>
-
 
 #Didacticiel : intégration de Google Apps avec Azure Active Directory
 
@@ -248,4 +246,4 @@ Ce didacticiel explique comment connecter votre environnement Google Apps à Azu
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -67,4 +67,4 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 - Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -467,4 +467,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 [OAuth 2.0 dans Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -179,4 +179,4 @@ Le certificat client qui est envoyé à l'application n'est soumis à aucune val
         }
     }
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

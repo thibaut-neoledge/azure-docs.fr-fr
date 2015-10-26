@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Kit de développement logiciel d’appareil Azure IoT pour C : en savoir plus sur IoTHubClient"
-	description="Vous trouverez d’autres détails sur la bibliothèque IoTHubClient dans le kit de développement logiciel (SDK) d’appareil Azure IoT pour C ."
+	pageTitle="Kit de développement logiciel d’appareil Microsoft Azure IoT pour C - IoTHubClient | Microsoft Azure"
+	description="Plus d’informations sur la bibliothèque IoTHubClient dans le kit de développement logiciel (SDK) d’appareil Azure IoT pour C ."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -276,4 +276,4 @@ Il est important de connaître l’option de traitement par lot. Par défaut, la
 
 Cet article détaille le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **kit de développement logiciel d’appareil Azure IoT pour C **. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Dans le [prochain article](iot-hub-device-sdk-c-serializer.md), nous allons fournir des détails similaires sur la bibliothèque **serializer**.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

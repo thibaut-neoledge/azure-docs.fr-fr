@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utilisation des files d’attente Service Bus (Python) | Microsoft Azure" 
+	pageTitle="Utilisation des files d’attente Service Bus avec Python | Microsoft Azure" 
 	description="Découvrez comment utiliser les files d'attente Service Bus Azure depuis Python." 
 	services="service-bus" 
 	documentationCenter="python" 
-	authors="huguesv" 
+	authors="sethmanheim" 
 	manager="timlt" 
 	editor=""/>
 
@@ -13,60 +13,72 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
-	ms.author="huvalo"/>
+	ms.date="10/08/2015" 
+	ms.author="sethm"/>
 
 
 # Utilisation des files d’attente Service Bus
 
-Ce guide décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**.
+Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-**Remarque :** Pour installer Python ou le [package Azure Python][], veuillez consulter le [Guide d'installation de Python](../python-how-to-install.md).
+> [AZURE.NOTE]Pour installer Python ou le [package Azure Python][], veuillez consulter le [Guide d’installation de Python](../python-how-to-install.md).
 
 ## Création d’une file d’attente
 
-L’objet **ServiceBusService** permet d’utiliser des files d’attente. Ajoutez le code suivant vers le début de chaque fichier Python dans lequel vous souhaitez accéder à Azure Service Bus par programme :
+L’objet **ServiceBusService** permet d’utiliser des files d’attente. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
 
-	from azure.servicebus import ServiceBusService, Message, Queue
+```
+from azure.servicebus import ServiceBusService, Message, Queue
+```
 
-Le code suivant crée un objet **ServiceBusService**. Remplacez mynamespace, sharedaccesskeyname et sharedaccesskey par vos espace de noms, nom et une valeur de clé de signature d'accès partagé (SAP).
+Le code suivant crée un objet **ServiceBusService**. Remplacez `mynamespace`, `sharedaccesskeyname` et `sharedaccesskey` par votre espace de noms, et le nom et la valeur de la clé de signature d’accès partagé (SAP).
 
-	bus_service = ServiceBusService(
-		service_namespace='mynamespace',
-		shared_access_key_name='sharedaccesskeyname',
-		shared_access_key_value='sharedaccesskey')
+```
+bus_service = ServiceBusService(
+	service_namespace='mynamespace',
+	shared_access_key_name='sharedaccesskeyname',
+	shared_access_key_value='sharedaccesskey')
+```
 
-Le nom et la valeur de la clé de signature d'accès partagé se trouvent dans les informations de connexion du portail Azure ou dans la fenêtre **Propriétés** de Visual Studio quand vous sélectionnez l'espace de noms Service Bus dans l'Explorateur de serveurs (comme indiqué dans la section précédente).
+Le nom et la valeur de la clé de signature d’accès partagé se trouvent dans les informations de connexion du [portail Azure][] ou dans le volet **Propriétés** de Visual Studio quand vous sélectionnez l’espace de noms Service Bus dans l’Explorateur de serveurs (comme indiqué dans la section précédente).
 
-	bus_service.create_queue('taskqueue')
+```
+bus_service.create_queue('taskqueue')
+```
 
-**create\_queue** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de file d'attente par défaut comme la durée de vie du message ou la taille maximale de la file d'attente. L'exemple suivant définit la taille maximale de la file d'attente sur 5 Go et la durée de vie de message sur une minute :
+**create\_queue** prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de file d’attente par défaut comme la durée de vie (TTL) du message ou la taille maximale de la file d’attente. L’exemple suivant définit la taille maximale de la file d’attente sur 5 Go et la durée de vie de message sur 1 minute :
 
-	queue_options = Queue()
-	queue_options.max_size_in_megabytes = '5120'
-	queue_options.default_message_time_to_live = 'PT1M'
+```
+queue_options = Queue()
+queue_options.max_size_in_megabytes = '5120'
+queue_options.default_message_time_to_live = 'PT1M'
 
-	bus_service.create_queue('taskqueue', queue_options)
+bus_service.create_queue('taskqueue', queue_options)
+```
 
-## Envoi de messages à une file d’attente
+## Envoi de messages à une file d'attente
 
 Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **send\_queue\_message** de l’objet **ServiceBusService**.
 
 L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue* au moyen de **send\_queue\_message** :
 
-	msg = Message(b'Test Message')
-	bus_service.send_queue_message('taskqueue', msg)
+```
+msg = Message(b'Test Message')
+bus_service.send_queue_message('taskqueue', msg)
+```
 
-Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go.
+Les files d'attente Service Bus prennent en charge une taille de message maximale de 256 Ko (l'en-tête, qui comprend les propriétés d'application standard et personnalisées, peut avoir une taille maximale de 64 Ko). Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Files d’attente Azure et files d’attente Service Bus][].
 
-## Réception des messages d’une file d’attente
+## Réception des messages d'une file d'attente
 
 La méthode **receive\_queue\_message** de l'objet **ServiceBusService** permet de recevoir les messages d'une file d'attente :
 
-	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
-	print(msg.body)
+```
+msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
+print(msg.body)
+```
 
 Les messages sont supprimés de la file d’attente au fur et à mesure de leur lecture, si le paramètre **peek\_lock** est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre **peek\_lock** sur **True**.
 
@@ -74,10 +86,12 @@ Le comportement de lecture et de suppression du message dans le cadre de l'opér
 
 Si le paramètre **peek\_lock** est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **delete** sur l'objet **Message**. La méthode **delete** marque le message comme étant consommé et le supprime de la file d'attente.
 
-	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
-	print(msg.body)
+```
+msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
+print(msg.body)
 
-	msg.delete()
+msg.delete()
+```
 
 ## Gestion des blocages d’application et des messages illisibles
 
@@ -93,9 +107,10 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 
 -   Consultez [Files d’attente, rubriques et abonnements][].
 
-[Azure Management Portal]: http://manage.windowsazure.com
+[portail Azure]: http://manage.windowsazure.com
 [package Azure Python]: https://pypi.python.org/pypi/azure
 [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
+[Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

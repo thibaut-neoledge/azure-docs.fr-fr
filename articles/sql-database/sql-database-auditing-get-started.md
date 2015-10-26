@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="10/08/2015" 
 	ms.author="jeffreyg"/>
  
 # Prise en main de l'audit de base de données SQL 
@@ -74,7 +74,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 4. Sous **ENREGISTREMENT PAR ÉVÈNEMENT**, cliquez sur **SUCCÈS** et **ÉCHEC**pour enregistrer tous les événements, ou choisissez des catégories d’événements individuelles.
 
 
-5. Si vous configurez l’audit pour une base de données SQL, cliquez sur **Pour appliquer l’audit, cliquez ici...**, puis sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un serveur SQL, vous avez deux options : (a) après l'étape \#6, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+5. Si vous configurez l’audit pour une base de données SQL, cliquez sur **Pour appliquer l’audit, cliquez ici...**, puis sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un serveur SQL, vous avez deux options : (a) après l'étape #6, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 
 	![][5]
@@ -102,7 +102,7 @@ Pour des instructions plus détaillées sur la façon de travailler avec le mod�
  
 2.   Cliquez sur la base de données SQL/le SQL Server que vous voulez auditer, puis sur l'onglet **AUDIT ET SÉCURITÉ**
 
-3.   Si vous configurez l’audit pour une base de données SQL, cliquez sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un SQL Server, vous avez deux options : (a) après l'étape \#7, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
+3.   Si vous configurez l’audit pour une base de données SQL, cliquez sur **ACCÈS DE SÉCURITÉ ACTIVÉ**, sélectionnez **OBLIGATOIRE**. Si vous configurez l'audit pour un SQL Server, vous avez deux options : (a) après l'étape #7, accédez pour chaque base de données SQL au serveur et appliquez cette étape, ou (2) [modifiez Server FDQN dans la chaîne de connexion](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md).
 
 4. Dans la section Audit, cliquez sur **ACTIVÉ**.
 
@@ -139,12 +139,15 @@ Dans un environnement de production, vous êtes susceptible d'actualiser de temp
 4. Retournez dans l'interface utilisateur de stockage, puis **régénérez** la *clé d'accès secondaire* (en vue du prochain cycle d'actualisation des clés).
   
 ##<a id="subheading-4"></a>Automatisation
-Il existe plusieurs cmdlets PowerShell que vous pouvez utiliser pour configurer l’audit dans la base de données SQL Azure. Pour accéder aux cmdlets d’audit, vous devez exécuter PowerShell en mode Azure Resource Manager.
+Vous pouvez utiliser différentes applets de commande PowerShell pour configurer l’audit dans Base de données SQL Azure :
 
-> [AZURE.NOTE]Le module [Azure Resource Manager](https://msdn.microsoft.com/library/dn654592.aspx) est actuellement disponible dans une version préliminaire. Il peut ne pas fournir les mêmes fonctionnalités de gestion que le module Azure.
-
-Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *AzureSql*` pour répertorier les cmdlets disponibles.
-
+- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603731.aspx)
+- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619329.aspx)
+- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/library/azure/mt603796.aspx)
+- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/library/azure/mt603574.aspx)
+- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603531.aspx)
+- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603794.aspx)
+- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619353.aspx)
 
 
 
@@ -182,4 +185,4 @@ Lorsque vous êtes en mode Azure Resource Manager, exécutez `Get-Command *Azu
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

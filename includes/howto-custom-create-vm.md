@@ -58,4 +58,4 @@ Une fois créée, la machine virtuelle démarre automatiquement. Lorsque le port
 - [Connexion à une machine virtuelle exécutant Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Connexion à une machine virtuelle exécutant Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -197,4 +197,4 @@ Vous pouvez facilement mettre à jour l’aide de l’interface Windows PowerShe
 ## Étapes suivantes
 Si vous rencontrez des problèmes avec votre appareil StorSimple lors de l’exécution d’un des flux de travail ci-dessus, consultez la rubrique [Outils de résolution des problèmes de déploiement de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

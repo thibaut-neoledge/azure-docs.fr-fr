@@ -20,4 +20,4 @@
 
 1. Dans la zone **Port**, spécifiez le numéro de port pour l’écouteur du groupe de disponibilité à l’aide du $EndpointPort utilisé précédemment (dans ce didacticiel, la valeur par défaut était 1433), puis cliquez sur **OK**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

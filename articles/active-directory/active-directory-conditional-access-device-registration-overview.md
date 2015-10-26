@@ -79,4 +79,4 @@ Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés 
 
 Le service Azure Active Directory Device Registration vous permet d’inscrire vos appareils Windows 7 et Windows 8.1 joints à un domaine. La rubrique suivante fournit des informations supplémentaires sur les conditions préalables et les étapes requises pour configurer l’inscription de l’appareil sur des appareils Windows 7 et Windows 8.1. Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

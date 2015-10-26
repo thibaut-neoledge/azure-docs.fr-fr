@@ -5,9 +5,8 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager"/>
-
+	editor="tysonn"/>
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -19,7 +18,8 @@
 
 # DataStax Enterprise sous Ubuntu avec un modèle Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 DataStax est l'un des principaux acteurs dans le secteur du développement et de la livraison de solutions basées sur Apache Cassandra™, une technologie de base de données distribuée NoSQL soutenue commercialement et intégrée au sein des entreprises, largement reconnue comme agile, permanente et évolutive de façon prévisible pour n'importe quelle taille. DataStax propose les versions Enterprise (DSE) et Community (DSC). En plus des fonctions proposées par l'édition Community, Datastax Enterprise intègre la technologie Cassandra certifiée en production avec des capacités telles que l'informatique en mémoire, la sécurité de niveau entreprise, l'analyse intégrée rapide et puissante, et la gestion d'entreprise.
 
@@ -49,7 +49,7 @@ Procédez comme suit pour créer un cluster Apache Cassandra basé sur DataStax 
 
 ### Étape 1-a : télécharger les fichiers de modèle à l'aide de PowerShell
 
-Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\Azure\Templates\DataStax).
+Créez un dossier local pour le modèle JSON et autres fichiers associés (par exemple, C:\\Azure\\Templates\\DataStax).
 
 Incluez le nom de votre dossier local et exécutez l’ensemble suivant de commandes.
 
@@ -89,8 +89,7 @@ Clonez le référentiel de modèles entier à l'aide d'un client git de votre ch
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Quand vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\Azure\Templates.
-<!--Wrapping name of folder in bold typeface is not corp style  -->
+Quand vous avez terminé, recherchez le dossier datastax-enterprise dans le répertoire C:\\Azure\\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Étape 2 : (facultatif) comprendre les paramètres du modèle
 
 Lorsque vous déployez des solutions importantes comme un cluster Apache Cassandra basé sur DataStax, vous devez spécifier un ensemble de paramètres de configuration pour gérer plusieurs paramètres requis. En déclarant ces paramètres dans la définition du modèle, vous pouvez spécifier des valeurs pendant l'exécution du déploiement au moyen d’un fichier externe ou dans la ligne de commande.
@@ -280,7 +279,7 @@ Vous pouvez vérifier l’état des différents déploiements de ressources à l
 
 Pour créer un modèle Resource Manager robuste et réutilisable, vous devez également prendre en compte l'organisation d'une série de tâches complexes et interdépendantes requises durant le déploiement d'une solution complexe telle que DataStax Enterprise. En tirant parti des capacités de **liaison de modèles** et de **l'itération de ressource** ARM en plus de l'exécution de scripts via les extensions associées, vous pouvez implémenter une approche modulaire qui peut être réutilisée lors de n'importe quel déploiement basé sur un modèle complexe.
 <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. -->
-Le schéma ci-après décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
+Ce schéma décrit les relations entre tous les fichiers téléchargés à partir de GitHub pour ce déploiement.
 
 ![datastax-enterprise-fichiers](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
@@ -503,4 +502,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

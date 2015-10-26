@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à ServiceNow | Microsoft Azure" description="Découvrez comment utiliser ServiceNow avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Didacticiel : Intégration d’Azure Active Directory à ServiceNow
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521880).
   
@@ -45,7 +45,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 6.  Dans la zone **rechercher**, entrez **ServiceNow**.
 
-    ![Galerie d'applications](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-servicenow-tutorial/IC701016.png "Galerie d'applications")
 
 7.  Dans le volet des résultats, sélectionnez **ServiceNow**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -79,48 +79,48 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 6. Sur la page **Propriétés d’authentification unique SAML 2.0**, procédez comme suit :
 
-     6.1. En regard de **Activer l'authentification externe**, sélectionnez **Oui**.
+     6\.1. En regard de **Activer l'authentification externe**, sélectionnez **Oui**.
 
 
-     6.2. Dans la zone de texte **L'URL du fournisseur d'identité qui émettra le jeton de sécurité SAML2 avec les informations sur l’utilisateur**, entrez **https://sts.windows.net/<le GUID de votre locataire>/**.
+     6\.2. Dans la zone de texte **L'URL du fournisseur d'identité qui émettra le jeton de sécurité SAML2 avec les informations sur l’utilisateur**, entrez **https://sts.windows.net/<le GUID de votre locataire>/**.
 
 
-     6.3. Dans la zone de texte **L'URL de base pointant vers le service AuthnRequest du fournisseur d'identité**, entrez **https://login.windows.net/<le GUID de votre locataire >/saml2**.
+     6\.3. Dans la zone de texte **L'URL de base pointant vers le service AuthnRequest du fournisseur d'identité**, entrez **https://login.windows.net/<le GUID de votre locataire >/saml2**.
 
 
-     6.4. Dans la zone de texte **L'URL de base pointant vers le service SingleLogoutRequest du fournisseur d'identité**, entrez **https://login.windows.net/<le GUID de votre locataire >/saml2**.
+     6\.4. Dans la zone de texte **L'URL de base pointant vers le service SingleLogoutRequest du fournisseur d'identité**, entrez **https://login.windows.net/<le GUID de votre locataire >/saml2**.
 
 
-     6.5. Dans la zone de texte **La liaison du protocole pour le service SingleLogoutRequest du fournisseur d'identité**, entrez **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
+     6\.5. Dans la zone de texte **La liaison du protocole pour le service SingleLogoutRequest du fournisseur d'identité**, entrez **urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect**.
 
-     6.6. En regard de **SingleLogoutRequest**, sélectionnez **Oui**.
+     6\.6. En regard de **SingleLogoutRequest**, sélectionnez **Oui**.
 
-     6.7. Dans la zone de texte **Quand l’authentification unique SAML 2.0 échoue parce que la session n'est pas authentifiée ou qu’il s’agit de la première connexion, rediriger vers cette URL**, entrez **https://login.windows.net/<le GUID de votre locataire>/saml2**.
+     6\.7. Dans la zone de texte **Quand l’authentification unique SAML 2.0 échoue parce que la session n'est pas authentifiée ou qu’il s’agit de la première connexion, rediriger vers cette URL**, entrez **https://login.windows.net/<le GUID de votre locataire>/saml2**.
 
   
 
-7. Dans la section **Propriétés du fournisseur de services (Service-Now)**, procédez comme suit :
+7. Dans la section **Propriétés du fournisseur de services (Service-Now) **, procédez comme suit :
 
-     7.1. Dans la zone de texte **L'URL pointant vers la page d'accueil de l'instance Service-now**, tapez l'URL de la page d'accueil de votre instance ServiceNow. L'URL de la page d'accueil de l'instance ServiceNow est une concaténation de votre **URL de locataire ServiceNow** et de **/navpage.do** : **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Page d'accueil de l'instance de Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Page d'accueil de l'instance de Service-now")
+     7\.1. Dans la zone de texte **L'URL pointant vers la page d'accueil de l'instance Service-now**, tapez l'URL de la page d'accueil de votre instance ServiceNow. L'URL de la page d'accueil de l'instance ServiceNow est une concaténation de votre **URL de locataire ServiceNow** et de **/navpage.do** : **https://<InstanceName>.service-now.com/navpage.do** <br><br> ![Page d'accueil de l'instance de Service-now](./media/active-directory-saas-servicenow-tutorial/IC700342.png "Page d'accueil de l'instance de Service-now")
 
 
-     7.2. Dans la zone de texte **L'identification de l'entité ou l'émetteur**, entrez l'URL de votre locataire.
+     7\.2. Dans la zone de texte **L'identification de l'entité ou l'émetteur**, entrez l'URL de votre locataire.
 
-     7.3. Dans la zone de texte **L'URI de l'audience qui accepte un jeton SAML2**, entrez l'URL de votre locataire.
+     7\.3. Dans la zone de texte **L'URI de l'audience qui accepte un jeton SAML2**, entrez l'URL de votre locataire.
 
-     7.4. Dans la zone de texte **Le champ de tableau de l'utilisateur à faire correspondre avec l’élément NameID de l’objet dans la SAMLResponse**, entrez **e-mail**.
+     7\.4. Dans la zone de texte **Le champ de tableau de l'utilisateur à faire correspondre avec l’élément NameID de l’objet dans la SAMLResponse**, entrez **e-mail**.
 
-     7.5. Dans la zone de texte **La stratégie NameID à utiliser pour renvoyer le NameID de l’objet dans la SAMLResponse**, entrez **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
+     7\.5. Dans la zone de texte **La stratégie NameID à utiliser pour renvoyer le NameID de l’objet dans la SAMLResponse**, entrez **urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified**.
 
-     7.6 Laissez la case **Créer une demande AuthnContextClass dans l'instruction AuthnRequest** décochée.
+     7\.6 Laissez la case **Créer une demande AuthnContextClass dans l'instruction AuthnRequest** décochée.
 
-     7.7 Dans la zone de texte **La méthode AuthnContextClassRef qui sera incluse dans notre AuthnRequest SAML 2.0 au fournisseur d'identité**, entrez **http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
+     7\.7 Dans la zone de texte **La méthode AuthnContextClassRef qui sera incluse dans notre AuthnRequest SAML 2.0 au fournisseur d'identité**, entrez ****http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password**.
 
 
 
 8. Dans la section **Paramètres avancés**, procédez comme suit :
 
-     8.1. Dans la zone de texte **Le nombre de secondes avant la contrainte « notBefore » ou après la contrainte « notOnOrAfter » à considérer comme toujours valide**, entrez **60**.
+     8\.1. Dans la zone de texte **Le nombre de secondes avant la contrainte « notBefore » ou après la contrainte « notOnOrAfter » à considérer comme toujours valide**, entrez **60**.
 
 
 9. Pour enregistrer la configuration, cliquez sur **Enregistrer**.
@@ -131,21 +131,21 @@ Dans le cadre de cette procédure, vous devez télécharger un certificat codé 
 
 11. Pour télécharger votre certificat, sur la page Certificat, procédez comme suit :
 
-     11.1. Cliquez sur **Nouveau**.
+     11\.1. Cliquez sur **Nouveau**.
 
-     11.2. Dans la zone de texte **Nom**, tapez **SAML 2.0**.
+     11\.2. Dans la zone de texte **Nom**, tapez **SAML 2.0**.
 
-     11.3. Sélectionnez **Actif**.
+     11\.3. Sélectionnez **Actif**.
 
-     11.4. En regard de **Format**, sélectionnez **PEM**.
+     11\.4. En regard de **Format**, sélectionnez **PEM**.
 
-     11.5. Créez un fichier codé en base 64 à partir du certificat téléchargé. >[AZURE.NOTE]Pour plus d'informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+     11\.5. Créez un fichier codé en base 64 à partir du certificat téléchargé. >[AZURE.NOTE]Pour plus d'informations, consultez la section [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-     11.6. Dans le **Bloc-notes**, ouvrez votre fichier codé en base 64, puis copiez le contenu de ce fichier dans le presse-papiers.
+     11\.6. Dans le **Bloc-notes**, ouvrez votre fichier codé en base 64, puis copiez le contenu de ce fichier dans le presse-papiers.
 
-     11.7. Dans la zone de texte **Certificat PEM**, collez le contenu du presse-papiers.
+     11\.7. Dans la zone de texte **Certificat PEM**, collez le contenu du presse-papiers.
 
-     11.8. Cliquez sur **Envoyer**.
+     11\.8. Cliquez sur **Envoyer**.
 
 
 
@@ -166,19 +166,19 @@ Cette section décrit comment activer l’approvisionnement des utilisateurs des
 
 2. Sur la page **Saisissez vos identifiants ServiceNow pour permettre l’approvisionnement automatique des utilisateurs**, indiquez les paramètres de configuration suivants : Configurer l’approvisionnement des utilisateurs
 
-     2.1. Dans la zone de texte **Nom de l'Instance ServiceNow**, tapez le nom d'instance ServiceNow.
+     2\.1. Dans la zone de texte **Nom de l'Instance ServiceNow**, tapez le nom d'instance ServiceNow.
 
-     2.2. Dans la zone de texte **Nom d'utilisateur Admin ServiceNow**, tapez le nom du compte d'administrateur ServiceNow.
+     2\.2. Dans la zone de texte **Nom d'utilisateur Admin ServiceNow**, tapez le nom du compte d'administrateur ServiceNow.
 
-     2.3. Dans la zone de texte **Mot de passe Admin ServiceNow**, tapez le mot de passe de ce compte.
+     2\.3. Dans la zone de texte **Mot de passe Admin ServiceNow**, tapez le mot de passe de ce compte.
 
-     2.4. Cliquez sur **Valider** pour vérifier votre configuration.
+     2\.4. Cliquez sur **Valider** pour vérifier votre configuration.
 
-     2.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
+     2\.5. Cliquez sur le bouton **Suivant** pour ouvrir la page **Étapes suivantes**.
 
-     2.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes d'utilisateurs dans le répertoire de cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
+     2\.6. Si vous voulez approvisionner tous les utilisateurs pour cette application, sélectionnez « **Approvisionner automatiquement tous les comptes d'utilisateurs dans le répertoire de cette application** ». <br><br> ![Étapes suivantes](./media/active-directory-saas-servicenow-tutorial/IC698804.png "Étapes suivantes")
 
-     2.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
+     2\.7. Sur la page **Étapes suivantes**, cliquez sur **Terminer** pour enregistrer votre configuration.
 
 
 
@@ -214,4 +214,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

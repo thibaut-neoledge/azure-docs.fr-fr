@@ -78,4 +78,4 @@ Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenan
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

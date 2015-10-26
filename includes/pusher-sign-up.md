@@ -68,4 +68,4 @@ Pour plus d’informations sur la mise en route de Pusher, consultez la page [Pr
 [portail de gestion Azure]: https://manage.windowsazure.com
 [Présentation de Pusher]: http://pusher.com/docs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

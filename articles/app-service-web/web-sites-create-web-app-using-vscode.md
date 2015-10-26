@@ -7,16 +7,14 @@
    manager="wpickett"
    editor="jimbe"/>
 
-
 <tags
 	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
-	ms.author="erikre;tarcher"/>
-
+	ms.date="10/12/2015" 
+	ms.author="erikre"/>
 
 # Création d’une application Web ASP.NET 5 dans Visual Studio Code
 
@@ -29,8 +27,8 @@ Ce didacticiel explique comment créer une application Web ASP.NET 5 à l’ai
 ## Composants requis  
 
 * Installation de [VS Code](http://code.visualstudio.com/Docs/setup).
-* Installation de [Node.js](http://nodejs.org/download/) - [Node.js](http://nodejs.org/) est une plateforme vous permettant de créer des applications de serveur rapides et évolutives à l'aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
-* Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous débutez avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l'option vous permettant d’utiliser Git avec GitBash, à partir de l'invite de commandes Windows. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).  
+* Installation de [Node.js](http://nodejs.org) - Node.js est une plateforme vous permettant de créer des applications de serveur rapides et évolutives à l'aide de JavaScript. Node est le runtime (Node), et [npm](http://www.npmjs.com/) est le gestionnaire de package pour les modules Node. Vous utiliserez npm pour structurer une application Web ASP.NET 5 dans ce didacticiel.
+* Installation de Git - vous pouvez l'installer depuis l’un de ces emplacements : [Chocolatey](https://chocolatey.org/packages/git) ou [git-scm.com](http://git-scm.com/downloads). Si vous n'êtes pas familiarisé avec Git, choisissez [git-scm.com](http://git-scm.com/downloads) et sélectionnez l'option vous permettant d'**utiliser Git à partir de l'invite de commandes Windows**. Une fois Git installé, vous devrez également définir le nom d'utilisateur et l’adresse de messagerie Git qui vous seront ultérieurement demandés dans ce didacticiel (lorsque vous effectuerez une validation à partir de VS Code).  
 
 ## Installation d’ASP.NET 5 et de DNX
 ASP.NET 5/DNX est une pile .NET lean vous permettant de créer des applications web et cloud modernes capables de s’exécuter sur OS X, Linux et Windows. Elle a été construite intégralement pour fournir une infrastructure de développement optimisée pour les applications qui sont déployées sur le cloud ou qui sont exécutées en local. Elle inclut des composants modulaires associés à des frais généraux réduits. Ainsi, vous bénéficiez d’une certaine flexibilité lors de la création de vos solutions.
@@ -67,7 +65,7 @@ Ce didacticiel est conçu pour vous aider à créer des applications à l’aide
 
 	![Emplacement de DNVM](./media/web-sites-create-web-app-using-vscode/00b-dnvm-list.png)
 
-6. Si plusieurs runtimes DNX sont répertoriés, entrez la commande suivante dans l'invite de commandes pour définir la même version du runtime DNX actif que celle utilisée par le générateur ASP.NET 5 lorsque vous créerez votre application Web plus loin dans ce didacticiel.
+6. Si plusieurs runtimes DNX sont répertoriés, entrez la commande suivante dans l'invite de commandes pour définir la même version du runtime DNX actif que celle utilisée par le générateur ASP.NET 5 lorsque vous créerez votre application Web plus loin dans ce didacticiel. *Il ne sera peut-être pas nécessaire de modifier l'exécution active si elle est définie sur la dernière version disponible.*
 
 		dnvm use 1.0.0-beta4 –p
 
@@ -77,7 +75,7 @@ Ce didacticiel est conçu pour vous aider à créer des applications à l’aide
 
 Cette section vous indique comment structurer une nouvelle application Web ASP.NET. Vous utiliserez le gestionnaire de package Node (npm) pour installer [Yeoman](http://yeoman.io/) (outil de structuration d'applications - l'équivalent VS Code de l’opération **Fichier > Nouveau projet** de Visual Studio), [Grunt](http://gruntjs.com/) (exécuteur de tâches JavaScript), et [Bower](http://bower.io/) (gestionnaire de package côté client).
 
-1. Ouvrez une invite de commandes en tant qu’administrateur et accédez à l'emplacement où vous souhaitez créer votre projet ASP.NET.
+1. Ouvrez une invite de commandes en tant qu’administrateur et accédez à l'emplacement où vous souhaitez créer votre projet ASP.NET. Par exemple, créez un répertoire *vscodeprojects* à la racine du lecteur C:.
 
 2. Entrez la commande suivante dans l'invite de commandes pour installer Yeoman et les outils connexes.
 
@@ -87,11 +85,11 @@ Cette section vous indique comment structurer une nouvelle application Web ASP.N
 
 		yo aspnet
 
-4. Utilisez les touches de direction pour sélectionner le type d’**application Web** dans le menu du générateur ASP.NET 5, puis appuyez sur la touche &lt;Entrée>.
+4. Utilisez les touches de direction pour sélectionner le type d'**application Web** dans le menu du générateur ASP.NET 5, puis appuyez sur la touche **&lt;Entrée>**.
 
 	![Yeoman - générateur ASP.NET 5](./media/web-sites-create-web-app-using-vscode/01-yo-aspnet.png)
 
-5. Définissez le nom de votre nouvelle application Web ASP.NET sur **SampleWebApp**. Ce nom étant utilisé tout au long du didacticiel, si vous sélectionnez un nom différent, vous devrez le remplacer pour chaque occurrence de **SampleWebApp**. Lorsque vous appuyez sur &lt;Entrée>, Yeoman créera un nouveau dossier intitulé **SampleWebApp** et les fichiers nécessaires à votre nouvelle application.
+5. Définissez le nom de votre nouvelle application Web ASP.NET sur **SampleWebApp**. Ce nom étant utilisé tout au long du didacticiel, si vous sélectionnez un nom différent, vous devrez le remplacer pour chaque occurrence de **SampleWebApp**. Lorsque vous appuyez sur **&lt;Entrée>**, Yeoman créera un nouveau dossier intitulé **SampleWebApp** et les fichiers nécessaires à votre nouvelle application.
 
 6. Ouvrez VS Code en entrant la commande suivante dans l'invite de commandes.
 
@@ -123,17 +121,23 @@ Maintenant que vous avez créé l'application Web et extrait tous les packages N
 
 1. À partir de la **Palette de commandes** de VS Code, entrez la commande suivante pour exécuter l'application localement.
 
-		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+		dnx: kestrel - (SampleWebApp, Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini)
 
 	La fenêtre Commandes affichera la mention *Démarré*. Si la fenêtre de commande n'affiche pas *Démarré*, vérifiez le coin inférieur gauche de VS Code pour découvrir les erreurs repérées dans votre projet.
+	
+	> [AZURE.NOTE]L'émission d'une commande à partir de la **palette de commandes** nécessite un caractère **>** au début de la ligne de commande. Vous pouvez également afficher les détails de la commande kestrel dans le fichier *project.json*.
 
-5. Ouvrez un navigateur et accédez à l'URL suivante.
+2. Ouvrez un navigateur et accédez à l'URL suivante.
 
-	****http://localhost:5001**
+	****http://localhost:5000**
+
+	> [AZURE.NOTE]La commande kestrel spécifiée dans le fichier *project.json* désigne un fichier de détails sur l'hébergement (*hosting.ini*) qui spécifie l'emplacement de l'application locale. Dans ce cas, l'application est visible à partir de l'URL ci-dessus.
 
 	La page par défaut de l’application Web apparaîtra comme suit.
 
 	![Application Web locale dans un navigateur](./media/web-sites-create-web-app-using-vscode/08-web-app.png)
+
+3. Fermez votre navigateur. Dans la fenêtre de commande, appuyez sur **Ctrl+C** pour arrêter l'application ou fermer la fenêtre de commande.
 
 ## Création d’une application web dans la version préliminaire du portail Azure
 
@@ -163,7 +167,7 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
-2. Cliquez sur **Parcourir tout**.
+2. Cliquez sur **Parcourir**.
 
 3. Cliquez sur **Applications Web** pour afficher la liste des applications Web associées à votre abonnement Azure.
 
@@ -177,24 +181,21 @@ Git est un système de contrôle de version distribué permettant de déployer v
 
 7. Cliquez sur **OK**.
 
-	![Référentiel Git local Azure](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
+	![Référentiel Git local dans Microsoft Azure](./media/web-sites-create-web-app-using-vscode/15-azure-localrepository.png)
 
 8. Si vous n'avez pas précédemment configuré les informations d'identification de déploiement pour la publication d'une application Web ou d'une autre application App Service, configurez-les maintenant :
 
-	* Cliquez sur **FTP** pour définir les informations d'identification de déploiement.
+	* Cliquez sur **Paramètres** > **Informations d'identification de déploiement**. Le volet **Définir les informations d'identification de déploiement** s'affiche.
 
 	* Créez un nom d'utilisateur et un mot de passe. Vous aurez besoin de ce mot de passe lorsque vous configurerez Git.
 
-	* Cliquez sur **Save**.
+	* Cliquez sur **Enregistrer**.
 
-	![Informations d’identification sur le déploiement dans Microsoft Azure](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
-
-9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **
-10.  URL**.
+9. Dans le panneau de l’application Web, cliquez sur **Paramètres > Propriétés**. L'URL du référentiel Git distant vers lequel vous allez déployer se trouve sous **URL GIT**.
 
 10. Copiez la valeur **URL GIT** pour pouvoir l’utiliser plus tard dans le didacticiel.
 
-	![URL Git Azure](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
+	![URL Git de Microsoft Azure](./media/web-sites-create-web-app-using-vscode/17-azure-giturl.png)
 
 ## Publier votre application Web sur Azure App Service
 
@@ -208,29 +209,35 @@ Dans cette section, vous créerez un référentiel Git local et vous effectuerez
 
 	![Initialiser Git](./media/web-sites-create-web-app-using-vscode/19-initgit.png)
 
-3. Ajoutez un message de validation, puis cliquez sur l’icône en forme de coche **Valider tout**.
+3. Ouvrez la fenêtre de commande et remplacez les répertoires par le répertoire hébergeant votre application web. Puis, entrez la commande suivante :
+
+		git config core.autocrlf false
+
+	Cette commande empêche un problème lié au texte impliquant des terminaisons CRLF et des terminaisons LF.
+
+4. Dans VS Code, ajoutez un message de validation, puis cliquez sur l'icône en forme de coche **Valider tout**.
 
 	![Git - valider tout](./media/web-sites-create-web-app-using-vscode/20-git-commit.png)
 
-4. Une fois le traitement de Git terminé, vous apercevrez qu'il n'y a aucun fichier répertorié dans la fenêtre Git sous **Modifications**.
+5. Une fois le traitement de Git terminé, vous apercevrez qu'il n'y a aucun fichier répertorié dans la fenêtre Git sous **Modifications**.
 
 	![Git - aucune modification](./media/web-sites-create-web-app-using-vscode/no-changes.png)
 
-5. Ouvrez une invite de commande et indiquez le répertoire hébergeant votre application Web.
+6. Rétablissez la fenêtre de commande où l'invite de commande désigne le répertoire où se trouve votre application web.
 
-6. Créez une référence distante pour envoyer les mises à jour vers l'application Web en utilisant l'URL Git (finissant par « .git ») que vous avez copiée plus tôt.
+7. Créez une référence distante pour envoyer les mises à jour vers l'application Web en utilisant l'URL Git (finissant par « .git ») que vous avez copiée plus tôt.
 
 		git remote add azure [URL for remote repository]
 
-7. Configurez Git pour enregistrer vos informations d'identification localement afin qu'elles soient automatiquement ajoutées à vos commandes push générées à partir de VS Code.
+8. Configurez Git pour enregistrer vos informations d'identification localement afin qu'elles soient automatiquement ajoutées à vos commandes push générées à partir de VS Code.
 
 		git config credential.helper store
 
-8. Envoyez vos modifications dans Azure en entrant la commande suivante : Après cette commande push initiale vers Azure, vous pourrez exécuter toutes les commandes push à partir de VS Code.
+9. Envoyez vos modifications dans Azure en entrant la commande suivante : Après cette commande push initiale vers Azure, vous pourrez exécuter toutes les commandes push à partir de VS Code.
 
 		git push -u azure master
 
-	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment. **Remarque : votre mot de passe ne sera pas visible.**
+	Vous êtes invité à entrer le mot de passe que vous avez créé précédemment dans Azure. **Remarque : votre mot de passe ne sera pas visible.**
 
 	La sortie de la commande mentionnée ci-dessus se termine par un message indiquant que le déploiement a réussi.
 
@@ -251,11 +258,12 @@ Cette opération peut être réalisée de deux manières :
 
 		http://SampleWebAppDemo.azurewebsites.net
  
-* Dans le portail Azure en version préliminaire, localisez le panneau de l'application Web pour votre application Web, puis cliquez sur **Parcourir** pour afficher votre application dans votre navigateur par défaut.
+* Dans le portail Azure en version préliminaire, localisez le panneau de l'application Web pour votre application Web, puis cliquez sur **Parcourir** pour afficher votre application
+* dans votre navigateur par défaut.
 
 ![Application Web Azure](./media/web-sites-create-web-app-using-vscode/21-azurewebapp.png)
 
 ## Résumé
-Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi VS Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
+Dans ce didacticiel, vous avez appris à créer une application Web dans VS Code et à le déployer dans Azure. Pour plus d'informations sur VS Code, consultez l'article [Pourquoi Visual Studio Code ?](https://code.visualstudio.com/Docs/). Pour plus d'informations sur les applications Web App Service, consultez la [Vue d'ensemble des applications Web](app-service-web-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

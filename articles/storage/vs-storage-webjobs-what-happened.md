@@ -41,4 +41,4 @@ Dans le fichier App.config de votre projet, les entrées **AzureWebJobsStorage**
 
 Pour plus d’informations, consultez [Ressources Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -5,4 +5,4 @@ Points de terminaison par profil| 200
 
 Vous pouvez contacter le support technique pour augmenter la limite par défaut.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

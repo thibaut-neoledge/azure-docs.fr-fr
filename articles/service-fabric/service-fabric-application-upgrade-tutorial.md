@@ -126,4 +126,4 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

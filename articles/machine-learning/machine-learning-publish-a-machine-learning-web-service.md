@@ -112,4 +112,4 @@ Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine u
 
 Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez la page [Nouvel apprentissage des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

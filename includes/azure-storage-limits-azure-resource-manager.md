@@ -5,4 +5,4 @@ Ressource|Limite par défaut
 Opérations de gestion du compte de stockage (lecture)|800 toutes les 5 minutes
 Opérations de gestion du compte de stockage (écriture)|200 par heure
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -257,4 +257,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

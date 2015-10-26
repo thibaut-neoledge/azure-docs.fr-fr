@@ -3,7 +3,7 @@
 
 Vous pouvez utiliser SQL Server Management Studio (SSMS) pour administrer les serveurs logiques et les bases de données Azure SQL. Cette rubrique vous présente les tâches courantes effectuées avec SSMS. Avant de démarrer, vous devez déjà disposer d’un serveur logique et d’une base de données créés dans Azure SQL. Pour commencer, consultez la rubrique [Créer votre première base de données SQL Microsoft Azure](sql-database-get-started.md), puis revenez.
 
-Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. Pour l’obtenir, accédez à [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/fr-fr/library/mt238290.aspx).
+Nous vous recommandons d’utiliser la dernière version de SSMS, quel que soit l’emplacement choisi pour utiliser la base de données Azure SQL. Pour l’obtenir, accédez à [Téléchargez SQL Server Management Studio](https://msdn.microsoft.com/fr-FR/library/mt238290.aspx).
 
 
 ## Connexion à un serveur logique de base de données SQL
@@ -166,4 +166,4 @@ La base de données SQL prend en charge plusieurs vues de gestion dynamique vous
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -156,4 +156,4 @@ Pour plus d’informations sur les passerelles VPN, voir l’article [À propos 
 
 Pour configurer un VPN site à site, voir l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

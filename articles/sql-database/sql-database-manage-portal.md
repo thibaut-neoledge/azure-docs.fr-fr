@@ -90,4 +90,4 @@ Vous pouvez configurer les bases de données SQL Microsoft Azure pour répliqu
  
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

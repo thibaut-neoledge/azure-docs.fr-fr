@@ -47,7 +47,7 @@ Cet exemple montre comment télécharger des éléments multimédias depuis Medi
 	        ParallelTransferThreadCount = 20
 	    };
 	
-	    var downloadTasks = new List&lt;Task&gt;();
+	    var downloadTasks = new List<Task>();
 	    foreach (IAssetFile outputFile in outputAsset.AssetFiles)
 	    {
 	        // Use the following event handler to check download progress.
@@ -85,4 +85,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [de diffusion de contenu en continu](media-services-deliver-streaming-content.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

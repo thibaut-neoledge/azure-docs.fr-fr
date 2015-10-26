@@ -6,7 +6,6 @@
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="load-balancer"
    ms.devlang="na"
@@ -15,7 +14,6 @@
    ms.workload="infrastructure-services"
    ms.date="08/02/2015"
    ms.author="joaoma" />
-
 
 
 # Mode de distribution d'équilibrage de charge (affinité d'IP source)
@@ -85,17 +83,14 @@ Vous pouvez exploiter le Kit de développement logiciel (SDK) Azure pour .NET 2
 	<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
   	<Endpoints>
     <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancerDistribution="sourceIP" />
-
   	</Endpoints>
 	</WorkerRole>
 	<NetworkConfiguration>
   	<VirtualNetworkSite name="VNet"/>
-
   	<AddressAssignments>
     <InstanceAddress roleName="VMRolePersisted">
       <PublicIPs>
         <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
-
       </PublicIPs>
     </InstanceAddress>
   	</AddressAssignments>
@@ -154,4 +149,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

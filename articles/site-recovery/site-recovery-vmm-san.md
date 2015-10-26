@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 # Configurer la protection entre des sites VMM locaux avec la réplication SAN
@@ -347,7 +347,8 @@ Pour vous assurer que les machines virtuelles et les données basculent comme pr
 	![Ajouter des machines virtuelles](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
 5. Une fois un plan de récupération créé, il s’affiche dans la liste de l'onglet **Plans de récupération**.
 6. Dans l'onglet **Plans de récupération**, sélectionnez le plan et cliquez sur **Test de basculement**.
-7. Dans la page **Confirmer le test de basculement**, sélectionnez **Aucun**. Si cette option est activée, les machines virtuelles de réplication basculées ne sont connectées à aucun réseau. Le test vérifie que la machine virtuelle bascule comme prévu, mais il ne vérifie pas l'environnement de votre réseau de réplication. Si vous voulez exécuter un test de basculement plus complet, consultez la page <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Tester un déploiement d'un serveur local vers un serveur local sur MSDN</a>.
+7. Dans la page **Confirmer le test de basculement**, sélectionnez **Aucun**. Si cette option est activée, les machines virtuelles de réplication basculées ne sont connectées à aucun réseau. Le test vérifie que la machine virtuelle bascule comme prévu, mais il ne vérifie pas l'environnement de votre réseau de réplication. Découvrez comment [exécuter un test de basculement](site-recovery-failover.md#run-a-test-failover) pour plus d’informations sur l’utilisation des différentes options de réseau.
+
 
 	![Sélectionner le réseau de test](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
@@ -382,4 +383,4 @@ Depuis **Dashboard**, vous pouvez télécharger la dernière version des fichier
 
 Pour plus d'informations sur les interactions avec les tâches et le tableau de bord, consultez la page [Opérations et surveillance](http://go.microsoft.com/fwlink/?LinkId=398534).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

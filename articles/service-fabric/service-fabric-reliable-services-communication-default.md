@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pile de communication par défaut fournie par Service Fabric"
-	description="Cet article décrit la pile de communication par défaut fournie par l'infrastructure de services fiables permettant aux services et aux clients de communiquer."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="Cet article décrit la pile de communication par défaut fournie par l'infrastructure de services fiables permettant aux services et aux clients de communiquer."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Pile de communication par défaut fournie par l'infrastructure de services fiables
 Pour les auteurs de service qui ne sont pas liés à une implémentation de pile de communication particulière (WebAPI, WCF etc.), l'infrastructure fournit des éléments de communication côté Client et Service qui peuvent être utilisés pour établir la communication entre le Client et le Service.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]L'infrastructure de communication gère la propagation des exceptions survenues au niveau du service au client. Par conséquent, la logique de gestion des exceptions au niveau du client à l'aide de ServiceProxy peut directement traiter les exceptions susceptibles d'être générées par le service.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

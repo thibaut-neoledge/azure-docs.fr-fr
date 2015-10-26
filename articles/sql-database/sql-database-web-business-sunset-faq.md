@@ -66,4 +66,4 @@ Les bases de données SQL Azure De base, Standard et Premium sont facturées à 
 
 [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

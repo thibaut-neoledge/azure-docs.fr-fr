@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Vue d’ensemble de la protection entre un site et Azure"
-	description="Utilisez cet article pour comprendre les concepts techniques qui vous permettent d’installer, de configurer et de gérer avec succès Azure Site Recovery."
-	services="site-recovery"
-	documentationCenter=""
-	authors="anbacker"
-	manager="mkjain"
+	pageTitle="Vue d’ensemble de la protection entre un site et Azure" 
+	description="Utilisez cet article pour comprendre les concepts techniques qui vous permettent d’installer, de configurer et de gérer avec succès Azure Site Recovery." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="anbacker" 
+	manager="mkjain" 
 	editor=""/>
 
 <tags 
-	ms.service="site-recovery"
+	ms.service="site-recovery" 
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="09/01/2015"
+	ms.workload="storage-backup-recovery" 
+	ms.date="09/01/2015" 
 	ms.author="anbacker"/>
 
 
@@ -79,4 +79,4 @@ Il existe une logique de nouvelle tentative intégrée lorsque des erreurs de r�
 - [Contacter le support Microsoft](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Les erreurs ASR courantes et leur résolution](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

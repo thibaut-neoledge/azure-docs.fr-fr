@@ -165,4 +165,4 @@ Les étapes suivantes sont nécessaires pour récupérer une entité protégée 
 
 [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

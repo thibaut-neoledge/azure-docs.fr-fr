@@ -1,21 +1,21 @@
 <properties
    pageTitle="Documentation d'aide de zones géographiques multiples | Microsoft Azure"
-	description="Apprenez à créer un espace de travail et à publier un service web dans une région Azure autre que South Central United States (SCUS)."
-	services="machine-learning"
-	documentationCenter=""
-	authors="tedway"
-	manager="paulettm"
-	editor="rmca14"
-	tags=""/>
+   description="Apprenez à créer un espace de travail et à publier un service web dans une région Azure autre que South Central United States (SCUS)."
+   services="machine-learning"
+   documentationCenter=""
+   authors="tedway"
+   manager="paulettm"
+   editor="rmca14"
+   tags=""/>
 
 <tags
    ms.service="machine-learning"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/17/2015"
-	ms.author="tedway; neerajkh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/17/2015"
+   ms.author="tedway; neerajkh"/>
 
 # Documentation d'aide de zones géographiques multiples
 
@@ -57,4 +57,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

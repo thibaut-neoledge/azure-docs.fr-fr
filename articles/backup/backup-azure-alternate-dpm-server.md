@@ -96,4 +96,4 @@ Pour récupérer des données à partir d'un autre serveur DPM, procédez comme 
 ## Étapes suivantes :
 • [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

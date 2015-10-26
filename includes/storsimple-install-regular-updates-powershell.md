@@ -21,4 +21,4 @@
 > - Cette commande s’applique uniquement aux mises à jour périodiques. Vous exécutez cette commande sur un seul contrôleur, mais les deux contrôleurs sont mis à jour. 
 > - Il est possible qu’un basculement de contrôleur se produise pendant la mise à jour. Celui-ci n’a aucune incidence sur la disponibilité ou le fonctionnement du système.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

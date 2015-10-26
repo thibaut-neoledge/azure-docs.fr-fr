@@ -1,12 +1,12 @@
 <properties
 	pageTitle="Utilisation de l’interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
-	description="Découvrez comment utiliser la CLI Azure pour Mac, Linux et Windows afin de gérer les ressources Azure dans le mode de déploiement de Resource Manager."
-	services="virtual-machines"
+	description="Découvrez comment utiliser l’interface CLI Azure pour Mac, Linux et Windows pour gérer les ressources Azure dans le mode Azure Resource Manager."
+	services="virtual-machines,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-mangaer"/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="multiple"
@@ -14,31 +14,34 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous pouvez également créer une ressource avec le [modèle de déploiement classique](virtual-machines-command-line-tools.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
+Cet article décrit comment utiliser l’interface de ligne de commande Azure (interface CLI Azure) dans le mode Azure Resource Manager pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l’aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure en version préliminaire.
 
-Cette rubrique décrit comment utiliser l'interface de ligne de commande Azure (interface CLI Azure) dans le mode **arm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer les mêmes tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec PowerShell, et dans le portail Azure.
+Azure Resource Manager vous permet de créer un groupe de ressources (machines virtuelles, sites web, bases de données, etc.) en tant qu’unité déployable unique. Vous pouvez ensuite déployer, mettre à jour ou supprimer toutes les ressources de votre application en une opération unique et coordonnée. Vous décrivez vos ressources de groupe dans un modèle JSON pour le déploiement et pouvez ensuite utiliser ce modèle pour les différents environnements (test, intermédiaire et de production).
 
-La gestion des ressources Azure vous permet de créer un groupe de ressources (machines virtuelles, sites web, bases de données, etc.) en tant qu'unité déployable unique. Vous pouvez ensuite déployer, mettre à jour ou supprimer toutes les ressources de votre application en une opération unique et coordonnée. Vous décrivez vos ressources de groupe dans un modèle JSON pour le déploiement et pouvez ensuite utiliser ce modèle pour les différents environnements (test, intermédiaire et de production).
+## Étendue de l’article
+
+Cet article fournit la syntaxe et les options des commandes de l’interface CLI Azure couramment utilisées pour le modèle de déploiement Resource Manager. Il ne s’agit pas d’une référence complète, et votre version d’interface CLI peut présenter des commandes ou paramètres différents. Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Resource Manager, tapez `azure help` ou, pour afficher de l’aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d’interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
+
+Les paramètres facultatifs sont indiqués entre crochets (par exemple, [paramètres]). Tous les autres paramètres sont obligatoires.
+
+Outre les paramètres facultatifs propres aux commandes qui vous sont présentés dans ce document, vous pouvez utiliser trois paramètres facultatifs pour afficher une sortie détaillée, telle que les options de demande et les codes d'état. Si le paramètre -v fournit une sortie détaillée, le paramètre -vv propose des informations encore plus complètes. L'option --json génère le résultat au format json brut. L'utilisation avec le commutateur --json est très courante et joue un rôle important dans l'obtention et la compréhension des résultats des opérations de l'interface CLI Azure, qui retournent des informations sur les ressources, l'état et les journaux, ainsi que dans l'utilisation des modèles. Vous pouvez installer des outils d'analyse JSON tels que **jq** ou **jsawk**, ou utiliser la bibliothèque de votre langage préféré.
 
 ## Approches impératives et déclaratives
 
-Comme avec le [mode Azure Service Management (**asm**)](../virtual-machines-command-line-tools.md), le mode **arm** de l’interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
+Comme avec le [mode Azure Service Management](../virtual-machines-command-line-tools.md), le mode Resource Manager de l’interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
 
 Toutefois, l'utilisation de _modèles_ de groupe de ressources, qui décrivent un groupe de ressources, est une approche déclarative beaucoup plus puissante, car elle vous permet d'automatiser des déploiements complexes de (presque) n'importe quel nombre de ressources à (presque) toutes les fins. Quand vous utilisez des modèles, la seule commande impérative est d'en déployer un. Pour obtenir une vue d'ensemble des modèles, ressources et groupes de ressources, consultez [Vue d'ensemble des groupes de ressources Azure](resource-groups-overview).
 
-> [AZURE.NOTE]Outre les options propres aux commandes décrites ci-dessous et sur la ligne de commande, vous pouvez utiliser trois options pour afficher une sortie détaillée, comme les options de demande et les codes d'état. Si le paramètre -v fournit une sortie détaillée, le paramètre -vv propose des informations encore plus complètes. L'option --json génère le résultat au format json brut, elle est très utile pour les scénarios de script.
->
-> L'utilisation avec le commutateur --json est très courante et joue un rôle important dans l'obtention et la compréhension des résultats des opérations de l'interface CLI Azure, qui retournent des informations sur les ressources, l'état et les journaux, ainsi que dans l'utilisation des modèles. Vous pouvez installer des outils d'analyse JSON tels que **jq** ou **jsawk**, ou utiliser la bibliothèque de votre langage préféré.
-
 ##Conditions d'utilisation :
 
-La configuration requise permettant d'utiliser le mode **arm** avec l'interface CLI Azure est la suivante :
+La configuration requise permettant d’utiliser le mode Resource Manager avec l’interface CLI Azure est la suivante :
 
 - un compte Azure ([obtenir une version d'évaluation gratuite ici](http://azure.microsoft.com/pricing/free-trial/))
 - [installation de l'interface CLI Azure](../xplat-cli-install.md)
@@ -46,10 +49,9 @@ La configuration requise permettant d'utiliser le mode **arm** avec l'interface 
 
 Dès que vous disposez d'un compte et que vous avez installé l'interface CLI Azure, vous devez
 
-- basculer en mode **arm** en tapant `azure config mode arm`.
+- basculer en mode Resource Manager en tapant `azure config mode arm`.
 - Connectez-vous à votre compte Azure en tapant `azure login` et en utilisant votre identité professionnelle ou étudiante quand vous y êtes invité
 
-À présent, tapez `azure` pour afficher la liste des commandes de niveau supérieur décrites dans les sections ci-dessous.
 
 ## azure account : gérer vos informations de compte et les paramètres de publication
 L'outil se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues depuis le portail Azure dans un fichier de paramètres de publication, comme décrit dans ce document. Vous pouvez importer le fichier de paramètres de publication en tant que paramètre de configuration local persistant dont l'outil se servira pour les opérations ultérieures. Vous importez vos paramètres de publication une fois pour toutes.
@@ -1740,4 +1742,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

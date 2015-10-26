@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Connect AD sync : tâches et examen opérationnels"
+   pageTitle="Azure AD Connect sync : tâches et examen opérationnels | Microsoft Azure"
    description="Cette rubrique décrit les tâches opérationnelles d’Azure AD Connect sync et comment se préparer pour actionner ce composant."
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Azure Connect AD sync : tâches opérationnelles et examen
@@ -28,7 +28,7 @@ Le mode intermédiaire peut être utilisé dans le cadre de plusieurs scénarios
 
 Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications à la configuration et visualiser les modifications avant de rendre le serveur actif. Il permet également d’exécuter une importation et la synchronisation complètes afin de vérifier que toutes les modifications sont attendues avant de les appliquer dans un environnement de production.
 
-Lors de l’installation, vous pouvez sélectionner le serveur en *mode intermédiaire*. Cela rendra le serveur actif pour l’importation et la synchronisation, mais n’entraînera pas d’exportation. Un serveur en mode intermédiaire n’exécute pas la synchronisation de mot de passe et l’écriture différée de mot de passe même si vous sélectionnez ces fonctions. Lorsque vous désactivez le mode intermédiaire, le serveur lance l’exportation et active la synchronisation de mot de passe et l’écriture différée de mot de passe (si activé).
+Lors de l’installation, vous pouvez sélectionner le serveur en **mode intermédiaire**. Cela rendra le serveur actif pour l’importation et la synchronisation, mais n’entraînera pas d’exportation. Un serveur en mode intermédiaire n’exécute pas la synchronisation de mot de passe et l’écriture différée de mot de passe même si vous sélectionnez ces fonctions. Lorsque vous désactivez le mode intermédiaire, le serveur lance l’exportation et active la synchronisation de mot de passe et l’écriture différée de mot de passe (si activé).
 
 Un serveur en mode intermédiaire continue de recevoir des modifications Active Directory et Azure AD. Il associe aura toujours une copie des modifications les plus récentes et peut très rapidement reprendre les responsabilités d’un autre serveur. Si vous apportez des modifications de configuration à votre serveur principal, la responsabilité d’apporter les mêmes modifications au(x) serveur(s) en mode intermédiaire vous incombe.
 
@@ -44,15 +44,15 @@ Pour appliquer cette méthode, procédez comme suit :
 
 **Préparation**
 
-1. Installer Azure Connect AD, sélectionnez *mode intermédiaire*, puis désélectionnez *Démarrer la synchronisation* sur la dernière page de l’Assistant Installation. Cette opération permet d’exécuter manuellement le moteur de synchronisation.
-2. Déconnectez-vous, puis connectez-vous et, dans le menu Démarrer, sélectionnez *Service de synchronisation*.
+1. Installez Azure AD Connect, sélectionnez **mode intermédiaire**, puis désélectionnez **Démarrer la synchronisation** sur la dernière page de l’Assistant Installation. Cette opération permet d’exécuter manuellement le moteur de synchronisation.
+2. Déconnectez-vous puis connectez-vous et, dans le menu Démarrer, sélectionnez **Service de synchronisation**.
 
 **Importer et synchroniser**
 
-1. Sélectionnez *Connecteurs*, puis sélectionnez le premier connecteur de type *Services de domaine Active Directory*. Cliquez sur *Exécuter*, sélectionnez *Importation intégrale*, puis *OK*. Répétez l’opération pour tous les connecteurs de ce type.
-2. Sélectionnez le connecteur de type *Azure Active Directory (Microsoft)*. Cliquez sur *Exécuter*, sélectionnez *Importation intégrale*, puis *OK*.
-4. Vérifiez que l’option Connecteurs est toujours sélectionnée et pour chaque connecteur de type *Services de domaine Active Directory*, cliquez sur *Exécuter*, sélectionnez *Synchronisation Delta*, puis *OK*.
-5. Sélectionnez le connecteur de type *Azure Active Directory (Microsoft)*. Cliquez sur *Exécuter*, sélectionnez *Synchronisation Delta*, puis OK.
+1. Sélectionnez **Connecteurs**, puis sélectionnez le premier connecteur de type **Services de domaine Active Directory**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**. Répétez l’opération pour tous les connecteurs de ce type.
+2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
+4. Vérifiez que l’option Connecteurs est toujours sélectionnée et pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
+5. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis OK.
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
 
@@ -88,7 +88,7 @@ Une partie de la conception de l’implémentation consiste à planifier les pro
 Selon les réponses à ces questions et la stratégie de votre organisation, une des stratégies suivantes peut être mise en œuvre :
 
 -	Régénérer si nécessaire.
--	Disposer d’un serveur de secours en attente, connu sous le nom *mode intermédiaire*.
+-	Disposer d’un serveur de secours en attente, appelé **mode intermédiaire**.
 -	Utiliser les machines virtuelles.
 
 Windows Azure AD sync ayant une dépendance sur une base de données SQL, vous devez consulter la section Haute disponibilité SQL si vous n’utilisez pas SQL Express, qui est fourni avec Azure AD Connect.
@@ -99,7 +99,7 @@ Une stratégie viable consiste à planifier une régénération du serveur si n�
 Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L’attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
 
 ### Disposer d’un serveur de secours en attente, connu sous le nom de mode intermédiaire.
-Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l’installation, vous pouvez activer un serveur en *mode intermédiaire*.
+Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l’installation, vous pouvez activer un serveur en **mode intermédiaire**.
 
 Pour plus d’informations, consultez la section [mode intermédiaire](#staging-mode).
 
@@ -110,6 +110,8 @@ Une méthode courante et prise en charge consiste à exécuter le moteur de sync
 En cas de non-utilisation de SQL Server Express livré avec Azure AD Connect, la haute disponibilité pour SQL Server doit également être prise ne compte. La seule solution haute disponibilité prise en charge est SQL clustering. Les solutions non prises en charge incluent la mise en miroir et Always On.
 
 ## Étapes suivantes
-Pour en savoir plus sur la configuration d’Azure AD Connect Sync, consultez [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO2-->
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

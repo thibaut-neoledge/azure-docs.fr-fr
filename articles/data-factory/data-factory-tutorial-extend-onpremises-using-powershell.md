@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (Azure PowerShell)"
+	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (Azure PowerShell)" 
 	description="Cette procédure pas à pas étend le didacticiel à l'aide d'Azure PowerShell de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -116,12 +116,12 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 ### Création de la table logique locale
 
 1.	Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Utilisez l’applet de commande **New-AzureDataFactoryTable** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
+2.	Utilisez l’applet de commande **New-AzureDataFactoryDataset** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
 
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
-#### Créer le pipeline pour copier les données d’un objet blob Azure dans SQL Server
+#### Créer le pipeline pour copier les données d'un objet blob Azure dans SQL Server
 
 1.	Utilisez l’applet de commande **New-AzureDataFactoryPipeline** pour créer le pipeline comme suit pour **EgressDataToOnPremPipeline.json**.
 
@@ -170,4 +170,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

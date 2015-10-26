@@ -25,4 +25,4 @@ des comptes de stockage ; | |1 000<sup>5</sup>
 
 <sup>5</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

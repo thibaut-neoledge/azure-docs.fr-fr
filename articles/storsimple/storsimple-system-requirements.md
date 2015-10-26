@@ -197,4 +197,4 @@ Outre les exigences de mise en réseau ci-dessus, pour obtenir des performances 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Comparaison des outils d’intégration de répertoire"
+<properties
+	pageTitle="Comparaison des outils d’intégration de répertoire | Microsoft Azure"
 	description="Cette page vous donne accès à des tableaux complets de comparaison des différents outils d’intégration de répertoire."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 # Comparaison des outils d’intégration de répertoire
@@ -82,10 +82,13 @@ Le code suivant s’applique aux tableaux ci-dessous.
 Fonctionnalité | Azure Active Directory Connect | Services de synchronisation Azure Active Directory | Outil de synchronisation Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM)  
 :-------- |:--------:|:--------:|:--------:|:--------:|
 Filtrage sur les domaines et les unités organisationnelles | ● | ● | ● | ●  
-Filtrage sur les valeurs d’attributs des objets | ● | ● | ● | ● 
-Autorisation d’un ensemble minimal d’attributs à synchroniser (MinSync) | ● | ● | |   
-Autorisation de différents modèles de service à appliquer pour les flux d’attributs |● | ● | |   
+Filtrage sur les valeurs d’attributs des objets | ● | ● | ● | ●
+Autorisation d’un ensemble minimal d’attributs à synchroniser (MinSync) | ● | ● | |
+Autorisation de différents modèles de service à appliquer pour les flux d’attributs |● | ● | |
 Autorisation du blocage des attributs circulant d’AD vers Azure AD | ● | ● | |  
 Autorisation de la personnalisation avancée pour les flux d’attributs | ● | ● | | ●  
 
-<!---HONumber=August15_HO9-->
+## Étapes suivantes
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

@@ -27,4 +27,4 @@ Les informations suivantes peuvent vous aider à utiliser des clients Azure Remo
 - RemoteApp vous déconnecte automatiquement si vous êtes inactif pendant un certain temps. Afin d'éviter de perdre des données, nous vous conseillons de fermer vos applications lorsque vous avez terminé d'utiliser le service.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

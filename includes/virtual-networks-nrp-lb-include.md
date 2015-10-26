@@ -11,4 +11,4 @@ Les équilibrages de charge contiennent les ressources enfants suivantes :
 - **Sondes** : les sondes vous permettent d'effectuer le suivi de l'intégrité des instances de machine virtuelle. En cas d'échec d'une sonde d'intégrité, l'instance de machine virtuelle est automatiquement mise hors service.
 - **Règles NAT de trafic entrant** : règles NAT définissant le trafic entrant transitant via l'adresse IP frontale et distribué à l'adresse IP principale.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

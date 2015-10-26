@@ -19,7 +19,8 @@
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Configurez votre première ou prochaine application métier basée sur le Web et exclusivement conçue pour l’Intranet dans Microsoft Azure et bénéficiez de la facilité de configuration et de la possibilité d’étendre rapidement l’application pour y ajouter de nouvelles capacités.
  
@@ -105,4 +106,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

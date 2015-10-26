@@ -16,4 +16,4 @@
 La stratégie ajoutée s’affiche dans le tableau de la page **Stratégies de sauvegarde**.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

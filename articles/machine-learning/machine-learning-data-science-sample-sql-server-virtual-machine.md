@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Échantillonner des données dans SQL Server sur Azure | Microsoft Azure"
-	description="Échantillonner des données dans SQL Server sur Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="fashah"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Échantillonner des données dans SQL Server sur Azure | Microsoft Azure" 
+	description="Échantillonner des données dans SQL Server sur Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;garye;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
@@ -113,4 +113,4 @@ Pour obtenir un exemple de procédure pas à pas de bout en bout à l’aide du 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

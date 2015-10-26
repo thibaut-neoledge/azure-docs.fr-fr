@@ -20,7 +20,7 @@
 
 Pour vous aider à intégrer toutes vos applications cloud (SaaS) avec Azure Active Directory, nous avons développé une collection de didacticiels qui vous indiquent les étapes de configuration nécessaires.
 
-Pour obtenir la liste complète des applications SaaS qui ont été préalablement intégrées dans Azure AD, consultez la page [Applications Azure Active Directory](https://azure.microsoft.com/fr-fr/marketplace/active-directory/).
+Pour obtenir la liste complète des applications SaaS qui ont été préalablement intégrées dans Azure AD, consultez la page [Applications Azure Active Directory](https://azure.microsoft.com/fr-FR/marketplace/active-directory/).
 
 ##Liste des didacticiels
 
@@ -100,6 +100,7 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetDocuments.jpg)| [NetDocuments](https://go.microsoft.com/fwLink/?LinkID=403244&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.jpg)| [Netsuite](https://go.microsoft.com/fwLink/?LinkID=403239&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_NewRelic.jpg)| [New Relic](https://go.microsoft.com/fwLink/?LinkID=403257&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OCTanner.jpg)| [O. C. Tanner - AppreciateHub](https://go.microsoft.com/fwLink/?LinkID=530237&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OfficeSpaceSoftware.jpg)| [OfficeSpace Software](https://go.microsoft.com/fwLink/?LinkID=512726&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Onit.jpg)| [Onit](https://go.microsoft.com/fwLink/?LinkID=522566&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_OverdriveBooks.jpg)| [Overdrive Books](https://go.microsoft.com/fwLink/?LinkID=512730&clcid=0x409)|
@@ -167,4 +168,4 @@ Pour obtenir la liste complète des applications SaaS qui ont été préalableme
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

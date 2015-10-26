@@ -7,7 +7,6 @@
 	manager="swadhwa"
 	editor=""/>
 
-
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
-
 
 
 # Notifications d’approvisionnement de comptes
@@ -48,4 +46,4 @@ Si vous avez activé les notifications d’approvisionnement de comptes, vous re
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

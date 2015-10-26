@@ -1,20 +1,22 @@
 <properties 
    pageTitle="Gérer : mode de distribution d’équilibrage de charge (affinité d’IP source)"
-	description="Fonctionnalités de gestion pour le mode de distribution d'équilibrage de charge Azure"
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""/>
+   description="Fonctionnalités de gestion pour le mode de distribution d'équilibrage de charge Azure" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
+   />
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/21/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/21/2015"
+   ms.author="telmos"
+   />
    
 # Gérer un réseau virtuel : mode de distribution d’équilibrage de charge (affinité d’IP source)
 L’**affinité d’IP source** (également appelée **affinité de session** ou **affinité d’IP du client**), l’un des modes de distribution d’équilibrage de charge Azure, lie les connexions entre un client unique et un serveur unique hébergé sur Azure, au lieu de répartir dynamiquement chaque connexion client entre différents serveurs hébergés sur Azure (comportement d’équilibrage de charge par défaut).
@@ -159,4 +161,4 @@ La valeur de LoadBalancerDistribution peut être sourceIP pour une affinité à 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

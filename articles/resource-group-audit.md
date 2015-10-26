@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
@@ -26,7 +26,9 @@ Vous pouvez récupérer des informations à partir des journaux d’audit par le
 
 ## PowerShell
 
-Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version 1.0 Preview). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version préliminaire 1.0). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
 
 L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée.
 
@@ -87,7 +89,7 @@ Vous pouvez filtrer les résultats avec un utilitaire JSON comme [jq](http://ste
 
     azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == "Update web sites config")"
 
-Vous pouvez ajouter le paramètre **–-last-deployment** pour limiter les entrées renvoyées aux opérations à partir du dernier déploiement uniquement.
+Vous pouvez ajouter le paramètre **–-last-deployment** pour limiter les entrées renvoyées aux opérations effectuées à partir du dernier déploiement uniquement.
 
     azure group log show ExampleGroup --last-deployment
 
@@ -148,7 +150,7 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 ## Étapes suivantes
 
 - Pour en savoir plus sur la configuration des stratégies de sécurité, consultez [Gestion de l’accès aux ressources](./azure-portal/resource-group-rbac.md).
-- Pour savoir comment autoriser l’accès pour un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+- Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

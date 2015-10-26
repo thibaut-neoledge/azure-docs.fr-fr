@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="exemples-bus-service"
+   pageTitle="Vue d’ensemble des exemples Service Bus | Microsoft Azure"
    description="Classe et décrit les exemples Service Bus avec des liens vers chacun d’eux."
    services="service-bus"
    documentationCenter="na"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/08/2015"
    ms.author="sethm" />
 
 # Exemples Service Bus
 
-Les exemples de Service Bus illustrent des fonctionnalités clés de Bus de Service (service cloud) et Service Bus pour Windows Server. Cette rubrique attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
+Les exemples de Service Bus illustrent des fonctionnalités clés de Bus de Service (service cloud) et Service Bus pour Windows Server. Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
 
->[AZURE.NOTE]Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples de kit de développement logiciels Windows Azure](https://code.msdn.microsoft.com/windowsazure).
+>[AZURE.NOTE]Les exemples Service Bus ne sont pas installés avec le Kit de développement logiciel. Pour obtenir des exemples, visitez la [page d’exemples du Kit de développement logiciel (SDK) Microsoft Azure](https://code.msdn.microsoft.com).
 
 ## Messagerie répartie Service Bus
 
@@ -57,7 +57,7 @@ Ces exemples décrivent les fonctionnalités de messagerie et de relais de base.
 |---|---|---|---|
 |[Mise en route : messagerie avec files d’attente](http://code.msdn.microsoft.com/Getting-Started-Brokered-aa7a0ac3)|Montre comment utiliser Microsoft Azure Service Bus pour envoyer et recevoir des messages à partir d’une file d’attente.|1\.8|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
 |[Mise en route : messagerie avec rubriques](http://code.msdn.microsoft.com/Getting-Started-Brokered-614d42e5)|Montre comment utiliser Microsoft Azure Service Bus pour envoyer et recevoir des messages à partir d’une rubrique avec plusieurs abonnements.|1\.8|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
-|[Prise en main des concentrateurs d’événements](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097)|Illustre les fonctionnalités de base des concentrateurs d’événements telles que la création d’un concentrateur d’événements, l’envoi d’événements à un concentrateur d’événements, consommant des événements à l’aide du processeur d’événements.|2\.4|Microsoft Azure Service Bus|
+|[Prise en main des concentrateurs d’événements](http://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)|Illustre les fonctionnalités de base des concentrateurs d’événements telles que la création d’un concentrateur d’événements, l’envoi d’événements à un concentrateur d’événements, consommant des événements à l’aide du processeur d’événements.|2\.4|Microsoft Azure Service Bus|
 
 ### Exploration des fonctions
 
@@ -65,9 +65,9 @@ Les exemples suivants illustrent différentes fonctionnalités de Service Bus.
 
 |Nom d’exemple|Description|Kit de développement logiciel minimum|Availability|
 |---|---|---|---|
-|[Fournisseurs de jeton HTTP](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-Token-38f2cfc5)|Illustre les différents modes d’authentification d’un client HTTP/REST avec Service Bus.|2\.1|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
-|[Client HTTP Service Bus](http://code.msdn.microsoft.com/windowsazure/Service-Bus-HTTP-client-fe7da74a)|Montre comment envoyer et recevoir des messages de Service Bus via HTTP/REST.|2\.3|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
-|[Transfert automatique Service Bus](http://code.msdn.microsoft.com/windowsazure/Service-Bus-Autoforwarding-b9df470b)|Montre comment transférer automatiquement les messages depuis une file d’attente, un abonnement ou une file d’attente de rebut dans une autre file d’attente ou rubrique. Il montre également comment envoyer un message dans une file d’attente ou une rubrique via une file d’attente de transfert.|2\.3|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
+|[Fournisseurs de jeton HTTP](http://code.msdn.microsoft.com/Service-Bus-HTTP-Token-38f2cfc5)|Illustre les différents modes d’authentification d’un client HTTP/REST avec Service Bus.|2\.1|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
+|[Client HTTP Service Bus](http://code.msdn.microsoft.com/Service-Bus-HTTP-client-fe7da74a)|Montre comment envoyer et recevoir des messages de Service Bus via HTTP/REST.|2\.3|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
+|[Transfert automatique Service Bus](http://code.msdn.microsoft.com/Service-Bus-Autoforwarding-b9df470b)|Montre comment transférer automatiquement les messages depuis une file d’attente, un abonnement ou une file d’attente de rebut dans une autre file d’attente ou rubrique. Il montre également comment envoyer un message dans une file d’attente ou une rubrique via une file d’attente de transfert.|2\.3|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
 |[Messagerie répartie : exemple de session de canal WCF](http://code.msdn.microsoft.com/Brokered-Messaging-WCF-0a526451)|Montre comment utiliser Microsoft Azure Service Bus avec canaux Windows Communication Foundation (WCF). L’exemple montre l’utilisation de canaux WCF pour envoyer et recevoir des messages via une file d’attente Service Bus. L’exemple montre les communications de session et non-session via le Bus de Service.|1\.8|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
 |[Messagerie répartie : transactions](http://code.msdn.microsoft.com/Brokered-Messaging-8cd41d1e)|Montre comment utiliser les fonctions de messagerie Microsoft Azure Service Bus au sein d’une étendue de transaction, afin de garantir des lots d’opérations de messagerie sont validés automatiquement.|1\.8|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
 |[Messagerie répartie : opérations de gestion avec REST](http://code.msdn.microsoft.com/Brokered-Messaging-569cff88)|Montre comment effectuer des opérations de gestion sur le Bus de Service à l’aide de REST.|1\.8|Microsoft Azure Service Bus ; Service Bus pour Windows Server|
@@ -132,4 +132,4 @@ Consultez les rubriques suivantes pour plus de présentations Service Bus.
 - [Architecture de Service Bus](service-bus-architecture.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

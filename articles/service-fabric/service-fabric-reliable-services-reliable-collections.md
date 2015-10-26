@@ -54,8 +54,8 @@ Les Collections fiables choisissent automatiquement le niveau d'isolement à uti
 
 Il existe deux niveaux d'isolement pris en charge dans les Collections fiables :
 
-- **Lecture renouvelée** : « spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées mais pas encore validées par d'autres transactions et qu'aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de la transaction actuelle. (https://msdn.microsoft.com/fr-fr/library/ms173763.aspx)) »
-- **Instantané** : « spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant le début de la transaction. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C'est comme si les instructions dans une transaction obtenaient un instantané des données validées telles qu'elles existaient au début de la transaction. (https://msdn.microsoft.com/fr-fr/library/ms173763.aspx)"
+- **Lecture renouvelée** : « spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées mais pas encore validées par d'autres transactions et qu'aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de la transaction actuelle. (https://msdn.microsoft.com/fr-FR/library/ms173763.aspx)) »
+- **Instantané** : « spécifie que les données lues par toute instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction. La transaction ne peut reconnaître que les modifications de données qui ont été validées avant le début de la transaction. Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle. C'est comme si les instructions dans une transaction obtenaient un instantané des données validées telles qu'elles existaient au début de la transaction. (https://msdn.microsoft.com/fr-FR/library/ms173763.aspx)"
 
 Le Dictionnaire fiable et la File d'attente fiable prennent en charge le protocole Read Your Writes. En d'autres termes, toute écriture dans une transaction sera visible pour une lecture suivante appartenant à la même transaction.
 
@@ -118,4 +118,4 @@ Voici quelques points à retenir :
 - [Utilisation avancée du modèle de programmation de services fiables](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

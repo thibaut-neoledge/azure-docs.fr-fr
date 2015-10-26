@@ -70,4 +70,4 @@
 
 Maintenant que l'application a été mise à jour pour utiliser Mobile Services pour le stockage principal, le moment est venu de tester l'application avec Mobile Services.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

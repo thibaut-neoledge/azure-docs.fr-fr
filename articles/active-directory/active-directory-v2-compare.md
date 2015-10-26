@@ -121,4 +121,4 @@ Pour en savoir plus sur les demandes spécifiques émises dans les jetons du mod
 ## Limitations de la version préliminaire
 Il existe un certain nombre de restrictions dont vous devez être conscient lorsque vous générez une application avec le modèle d’application v2.0 pendant la version préliminaire publique. Consultez le [document relatif aux limitations du modèle d’application v2.0](active-directory-v2-limitations.md) pour voir si ces restrictions s’appliquent à votre scénario particulier.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

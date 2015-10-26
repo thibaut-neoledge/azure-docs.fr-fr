@@ -53,4 +53,4 @@ La fonctionnalité « Exécuter maintenant » de la stratégie permet de véri
 
 Lorsque le consommateur se connecte (à l’aide d’un compte local ou social), si un numéro de téléphone vérifié est associé à son compte, il est invité à la confirmer. Si aucun numéro de téléphone n’est associé, le consommateur est invité à en fournir un et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur pour une utilisation ultérieure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

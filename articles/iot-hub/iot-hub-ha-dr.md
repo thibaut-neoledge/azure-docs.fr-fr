@@ -1,10 +1,10 @@
 <properties
- pageTitle="Haute disponibilité et récupération d’urgence Azure IoT Hub | Microsoft Azure"
- description="Décrit les options qui vous aident à créer des solutions dotées de fonctionnalités de récupération d’urgence."
+ pageTitle="Haute disponibilité et récupération d’urgence IoT Hub | Microsoft Azure"
+ description="Décrit les options qui vous aident à créer des solutions à haute disponibilité dotées de fonctionnalités de récupération d’urgence."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -48,4 +48,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

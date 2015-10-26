@@ -19,7 +19,8 @@
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Au cours de cette dernière phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous créez un groupe de disponibilité SQL Server AlwaysOn et ajoutez les bases de données de l'application.
 
@@ -127,4 +128,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

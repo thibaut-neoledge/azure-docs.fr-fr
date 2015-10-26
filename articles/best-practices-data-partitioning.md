@@ -8,7 +8,6 @@
    editor=""
    tags=""/>
 
-
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -17,7 +16,6 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
-
 
 # Recommandations en matière de partitionnement des données
 
@@ -479,4 +477,4 @@ Les modèles suivants peuvent également s’appliquer à votre cas lorsque vous
 - La page (en anglais) [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) sur le site Web de Microsoft présente un exemple décrivant comment créer et configurer un nœud Redis en tant que machine virtuelle Azure.
 - La page (en anglais) [Data Types](http://redis.io/topics/data-types) sur le site Web de Redis présente les types de données disponibles avec Redis et Cache Redis Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

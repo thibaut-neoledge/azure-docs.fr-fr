@@ -69,4 +69,4 @@ Ensuite, vous allez définir le jeu de données SQL Azure comme suit. Remarque 
 
 Dans ce cas, Data Factory effectuera automatiquement les conversions de type, y compris pour le champ Datetime avec son format date/heure personnalisé, en utilisant la culture fr-fr lors du déplacement des données à partir de l’objet blob vers SQL Azure.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

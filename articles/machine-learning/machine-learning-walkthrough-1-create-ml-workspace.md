@@ -55,4 +55,4 @@ Pour plus d’informations, consultez la page [Gestion d’un espace de travail 
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation de Blitline pour le traitement d'image - Guide des fonctionnalités Azure"
-	description="Apprenez à utiliser le service Blitline pour traiter les images au sein d'une application Microsoft Azure."
-	services=""
-	documentationCenter=".net"
-	authors="blitline-dev"
-	manager="jason@blitline.com"
+	pageTitle="Utilisation de Blitline pour le traitement d'image - Guide des fonctionnalités Azure" 
+	description="Apprenez à utiliser le service Blitline pour traiter les images au sein d'une application Microsoft Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="blitline-dev" 
+	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
 # Utilisation de Blitline avec Azure et Azure Storage
 
@@ -132,4 +132,4 @@ Rendez-vous sur blitline.com pour découvrir toutes nos autres fonctions :
 * Exemples d'API Blitline <http://www.blitline.com/docs/examples>
 * Bibliothèque Nuget tierce <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

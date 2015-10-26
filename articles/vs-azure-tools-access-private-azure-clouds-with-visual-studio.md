@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Accès à des clouds privés Azure avec Visual Studio"
-	description="Découvrez comment accéder aux ressources de cloud privé à l'aide de Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Découvrez comment accéder aux ressources de cloud privé à l'aide de Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Accès à des clouds privés Azure avec Visual Studio
 
@@ -43,4 +43,4 @@ Par défaut, Visual Studio prend en charge les points de terminaison REST du clo
 
 [Téléchargement et importation des paramètres de publication et des informations d'abonnement] (https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

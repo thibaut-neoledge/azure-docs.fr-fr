@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envoi de notifications interplateformes à un utilisateur spécifique à l&#39;aide du client Windows Store"
-	description="Découvrez comment envoyer des notifications push à tous les appareils d&#39;un utilisateur spécifique."
+	pageTitle="Envoi de notifications interplateformes à un utilisateur spécifique à l'aide du client Windows Store"
+	description="Découvrez comment envoyer des notifications push à tous les appareils d'un utilisateur spécifique."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="ysxu" 
@@ -106,7 +106,7 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 <!-- URLs. -->
 [Prise en main de l'authentification]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Prise en main des notifications Push]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
-[modèles]: https://msdn.microsoft.com/fr-fr/library/dn530748.aspx
+[modèles]: https://msdn.microsoft.com/fr-FR/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=Oct15_HO3-->

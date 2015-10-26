@@ -145,4 +145,4 @@ Une fois que vos clients ont eu l'occasion de recevoir ces mises à jour, vous p
 [Envoi de notifications push interplateformes]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Comment utiliser le kit de développement logiciel du serveur .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

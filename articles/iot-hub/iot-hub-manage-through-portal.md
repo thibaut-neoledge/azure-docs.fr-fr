@@ -1,18 +1,18 @@
 <properties
- pageTitle="Gérer les concentrateurs IoT Azure via le portail Azure | Microsoft Azure"
- description="Une vue d’ensemble de la façon de créer et gérer des concentrateurs IoT Azure via le portail Azure"
+ pageTitle="Utiliser le portail Azure pour gérer les IoT Hubs | Microsoft Azure"
+ description="Une vue d’ensemble de la façon de créer et gérer les concentrateurs IoT Azure via le portail Azure"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="nasing"
  manager="timlt"
  editor=""/>
 
 <tags
- ms.service="azure-iot"
+ ms.service="iot-hub"
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="nasing"/>
 
@@ -42,23 +42,23 @@ Vous pouvez créer un concentrateur Azure IoT en utilisant les méthodes répert
 
 Pour créer un concentrateur IoT, l’utilisateur doit nommer le concentrateur. Veuillez noter que le nom doit être unique sur les concentrateurs. Aucune duplication de concentrateurs n’est autorisée sur le serveur principal, et il est donc recommandé de nommer ce concentrateur de la façon la plus unique possible.
 
-### Choisir le niveau de tarification. 
+### Choisir le niveau de tarification.
 
 Le client peut choisir entre 3 niveaux: **Gratuit**, **Standard 1** et **Standard 2**. Le niveau gratuit permet la connexion de seulement 10 périphériques au concentrateur IoT.
 
 **S1 (basse fréquence)** : IoT Hubs S1 (faible fréquence) est conçu pour les solutions IoT qui ont un grand nombre de périphériques générant de petites quantités de données par périphérique. Chaque unité de l’édition S1 (basse fréquence) permet la connectivité de jusqu’à 500 périphériques ou 50 000 messages par jour sur tous les périphériques connectés.
 
 **S2 (haute fréquence)** : IoT Hub édition S2 (haute fréquence) est conçu pour des solutions IoT dans lequel les périphériques génèrent de grandes quantités de données. Chaque unité de l’édition S2 (haute fréquence) permet la connectivité de jusqu’à 500 périphériques ou jusqu’à 1,5 million de messages par jour sur tous les périphériques connectés.
- 
+
 ![][4]
 
 > [AZURE.NOTE]IoT Hub ne permet qu’un concentrateur gratuit par abonnement.
 
-### Unités de concentrateur IoT 
+### Unités de concentrateur IoT
 
 Une unité IoT contient 500 périphériques. Le choix du nombre d’unités IoT signifie donc que le nombre total d’appareils pris en charge dans ce concentrateur est le nombre d’unités multiplié par 500. Par exemple, si vous souhaitez que le concentrateur IoT prenne en charge 1 000 périphériques, vous devez choisir 2 unités.
 
-### Les partitions appareil vers cloud et groupe de ressources 
+### Les partitions appareil vers cloud et groupe de ressources
 
 Vous pouvez modifier le nombre de partitions pour un concentrateur IoT. Les partitions par défaut sont définies sur 4 ; toutefois, vous pouvez choisir un nombre de partitions différent dans la liste déroulante.
 
@@ -66,7 +66,7 @@ Pour les groupes de ressources, vous n’avez pas besoin de créer explicitement
 
 ![][5]
 
-### Choisir des abonnements 
+### Choisir des abonnements
 
 IoT Hub Azure montre automatiquement la liste des abonnements auquel le compte utilisateur est lié. Vous pouvez choisir l’une des options présentes ici pour associer le concentrateur IoT à cet abonnement.
 
@@ -89,23 +89,23 @@ Vous pouvez modifier les paramètres d’un concentrateur IoT existant après sa
 **Stratégies d’accès partagé** : ce sont les stratégies qui définissent les autorisations pour que les périphériques et services se connectent à IoT Hub. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d’accès partagé** sous **Paramètres**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
 
 ### Créer une nouvelle stratégie
- 
+
 - Cliquez sur le bouton **Ajouter** pour ouvrir un panneau dans lequel vous pouvez saisir le nouveau nom de stratégie, et les autorisations que vous voulez associer à la stratégie, comme illustré dans la figure suivante.
- 
+
 	Il existe un certain nombre d’autorisations qui peuvent être associées à ces stratégies partagées. Les deux premières stratégies, **Lecture de registre** et **Écriture de registre**, servent à accorder les autorisations en lecture et en écriture au stockage d’identité de périphérique ou au registre d’identité. Veuillez noter que le choix de l’option en écriture choisit automatiquement l’option en lecture.
 
  	La stratégie de connexion octroie au groupe de consommateurs des services de connexion au concentrateur IoT, tandis que la connexion de périphérique accorde des autorisations pour le côté périphérique du concentrateur IoT.
-     
+
 - Cliquez sur la stratégie de création pour ajouter la stratégie créée à la liste existante.
 
 ![][10]
 
-## Messagerie 
+## Messagerie
 
 Cliquez sur les stratégies **Messagerie** pour affiche une liste des messages de propriétés pour le concentrateur IoT Hub en cours de modification. Il existe deux types principaux de propriétés pouvant être modifiés ou copiés : **Cloud vers appareil** et **Appareil vers cloud**.
 
 - **Cloud pour les paramètres d’appareil** : il contient 2 configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** pour les messages. Lorsque le concentrateur IoT est créé, ces deux paramètres sont créés avec une valeur par défaut d’1 heure. Toutefois, vous pouvez les personnaliser en utilisant les curseurs ou en saisissant les valeurs.
- 
+
 - **Paramètres Appareil vers cloud** : contient plusieurs paramètres secondaires, dont certains sont nommés/affectés lorsque le concentrateur IoT est créé et ne peut être copié vers d’autres paramètres secondaires sont personnalisables. Tous ces éléments sont répertoriés dans la section suivante.
 
 **Partitions** : cette valeur est définie lorsque le concentrateur IoT est créé et peut être modifié via ce paramètre.
@@ -135,7 +135,7 @@ Le déplacement d’un niveau élevé (S2) vers un faible niveau (S1) est autori
 
 Vous pouvez accéder à IoT Hub en cliquant sur **Parcourir**, puis en choisissant le concentrateur à supprimer. En cliquant sur le bouton **Supprimer** situé sous le nom du concentrateur, vous supprimez le concentrateur.
 
-  
+
   [4]: ./media/iot-hub-manage-through-portal/create-iothub.png
   [5]: ./media/iot-hub-manage-through-portal/location1.png
   [8]: ./media/iot-hub-manage-through-portal/portal-settings.png
@@ -143,4 +143,4 @@ Vous pouvez accéder à IoT Hub en cliquant sur **Parcourir**, puis en choisissa
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ Pour plus d’informations sur le développement et la publication de sites web 
 [stockage de files d’attente]: storage-python-how-to-use-queue-storage.md
 [stockage d’objets blob]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

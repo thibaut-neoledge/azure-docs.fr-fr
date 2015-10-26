@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Restauration d’une base de données SQL Azure à l’aide d’une restauration jusqu’à une date et heure dans Azure PowerShell
 
@@ -38,11 +38,13 @@ Consultez [Restaurer une base de données SQL Azure à l’aide d’une restaura
 
 Vous devez utiliser l’authentification par certificat pour exécuter les applets de commande suivantes. Pour plus d’informations, consultez la section *Utilisation de la méthode par certificat* dans l’article [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
 
+> [AZURE.IMPORTANT]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
+
 1. Obtenez la base de données que vous souhaitez restaurer à l’aide de l’applet de commande [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx). Spécifiez les paramètres suivants :
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.
 	* **DatabaseName**, qui désigne la base de données à restaurer.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Lancez la restauration avec l’applet de commande [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Spécifiez les paramètres suivants :
 	* **SourceDatabase**, qui désigne la base de données à partir de laquelle restaurer.
@@ -51,14 +53,14 @@ Vous devez utiliser l’authentification par certificat pour exécuter les apple
 
 	Stockez les données retournées dans une variable appelée **$RestoreRequest**. Cette variable contient l’ID de demande de restauration qui est utilisé pour surveiller l’état de la restauration.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Le processus de restauration peut prendre du temps. Pour surveiller l’état de la restauration, utilisez l’applet de commande [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) et spécifiez les paramètres suivants :
 
 * **ServerName**, qui désigne le serveur où se trouve la base de données dans laquelle vous effectuez la restauration.
 * **OperationGuid** , qui est l’ID de demande de restauration ayant été stocké dans la variable **$RestoreRequest** à l’étape 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Les champs **State** et **PercentComplete** indiquent l’état de la restauration.
 
@@ -66,13 +68,11 @@ Les champs **State** et **PercentComplete** indiquent l’état de la restaurati
 
 Pour plus d’informations, consultez les liens suivants :
 
-[Continuité de l’activité des bases de données SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
-
-[Sauvegarde et restauration de base de données SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
+[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)
 
 [Restauration jusqu’à une date et heure d’une base de données SQL Azure (blog)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

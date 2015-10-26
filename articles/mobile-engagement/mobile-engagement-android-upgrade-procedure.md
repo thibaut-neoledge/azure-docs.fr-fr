@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
+	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 
 #Procédures de mise à niveau
@@ -386,4 +386,4 @@ La configuration de Proguard peut être affectée par le changement de nom, les 
 			}
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

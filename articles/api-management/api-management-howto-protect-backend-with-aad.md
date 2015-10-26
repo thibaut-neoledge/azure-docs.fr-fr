@@ -371,9 +371,9 @@ Choisissez **Application web et/ou API web**, saisissez un nom, puis cliquez sur
 
 ![Nouvelle application][api-management-aad-new-application-devportal-1]
 
-Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise \*\***https://contoso5.portal.azure-api.net/signin\*\*.
+Pour **URL d’authentification**, saisissez l’URL de votre service Gestion des API et ajoutez `/signin`. Dans cet exemple, on utilise ****https://contoso5.portal.azure-api.net/signin**.
 
-Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise \*\***https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
+Pour **URL d’ID d’application**, saisissez l’URL de votre service Gestion des API et ajoutez quelques caractères uniques. Il peut s’agir des caractères de votre choix ; dans cet exemple, on utilise ****https://contoso5.portal.azure-api.net/dp**. Lorsque les **Propriétés de l’application** sont configurées, cliquez sur la coche pour créer l’application.
 
 ![Nouvelle application][api-management-aad-new-application-devportal-2]
 
@@ -547,4 +547,4 @@ Pour une autre démonstration de la configuration et l’utilisation de cette st
 [Création d’une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
 [Gérer votre première API]: api-management-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -44,4 +44,4 @@ Vous trouverez, ci-dessous, les exigences relatives à l’image qui peut être 
  
 Consultez [Création d'une image Azure RemoteApp](remoteapp-imageoptions.md) pour plus d'informations sur la création d'images pour Azure RemoteApp.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -23,7 +23,7 @@ Cet article offre une vue d’ensemble de l’écriture de modèles Azure Resour
 
 Pour une vue d’ensemble de l’extension de script personnalisé, voir l’article [ici](virtual-machines-extensions-customscript.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources. Vous pouvez également créer une ressource avec le [modèle de déploiement classique](virtual-machines-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md).
 
 Depuis son lancement, l’extension de Script personnalisé a été largement utilisée pour configurer des charges travail aussi bien sur des machines virtuelles Windows et que Linux. Avec la présentation des modèles Azure Resource manager, les utilisateurs peuvent maintenant créer un modèle unique qui non seulement met en service la machine virtuelle, mais configure les charges de travail.
 
@@ -31,11 +31,11 @@ Depuis son lancement, l’extension de Script personnalisé a été largement ut
 
 Le modèle Azure Resource Manager vous permet de spécifier de manière déclarative l’infrastructure IaaS Azure dans le langage Json en définissant les dépendances entre ressources. Pour obtenir une présentation détaillée des modèles Azure Resource Manager, voir les articles suivants :
 
-<a href="https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-overview/" target="_blank">Présentation du groupe de ressources</a>. <br/><a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Déploiement de modèles avec Azure CLI (Interface de ligne de commande)</a>. <br/> <a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Déploiement de modèles avec Azure Powershell</a>.
+<a href="https://azure.microsoft.com/fr-FR/documentation/articles/resource-group-overview/" target="_blank">Présentation du groupe de ressources</a>. <br/><a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Déploiement de modèles avec l’interface de ligne de commande Azure</a>. <br/> <a href="https://azure.microsoft.com/fr-FR/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Déploiement de modèles avec Azure Powershell</a>.
 
 ### Conditions préalables pour exécuter l’extension de script personnalisé
 
-1. Installez les derniers applets de commande Azure PowerShell ou Azure CLI à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
+1. Installez les dernières applets de commande d’Azure PowerShell ou de l’interface de ligne de commande Azure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
 2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un.
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d'un seul ou de plusieurs conteneurs de stockage.
 4. Les scripts peuvent également être téléchargés vers un compte Github.
@@ -100,4 +100,4 @@ Reportez-vous aux exemples ci-dessous pour obtenir des exemples complets de conf
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Extension de script personnalisé sur une machine virtuelle Windows</a>.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

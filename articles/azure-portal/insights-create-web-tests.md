@@ -22,4 +22,4 @@
 > [AZURE.NOTE]Cet article a été déplacé. Consultez la page : [Analyse de la disponibilité et de la réactivité d'un site Web](../app-insights-monitor-web-app-availability.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

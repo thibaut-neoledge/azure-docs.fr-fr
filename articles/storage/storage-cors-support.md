@@ -196,4 +196,4 @@ Les demandes préliminaires infructueuses ne seront pas facturés.
 [Spécification du Partage des ressources cross-origin (W3C)](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

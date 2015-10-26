@@ -555,4 +555,4 @@ Dans ce didacticiel, vous avez appris à développer un travail MapReduce en Had
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flux de l’application de comptage de mots MapReduce"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->
