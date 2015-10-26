@@ -81,7 +81,9 @@ Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/
         &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
     }
 &lt;/ul> 
-</pre>![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	</pre>
+
+	![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Déployer l'application web vers Web Apps dans App Service
 

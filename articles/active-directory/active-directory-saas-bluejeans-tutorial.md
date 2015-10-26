@@ -97,9 +97,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Enregistrer les modifications](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Enregistrer les modifications")
 
-    1.  Dans la zone de texte **ID utilisateur**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-2.  Dans la zone de texte **E-mail**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
-3.  Cliquez sur **Enregistrer les modifications**.
+    1.  Dans la zone de texte **ID utilisateur**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    2.  Dans la zone de texte **E-mail**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name**.
+    3.  Cliquez sur **Enregistrer les modifications**.
 
 10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 

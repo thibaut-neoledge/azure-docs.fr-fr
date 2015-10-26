@@ -66,7 +66,8 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Box », sélectionnez-le et sélectionnez **Créer**.
-3. Entrez le nom, le plan App Service et d'autres propriétés : ![][1]
+3. Entrez le nom, le plan App Service et d'autres propriétés :
+![][1]
 4. Sélectionnez **Créer**.
 
 
@@ -80,11 +81,14 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 
 2. Authentifier et autoriser des applications logiques pour effectuer des opérations en votre nom. Sélectionnez **Autoriser** sur le connecteur Box : ![][2]
 
-3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations : ![][3]
+3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations :
+![][3]
 
-4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][4]
+4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :
+![][4]
 
-5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][5]
+5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :
+![][5]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).

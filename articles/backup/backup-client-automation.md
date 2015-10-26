@@ -74,7 +74,16 @@ Les options disponibles incluent :
 
 | Option | Détails | Default |
 | ---- | ----- | ----- |
-| /q | Installation silencieuse | - | | /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Abonnement à Microsoft Update | - | | /nu | Ne pas rechercher les mises à jour après l’installation | - | | /d | Désinstalle Microsoft Azure Recovery Services Agent | - | | /ph | Adresse de l’hôte proxy | - | | /po | Numéro de port de l’hôte proxy | - | | /pu | Nom d’utilisateur de l’hôte proxy | - | | /pw | Mot de passe du proxy | - |
+| /q | Installation silencieuse | - |
+| /p:"emplacement" | Chemin du dossier d’installation de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"emplacement" | Chemin du dossier du cache de l’agent Azure Backup. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch | 
+| /m | Abonnement à Microsoft Update | - |
+| /nu | Ne pas rechercher les mises à jour après l’installation | - |
+| /d | Désinstalle Microsoft Azure Recovery Services Agent | - |
+| /ph | Adresse de l’hôte proxy | - |
+| /po | Numéro de port de l’hôte proxy | - |
+| /pu | Nom d’utilisateur de l’hôte proxy | - |
+| /pw | Mot de passe du proxy | - |
 
 
 ### Inscription auprès du service Azure Backup
@@ -571,8 +580,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 L’ordinateur peut maintenant être géré à distance, en commençant par l’installation de l’agent. Par exemple, le script suivant copie et installe l’agent sur l’ordinateur distant.
 
 ```
-PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 

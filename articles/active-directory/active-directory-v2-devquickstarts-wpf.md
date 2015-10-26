@@ -47,8 +47,8 @@ Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.
 - ajouter la plateforme **Mobile** pour votre application.
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
-## 2\. Installez et configurez ADAL
-Now that you have an app registered with Microsoft, you can install ADAL and write your identity-related code. In order for ADAL to be able to communicate the v2.0 endpoint, you need to provide it with some information about your app registration.
+## 2. Installez et configurez ADAL
+Une fois l'application enregistrée auprès de Microsoft, vous pouvez installer ADAL et saisir votre code associé aux identités.  Pour qu'ADAL puisse communiquer le point de terminaison v2.0, vous devez lui fournir des informations sur l'enregistrement de votre application.
 
 -	Commencez par ajouter ADAL au projet TodoListClient à l'aide de la console du gestionnaire de package.
 
@@ -231,9 +231,9 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 		...
 ```
 
-Félicitations ! You now have a working .NET WPF app that has the ability to authenticate users & securely call Web APIs using OAuth 2.0. Run your both projects, and sign in with either a personal Microsoft account or a work or school account. Add tasks to that user's To-Do list.   Sign out, and sign back in as another user to view their To-Do list. Fermez l’application et exécutez-la de nouveau. Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
+Félicitations ! Vous disposez maintenant d'une application fonctionnelle WPF .NET qui a la capacité d'authentifier les utilisateurs et d'appeler en toute sécurité les API Web à l'aide d'OAuth 2.0.  Exécutez vos projets et connectez-vous avec un compte Microsoft personnel ou un compte professionnel ou scolaire. Ajoutez des tâches à la liste de tâches de cet utilisateur.  Déconnectez-vous et reconnectez-vous à l'aide du compte d'un autre utilisateur pour afficher sa liste de tâches.  Fermez l'application et réexécutez-la.  Remarquez à quel point la session de l'utilisateur reste intacte - car l'application cache des jetons dans un fichier local.
 
-ADAL makes it easy to incorporate common identity features into your app, using both personal and work accounts. Elle effectue les tâches ingrates pour vous : gestion du cache, prise en charge du protocole OAuth, présentation d’une interface utilisateur de connexion à l’utilisateur, actualisation des jetons expirés et bien plus encore. La seule chose que vous devez vraiment connaître est un appel unique d’API : `authContext.AcquireTokenAsync(...)`.
+ADAL permet d'intégrer très facilement des fonctionnalités d'identités courantes dans votre application, à l'aide de comptes professionnels ou personnels. Il accomplit à votre place toutes les tâches fastidieuses, telles que la gestion du cache, la prise en charge du protocole OAuth, la présentation de l'utilisateur à l'aide d'une interface utilisateur de connexion, l'actualisation des jetons expirés, etc.  Il vous suffit simplement de connaître un appel d'API unique, « authContext.AcquireTokenAsync (...) ».
 
 Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 

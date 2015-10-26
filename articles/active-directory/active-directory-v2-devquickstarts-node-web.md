@@ -88,10 +88,10 @@ Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging
-var log = bunyan.createLogger({
-    name: 'Microsoft OIDC Example Web Application'
-});
+// Ajouter de la journalisation 
+var log = bunyan.createLogger({ 
+	name: 'Microsoft OIDC Example Web Application' 
+}); 
 ```
 
 - Après cela, utilisez la stratégie référencée pour gérer les demandes de connexion

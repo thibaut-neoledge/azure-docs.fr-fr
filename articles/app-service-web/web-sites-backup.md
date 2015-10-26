@@ -125,7 +125,8 @@ Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_ba
 
 Supposons que vous avez une application web qui contient des fichiers journaux et des images statiques provenant d'années précédentes et qui ne vont jamais changer. Vous disposez déjà d'une sauvegarde complète de l'application web qui inclut les anciennes images. Vous voulez désormais effectuer une sauvegarde quotidienne de l'application web, mais vous ne voulez pas payer pour le stockage des fichiers journaux ou des images statiques qui ne changent jamais.
 
-![Dossier des journaux][LogsFolder] ![Dossier images][ImagesFolder]
+![Dossier des journaux][LogsFolder]
+![Dossier images][ImagesFolder]
 	
 Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegarde.
 
@@ -141,7 +142,7 @@ Les étapes ci-dessous vous montrent comment exclure ces fichiers de la sauvegar
 
 2. Créez un fichier sous le nom `_backup.filter` et placez la liste précédente dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. Téléchargez ce fichier vers le répertoire `D:\home\site\wwwroot` de votre site en utilisant [ftp](web-sites-deploy.md#ftp) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement dans `http://{yourapp}.scm.azurewebsites.net/DebugConsole` et y insérer le contenu.
 

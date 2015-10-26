@@ -399,10 +399,10 @@ La définition du réseau ci-après, conçu pour reconnaître les chiffres, illu
 -	L'arité de la convolution est de 3 (longueur des tuples **InputShape**, **KernelShape**, **Stride** et **Sharing**). 
 -	Le nombre de poids par noyau est de _ 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. Ou 26 * 50 = 1300_.
 -	Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
-	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
-	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+	-	**NodeCount**\[0] = (5 - 1) / 1 + 1 = 5.
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[2] = (13 - 5) / 2 + 1 = 5. 
+-	Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : _**MapCount** * **NodeCount**\[0] * **NodeCount**\[1] * **NodeCount**\[2] = 10 * 5 * 5 * 5_
 -	Puisque **Sharing**[d] est faux uniquement pour _d == 0_, le nombre de noyaux est _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 

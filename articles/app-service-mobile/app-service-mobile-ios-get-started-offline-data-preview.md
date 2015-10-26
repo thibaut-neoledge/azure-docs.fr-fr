@@ -18,7 +18,9 @@
 
 # Activation de la synchronisation hors connexion pour votre application mobile iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Vue d'ensemble
 
@@ -158,7 +160,9 @@ Lorsque vous utilisez un magasin de données de base hors connexion, vous devez 
     | id | Chaîne, marquée requise | clé primaire dans le magasin distant |
     | terminé | Boolean | champ d'élément todo |
     | texte | String | champ d'élément todo |
-    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | | ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | | ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
+    | ms\_createdAt | Date | (facultatif) mappe vers \_\_createdAt system property | 
+	| ms\_updatedAt | Date | (facultatif) mappe vers \_\_updatedAt system property | 
+	| ms\_version | String | (facultatif) permet de détecter les conflits, mappe vers \_\_version |
 
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
@@ -229,7 +233,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * [Synchronisation des données hors connexion dans Azure Mobile Apps]
 
-* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] (remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
+* [Cloud Cover : synchronisation hors connexion dans Azure Mobile Services] \(remarque : le contexte de la vidéo est Mobile Services, mais la synchronisation hors connexion fonctionne de la même manière dans Azure Mobile Apps)
 
 <!-- URLs. -->
 

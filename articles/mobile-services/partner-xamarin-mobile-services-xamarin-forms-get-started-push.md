@@ -162,7 +162,7 @@ Pour pouvoir envoyer des notifications Push vers une application iOS à partir 
 
     ![][9]
 
-    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps\_development.cer</strong>.
+    Par défaut, le fichier téléchargé est un certificat de développement nommé <strong>aps_development.cer</strong>.
 
 7. Double-cliquez sur le certificat Push téléchargé **aps\_development.cer**.
 

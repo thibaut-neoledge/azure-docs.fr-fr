@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-
-> [AZURE.NOTE]Cet article ne couvre pas l'implémentation de la connexion, de l'inscription et de la gestion de profil avec Azure AD B2C. Il s'intéresse principalement à l'appel d'API web après que l'utilisateur s'est authentifié. Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
-
+> [AZURE.NOTE]
+	Cet article ne couvre pas l’implémentation de la connexion, de l’inscription et de la gestion de profil avec Azure AD B2C. Il s’intéresse principalement à l’appel d’API web après que l'utilisateur s’est authentifié.
+Si ce n’est pas déjà fait, commencez par consulter le [didacticiel de prise en main de l’application web .NET](active-directory-b2c-devquickstarts-web-dotnet.md) pour en savoir plus sur les principes de base d’Azure AD B2C.
 
 > [AZURE.NOTE]Cet exemple a été écrit pour être connecté à notre [exemple d’application iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Effectuez d’abord cette procédure pas à pas avant de passer à cet exemple.
 

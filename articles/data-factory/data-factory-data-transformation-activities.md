@@ -24,7 +24,11 @@ Les activités de transformation dans Azure Data Factory transforment et traiten
 
 Activité de transformation | Environnement de calcul 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Diffusion Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md) | Microsoft Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Diffusion Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[Notation par lot Machine Learning](data-factory-create-predictive-pipelines.md) | Microsoft Azure 
 [Procédure stockée](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Azure Batch    
 

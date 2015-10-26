@@ -4,8 +4,8 @@ Ce didacticiel est basé sur le code téléchargé dans le démarrage rapide de 
 
 
 <!-- URLs. 
-[Get started with Mobile Services]: ../articles/mobile-services-android-get-started.md
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
+[Prise en main de Mobile Services]: ../articles/mobile-services-android-get-started.md
+[Ajout de Mobile Services à une application existante]: ../articles/mobile-services-android-get-started-data.md
 -->
 
 <!---HONumber=Oct15_HO3-->

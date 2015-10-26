@@ -30,7 +30,19 @@ Pour utiliser le connecteur POP3, vous devez d'abord créer une instance de l'ap
 2.	Sous « Tout », recherchez « Connecteur POP3 ».
 3.	Configurez le connecteur POP3 comme suit :
 
-	![][1] - **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur - **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur - **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider - **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web - **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur - **Nom** : donnez un nom à votre connecteur POP3 - **Paramètres du package** - **Nom d'utilisateur** : spécifiez le nom d'utilisateur pour la connexion au serveur POP3 - **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur POP3 - **Adresse du serveur** : spécifiez le nom ou l'adresse IP du serveur POP3 - **Port du serveur** : spécifiez le numéro de port du serveur POP3 - **Utiliser SSL** : spécifiez true pour utiliser POP3 sur un canal SSL/TLS sécurisé
+	![][1]
+	- **Emplacement** : choisissez l'emplacement géographique dans lequel vous voulez déployer le connecteur
+	- **Abonnement** : choisissez un abonnement dans lequel vous souhaitez créer ce connecteur
+	- **Groupe de ressources** : sélectionnez ou créez un groupe de ressources où le connecteur doit résider
+	- **Plan d'hébergement Web** : sélectionnez ou créez un plan d'hébergement Web
+	- **Niveau de tarification** : choisissez un niveau de tarification pour le connecteur
+	- **Nom** : donnez un nom à votre connecteur POP3
+	- **Paramètres du package**
+		- **Nom d'utilisateur** : spécifiez le nom d'utilisateur pour la connexion au serveur POP3
+		- **Mot de passe** : spécifiez le mot de passe pour la connexion au serveur POP3
+		- **Adresse du serveur** : spécifiez le nom ou l'adresse IP du serveur POP3
+		- **Port du serveur** : spécifiez le numéro de port du serveur POP3
+		- **Utiliser SSL** : spécifiez true pour utiliser POP3 sur un canal SSL/TLS sécurisé
 4.	Cliquez sur Créer. Un connecteur POP3 est créé.
 5.	Une fois l’instance de l’application API créée, vous pouvez créer une application logique dans le même groupe de ressources pour utiliser le connecteur POP3.
 
@@ -51,8 +63,8 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur POP3 
 5.	Vous pouvez maintenant utiliser le connecteur POP3 dans le flux. Sélectionnez le déclencheur « Obtenir le message électronique » et configurez la fréquence et l’intervalle. Vous pouvez utiliser le message électronique récupéré du déclencheur POP3 dans d’autres actions du flux.
 		 
 
-	![][5] ![][6]
-
+	![][5]
+	![][6]
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 

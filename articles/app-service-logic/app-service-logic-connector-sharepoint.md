@@ -34,9 +34,11 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest* URL relatives des bibliothèques de documents/listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : **https://microsoft.sharepoint.com/teams/wabstest*.
+URL relatives des bibliothèques de documents / listes | Oui | Spécifiez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : <br/>
+ ![][1]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Online.
 
@@ -51,13 +53,21 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 	Nom | Requis | Description
 --- | --- | ---
-URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/><br/>**Remarque** L'authentification anonyme n'est pas prise en charge.
+URL du site | Oui | Entrez l'URL complète du site web SharePoint. Par exemple, entrez : *https://microsoft.sharepoint.com/teams/wabstest*. Mode d'authentification | Oui | Spécifiez le mode d'authentification pour la connexion à un site SharePoint. Les options incluent :<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/>
+<br/>
+Si vous choisissez l'option Default, les identifiants qui exécutent le connecteur SharePoint sont utilisés. Aucun nom d'utilisateur/mot de passe n'est requis. Le nom d'utilisateur et le mot de passe sont requis pour les autres types d'authentification.<br/>
+<br/>
+**Remarque** L'authentification anonyme n'est pas prise en charge.
 Nom d’utilisateur | Non | Entrez un nom d'utilisateur valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 Mot de passe | Non | Entrez un mot de passe valide pour la connexion au site SharePoint, si le mode d'authentification n'est pas Default.
 URL relatives des bibliothèques de documents/listes | Oui | Entrez les URL des bibliothèques de documents/listes, relatives à l'URL du site SharePoint, qui sont autorisées à être modifiées par le connecteur. Par exemple, entrez : *Listes/Tâche, Documents partagés*.
-Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/><br/>[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
+Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez la chaîne de connexion Service Bus Relay.<br/>
+<br/>
+[Utilisation du Gestionnaire de connexion hybride](app-service-logic-hybrid-connection-manager.md)<br/>
+[Tarification Service Bus](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][2]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : 
+![][2]
 
 Une fois cette opération effectuée, vous pouvez alors créer une application logique dans le même groupe de ressources pour utiliser le connecteur SharePoint Server.
 
@@ -72,15 +82,20 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Share
 
 3. Si le connecteur SharePoint est sélectionné au début de l'application logique, il agit comme un déclencheur. Dans le cas contraire, les actions pourraient être effectuées sur le compte SharePoint à l'aide du connecteur.
 
-4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : ![][3]
+4. Lorsque vous utilisez le connecteur SharePoint Online, vous devez vous authentifier et autoriser les applications logiques pour effectuer des opérations en votre nom. Pour démarrer l'autorisation, cliquez sur **Autoriser** sur le connecteur SharePoint : 
+![][3]
 
-5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : ![][4]
+5. Le fait de cliquer sur Autoriser ouvre la boîte de dialogue d'authentification de SharePoint. Entrez les détails de connexion du compte SharePoint sur lequel vous voulez effectuer les opérations : 
+![][4]
 
-6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][5]
+6. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : 
+![][5]
 
-7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][6]
+7. Si le connecteur SharePoint est configuré en tant que déclencheur, les déclencheurs sont affichés. Sinon, une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : 
+![][6]
   
-**URL relative configurée pour la bibliothèque de documents** ![][7]
+**URL relative configurée pour la bibliothèque de documents** 
+![][7]
 
 **URL relative configurée pour la liste de documents**
 
@@ -101,7 +116,8 @@ Nom | Requis | Description
 Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les documents traités sont archivés.
 Remplacer dans l'archive | Non | Cochez cette option pour remplacer un fichier dans le chemin d'accès de l'archive s'il existe déjà.
-Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/>
+<Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
 
@@ -123,7 +139,8 @@ Nom | Requis | Description
 --- | --- | ---
 Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les nouveaux éléments, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les éléments de liste traités sont archivés.
-Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/>
+<Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
 
@@ -143,7 +160,8 @@ Nom | Requis | Description
 Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
 Emplacement d'archive | Non | Spécifiez une URL de dossier valide, relative au site SharePoint, où les documents traités sont archivés.
 Remplacer dans l'archive | Non | Cochez cette option pour remplacer un fichier dans le chemin d'accès de l'archive s'il existe déjà.
-Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/>
+<Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
 
@@ -163,7 +181,8 @@ Nom | Requis | Description
 --- | --- | ---
 Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les éléments de la liste. Exemple : Commandes approuvées. Pour traiter tous les nouveaux éléments, laissez ce champ vide.
 Emplacement d'archive | Non | Entrez une URL de dossier valide, relative au site SharePoint, où les éléments de liste traités sont archivés.
-Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les éléments de liste. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Requête CAML | Non, Avancé | Entrez une requête Caml valide pour filtrer les éléments de liste. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/>
+<Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
 
@@ -338,7 +357,8 @@ Cette action répertorie tous les documents dans une bibliothèque de documents.
 Nom | Requis | Description
 --- | --- | ---
 Nom de la vue | Non | Entrez une vue valide utilisée pour filtrer les documents à sélectionner. Par exemple, entrez : « Commandes approuvées ». Pour traiter tous les documents existants, laissez ce champ vide.
-Requête CAML | Non | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Requête CAML | Non | Entrez une requête Caml valide pour filtrer les documents. Par exemple, entrez : `<Where><Geq><FieldRef Name='ID'/>
+<Value Type='Number'>10</Value></Geq></Where>`
 
 #### Sortie
 

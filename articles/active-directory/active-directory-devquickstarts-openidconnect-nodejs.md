@@ -262,11 +262,11 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Examinons-les en détail :
+    -	L'itinéraire `/` redirige vers la vue index.ejs en transmettant l'utilisateur dans la demande (le cas échéant).
+    - L'`/account` itinéraire ***s'assure d’abord que nous sommes authentifiés*** (nous implémentons cela ci-dessous), puis transmet l'utilisateur dans la demande afin que nous puissions obtenir plus d'informations sur l'utilisateur.
+    - L'itinéraire `/login` appelle notre authentificateur azuread-openidconnect de `passport-azuread` , et en cas d'échec, il redirige l'utilisateur vers /login.
+    - Le `/logout` appelle simplement logout.ejs (et l'itinéraire) qui efface les cookies, puis renvoie l'utilisateur à index.ejs.
 
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.

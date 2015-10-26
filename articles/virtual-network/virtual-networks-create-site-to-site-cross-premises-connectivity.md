@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Didacticiel : créer un réseau virtuel entre différents locaux pour une connectivité de site à site" 
-	description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Didacticiel : créer un réseau virtuel entre différents locaux pour une connectivité de site à site"
+	description="Ce didacticiel vous permet de découvrir comment créer un Azure Virtual Network avec la connectivité entre différents locaux."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -64,7 +64,8 @@ Si vous utilisez ce didacticiel pour configurer un réseau virtuel fonctionnel e
 
 -  Vous devez avoir un périphérique VPN avec une adresse IPv4 publique. Une adresse IP est obligatoire pour terminer l'Assistant. Le périphérique VPN doit respecter les standards minimum de périphérique et ne doit pas se trouver derrière un traducteur d’adresses réseau (NAT). Pour plus d'informations, consultez la page [À propos des périphériques VPN pour Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098).
 
-	Remarque : vous pouvez utiliser le service Routage et accès distant (RRAS) dans Windows Server dans le cadre de votre solution VPN. Cependant, ce didacticiel ne présente pas la procédure de configuration RRAS. Pour obtenir des informations sur la configuration RRAS, consultez la page [Modèles de service Routage et accès distant](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
+	Remarque : vous pouvez utiliser le service Routage et accès distant (RRAS) dans Windows Server dans le cadre de votre solution VPN. Cependant, ce didacticiel ne présente pas la procédure de configuration RRAS.
+	Pour obtenir des informations sur la configuration RRAS, consultez la page [Modèles de service Routage et accès distant](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx).
 
 -  Une expérience préalable ou une collaboration avec une personne expérimentée dans la configuration de routeur pour une connexion en mode de tunnel IPsec peut vous être utile.
 
@@ -215,30 +216,30 @@ Cette procédure part des principes suivants :
 3.	Testez votre connexion en exécutant l'une des commandes suivantes :
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
-
-<tr>
-<td><b>Vérification de toutes les associations de sécurité en mode principal</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
-
-<tr>
-<td><b>Vérification des associations de sécurité en mode rapide</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
+	
+	<tr>
+	<td><b>Vérification de toutes les associations de sécurité en mode principal</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
+	
+	<tr>
+	<td><b>Vérification des associations de sécurité en mode rapide</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  Étapes suivantes
@@ -260,7 +261,7 @@ Si vous voulez exporter les paramètres de votre réseau virtuel dans un fichier
 
 -  [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md)
 
--  [À propos des périphériques VPN pour la connectivité de réseau virtuel(http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
+-  [À propos des périphériques VPN pour la connectivité de réseau virtuel](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Résolution de noms (DNS)](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Configuration d’un environnement de cloud hybride à des fins de test](virtual-networks-setup-hybrid-cloud-environment-testing.md)

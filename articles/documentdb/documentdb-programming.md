@@ -475,7 +475,9 @@ La fonction définie par l'utilisateur peut ensuite être utilisée dans des req
 ## API de requête intégrée au langage JavaScript
 En plus de l’émission de requêtes à l’aide de la grammaire SQL de DocumentDB, le kit de développement logiciel (SDK) côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programme en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis de Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index DocumentDB.
 
-> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`. <br/> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
+> [AZURE.NOTE]`__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
+> <br/>
+> En d’autres termes, vous pouvez utiliser `__` ou `getContext().getCollection()` pour accéder à l’API de requête JavaScript.
 
 Les fonctions prises en charge incluent : <ul> <li> <b>chain() ... .value([callback] [, options])</b> <ul> <li> commence un appel chaîné qui doit se terminer par la valeur (). </li> </ul> </li> <li> <b>filter(predicateFunction [, options] [, callback])</b> <ul> <li> Filtre l’entrée à l’aide d’une fonction de prédicat renvoyant True/False pour filtrer les documents d’entrée/de sortie dans le jeu de résultats. Ce comportement est semblable à celui d’une clause WHERE dans SQL. </li> </ul> </li> <li> <b>map(transformationFunction [, options] [, callback])</b> <ul> <li> Applique la projection d’une fonction de transformation qui mappe chaque élément d’entrée à une valeur ou un objet JavaScript. Ce comportement est semblable à celui d’une clause SELECT dans SQL. </li> </ul> </li> <li> <b>pluck([propertyName] [, options] [, callback])</b> <ul> <li> il s’agit d’un raccourci vers un mappage qui extrait la valeur d’une propriété unique de chaque élément d’entrée. </li> </ul> </li> <li> <b>flatten([isShallow] [, options] [, callback])</b> <ul> <li> Combine et regroupe les tableaux à partir de chaque élément d’entrée en un tableau unique. Ce comportement est semblable à SelectMany dans LINQ. </li> </ul> </li> <li> <b>sortBy([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre croissant à l’aide du prédicat donné. Ce comportement est semblable à une clause ORDER BY dans SQL. </li> </ul> </li> <li> <b>sortByDescending([predicate] [, options] [, callback])</b> <ul> <li> Produit un nouvel ensemble de documents en les triant dans le flux du document d’entrée dans l’ordre décroissant à l’aide du prédicat donné. Ce comportement est semblable à celui d’une clause ORDER BY x DESC dans SQL. </li> </ul> </li> </ul>
 
@@ -661,7 +663,8 @@ Toutes les opérations DocumentDB peuvent être effectuées sur la base de l'arc
 	}
 
 
-La procédure stockée est enregistrée en exécutant une demande POST sur la base de l'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement. Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
+La procédure stockée est enregistrée en exécutant une demande POST sur la base de l'URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs avec le corps contenant la procédure stockée à créer. Les déclencheurs et les fonctions définies par l'utilisateur peuvent être inscrits de la même façon en émettant une demande POST sur /triggers et /udfs respectivement.
+Cette procédure stockée peut ensuite être exécutée en émettant une demande POST sur son lien de ressource :
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

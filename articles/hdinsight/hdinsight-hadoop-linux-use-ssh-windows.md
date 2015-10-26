@@ -111,7 +111,7 @@ Cela crée une connexion pour l'utilisateur indiqué et active l'authentificatio
 
 Vous pouvez utiliser l’[interface de ligne de commande Azure pour Mac, Linux et Windows](../xplat-cli-install.md) afin de créer un cluster en utilisant la commande `azure hdinsight cluster create`.
 
-Pour plus d’informations sur l’utilisation de cette commande, consultez [Approvisionner des clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées￼](hdinsight-hadoop-provision-linux-clusters.md).
+Pour plus d’informations sur l’utilisation de cette commande, consultez [Approvisionner des clusters Hadoop sous Linux dans HDInsight à l’aide d’options personnalisées](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Connexion à un cluster HDInsight sous Linux
 

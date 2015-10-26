@@ -22,7 +22,10 @@ Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authen
 
   >[AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du modèle d’application v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
- Ici, nous allons utiliser OWIN pour : - Connecter l’utilisateur à l’application en utilisant Azure AD et le modèle d’application v2.0. - Afficher des informations à propos de l’utilisateur. - Déconnecter l’utilisateur de l’application.
+ Ici, nous allons utiliser OWIN pour : 
+- Connecter l’utilisateur à l’application en utilisant Azure AD et le modèle d’application v2.0. 
+- Afficher des informations à propos de l’utilisateur. 
+- Déconnecter l’utilisateur de l’application.
 
 Pour ce faire, vous devez :
 

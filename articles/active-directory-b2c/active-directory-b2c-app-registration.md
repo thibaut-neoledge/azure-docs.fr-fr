@@ -52,7 +52,8 @@ Le lien **Gestion des paramètres B2C** figure également sous l'onglet **Confi
 3. Le **Nom** de l'application décrit votre application aux consommateurs. Par exemple, entrez « Application B2C Contoso ».
 4. Si vous écrivez une application basée sur le web, positionnez le commutateur **Inclure l'application web/API web** sur **Oui**. Les **URL de réponse** sont des points de terminaison auxquels Azure AD B2C retourne les jetons que votre application demande. Par exemple, entrez :`https://localhost:44321/`. Si votre application inclut un composant côté serveur (API) qui doit être sécurisé, vous pouvez également créer (et copier) un **Secret d'application** en cliquant sur le bouton **Générer une clé**.
 
-    > [AZURE.NOTE]Un **secret d'application** est une information d'identification de sécurité importante.
+    > [AZURE.NOTE]
+    Un **secret d'application** est une information d'identification de sécurité importante.
 
 5. Si vous écrivez une application mobile, positionnez le commutateur **Inclure un client natif** sur **Oui**. Copiez vers le bas la valeur par défaut **URI de redirection** créée automatiquement pour vous.
 6. Cliquez sur **Créer** pour inscrire votre application.

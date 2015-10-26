@@ -75,11 +75,11 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 
 	<table border="1">
-<tr><th>Propriété du cluster</th><th>Description</th></tr>
-<tr><td>Nom du cluster HBase</td><td>Le nom de votre cluster HBase dans HDInsight. Par exemple&#160;: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Nom d'utilisateur du cluster</td><td>Le nom du compte utilisateur Hadoop. Le nom d'utilisateur Hadoop par défaut est <strong>admin</strong>.</td></tr>
-<tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
-</table>
+	<tr><th>Propriété du cluster</th><th>Description</th></tr>
+	<tr><td>Nom du cluster HBase</td><td>Le nom de votre cluster HBase dans HDInsight. Par exemple&#160;: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nom d'utilisateur du cluster</td><td>Le nom du compte utilisateur Hadoop. Le nom d'utilisateur Hadoop par défaut est <strong>admin</strong>.</td></tr>
+	<tr><td>Mot de passe utilisateur du cluster</td><td>Le mot de passe utilisateur du cluster Hadoop.</td></tr>
+	</table>
 
 - **Un poste de travail** où Visual Studio 2013 a été installé. Pour les instructions, voir la section [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,11 +98,13 @@ Les API de diffusion Twitter utilisent [OAuth](http://oauth.net/) pour autoriser
 3. Entrez un **Nom**, une **Description** et un **Site Web**. Le champ Website n'est pas réellement utilisé. Il n'est pas nécessaire que ce soit une URL valide. Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
 	<table border="1">
-<tr><th>Champ</th><th>Valeur</th></tr>
-<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
+	<tr><th>Champ</th><th>Valeur</th></tr>
+	<tr><td>Nom</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Description</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Site Web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]Le nom de l'application Twitter doit être unique.
 
 4. Activez la case à cocher **Yes, I agree**, puis cliquez sur **Create your Twitter application**.
 5. Cliquez sur l'onglet **Permissions**. L'autorisation par défaut est **Read only**. Ces étapes sont suffisantes pour ce didacticiel. 
@@ -161,7 +163,7 @@ Vous devez créer une application console pour recevoir des tweets, calculer le 
 
 	- Modèle : **Visual C# / Bureau Windows / Application console**
 	- Nom : **TweetSentimentStreaming** 
-	- Emplacement : **C:\\Tutorials**
+	- Emplacement : **C:\Tutorials**
 	- Nom de la solution : **TweetSentimentStreaming**
 
 4. Cliquez sur **OK** pour continuer.
@@ -218,9 +220,9 @@ Vous devez créer une application console pour recevoir des tweets, calculer le 
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -539,7 +541,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 	- Catégorie de modèle : **Visual C#/Web**
 	- Modèle : **Application Web ASP.NET**
 	- Nom : **TweetSentimentWeb**
-	- Emplacement : **C:\\Tutorials** 
+	- Emplacement : **C:\Tutorials** 
 4. Cliquez sur **OK**.
 5. Dans **Sélectionner un modèle**, cliquez sur **MVC**. 
 6. Dans **Microsoft Azure**, cliquez sur **Gérer les abonnements**.
@@ -676,9 +678,9 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 	- **CLUSTERNAME** : nom du cluster HBase, par exemple, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME** : le nom d'utilisateur Hadoop du cluster HBase. Le nom par défaut est *admin*.
     - **HADOOPUSERPASSWORD** : le mot de passe utilisateur Hadoop du cluster HBase.
-    - **HBASETABLENAME** = « tweets\_by\_words » ;
+    - **HBASETABLENAME** = « tweets_by_words » ;
 
-	Le nom de la table HBase est **« tweets\_by\_words »**. Les valeurs doivent correspondre aux valeurs que vous avez envoyées au service de diffusion pour que l'application Web lise les données de la même table HBase.
+	Le nom de la table HBase est **« tweets_by_words »**. Les valeurs doivent correspondre aux valeurs que vous avez envoyées au service de diffusion pour que l'application Web lise les données de la même table HBase.
 
 
 
@@ -1281,7 +1283,7 @@ Dans cette section, vous allez créer une application Web ASP.NET MVC afin de li
 
 		using System.Web.Http;
 
-2. Ajoutez les lignes suivantes dans la fonction **Application\_Start()** :
+2. Ajoutez les lignes suivantes dans la fonction **Application_Start()** :
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);

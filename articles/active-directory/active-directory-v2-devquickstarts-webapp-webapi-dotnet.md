@@ -18,7 +18,8 @@
 
 # Version d’évaluation du modèle d’application v2.0 : Appel d’une API Web à partir d’une application Web .NET
 
-> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires. Ici, nous allons créer une application Web MVC qui :
 
@@ -118,7 +119,9 @@ Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAut
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. - Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
+- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -200,6 +203,8 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ## Étapes suivantes
 
-Pour obtenir des ressources supplémentaires, consultez : - [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez : 
+- [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 
-1. Connectez-vous au [portail de gestion Azure], cliquez sur **Mobile Services**, puis sur votre service mobile.
+1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com), cliquez sur **Mobile Services**, puis sur votre service mobile.
 
 2. Cliquez sur l'onglet **Push**, sélectionnez **Seuls les utilisateurs authentifiés** pour **Autorisations**, puis cliquez sur **Enregistrer** et **Modifier le script**.
 	

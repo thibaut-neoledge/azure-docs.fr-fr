@@ -61,7 +61,9 @@ Dans un premier temps, le modèle Excel a clairement surpassé le modèle Azure 
 |---|:---:|:---:|
 |Performances| | |
 |<ul style="list-style-type: none;"><li>Carré R ajusté</li></ul>| 0,96 |N/A|
-|<ul style="list-style-type: none;"><li>Coefficient de <br />détermination</li></ul>|N/A|	0,78<br />(faible précision)|
+|<ul style="list-style-type: none;"><li>Coefficient de <br />
+détermination</li></ul>|N/A|	0,78<br />
+(faible précision)|
 |Erreur d'absolue moyenne |	9,5 M $|	19,4 M $|
 |Erreur d’absolue moyenne (%)|	6,03 %|	12,2 %
 
@@ -75,7 +77,8 @@ Lorsque nous avons présenté notre processus et les résultats obtenus aux cher
 ### Mystère résolu !
 Lorsque nous avons appliqué les recommandations, nous avons obtenu les mêmes performances de référence dans Azure ML et Excel :
 
-|| Excel|Azure ML (Initial)|Azure ML avec moindres carrés| |---|:---:|:---:|:---:| |Valeur étiquetée |Chiffres réels (numérique)|identique|identique| |Apprenant |Excel -> Analyse de données -> Régression|Régression linéaire.|Régression linéaire| |Options de l’apprenant|S.O.|Valeurs par défaut|moindres carrés ordinaires<br />L2 = 0,005| |Jeu de données|26 lignes, 3 caractéristiques, 1 étiquette. Entièrement numérique.|identique|identique| |Fraction : apprentissage|Excel formé sur les 18 premières lignes, testé sur les 8 dernières lignes.|identique|identique| |Fraction : test|Formule de régression Excel appliquée au 8 dernières lignes|identique|identique| |**Performance**|||| |Carré R ajusté|0,96|S.O.|| |Coefficient de détermination|S.O.|0,78|0,952049| |Erreur d’absolue moyenne|9,5 M $|19,4 M $|9,5 M $| |Erreur d’absolue moyenne (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %| <span style="background-color: 00FF00;"> 6,03 %</span>|
+|| Excel|Azure ML (Initial)|Azure ML avec moindres carrés| |---|:---:|:---:|:---:| |Valeur étiquetée |Chiffres réels (numérique)|identique|identique| |Apprenant |Excel -> Analyse de données -> Régression|Régression linéaire.|Régression linéaire| |Options de l’apprenant|S.O.|Valeurs par défaut|moindres carrés ordinaires<br />
+L2 = 0,005| |Jeu de données|26 lignes, 3 caractéristiques, 1 étiquette. Entièrement numérique.|identique|identique| |Fraction : apprentissage|Excel formé sur les 18 premières lignes, testé sur les 8 dernières lignes.|identique|identique| |Fraction : test|Formule de régression Excel appliquée au 8 dernières lignes|identique|identique| |**Performance**|||| |Carré R ajusté|0,96|S.O.|| |Coefficient de détermination|S.O.|0,78|0,952049| |Erreur d’absolue moyenne|9,5 M $|19,4 M $|9,5 M $| |Erreur d’absolue moyenne (%)|<span style="background-color: 00FF00;"> 6,03 %</span>|12,2 %| <span style="background-color: 00FF00;"> 6,03 %</span>|
 
 En outre, les coefficients Excel ont été efficaces par rapport aux pondérations de fonctionnalités du modèle formé Azure :
 

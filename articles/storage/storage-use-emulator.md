@@ -49,7 +49,7 @@ Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque
 
 1. Installez Azure PowerShell si ce n’est pas déjà fait. Il est recommandé d’utiliser la dernière version des applets de commande Azure PowerShell. Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](../articles/powershell-install-configure.md#Install).
 
-2. Ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer *ACCOUNT\_NAME* et *ACCOUNT\_KEY==* par vos propres informations d’identification. Remplacez *￼CONTAINER\_NAME￼* par le nom de votre choix.
+2. Ouvrez Azure PowerShell et exécutez les commandes suivantes. N’oubliez pas de remplacer *ACCOUNT\_NAME* et *ACCOUNT\_KEY==* par vos propres informations d’identification. Remplacez *CONTAINER\_NAME* par le nom de votre choix.
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		

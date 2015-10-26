@@ -3,7 +3,8 @@
 #Didacticiel : Intégration d’Azure AD à Sprinklr
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=526454).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sprinklr.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Sprinklr
@@ -53,7 +54,9 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sprinklr avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
+Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64.  
+Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -114,7 +117,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr. Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
+Pour que les utilisateurs AAD puissent se connecter, leur accès doit être approvisionné dans l’application Sprinklr.  
+Cette section décrit comment créer des comptes d’utilisateur AAD dans Sprinklr.
 
 ###Pour approvisionner un compte d’utilisateur dans SpringCM, procédez comme suit :
 

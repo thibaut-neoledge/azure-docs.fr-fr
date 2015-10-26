@@ -3,7 +3,7 @@
 
 Cloud Services est un exemple de plateforme en tant que service (PaaS). Tout comme [App Services](app-service-web-overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Tout comme [App Services](app-service-web-overview.md), Cloud Services est hébergé sur des machines virtuelles, bien que celui-ci vous permette de mieux les contrôler. Vous pouvez installer votre logiciel sur des machines virtuelles de Cloud Service et vous y connecter à distance.
 
-![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)
+![cs_diagram](./media/cloud-services-choose-me-content/diagram.png)
 
 Plus de contrôle signifie également moins de facilité d’utilisation. Si vous n’avez pas besoin d’options de contrôle supplémentaires, il est généralement plus rapide et plus facile de faire fonctionner une application Web dans Web Apps dans App Services qu’avec Cloud Services.
 
@@ -11,8 +11,10 @@ La technologie fournit deux options de machine virtuelle légèrement différent
 
 Toutes les combinaisons de ces deux options d’hébergement de machines virtuelles légèrement différentes sont disponibles dans un service cloud :
 
-* **Rôle Web** exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
-* **Rôle de travail** exécute Windows Server sans IIS.
+* **Rôle Web**  
+  exécute Windows Server avec votre application Web automatiquement déployée sur IIS.
+* **Rôle de travail**  
+  exécute Windows Server sans IIS.
 
 Par exemple, une application simple peut utiliser uniquement un rôle Web, tandis qu'une plus complexe utilisera un rôle de travail pour traiter les requêtes entrantes des utilisateurs, puis transmettre le travail créé par ces requêtes à un rôle de travail pour le traitement. (Cette communication pourrait utiliser [Service Bus](../articles/service-bus/fundamentals-service-bus-hybrid-solutions.md) ou les [files d’attente Azure](../articles/storage/storage-introduction.md).)
 
