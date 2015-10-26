@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Applications web avec Python avec Bottle dans Azure"
-	description="Didacticiel expliquant comment exécuter une application web Python dans Azure App Service Web Apps."
-	services="app-service\web"
-	documentationCenter="python"
+	pageTitle="Applications web avec Python avec Bottle dans Azure" 
+	description="Didacticiel expliquant comment exécuter une application web Python dans Azure App Service Web Apps." 
+	services="app-service\web" 
+	documentationCenter="python" 
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -399,4 +399,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

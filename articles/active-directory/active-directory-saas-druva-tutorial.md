@@ -59,7 +59,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, dans la page d’intégration d’applications **Druva**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure Active Directory, dans la page d’intégration d’applications **Druva**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-druva-tutorial/IC795027.png "Configurer l’authentification unique")
 
@@ -67,7 +67,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
     ![Configurer l’authentification unique](./media/active-directory-saas-druva-tutorial/IC795088.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Druva**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Druva (par exemple, "\**https://cloud.druva.com/home/*”), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Druva**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Druva (par exemple, "**https://cloud.druva.com/home/*”), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-druva-tutorial/IC795089.png "Configurer l’URL de l’application")
 
@@ -113,7 +113,7 @@ Votre application Druva attend les assertions SAML dans un format spécifique, c
 
     ![Attributs](./media/active-directory-saas-druva-tutorial/IC795096.png "Attributs")
 
-12. Pour ajouter les mappages d’attributs requis, procédez comme suit :
+12. Pour ajouter les mappages d’attribut requis, procédez comme suit :
 
 	|Nom de l'attribut|Valeur de l’attribut|
     |---|---|
@@ -158,7 +158,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Druva\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Druva**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-druva-tutorial/IC795100.png "Affecter des utilisateurs")
 
@@ -168,4 +168,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

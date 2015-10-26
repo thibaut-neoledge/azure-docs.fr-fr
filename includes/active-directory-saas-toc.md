@@ -18,7 +18,7 @@ Cet article fait partie d’une série d’articles sur la gestion des applicati
 	- [Intégration de Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [Intégration de ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [Intégration de Dropbox Entreprises](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Intégration de Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [Intégration de Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [Autres didacticiels sur les applications SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

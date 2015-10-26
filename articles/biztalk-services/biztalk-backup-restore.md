@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mandia"/>
 
 
@@ -57,7 +57,7 @@ Une sauvegarde peut être effectuée à tout moment et vous la contrôlez compl�
 #### <a name="backupnow"></a>Sauvegarde à la demande
 1. Dans le portail de gestion Azure, sélectionnez **BizTalk Services**, puis sélectionnez le service BizTalk que vous souhaitez sauvegarder.
 2. Sous l'onglet **Tableau de bord**, sélectionnez **Sauvegarder** en bas de la page.
-3. Entrez un nom de sauvegarde. Par exemple, entrez *myBizTalkService\*BU\*Date*.
+3. Entrez un nom de sauvegarde. Par exemple, entrez *myBizTalkService*BU*Date*.
 4. Choisissez un compte de stockage d'objets blob et sélectionnez la coche pour démarrer la sauvegarde.
 
 Une fois la sauvegarde terminée, un conteneur portant le nom de sauvegarde indiqué est créé dans le compte de stockage. Ce conteneur comprend la configuration de sauvegarde de votre service BizTalk.
@@ -233,4 +233,4 @@ Pour créer Azure BizTalk Services dans le portail de gestion Azure, accédez à
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

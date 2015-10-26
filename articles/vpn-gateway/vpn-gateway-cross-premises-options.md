@@ -91,4 +91,4 @@ Pour plus d’informations sur ExpressRoute, voir l’article [Présentation tec
 
 Pour plus d’informations, voir les articles [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

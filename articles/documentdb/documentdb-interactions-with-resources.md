@@ -205,4 +205,4 @@ Explorez la page [Référence de l’API REST d’Azure DocumentDB](https://msd
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

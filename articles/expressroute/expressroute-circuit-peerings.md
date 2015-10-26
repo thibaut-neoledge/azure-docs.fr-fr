@@ -69,13 +69,7 @@ Pour plus d’informations sur les services pris en charge, les coûts et les d�
 
 Le tableau ci-dessous compare les trois domaines de routage.
 
-||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**|
-|---|---|---|---|
-|**Nombre maximal de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|200|
-|**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide de votre réseau étendu.|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité.|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité.|
-|**Numéros d’AS**|Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS publics uniquement. Le numéro d’AS doit être validé par rapport aux registres de routage pour confirmer sa propriété.|
-|**Adresses IP d’interface de routage**|RFC1918 et adresses IP publiques|Adresses IP publiques inscrites auprès de clients dans les registres de routage.| Adresses IP publiques inscrites auprès de clients dans les registres de routage.|
-|**Prise en charge du hachage MD5**| Oui|Oui|Oui|
+||**Homologation privée**|**Homologation publique**|**Homologation Microsoft**| |---|---|---|---| |**Nombre maximal de préfixes pris en charge par homologation**|4 000 par défaut, 10 000 avec ExpressRoute Premium|200|200| |**Plages d’adresses IP prises en charge**|Toute adresse IPv4 valide de votre réseau étendu.|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité.|Adresses IPv4 publiques qui sont votre propriété ou celle de votre fournisseur de connectivité.| |**Numéros d’AS**|Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS privés et publics. Le client doit posséder un numéro d’AS public. | Numéros d’AS publics uniquement. Le numéro d’AS doit être validé par rapport aux registres de routage pour confirmer sa propriété.| |**Adresses IP d’interface de routage**|RFC1918 et adresses IP publiques|Adresses IP publiques inscrites auprès de clients dans les registres de routage.| Adresses IP publiques inscrites auprès de clients dans les registres de routage.| |**Prise en charge du hachage MD5**| Oui|Oui|Oui|
 
 Vous pouvez choisir d’activer un ou plusieurs domaines de routage dans le cadre de leur circuit ExpressRoute. Vous pouvez choisir de placer tous les domaines de routage sur le même VPN si vous souhaitez les combiner dans un domaine de routage unique. Vous pouvez également les placer dans différents domaines de routage comme indiqué dans le schéma. Nous vous recommandons de connecter l’homologation privée directement à votre réseau principal, et les homologations publiques et Microsoft à votre zone DMZ.
  
@@ -90,4 +84,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 	- [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

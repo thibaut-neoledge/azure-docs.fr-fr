@@ -552,8 +552,8 @@ Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y minutes à X.<p>Ex
 Time | StartOfHour(X) | X: Datetime | Obtient l’heure de début de l’heure représentée par le composant heure de X.<p>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM</p>
 Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y jours à X.<p>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM</p>
 Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM </p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y\* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute les Y \* 7 jours x<p>exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
+Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
+Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute les Y * 7 jours x<p>exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
 Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y années à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM</p>
 Date | Day(X) | X: DateTime | Obtient le composant « jour » de X.<p>Exemple : le jour du 9/15/2013, 12:00:00 PM est 9.</p>
 Date | DayOfWeek(X) | X: DateTime | Obtient le composant « semaine » de X.<p>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche.</p>
@@ -676,4 +676,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

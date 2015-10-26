@@ -58,11 +58,9 @@ Chaîne de connexion Service Bus | Non | Si vous vous connectez en local, entrez
 Nom du serveur partenaire | Non | Si le serveur principal est indisponible, vous pouvez entrer un serveur partenaire comme serveur secondaire ou de sauvegarde.
 Tables | Non | Répertoriez les tables de base de données qui peuvent être mises à jour par le connecteur. Par exemple, entrez *OrdersTable* ou *EmployeeTable*. Si aucune table n'est entrée, toutes les tables peuvent être utilisées. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
 Procédures stockées | Non | Entrez une procédure stockée existante qui peut être appelée par le connecteur. Par exemple, entrez *sp\_IsEmployeeEligible* ou *sp\_CalculateOrderDiscount*. Des tables et/ou des procédures stockées valides sont nécessaires pour utiliser ce connecteur comme une action.
-Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table_name.
-Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple: SELECT * FROM table_name; DELETE FROM table_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
+Requête de données disponibles | Pour la prise en charge du déclencheur | Instruction SQL permettant de déterminer si une table de la base de données SQL Server contient des données interrogeables. Ceci doit renvoyer une valeur numérique représentant le nombre de lignes de données disponibles. Exemple : SELECT COUNT(*) from table\_name. Requête d’interrogation de données | Pour la prise en charge du déclencheur | Instruction SQL d’interrogation de la table de base de données SQL Server. Vous pouvez entrer plusieurs instructions SQL séparées par un point-virgule. Cette instruction est exécutée de façon transactionnelle et validée uniquement lorsque les données sont stockées en toute sécurité dans votre application logique. Exemple : SELECT * FROM table\_name; DELETE FROM table\_name. <br/><br/>**Remarque**<br/>Vous devez fournir une instruction d'interrogation qui évite la création d'une boucle infinie en supprimant, déplaçant ou mettant à jour les données sélectionnées afin qu'elles ne soient pas interrogées à nouveau.
 
-5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : 
-	![][1]
+5. Lorsque vous avez terminé, les paramètres du package se présentent comme suit : ![][1]
 
 6. Sélectionnez **Créer**.
 
@@ -90,35 +88,24 @@ La valeur **Requête d'interrogation de données** est exécutée uniquement lor
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### Ajouter le déclencheur
-1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : 
- ![][5]
+1. Lors de la création ou de la modification d'une application logique, choisissez le connecteur SQL créé comme déclencheur. Ceci répertorie les déclencheurs disponibles : **Interroger les données (JSON)** et **Interroger les données (XML)** : ![][5]
 
-2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : 
- ![][6]
+2. Sélectionnez le déclencheur **Interroger les données (JSON)**, entrez la fréquence et cliquez sur ✓ : ![][6]
 
-3. Le déclencheur s'affiche maintenant comme configuré dans l'application logique. La ou les sorties du déclencheur s'affichent et peuvent être utilisées comme entrées dans les actions suivantes : 
- ![][7]
+3. Le déclencheur s'affiche maintenant comme configuré dans l'application logique. La ou les sorties du déclencheur s'affichent et peuvent être utilisées comme entrées dans les actions suivantes : ![][7]
 
 ## Utiliser le connecteur comme une action
 Prenons notre scénario dans lequel une application logique simple interroge les données d'une table SQL, ajoute des données dans une autre table et les met à jour.
 
 Pour utiliser le connecteur SQL comme une action, entrez le nom des tables et/ou des procédures stockées que vous avez saisies lorsque vous avez créé le connecteur SQL :
 
-1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : 
- 
- ![][8]
+1. Après votre déclencheur (ou si vous choisissez d'exécuter cette logique manuellement), ajoutez le connecteur SQL que vous avez créé à partir de la galerie. Sélectionnez l'une des actions d'insertion : *Insérer dans TempEmployeeDetails (JSON)* : ![][8]
 
-2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓ : 
+2. Indiquez les entrées de l'enregistrement à insérer et cliquez sur ✓ : ![][9]
 
- ![][9]
+3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* : ![][11]
 
-3. Dans la galerie, sélectionnez le même connecteur SQL que celui créé. En tant qu'action, sélectionnez Update dans la même table, par exemple *Update EmployeeDetails* : 
- 
- ![][11]
-
-4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : 
- 
- ![][12]
+4. Indiquez les entrées de l'action de mise à jour et cliquez sur ✓ : ![][12]
 
 Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement dans la table interrogée.
 
@@ -126,8 +113,7 @@ Vous pouvez tester l'application logique en ajoutant un nouvel enregistrement da
 
 Requête SQL | Pris en charge | Non pris en charge
 --- | --- | ---
-Clause Where | <ul><li>Opérateurs : ET, OU, =, <>, <, < =, >, > = et LIKE</li><li>Plusieurs sous-conditions peuvent être combinées par « ( » et « ) »</li><li>Littéraux de chaîne, Datetime (encadrée de guillemets simples), les nombres (ne doit contenir que des caractères numériques)</li><li>Doit être strictement dans un format d'expression binaire, comme ((operand operator operand) ET/OU (operand operator operand)) **</li></ul> | <ul><li>Opérateurs : entre, IN</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER() et ainsi de suite</li><li>Opérateurs mathématiques tels que *, -, +, et ainsi de suite</li><li>Concaténations de chaînes à l'aide de +.</li><li>Toutes les jointures</li><li>IS NULL et IS NOT Null</li><li>Des nombres avec des caractères non numériques, comme des nombres hexadécimaux</li></ul>
-Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés par des virgules. Aucun préfixe de nom de table n’est autorisé (le connecteur fonctionne sur une seule table à la fois).</li><li>Les noms peuvent être insérés entre crochets ‘[‘ et ‘]’</li></ul> | <ul><li>Mots-clés comme TOP, DISTINCT, etc.</li><li>Alias comme Rue + Ville + Code postal AS Adresse</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +</li></ul>
+Clause Where | <ul><li>Opérateurs : ET, OU, =, <>, <, < =, >, > = et LIKE</li><li>Plusieurs sous-conditions peuvent être combinées par « ( » et « ) »</li><li>Littéraux de chaîne, Datetime (encadrée de guillemets simples), les nombres (ne doit contenir que des caractères numériques)</li><li>Doit être strictement dans un format d'expression binaire, comme ((operand operator operand) ET/OU (operand operator operand)) **</li></ul> | <ul><li>Opérateurs : entre, IN</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER() et ainsi de suite</li><li>Opérateurs mathématiques tels que *, -, +, et ainsi de suite</li><li>Concaténations de chaînes à l'aide de +.</li><li>Toutes les jointures</li><li>IS NULL et IS NOT Null</li><li>Des nombres avec des caractères non numériques, comme des nombres hexadécimaux</li></ul> Champs (dans une requête Select) | <ul><li>Noms de colonne valides séparés par des virgules. Aucun préfixe de nom de table n’est autorisé (le connecteur fonctionne sur une seule table à la fois).</li><li>Les noms peuvent être insérés entre crochets ‘[‘ et ‘]’</li></ul> | <ul><li>Mots-clés comme TOP, DISTINCT, etc.</li><li>Alias comme Rue + Ville + Code postal AS Adresse</li><li>Toutes les fonctions intégrées comme ADD(), MAX() NOW(), POWER(), etc.</li><li>Opérateurs mathématiques comme *, -, +, etc.</li><li>Concaténations de chaînes utilisant +</li></ul>
 
 #### Conseils
 
@@ -165,4 +151,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

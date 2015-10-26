@@ -56,4 +56,4 @@ Pour plus d'informations sur les certificats racines utilisés par Azure, consul
 
 Pour plus d’informations sur Java, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

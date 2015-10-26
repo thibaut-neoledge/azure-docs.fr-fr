@@ -1,20 +1,20 @@
 <properties
    pageTitle="Exécution du test chaos."
-	description="Cet article présente les scénarios Service Fabric prédéfinis par Microsoft."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="anmolah"
-	manager="timlt"
-	editor=""/>
+   description="Cet article présente les scénarios Service Fabric prédéfinis par Microsoft."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="anmolah"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="anmola"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="anmola"/>
 
 # Scénarios de testabilité
 Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent. Les développeurs profitant de Service Fabric sont en mesure de provoquer des actions erronées afin de tester les services en présence de défaillances. Toutefois, les erreurs simulées ciblées présentent une efficacité limitée. Grâce aux scénarios de test prédéfinis de Service Fabric, chacun est en mesure d’approfondir ces initiatives. Au sein du cluster, les scénarios simulent des erreurs entrelacées en continu, avec et sans perte de données, sur des périodes prolongées. Une fois configurés avec la fréquence et le type des erreurs, ils s’exécutent en tant qu’outils côté client à l’aide des API C# ou de PowerShell pour générer des erreurs au sein du cluster et de votre service. La fonction de testabilité est fournie avec les scénarios suivants.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -290,4 +290,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

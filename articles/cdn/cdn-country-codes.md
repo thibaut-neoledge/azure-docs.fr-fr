@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN : codes de pays"
-	description="La fonctionnalité de Filtrage par pays utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN : codes de pays" 
+	description="La fonctionnalité de Filtrage par pays utilise des codes de pays pour définir les pays à partir desquels une demande est autorisée ou bloquée pour un répertoire sécurisé." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Codes de pays
@@ -268,4 +268,4 @@ La fonctionnalité de **Filtrage par pays** utilise des codes de pays pour défi
 | ZM | Zambie | |
 | ZW | Zimbabwe | |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

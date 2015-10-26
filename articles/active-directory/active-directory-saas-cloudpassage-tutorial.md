@@ -281,4 +281,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [29]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_16.png
 [30]: ./media/active-directory-saas-cloudpassage-tutorial/tutorial_general_17.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

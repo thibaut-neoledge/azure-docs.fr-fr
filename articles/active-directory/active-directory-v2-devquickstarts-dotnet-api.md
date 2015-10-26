@@ -37,24 +37,27 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 L'application terminée est également fournie à la fin de ce didacticiel.
 
 
-## 1. Enregistrez une application
-Créez une nouvelle application sur [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez la [procédure indiquée ici](active-directory-v2-app-registration.md).  Assurez-vous de :
+## 1\. Inscription d’une application
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
 - copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 
-Cette solution Visual Studio contient également une valeur « TodoListClient », qui est une application simple WPF.  La valeur « TodoListClient » permet d'indiquer comment un utilisateur se connecte et comment un client peut émettre des requêtes à votre API Web. Les valeurs TodoListClient et TodoListService sont, dans ce cas, représentées par la même application. Pour configurer la valeur TodoListClient, vous devez également : 
-- ajouter la plateforme **Mobile** pour votre application ;
+Cette solution Visual Studio contient également une valeur « TodoListClient », qui est une application simple WPF. La valeur « TodoListClient » permet d'indiquer comment un utilisateur se connecte et comment un client peut émettre des requêtes à votre API Web. Les valeurs TodoListClient et TodoListService sont, dans ce cas, représentées par la même application. Pour configurer la valeur TodoListClient, vous devez également :
+
+- ajouter la plateforme **Mobile** pour votre application.
 - copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2. Configurez votre application pour utiliser le pipeline d'authentification OWIN
+## 2\. Configurez votre application pour utiliser le pipeline d'authentification OWIN
 
 Une fois l'application enregistrée, vous devez la configurer pour qu'elle puisse communiquer avec le point de terminaison v2.0 afin de valider les requêtes entrantes et les jetons.
 
--	Pour commencer, ouvrez la solution et ajoutez les packages NuGet middleware OWIN au projet TodoListService grâce à la console de gestionnaire de package
+-	Pour commencer, ouvrez la solution et ajoutez les packages NuGet de l’intergiciel OWIN au projet TodoListService à l’aide de la console du gestionnaire de package.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 -	Ajoutez une classe de démarrage OWIN au projet TodoListService appelé `Startup.cs`. Cliquez avec le bouton droit sur le projet --> **Ajouter** --> **Nouvel élément** --> Recherchez « OWIN ». L’intergiciel OWIN appelle la méthode `Configuration(…)` lorsque votre application démarre.
@@ -140,11 +143,11 @@ Avant de pouvoir voir le service Todo List en action, vous devez configurer le c
 
 - Dans le projet TodoListClient, ouvrez `App.config` et entrez les valeurs de votre configuration dans la section `<appSettings>`.
   -	`ida:ClientId` est l’ID d’application que vous avez copié à partir du portail.
-	- L’élément `ida:RedirectUri` est l’**URI de redirection** à partir du portail.
+	- L’élément `ida:RedirectUri` est l’**URI de redirection** provenant du portail.
 
 Enfin, nettoyez, générez et exécutez chaque projet. Vous disposez maintenant d’une API web MVC .NET qui accepte les jetons des comptes Microsoft personnels et des comptes professionnels ou scolaires. Connectez-vous au projet TodoListClient, puis appelez votre API web pour ajouter des tâches à la liste des tâches de l’utilisateur.
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
@@ -155,4 +158,4 @@ Vous pouvez à présent aborder d’autres rubriques. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

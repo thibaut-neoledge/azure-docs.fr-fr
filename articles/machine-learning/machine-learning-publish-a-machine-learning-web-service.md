@@ -96,8 +96,7 @@ Pour plus d'informations sur l'accès à un service web Machine Learning, consu
 
 Dans le portail de gestion Azure, vous pouvez gérer vos services web en cliquant sur le service **Machine Learning**, en ouvrant votre espace de travail Machine Learning puis en ouvrant le service web à partir de l'onglet **SERVICES WEB**. À partir de cette page, vous pouvez contrôler le service web, le mettre à jour et le supprimer. Vous pouvez également ajouter un deuxième point de terminaison pour votre service web en plus du point de terminaison par défaut qui est créé lorsque vous le publiez.
 
-Pour plus d'informations, consultez [Gestion d'un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Pour plus d'informations, consultez [Gestion d'un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
@@ -112,4 +111,4 @@ Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine u
 
 Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez la page [Nouvel apprentissage des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

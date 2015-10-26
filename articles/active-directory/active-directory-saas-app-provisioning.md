@@ -100,7 +100,7 @@ Cliquez sur une application pour consulter un didacticiel expliquant comment la 
 - [Salesforce](http://go.microsoft.com/fwlink/?LinkId=286017)
 - [Salesforce Sandbox](http://go.microsoft.com/fwlink/?LinkId=327869)
 - [ServiceNow](http://go.microsoft.com/fwlink/?LinkId=309587)
-- [Workday](https://msdn.microsoft.com/library/azure/dn762434.aspx) (approvisionnement entrant)
+- [Workday](http://go.microsoft.com/fwlink/?LinkId=690250) (approvisionnement entrant)
 
 Pour qu’une application puisse prendre en charge l’approvisionnement automatique des utilisateurs, elle doit d’abord fournir les points de terminaison requis pour permettre aux programmes externes d’automatiser la création, la maintenance et la suppression des utilisateurs. Par conséquent, toutes les applications SaaS ne sont pas compatibles avec cette fonctionnalité. L’équipe d’ingénierie d’Azure AD peut développer un connecteur d’approvisionnement pour les applications qui le sont. Ce travail s’effectue en fonction des besoins des clients actuels et à venir.
 
@@ -108,4 +108,4 @@ Pour contacter l’équipe d’ingénierie d’Azure AD afin de demander une pri
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

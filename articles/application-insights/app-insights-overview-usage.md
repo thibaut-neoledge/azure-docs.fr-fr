@@ -289,7 +289,7 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
 <!--Link references-->
 
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

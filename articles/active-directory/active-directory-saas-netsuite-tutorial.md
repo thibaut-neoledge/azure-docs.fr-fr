@@ -7,7 +7,6 @@
    manager="TerryLanfear"
    editor=""/>
 
-
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="identity"
    ms.date="07/15/2015"
    ms.author="liviodlc"/>
-
 
 #Didacticiel : intégration de NetSuite avec Azure Active Directory
 
@@ -256,4 +254,4 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -36,6 +36,9 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 Toute d’abord, vous allez créer les objets dont a besoin PolyBase pour se connecter aux données des objets Blob Microsoft Azure Storage et les interroger.
 
+> [AZURE.IMPORTANT]Les types de compte de stockage Azure pris en charge par PolyBase sont : + Standard Locally Redundant Storage (Standard-LRS) + Standard Geo-Redundant Storage (Standard-GRS) + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS) Les types de compte Standard Zone Redundant Storage (Standard-ZRS) et Premium Locally Redundant Storage (Premium-LRS) ne sont pas pris en charge par PolyBase. Si vous créez un compte de stockage Azure, veillez à sélectionner un type de compte de stockage pris en charge par PolyBase dans le niveau tarifaire.
+
+
 ## Créer une clé principale de base de données
 Connectez-vous à la base de données utilisateur de votre serveur pour créer une clé principale de base de données. Cette clé est utilisée pour chiffrer les informations secrètes d’identification au cours de l’étape suivante.
 
@@ -172,7 +175,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Lors de la suppression d'une table externe, vous devez utiliser `DROP EXTERNAL TABLE`. Vous **ne pouvez pas** utiliser `DROP TABLE`.
+> [AZURE.NOTE]Lors de la suppression d’une table externe, vous devez utiliser `DROP EXTERNAL TABLE`. Vous **ne pouvez pas** utiliser `DROP TABLE`.
 
 Rubrique de référence : [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -208,7 +211,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Une requête sur une table externe peut échouer avec l'erreur *« Requête abandonnée--le seuil de rejet maximal a été atteint lors de la lecture à partir d'une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
+> [AZURE.NOTE]Une requête sur une table externe peut échouer avec l’erreur *« Requête abandonnée--le seuil de rejet maximal a été atteint lors de la lecture à partir d’une source externe »*. Cela indique que vos données externes contiennent des enregistrements *à l’intégrité compromise*. Un enregistrement de données est considéré comme « compromis » si les types de données / le nombre de colonnes réels ne correspondent pas aux définitions de colonne de la table externe ou si les données ne sont pas conformes au format de fichier externe spécifié. Pour résoudre ce problème, assurez-vous que les définitions de format de votre table externe et de votre fichier externe sont correctes et que vos données externes sont conformes à ces définitions. Dans le cas où un sous-ensemble d'enregistrements de données externes serait compromis, vous pouvez choisir de rejeter ces enregistrements pour vos requêtes en utilisant les options de rejet dans le DDL CREATE EXTERNAL TABLE.
 
 
 ## Charger des données à partir d’objets Blob Microsoft Azure Storage
@@ -325,4 +328,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

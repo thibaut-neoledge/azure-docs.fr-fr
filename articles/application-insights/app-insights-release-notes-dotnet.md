@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights pour .NET"
-	description="Les dernières mises à jour."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notes de publication pour Application Insights pour .NET" 
+	description="Les dernières mises à jour." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
@@ -32,12 +32,23 @@ Consultez la rubrique [Prise en main d'Application Insights pour .NET](app-insi
 * Comparez ApplicationInsights.config avec l'ancienne copie. La plupart des modifications que vous apercevez sont dues à la suppression de certains modules et à l’ajout d'autres paramétrables. Rétablissez les personnalisations que vous avez apportées à l'ancienne version.
 * Régénérez votre solution.
 
+## Version 2.0.0-beta1
+- TrackDependency produira une instance JSON valide alors que tous les champs requis n’auront pas été indiqués.
+- La propriété redondante ```RequestTelemetry.ID``` est maintenant simplement un proxy pour ```RequestTelemetry.Operation.Id```.
+- Nouvelle interface ```ISupportSampling``` et implémentation explicite de celle-ci par la plupart des types d'éléments de données.
+- Propriété ```Count``` sur DependencyTelemetry marquée comme obsolète. Utilisez plutôt ```SamplingPercentage```.
+- Introduction de ```CloudContext```, et propriétés ```RoleName``` et ```RoleInstance``` déplacées vers ce point depuis ```DeviceContext```.
+- Nouvelle propriété ```AuthenticatedUserId``` sur ```UserContext``` pour indiquer l’identité des utilisateurs non authentifiés.
+- Ajout de `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer` qui initialise le contexte de l’utilisateur authentifié tel que défini par le SDK Javascript.
+- Ajout de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`, prise en charge d’échantillonnage à débit fixe dans ce cadre.
+- Ajout de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder` pour autoriser la création d’un `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` avec un jeu de `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
+
 ## Version 1.2
 
-- Les initialiseurs de télémétrie qui n'ont pas de dépendances sur les bibliothèques ASP.NET ont été déplacés de l’emplacement `Microsoft.ApplicationInsights.Web` vers le nouveau nuget de dépendance `Microsoft.ApplicationInsights.WindowsServer`
+- Les initialiseurs de télémétrie qui n'ont pas de dépendances sur les bibliothèques ASP.NET ont été déplacés de l’emplacement `Microsoft.ApplicationInsights.Web` vers le nouveau nuget de dépendance `Microsoft.ApplicationInsights.WindowsServer`.
 - `Microsoft.ApplicationInsights.Web.dll` a été renommé sur `Microsoft.AI.Web.dll`.
-- Le nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` a été renommé sous la forme `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. L’assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommé sous la forme `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommée sous la forme `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
-- Tous les espaces de noms qui font partie d’un kit de développement logiciel (SDK) ont été modifiés de manière à exclure la partie `Extensibility`. Cela inclut tous les initialiseurs de télémétrie dans ApplicationInsights.config et le module `ApplicationInsightsWebTracking` dans le fichier web.config.
+- Le nuget `Microsoft.ApplicationInsights.Web.TelemetryChannel` a été renommé sur `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. L’assembly `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommé sur `Microsoft.AI.ServerTelemetryChannel.dll`. La classe `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` a été renommée sur `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Tous les espaces de noms qui font partie d’un Kit de développement logiciel (SDK) ont été modifiés de manière à exclure la partie `Extensibility`. Cela inclut tous les initialiseurs de télémétrie dans ApplicationInsights.config et le module `ApplicationInsightsWebTracking` dans le fichier web.config.
 - Les dépendances collectées à l'aide de l'agent d’instrumentation de runtime (activé via l'extension Status Monitor ou du site Web Azure) ne seront pas marquées comme asynchrones s'il n’y a aucun HttpContext.Current sur le thread.
 - La propriété `SamplingRatio` de `DependencyTrackingTelemetryModule` n’a aucun effet et est marquée comme obsolète.
 - L’assembly `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` a été renommé sur `Microsoft.AI.PerfCounterCollector`
@@ -46,18 +57,18 @@ Consultez la rubrique [Prise en main d'Application Insights pour .NET](app-insi
 
 ## Version 1.1
 
-- Un nouveau type de télémétrie `DependencyTelemetry` a été ajouté, qui peut être utilisé pour envoyer des informations sur les appels de dépendance à partir de l'application (par exemple des appels SQL, HTTP, etc.).
-- Une nouvelle méthode de surcharge `TelemetryClient.TrackDependency` a été ajoutée, qui vous permet d'envoyer des informations sur les appels de dépendance.
+- Un nouveau type de télémétrie `DependencyTelemetry` a été ajouté. Il peut être utilisé pour envoyer des informations sur les appels de dépendance à partir de l'application (par exemple des appels SQL, HTTP, etc.).
+- Une nouvelle méthode de surcharge `TelemetryClient.TrackDependency` a été ajoutée. Elle vous permet d'envoyer des informations sur les appels de dépendance.
 - Une valeur NullReferenceException fixe est envoyée par le module de diagnostics lorsque TelemetryConfiguration.CreateDefault est utilisé.
 
 ## Version 1.0
 
 - Les initialiseurs et les modules de télémétrie ont été déplacés des sous-espaces de noms distincts vers les espace de noms `Microsoft.ApplicationInsights.Extensibility.Web` racines.
-- Le préfixe « Web » a été supprimé des noms des initialiseurs et des modules de télémétrie car il est déjà inclus dans le nom de l'espace de noms `Microsoft.ApplicationInsights.Extensibility.Web`.
+- Le préfixe « Web » a été supprimé des noms des initialiseurs et des modules de télémétrie, car il est déjà inclus dans le nom de l'espace de noms `Microsoft.ApplicationInsights.Extensibility.Web`.
 - `DeviceContextInitializer` a été déplacé de l’assembly `Microsoft.ApplicationInsights` vers l’assembly `Microsoft.ApplicationInsights.Extensibility.Web` et converti en un `ITelemetryInitializer`.
-- Renommez l'espace de noms et l'assembly de `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` à `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` pour les rendre cohérents avec le nom du package NuGet.
-- Renommez `RemoteDependencyModule` en `DependencyTrackingTelemetryModule`.
-- Renommez `CustomPerformanceCounterCollectionRequest` en `PerformanceCounterCollectionRequest`.
+- Les noms d’assembly et d’espaces de noms `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` ont été remplacés par `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` par souci de cohérence avec le nom du package NuGet.
+- `RemoteDependencyModule` a été renommé `DependencyTrackingTelemetryModule`.
+- `CustomPerformanceCounterCollectionRequest` a été renommé `PerformanceCounterCollectionRequest`.
 
 ## Version 0.17
 - Suppression de la dépendance à EventSource NuGet pour les applications du framework 4.5.
@@ -86,4 +97,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

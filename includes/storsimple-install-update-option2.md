@@ -12,4 +12,4 @@
 
 7. Vous pouvez maintenant [utiliser le Portail de gestion pour installer Update 1.2](#use-the-management-portal-to-install-update-1). Suivez les instructions à partir de l’étape 3 de cette procédure. Après avoir installé toutes les mises à jour, vous pouvez réactiver l’interface réseau que vous avez désactivée.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

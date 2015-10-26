@@ -77,4 +77,4 @@ Pour obtenir des instructions sur la surveillance des niveaux de performances da
 Pour plus d’informations sur le choix des niveaux de performances des collections, consultez la rubrique [Niveaux de performances dans DocumentDB](documentdb-performance-levels).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

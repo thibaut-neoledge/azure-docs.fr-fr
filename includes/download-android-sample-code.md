@@ -15,4 +15,4 @@ Ce didacticiel est basé sur l’application **GetStartedWithData** (Android). L
 	Le projet est maintenant prêt à être utilisé.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

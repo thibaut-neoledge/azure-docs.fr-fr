@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Importation d’un fichier BACPAC vers une base de données SQL Azure"
-	description="Importation d’un fichier BACPAC vers une base de données SQL Azure"
+	pageTitle="Importer un fichier BACPAC pour créer une nouvelle base de données SQL Azure"
+	description="Créer une base de données SQL Azure en important un fichier BACPAC existant"
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,14 +10,15 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/05/2015"
+	ms.date="10/13/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Importation d’un fichier BACPAC vers une base de données SQL
+# Importer un fichier BACPAC pour créer une nouvelle base de données SQL Azure
+
 
 **Base de données unique**
 
@@ -25,11 +26,11 @@
 - [Azure Preview Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 
-Cet article vous montre comment créer une base de données SQL en important un fichier BACPAC avec le [portail Azure en version préliminaire](https://portal.azure.com).
+Cet article fournit des instructions pour créer une base de données SQL Azure à partir d’un fichier BACPAC à l’aide du [portail Azure en version préliminaire](https://portal.azure.com).
 
 Un BACPAC est un fichier .bacpac qui contient un schéma de base de données et des données. Pour plus d'informations, consultez Backup Package (.bacpac) dans [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx).
 
-La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n'avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant les étapes de [Créer et exporter un fichier BACPAC à partir d'une base de données SQL Azure](sql-database-backup.md).
+La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n’avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant la procédure décrite dans [Créer et exporter un fichier BACPAC à partir d’une base de données SQL Azure](sql-database-export.md).
 
 
 > [AZURE.NOTE]La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
@@ -109,4 +110,4 @@ La commande **Créer** envoie une demande d’importation de la base de données
 [5]: ./media/sql-database-import/import-history.png
 [6]: ./media/sql-database-import/import-status.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

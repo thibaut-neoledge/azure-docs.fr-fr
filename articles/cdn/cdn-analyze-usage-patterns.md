@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Analyse des modèles d'utilisation CDN"
-	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Analyse des modèles d'utilisation CDN" 
+	description="Vous pouvez afficher les modèles d'utilisation pour votre CDN via les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d'accès au cache, les données transférées IPV4/IPV6." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Analyse des modèles d'utilisation CDN 
@@ -139,4 +139,4 @@ Ce rapport affiche la distribution de l'utilisation du trafic entre IPV4 et IPV6
 
 Les rapports peuvent uniquement être générés pour les 18 derniers mois.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

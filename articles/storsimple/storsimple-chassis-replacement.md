@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Remplacer le châssis sur un appareil StorSimple | Microsoft Azure"
-	description="Décrit comment retirer et remplacer le châssis sur votre appareil principal StorSimple ou le boîtier EBOD."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment retirer et remplacer le châssis sur votre appareil principal StorSimple ou le boîtier EBOD."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Remplacer le châssis sur votre appareil StorSimple
 
@@ -63,4 +63,4 @@ Pour installer le châssis dans un appareil Microsoft Azure StorSimple, procéde
 
 En savoir plus sur le [remplacement des composants matériels StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

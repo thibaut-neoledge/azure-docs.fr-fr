@@ -44,4 +44,4 @@ Azure AD fournit plusieurs rapports pour les administrateurs. Des rapports supp
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

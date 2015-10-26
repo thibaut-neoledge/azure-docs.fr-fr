@@ -51,9 +51,7 @@ Cette section décrit l’activation de l’intégration d’application pour Jo
     ![Jobscience](./media/active-directory-saas-jobscience-tutorial/IC784357.png "Jobscience")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat.  
-Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Jobscience avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Jobscience oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -67,13 +65,13 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Mon domaine](./media/active-directory-saas-jobscience-tutorial/IC767825.png "Mon domaine")
 
-4.  Pour vérifier que votre domaine a été configuré correctement, assurez-vous qu’il figure dans \*\*Step 4 Deployed to Users\*\*, et passez en revue \*\*My Domain Settings\*\*.
+4.  Pour vérifier que votre domaine a été configuré correctement, assurez-vous qu’il figure dans **Step 4 Deployed to Users**, et passez en revue **My Domain Settings**.
 
     ![Domaine déployé pour l’utilisateur](./media/active-directory-saas-jobscience-tutorial/IC784377.png "Domaine déployé pour l’utilisateur")
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail Azure.
 
-6.  Dans la page d’intégration d’application **Jobscience**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+6.  Dans la page d’intégration d’application **Jobscience**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jobscience-tutorial/IC784360.png "Configurer l’authentification unique")
 
@@ -81,7 +79,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     ![Configurer l’authentification unique](./media/active-directory-saas-jobscience-tutorial/IC784361.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Jobscience**, tapez votre URL selon le modèle suivant « \**http://company.my.salesforce.com*", puis cliquez sur **Suivant**.
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Jobscience**, tapez votre URL selon le modèle suivant « **http://company.my.salesforce.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-jobscience-tutorial/IC784362.png "Configurer l’URL de l’application")
 
@@ -106,7 +104,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment récupérer l
 
     1.  Dans la zone de texte **Name**, attribuez un nom à votre configuration.
     2.  Dans la page **Configurer l’authentification unique sur Jobscience** du portail Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
-    3.  Dans la zone de texte **Entity ID**, tapez \*\***https://salesforce-jobscience.com**.
+    3.  Dans la zone de texte **Entity ID**, tapez ****https://salesforce-jobscience.com**.
 4.  Cliquez sur **Parcourir** pour charger votre certificat Azure AD.
     5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
     6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
@@ -134,7 +132,7 @@ Pour obtenir l’URL d’authentification unique initiée par le fournisseur de 
 
 ![Contrôles de sécurité](./media/active-directory-saas-jobscience-tutorial/IC784368.png "Contrôles de sécurité")
   
-Cliquez sur le profil d’authentification unique créé à l’étape précédente. Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, \**https://companyname.my.salesforce.com?so=companyid*).
+Cliquez sur le profil d’authentification unique créé à l’étape précédente. Cette page affiche l’URL d’authentification unique de votre entreprise (par exemple, **https://companyname.my.salesforce.com?so=companyid*).
 ##Configuration de l'approvisionnement des utilisateurs
   
 Pour permettre aux utilisateurs Azure AD de se connecter à Jobscience, vous devez les approvisionner dans Jobscience. Dans le cas de Jobscience, cet approvisionnement est une tâche manuelle.
@@ -174,7 +172,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Jobscience\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Jobscience**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-jobscience-tutorial/IC784372.png "Affecter des utilisateurs")
 
@@ -182,6 +180,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-jobscience-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

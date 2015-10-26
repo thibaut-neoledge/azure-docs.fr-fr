@@ -35,4 +35,4 @@ Cliquez sur la page « Bienvenue » pour modifier le texte s'affichant sur la 
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

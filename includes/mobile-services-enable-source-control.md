@@ -1,5 +1,5 @@
 
-1. Connectez-vous au [portail de gestion Azure](https://manage.windowsazure.com/), cliquez sur **Services mobiles**, cliquez sur votre service mobile, puis sur l’onglet **Tableau de bord**.
+1. Connectez-vous au [portail de gestion Azure], cliquez sur **Services mobiles**, cliquez sur votre service mobile, puis sur l’onglet **Tableau de bord**.
 
 2. (Facultatif) Si vous avez déjà défini les informations d’identification du contrôle de code source Mobile Services ou Web Sites pour votre abonnement Azure, vous pouvez passer directement à l’étape 4. Sinon, cliquez sur **Définir le contrôle de code source** sous **Aperçu rapide** et cliquez sur **Oui** pour confirmer.
 
@@ -18,4 +18,4 @@
 Avec le contrôle de code source activé dans votre service mobile, vous pouvez utiliser Git pour cloner le référentiel sur votre ordinateur local.
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -190,4 +190,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez la rubrique [Présentation du panneau d'accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

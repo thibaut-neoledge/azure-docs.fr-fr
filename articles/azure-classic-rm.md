@@ -68,4 +68,4 @@ Vous pouvez créer et configurer des ressources Azure à partir d'ordinateurs Wi
 - Découvrez comment [concevoir des modèles](/best-practices-resource-manager-design-templates.md).
 - Utilisez les [meilleures pratiques](/best-practices-resource-manager-examples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

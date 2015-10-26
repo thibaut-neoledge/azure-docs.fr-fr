@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 L'étape suivante consiste à écrire une méthode qui utilise la commande HTTP PUT de type REST pour créer une file d'attente.
 
-Collez le code suivant directement après le code `GetToken()` que vous avez ajouté à l'étape précédente :
+Collez le code suivant directement après le code `GetSASToken()` que vous avez ajouté à l’étape précédente :
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ Consultez les articles suivants pour en savoir plus :
 - [Concepts de base d’Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
 - [Didacticiel REST sur Service Bus Relay](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

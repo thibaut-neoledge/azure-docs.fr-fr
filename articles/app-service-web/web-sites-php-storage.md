@@ -41,12 +41,11 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
 
 1. [Installation de Git][install-git]
 
-> [AZURE.NOTE]
-> Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
+	> [AZURE.NOTE]Sous Windows, vous devez aussi ajouter l’exécutable Git à votre variable d’environnement PATH.
 
 2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
 
-		{
+         {
              "repositories": [
                  {
                      "type": "pear",
@@ -59,7 +58,7 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. Téléchargez **[composer.phar][composer-phar]** à la racine du projet.
 
@@ -281,7 +280,7 @@ L'application de liste de tâches est capable de marquer un élément comme éta
 
 * La première étape de mise à jour d’une entité consiste à récupérer celle-ci dans la table :
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -431,4 +430,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

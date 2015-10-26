@@ -585,4 +585,4 @@ Cet article vous a présenté différentes méthodes pour créer un cluster HDIn
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

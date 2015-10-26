@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de l&#39;authentification (Xamarin.iOS) - Mobile Services"
-	description="Découvrez comment utiliser l&#39;authentification dans votre application Azure Mobile Services pour Xamarin.iOS."
+	pageTitle="Prise en main de l'authentification (Xamarin.iOS) - Mobile Services"
+	description="Découvrez comment utiliser l'authentification dans votre application Azure Mobile Services pour Xamarin.iOS."
 	documentationCenter="xamarin"
 	services="mobile-services"
 	manager="dwrede"
@@ -150,4 +150,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

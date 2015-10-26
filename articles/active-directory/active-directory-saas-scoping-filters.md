@@ -7,7 +7,6 @@
 	manager="swadhwa"
 	editor=""/>
 
-
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
-
 
 
 # Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
@@ -79,4 +77,4 @@ D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux cr
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -50,7 +50,7 @@ Dans ce cas précis, nous créons généralement une cible de carte de partition
 	New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 	$ResourceGroupName = "ddove_samples"
 	$ServerName = "samples"
-	$dbsinserver = Get-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
+	$dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName 
 	$dbsinserver | %{
     $currentdb = $_.DatabaseName 
     $ErrorActionPreference = "Stop"
@@ -156,7 +156,7 @@ Utilisez la même applet de commande **Get-AzureSqlJobExecution** avec le param�
 	$jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
 	Write-Output $jobExecutions 
 
-## Affichez l’état sur plusieurs exécutions de tâches
+## Afficher l’état sur plusieurs exécutions de tâches
 
 L’applet de commande **Get-AzureSqlJobExecution** dispose de plusieurs paramètres facultatifs qui peuvent être utilisés pour afficher plusieurs exécutions de tâches, filtrées selon les paramètres fournis. L'exemple suivant présente certaines façons d'utiliser Get-AzureSqlJobExecution :
 
@@ -234,16 +234,16 @@ Tâches de bases de données prend en charge la création de stratégies d'exéc
   
 Les stratégies d'exécution permettent de définir :
 
-* Le nom : l'identificateur de la stratégie d'exécution.
+* Le nom : l'identificateur de la stratégie d'exécution.
 * Délai d’attente de la tâche : délai avant l’annulation d’une tâche par Tâches de bases de données élastiques.
 * Intervalle avant nouvelle tentative initiale : l'intervalle d'attente avant la première nouvelle tentative.
 * Intervalle maximal avant nouvelle tentative : plafond des intervalles avant nouvelle tentative à utiliser.
-* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) \* Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
+* Coefficient d'interruption de l’intervalle avant nouvelle tentative : ce coefficient permet de calculer le prochain intervalle entre les tentatives. La formule suivante est utilisée : (intervalle avant nouvelle tentative initiale) * Math.pow (coefficient d’interruption de l’intervalle), (nombre de tentatives) - 2). 
 * Nombre maximal de tentatives : le nombre maximal de nouvelles tentatives effectuées dans une tâche.
 
 La stratégie d'exécution par défaut utilise les valeurs suivantes :
 
-* Le nom : la stratégie d'exécution par défaut
+* Le nom : la stratégie d'exécution par défaut
 * Délai d’attente de la tâche : 1 semaine
 * Intervalle avant nouvelle tentative initiale : 100 millisecondes
 * Intervalle maximal avant nouvelle tentative : 30 minutes
@@ -276,9 +276,9 @@ Mettez à jour la stratégie d'exécution souhaitée :
  
 ## Annulation d’une tâche
 
-Tâches de bases de données élastiques prend en charge les demandes d'annulation de tâches. Si Tâches de bases de données élastiques détecte une demande d'annulation d'une tâche en cours d'exécution, il tente d'arrêter la tâche.
+La fonctionnalité Tâches de bases de données élastiques prend en charge les demandes d'annulation de tâches. Si la fonctionnalité Tâches de bases de données élastiques détecte une demande d'annulation d'une tâche en cours d'exécution, il tente d'arrêter la tâche.
 
-Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
+La fonctionnalité Tâches de bases de données élastiques peut effectuer une annulation de deux manières différentes :
 
 1. Annulation des tâches en cours d'exécution : si une annulation est détectée pendant qu’une tâche est en cours d'exécution, l'annulation sera tentée au sein de l'aspect de la tâche en cours d'exécution. Par exemple : si une requête de longue durée s’exécute lorsqu'une annulation est tentée, une tentative d'annulation de la requête sera effectuée.
 2. Annulation des tentatives de tâches : si une annulation est détectée par le thread de contrôle avant de lancer l'exécution d'une tâche, le thread de contrôle permettra d’éviter le lancement de la tâche et de déclarer la requête comme étant annulée.
@@ -301,7 +301,7 @@ Pour déclencher la suppression de tâches, utilisez l’applet de commande **Re
 	$jobName = "{Job Name}"
 	Remove-AzureSqlJob -JobName $jobName
  
-## Créez une cible de base de données personnalisée
+## Création d’une cible de base de données personnalisée
 Les cibles de base de données personnalisées peuvent être définies dans Tâches de bases de données élastiques, qui peut être utilisé directement pour l'exécution ou l’inclusion dans un groupe de base de données personnalisé. Dans la mesure où les **pools élastiques de bases de données** ne sont pas encore pris en charge directement via les API PowerShell, vous créez simplement une cible de base de données personnalisée et une cible de collecte de base de données personnalisée qui englobe toutes les bases de données dans le pool.
 
 Définissez les variables suivantes pour refléter les informations de base de données souhaitées :
@@ -340,7 +340,7 @@ Utilisez l’applet de commande **Get-AzureSqlJobTarget** pour récupérer les b
 
 ### Créez une tâche pour exécuter un script sur une cible de collecte de base de données personnalisée
 
-Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur un groupe de bases de données défini par une cible de collecte de base de données. Tâches de bases de données élastiques étendra la tâche en plusieurs tâches enfants correspondant chacune à une base de données associée à la cible de la collecte de base de données personnalisée et s’assurera que le script est exécuté sur chaque base de données. Encore une fois, il est important que les scripts soient idempotents pour résister à de nouvelles tentatives.
+Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur un groupe de bases de données défini par une cible de collecte de base de données. La fonctionnalité Tâches de bases de données élastiques étendra la tâche en plusieurs tâches enfants correspondant chacune à une base de données associée à la cible de la collecte de base de données personnalisée et s’assurera que le script est exécuté sur chaque base de données. Encore une fois, il est important que les scripts soient idempotents pour résister à de nouvelles tentatives.
 
 	$jobName = "{Job Name}"
 	$scriptName = "{Script Name}"
@@ -354,7 +354,7 @@ Utilisez l’applet de commande **New-AzureSqlJob** pour créer une tâche sur u
 
 **Tâches de bases de données élastiques** prend en charge l'exécution d'une requête sur un groupe de bases de données et envoie les résultats de la table d’une base de données spécifiée. Le tableau peut être interrogé une fois les résultats de la requête affichés à partir de chaque base de données. Ceci fournit un mécanisme asynchrone, permettant d’exécuter une requête sur plusieurs bases de données. Les cas d'échec, notamment l’indisponibilité temporaire d’une des bases de données, sont gérés automatiquement par le biais de tentatives.
 
-La table de destination spécifiée sera automatiquement créée s’il n'existe pas encore de table correspondant au schéma du jeu de résultats retourné. Si l'exécution d'un script retourne plusieurs jeux de résultats, Tâches de bases de données élastiques enverra uniquement le premier vers la table de destination fournie.
+La table de destination spécifiée sera automatiquement créée s’il n'existe pas encore de table correspondant au schéma du jeu de résultats retourné. Si l'exécution d'un script retourne plusieurs jeux de résultats, la fonctionnalité Tâches de bases de données élastiques enverra uniquement le premier vers la table de destination fournie.
 
 Le script PowerShell suivant peut être utilisé pour exécuter un script qui collecte ses résultats dans une table spécifiée. Ce script part du principe qu'un script T-SQL, qui génère un jeu de résultats unique, et une cible de collecte de base de données personnalisée ont été créés.
 
@@ -447,4 +447,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

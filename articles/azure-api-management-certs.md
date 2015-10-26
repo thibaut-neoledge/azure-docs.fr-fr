@@ -52,4 +52,4 @@ Une fois le certificat de gestion créé (fichier .cer contenant uniquement la c
 
 Un certificat de gestion étant désormais associé à un abonnement, vous pouvez (après avoir installé le certificat correspondant localement) vous connecter par programmation à l’[API REST de Service Management](https://msdn.microsoft.com/library/azure/mt420159.aspx) et automatiser les différentes ressources Azure associées à cet abonnement.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

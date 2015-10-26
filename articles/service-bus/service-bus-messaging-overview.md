@@ -56,4 +56,4 @@ Pour en savoir plus sur la messagerie Service Bus, consultez les rubriques suiva
 - [Comment utiliser les rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

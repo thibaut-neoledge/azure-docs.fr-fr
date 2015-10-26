@@ -35,8 +35,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Sélectionnez **API Apps** et recherchez « Connecteur Slack ».
-3. Entrez le nom, le plan App Service et d'autres propriétés :
-![][1] 
+3. Entrez le nom, le plan App Service et d'autres propriétés : ![][1] 
 
 4. Cliquez sur **Create**.
 
@@ -48,22 +47,15 @@ Une fois le connecteur Slack créé, vous pouvez l’ajouter en tant qu’action
 
 1.	Dans votre application logique, ouvrez **Déclencheurs et actions**. [Créer une application logique](app-service-logic-create-a-logic-app.md)
 
-2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit :
-![][2]
+2.	Le connecteur Slack est répertorié dans la galerie sur le côté droit : ![][2]
 
 3.	Sélectionnez le connecteur Slack que vous avez créé pour l’ajouter automatiquement à votre application logique.
-4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** :
-![][3]
-![][4]
-![][5]
-![][6]
+4.	Sélectionnez **Autoriser**. Connectez-vous à votre compte Slack. À la fin, vous êtes invité à autoriser votre connecteur à accéder à votre compte Slack. Sélectionnez **Autoriser** : ![][3] ![][4] ![][5] ![][6]  
 	
-5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible :
-![][7]
+5.	Vous pouvez maintenant utiliser le connecteur Slack dans le flux. L’action Publier un message est disponible : ![][7]
 
 
-Testons l'action « Publier le message ». Vous pouvez utiliser cette action pour publier un message vers n’importe quel canal Slack :
-![][8]
+Testons l'action « Publier le message ». Vous pouvez utiliser cette action pour publier un message vers n’importe quel canal Slack : ![][8]
 
 Configurez les propriétés d’entrée de l’action « Publier un message » :
 
@@ -74,8 +66,7 @@ Nom du canal | Indiquez le canal Slack sur lequel ce message est publié. Si le 
 Propriétés avancées | **Nom d’utilisateur du robot** : nom du robot à utiliser pour ce message. Le message est publié en tant que « Robot » si cette valeur n’est pas spécifiée.<p><p>**URL de l’icône** : URL vers une image à utiliser comme icône pour ce message.<p><p>**Emoji de l’icône** : Emoji à utiliser comme icône pour ce message. Cette propriété remplace la propriété de l’URL de l’icône.
 
 
-Le connecteur Slack dispose d’API REST afin que vous puissiez l’utiliser en dehors d’une application logique. Ouvrez votre connecteur Slack et sélectionnez **Définition d’API** :
-![][9]
+Le connecteur Slack dispose d’API REST afin que vous puissiez l’utiliser en dehors d’une application logique. Ouvrez votre connecteur Slack et sélectionnez **Définition d’API** : ![][9]
 
 
 ## En faire plus avec votre connecteur
@@ -99,4 +90,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

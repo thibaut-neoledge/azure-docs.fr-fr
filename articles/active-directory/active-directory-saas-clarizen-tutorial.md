@@ -55,7 +55,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Clarizen**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Clarizen**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clarizen-tutorial/IC784682.png "Configurer l’authentification unique")
 
@@ -67,7 +67,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-clarizen-tutorial/IC784684.png "Configurer l’authentification unique")
 
-4.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Clarizen** en tant qu’administrateur (par exemple, \**https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
+4.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **Clarizen** en tant qu’administrateur (par exemple, **https://app2.clarizen.com/Clarizen/Pages/Service/Login.aspx*).
 
 5.  Cliquez sur votre nom d’utilisateur, puis sur **Settings**.
 
@@ -123,14 +123,14 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Clarizen\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Clarizen**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-clarizen-tutorial/IC784692.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-clarizen-tutorial/IC767830.png "Oui")
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Traitement des messages des appareils vers le cloud IoT Hub
+# Didacticiel : traiter les messages des appareils vers le cloud IoT Hub
 
 ## Introduction
 
@@ -49,7 +49,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015
 
-+ Un compte Azure actif <br/>Si vous n’avez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous n’avez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fprocess-d2c%2F target="\_blank").
 
 Vous devez avoir une bonne connaissance des services [Azure Storage] et [Azure Service Bus].
 
@@ -73,7 +73,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à traiter de manière fiable des messages de *point de données* et des messages *interactifs* des appareils vers le cloud à l’aide de [EventProcessorHost]. Vous pouvez implémenter une logique de traitement des messages analogue avec
+Dans ce didacticiel, vous avez appris à traiter de manière fiable des messages de *point de données* et des messages *interactifs* des appareils vers le cloud à l’aide de [EventProcessorHost]. Vous pouvez implémenter une logique de traitement des messages analogues avec :
 
 - [Téléchargement de fichiers à partir d’appareils], qui décrit un modèle qui utilise les messages du cloud vers les appareils pour faciliter les téléchargements de fichiers à partir d’appareils.
 
@@ -117,10 +117,6 @@ Informations supplémentaires sur IoT Hub :
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centre de développement Azure IoT]: http://www.azure.com/iotdev
+[Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

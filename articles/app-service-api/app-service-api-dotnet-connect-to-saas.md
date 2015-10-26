@@ -376,13 +376,7 @@ Informations complémentaires :
 
 		browser.Navigate(string.Format(@"{0}/login/aad", GATEWAY_URL));
 
-	Voici les valeurs à utiliser pour les autres fournisseurs : 
-	* "microsoftaccount" 
-	* "facebook" 
-	* "twitter" 
-	* "google" 
-<br/><br/>
-
+	Voici les valeurs à utiliser pour les autres fournisseurs : * "microsoftaccount" * "facebook" * "twitter" * "google" <br/><br/>
 
 * Le second paramètre de la méthode `GetConsentLinkAsync()` est l’URL de rappel vers laquelle redirige le serveur d’autorisation une fois que l’utilisateur s’est connecté à Dropbox et a autorisé l’accès à son compte.
 
@@ -426,7 +420,7 @@ Si vous obtenez une erreur HTTP 405 lorsque le code appelle GetConsentLinkAsync
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-L’erreur 405 Méthode non autorisée est reçue lorsque le client tente d’effectuer une requête POST HTTP non-SSL, que la passerelle redirige vers *https://* et que la redirection provoque une demande GET. L’URL de récupération d’un lien d’autorisation accepte uniquement les demandes POST.
+L’erreur 405 Méthode non autorisée est reçue lorsque le client tente d’effectuer une requête POST HTTP non-SSL, que la passerelle redirige vers **https://* et que la redirection provoque une demande GET. L’URL de récupération d’un lien d’autorisation accepte uniquement les demandes POST.
 
 ### <a id="400"></a>Erreur HTTP 400 au lieu de la page de connexion à Dropbox
 
@@ -450,7 +444,7 @@ Supprimez %3d%3d à la fin de la valeur querystring `error`, il s’agit d’une
 
 Vous avez appris à coder et à configurer une application API se connectant à une plateforme SaaS. Pour consulter des liens vers d’autres didacticiels sur la gestion de l’authentification dans les applications API, consultez [la section Étapes suivantes de la page Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md#next-steps).
 
-[portail Azure en version préliminaire]: https://portal.azure.com/
-[portail Azure]: https://manage.windowsazure.com/
+[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://manage.windowsazure.com/
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

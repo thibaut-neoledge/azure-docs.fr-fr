@@ -30,7 +30,7 @@ Connectez-vous à l’aide d’un compte Microsoft personnel, professionnel ou s
 Vous avez terminé ? À présent, consultez votre liste d’applications Microsoft, qui est probablement vide. Nous allons y remédier.
 
 <!-- TODO: Verify strings here -->
-Cliquez sur **Ajouter une application**, et attribuez-lui un nom. Le portail attribue à votre application un ID d’application global unique que vous utiliserez ultérieurement dans votre code. Si votre application inclut un composant côté serveur, qui nécessite des jetons d’accès pour appeler des API (à savoir Office, Azure ou tierces), créez également ici un \*\*secret d’application\*\*. <!-- TODO: Link for app secrets -->
+Cliquez sur **Ajouter une application**, et attribuez-lui un nom. Le portail attribue à votre application un ID d’application global unique que vous utiliserez ultérieurement dans votre code. Si votre application inclut un composant côté serveur, qui nécessite des jetons d’accès pour appeler des API (à savoir Office, Azure ou tierces), créez également ici un **secret d’application**. <!-- TODO: Link for app secrets -->
 
 Ajoutez ensuite les plateformes que votre application utilisera. - Pour les applications web, indiquez un **URI de redirection** où les messages de connexion peuvent être envoyés. - Dans le cas des applications mobiles, copiez l’URI de redirection par défaut créé automatiquement pour vous.
 
@@ -41,4 +41,4 @@ Maintenant que vous disposez d’une application Microsoft, vous pouvez suivre l
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

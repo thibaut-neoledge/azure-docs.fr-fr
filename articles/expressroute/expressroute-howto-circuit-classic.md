@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Création et modification d’un circuit ExpressRoute
@@ -322,6 +322,6 @@ Si le fournisseur de services a annulé l’approvisionnement du circuit (l’é
 ## Étapes suivantes
 
 - [Configuration du routage](expressroute-howto-routing-classic.md)
-- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

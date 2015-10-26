@@ -351,4 +351,4 @@ Pour obtenir de l’aide pour les fonctions que vous pouvez utiliser à l’invi
 
 En savoir plus sur l’écriture de scripts PowerShell en lisant [Écriture de scripts avec Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) et en consultant d’autres scripts Azure PowerShell sur le [Centre de scripts](https://azure.microsoft.com/fr-FR/documentation/scripts/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

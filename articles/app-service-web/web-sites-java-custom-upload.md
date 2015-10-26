@@ -257,4 +257,4 @@ Pour plus d’informations sur Java, consultez le [Centre pour développeurs Jav
 <!-- External Links -->
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

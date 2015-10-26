@@ -130,9 +130,9 @@ Spark SQL vous permet d’utiliser Spark pour exécuter des requêtes relationne
 
 6. Un résultat similaire à ce qui suit s’affiche normalement :
 
-		[820,11:35:17,fr-fr,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,fr-fr,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,fr-fr,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,fr-FR,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,fr-FR,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,fr-FR,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. Entrez :q pour quitter l'invite Scala.
 
@@ -208,7 +208,7 @@ Dans cette section, vous allez écrire une application Scala qui compte le nombr
 6. Utilisez la commande suivante pour exécuter le programme SimpleApp.scala :
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. Une fois l'exécution du programme terminée, la sortie s'affiche dans la console.
 
@@ -234,4 +234,4 @@ Dans cette section, vous allez écrire une application Scala qui compte le nombr
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

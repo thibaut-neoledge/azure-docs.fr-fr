@@ -6,7 +6,6 @@
    authors="cherylmc"
    manager="carolz"
    editor="tysonn" />
-
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -15,7 +14,6 @@
    ms.workload="infrastructure-services"
    ms.date="08/04/2015"
    ms.author="cherylmc" />
-
 
 # Connecter plusieurs sites locaux à un réseau virtuel
 
@@ -100,7 +98,6 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 		          <ConnectionsToLocalNetwork>
 		            <LocalNetworkSiteRef name="Site1">
 		              <Connection type="IPsec" />
-
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
@@ -113,8 +110,7 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 		<Gateway>
           <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" />
-</LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
@@ -122,10 +118,8 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
         <Gateway>
           <ConnectionsToLocalNetwork>
-            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" />
-</LocalNetworkSiteRef>
-            <LocalNetworkSiteRef name="Site2"><Connection type="IPsec" />
-</LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
+            <LocalNetworkSiteRef name="Site2"><Connection type="IPsec" /></LocalNetworkSiteRef>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
@@ -177,4 +171,4 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -40,4 +40,4 @@ Modèles simples qui s’intègrent dans des services de réseaux sociaux, comme
 Après avoir sélectionné un des modèles, finalisez le déploiement comme si vous aviez créé votre propre application logique. Consultez la rubrique [Créer une application logique](app-service-logic-create-a-logic-app.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

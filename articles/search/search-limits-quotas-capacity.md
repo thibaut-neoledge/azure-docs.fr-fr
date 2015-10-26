@@ -131,4 +131,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

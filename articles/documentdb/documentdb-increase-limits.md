@@ -7,7 +7,6 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
-
 
 # Demande d’augmentation des limites de compte DocumentDB
 
@@ -93,4 +91,4 @@ Une fois le ticket de support créé, vous recevrez le numéro de demande de sup
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

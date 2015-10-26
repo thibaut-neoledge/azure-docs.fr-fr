@@ -7,7 +7,6 @@
    manager="dwrede" 
    editor=""/>
 
-
 <tags
    ms.service="mobile-engagement"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="mobile" 
    ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Guide de dépannage pour les problèmes liés à Push et Reach
 
@@ -112,4 +110,4 @@ Voici des problèmes potentiels liés à la façon dont Azure Mobile Engagement 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

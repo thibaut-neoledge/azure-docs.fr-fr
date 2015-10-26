@@ -62,7 +62,7 @@ Dans le diagramme ci-dessus :
 ## Appels entre les environnements App Service ##
 Un scénario plus complexe peut se produire si vous déployez plusieurs environnements App Service dans le même réseau virtuel et effectuez des appels sortants à partir d’un environnement App Service vers un autre environnement App Service. Ces types d’appels entre les environnements App Service seront également traités comme des appels « Internet ».
 
-Le diagramme suivant illustre un exemple d’architecture en couches avec des applications dans un environnement App Service (par exemple, des applications web de « porte d’entrée ») appelant des applications dans un environnement App Service (par exemple, des applications d'API internes principales qui ne sont pas destinées à être accessibles via Internet).
+Le diagramme suivant illustre un exemple d’architecture en couches avec des applications dans un environnement App Service (par exemple, des applications web de « porte d’entrée ») appelant des applications dans un environnement App Service (par exemple, des applications d'API internes principales qui ne sont pas destinées à être accessibles via Internet).
 
 ![Appels entre les environnements App Service][CallsBetweenAppServiceEnvironments]
 
@@ -87,4 +87,4 @@ Cet [article][ExpressRoute] contient des informations sur l’utilisation d’it
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 [CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

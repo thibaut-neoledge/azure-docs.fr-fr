@@ -19,7 +19,8 @@
 
 # Forum aux questions sur les machines virtuelles Azure créées avec le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article contient des réponses aux questions concernant les ressources créées avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Cet article apporte des réponses à certaines des questions les plus courantes que les utilisateurs se posent sur les machines virtuelles Azure créées avec le modèle de déploiement classique, en se basant sur les informations données par l’équipe de support technique dédiée aux machines virtuelles Azure, mais aussi sur les forums, les groupes de discussion et des commentaires trouvés dans d’autres articles. Pour des informations de base, commencez par la page [À propos des machines virtuelles](virtual-machines-about.md).
 
@@ -150,4 +151,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

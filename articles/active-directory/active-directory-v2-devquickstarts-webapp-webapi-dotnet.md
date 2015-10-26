@@ -18,8 +18,7 @@
 
 # Version d’évaluation du modèle d’application v2.0 : Appel d’une API Web à partir d’une application Web .NET
 
-> [AZURE.NOTE]
-	Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
+> [AZURE.NOTE]Ces informations s’appliquent à la version préliminaire publique du point de terminaison v2.0. Pour obtenir des instructions sur l’intégration au service Azure AD, dont la disponibilité est désormais générale, consultez le [Guide du développeur Azure AD](active-directory-developers-guide.md).
 
 Avec le modèle d’application v2.0, vous pouvez rapidement ajouter une authentification à vos applications Web et à vos API Web, avec prise en charge pour les comptes Microsoft personnels, ainsi que pour les comptes professionnels ou scolaires. Ici, nous allons créer une application Web MVC qui :
 
@@ -42,21 +41,21 @@ Pour suivre la procédure, vous pouvez [télécharger la structure de l’applic
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+Vous pouvez également [télécharger l'application terminée dans un fichier zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) ou cloner l'application terminée :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1. Inscription d’une application
-Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
+## 1\. Inscription d’une application
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
-- Copiez l’**ID d’application** affecté à votre application, vous en aurez bientôt besoin.
+- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
 - Créez un **secret d’application** du type **Mot de passe**, puis copiez sa valeur pour une utilisation ultérieure.
-- Ajoutez la plate-forme **Web** pour votre application.
-- Entrez l’**URI de redirection** approprié. L’URI redirige vers Azure AD, destination valide des réponses d’authentification. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
+- ajouter la plateforme **Web** pour votre application.
+- Entrez l’**URI de redirection** approprié. L’URI de redirection indique à Azure AD où les réponses d’authentification doivent être dirigées. La valeur par défaut pour ce didacticiel est `https://localhost:44326/`.
 
 
-## 2. Connexion de l’utilisateur à l’aide d’OpenID Connect
-Ici, nous allons configurer l’intergiciel OWIN pour utiliser le [protocole d’authentification OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
+## 2\. Connexion de l’utilisateur à l’aide d’OpenID Connect
+Ici, nous allons configurer l’intergiciel OWIN pour utiliser le [protocole d’authentification OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). OWIN sera utilisé pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur, entre autres.
 
 -	Pour commencer, ouvrez le fichier `web.config` dans la racine du projet `TodoList-WebApp`, puis entrez les valeurs de configuration de votre application dans la section `<appSettings>`.
     -	L’élément `ida:ClientId` est l’**ID d’application** affecté à votre application dans le portail d’inscription.
@@ -114,14 +113,12 @@ public void ConfigureAuth(IAppBuilder app)
 ...
 ```
 
-## 3. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
-Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAuth 2.0 en tandem avec OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) afin d’échanger le code d’autorisation contre un jeton d’accès au service de la liste de tâches. ADAL peut vous faciliter ce processus :
+## 3\. Utilisation d’ADAL afin de récupérer un jeton d’accès lors de la connexion de l’utilisateur
+Dans la notification `AuthorizationCodeReceived`, nous souhaitons utiliser [OAuth 2.0 en tandem avec OpenID Connect](active-directory-v2-protocols.md#openid-connect-with-oauth-code-flow) afin d’échanger le code d’autorisation contre un jeton d’accès au service de la liste de tâches. ADAL peut vous faciliter ce processus :
 
 - Tout d’abord, installez la version d’évaluation d’ADAL :
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` - Ajoutez une autre instruction `using` au fichier `App_Start\Startup.Auth.cs` pour la bibliothèque ADAL. - Ajoutez maintenant une nouvelle méthode, le gestionnaire d'événements `OnAuthorizationCodeReceived`. Ce gestionnaire utilisera ADAL pour acquérir un jeton d’accès à l’API To-Do List et le stockera dans le cache de jetons ADAL pour une utilisation ultérieure :
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -143,8 +140,8 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 <!-- TODO: Token Cache article -->
 
 
-## 4. Appel de l’API Web de la liste des tâches
-Il est à présent temps d’utiliser le jeton d’accès acquis lors de l’étape 3. Ouvrez le fichier `Controllers\TodoListController.cs` de l’application Web, qui exécute l’ensemble des requêtes CRUD sur l’API de la liste des tâches.
+## 4\. Appel de l’API Web de la liste des tâches
+Il est à présent temps d’utiliser le jeton d’accès acquis lors de l’étape 3. Ouvrez le fichier `Controllers\TodoListController.cs` de l’application web, qui exécute l’ensemble des requêtes CRUD sur l’API To-Do List.
 
 - Vous pouvez réutiliser ADAL afin de récupérer les jetons d’accès du cache ADAL. Tout d’abord, ajoutez une instruction `using` pour ADAL dans ce fichier.
 
@@ -165,8 +162,8 @@ result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.client
 ...
 ```
 
-- L’exemple ajoute ensuite le jeton obtenu à la requête GET HTTP en tant qu’en-tête `Authorization`, que le service de la liste des tâches utilise pour authentifier la requête.
-- Si le service de la liste des tâches renvoie une réponse `401 Unauthorized`, les jetons d’accès d’ADAL deviennent non valides, pour une raison indéterminée. Dans ce cas, vous devez abandonner les jetons d’accès du cache ADAL et transmettre à l’utilisateur un message lui demandant de se reconnecter. Le cas échéant, le flux d’acquisition des jetons est redémarré.
+- L’exemple ajoute ensuite le jeton obtenu à la requête GET HTTP en tant qu’en-tête `Authorization`, que le service To-Do List utilise pour authentifier la requête.
+- Si le service To-Do List renvoie une réponse `401 Unauthorized`, les jetons d’accès d’ADAL deviennent non valides, pour une raison indéterminée. Dans ce cas, vous devez abandonner les jetons d’accès du cache ADAL et transmettre à l’utilisateur un message lui demandant de se reconnecter. Le cas échéant, le flux d’acquisition des jetons est redémarré.
 
 ```C#
 ...
@@ -203,8 +200,6 @@ Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est 
 
 ## Étapes suivantes
 
-Pour obtenir des ressources supplémentaires, consultez : 
-- [La version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
+Pour obtenir des ressources supplémentaires, consultez : - [Version d’évaluation du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise adal StackOverflow >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

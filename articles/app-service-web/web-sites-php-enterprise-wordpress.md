@@ -283,4 +283,4 @@ Action à réaliser... | Élément à utiliser...
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

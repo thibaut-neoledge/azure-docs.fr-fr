@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Connexion à distance à votre appareil StorSimple
@@ -234,7 +234,7 @@ Utilisez Windows PowerShell et SSL pour entrer dans une session SSAdmin sur votr
 
 Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez établir la connexion Windows PowerShell à distance.
 
-### Pour entrer dans une session SSAdmin sur l’appareil en utilisant Windows PowerShell et SSL
+#### Pour entrer dans une session SSAdmin sur l’appareil en utilisant Windows PowerShell et SSL
 
 1. Démarrez une session Windows PowerShell en tant qu’administrateur.
 
@@ -256,9 +256,9 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    Pour le nom CN dans l’applet de commande, spécifiez *<serial number of target device>*. Ce numéro de série a été mappé à l’adresse IP de DATA 0 dans le fichier hosts sur l’hôte distant, par exemple **SHX0991003G44MT** comme dans l’image suivante.
+    Pour le nom CN de l’applet de commande, vous devez fournir le <*numéro de série de l’appareil cible*>. Ce numéro de série a été mappé à l’adresse IP de DATA 0 dans le fichier hosts sur l’hôte distant, par exemple, **SHX0991003G44MT** dans l’image suivante.
 
-5. Tapez :
+5. Entrez :
 
      `Enter-PSSession $session`
 
@@ -272,4 +272,4 @@ Effectuez la procédure suivante sur l’ordinateur à partir duquel vous voulez
 
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

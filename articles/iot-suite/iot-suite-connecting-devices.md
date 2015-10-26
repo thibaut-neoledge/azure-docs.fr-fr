@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Connexion de votre appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée | Microsoft Azure"
-   description="Explique comment connecter votre appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’un exemple impliquant température et humidité."
-   services="iot-hub"
+   pageTitle="Connecter un appareil à une solution préconfigurée | Microsoft Azure"
+   description="Explique comment connecter un appareil à la solution de surveillance à distance Azure IoT Suite préconfigurée à l’aide d’un exemple qui utilise les données de température et d’humidité."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -28,7 +28,7 @@ Dans cet exemple, nous avons accès à trois sources de données simulées : te
 
 ### Configurer votre Suite IoT
 
-Si vous n’avez pas approvisionné votre solution préconfigurée de surveillance à distance, vous pouvez l’effectuer [ici](http://www.microsoft.com/fr-fr/server-cloud/internet-of-things/getting-started.aspx).
+Si vous n’avez pas approvisionné votre solution préconfigurée de surveillance à distance, vous pouvez l’effectuer [ici](http://www.microsoft.com/fr-FR/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Configurer votre appareil dans la solution de surveillance à distance
@@ -309,4 +309,4 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 
 Il existe plusieurs façons d’étendre la fonctionnalité de cet exemple : connecter un capteur réel à votre appareil pour envoyer une vraie date d’envoi, mettre en œuvre des fonctionnalités de contrôle de commande, etc. Utilisez notre [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) pour savoir comment étendre la solution de surveillance à distance pour en savoir plus à ce sujet.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

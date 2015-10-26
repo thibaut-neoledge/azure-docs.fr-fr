@@ -16,4 +16,4 @@ Taille de la demande d’API Resource Manager|4 194 304 octets|4 194 304 
 
 <sup>3</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

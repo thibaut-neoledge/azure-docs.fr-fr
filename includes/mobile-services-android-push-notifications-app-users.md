@@ -26,4 +26,4 @@ Lorsque vous vous inscrivez aux notifications, vous devez par la suite le modifi
             refreshItemsFromTable();
         }	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

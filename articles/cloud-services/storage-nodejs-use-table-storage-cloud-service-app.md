@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure"
-	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express."
-	services="cloud-services, storage"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Application web avec stockage de tables (Node.js) | Microsoft Azure" 
+	description="Ce didacticiel ajoute les services Azure Storage et le module Azure au didacticiel Application web avec Express." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -408,4 +408,4 @@ La procédure suivante présente l'arrêt et la suppression de l'application.
  
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

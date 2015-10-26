@@ -18,7 +18,8 @@
 
 # DataStax sous Ubuntu avec un modèle Microsoft Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 DataStax est l’un des principaux acteurs dans le secteur du développement et de la livraison de solutions basées sur Apache Cassandra, une technologie de base de données distribuée NoSQL soutenue commercialement et intégrée au sein des entreprises, largement reconnue comme agile, permanente et évolutive de façon prévisible pour n’importe quelle taille. DataStax propose les versions Enterprise (DSE) et Community (DSC). Cette solution fournit également des fonctionnalités de calcul en mémoire, de sécurité au niveau de l’entreprise, d’analyses intégrées rapides et puissantes et de recherche d’entreprise.
 
@@ -479,4 +480,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

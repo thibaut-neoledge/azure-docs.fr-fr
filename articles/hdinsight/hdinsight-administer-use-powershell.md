@@ -64,7 +64,7 @@ Les clusters HDInsight nécessitent un groupe de ressources Azure et un conteneu
 
 	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/fr-fr/library/azure/hh264518.aspx](https://msdn.microsoft.com/fr-fr/library/azure/hh264518.aspx).
+	For a full list of the storage account types, see [https://msdn.microsoft.com/fr-FR/library/azure/hh264518.aspx](https://msdn.microsoft.com/fr-FR/library/azure/hh264518.aspx).
 
 
 Pour plus d’informations sur la création d’un compte Azure Storage au moyen du portail Azure en version préliminaire, consultez la rubrique [Création, gestion ou suppression d’un compte de stockage](storage-create-storage-account.md).
@@ -343,4 +343,4 @@ Consultez la section [Envoi de tâches MapReduce](#mapreduce) de cet article.
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

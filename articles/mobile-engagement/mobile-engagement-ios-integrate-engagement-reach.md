@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Comment intégrer Engagement Reach sur iOS
 
@@ -416,4 +416,4 @@ Comme pour la personnalisation de notification avancée, il est recommandé d'ex
 
 	@end
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

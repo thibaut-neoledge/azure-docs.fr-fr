@@ -147,4 +147,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -44,7 +44,7 @@ Cette section décrit l’activation de l’intégration d’application pour Re
 
 6.  Dans la zone **Rechercher**, entrez **Replicon**.
 
-    ![Galerie d'applications](./media/active-directory-saas-replicon-tutorial/IC777799.png "Galerie d’applications")
+    ![Galerie d’applications](./media/active-directory-saas-replicon-tutorial/IC777799.png "Galerie d’applications")
 
 7.  Dans le volet de résultats, sélectionnez **Replicon**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -55,7 +55,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Replicon**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Replicon**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configurer l’authentification unique")
 
@@ -67,8 +67,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-replicon-tutorial/IC777803.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, \**https://na2.replicon.com/company/saml2/sp-sso/post*).
-2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL **AssertionConsumerService** Replicon (par exemple, \**https://global.replicon.com/!/saml2/company/sso/post*).
+    1.  Dans la zone de texte **Replicon Sign On URL**, entrez l’URL de votre locataire Replicon (par exemple, **https://na2.replicon.com/company/saml2/sp-sso/post*).
+2.  Dans la zone de texte **Replicon Reply URL**, entrez votre URL **AssertionConsumerService** Replicon (par exemple, **https://global.replicon.com/!/saml2/company/sso/post*).
 
         >[AZURE.NOTE]Vous pouvez obtenir l’URL à partir des métadonnées Replicon à :**https://global.replicon.com/!/saml2/\< CléDeVotreEntreprise>**.
 
@@ -128,7 +128,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Replicon\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Replicon**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-replicon-tutorial/IC777809.png "Affecter des utilisateurs")
 
@@ -136,6 +136,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-replicon-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

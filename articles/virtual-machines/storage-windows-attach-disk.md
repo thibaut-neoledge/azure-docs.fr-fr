@@ -19,11 +19,11 @@
 
 # Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique. Vous pouvez également créer des ressources avec le [modèle de déploiement Resource Manager](virtual-machines-attach-disk-preview.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
 Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
 
-> [AZURE.NOTE]Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N’utilisez pas le lecteur D pour stocker des données.** Comme son nom l’indique, le lecteur D ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
+Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N’utilisez pas le lecteur D pour stocker des données.** Comme son nom l’indique, le lecteur D ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
 
 ## Vidéo de procédure pas à pas
 
@@ -51,7 +51,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour plus de détails, consultez [Tailles des machines virtuelles](virtual-machines-size-specs.md).
+> [AZURE.NOTE]La taille de la machine virtuelle détermine le nombre de disques que vous pouvez attacher à celle-ci. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
 ## Ressources supplémentaires
 
@@ -61,4 +61,4 @@ Voici une procédure pas à pas de ce didacticiel.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

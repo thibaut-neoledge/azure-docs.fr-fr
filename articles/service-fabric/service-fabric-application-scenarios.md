@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Scénarios et conception d'applications avec Service Fabric"
-	description="Catégories d'applications. Conception d'applications à l'aide de services avec ou sans état"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Scénarios et conception d'applications avec Service Fabric" 
+   description="Catégories d'applications. Conception d'applications à l'aide de services avec ou sans état" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # Scénarios d'applications Service Fabric
 
@@ -68,4 +68,4 @@ Consultez également les rubriques suivantes :
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

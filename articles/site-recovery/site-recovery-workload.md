@@ -38,20 +38,7 @@ Les fonctionnalités d'Azure Site Recovery ont été conçues avec une protectio
 
 Les technologies de réplication ASR sont compatibles avec n’importe quelle application en cours d’exécution sur une machine virtuelle. Nous avons effectué des tests supplémentaires en partenariat avec les équipes chargées des produits d’application, afin d’assurer la prise en charge complète de chaque application.
 
-**Charge de travail** | <p>**Répliquer des machines virtuelles Hyper-V**</p> <p>**(sur un site secondaire)**</p> | <p>**Répliquer des machines virtuelles Hyper-V**</p> <p>**(sur Azure)**</p> | <p>**Répliquer des machines virtuelles VMware**</p> <p>**(sur un site secondaire)**</p> | <p>**Répliquer des machines virtuelles VMware**</p><p>**(sur Azure)****</p>
----|---|---|---|---
-Active Directory, DNS | Y | Y | Y | Y
-Web apps (IIS, SQL) | Y | Y | Y | Y
-SCOM | Y | Y | Y | Y
-Sharepoint | Y | Y | Y | Y
-<p>SAP</p><p>Répliquer site SAP sur Azure pour non cluster</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft)
-Exchange (non DAG) | Y | Prochainement | Y | Y
-Bureau à distance/VDI | Y | Y | Y | N/A
-<p>Linux</p> <p>(système d'exploitation et applications)</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft)
-Dynamics AX | Y | Y | Y | Y
-Dynamics CRM | Y | Prochainement | Y | Prochainement
-Oracle | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft)
-Windows File Server | Y | Y | Y | Y
+**Charge de travail** | <p>**Répliquer des machines virtuelles Hyper-V**</p> <p>**(sur un site secondaire)**</p> | <p>**Répliquer des machines virtuelles Hyper-V**</p> <p>**(sur Azure)**</p> | <p>**Répliquer des machines virtuelles VMware**</p> <p>**(sur un site secondaire)**</p> | <p>**Répliquer des machines virtuelles VMware**</p><p>**(sur Azure)****</p> ---|---|---|---|--- Active Directory, DNS | Y | Y | Y | Y Web apps (IIS, SQL) | Y | Y | Y | Y SCOM | Y | Y | Y | Y Sharepoint | Y | Y | Y | Y <p>SAP</p><p>Répliquer site SAP sur Azure pour non cluster</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) Exchange (non DAG) | Y | Prochainement | Y | Y Bureau à distance/VDI | Y | Y | Y | N/A <p>Linux</p> <p>(système d'exploitation et applications)</p> | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) Dynamics AX | Y | Y | Y | Y Dynamics CRM | Y | Prochainement | Y | Prochainement Oracle | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) | Y (testé par Microsoft) Windows File Server | Y | Y | Y | Y
 
 ##Active Directory et DNS
 
@@ -120,4 +107,4 @@ SAP est un logiciel ERP de pointe utilisé par la plupart des organisations dans
 
 Consultez le document lié pour des instructions détaillées sur le [déploiement d'Azure Site Recovery pour SAP NetWeaver](http://aka.ms/asr-sap)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

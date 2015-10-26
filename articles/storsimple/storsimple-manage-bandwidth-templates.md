@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour gérer les modèles de bande passante StorSimple
@@ -174,7 +174,6 @@ Suivez ces meilleures pratiques pour votre appareil StorSimple :
 
 ## Étapes suivantes
 
-- En savoir plus sur les [composants StorSimple](storsimple-components.md). 
-- En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
+En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

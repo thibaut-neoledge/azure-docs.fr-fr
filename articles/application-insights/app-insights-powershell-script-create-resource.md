@@ -94,4 +94,4 @@ Il existe deux façons de mettre l’iKey à disposition du kit de développemen
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

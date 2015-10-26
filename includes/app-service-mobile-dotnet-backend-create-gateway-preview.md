@@ -10,4 +10,4 @@ Vous allez ensuite utiliser cette passerelle avec un fournisseur d’authentific
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Recommandations en matière IoT Hub | Microsoft Azure"
- description="Un ensemble de rubriques d’aide pour les solutions utilisant IoT Hub Azure."
+ pageTitle="Rubriques de conseils pour l’utilisation d’Azure IoT Hub | Microsoft Azure"
+ description="Un ensemble de rubriques d’aide pour le développement de solutions utilisant Azure IoT Hub."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

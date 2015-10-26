@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Vue d’ensemble de Service Fabric | Microsoft Azure"
-	description="Présentation de Service Fabric, où les applications sont composées de microservices. Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="Vue d’ensemble de Service Fabric | Microsoft Azure" 
+   description="Présentation de Service Fabric, où les applications sont composées de microservices. Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Vue d'ensemble de Service Fabric
 Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud. Service Fabric résout les problèmes non négligeables du développement et de la gestion des applications cloud. En utilisant Service Fabric, les développeurs et administrateurs n'ont plus à résoudre les problèmes d'infrastructure complexes et peuvent se concentrer à la place sur l'implémentation de charges de travail stratégiques exigeantes, sachant qu'elles sont évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme middleware de nouvelle génération pour la création et la gestion de ces services d'entreprise de niveau 1 à l'échelle du cloud.
@@ -98,4 +98,4 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

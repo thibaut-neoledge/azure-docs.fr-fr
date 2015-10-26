@@ -153,4 +153,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -53,7 +53,7 @@ Vous aurez également besoin d’une file d’attente Service Bus pour permettre
 
 5. Cliquez avec le bouton droit sur le projet **ProcessDeviceToCloudMessages**, cliquez sur **Ajouter**, puis sur **Classe**. Nommez la nouvelle classe **StoreEventProcessor**, puis cliquez sur **OK** pour créer la classe.
 
-6. Ajoutez les instructions ci-après au début du fichier SimpleEventProcessor.cs :
+6. Ajoutez les instructions ci-après au début du fichier StoreEventProcessor.cs :
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@ Vous aurez également besoin d’une file d’attente Service Bus pour permettre
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@ Vous aurez également besoin d’une file d’attente Service Bus pour permettre
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,7 +229,7 @@ Vous aurez également besoin d’une file d’attente Service Bus pour permettre
 > [AZURE.NOTE]Par souci de simplicité, ce didacticiel utilise une seule instance d’[EventProcessorHost]. Veuillez vous reporter au [Guide de programmation des concentrateurs d’événements] et au didacticiel [Traiter les messages des appareils vers le cloud] pour plus d’informations sur le traitement des messages des appareils vers le cloud.
 
 ## Recevoir des messages interactifs
-Dans cette section, vous écrirez une application console Windows qui reçoit les messages interactifs à partir de la file d’attente Service Bus. Pour plus d’informations sur la construction d’une solution à l’aide de Service Bus, consultez [Créer des applications multiniveaux avec Service Bus].
+Dans cette section, vous écrirez une application console Windows qui reçoit les messages interactifs à partir de la file d’attente Service Bus. Pour plus d’informations sur la construction d’une solution à l’aide de Service Bus, consultez [Créer des applications multiniveaux avec Service Bus][].
 
 1. Dans la solution Visual Studio actuelle, créez un projet d’application de bureau Visual C# à l’aide du modèle de projet d’**application console**. Nommez le projet **ProcessD2cInteractiveMessages**.
 
@@ -309,9 +309,11 @@ Dans cette section, vous écrirez une application console Windows qui reçoit le
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[Créer des applications multiniveaux avec Service Bus]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@ Dans cette section, vous écrirez une application console Windows qui reçoit le
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

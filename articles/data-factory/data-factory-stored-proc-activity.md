@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Activité de procédure stockée SQL Server
@@ -50,63 +50,129 @@ outputs | Jeux de données de sortie produits par l’activité de procédure st
 storedProcedureName | Spécifiez le nom de la procédure stockée dans la base de données SQL Azure ou l'entrepôt Azure SQL Data Warehouse qui est représenté(e) par le service lié utilisé par la table de sortie. | Oui
 storedProcedureParameters | Spécifiez les valeurs des paramètres de procédure stockée. | Non
 
-## Exemple
+## Exemple de procédure pas à pas
 
-Prenons un exemple dans lequel vous souhaitez créer une table dans une base de données SQL Azure qui contient deux colonnes :
+### Exemple de table et de procédure stockée
+1. Créez la **table** suivante dans votre base de données SQL Azure à l’aide de SQL Server Management Studio ou d’un autre outil que vous maîtrisez. La colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré. 
 
-des colonnes | Type
------- | ----
-ID | Données uniqueidentifier
-Datetime | Date et heure auxquelles l’ID correspondant a été généré.
+		CREATE TABLE dbo.sampletable
+		(
+			Id uniqueidentifier,
+			datetimestamp nvarchar(127)
+		)
+		GO
 
-![Exemples de données](./media/data-factory-stored-proc-activity/sample-data.png)
+		CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+		GO
 
-	CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-	AS
+	La colonne ID affiche l’identifiant unique et la colonne datetimestamp affiche la date et l’heure auxquelles l’ID correspondant est généré. ![Exemples de données](./media/data-factory-stored-proc-activity/sample-data.png)
+
+2. Créez la **procédure stockée** suivante qui insère des données dans la table **sampletable**.
+
+		CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+		AS
+		
+		BEGIN
+		    INSERT INTO [sampletable]
+		    VALUES (newid(), @DateTime)
+		END
+
+	> [AZURE.IMPORTANT]Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l’activité/du pipeline. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
 	
-	BEGIN
-	    INSERT INTO [sampletable]
-	    VALUES (newid(), @DateTime)
-	END
+### Créer une fabrique de données  
+4. Après vous être connecté au [portail Azure en version préliminaire](http://portal.azure.com/), procédez comme suit :
+	1.	Cliquez sur **Nouveau**dans le menu de gauche. 
+	2.	Cliquez sur **Données + analyse** dans le panneau **Nouveau**.
+	3.	Cliquez sur **Data Factory** dans le panneau **Données + analyse**.
+4.	Dans le panneau **Nouvelle fabrique de données**, entrez **SProcDF** dans le champ Nom. Les noms Azure Data Factory sont globalement uniques. Vous devez faire précéder le nom de la fabrique de données par votre nom, pour activer la création de la fabrique. 
+3.	Si vous n’avez pas créé de groupe de ressources, vous devez en créer un. Pour ce faire :
+	1.	Cliquez sur **NOM DU GROUPE DE RESSOURCES**.
+	2.	Sélectionnez **Créer un groupe de ressources** dans le panneau **Groupe de ressources**.
+	3.	Entrez **ADFTutorialResourceGroup** dans le champ **Nom** du panneau **Créer un groupe de ressources**.
+	4.	Cliquez sur **OK**.
+4.	Après avoir sélectionné le groupe de ressources, vérifiez que vous utilisez l’abonnement correspondant à celui dans lequel vous souhaitez créer la fabrique de données.
+5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
+6.	La fabrique de données créée s’affiche dans le **Tableau d’accueil** du portail Azure en version préliminaire. Une fois la fabrique de données créée, vous verrez la page correspondante indiquant son contenu.
 
-> [AZURE.NOTE]Le **nom** et la **casse** du paramètre (DateTime dans cet exemple) doivent correspondre à ceux du paramètre spécifié dans le script JSON de l'activité ci-dessous. Dans la définition de procédure stockée, vérifiez que **@** est utilisé en tant que préfixe pour le paramètre.
+### Créer un service lié Azure SQL  
+Après avoir créé la fabrique de données, vous créez un service lié Azure SQL qui relie votre base de données SQL Azure à la fabrique de données. Il s’agit de la base de données qui contient la table sampletable et la procédure stockée sp\_sample.
 
-Pour exécuter cette procédure stockée dans un pipeline Data Factory, vous devez effectuer les opérations suivantes :
+7.	Cliquez sur **Créer et déployer** dans le panneau **DATA FACTORY** pour **SProcDF**. Cette action lance l'éditeur Data Factory Editor. 
+2.	Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **SQL Azure**. Le script JSON de création d’un service lié Azure SQL doit apparaître dans l’éditeur. 
+4. Remplacez **servername** par le nom de votre serveur de base de données SQL Azure, **databasename** par la base de données dans laquelle vous avez créé la table et la procédure stockée, ****username@servername** par le compte d’utilisateur qui a accès à la base de données et **password** par le mot de passe du compte d’utilisateur.
+5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
-1.	Créez un [service lié](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) pour inscrire la chaîne de connexion de la base de données SQL Azure dans laquelle la procédure stockée doit être exécutée.
-2.	Créez un [jeu de données](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties) pointant vers la table de sortie dans la base de données SQL Azure. Appelons ce jeu de données sprocsampleout. Ce jeu de données doit référencer le service lié de l’étape n°1. 
-3.	Créez la procédure stockée dans la base de données SQL Azure.
-4.	Créez le [pipeline](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties) ci-dessous avec l'activité SqlServerStoredProcedure pour appeler la procédure stockée dans la base de données SQL Azure.
+### Créer un jeu de données de sortie
+6. Cliquez sur **Nouveau jeu de données** dans la barre de commandes et sélectionnez **SQL Azure**.
+7. Copiez-collez le script JSON suivant dans l’éditeur JSON.
+
+		{			    
+			"name": "sprocsampleout",
+			"properties": {
+				"type": "AzureSqlTable",
+				"linkedServiceName": "AzureSqlLinkedService",
+				"typeProperties": {
+					"tableName": "sampletable"
+				},
+				"availability": {
+					"frequency": "Hour",
+					"interval": 1
+				}
+			}
+		}
+7. Cliquez sur **Déployer** dans la barre de commandes pour déployer le jeu de données. 
+
+### Créer un pipeline avec une activité SqlServerStoredProcedure
+Nous allons maintenant créer un pipeline avec une activité SqlServerStoredProcedure.
+ 
+9. Cliquez sur **... (points de suspension)** dans la barre de commandes et sur **Nouveau pipeline**. 
+9. Copiez-collez l’extrait de code JSON suivant. **storedProcedureName** a la valeur **sp\_sample**. Le nom et la casse du paramètre **DateTime** doivent correspondre à ceux du paramètre dans la définition de procédure stockée.  
 
 		{
 		    "name": "SprocActivitySamplePipeline",
-		    "properties":
-		    {
-		        "activities":
-		        [
+		    "properties": {
+		        "activities": [
 		            {
-		            	"name": "SprocActivitySample",
-		             	"type": " SqlServerStoredProcedure",
-		             	"outputs": [ {"name": "sprocsampleout"} ],
-		             	"typeProperties":
-		              	{
-		                	"storedProcedureName": "sp_sample",
-			        		"storedProcedureParameters": 
-		        			{
-		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        			}
-						}
-	            	}
-		        ]
-		     }
+		                "type": "SqlServerStoredProcedure",
+		                "typeProperties": {
+		                    "storedProcedureName": "sp_sample",
+		                    "storedProcedureParameters": {
+		                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		                    }
+		                },
+		                "outputs": [
+		                    {
+		                        "name": "sprocsampleout"
+		                    }
+		                ],
+		                "scheduler": {
+		                    "frequency": "Hour",
+		                    "interval": 1
+		                },
+		                "name": "SprocActivitySample"
+		            }
+		        ],
+		        "start": "2015-01-02T00:00:00Z",
+		        "end": "2015-01-03T00:00:00Z",
+		        "isPaused": false
+		    }
 		}
-5.	Déployez le [pipeline](data-factory-create-pipelines.md).
-6.	[Surveillez le pipeline](data-factory-monitor-manage-pipelines.md) à l'aide des vues de gestion et de surveillance Data Factory.
+9. Cliquez sur **Déployer** dans la barre d’outils pour déployer le pipeline.  
+
+### Surveiller le pipeline
+
+6. Cliquez sur **X** pour fermer les panneaux de l’éditeur Data Factory Editor et pour revenir au panneau Data Factory, puis cliquez sur**Schéma**.
+7. Dans la vue schématique, une vue d'ensemble des pipelines et des jeux de données utilisés dans ce didacticiel s’affiche. 
+8. Dans la vue schématique, double-cliquez sur le jeu de données **sprocsampleout**. Les tranches s’affichent avec l’état Prêt. Il doit y avoir 24 tranches, car il se produit une tranche par heure entre le 02/01/2015 et le 03/01/2015. 
+10. Quand une tranche est en état **Prêt**, exécutez une requête **select * from sampledata** sur la base de données SQL Azure pour vérifier que les données ont été insérées dans la table par la procédure stockée.
+
+	![Données de sortie](./media/data-factory-stored-proc-activity/output.png)
+
+	Consultez [Surveiller le pipeline](data-factory-monitor-manage-pipelines.md) pour plus d’informations sur la surveillance des pipelines Azure Data Factory.
 
 > [AZURE.NOTE]Dans l’exemple ci-dessus, l’activité SprocActivitySample est dépourvue d’entrées. Si vous souhaitez chaîner cette activité avec une activité en amont (par exemple, un traitement antérieur), les sorties de cette dernière peuvent servir d’entrées dans cette activité. Dans ce cas, cette activité n’est pas exécutée tant que l’activité en amont n’est pas terminée, et les sorties des activités en amont sont disponibles (à l’état Prêt). Les entrées ne peuvent pas servir directement de paramètres pour l’activité de procédure stockée.
-> 
-> Les noms et la casse (majuscule/minuscule) des paramètres de procédure stockée dans le fichier JSON doivent correspondre aux noms des paramètres de procédure stockée dans la base de données cible.
 
+## Transmission d’une valeur statique 
 À présent, ajoutons une autre colonne nommée « Scénario » dans la table contenant une valeur statique appelée « Exemple de document ».
 
 ![Exemple de données 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
@@ -132,4 +198,4 @@ Pour ce faire, transmettez le paramètre Scénario et la valeur de l’activité
 		}
 	}
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -70,13 +70,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Mon domaine](./media/active-directory-saas-work-com-tutorial/IC767825.png "Mon domaine")
 
-4.  Pour vérifier que votre domaine a été configuré correctement, assurez-vous qu’il figure dans \*\*Step 4 Deployed to Users\*\*, et passez en revue \*\*My Domain Settings\*\*.
+4.  Pour vérifier que votre domaine a été configuré correctement, assurez-vous qu’il figure dans **Step 4 Deployed to Users**, et passez en revue **My Domain Settings**.
 
     ![Domaine déployé pour l’utilisateur](./media/active-directory-saas-work-com-tutorial/IC784377.png "Domaine déployé pour l’utilisateur")
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail Azure.
 
-6.  Dans la page d’intégration d’applications \*\*Work.com\*\*, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+6.  Dans la page d’intégration d’applications **Work.com**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794109.png "Configurer l’authentification unique")
 
@@ -84,7 +84,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. \**http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. **http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurer l’URL de l’application")
 
@@ -119,7 +119,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Parcourir**.
-    4.  Dans la zone de texte **ID d’entité**, tapez \*\***https://salesforce-work.com**.
+    4.  Dans la zone de texte **ID d’entité**, tapez ****https://salesforce-work.com**.
 5.  Comme **Type d’identité SAML**, sélectionnez **L’assertion contient l’ID de fédération de l’objet utilisateur**.
     6.  Comme **Emplacement de l’identité SAML**, sélectionnez **L’identité est dans l’élément NameIdentifier de l’instruction Subject**.
     7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity Provider Login URL**.
@@ -195,4 +195,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
   
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

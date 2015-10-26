@@ -188,4 +188,4 @@ Aucun script n’est inclus dans cet exemple d’application pour configurer le 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

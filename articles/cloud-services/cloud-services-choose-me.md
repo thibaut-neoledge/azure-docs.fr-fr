@@ -36,4 +36,4 @@ Azure propose différents modèles d’hébergement d’applications. Chaque mod
 [Virtual Machines]: ../virtual-machines-about.md
 [Cloud Services]: #tellmecs
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

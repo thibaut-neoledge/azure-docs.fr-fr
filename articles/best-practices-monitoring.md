@@ -1,21 +1,21 @@
 <properties
    pageTitle="Guide de surveillance et de diagnostic | Microsoft Azure"
-	description="Meilleures pratiques pour la surveillance des applications distribuées dans le cloud."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Meilleures pratiques pour la surveillance des applications distribuées dans le cloud."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="04/28/2015"
-	ms.author="masashin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="04/28/2015"
+   ms.author="masashin"/>
 
 # Guide de surveillance et de diagnostic
 
@@ -612,4 +612,4 @@ Dans de nombreux cas, les rapports peuvent être générés par les processus de
 - La page [Présentation de la surveillance des alertes et des notifications dans Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) sur le site web Microsoft.
 - La page [Application Insights](app-insights-get-started/) sur le site web Microsoft.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [Ajout d'une nouvelle règle de port via le Pare-feu Windows]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -45,4 +45,4 @@ Vous pouvez calculer approximativement le nombre de disques fortement sollicité
 - **ZRS** : stockage redondant dans une zone. Uniquement disponible pour les objets blob de blocs. 
 - **LRS** : stockage localement redondant. 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

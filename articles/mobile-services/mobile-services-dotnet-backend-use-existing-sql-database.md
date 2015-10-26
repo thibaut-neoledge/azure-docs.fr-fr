@@ -615,4 +615,4 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
 Vous pouvez ensuite créer l'application cliente pour accéder au service.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

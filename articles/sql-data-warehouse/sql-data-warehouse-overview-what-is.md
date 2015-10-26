@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/08/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
 
 
@@ -68,6 +68,8 @@ SQL Data Warehouse se déploie facilement, en quelques secondes. Ce service est 
 ## Étapes suivantes
 En savoir plus sur la [charge de travail de l’entrepôt de données]. Pour commencer, [approvisionnez] et chargez les [exemples de données].
 
+>[AZURE.NOTE]Nous souhaitons améliorer cet article. Si vous choisissez de répondre « non » à la question « Cet article vous a-t-il été utile ? », veuillez ajouter une brève suggestion concernant ce qui manque ou comment cet article peut être amélioré. Merci d’avance !
+
 <!--Image references-->
 
 <!--Article references-->
@@ -79,4 +81,4 @@ En savoir plus sur la [charge de travail de l’entrepôt de données]. Pour com
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

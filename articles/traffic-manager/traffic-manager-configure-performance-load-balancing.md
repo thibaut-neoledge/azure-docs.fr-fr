@@ -51,4 +51,4 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,5 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
 1. Connectez-vous au [portail Azure](http://manage.windowsazure.com). Consultez l'offre d'[évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/) si vous ne possédez pas encore d'abonnement.
 
 2. Dans la barre de commandes en bas de la fenêtre, cliquez sur **Nouveau**.
@@ -11,8 +13,8 @@
 5. Sur la première page **Configuration de la machine virtuelle** :
 
 	- Entrez le **Nom de la machine virtuelle**, par exemple, « testlinuxvm ».
-	- Vérifiez le **Niveau** et choisissez une **Taille**. Le niveau détermine les tailles que vous pouvez choisir. La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, consultez [Tailles de machines virtuelles](../articles/virtual-machines-size-specs.md).
-	- Entrez un **nouveau nom d'utilisateur** ou acceptez la valeur par défaut, **azureuser**. Ce nom est ajouté au fichier de liste Sudoers.
+	- Vérifiez le **Niveau** et choisissez une **Taille**. Le niveau détermine les tailles que vous pouvez choisir. La taille d'une machine virtuelle affecte son coût d'utilisation, ainsi que les options de configuration comme le nombre de disques de données que vous pouvez joindre. Pour en savoir plus, consultez la rubrique [Tailles de machines virtuelles](../articles/virtual-machines-size-specs.md).
+	- Entrez un **nouveau nom d’utilisateur** ou acceptez la valeur par défaut, **azureuser**. Ce nom est ajouté au fichier de liste Sudoers.
 	- Déterminez le type d’**Authentification** à utiliser. Pour obtenir des instructions générales sur les mots de passe, consultez la rubrique [Mots de passe forts](http://msdn.microsoft.com/library/ms161962.aspx).
 
 6. Sur la page **Configuration de la machine virtuelle** suivante :
@@ -26,7 +28,7 @@
 
 7.	Sur la dernière page **Configuration de la machine virtuelle**, conservez les paramètres par défaut et cliquez sur la coche pour terminer.
 
-Le portail répertorie la nouvelle machine virtuelle sous **Machines virtuelles**. Tant que l'état indiqué est **(Approvisionnement)**, la machine virtuelle est en cours de configuration. Lorsque l'état indiqué est **En cours d'exécution**, vous pouvez passer à l'étape suivante.
+Le portail répertorie la nouvelle machine virtuelle sous **Machines virtuelles**. Tant que l’état indiqué est **(Approvisionnement)**, la machine virtuelle est en cours de configuration. Lorsque l’état indiqué est **En cours d’exécution**, vous pouvez passer à l’étape suivante.
 
 ##Connexion à la machine virtuelle
 
@@ -38,7 +40,7 @@ Vous allez utiliser SSH ou PuTTY pour vous connecter à la machine virtuelle, se
 
 	Tapez le mot de passe de l’utilisateur.
 
-- À partir d'un ordinateur exécutant Windows, utilisez PuTTY. S'il n'est pas installé, téléchargez-le à partir de la [page de téléchargement de PuTTY][PuTTYDownload].
+- À partir d'un ordinateur exécutant Windows, utilisez PuTTY. S’il n’est pas installé, téléchargez-le à partir de la [page de téléchargement de PuTTY][PuTTYDownload].
 
 	Enregistrez **putty.exe** dans un répertoire de votre ordinateur. Ouvrez une invite de commande, accédez à ce dossier, puis exécutez **putty.exe**.
 
@@ -62,4 +64,4 @@ Vous allez utiliser SSH ou PuTTY pour vous connecter à la machine virtuelle, se
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

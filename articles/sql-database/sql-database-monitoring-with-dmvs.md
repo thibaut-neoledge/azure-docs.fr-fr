@@ -33,20 +33,18 @@ Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et
 
 Dans la base de données SQL, l’interrogation d’une vue de gestion dynamique nécessite des autorisations **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES**. L’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** renvoie des informations sur tous les objets de la base de données active. Pour accorder l’autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** à un utilisateur de base de données spécifique, exécutez la requête suivante :
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
-Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient des informations sur l'état du serveur. Dans Base de données SQL, elles renvoient des informations relatives à votre base de données logique actuelle.
+Dans une instance de SQL Server local, des vues de gestion dynamiques renvoient des informations sur l’état du serveur. Dans Base de données SQL, elles renvoient des informations relatives à votre base de données logique actuelle.
 
 ## Calcul de la taille de la base de données
 
-La requête suivante renvoie la taille de votre base de données en mégaoctets:
+La requête suivante renvoie la taille de votre base de données en mégaoctets :
 
 ```
--- Calcule la taille de la base de données. 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats; 
+-- Calculates the size of the database. 
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats; 
 GO
 ```
 
@@ -78,11 +76,11 @@ JOIN sys.dm_exec_sessions AS s
 WHERE c.session_id = @@SPID;
 ```
 
-> [AZURE.NOTE]Lors de l’exécution de **sys.dm\_exec\_requests** et **vues sys.dm\_exec\_sessions**, si l’utilisateur dispose d’une autorisation **AFFICHER L'ÉTAT DE LA BASE DE DONNÉES** sur la base de données, l’utilisateur voit toutes les sessions en cours d’exécution sur la base de données ; sinon, l’utilisateur voit uniquement la session en cours.
+> [AZURE.NOTE]Lors de l’exécution de **sys.dm\_exec\_requests** et **vues sys.dm\_exec\_sessions**, si l’utilisateur dispose d’une autorisation **AFFICHER L’ÉTAT DE LA BASE DE DONNÉES** sur la base de données, l’utilisateur voit toutes les sessions en cours d’exécution sur la base de données. Sinon, il voit uniquement la session en cours.
 
 ## Analyse des performances des requêtes
 
-Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Dépannage des problèmes de performances dans SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
+Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Résolution des problèmes de performances dans SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
 
 ### Recherche des N premières requêtes
 
@@ -137,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Présentation de la base de données SQL](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

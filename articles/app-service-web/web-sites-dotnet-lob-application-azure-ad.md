@@ -61,7 +61,6 @@ L’exemple d’application présenté dans ce didacticiel, [WebApp-GroupClaims-
 ![](./media/web-sites-dotnet-lob-application-azure-ad/role-management.png)
 
 <a name="bkmk_run" />
-
 ## Exécution de l’exemple d’application ##
 
 1.	Clonez ou téléchargez l’exemple de solution depuis [WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet) dans votre répertoire local.
@@ -150,11 +149,8 @@ Ici, vous allez publier l’application sur une application web dans Azure App S
 	<pre class="prettyprint">
 &lt;appSettings>
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-
 &lt;/appSettings></pre>Assurez-vous que la valeur ida:PostLogoutRedirectUri se termine par une barre oblique « / ».
 
 1. Cliquez avec le bouton droit sur votre projet et sélectionnez **Publier**.
@@ -271,7 +267,6 @@ public class WorkItemsController : Controller
     &lt;div class="form-horizontal">
         &lt;h4>WorkItem&lt;/h4>
         &lt;hr />
-
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         &lt;div class="form-group">
@@ -308,7 +303,6 @@ public class WorkItemsController : Controller
         &lt;div class="form-group">
             &lt;div class="col-md-offset-2 col-md-10">
                 &lt;input type="submit" value="Create" class="btn btn-default" <mark>id="submit-button"</mark> />
-
             &lt;/div>
         &lt;/div>
     &lt;/div>
@@ -368,4 +362,4 @@ Maintenant que vous avez configuré les autorisations et la fonctionnalité mét
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

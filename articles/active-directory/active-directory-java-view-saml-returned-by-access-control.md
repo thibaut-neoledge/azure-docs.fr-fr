@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="09/22/2015"
+    ms.date="10/12/2015" 
     ms.author="robmcm" />
 
 # Affichage des données SAML (Security Assertion Markup Language) renvoyées par Azure Access Control Service
@@ -24,7 +24,7 @@ Ce guide explique comment afficher les données SAML (Security Assertion Markup 
 
 Pour plus d'informations sur ACS, consultez la section [Étapes suivantes](#next_steps).
 
-> [AZURE.NOTE]Le filtre ACS Azure (par Microsoft Open Technologies) est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft Open Technologies, Inc. ou Microsoft.
+> [AZURE.NOTE]Le filtre ACS Azure est une version préliminaire de la technologie destinée à la communauté. En tant que logiciel préliminaire, il n'est pas officiellement pris en charge par Microsoft.
 
 ## Composants requis
 
@@ -195,4 +195,4 @@ Pour en savoir plus sur les fonctionnalités ACS et découvrir des scénarios pl
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

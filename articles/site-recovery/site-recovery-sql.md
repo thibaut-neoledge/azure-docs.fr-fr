@@ -148,16 +148,111 @@ La figure suivante illustre cette configuration.
 
 
 
-##Créer des plans de récupération
+##Intégration à SQL AlwaysOn sur Azure
 
-Les plans de récupération regroupent des ordinateurs qui doivent basculer ensemble. Pour en savoir plus, consultez [Plans de récupération](site-recovery-create-recovery-plans.md) et [Basculement](site-recovery-failover.md) avant de commencer.
+Azure Site Recovery (ASR) prend en charge SQL AlwaysOn en mode natif. Si vous avez créé un groupe de disponibilité SQL avec une machine virtuelle Azure configurée comme « Secondaire », vous pouvez utiliser ASR pour gérer le basculement des groupes de disponibilité.
+
+Cette fonctionnalité est actuellement en version préliminaire et disponible lorsque le centre de données principal est géré par System Center Virtual Machine Manager (VMM).
+
+### Environnements gérés par le serveur VMM
+Si vous accédez à l’intérieur d’un coffre ASR, vous devez voir un onglet pour les serveurs SQL sous l’onglet Éléments protégés.
+
+![Éléments protégés](./media/site-recovery-sql/protected-items.png)
+
+Voici la procédure permettant d’intégrer SQL AlwaysOn à ASR.
+
+#### Configuration requise
+- Un serveur SQL Server local sur un serveur autonome ou un cluster de basculement 
+- Une ou plusieurs machines virtuelles Azure sur lesquelles est installé SQL Server.
+- Groupe de disponibilité SQL configuré entre le serveur SQL Server local et celui exécuté dans Azure
+- La communication à distance PowerShell doit être activée sur le serveur SQL Server local. Le serveur VMM doit pouvoir effectuer des appels PowerShell vers le serveur SQL Server.
+- Sur le serveur SQL Server local, un compte d’utilisateur doit être ajouté dans les groupes d’utilisateurs SQL avec au minimum les autorisations suivantes.
+	- MODIFIER LE GROUPE DE DISPONIBILITÉ - [référence 1](https://msdn.microsoft.com/fr-FR/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/fr-FR/library/ff878601.aspx#Anchor_3)
+	- MODIFIER LA BASE DE DONNÉES - [référence 1](https://msdn.microsoft.com/fr-FR/library/ff877956.aspx#Security)
+- Un compte d’identification doit être créé sur le serveur VMM du compte à l’étape précédente.
+- Le module SQL PS doit être installé sur les serveurs SQL Server exécutés en local et sur des machines virtuelles Azure.
+- L’agent de machine virtuelle doit être installé sur les machines virtuelles exécutées dans Azure.
+- NTAUTHORITY\\System doit comporter les autorisations suivantes sur le serveur SQL Server exécuté sur les machines virtuelles dans Azure.
+	- MODIFIER LE GROUPE DE DISPONIBILITÉ - [référence 1](https://msdn.microsoft.com/fr-FR/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/fr-FR/library/ff878601.aspx#Anchor_3)
+	- MODIFIER LA BASE DE DONNÉES - [référence 1](https://msdn.microsoft.com/fr-FR/library/ff877956.aspx#Security)
+
+#### Ajout d’un serveur SQL Server
+
+Cliquez sur Ajouter un serveur SQL pour ajouter un nouveau serveur SQL Server.
+
+![Ajouter un serveur SQL](./media/site-recovery-sql/add-sql.png)
+
+Indiquez les informations relatives au serveur SQL Server et à VMM, ainsi que les informations d’identification à utiliser pour gérer le serveur SQL Server.
+
+![Boîte de dialogue Ajouter un serveur SQL](./media/site-recovery-sql/add-sql-dialog.png)
+
+##### Paramètres
+1. Nom : nom convivial que vous voulez indiquer pour faire référence à ce serveur SQL Server
+2. SQL Server (FQDN) : nom de domaine complet (FQDN) du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster. 
+3. Instance SQL Server : choisissez l’instance SQL par défaut ou indiquez le nom de l’instance SQL personnalisée.
+4. Serveur VMM  sélectionnez l’un des serveurs VMM déjà inscrits auprès d’Azure Site Recovery (ASR). ASR utilisera ce serveur VMM pour communiquer avec le serveur SQL Server.
+5. COMPTE D’IDENTIFICATION : indiquez le nom de l’un comptes d’identification créés sur le serveur VMM sélectionné ci-dessus. Ce compte d’identification sera utilisé pour accéder au serveur SQL Server et devra être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur le serveur SQL Server. 
+
+Une fois ajouté, le serveur SQL Server doit apparaître sous l’onglet Serveurs SQL Server.
+
+![Liste des serveurs SQL Server](./media/site-recovery-sql/sql-server-list.png)
+
+#### Ajout d’un groupe de disponibilité SQL
+
+Une fois le serveur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à ASR. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL.
+
+![Ajouter un groupe de disponibilité SQL](./media/site-recovery-sql/add-sqlag.png)
+
+Le groupe de disponibilité SQL peut répliquer sur une ou plusieurs machines virtuelles dans Azure. Lors de l’ajout d’un groupe de disponibilité SQL, vous devez fournir le nom et l’abonnement de la machine virtuelle Azure sur laquelle vous voulez que ASR bascule le groupe de disponibilité.
+
+![Boîte de dialogue Ajouter un groupe de disponibilité SQL](./media/site-recovery-sql/add-sqlag-dialog.png)
+
+Dans l’exemple ci-dessus, le groupe de disponibilité DB1-AG devient Principal sur la machine virtuelle SQLAGVM2 exécutée au sein de l’abonnement DevTesting2 sur un basculement.
+
+>[AZURE.NOTE]Seuls les groupes de disponibilité ayant le statut Principal sur le serveur SQL Server ajouté à l’étape précédente peuvent être ajoutés à ASR. Si vous avez défini un groupe de disponibilité comme principal sur le serveur SQL Server ou si vous avez ajouté d’autres groupes de disponibilité au serveur SQL Server une fois celui-ci ajouté, actualisez-le à l’aide de l’option Actualiser figurant dans le serveur SQL Server.
+
+#### Création d’un plan de récupération
+
+L’étape suivante consiste à créer un plan de récupération à l’aide des machines virtuelles et des groupes de disponibilité. Sélectionnez le serveur VMM utilisé à l’étape 1 comme source, et Microsoft Azure comme cible.
+
+![Créer un plan de récupération](./media/site-recovery-sql/create-rp1.png)
+
+![Créer un plan de récupération](./media/site-recovery-sql/create-rp2.png)
+
+Dans l’exemple, l’application Sharepoint est composée de 3 machines virtuelles qui utilisent un groupe de disponibilité SQL comme serveur principal. Dans ce plan de récupération, vous pouvez sélectionner à la fois le groupe de disponibilité et la machine virtuelle qui composent l’application.
+
+Vous pouvez personnaliser davantage le plan de récupération en déplaçant les machines virtuelles vers d’autres groupes de basculement pour définir l’ordre du basculement. Le groupe de disponibilité est toujours basculé en premier, étant donné qu’il peut être utilisé comme serveur principal d’une application.
+
+![Personnaliser un plan de récupération](./media/site-recovery-sql/customize-rp.png)
+
+#### Basculement
+
+Différentes options de basculement sont disponibles une fois le groupe de disponibilité ajouté à un plan de récupération.
+
+##### Basculement planifié
+
+Un basculement planifié implique un basculement sans perte de données. Pour cela, le mode de disponibilité du groupe de disponibilité SQL est d’abord défini sur Synchrone, puis un basculement est déclenché pour définir le groupe de disponibilité comme Principal sur la machine virtuelle fournie lors de l’ajout du groupe de disponibilité à ASR. Une fois le basculement terminé, le mode de disponibilité est défini sur la valeur qu’il avait avant le déclenchement du basculement planifié.
+
+##### Basculement non planifié
+
+Un basculement non planifié peut entraîner une perte de données. Lors du déclenchement du basculement non planifié, le mode de disponibilité du groupe de disponibilité n’est pas modifié. Il est défini sur primaire sur la machine virtuelle fournie lors de l’ajout du groupe de disponibilité à ASR. Une fois le basculement non planifié terminé, et le serveur local exécutant SQL Server de nouveau disponible, la réplication inverse doit être déclenchée sur le groupe de disponibilité. Notez que cette action n’est pas disponible sur le plan de récupération et peut être exécutée sur le groupe de disponibilité SQL sous l’onglet Serveurs SQL Server.
+
+##### Test Failover
+Le test de basculement pour le groupe de disponibilité SQL n’est pas pris en charge. Si vous déclenchez un test de basculement pour un plan de récupération contenant un groupe de disponibilité SQL, le basculement est ignoré pour le groupe de disponibilité.
+
+##### Restauration automatique
+
+Si vous voulez définir de nouveau le groupe de disponibilité comme primaire sur le serveur SQL Server local, vous devez déclencher un basculement planifié sur le plan de récupération et choisir le sens de Microsoft Azure vers le serveur VMM local.
+
+##### Réplication inverse
+
+Après un basculement non planifié, la réplication inverse doit être déclenchée sur le groupe de disponibilité pour reprendre la réplication. La réplication est interrompue jusqu’à ce que cette opération soit terminée.
 
 
-### Créer un plan de récupération pour les clusters SQL Server (SQL Server 2012/2014 Enterprise)
+### Environnements non gérés par VMM
 
-#### Configurer des scripts SQL Server pour le basculement vers Azure
+Pour les environnements qui ne sont pas gérés par un serveur VMM, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script. Pour configurer cela, procédez comme suit :
 
-Dans ce scénario, nous utilisons des scripts personnalisés et Azure Automation pour configurer un basculement par script des groupes de disponibilité SQL Server.
 
 1.	Créez un fichier local pour le script qui bascule un groupe de disponibilité. Cet exemple de script spécifie le chemin d'accès au groupe de disponibilité sur le réplica Azure et le bascule vers cette instance de réplica. Ce script s’exécutera sur l’ordinateur virtuel du réplica SQL Server par l’intermédiaire de l'extension de script personnalisé.
 
@@ -243,120 +338,25 @@ Dans ce scénario, nous utilisons des scripts personnalisés et Azure Automation
 
 2. Lorsque vous créez un plan de récupération pour l'application, ajoutez une étape de script « démarrage avant le groupe 1 » qui exécute le script qui bascule des groupes de disponibilité.
 
-### Créer un plan de récupération pour les clusters SQL Server (Standard)
-
-#### Configurer des scripts SQL Server pour le basculement vers Azure
-
-1.	Créez un fichier local de script pour le basculement de la copie miroir de la base de données SQL Server. Utilisez cet exemple de script.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Chargez le script dans un objet blob d’un compte de stockage Azure. Utilisez cet exemple de script.
-
-    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-
-3.	Créez un runbook Azure Automation pour appeler le script sur l'ordinateur virtuel du réplica SQL Server dans Azure. Pour ce faire, utilisez cet exemple de script. Pour en savoir plus sur l'utilisation de runbooks d'automatisation dans les plans de récupération, [cliquez ici](site-recovery-runbook-automation.md). Auparavant, vérifiez que l'agent d’ordinateur virtuel s’exécute sur l’ordinateur virtuel SQL Server basculé.
-
-    	workflow SQLAvailabilityGroupFailover
-		{
-    		param (
-        		[Object]$RecoveryPlanContext
-    		)
-
-    	$Cred = Get-AutomationPSCredential -name 'AzureCredential'
-	
-    	#Connect to Azure
-    	$AzureAccount = Add-AzureAccount -Credential $Cred
-    	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-    	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-    
-    	InLineScript
-    	{
-     	#Update the script with name of your storage account, key and blob name
-     	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
-     	$sasuri = New-AzureStorageBlobSASToken -Container "script-container" -Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-     
-     	Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-               
-     	if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
-       		{
-           		#Skipping TFO in this version.
-           		#We will update the script in a follow-up post with TFO support
-           		Write-output "tfo: Skipping SQL Failover";
-       		}
-     	else
-       			{
-           		Write-output "pfo/ufo";
-           		#Get the SQL Azure Replica VM.
-           		#Update the script to use the name of your VM and Cloud Service
-           		$VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-       
-           		Write-Output "Installing custom script extension"
-           		#Install the Custom Script Extension on teh SQL Replica VM
-           		Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM; 
-                    
-           		Write-output "Starting AG Failover";
-           		#Execute the SQL Failover script
-           		#Pass the SQL AG path as the argument.
-       
-           		$AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-       
-           		Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-       
-           		Write-output "Completed AG Failover";
-
-       			}
-        
-    		}
-		}
-
-
-
-4. Ajoutez les étapes suivantes au plan de récupération pour basculer la couche SQL Server :
-
-	- Pour un basculement planifié, ajoutez un script primaire qui arrête le cluster primaire après l’arrêt du groupe.
-	- Ajoutez l’ordinateur virtuel contenant la copie miroir de la base de données SQL Server au plan de récupération, de préférence dans le premier groupe de démarrage.
-3.	Ajoutez un script de post-basculement pour basculer vers la copie miroir stockée dans cet ordinateur virtuel, à l’aide du script d'automatisation ci-dessus. Notez que, comme le nom de l’instance de base de données va être modifié, il faudra reconfigurer la couche applicative pour qu’elle utilise la nouvelle base de données.
-
-
-#### Configurer des scripts SQL Server pour le basculement vers un site secondaire
-
-1.	Ajoutez cet exemple de script à la bibliothèque VMM sur les sites primaire et secondaire.
-
-    	Param(
-    	[string]$database
-    	)
-    	Import-module sqlps
-    	Invoke-sqlcmd –query “ALTER DATABASE $database SET PARTNER FORCE_SERVICE_ALLOW_DATA_LOSS”
-
-2.	Ajoutez l’ordinateur virtuel contenant la copie miroir de la base de données SQL Server au plan de récupération, de préférence dans le premier groupe de démarrage.
-3.	Ajoutez un script de post-basculement pour basculer la copie miroir stockée dans cet ordinateur virtuel à l’aide du script VMM ci-dessus. Notez que, comme le nom de l’instance de base de données va être modifié, il faudra reconfigurer la couche applicative pour qu’elle utilise la nouvelle base de données.
-
-
-
-
 
 ## Considérations en matière de test de basculement
 
 Si vous utilisez des groupes de disponibilité AlwaysOn, vous ne pouvez pas tester le basculement de la couche SQL Server. En guise d'alternative, considérez ces options :
 
-- Option 1 :
+###Option 1 :
 
-	1. Effectuez un test de basculement de l'application et des couches frontales.
-	2. Mettez à jour la couche applicative pour accéder à la copie du réplica en lecture seule et effectuez un test en lecture seule de l'application.
 
-- Option 2 :
+
+1. Effectuez un test de basculement de l'application et des couches frontales.
+
+2. Mettez à jour la couche applicative pour accéder à la copie du réplica en lecture seule et effectuez un test en lecture seule de l'application.
+
+###Option 2 :
+
 1.	Créez une copie de l'instance d’ordinateur virtuel SQL Server répliquée (à l'aide de clone VMM pour la sauvegarde Azure ou de site à site), et copiez-la dans un réseau de test.
 2.	Testez le basculement à l'aide du plan de récupération.
 
-## Considérations en matière de restauration automatique
 
-Pour les clusters SQL standard, la restauration automatique après un basculement non planifié nécessite une sauvegarde SQL Server, une restauration à partir de l'instance miroir sur le cluster d'origine, puis le rétablissement de la copie miroir.
 
 
 
@@ -364,4 +364,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

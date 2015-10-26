@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Créer et gérer la base de données SQL Azure avec C#"
-	description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque de base de données SQL Azure pour .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Créer et gérer la base de données SQL Azure avec C#" 
+   description="Cet article vous montre comment créer et gérer une base de données SQL Azure à l’aide de la bibliothèque de base de données SQL Azure pour .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="08/25/2015"
+   ms.author="sstein"/>
 
 # Créer et gérer la base de données SQL avec C&#x23;
 
@@ -65,7 +65,7 @@ Pour créer une application et l’inscrire dans le répertoire actif correct, p
 
 2. Sélectionnez le répertoire pour authentifier votre application et cliquez sur son **Nom**.
 
-    ![Répertoires][4]
+    ![Annuaires][4]
 
 3. Dans la page du répertoire, cliquez sur **APPLICATIONS**.
 
@@ -798,4 +798,4 @@ Pour supprimer un groupe de ressources :
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

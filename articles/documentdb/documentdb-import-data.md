@@ -7,7 +7,6 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
-
 
 # Importation de données vers DocumentDB #
 
@@ -131,7 +129,7 @@ Le format de la chaîne de connexion est le format de chaîne de connexion SQL s
 
 La propriété du séparateur d'imbrication est utilisée pour créer des relations hiérarchiques (sous-documents) lors de l'importation. Examinez la requête SQL suivante :
 
-*select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType\], AddressLine1 as [Address.AddressLine1\], City as [Address.Location.City\], StateProvinceName as [Address.Location.StateProvinceName\], PostalCode as [Address.PostalCode\], CountryRegionName as [Address.CountryRegionName\] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'*
+*select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'*
 
 Cette requête retourne les résultats (partiels) suivants :
 
@@ -300,11 +298,11 @@ Le format de la chaîne de connexion DocumentDB est :
 
 > [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance DocumentDB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin\]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
+Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
 
-1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3\] produit les collections suivantes : collection0, collection1, collection2, collection3.
-2. Vous pouvez utiliser une syntaxe abrégée : collection[3\], qui émet le même jeu de collections que celui mentionné à l'étape 1.
-3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1\] [0-9\] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
+1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] produit les collections suivantes : collection0, collection1, collection2, collection3.
+2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
+3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1] [0-9] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
 
 Une fois que les noms de la collection ont été spécifiés, choisissez le niveau de tarification souhaité des collections (S1, S2 ou S3). Pour de meilleures performances d'importation, choisissez S3. Cliquez [ici](documentdb-performance-levels.md) pour en savoir plus sur les niveaux de performances DocumentDB.
 
@@ -352,11 +350,11 @@ Le format de la chaîne de connexion DocumentDB est :
 
 > [AZURE.NOTE]Utilisez la commande Verify pour vous assurer que l'instance DocumentDB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin\]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
+Pour importer dans seule collection, entrez le nom de la collection dans laquelle les données seront importées et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe\_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections via la syntaxe ci-dessus, n'oubliez pas les points suivants :
 
-1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3\] produit les collections suivantes : collection0, collection1, collection2, collection3.
-2. Vous pouvez utiliser une syntaxe abrégée : collection[3\], qui émet le même jeu de collections que celui mentionné à l'étape 1.
-3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1\] [0-9\] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
+1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] produit les collections suivantes : collection0, collection1, collection2, collection3.
+2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui émet le même jeu de collections que celui mentionné à l'étape 1.
+3. Plusieurs substitutions peuvent être fournies. Par exemple, collection[0-1] [0-9] génère 20 noms de collection avec des zéros non significatifs (collection01, ..02, ..03).
 
 Une fois que les noms de la collection ont été spécifiés, choisissez le niveau de tarification souhaité des collections (S1, S2 ou S3). Pour de meilleures performances d'importation, choisissez S3. Cliquez [ici](documentdb-performance-levels.md) pour en savoir plus sur les niveaux de performances DocumentDB.
 
@@ -479,4 +477,4 @@ Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

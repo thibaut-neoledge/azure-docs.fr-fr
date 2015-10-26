@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analyse des données sur les retards de vol avec Hadoop dans HDInsight | Microsoft Azure" 
-	description="Apprenez à utiliser un script Windows PowerShell pour configurer un cluster HDInsight, exécuter une tâche Hive, exécuter une tache Sqoop et supprimer le cluster." 
+	pageTitle="Analyse des données sur les retards de vol avec Hive dans HDInsight basé sur Linux | Microsoft Azure" 
+	description="Découvrez comment utiliser Hive pour analyser les données sur les retards de vol à l’aide de HDInsight basé sur Linux, puis exporter les données vers une base de données SQL à l’aide de Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Analyse des données sur les retards de vol avec Hive dans HDInsight
@@ -305,4 +305,4 @@ Vous savez à présent télécharger un fichier vers le stockage d’objets blob
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

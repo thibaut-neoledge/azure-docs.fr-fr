@@ -150,4 +150,4 @@ Toutes les raisons d'utiliser la mise en file d’attente décrites dans [Créat
 
 Consultez la section [Création d'applications qui utilisent des rubriques et des abonnements Service Bus](service-bus-create-topics-subscriptions.md) pour voir comment utiliser des files d'attente dans le scénario de vente au détail de PDV.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

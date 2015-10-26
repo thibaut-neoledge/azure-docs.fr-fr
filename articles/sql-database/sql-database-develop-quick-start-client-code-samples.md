@@ -94,4 +94,4 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 - [Créer votre première base de données SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 ici, EF 7 sur GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

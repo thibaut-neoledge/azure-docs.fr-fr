@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights : détection proactive d’anomalies"
-	description="Application Insights réalise une analyse télémétrique approfondie de votre application et vous avertit des éventuels problèmes de performances."
-	services="application-insights"
-	documentationCenter="windows"
-	authors="alancameronwills"
+	pageTitle="Application Insights : détection proactive d’anomalies" 
+	description="Application Insights réalise une analyse télémétrique approfondie de votre application et vous avertit des éventuels problèmes de performances." 
+	services="application-insights" 
+    documentationCenter="windows"
+	authors="alancameronwills" 
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights : détection proactive d’anomalies
@@ -86,4 +86,4 @@ Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

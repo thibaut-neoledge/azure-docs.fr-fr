@@ -10,4 +10,4 @@
 
     Les deux contrôleurs redémarrent. Une fois le redémarrage terminé, un autre message indique que le périphérique est en mode normal.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

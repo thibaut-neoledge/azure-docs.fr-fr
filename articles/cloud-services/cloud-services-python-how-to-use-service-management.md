@@ -34,7 +34,7 @@ Pour vous connecter au point de terminaison de la gestion de services, vous avez
 > [AZURE.NOTE]À partir du Kit de développement logiciel (SDK) Azure pour Python v0.8.0, il est maintenant possible d'utiliser des certificats créés avec OpenSSL sous Windows. Ceci nécessite Python 2.7.4 ou version ultérieure. Nous recommandons aux utilisateurs d’utiliser OpenSSL au lieu de .pfx, car la prise en charge des certificats .pfx risque de disparaître à l’avenir.
 
 ### Certificats de gestion sur Windows/Mac/Linux (OpenSSL)
-Vous pouvez utiliser [OpenSSL](http://www.openssl.org/) pour créer votre certificat de gestion. En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem`, exécutez le code suivant :
+Vous pouvez utiliser [OpenSSL](http://www.openssl.org/) pour créer votre certificat de gestion. En fait, vous devez créer deux certificats, un pour le serveur (un fichier `.cer`) et un pour le client (un fichier `.pem`). Pour créer le fichier `.pem`￼￼￼, exécutez le code suivant :
 
 	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -44,7 +44,7 @@ Pour créer le certificat `.cer`, exécutez le code suivant :
 
 Pour plus d'informations sur les certificats Azure, consultez la rubrique [Gestion des certificats dans Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Pour une description complète des paramètres OpenSSL, consultez la documentation disponible sur [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Une fois ces fichiers créés, vous devez télécharger le fichier`.cer` sur Azure au moyen de l’action Télécharger de l’onglet Paramètres dans le [portail de gestion][management-portal]. Pensez également à noter l’endroit où vous avez enregistré le fichier `.pem`.
+Une fois ces fichiers créés, vous devez télécharger le fichier`.cer`￼￼￼ sur Azure au moyen de l’action Télécharger de l’onglet Paramètres dans le [portail de gestion][management-portal]. Pensez également à noter l’endroit où vous avez enregistré le fichier `.pem`.
 
 Une fois que vous avez obtenu votre ID d’abonnement, créé un certificat et téléchargé le fichier `.cer` sur Azure, vous pouvez vous connecter au point de terminaison de gestion Azure en transmettant l’ID d’abonnement et le chemin du fichier `.pem` vers **ServiceManagementService** :
 
@@ -64,7 +64,7 @@ Vous pouvez créer un certificat de gestion auto-signé sur votre machine au moy
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-La commande va créer le fichier `.cer` et l’installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+La commande va créer le fichier `.cer`￼￼￼ et l’installer dans le magasin de certificats **Personnel**. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Windows Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
 
 Une fois le certificat créé, vous devez télécharger le fichier `.cer` sur Azure via l’action Télécharger de l’onglet Paramètres dans le [portail de gestion][management-portal].
 
@@ -82,7 +82,7 @@ Dans l’exemple ci-dessus, `sms` est un objet **ServiceManagementService**. La 
 
 ## <a name="ListAvailableLocations"> </a>Affichage de la liste des emplacements disponibles
 
-Pour afficher la liste des emplacements disponibles pour les services d'hébergement, utilisez la méthode **list_locations** :
+Pour afficher la liste des emplacements disponibles pour les services d'hébergement, utilisez la méthode **list\_locations** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -93,7 +93,7 @@ Pour afficher la liste des emplacements disponibles pour les services d'héberge
 	for location in result:
 		print(location.name)
 
-Quand vous créez un service cloud ou un service de stockage, vous devez fournir un emplacement valide. La méthode **list_locations** renvoie toujours une liste à jour des emplacements disponibles actuellement. Lors de la rédaction de cet article, les emplacements disponibles étaient les suivants :
+Quand vous créez un service cloud ou un service de stockage, vous devez fournir un emplacement valide. La méthode **list\_locations** renvoie toujours une liste à jour des emplacements disponibles actuellement. Lors de la rédaction de cet article, les emplacements disponibles étaient les suivants :
 
 - Europe de l'Ouest
 - Europe du Nord
@@ -112,7 +112,7 @@ Quand vous créez un service cloud ou un service de stockage, vous devez fournir
 
 ## <a name="CreateCloudService"> </a>Création d’un service cloud
 
-Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create_hosted_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
+Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemble constitué du code et de la configuration est appelé [service cloud] Azure (également connu sous le nom de *service hébergé* dans les versions antérieures d'Azure). La méthode **create\_hosted\_service** vous permet de créer un service hébergé en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -126,7 +126,7 @@ Lorsque vous créez une application et que vous l'exécutez dans Azure, l'ensemb
 
 	sms.create_hosted_service(name, label, desc, location)
 
-Vous pouvez afficher la liste de tous les services hébergés pour votre abonnement au moyen de la méthode **list_hosted_services** :
+Vous pouvez afficher la liste de tous les services hébergés pour votre abonnement au moyen de la méthode **list\_hosted\_services** :
 
 	result = sms.list_hosted_services()
 
@@ -136,7 +136,7 @@ Vous pouvez afficher la liste de tous les services hébergés pour votre abonnem
 		print('Location: ' + hosted_service.hosted_service_properties.location)
 		print('')
 
-Si vous souhaitez obtenir des informations sur un service hébergé particulier, transmettez son nom à la méthode **get_hosted_service_properties** :
+Si vous souhaitez obtenir des informations sur un service hébergé particulier, transmettez son nom à la méthode **get\_hosted\_service\_properties** :
 
 	hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -144,11 +144,11 @@ Si vous souhaitez obtenir des informations sur un service hébergé particulier,
 	print('Management URL: ' + hosted_service.url)
 	print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Une fois que vous avez créé un service cloud, vous pouvez déployer votre code sur le service avec la méthode **create_deployment**.
+Une fois que vous avez créé un service cloud, vous pouvez déployer votre code sur le service avec la méthode **create\_deployment**.
 
 ## <a name="DeleteCloudService"> </a>Suppression d’un service cloud
 
-Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **delete_hosted_service** :
+Vous pouvez supprimer un service cloud en transmettant son nom à la méthode **delete\_hosted\_service** :
 
 	sms.delete_hosted_service('myhostedservice')
 
@@ -156,7 +156,7 @@ Notez qu'avant de supprimer un service, vous devez supprimer tous les déploieme
 
 ## <a name="DeleteDeployment"> </a>Suppression d’un déploiement
 
-Pour supprimer un déploiement, utilisez la méthode **delete_deployment**. L’exemple suivant indique comment supprimer un déploiement nommé `v1`.
+Pour supprimer un déploiement, utilisez la méthode **delete\_deployment**. L’exemple suivant indique comment supprimer un déploiement nommé `v1`.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -184,9 +184,9 @@ Un [service de stockage] vous donne accès aux [objets blob][azure-blobs], [tabl
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Dans l'exemple ci-dessus, notez que l'état de l'opération **create_storage_account** peut être extrait en transmettant le résultat renvoyé par **create_storage_account** à la méthode **get_operation_status**.
+Dans l'exemple ci-dessus, notez que l'état de l'opération **create\_storage\_account** peut être extrait en transmettant le résultat renvoyé par **create\_storage\_account** à la méthode **get\_operation\_status**.
 
-Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés avec la méthode **list_storage_accounts** :
+Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés avec la méthode **list\_storage\_accounts** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -201,7 +201,7 @@ Vous pouvez afficher la liste de vos comptes de stockage et leurs propriétés a
 
 ## <a name="DeleteStorageService"> </a>Suppression d’un service de stockage
 
-Vous pouvez supprimer un service de stockage en transmettant son nom à la méthode **delete_storage_account** : La suppression d'un service de stockage supprime toutes les données qui y sont stockées (objets blob, tables et files d'attente).
+Vous pouvez supprimer un service de stockage en transmettant son nom à la méthode **delete\_storage\_account** : La suppression d'un service de stockage supprime toutes les données qui y sont stockées (objets blob, tables et files d'attente).
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -212,7 +212,7 @@ Vous pouvez supprimer un service de stockage en transmettant son nom à la méth
 
 ## <a name="ListOperatingSystems"> </a>Affichage de la liste des systèmes d’exploitation disponibles
 
-Pour afficher la liste des systèmes d'exploitation disponibles pour les services d'hébergement, utilisez la méthode **list_operating_systems** :
+Pour afficher la liste des systèmes d'exploitation disponibles pour les services d'hébergement, utilisez la méthode **list\_operating\_systems** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -226,7 +226,7 @@ Pour afficher la liste des systèmes d'exploitation disponibles pour les service
 		print('Family: ' + os.family_label)
 		print('Active: ' + str(os.is_active))
 
-Vous pouvez également utiliser la méthode **list_operating_system_families**, qui regroupe les systèmes d'exploitation par famille :
+Vous pouvez également utiliser la méthode **list\_operating\_system\_families**, qui regroupe les systèmes d'exploitation par famille :
 
 	result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ Vous pouvez également utiliser la méthode **list_operating_system_families**, 
 
 ## <a name="CreateVMImage"> </a>Création d’une image du système d’exploitation
 
-Pour ajouter une image du système d'exploitation au référentiel d'images, utilisez la méthode **add_os_image** :
+Pour ajouter une image du système d'exploitation au référentiel d'images, utilisez la méthode **add\_os\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Pour ajouter une image du système d'exploitation au référentiel d'images, uti
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Pour afficher la liste des images de système d'exploitation qui sont disponibles, utilisez la méthode **list_os_images**. Cela inclut toutes les images de plateforme et les images utilisateur :
+Pour afficher la liste des images de système d'exploitation qui sont disponibles, utilisez la méthode **list\_os\_images**. Cela inclut toutes les images de plateforme et les images utilisateur :
 
 	result = sms.list_os_images()
 
@@ -273,7 +273,7 @@ Pour afficher la liste des images de système d'exploitation qui sont disponible
 
 ## <a name="DeleteVMImage"> </a>Suppression d’une image du système d’exploitation
 
-Pour supprimer une image utilisateur, utilisez la méthode **delete_os_image** :
+Pour supprimer une image utilisateur, utilisez la méthode **delete\_os\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -287,7 +287,7 @@ Pour supprimer une image utilisateur, utilisez la méthode **delete_os_image** 
 
 ## <a name="CreateVM"> </a>Création d’une machine virtuelle
 
-Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](#CreateCloudService). Ensuite, créez le déploiement de machine virtuelle en utilisant la méthode **create_virtual_machine_deployment** :
+Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](#CreateCloudService). Ensuite, créez le déploiement de machine virtuelle en utilisant la méthode **create\_virtual\_machine\_deployment** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -326,7 +326,7 @@ Pour créer une machine virtuelle, vous devez d'abord créer un [service cloud](
 
 ## <a name="DeleteVM"> </a>Suppression d’une machine virtuelle
 
-Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploiement au moyen de la méthode **delete_deployment** :
+Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploiement au moyen de la méthode **delete\_deployment** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -336,13 +336,13 @@ Pour supprimer une machine virtuelle, vous devez d'abord supprimer le déploieme
 	sms.delete_deployment(service_name='myvm',
 		deployment_name='myvm')
 
-Le service cloud peut ensuite être supprimé au moyen de la méthode **delete_hosted_service** :
+Le service cloud peut ensuite être supprimé au moyen de la méthode **delete\_hosted\_service** :
 
 	sms.delete_hosted_service(service_name='myvm')
 
 ##Création d’une machine virtuelle à partir d’une image de machine virtuelle capturée
 
-Pour capturer une image de machine virtuelle, appelez d’abord la méthode **capture_vm_image** :
+Pour capturer une image de machine virtuelle, appelez d’abord la méthode **capture\_vm\_image** :
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -369,11 +369,11 @@ Pour capturer une image de machine virtuelle, appelez d’abord la méthode **ca
 			image
 		)
 
-Ensuite, pour être sûr d’avoir correctement capturé l’image, utilisez l’API **list_vm_images** et vérifiez que votre image est affichée dans les résultats :
+Ensuite, pour être sûr d’avoir correctement capturé l’image, utilisez l’API **list\_vm\_images** et vérifiez que votre image est affichée dans les résultats :
 
 	images = sms.list_vm_images()
 
-Pour créer enfin la machine virtuelle à l’aide de l’image capturée, utilisez la méthode **create_virtual_machine_deployment** comme avant, mais cette fois en passant la méthode vm_image_name à la place.
+Pour créer enfin la machine virtuelle à l’aide de l’image capturée, utilisez la méthode **create\_virtual\_machine\_deployment** comme avant, mais cette fois en passant la méthode vm\_image\_name à la place.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -445,4 +445,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -17,7 +17,8 @@
 	
 #Créer une machine virtuelle Oracle Database dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 L’exemple suivant vous indique comment créer une machine virtuelle sur la base d’une image Oracle Database fournie par Microsoft et exécutée sur Windows Server 2012 dans Azure. La procédure à suivre implique deux étapes. Tout d’abord, créez la machine virtuelle, puis créez l’instance Oracle Database dans la machine virtuelle. L’exemple présenté concerne Oracle Database version 12c, mais les étapes sont presque identiques pour la version 11g.
 
@@ -177,7 +178,7 @@ Pour permettre l’accès à distance à votre base de données (par exemple, à
 ##Activer l’accès à distance à Oracle Database Enterprise Manager
 Si vous souhaitez activer l’accès distant à Oracle Database Enterprise Manager, ouvrez le port 5500 dans votre pare-feu et créez un point de terminaison de machine virtuelle pour le port 5500 dans le portail Azure (utilisez la procédure décrite ci-dessus pour ouvrir le port 1521 et créer un point de terminaison pour le port 1521). Ensuite, pour exécuter Oracle Enterprise Manager à partir de l’ordinateur distant, ouvrez un navigateur et accédez à l’URL `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE]\(Vous pouvez déterminer la valeur de *\<\<unique\_domain\_name\>\>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Virtual Machines**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
+> [AZURE.NOTE](Vous pouvez déterminer la valeur de *<<unique\_domain\_name>>* dans le [Portail Azure](https://ms.portal.azure.com/) en cliquant sur **Virtual Machines**, puis en sélectionnant la machine virtuelle que vous utilisez pour exécuter Oracle Database).
 
 ##Configuration des offres groupées, options populaires et options avancées
 Si vous avez choisi l’offre groupée **Oracle Database avec options populaires** ou **Oracle Database avec options avancées**, l’étape suivante consiste à configurer les fonctionnalités supplémentaires de votre installation Oracle. Pour obtenir des informations concernant la configuration dans Windows, consultez la documentation Oracle, les configurations pouvant fortement varier en fonction de vos besoins concernant chaque composant.
@@ -199,4 +200,4 @@ Maintenant que vous avez configuré votre machine virtuelle et créé votre base
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

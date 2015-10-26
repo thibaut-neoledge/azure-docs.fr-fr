@@ -6,4 +6,4 @@
 
 Vous pouvez demander la mise à jour des limites logicielles en ouvrant un ticket de support.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

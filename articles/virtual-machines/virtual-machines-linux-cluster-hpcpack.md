@@ -20,7 +20,8 @@
 
 Cet article vous montre comment utiliser un script Azure PowerShell pour configurer un cluster Microsoft HPC Pack dans Azure qui contient un nœud principal exécutant Windows Server et plusieurs nœuds de calcul exécutant une distribution Linux CentOS. Nous montrons également plusieurs façons de déplacer des fichiers de données vers des nœuds de calcul Linux. Vous pouvez utiliser ce cluster pour exécuter des charges de travail Linux HPC dans Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Le diagramme général suivant montre le cluster HPC Pack que vous allez créer.
 
@@ -312,4 +313,4 @@ L'outil **clusrun** de HPC Pack permet d'exécuter des commandes sur des nœud
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

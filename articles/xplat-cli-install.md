@@ -21,7 +21,8 @@
 
 Cet article décrit la procédure d’installation de l’interface de ligne de commande Azure (Azure CLI). L’interface de ligne de commande Azure offre un ensemble de commandes shell open source permettant de créer et gérer les ressources dans Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]Cet article traite de la création et de la gestion de ressources avec le modèle de déploiement du Gestionnaire des ressources ou classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 L’interface Azure CLI est écrite en JavaScript et nécessite [Node.js](https://nodejs.org). Elle est implémentée à l’aide du [Kit de développement logiciel (SDK) Azure pour Node](https://github.com/azure/azure-sdk-for-node) et publiée sous licence Apache 2.0. Le référentiel du projet se trouve à la page [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
@@ -155,4 +156,4 @@ Vous avez terminé l’installation. Vous pouvez à présent [vous connecter à 
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

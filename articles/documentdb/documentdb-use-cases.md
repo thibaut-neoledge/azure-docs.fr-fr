@@ -64,11 +64,11 @@ Des paquets de données peuvent être reçus par Azure Event Hubs qui offre un 
 
 Pour un exemple de solution IoT utilisant DocumentDB, EventHubs et Storm, consultez le [référentiel d'exemples de Storm et HDInsight sur GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
-Pour plus d'informations sur les offres Azure pour IoT, consultez [Création de votre Internet des objets](http://www.microsoft.com/fr-fr/server-cloud/internet-of-things.aspx).
+Pour plus d'informations sur les offres Azure pour IoT, consultez [Création de votre Internet des objets](http://www.microsoft.com/fr-FR/server-cloud/internet-of-things.aspx).
 
 ## Étapes suivantes
  
-Pour commencer avec DocumentDB, vous pouvez créer un [compte](http://azure.microsoft.com/pricing/free-trial/) puis suivre notre [guide d'apprentissage](documentdb-learning-map.md) pour en savoir plus sur DocumentDB et trouver les informations que vous avez besoin.
+Pour commencer avec DocumentDB, vous pouvez créer un [compte](http://azure.microsoft.com/pricing/free-trial/) puis suivre notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/learning-paths/documentdb/) pour en savoir plus sur DocumentDB et trouver les informations dont vous avez besoin.
 
 Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consultez les témoignages de clients suivants :
 
@@ -79,4 +79,4 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

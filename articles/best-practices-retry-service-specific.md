@@ -8,7 +8,6 @@
    editor=""
    tags=""/>
 
-
 <tags
    ms.service="best-practice"
    ms.devlang="na"
@@ -17,7 +16,6 @@
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="masashin"/>
-
 
 # Guide spécifique relatif au service de nouvelle tentative
 
@@ -43,7 +41,7 @@ Le tableau suivant récapitule les fonctionnalités de nouvelle tentative pour l
 | **[Active Directory](#azure-active-directory-retry-guidelines)** | Topaz* (avec stratégie de détection personnalisée) | Déclarative et par programme | Blocs de code | Personnalisée |
 **Topaz est le nom familier donné au bloc applicatif de gestion des erreurs temporaires inclus dans <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Vous pouvez utiliser une stratégie de détection personnalisée avec Topaz pour la plupart des types de services, comme décrit dans ce guide. Les stratégies par défaut pour Topaz sont indiquées dans la section [Stratégies du bloc applicatif de gestion des erreurs temporaires (Topaz)](#transient-fault-handling-application-block-topaz-strategies) à la fin de ce guide. Notez que le bloc est maintenant une infrastructure open source et n’est pas directement pris en charge par Microsoft.
 
-> [AZURE.NOTE] Pour la plupart des mécanismes de nouvelle tentative intégrés Azure, il n’existe actuellement aucune manière d’appliquer une autre stratégie de nouvelle tentative selon le type d’erreur ou d’exception au-delà de la fonctionnalité incluse dans la stratégie de nouvelle tentative. Par conséquent, la méthode la plus adaptée au moment de l’écriture du code consiste à configurer une stratégie qui offre les performances et la disponibilité moyennes optimales. Une façon d’ajuster la stratégie consiste à analyser les fichiers journaux pour déterminer le type d’erreurs temporaires qui se produisent. Par exemple, si la plupart des erreurs sont associées à des problèmes de connectivité réseau, vous pourriez tenter immédiatement une nouvelle tentative au lieu d’attendre un certain temps la première nouvelle tentative.
+> [AZURE.NOTE]Pour la plupart des mécanismes de nouvelle tentative intégrés Azure, il n’existe actuellement aucune manière d’appliquer une autre stratégie de nouvelle tentative selon le type d’erreur ou d’exception au-delà de la fonctionnalité incluse dans la stratégie de nouvelle tentative. Par conséquent, la méthode la plus adaptée au moment de l’écriture du code consiste à configurer une stratégie qui offre les performances et la disponibilité moyennes optimales. Une façon d’ajuster la stratégie consiste à analyser les fichiers journaux pour déterminer le type d’erreurs temporaires qui se produisent. Par exemple, si la plupart des erreurs sont associées à des problèmes de connectivité réseau, vous pourriez tenter immédiatement une nouvelle tentative au lieu d’attendre un certain temps la première nouvelle tentative.
 
 ## Instructions relatives aux nouvelles tentatives pour le stockage Azure
 
@@ -109,9 +107,9 @@ Le tableau suivant présente les paramètres par défaut pour les stratégies de
 
 | **Contexte** | **Paramètre** | **Valeur par défaut** | **Signification** |
 |--------------------------|-------------------------------------------------------------|------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Table /Objet Blob/Fichier<br />QueueRequestOptions | MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy | 120 secondes<br /><br />Aucun<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy | Durée d’exécution maximale pour la demande, y compris toutes les nouvelles tentatives potentielles.<br />Intervalle du délai d’attente du serveur pour la demande (la valeur est arrondie aux secondes). Si non spécifié, il utilisera la valeur par défaut pour toutes les demandes au serveur. En règle générale, la meilleure option consiste à omettre ce paramètre afin que le serveur par défaut soit utilisé.<br />Si le compte de stockage est créé avec l’option de duplication du stockage géo-redondant avec accès en lecture (RA-GRS), vous pouvez utiliser le mode de d’emplacement pour indiquer l’emplacement devant recevoir la demande. Par exemple, si **PrimaryThenSecondary** est spécifié, les demandes sont dans un premier temps toujours envoyées vers l’emplacement principal. En cas d’échec, la demande est envoyée vers l’emplacement secondaire.<br />Voir ci-dessous pour obtenir plus d’informations sur chaque option. |
-| Stratégie exponentielle                      | maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff               | 3<br />4 secondes<br /><br /><br />3 secondes<br /><br />30 secondes   | Nombre de nouvelles tentatives.<br />Intervalle de temporisation entre les tentatives. Multiples de ce laps de temps, y compris un élément aléatoire, seront utilisés pour les tentatives suivantes.<br />Ajouté à tous les intervalles des tentatives calculés à partir de deltaBackoff. Cette valeur ne peut pas être modifiée.<br />MaxBackoff est utilisé si l’intervalle des tentatives calculé est supérieur à MaxBackoff. Cette valeur ne peut pas être modifiée.                                                                                                                                                                                                                                                                                                                                                                       |
-| Stratégie linéaire                           | maxAttempt<br />deltaBackoff                                     | 3<br />30 secondes                                 | Nombre de nouvelles tentatives.<br />Intervalle de temporisation entre les tentatives.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Table/Objet Blob/Fichier<br />QueueRequestOptions | MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy | 120 secondes<br /><br />Aucun<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy | Durée d’exécution maximale pour la demande, y compris toutes les nouvelles tentatives potentielles.<br />Intervalle du délai d’attente du serveur pour la demande (la valeur est arrondie aux secondes). Si non spécifié, il utilisera la valeur par défaut pour toutes les demandes au serveur. En règle générale, la meilleure option consiste à omettre ce paramètre afin que le serveur par défaut soit utilisé.<br />Si le compte de stockage est créé avec l’option de duplication du stockage géo-redondant avec accès en lecture (RA-GRS), vous pouvez utiliser le mode de d’emplacement pour indiquer l’emplacement devant recevoir la demande. Par exemple, si **PrimaryThenSecondary** est spécifié, les demandes sont dans un premier temps toujours envoyées vers l’emplacement principal. En cas d’échec, la demande est envoyée vers l’emplacement secondaire.<br />Voir ci-dessous pour obtenir plus d’informations sur chaque option. |
+| Stratégie exponentielle | maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff | 3<br />4 secondes<br /><br /><br />3 secondes<br /><br />30 secondes | Nombre de nouvelles tentatives.<br />Intervalle de temporisation entre les tentatives. Multiples de ce laps de temps, y compris un élément aléatoire, seront utilisés pour les tentatives suivantes.<br />Ajouté à tous les intervalles des tentatives calculés à partir de deltaBackoff. Cette valeur ne peut pas être modifiée.<br />MaxBackoff est utilisé si l’intervalle des tentatives calculé est supérieur à MaxBackoff. Cette valeur ne peut pas être modifiée. |
+| Stratégie linéaire | maxAttempt<br />deltaBackoff | 3<br />30 secondes | Nombre de nouvelles tentatives.<br />Intervalle de temporisation entre les tentatives. |
 
 ### Guide d’utilisation des nouvelles tentatives
 Respectez les consignes suivantes lorsque vous accédez aux services de stockage Azure à l’aide de l’API client de stockage :
@@ -124,10 +122,10 @@ Respectez les consignes suivantes lorsque vous accédez aux services de stockage
 
 Pensez à commencer par les paramètres suivants pour les opérations liées aux nouvelles tentatives. Il s’agit de paramètres généraux. Vous devez par conséquent surveiller les opérations et optimiser les valeurs en fonction de votre propre scénario.
 
-| **Contexte**          | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement**                                                            |
+| **Contexte** | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 |----------------------|-----------------------------------|------------------|-------------------------|-------------|-----------------------------------------------------------------------------|
-| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes                         | Linéaire           | maxAttempt<br />deltaBackoff | 3<br />500 ms    | Tentative 1 - délai 500 ms<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms |
-| Arrière-plan<br />ou lot            | 30 secondes                        | Exponentielle      | maxAttempt<br />deltaBackoff | 5<br />4 secondes | Tentative 1 - délai \~3 sec<br />Tentative 2 - délai \~7 sec<br />Tentative 3 - délai \~15 sec |
+| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | Linéaire | maxAttempt<br />deltaBackoff | 3<br />500 ms | Tentative 1 - délai 500 ms<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms |
+| Arrière-plan<br />ou lot | 30 secondes | Exponentielle | maxAttempt<br />deltaBackoff | 5<br />4 secondes | Tentative 1 - délai ~3 sec<br />Tentative 2 - délai ~7 sec<br />Tentative 3 - délai ~15 sec |
 
 ## Télémétrie
 
@@ -299,12 +297,12 @@ Respectez les consignes suivantes lorsque vous accédez à la base de données S
 
 Pensez à commencer par les paramètres suivants pour les opérations liées aux nouvelles tentatives. Vous ne pouvez pas spécifier le délai entre chaque nouvelle tentative (il est fixe et généré sous la forme d’une séquence exponentielle). Vous ne pouvez spécifier que les valeurs maximales, comme indiqué ici, sauf si vous créez une stratégie de nouvelle tentative personnalisée. Il s’agit de paramètres généraux. Vous devez par conséquent surveiller les opérations et optimiser les valeurs en fonction de votre propre scénario.
 
-| **Contexte**          | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres**           | **Valeurs**   | **Fonctionnement**                                                                                                            |
+| **Contexte** | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 |----------------------|-----------------------------------|--------------------|------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes                         | Exponentielle        | MaxRetryCount<br />MaxDelay | 3<br />750 ms     | Tentative 1 - délai 0 s<br />Tentative 2 - délai 750 ms<br />Tentative 3 - délai 750 ms                                                   |
-| Arrière-plan<br /> ou lot            | 30 secondes                        | Exponentielle        | MaxRetryCount<br />MaxDelay | 5<br />12 secondes | Tentative 1 - délai 0 s<br />Tentative 2 - délai \~1 s<br />Tentative 3 - délai \~3 s<br />Tentative 4 - délai \~7 s<br />Tentative 5 - délai 12 s |
+| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | Exponentielle | MaxRetryCount<br />MaxDelay | 3<br />750 ms | Tentative 1 - délai 0 s<br />Tentative 2 - délai 750 ms<br />Tentative 3 - délai 750 ms |
+| Arrière-plan<br /> ou lot | 30 secondes | Exponentielle | MaxRetryCount<br />MaxDelay | 5<br />12 secondes | Tentative 1 - délai 0 s<br />Tentative 2 - délai ~1 s<br />Tentative 3 - délai ~3 s<br />Tentative 4 - délai ~7 s<br />Tentative 5 - délai 12 s |
 
-> [AZURE.NOTE] Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
+> [AZURE.NOTE]Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
 
 ## Exemples (base de données SQL utilisant Entity Framework 6)
 
@@ -426,12 +424,12 @@ Respectez les consignes suivantes lorsque vous accédez à la base de données S
 
 Pensez à commencer par les paramètres suivants pour les opérations liées aux nouvelles tentatives. Il s’agit de paramètres généraux. Vous devez par conséquent surveiller les opérations et optimiser les valeurs en fonction de votre propre scénario.
 
-| **Contexte**          | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres**                                                          | **Valeurs**                 | **Fonctionnement**                                                                                                              |
+| **Contexte** | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 |----------------------|-----------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes                             | FixedInterval      | Nombre de tentatives<br />Intervalle avant nouvelle tentative<br />Première nouvelle tentative rapide                           | 3<br />500 ms<br />true              | Tentative 1 - délai 0 s<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms                                                     |
-| Arrière-plan<br />ou lot            | 30 secondes                            | ExponentialBackoff | Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation Delta<br />Première nouvelle tentative rapide | 5<br />0 s<br />60 s<br />2 s<br />false | Tentative 1 - délai 0 s<br />Tentative 2 - délai \~2 s<br />Tentative 3 - délai \~6 s<br />Tentative 4 - délai \~14 s<br />Tentative 5 - délai \~30 s |
+| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | FixedInterval | Nombre de tentatives<br />Intervalle avant nouvelle tentative<br />Première nouvelle tentative rapide | 3<br />500 ms<br />true | Tentative 1 - délai 0 s<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms |
+| Arrière-plan<br />ou lot | 30 secondes | ExponentialBackoff | Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation Delta<br />Première nouvelle tentative rapide | 5<br />0 s<br />60 s<br />2 s<br />false | Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
 
-> [AZURE.NOTE] Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
+> [AZURE.NOTE]Les cibles de latence de bout en bout supposent le délai d’attente par défaut pour les connexions au service. Si vous spécifiez des délais de connexion, la latence de bout en bout sera prolongée de ce temps supplémentaire pour toute nouvelle tentative.
 
 ### Exemples (base de données SQL utilisant ADO.NET)
 
@@ -723,11 +721,11 @@ var conn = ConnectionMultiplexer.Connect("redis0:6380,redis1:6380,connectRetry=3
 
 Le tableau suivant présente les paramètres par défaut pour la stratégie de nouvelle tentative intégrée.
 
-| **Contexte**          | **Paramètre**                             | **Valeur par défaut**<br />(v 1.0.331)           | **Signification**                                                                                                                                                                                                   |
+| **Contexte** | **Paramètre** | **Valeur par défaut**<br />(v 1.0.331) | **Signification** |
 |----------------------|-----------------------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConfigurationOptions | ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout | 3<br /><br />5 000 ms maximum plus SyncTimeout<br />1 000 | Le nombre de répétitions de tentatives de connexion pendant l’opération de connexion initiale.<br />Délai d’attente (ms) pour les opérations de connexion. Pas un délai entre chaque tentative.<br />Temps (ms) pour permettre des opérations synchrones. |
 
-> [AZURE.NOTE] SyncTimeout contribue à la latence de bout en bout d’une opération. Toutefois, en général, l’utilisation des opérations synchrones est déconseillée. Pour plus d’informations, consultez [Pipelines et multiplexeurs](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
+> [AZURE.NOTE]SyncTimeout contribue à la latence de bout en bout d’une opération. Toutefois, en général, l’utilisation des opérations synchrones est déconseillée. Pour plus d’informations, consultez [Pipelines et multiplexeurs](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
 
 ## Guide d’utilisation des nouvelles tentatives
 
@@ -873,16 +871,16 @@ Aucun. Toutes les classes utilisées pour implémenter les nouvelles tentatives 
 
 Le tableau suivant présente les paramètres par défaut pour la stratégie de nouvelle tentative intégrée.
 
-| **Contexte**            | **Paramètres**                                      | **Valeurs** | **Fonctionnement**                                                                                                                                               |
+| **Contexte** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 |------------------------|---------------------------------------------------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RetryPolicy (interne) | MaxRetryAttemptsOnQuery<br /><br />MaxRetryAttemptsOnRequest | 3<br /><br />0        | Nombre de nouvelles tentatives pour les requêtes de document. Cette valeur ne peut pas être modifiée.<br />Nombre de nouvelles tentatives pour les autres demandes. Cette valeur ne peut pas être modifiée. |
+| RetryPolicy (interne) | MaxRetryAttemptsOnQuery<br /><br />MaxRetryAttemptsOnRequest | 3<br /><br />0 | Nombre de nouvelles tentatives pour les requêtes de document. Cette valeur ne peut pas être modifiée.<br />Nombre de nouvelles tentatives pour les autres demandes. Cette valeur ne peut pas être modifiée. |
 
 ## Guide d’utilisation des nouvelles tentatives
 
 Respectez les consignes suivantes lorsque vous utilisez DocumentDB :
 
 * Vous ne pouvez pas modifier la stratégie de nouvelle tentative par défaut.
-* Pour plus d’informations sur les paramètres par défaut, consultez [TBD\].
+* Pour plus d’informations sur les paramètres par défaut, consultez [TBD].
 
 ## Télémétrie
 
@@ -947,10 +945,10 @@ Respectez les consignes suivantes lors de l’utilisation d’Azure Active Direc
 Pensez à commencer par les paramètres suivants pour les opérations liées aux nouvelles tentatives. Il s’agit de paramètres généraux. Vous devez par conséquent surveiller les opérations et optimiser les valeurs en fonction de votre propre scénario.
 
 
-| **Contexte**          | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres**                                                          | **Valeurs**                 | **Fonctionnement**                                                                                                              |
+| **Contexte** | **Exemple de cible E2E<br />latence max** | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 |----------------------|----------------------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes                                        | FixedInterval      | Nombre de tentatives<br />Intervalle avant nouvelle tentative<br />Première nouvelle tentative rapide                           | 3<br />500 ms<br />true              | Tentative 1 - délai 0 s<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms                                                     |
-| Arrière-plan ou <br />lot            | 60 secondes                                       | ExponentialBackoff | Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation Delta<br />Première nouvelle tentative rapide | 5<br />0 s<br />60 s<br />2 s<br />false | Tentative 1 - délai 0 s<br />Tentative 2 - délai \~2 s<br />Tentative 3 - délai \~6 s<br />Tentative 4 - délai \~14 s<br />Tentative 5 - délai \~30 s |
+| Interactif, interface utilisateur,<br />ou premier plan | 2 secondes | FixedInterval | Nombre de tentatives<br />Intervalle avant nouvelle tentative<br />Première nouvelle tentative rapide | 3<br />500 ms<br />true | Tentative 1 - délai 0 s<br />Tentative 2 - délai 500 ms<br />Tentative 3 - délai 500 ms |
+| Arrière-plan ou <br />lot | 60 secondes | ExponentialBackoff | Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation Delta<br />Première nouvelle tentative rapide | 5<br />0 s<br />60 s<br />2 s<br />false | Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
 
 ## Exemples (Azure Active Directory)
 
@@ -1116,11 +1114,11 @@ Voici les types d’intervalles de stratégie de nouvelle tentative classiques 
 
 Le bloc applicatif de gestion des erreurs temporaires comporte les stratégies par défaut suivantes.
 
-| **Stratégie**            | **Paramètre**                                         | **Valeur par défaut**           | **Signification**                                                                                                                                                                                                                                                                                 |
+| **Stratégie** | **Paramètre** | **Valeur par défaut** | **Signification** |
 |-------------------------|-----------------------------------------------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Exponentielle**         | retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry | 10<br />1 seconde<br /><br />30 secondes<br /><br />10 secondes<br /><br />true | Nombre de nouvelles tentatives.<br />Durée de temporisation minimale. La valeur supérieure ou la temporisation calculée sera utilisée comme délai entre deux tentatives.<br />Durée de temporisation minimale. La valeur inférieure ou la temporisation calculée sera utilisée comme le délai entre deux tentatives.<br />Valeur utilisée pour calculer un delta aléatoire pour le délai exponentiel entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
-| **Incrémentielle**         | retryCount<br />initialInterval<br />Incrément<br /><br />fastFirstRetry<br />| 10<br />1 seconde<br />1 seconde<br /><br />true | Nombre de nouvelles tentatives.<br />Intervalle initial qui s’applique pour la première nouvelle tentative.<br />Valeur temporelle incrémentielle qui sera utilisée pour calculer le délai progressif entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement.                                          |
-| **Linéaire (intervalle fixe)** | retryCount<br />retryInterval<br />fastFirstRetry<br />             | 10<br />1 seconde<br />true            | Nombre de nouvelles tentatives.<br />Délai entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement.                                                                                                                                                                              |
+| **Exponentielle** | retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry | 10<br />1 seconde<br /><br />30 secondes<br /><br />10 secondes<br /><br />true | Nombre de nouvelles tentatives.<br />Durée de temporisation minimale. La valeur supérieure ou la temporisation calculée sera utilisée comme délai entre deux tentatives.<br />Durée de temporisation minimale. La valeur inférieure ou la temporisation calculée sera utilisée comme le délai entre deux tentatives.<br />Valeur utilisée pour calculer un delta aléatoire pour le délai exponentiel entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
+| **Incrémentielle** | retryCount<br />initialInterval<br />Incrément<br /><br />fastFirstRetry<br />| 10<br />1 seconde<br />1 seconde<br /><br />true | Nombre de nouvelles tentatives.<br />Intervalle initial qui s’applique pour la première nouvelle tentative.<br />Valeur temporelle incrémentielle qui sera utilisée pour calculer le délai progressif entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
+| **Linéaire (intervalle fixe)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 seconde<br />true | Nombre de nouvelles tentatives.<br />Délai entre deux tentatives.<br />Si la première nouvelle tentative est effectuée immédiatement. |
 Pour obtenir des exemples d’utilisation du bloc applicatif de gestion des erreurs temporaires, consultez les sections Exemples plus haut dans ce guide pour une base de données SQL Azure utilisant ADO.NET et Azure Active Directory.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

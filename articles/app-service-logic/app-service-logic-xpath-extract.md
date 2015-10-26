@@ -50,4 +50,4 @@ L'action retourne le résultat sous forme de chaîne - Result. Result contient l
 <!-- Links -->
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Opérations d'automatisation DNS et de jeux d’enregistrement à l'aide du Kit de développement logiciel (SDK) .net | Microsoft Azure"
-	description="Utilisation du Kit de développement logiciel (SDK) .NET pour l’automatisation de toutes les opérations dans Azure DNS."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="Opérations d'automatisation DNS et de jeux d’enregistrement à l'aide du Kit de développement logiciel (SDK) .net | Microsoft Azure" 
+   description="Utilisation du Kit de développement logiciel (SDK) .NET pour l’automatisation de toutes les opérations dans Azure DNS." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/20/2015"
+   ms.author="joaoma"/>
 # Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET
 Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones DNS, des recordsets et des enregistrements à l'aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
@@ -108,4 +108,4 @@ L'exemple suivant montre comment obtenir une liste de zones DNS et des jeux d’
 
 [Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

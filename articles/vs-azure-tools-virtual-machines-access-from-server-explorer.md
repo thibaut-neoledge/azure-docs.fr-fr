@@ -53,4 +53,4 @@ Si vous avez des machines virtuelles hébergées par Azure, vous pouvez y accéd
 
 Pour en savoir plus sur l’utilisation des rôles Azure dans Visual Studio, consultez [Utilisation du Bureau à distance avec des rôles Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

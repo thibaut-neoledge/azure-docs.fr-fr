@@ -19,7 +19,8 @@
 
 # Configuration d’un groupe à haute disponibilité pour des machines virtuelles dans le modèle de déploiement classique
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Un groupe à haute disponibilité maintient la disponibilité de vos machines virtuelles pendant une interruption (par exemple, en cas de maintenance). Le placement de deux machines virtuelles ou plus dans un groupe à haute disponibilité crée les conditions de redondance indispensables au maintien de la disponibilité des applications ou des services exécutés par votre machine virtuelle. Pour plus d'informations sur cette procédure, consultez la rubrique [Gestion de la disponibilité des machines virtuelles][].
 
@@ -111,4 +112,4 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
 [Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="10/06/2015"
+   ms.date="10/07/2015"
    ms.author="brjohnst"/>
 
 # Comment utiliser Azure Search à partir d'une application .NET #
@@ -337,7 +337,7 @@ La première chose à remarquer est que chaque propriété publique de `Hotel` c
 
 La deuxième chose importante sur la classe `Hotel` concerne les types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `Edm.String`. Il existe des mappages de type similaires entre `bool?` et `Edm.Boolean`, `DateTimeOffset?` et `Edm.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la `Documents.Get` méthode [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
  
-> [AZURE.NOTE]Quand vous créez vos propres classes de modèle à mapper à un index Azure Search, veillez à déclarer les propriétés des types de valeurs tels que `bool` et `int` comme acceptant la valeur Null (par exemple, `bool?` au lieu de `bool`). En effet, tous les types de champs primitifs dans Azure Search acceptent des valeurs Null. Si vous utilisez des types n’autorisant pas la valeur Null, vous risquez d’obtenir des résultats inattendus pendant l’indexation des valeurs par défaut comme `0` et `false`.
+> [AZURE.NOTE]Quand vous créez vos propres classes de modèle à mapper à un index Azure Search, veillez à déclarer les propriétés des types de valeurs tels que `bool` et `int` comme acceptant la valeur Null (par exemple, `bool?` au lieu de `bool`). En effet, tous les types de champs primitifs dans Azure Search acceptent des valeurs Null. Si vous utilisez des types n’autorisant pas la valeur Null, vous obtiendrez des résultats inattendus pendant l’indexation des valeurs par défaut comme `0` et `false`. Plus précisément, ces valeurs par défaut seront converties en valeurs Null lors de l’indexation. Dans une prochaine version du Kit de développement, l’utilisation des types non utilisables en Null entraînera une exception.
 
 Cette capacité à utiliser vos propres classes comme des documents fonctionne dans les deux sens. Vous pouvez également récupérer les résultats de la recherche et laisser le SDK les désérialiser automatiquement à un type de votre choix, comme nous le verrons dans la section suivante.
 
@@ -627,4 +627,4 @@ Hotel.cs :
     }
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

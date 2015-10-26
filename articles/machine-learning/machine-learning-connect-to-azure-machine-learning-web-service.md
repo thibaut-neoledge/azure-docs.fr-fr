@@ -103,4 +103,4 @@ Pour vous connecter à un service web Azure ML, utilisez la bibliothèque **url
 2. Attribuez l’élément apiKey avec la clé à partir d’un service web. Consultez la section Obtention d’une clé d’autorisation Microsoft Azure ML.
 3. Affectez l’élément serviceUri avec l’URI de requête. Consultez la section Obtention d’un URI de requête.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

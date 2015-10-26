@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Présentation des API Event Hubs"
+   pageTitle="Vue d’ensemble des API Azure Event Hubs | Microsoft Azure"
    description="Résumé de certaines API clientes .NET Event Hubs."
    services="event-hubs"
    documentationCenter="na"
@@ -8,18 +8,18 @@
    editor="" />
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # Présentation des API Event Hubs
 
-Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état des entités Event Hubs en créant, modifiant et supprimant des entités.
+Cet article passe en revue certaines des principales API clientes .NET Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
-Les scénarios d'analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez la [bibliothèque de classes .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) et les informations de référence de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
+Les scénarios d'analyse couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez la [bibliothèque de classes .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) et les informations de référence de l’[API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API de gestion
 
@@ -115,7 +115,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 
 ## API d’hôte du processeur d’événements
 
-Ces API offrent une résilience aux processus de travail qui peuvent devenir indisponibles, tout en distribuant des partitions sur les travaux disponibles.
+Ces API offrent une résilience aux processus de travail qui peuvent devenir indisponibles, en distribuant les partitions sur les workers disponibles.
 
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -176,15 +176,16 @@ public class SimpleEventProcessor : IEventProcessor
 
 ## Étapes suivantes
 
-Pour en savoir plus sur les scénarios Event Hubs, consultez ces liens :
+Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
+- [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
+- [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
 - [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
-- [Vue d’ensemble d’Event Hubs](event-hubs-overview.md)
-- [Exemples de code Event Hubs](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [Exemples de code des concentrateurs d’événements](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 Les informations de référence de l'API .NET se trouvent ici :
 
-- [Informations de référence des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/jj933424.aspx)
-- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Informations de référence des API .NET Service Bus et Event Hubs](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Informations de référence des API hôtes du processeur d'événements](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

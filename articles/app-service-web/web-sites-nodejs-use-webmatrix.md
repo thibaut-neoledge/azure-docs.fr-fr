@@ -126,4 +126,4 @@ Si vous rencontrez des problèmes avec votre application après son déploiement
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

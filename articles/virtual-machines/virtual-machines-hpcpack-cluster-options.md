@@ -13,12 +13,13 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="10/08/2015"
  ms.author="danlep"/>
 
 # Options pour créer et gérer un cluster HPC (High Performance Computing) dans Azure avec Microsoft HPC Pack
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructure Azure pour créer et gérer un cluster HPC sur le cloud. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) est la solution HPC gratuite de Microsoft construite autour des technologies Microsoft Azure et Windows Server, prenant en charge des charges de travail HPC Windows et Linux. Un cluster HPC Pack cloud fournit à un administrateur de cluster ou un éditeur de logiciels indépendant (ISV) une plateforme flexible et évolutive pour exécuter des applications exigeantes tout en réduisant l’investissement dans une infrastructure de cluster de calcul locale.
 
@@ -46,7 +47,7 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 ### Script de déploiement PowerShell
 
-* [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpackcluster-powershell-script.md)
+* [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Didacticiels
 
@@ -94,4 +95,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

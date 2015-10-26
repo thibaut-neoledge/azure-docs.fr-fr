@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configurer l’authentification unique")
 
@@ -69,8 +69,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer les paramètres d’application](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Configurer les paramètres d’application")
 
-    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Benefitsolver (par exemple, “\*http://azure-dev.benefitsolver.com*
-    2.  Dans la zone de texte **URL de réponse**, tapez votre URL AssertionConsumerService Benefitsolver (par exemple, “\*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).  
+    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Benefitsolver (par exemple, “*http://azure-dev.benefitsolver.com*
+    2.  Dans la zone de texte **URL de réponse**, tapez votre URL AssertionConsumerService Benefitsolver (par exemple, “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).  
 
         >[AZURE.NOTE]Vous pouvez obtenir la valeur réelle pour votre environnement auprès de l’équipe de support technique Benefitsolver.
 
@@ -92,7 +92,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Attributs](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Attributs")
 
-8.  Pour ajouter les mappages d’attributs requis, procédez comme suit :
+8.  Pour ajouter les mappages d’attribut requis, procédez comme suit :
 
     ![Attributs](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributs")
 
@@ -123,7 +123,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Benefitsolver\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Affecter des utilisateurs")
 
@@ -133,4 +133,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

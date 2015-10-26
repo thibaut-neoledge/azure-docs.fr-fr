@@ -54,4 +54,4 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 [Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

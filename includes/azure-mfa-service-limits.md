@@ -13,4 +13,4 @@ Déverrouiller le compte après **X** minutes|Non défini|9 999
 
 <sup>1</sup>Devrait augmenter à l'avenir.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

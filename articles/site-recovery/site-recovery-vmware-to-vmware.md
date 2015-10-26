@@ -117,4 +117,4 @@ Cette dernière mise à jour comprend des correctifs de bogues et de nouvelles f
 
 Posez vos questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

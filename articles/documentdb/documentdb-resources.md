@@ -33,7 +33,7 @@ En lisant cet article, vous serez en mesure de répondre aux questions suivantes
 ##Modèle de ressource hiérarchique
 Comme l’illustre le schéma suivant, le **modèle de ressources** hiérarchique de DocumentDB regroupe des ensembles de ressources sous un compte de base de données, chacun d’eux étant adressable via un URI stable et logique. Les ensembles de ressources sont désignés sous le nom de **flux** dans cet article.
 
->[AZURE.NOTE] DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+>[AZURE.NOTE]DocumentDB fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![Modèle de ressources hiérarchique de DocumentDB][1] **Modèle hiérarchique de ressources sous un compte de base de données**
 
@@ -56,33 +56,20 @@ Pour commencer à travailler avec des ressources, vous devez [créer un compte d
 ##Ressources système ou ressources définies par l'utilisateur
 Les ressources (telles que les comptes de base de données, les bases de données, les collections, les utilisateurs, les autorisations, les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur) ont toutes un schéma fixe et sont nommées « ressources système ». Par contre, les ressources telles que les documents et les pièces jointes n'ont pas de restriction de schéma et sont des exemples de ressources définies par l'utilisateur. Dans DocumentDB, les ressources système et définies par l'utilisateur sont représentées et gérées en tant qu'éléments JSON standard. Toutes les ressources, tant système que définies par l’utilisateur, ont les propriétés communes suivantes.
 
->[AZURE.NOTE] Toutes les propriétés générées par le système dans une ressource ont comme préfixe un trait de soulignement (\_) dans leur représentation JSON.
+>[AZURE.NOTE]Toutes les propriétés générées par le système dans une ressource ont comme préfixe un trait de soulignement (\_) dans leur représentation JSON.
 
 
 Propriété |Définie par l'utilisateur ou générée par le système ?|Objectif
 ---|---|---
-_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource.
-_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste.
-_ts|Générée par le système|Dernier horodatage mis à jour de la ressource.
-_self|Générée par le système|URI adressable unique de la ressource.
-id|Définie par l’utilisateur|Nom unique défini par l'utilisateur de la ressource.
+_\_rid|Générée par le système|identifiant unique, hiérarchique et généré par le système de la ressource. \_etag|Générée par le système|etag de la ressource nécessaire pour le contrôle d’accès concurrentiel optimiste. \_ts|Générée par le système|Dernier horodatage mis à jour de la ressource. \_self|Générée par le système|URI adressable unique de la ressource. id|Définie par l’utilisateur|Nom unique défini par l'utilisateur de la ressource.
 
 ###Représentation en réseau des ressources
 DocumentDB n'oblige pas les extensions propriétaires à adopter la norme JSON ou des codages spéciaux ; l'application fonctionne avec les documents JSON standard.
  
 ###Adressage d'une ressource
-Toutes les ressources sont adressables via des URI. La valeur de la propriété **_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
+Toutes les ressources sont adressables via des URI. La valeur de la propriété **\_self** d'une ressource représente l'URI relatif de la ressource. Le format de l’URI est composé des segments de chemin d’accès /<flux>/{\_rid} :
 
-|Valeur de \_self |Description
-|-------------------|-----------
-|/dbs	|Flux de bases de données sous un compte de base de données
-|/dbs/{_rid-db} |Base de données avec une propriété d’ID unique avec la valeur {_rid-db}
-|/dbs/{_rid-db}/colls/ |Flux de collections sous une base de données
-|/dbs/{_rid-db}/colls/{_rid-coll} |Collection avec la propriété d’ID unique et la valeur {_rid-coll}
-|/dbs/{_rid-db}/users/ |Flux des utilisateurs sous une base de données
-|/dbs/{_rid-db}/users/{_rid-user} |Utilisateur avec la propriété d’ID unique avec la valeur {_rid-user}
-|/dbs/{_rid-db}/users/{_rid-user}/permissions |Flux d’autorisations sous une base de données
-|/dbs/{_rid-db}/users/{_rid-user}/permissions/{_rid-permission} |Autorisation avec la propriété d’ID unique et la valeur {_rid-permission}
+|Valeur de \_self |Description |-------------------|-----------|/dbs |Flux de bases de données sous un compte de base de données|/dbs/{\_rid-db} |Base de données avec une propriété d’ID unique avec la valeur {\_rid-db} |/dbs/{\_rid-db}/colls/ |Flux de collections sous une base de données |/dbs/{\_rid-db}/colls/{\_rid-coll} |Collection avec la propriété d’ID unique et la valeur {\_rid-coll} |/dbs/{\_rid-db}/users/ |Flux des utilisateurs sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user} |Utilisateur avec la propriété d’ID unique avec la valeur {\_rid-user} |/dbs/{\_rid-db}/users/{\_rid-user}/permissions |Flux d’autorisations sous une base de données |/dbs/{\_rid-db}/users/{\_rid-user}/permissions/{\_rid-permission} |Autorisation avec la propriété d’ID unique et la valeur {\_rid-permission}
   
 Une ressource a également un nom défini par l'utilisateur, qui est unique et exposé via la propriété d'ID de la ressource. L'ID est une chaîne de 256 caractères maximum, définie par l'utilisateur et unique dans le contexte d'une ressource parent spécifique. Par exemple, la valeur de la propriété d'ID de tous les documents d'une collection donnée est unique, mais pas systématiquement unique parmi les collections. De même, la valeur de la propriété d'ID de toutes les autorisations d'un utilisateur donné est unique, mais pas systématiquement unique parmi les utilisateurs. La propriété \_rid permet de construire le lien \_self adressable d'une ressource.
 
@@ -224,7 +211,7 @@ Les procédures stockées et les déclencheurs interagissent avec une collection
 
 Dans DocumentDB, les collections peuvent être facilement créées, supprimées, lues ou répertoriées avec les [API REST Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou l’un des [Kits de développement logiciel (SDK) clients](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB fournit toujours une cohérence forte pour la lecture ou l'interrogation des métadonnées d'une collection. La suppression d'une collection garantit automatiquement que vous ne pouvez pas accéder aux documents, pièces jointes, procédures stockées, déclencheurs et fonctions définies par l'utilisateur qu'elle contient.
 ##Procédures stockées, déclencheurs et fonctions définies par l’utilisateur
-Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d'application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction, définie par l'utilisateur. Le code JavaScript d'une procédure stockée ou d'un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d'une collection. D'un autre côté, le code JavaScript d'une fonction définie par l'utilisateur peut uniquement effectuer des calculs secondaires libres en énumérant les documents de l'ensemble de résultats de la requête, pour produire un autre ensemble de résultats. DocumentDB applique une gouvernance des ressources basée sur une réservation stricte aux architectures mutualisées. Chaque procédure stockée, déclencheur ou fonction définie par l'utilisateur obtient un quantum fixe de ressources de systèmes d'exploitation pour effectuer ses tâches. De plus, les procédures stockées, déclencheurs ou fonctions définies par l'utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste rouge s'ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez enregistrer ou annuler l'enregistrement de procédures stockées, déclencheurs ou fonctions définies par l'utilisateur dans une collection en utilisant des API REST. Une fois enregistrés, ils sont précompilés et stockés en tant que codes d'octets et sont exécutés ultérieurement. La section suivante illustre l'utilisation du Kit de développement logiciel (SDK) JavaScript de DocumentDB pour enregistrer, exécuter et annuler l'enregistrement d'une procédure stockée, d'un déclencheur et d'une fonction définie par l'utilisateur. Le Kit de développement logiciel (SDK) JavaScript est un wrapper simple des [API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
+Comme décrit dans la section précédente, vous pouvez écrire une logique d'application pour qu'elle s'exécute directement dans une transaction dans le moteur de base de données. La logique d'application peut être entièrement écrite en JavaScript et modélisée en tant que procédure stockée, déclencheur ou fonction, définie par l'utilisateur. Le code JavaScript d'une procédure stockée ou d'un déclencheur peut insérer, remplacer, supprimer, lire ou interroger les documents d'une collection. D'un autre côté, le code JavaScript d'une fonction définie par l'utilisateur peut uniquement effectuer des calculs secondaires libres en énumérant les documents de l'ensemble de résultats de la requête, pour produire un autre ensemble de résultats. DocumentDB applique une gouvernance des ressources basée sur une réservation stricte aux architectures mutualisées. Chaque procédure stockée, déclencheur ou fonction définie par l'utilisateur obtient un quantum fixe de ressources de systèmes d'exploitation pour effectuer ses tâches. De plus, les procédures stockées, déclencheurs ou fonctions définies par l'utilisateur ne peuvent pas créer de liens vers les bibliothèques JavaScript externes et sont placés sur liste noire s'ils dépassent les budgets de ressources qui leurs sont alloués. Vous pouvez enregistrer ou annuler l'enregistrement de procédures stockées, déclencheurs ou fonctions définies par l'utilisateur dans une collection en utilisant des API REST. Une fois enregistrés, ils sont précompilés et stockés en tant que codes d'octets et sont exécutés ultérieurement. La section suivante illustre l'utilisation du Kit de développement logiciel (SDK) JavaScript de DocumentDB pour enregistrer, exécuter et annuler l'enregistrement d'une procédure stockée, d'un déclencheur et d'une fonction définie par l'utilisateur. Le Kit de développement logiciel (SDK) JavaScript est un wrapper simple des [API REST de DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 ###Enregistrement d'une procédure stockée
 L'enregistrement d'une procédure stockée crée une ressource de procédure stockée dans une collection via HTTP POST.
@@ -411,4 +398,4 @@ Pour en savoir plus sur l’utilisation des ressources avec des commandes HTTP, 
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

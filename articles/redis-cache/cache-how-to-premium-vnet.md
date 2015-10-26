@@ -26,7 +26,7 @@ Pour plus d’informations sur les autres fonctionnalités du cache Premium, con
 >[AZURE.NOTE]Le niveau Premium de Cache Redis Azure est actuellement en version préliminaire.
 
 ## Pourquoi un réseau virtuel ?
-le déploiement de [réseau virtuel Azure (VNET)](https://azure.microsoft.com/fr-fr/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
+le déploiement de [réseau virtuel Azure (VNET)](https://azure.microsoft.com/fr-FR/services/virtual-network/) fournit une sécurité et un isolement renforcés pour votre Cache Redis Azure, ainsi que des sous-réseaux, des stratégies de contrôle d’accès et d’autres fonctionnalités permettant de restreindre davantage l’accès au Cache Redis Azure.
 
 ## Prise en charge des réseaux virtuels
 La configuration de la prise en charge du réseau virtuel s’effectue dans le panneau **Nouveau cache Redis** lors de la création du cache. Pour créer un cache, connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et cliquez sur **Nouveau**->**Données + stockage**>**Cache Redis**.
@@ -103,4 +103,4 @@ Découvrez comment utiliser davantage de fonctionnalités de cache de niveau Pre
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

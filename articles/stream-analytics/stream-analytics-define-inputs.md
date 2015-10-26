@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Présentation des entrées Stream Analytics
@@ -94,15 +94,15 @@ Quand vos données proviennent d’une source IoT Hub, vous pouvez accéder à c
 
 | PROPRIÉTÉ | DESCRIPTION |
 |------|------|
-| System.Input.EventProcessedUtcTime | Date et heure du traitement de l’événement. |
-| System.Input.EventEnqueuedUtcTime | Date et heure de la réception de l’événement par IoT Hub |
-| System.Input.PartitionId | ID de partition de base zéro de l’adaptateur d’entrée. |
-| System.Input.MessageId | Permet de corréler une communication bidirectionnelle dans IoT Hub |
-| System.Input.CorrelationId | Utilisé dans les réponses de message et les commentaires dans IoT Hub |
-| System.Input.ConnectionDeviceId | ID authentifié utilisé pour envoyer ce message, marqué sur les messages liés aux services par IoT Hub |
-| System.Input.ConnectionDeviceGenerationId | ID de génération de l’appareil authentifié utilisé pour envoyer ce message, marqué sur les messages liés aux services par IoT Hub |
-| System.Input.EnqueuedTime | Heure à laquelle le message a été reçu par IoT Hub |
-| System.Input.StreamId | Propriété d’événement personnalisée ajoutée par l’appareil de l’expéditeur. |
+| EventProcessedUtcTime | Date et heure du traitement de l'événement. |
+| EventEnqueuedUtcTime | Date et heure de la réception de l’événement par IoT Hub |
+| PartitionId | ID de partition de base zéro de l'adaptateur d'entrée. |
+| IoTHub.MessageId | Permet de corréler une communication bidirectionnelle dans IoT Hub |
+| IoTHub.CorrelationId | Utilisé dans les réponses de message et les commentaires dans IoT Hub |
+| IoTHub.ConnectionDeviceId | ID authentifié utilisé pour envoyer ce message, marqué sur les messages liés aux services par IoT Hub |
+| IoTHub.ConnectionDeviceGenerationId | ID de génération de l’appareil authentifié utilisé pour envoyer ce message, marqué sur les messages liés aux services par IoT Hub |
+| IoTHub.EnqueuedTime | Heure à laquelle le message a été reçu par IoT Hub. |
+| IoTHub.StreamId | Propriété d’événement personnalisée ajoutée par l’appareil de l’expéditeur. |
 
 ## Création d’une entrée de flux de données de stockage d’objets blob ##
 
@@ -133,7 +133,7 @@ Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de 
 <tr>
 <td>Conteneur de stockage
 </td>
-<td>Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d’objets Blob, vous devez spécifier un conteneur pour cet objet blob.</td>
+<td>Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob.</td>
 </tr>
 <tr>
 <td>Séquence d’octets préfixe du chemin d’accès [facultatif]</td>
@@ -201,4 +201,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

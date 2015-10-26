@@ -21,7 +21,8 @@
 
 Cet article vous détaille l’approvisionnement d’un cluster [Deis](http://deis.io/) sur Azure. Il aborde toutes les étapes, de la création des certificats requis au déploiement et à la mise à l’échelle d’un exemple d’application **Go** sur le cluster qui vient d’être approvisionné.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement du Gestionnaire des ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Le diagramme suivant représente l’architecture du système déployé. Un administrateur système gère le cluster à l’aide d’outils Deis, comme **deis** et **deisctl**. Les connexions sont établies via un équilibreur de charge Azure, qui transfère les connexions à l’un des nœuds membres du cluster. Les clients accèdent aux applications déployées via l’équilibreur de charge, également. Dans ce cas, l’équilibreur de charge envoie le trafic à un maillage de routeur Deis, qui achemine le trafic vers des conteneurs Docker hébergés sur le cluster.
 
@@ -257,4 +258,4 @@ Cet article vous a présenté toutes les étapes d’approvisionnement d’un no
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

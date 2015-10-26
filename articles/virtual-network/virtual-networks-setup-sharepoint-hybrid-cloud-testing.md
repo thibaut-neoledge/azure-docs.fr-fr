@@ -19,7 +19,8 @@
 
 # Configuration d’une batterie de serveurs SharePoint intranet dans un cloud hybride à des fins de test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 Les étapes de cette rubrique vous aident à créer un environnement de cloud hybride pour le test d'une batterie de serveurs SharePoint intranet hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
@@ -213,4 +214,4 @@ Votre une batterie de serveurs SharePoint intranet dans un cloud hybride est mai
 [Instructions d’implémentation des services d’infrastructure Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

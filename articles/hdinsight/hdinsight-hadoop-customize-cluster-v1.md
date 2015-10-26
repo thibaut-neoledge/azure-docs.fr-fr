@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Personnaliser des clusters HDInsight à l'aide d’actions de script | Microsoft Azure"
-	description="Découvrez comment personnaliser des clusters HDInsight à l'aide d'une action de script."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Personnaliser des clusters HDInsight à l'aide d’actions de script | Microsoft Azure" 
+	description="Découvrez comment personnaliser des clusters HDInsight à l'aide d'une action de script." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/07/2015" 
 	ms.author="nitinme"/>
 
 # Personnaliser des clusters HDInsight à l'aide d'une action de script
@@ -176,4 +176,4 @@ Consultez [Développer des scripts d'action de script pour HDInsight][hdinsight-
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-v1/HDI-Cluster-state.png "Procédure d’approvisionnement d’un cluster"
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

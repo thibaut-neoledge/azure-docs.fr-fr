@@ -211,4 +211,4 @@ Pour plus d’informations, consultez la page [Fournisseur EntityClient pour Ent
 Maintenant que vous avez appris les principes de base de la connexion à une base de données SQL, consultez [Développement de base de données SQL Azure : Rubriques de procédures](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -57,4 +57,4 @@ Pour obtenir des exemples sur l'utilisation des outils dans un déploiement clas
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -475,4 +475,4 @@ Le flux « Au nom de », ou l’octroi des informations d’identification du 
 
 Ce flux n’est pas actuellement pris en charge par la version d’évaluation du modèle d’application v2.0. Pour observer son fonctionnement dans le service Azure AD disponible généralement, consultez cet [exemple de code Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

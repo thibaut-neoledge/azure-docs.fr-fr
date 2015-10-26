@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -19,7 +19,7 @@
 
 # Maîtrise de la croissance avec les bases de données élastiques
 
-Si vous êtes un développeur SaaS chargé d’administrer des dizaines, des centaines, voire des milliers de bases de données, un pool de bases de données élastiques simplifie la création, la maintenance et la gestion des performances dans ces bases de données avec un budget contrôlé.
+Si vous êtes un développeur SaaS chargé d’administrer des dizaines, des centaines, voire des milliers de bases de données, un pool de bases de données élastiques simplifie la création, la maintenance et la gestion des performances dans ces bases de données avec un budget contrôlé. Vous pouvez [créer un pool de bases de données élastiques](sql-database-elastic-pool-portal.md) en quelques minutes à l’aide du portail Microsoft Azure, de PowerShell ou de C#.
 
 Dans le cadre d'applications SaaS courantes, chaque base de données a le plus souvent un client différent, chacun avec une consommation de ressources imprévisible et variable (processeur, E/S, mémoire résumée avec eDTU). Avec ces fluctuations de la demande pour chaque base de données, il peut être difficile de prédire et donc provisionner les ressources. Vous disposez de deux options : le surprovisionnement des ressources de base de données sur la base de pics d'utilisation (et le surpaiement). Ou le sous-provisionnement pour réduire les coûts, au détriment des performances et de la satisfaction des clients pendant les pics.
 
@@ -36,7 +36,7 @@ Si plusieurs eDTU sont nécessaires pour répondre aux besoins d’un pool (des 
 
 Les bases de données qui sont d’excellents candidats pour les pools de base de données élastiques ont généralement des périodes d’activité et d’autres périodes d’inactivité. Prenons l’exemple ci-dessus avec lequel vous pouvez afficher l’activité d’une base de données, 4 bases de données et enfin un pool de bases de données élastiques avec 20 bases de données. Ces bases de données dont l’activité varie au fil du temps sont d’excellents candidats pour les pools de base de données élastiques, car elles ne sont pas toutes actives en même temps et peuvent partager des eDTU. Toutes les bases de données n'adoptent pas ce schéma. Il existe des bases de données qui ont une demande en ressources constante. Elles sont mieux adaptées aux niveaux de service Basic, Standard et Premium dans lesquels les ressources sont attribuées individuellement. Pour obtenir de l’aide pour déterminer si vos bases de données tireraient parti d’un pool de bases de données élastiques, consultez [Considérations sur les prix et performances pour un pool de bases de données élastiques](sql-database-elastic-pool-guidance.md).
 
-Vous pouvez créer un pool de bases de données élastiques en quelques minutes à l’aide du portail Microsoft Azure, de PowerShell ou de C#. Pour plus d’informations, consultez [Création et gestion d’un pool de bases de données élastiques](sql-database-elastic-pool-portal.md). Pour en savoir plus sur les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence sur les pools de bases de données élastiques](sql-database-elastic-pool-reference.md).
+Pour en savoir plus sur les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence sur les pools de bases de données élastiques](sql-database-elastic-pool-reference.md).
 
 
 > [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
@@ -72,4 +72,4 @@ Par contre, il est possible d’exporter une base de données depuis un pool. Ac
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

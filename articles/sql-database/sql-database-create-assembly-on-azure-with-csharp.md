@@ -328,4 +328,4 @@ Le bloc de code Transact-SQL précédent se termine par une instruction SELECT q
 
 <!-- EndOfFile -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

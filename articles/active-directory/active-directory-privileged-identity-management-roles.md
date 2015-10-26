@@ -57,4 +57,4 @@ Pour plus d’informations sur les rôles dans Office 365, Exchange Online, Sha
 ## Étapes suivantes
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

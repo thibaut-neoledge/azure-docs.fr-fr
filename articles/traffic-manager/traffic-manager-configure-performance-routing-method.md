@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configurer une méthode de routage du trafic basé sur les performances | Microsoft Azure"
-	description="Cet article vous aide à configurer la méthode de routage du trafic basé sur les performances dans Traffic Manager."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Cet article vous aide à configurer la méthode de routage du trafic basé sur les performances dans Traffic Manager."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Configurer une méthode de routage du trafic basé sur les performances
 
@@ -51,4 +51,4 @@ Pour router le trafic des services cloud et des sites Web (points de terminaison
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,22 +1,22 @@
 <properties
-	pageTitle="Envoi de messages de cloud à appareil avec IoT Hub | Microsoft Azure"
+	pageTitle="Envoi de messages de cloud à appareil avec IoT Hub | Microsoft Azure"
 	description="Suivez ce didacticiel pour découvrir comment envoyer des messages de cloud à appareil à l’aide d’Azure IoT Hub avec C#."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Envoi de messages cloud à appareil avec IoT Hub
+# Didacticiel : envoi de messages de cloud à appareil avec IoT Hub
 
 ## Introduction
 
@@ -28,10 +28,10 @@ Vous trouverez des informations supplémentaires sur les messages du cloud vers 
 
 À la fin de ce didacticiel, vous exécuterez deux applications de console Windows :
 
-* **SimulatedDevice**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub] qui se connecte à votre hub IoT et reçoit les messages entre cloud et appareils. 
+* **SimulatedDevice**, une version modifiée de l’application créée dans [Prise en main d’IoT Hub] qui se connecte à votre hub IoT et reçoit les messages entre cloud et appareils.
 * **SendCloudToDevice**, qui envoie un message de cloud à appareils vers la simulation d’appareil via IoT Hub, puis reçoit son accusé de réception.
 
-> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) par l’intermédiaire des Kits de développement logiciel (SDK) d’appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT]. Les Kits SDK de service Azure IoT pour Java et Node seront publiés prochainement.
+> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) par l’intermédiaire des Kits de développement logiciel (SDK) d’appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -79,10 +79,6 @@ Informations supplémentaires sur IoT Hub :
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Centre de développement Azure IoT]: http://www.azure.com/iotdev
+[Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

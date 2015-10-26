@@ -9,4 +9,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   - Utilisez le [stockage de files d'attente](./storage-dotnet-how-to-use-queues.md) pour stocker des données non structurées.
   - Utilisez une [base de données SQL](../sql-database/sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

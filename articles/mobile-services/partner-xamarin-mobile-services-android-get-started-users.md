@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prise en main de l&#39;authentification (Xamarin.Android) - Mobile Services"
-	description="Découvrez comment utiliser l&#39;authentification dans votre application Azure Mobile Services pour Xamarin.Android."
+	pageTitle="Prise en main de l'authentification (Xamarin.Android) - Mobile Services"
+	description="Découvrez comment utiliser l'authentification dans votre application Azure Mobile Services pour Xamarin.Android."
 	services="mobile-services"
 	documentationCenter="xamarin"
 	manager="dwrede"
@@ -137,4 +137,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Azure Management Portal]: https://manage.windowsazure.com/
 [projet d'exemple terminé]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,7 @@
 
 Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article décrit le déploiement et la gestion d’une machine virtuelle à l’aide de modèles dans le modèle de déploiement Resource Manager. Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
 
 
 - [Création rapide d’une machine virtuelle dans Azure](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@ Pour consulter d’autres exemples d’utilisation de l’interface de ligne de 
 
 Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

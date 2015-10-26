@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Téléchargement du Kit de développement logiciel (SDK) Azure pour Java (Windows)" 
-	description="Téléchargez le Kit de développement logiciel (SDK) Azure pour Java. Le code est fourni pour Maven. Installez les étapes fournies pour le plug-in Azure pour Eclipse avec Java." 
+	description="Téléchargez le Kit de développement logiciel (SDK) Azure pour Java. Le code est fourni pour Maven. Effectuez les étapes fournies pour le Kit de ressources Azure pour Eclipse." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 #Téléchargement du Kit de développement logiciel (SDK) Azure pour Java
@@ -26,4 +26,4 @@
 
 Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

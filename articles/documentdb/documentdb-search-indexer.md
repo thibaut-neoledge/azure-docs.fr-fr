@@ -7,7 +7,6 @@
     manager="jhubbard" 
     editor="mimig"/>
 
-
 <tags 
     ms.service="documentdb" 
     ms.devlang="rest-api" 
@@ -16,7 +15,6 @@
     ms.workload="data-services" 
     ms.date="06/16/2015" 
     ms.author="andrl"/>
-
 
 #Connexion de DocumentDB à Azure Search à l'aide d'indexeurs
 
@@ -142,7 +140,7 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 |String|Edm.String|
 |Tableaux de types primitifs, par exemple « a », « b », « c » |Collection(Edm.String)|
 |Chaînes qui ressemblent à des dates| Edm.DateTimeOffset, Edm.String|
-|Objets GeoJSON, par exemple { "type": "Point", "coordinates": [ long, lat \] } | Edm.GeographyPoint |
+|Objets GeoJSON, par exemple { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
 |Autres objets JSON|N/A|
 
 ###<a id="CreateIndexExample"></a>Exemple de corps de requête
@@ -272,4 +270,4 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
  - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

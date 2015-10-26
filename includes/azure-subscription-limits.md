@@ -16,4 +16,4 @@ Règles d’alerte par abonnement|250|250
 
 <sup>1</sup>Les très petites instances comptent comme un cœur pour la limite de cœurs, malgré l'utilisation d'un cœur partiel.
 
-<!----HONumber=Sept15_HO1-->
+<!---HONumber=Oct15_HO3-->

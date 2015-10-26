@@ -403,4 +403,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs P
 [Documentation relative à Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

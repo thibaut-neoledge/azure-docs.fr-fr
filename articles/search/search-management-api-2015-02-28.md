@@ -351,7 +351,7 @@ Aucun.
 
 ####Response
 
-Le code d’état est HTTP 200 (OK) si l’opération réussit.
+Le code d’état est HTTP 200  (OK) si l’opération réussit.
 
 ### En-têtes de réponse ###
 
@@ -812,4 +812,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucun.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

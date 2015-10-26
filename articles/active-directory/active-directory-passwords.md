@@ -79,4 +79,4 @@ Voici quelques raisons pour lesquelles vous devez utiliser les fonctionnalités 
 * [En savoir plus](active-directory-passwords-learn-more.md)
 * [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

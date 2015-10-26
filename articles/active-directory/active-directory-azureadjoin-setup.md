@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 # Configuration d’Azure AD Join dans votre organisation
@@ -34,9 +34,13 @@ Pour créer et gérer manuellement des utilisateurs dans Azure AD, reportez-vous
 6. Dans l’onglet **Appareils**, définissez les éléments suivants :  
    * **Nombre maximal d’appareils par utilisateur** : sélectionnez le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne sera pas en mesure d’ajouter des appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés.
    * **Exiger Multi-factor Auth pour joindre des appareils** : activez cette option lorsque les utilisateurs doivent fournir un second facteur d’authentification pour joindre leurs appareils à Azure AD. Pour plus d’informations sur Multi-Factor Authentication, consultez [Prise en main avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-get-started-cloud/)
-   * **Les utilisateurs peuvent joindre des appareils à Azure AD** : sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.
-   * **Administrateurs supplémentaires sur les appareils joints à Azure AD** : avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et le propriétaire de l’appareil bénéficient de droits d’administrateur local par défaut.
+   *  **Les utilisateurs peuvent joindre des appareils à Azure AD** : sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.   
+    * **Administrateurs supplémentaires sur les appareils joints à Azure AD** : avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et le propriétaire de l’appareil bénéficient de droits d’administrateur local par défaut.
+   
+>[AZURE.NOTE]Si l’erreur « **Limite d’enregistrements d’appareils atteinte** » (Code erreur : **0x801C000E - DSREG\_ E\_ DEVICE\_ REGISTRATION\_ QUOTA\_EXCCEEDED**) s’affiche à l’écran de vos utilisateurs, vous devez modifier le nombre maximal d’appareils autorisés par utilisateur. Dans la section **Les utilisateurs peuvent joindre des appareils à Azure AD**, sélectionnez **Ajouter** et définissez le nombre d’appareils à autoriser par utilisateur.
+      
 
+    
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 Après avoir configuré Azure AD Join pour vos utilisateurs, ces derniers peuvent se connecter à Azure AD via leurs appareils d’entreprise ou personnels.
 
@@ -51,4 +55,4 @@ Voici trois scénarios expliquant comment vous pouvez autoriser les utilisateurs
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

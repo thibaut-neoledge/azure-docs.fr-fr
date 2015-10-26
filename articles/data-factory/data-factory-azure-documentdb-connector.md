@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données vers et depuis DocumentDB | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis et vers la collection Azure DocumentDB à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données vers et depuis DocumentDB | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis et vers la collection Azure DocumentDB à l’aide d’Azure Data Factory." 
+	services="data-factory, documentdb" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="multiple" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/14/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
@@ -399,6 +399,21 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 | writeBatchSize | Nombre de requêtes parallèles au service DocumentDB pour créer des documents.<p>Vous pouvez optimiser les performances pendant la copie des données depuis/vers DocumentDB à l’aide de cette propriété. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez writeBatchSize car davantage de requêtes parallèles à DocumentDB sont envoyées. Toutefois, vous devez éviter les limitations qui peuvent lever le message d’erreur : « Le taux de requête est volumineux ».</p><p>La limitation est décidée par un certain nombre de facteurs, y compris la taille des documents, le nombre de termes dans les documents, la stratégie d’indexation de la collection cible, etc. Pour les opérations de copie, vous pouvez utiliser une meilleure collection (par exemple, S3) pour que le débit disponible soit maximal (2 500 unités de requêtes par seconde).</p> | Valeur entière | Non |
 | writeBatchTimeout | Temps d'attente pour que l'opération soit terminée avant d'expirer. | (Unité = intervalle de temps) Exemple : « 00:30:00 » (30 minutes). | Non |
  
- 
+## Annexe
+1. **Question :** l’activité de copie prend-elle en charge la mise à jour d’enregistrements existants ?
 
-<!---HONumber=August15_HO9-->
+	**Réponse :** non.
+
+2. **Question :** comment une nouvelle tentative de copie vers DocumentDB gère-t-elle les enregistrements déjà copiés ?
+
+	**Réponse :** si les enregistrements ont un champ « ID » et que l'opération de copie tente d'insérer un enregistrement avec le même ID, l'opération de copie génère une erreur.
+ 
+3. **Question :** Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](https://azure.microsoft.com/documentation/articles/documentdb-partition-data/) ?
+
+	**Réponse :** non. 
+4. **Question :** puis-je indiquer plusieurs collections DocumentDB pour une table ?
+	
+	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
+     
+
+<!---HONumber=Oct15_HO3-->

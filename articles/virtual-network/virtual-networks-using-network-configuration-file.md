@@ -48,4 +48,4 @@ Lorsque effectuez une exportation, tous les paramètres des réseaux virtuels de
 3. Dans la page **Importer le fichier de configuration de réseau**, accédez à votre fichier de configuration réseau, puis cliquez sur la flèche **Suivant**.
 4. Dans la page **Création de votre réseau**, vous verrez des informations à l’écran présentant les sections de votre configuration réseau qui vont être créées ou modifiées. Si les modifications vous paraissent correctes, cliquez sur la coche pour passer à la mise à jour ou à la création de votre réseau virtuel. 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

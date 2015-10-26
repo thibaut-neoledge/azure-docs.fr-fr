@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -89,8 +89,7 @@ Les nouvelles fonctionnalités de niveau de service et des niveaux de performanc
 
 | Article | Description |
 |:--|:--|
-|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)
-| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
+|[Niveaux de service et niveaux de performances de la base de données SQL Azure](sql-database-service-tiers.md)| Vue d’ensemble, métriques et capacités de chaque niveau de service (et comment contrôler l’utilisation de la base de données dans le portail de gestion et à l’aide des vues de gestion dynamique). |
 |[Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md)|Détails relatifs aux fonctions de continuité des activités et de récupération d’urgence (restauration jusqu’à une date et heure, géo-restauration, géo-réplication) disponibles pour chaque niveau de service.|
 |[Tarification des bases de données SQL](http://azure.microsoft.com/pricing/details/sql-database/)|Informations détaillées relatives à la tarification des différents niveaux de service et niveaux de performances.|
 
@@ -255,9 +254,9 @@ Après avoir déterminé le niveau de service et le niveau de performances appro
 | Outil de gestion | Modification du niveau de performances et du niveau de service d’une base de données|
 | :---| :---|
 | [Portail de gestion Azure](https://manage.windowsazure.com) | Cliquez sur l’onglet **Mise à l’échelle** de la page du tableau de bord de votre base de données. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | Utilisez l’applet de commande [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx). |
-| [API REST de gestion de service](http://msdn.microsoft.com/library/azure/dn505719.aspx) | Utilisez la commande [Mettre à jour la base de données](http://msdn.microsoft.com/library/dn505718.aspx).|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | Utilisez l’instruction [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | Utilisez l’applet de commande [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
+| [API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) | Utilisez la commande [Créer ou mettre à jour la base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | Utilisez l’instruction [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
 
 Pour plus d’informations, consultez la page [Modification des niveaux de service et des niveaux de performance de base de données](sql-database-scale-up.md)
 
@@ -318,4 +317,4 @@ Le service Azure SQL Database fournit des données et des outils de télémétri
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

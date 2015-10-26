@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 #Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services
@@ -48,6 +48,8 @@ Le diagramme suivant représente un flux de travail de diffusion en continu dyna
 ##<a id="scenario"></a>Scénario courant de diffusion dynamique en continu
 
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
+
+>[AZURE.NOTE]Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à vitesse binaire **unique** dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
@@ -260,6 +262,8 @@ Jusqu’à 8 jeux de flux audio peuvent être spécifiés si l’entrée du can
 
 Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal. Actuellement, la seule valeur autorisée est **Default720p** (par défaut).
 
+Notez que si vous avez besoin de paramètres prédéfinis personnalisés, contactez amslived à l’adresse Microsoft point com.
+
 **Default720p** encode la vidéo dans les 7 couches suivantes.
 
 
@@ -267,13 +271,13 @@ Spécifie la présélection à utiliser par l’encodeur dynamique dans ce canal
 
 Débit binaire|Largeur|Hauteur|IPS max.|Profil|Nom du flux de sortie
 ---|---|---|---|---|---
-3 500|1 280|720|30|Élevé|Video\_1280x720\_30fps\_3500kbps
-2 200|960|540|30|Principal|Video\_960x540\_30fps\_2200kbps
-1 350|704|396|30|Principal|Video\_704x396\_30fps\_1350kbps
-850|512|288|30|Principal|Video\_512x288\_30fps\_850kbps
-550|384|216|30|Principal|Video\_384x216\_30fps\_550kbps
-350|340|192|30|Ligne de base|Video\_340x192\_30fps\_350kbps
-200|340|192|30|Ligne de base|Video\_340x192\_30fps\_200kbps
+3 500|1 280|720|30|Élevé|Video\_1280x720\_3500kbps
+2 200|960|540|30|Principal|Video\_960x540\_2200kbps
+1 350|704|396|30|Principal|Video\_704x396\_1350kbps
+850|512|288|30|Principal|Video\_512x288\_850kbps
+550|384|216|30|Principal|Video\_384x216\_550kbps
+350|340|192|30|Ligne de base|Video\_340x192\_350kbps
+200|340|192|30|Ligne de base|Video\_340x192\_200kbps
 
 
 ####Flux audio de sortie
@@ -374,7 +378,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 État du canal|Indicateurs de l’interface utilisateur du portail|Facturation ?
 ---|---|---
 Démarrage en cours|Démarrage en cours|Aucun (état transitoire)
-Exécution|Prêt (aucun programme en cours d'exécution)<br/>ou<br/> Diffusion en continu (au moins un programme en cours d'exécution)|Oui
+Exécution|Prêt (aucun programme en cours d’exécution)<br/>ou<br/>Diffusion en continu (au moins un programme en cours d’exécution)|Oui
 En cours d’arrêt|En cours d’arrêt|Aucun (état transitoire)
 Arrêté|Arrêté|Non
 
@@ -391,6 +395,8 @@ Arrêté|Arrêté|Non
 - Par défaut, vous pouvez seulement ajouter 5 canaux à votre compte Media Services. Il s’agit d’un quota conditionnel sur tous les nouveaux comptes. Pour plus d’informations, voir [Quotas et limitations](media-services-quotas-and-limitations.md).
 - Vous ne pouvez pas modifier le protocole d’entrée pendant l’exécution du canal ou de ses programmes associés. Si vous avez besoin d’autres protocoles, vous devez créer des canaux distincts pour chaque protocole d’entrée.
 - Vous êtes facturé uniquement lorsque votre canal est à l’état **En cours d’exécution**. Pour plus d’informations, reportez-vous à [cette](media-services-manage-live-encoder-enabled-channels.md#states) section.
+- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+- Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 ##Problèmes connus
 
@@ -412,7 +418,7 @@ Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gére
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Rubriques connexes
@@ -426,4 +432,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

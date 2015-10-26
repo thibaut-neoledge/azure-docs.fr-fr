@@ -52,4 +52,4 @@ Depuis longtemps, Microsoft fait preuve d’un engagement réel vis-à-vis de la
 [Prise en main (développeurs)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

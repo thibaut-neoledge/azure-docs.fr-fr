@@ -723,4 +723,4 @@ Dans le cas d’une API que vous appelez, vous pouvez souhaiter une réponse ava
 
 Consultez la [documentation sur l'API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) pour connaître toutes les options dont vous disposez pour créer et gérer des applications logiques.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -44,7 +44,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
    3. D’autres fonctions. Par exemple : fonction\_une (<<argument1>>, fonction\_deux(<<argument2>>))
 
 
-- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : "Nom de la société : "Contoso""
+- Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\\). Par exemple : "Nom de la société : "Contoso""
 
 
 
@@ -307,4 +307,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

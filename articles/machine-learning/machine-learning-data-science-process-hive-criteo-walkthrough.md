@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="Processus d'analyse avancé et technologie en action : utilisation des clusters Hadoop HDInsight sur le groupe de données Criteo de 1 To | Microsoft Azure" 
 	description="Utilisation du processus d'analyse avancé et technologie (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un groupe de données volumineux (1 To), disponible publiquement." 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -25,7 +27,7 @@ Il est également possible d'utiliser un interpréteur IPython notebook pour acc
 
 ## <a name="dataset"></a>Description du groupe de données Criteo
 
-Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (\~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, nous avons décompressé les données mises à notre disposition pour pouvoir les expérimenter.
+Les données Criteo représentent un groupe de données de prédiction de clic d'environ 370 Go de fichiers TSV compressés au format gzip (~1,30 To de fichiers non compressés), comprenant plus de 4,3 milliards d'enregistrements. Elles proviennent de 24 jours de données de clic, disponibles via [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Pour la commodité des scientifiques de données, nous avons décompressé les données mises à notre disposition pour pouvoir les expérimenter.
 
 Chaque enregistrement de ce groupe de données est constitué de 40 colonnes :
 
@@ -450,7 +452,7 @@ Voici à quoi ressemble le **Lecteur** lors de la récupération des données d�
 Pour le module **Lecteur**, les valeurs des paramètres qui sont fournies dans le graphique servent uniquement d'exemples. Voici quelques instructions générales portant sur le « remplissage » des paramètres pour le module **Lecteur**.
 
 1. Choisissez « Requête Hive » pour la **source de données**.
-2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT \* FROM <nom\_de\_votre\_base\_de\_données.nom\_de\_votre\_table> - suffit.
+2. Dans la zone de **requête de base de données Hive**, une simple opération SELECT * FROM <nom\_de\_votre\_base\_de\_données.nom\_de\_votre\_table> - suffit.
 3. **URI du serveur Hcatalog** : si votre cluster se nomme « abc », vous aurez donc : https://abc.azurehdinsight.net
 4. **Nom du compte utilisateur Hadoop** : nom d'utilisateur choisi lors de la mise en service du cluster. PAS le nom d'utilisateur à distance.
 5. **Nom du compte utilisateur Hadoop** : mot de passe associé au nom d'utilisateur choisi lors de la mise en service du cluster. PAS le mot de passe de l'accès à distance.
@@ -656,4 +658,4 @@ Nous remarquons que pour les deux exemples de test sur lesquels nous nous sommes
 
 Ceci conclut notre procédure pas à pas illustrant comment gérer un jeu de données à grande échelle à l'aide d'Azure Machine Learning. Nous avons démarré avec un téraoctet de données, nous avons construit un modèle de prévision et l'avons déployé en tant que service Web dans le cloud.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

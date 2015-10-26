@@ -147,4 +147,4 @@ Oui. Il n'y a aucun frais de connexion pour l'envoi d'événements à l'aide de 
 
 [FAQ sur la tarification de Service Bus](service-bus-pricing-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

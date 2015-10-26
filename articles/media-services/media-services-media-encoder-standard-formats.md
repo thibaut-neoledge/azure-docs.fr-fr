@@ -58,6 +58,7 @@ Codecs vidéo d’entrée|Pris en charge
 AVC 8 bits/10 bits, jusqu'à 4:2:2, y compris AVCIntra |8 bits 4:2:0 et 4:2:2 
 Avid DNxHD (dans MXF) |Oui 
 DVCPro/DVCProHD (dans MXF) |Oui 
+Vidéo numérique (dans les fichiers AVI) |Oui
 JPEG 2000 |Oui 
 MPEG-2 (jusqu’au profil 422 et haut niveau ; y compris les variantes telles que XDCAM, XDCAM HD, XDCAM IMX, CableLabs® et D10)|Jusqu’à un profil de 422 
 MPEG-1 |Oui 
@@ -109,7 +110,7 @@ MPEG2-TS |H.264 (profils High, Main et Baseline)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##Voir aussi
@@ -118,4 +119,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Encodage avec Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

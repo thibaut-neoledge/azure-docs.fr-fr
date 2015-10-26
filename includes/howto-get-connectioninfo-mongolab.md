@@ -15,4 +15,4 @@ Pour récupérer cet URI à partir du portail Azure, procédez comme suit :
 [screen-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/dialog-mongolab_connectioninfo.png
 [button-addons]: ./media/howto-get-connectioninfo-mongolab/button-addons.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

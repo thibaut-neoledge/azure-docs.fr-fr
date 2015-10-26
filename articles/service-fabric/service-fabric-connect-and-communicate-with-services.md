@@ -1,20 +1,20 @@
 <properties
    pageTitle="Microsoft Azure Service Fabric - Comment communiquer avec les services"
-	description="Cet article décrit comment vous connecter aux services et communiquer avec eux dans les applications Service Fabric."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="kunaldsingh"
-	manager="timlt"
-	editor=""/>
+   description="Cet article décrit comment vous connecter aux services et communiquer avec eux dans les applications Service Fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="kunaldsingh"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="kunalds"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/21/2015"
+   ms.author="kunalds"/>
 
 
 # Communication avec les services
@@ -57,4 +57,4 @@ Toutes les API de communication ServiceFabric sont actuellement disponibles uniq
 * [Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md)
 * [Pile de communication WCF pour les services fiables](service-fabric-reliable-services-communication-wcf.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

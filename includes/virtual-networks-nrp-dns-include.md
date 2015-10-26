@@ -7,4 +7,4 @@ Les propriétés clés d'un DNS Azure sont les suivantes :
 - **Zones DNS** - Informations relatives à la zone du domaine pour l'hébergement des enregistrements DNS d'un domaine particulier.
 - **Jeux d'enregistrements DNS** - Ensemble d'enregistrements d'un type particulier. Les types pris en charge sont A, AAAA, CNAME, MX, NS, SOA,SRV et TXT.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

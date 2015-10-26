@@ -50,4 +50,4 @@ Si vous avez manqué l'étape 2 décrite ci-dessus et essayez de créer une dem
 
 ![Support - aucun abonnement](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

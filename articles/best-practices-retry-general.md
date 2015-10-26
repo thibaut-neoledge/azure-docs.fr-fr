@@ -115,4 +115,4 @@ Les recommandations suivantes vous aideront à concevoir un mécanisme de gestio
 * [Modèle de transaction de compensation](http://msdn.microsoft.com/library/dn589804.aspx)
 * [Modèles d’idempotence](http://blog.jonathanoliver.com/2010/04/idempotency-patterns/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

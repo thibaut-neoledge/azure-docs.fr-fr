@@ -13,14 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Activités de déplacement des données
 Data Factory dispose d’un [service globalement disponible](#global) pour prendre en charge le déplacement des données avec une [activité de copie](#copyactivity) qui s’applique à toute une variété de magasins de données répertoriés ci-dessous. Data Factory permet également de [déplacer de façon sécurisée des données entre des sites locaux et le cloud](#moveonpremtocloud) à l'aide de la passerelle de gestion des données.
 
+Pour un didacticiel rapide sur l’activité de copie, reportez-vous à [Didacticiel : Utilisation de l'activité de copie dans un pipeline Azure Data Factory](data-factory-get-started.md). Dans ce didacticiel, vous utiliserez l’activité de copie pour copier des données entre un stockage d'objets blob Azure et une base de données SQL Azure. La section suivante répertorie tous les sources et récepteurs pris en charge par l'activité de copie.
+
+
 ## Magasins de données pris en charge pour l’activité de copie
-L’activité de copie les données d’un magasin de données **source** vers un magasin de données **récepteur**. Data Factory prend en charge les combinaisons suivantes de magasins de données, source et de réception. Cliquez sur une banque de données pour savoir comment copier des données à partir de/vers ce magasin.
+L’activité copie les données d’un magasin de données **source** vers un magasin de données **récepteur**. Data Factory prend en charge les combinaisons suivantes de magasins de données, source et de réception. Cliquez sur une banque de données pour savoir comment copier des données à partir de/vers ce magasin.
 
 | **Source** | **Section sink** |
 | ------ | ---- |
@@ -73,7 +76,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 3.	Un point unique de surveillance et de gestion avec une visibilité du statut de la passerelle et un tableau de bord basé sur un cloud de fabrique de données.
 
 
-Voir [Déplacement des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md) pour plus de détails.
+Pour plus de détails, voir [Déplacement des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Déplacement fiable et économique des données
 L’activité de copie sert à déplacer de grands volumes de données de manière fiable et en évitant les erreurs temporaires entre une grande variété de sources de données. Les données peuvent être copiées selon une méthode économique avec une option permettant d'activer la compression sur le réseau.
@@ -98,4 +101,4 @@ Pour l’activité de copie, la section **typeProperties** varie selon les types
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

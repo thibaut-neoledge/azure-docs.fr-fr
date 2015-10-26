@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # Configuration de Cache Redis Azure
@@ -163,11 +163,16 @@ Pour plus d’informations sur les commandes Redis, consultez [http://redis.io/c
 
 ## Console Redis
 
-Vous pouvez exécuter des commandes en toute sécurité aux instances de Cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium. Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
+Vous pouvez exécuter des commandes en toute sécurité aux instances de Cache Redis Azure à l’aide de la **console Redis** disponible pour les caches Standard et Premium.
+
+>[AZURE.IMPORTANT]La Console Redis ne fonctionne pas avec le réseau virtuel ou le clustering.
+>
+>-	[Réseau virtuel](cache-how-to-premium-vnet.md) : lorsque votre cache fait partie d’un réseau virtuel, seuls les clients sur ce réseau virtuel peuvent accéder à la mémoire cache. Étant donné que la Console Redis utilise le client redis-cli.exe hébergé sur des machines virtuelles qui ne font pas partie de votre réseau virtuel, il ne peut pas se connecter à votre cache.
+>-	[Clustering](cache-how-to-premium-clustering.md) : la Console Redis utilise le client redis-cli.exe, qui ne prend pas en charge le clustering à l’heure actuelle. L’utilitaire redis-cli dans la branche [unstable](http://redis.io/download) du référentiel Redis sur GitHub implémente la prise en charge de base lorsqu’il est démarré avec le commutateur `-c`. Pour plus d’informations, consultez [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) sur [http://redis.io](http://redis.io) dans le [didacticiel de cluster Redis](http://redis.io/topics/cluster-tutorial).
+
+Pour accéder à la console Redis, cliquez sur **Console** dans le panneau **Cache Redis**.
 
 ![Console Redis](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]La console Redis est uniquement disponible pour les caches Standard et Premium.
 
 Pour exécuter des commandes sur votre instance de cache, tapez simplement la commande souhaitée dans la console.
 
@@ -178,4 +183,4 @@ Pour obtenir la liste des commandes Redis désactivées pour le Cache Redis Azur
 ## Étapes suivantes
 -	Pour plus d’informations sur l’utilisation des commandes Redis, consultez [Exécution des commandes Redis](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

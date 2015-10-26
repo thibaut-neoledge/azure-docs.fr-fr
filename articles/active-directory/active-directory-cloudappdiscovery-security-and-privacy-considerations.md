@@ -177,4 +177,4 @@ Dans le but de protéger les métadonnées recueillies, par défaut seuls les ad
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

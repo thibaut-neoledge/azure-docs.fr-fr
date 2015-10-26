@@ -33,11 +33,14 @@ Les machines virtuelles sont disponibles en deux niveaux : de base et standard.
 
 *   Les machines virtuelles de la série D sont conçues pour exécuter des applications qui nécessitent une puissance de calcul et des performances de disque temporaire supérieures. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et un disque SSD pour le disque temporaire. Pour plus d’informations, voir l’annonce suivante sur le blog Azure : [Nouvelles tailles de machines virtuelles de la série D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/) (en anglais).
 
-*   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D. Pour plus d’informations, consultez l’annonce sur le blog Azure : [Tailles des machines virtuelles de la nouvelle série Dv2](http://azure.microsoft.com/blog/2015/10/01/new-dv2-series-virtual-machine-sizes/).
+*   La série Dv2, suite de la série D d’origine, comprend un processeur plus puissant. Le processeur de la série Dv2 est environ 35 % plus rapide que le processeur de la série D. Il est basé sur la dernière génération de processeur 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) et comporte la technologie 2.0 Intel Turbo Boost, et peut atteindre 3,2 GHz. La série Dv2 a les mêmes configurations de disque et de mémoire que la série D.
+
+    La série Dv2 sera disponible dans les différentes régions selon le calendrier suivant : Octobre 2015 : Est des États-Unis 2, Centre des États-Unis, Nord-Centre des États-Unis, Ouest des États-Unis Novembre 2015 : Est des États-Unis, Europe septentrionale, Europe occidentale Janvier 2016 : Sud-Centre des États-Unis, Est de l’Asie-Pacifique, Sud-est de l’Asie-Pacifique, Est du Japon, Ouest du Japon, Est de l’Australie, Sud-est de l’Australie, Sud du Brésil
+
 
 *   Les machines virtuelles de la série G offrent la plus grande taille et les meilleures performances ; elles s’exécutent sur des hôtes équipés de processeurs de la famille Intel Xeon E5 V3.
 
-*   Les machines virtuelles de la série DS et GS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
+*   Les machines virtuelles de la série DS et GS peuvent utiliser un stockage Premium, qui offre un stockage hautes performances à faible latence pour les charges de travail impliquant des E/S intensives. Ces machines virtuelles utilisent des disques SSD pour héberger les disques de la machine virtuelle et offrent également un cache de disque SSD local. Le stockage Premium est disponible dans certaines régions. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
 La taille de la machine virtuelle a une incidence sur la tarification. La taille influe également sur les capacités de traitement, de mémoire et de stockage de la machine virtuelle. Les coûts de stockage sont calculés séparément en fonction des pages utilisées dans le compte de stockage. Pour plus d’informations, voir les pages [Machines virtuelles Tarification](http://azure.microsoft.com/pricing/details/virtual-machines/) et [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/). Pour plus d’informations sur le stockage pour les machines virtuelles, consultez [À propos des disques et des disques durs virtuels pour les machines virtuelles](virtual-machines-disks-vhds.md).
 
@@ -49,7 +52,7 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 *   Quand vous utilisez SQL Server Enterprise Edition, sélectionnez une machine virtuelle avec 4 ou 8 cœurs de processeur.
 
-*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, voir la rubrique [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/fr-fr/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d’assistance.
+*   Certains hôtes physiques des centres de données Azure ne prennent pas en charge les tailles de machines virtuelles élevées, comme A5 à A11. Ainsi, vous pouvez obtenir le message d’erreur **Échec de la configuration de la machine virtuelle <machine name>** ou **Échec de la création de la machine virtuelle <machine name>** pendant le redimensionnement d’une machine virtuelle existante, la création d’une machine virtuelle dans un réseau virtuel créé avant le 16 avril 2013 ou l’ajout d’une machine virtuelle à un service cloud existant. Pour découvrir les solutions de contournement pour chaque scénario de déploiement, voir la rubrique [Erreur : « Échec de la configuration de la machine virtuelle »](https://social.msdn.microsoft.com/Forums/fr-FR/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) (en anglais) sur le forum d’assistance.
 
 *   Les tailles de machines virtuelles A8/A10 et A9/A11 présentent les mêmes capacités. Les instances de machine virtuelle A8 et A9 intègrent une carte réseau supplémentaire qui est connectée à un réseau RDMA pour accélérer la communication entre les machines virtuelles. Les instances A8 et A9 sont conçues pour les applications de calcul hautes performances qui nécessitent une communication constante et à faible latence entre les nœuds pendant l'exécution, comme les applications qui utilisent l'interface MPI (Message Passing Interface). Les instances de machine virtuelle A10 et A11 ne sont pas équipées de cette carte réseau supplémentaire. Ces instances sont conçues pour les applications de calcul hautes performances qui n'ont pas besoin d'une communication constante et à faible latence entre les nœuds, également appelées applications paramétriques ou massivement parallèles.
 
@@ -138,7 +141,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_DS13\\identique|8|56|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 112 Go</p>|16|288|<p>25 600</p><p>256 Mo par seconde</p>|
 |Standard\_DS14\\identique|16|112|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|32|576|<p>50 000</p><p>512 Mo par seconde</p>|
 
-** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Premium Storage : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
+** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez l’article [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
 ### Niveau standard : série G
 
@@ -157,8 +160,8 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_GS1|2|28|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 56 Go</p>|4|264|<p>5 000</p><p>125 Mo par seconde</p>|
 |Standard\_GS2|4|56|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 112 Go</p>|8|528|<p>10 000</p><p>250 Mo par seconde</p>|
 |Standard\_GS3|8|112|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 224 Go</p>|16|1 056|<p>20 000</p><p>500 Mo par seconde</p>|
-|Standard\_GS4|16|224|<p>Système d’exploitation = 1023 Go</p><p>Disque SSD local = 448 Go</p>|32|2 112|<p>40 000</p><p>1 000 Mo par seconde</p>|
-|Standard\_GS5|32|448|<p>Système d’exploitation = 1023 Go</p><p>Disque SSD local = 896 Go</p>|64|4 224|<p>80 000</p><p>2 000 Mo par seconde</p>|
+|Standard\_GS4|16|224|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 448 Go</p>|32|2 112|<p>40 000</p><p>1,000 Mo par seconde</p>|
+|Standard\_GS5|32|448|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 896 Go</p>|64|4 224|<p>80 000</p><p>2 000 Mo par seconde</p>|
 
 
 ### Voir aussi
@@ -167,4 +170,4 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

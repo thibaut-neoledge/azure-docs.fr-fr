@@ -1,11 +1,11 @@
 <properties
    pageTitle="Sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure | Microsoft Azure"
-	description="Découvrez comment sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="jwhit"
-	editor=""/>
+   description="Découvrez comment sauvegarder des fichiers et dossiers d’un serveur Windows ou d’un ordinateur client Windows sur Azure."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="jwhit"
+   editor=""/>
 
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
 
@@ -47,4 +47,4 @@ Avant de continuer, vérifiez que toutes les [conditions préalables](backup-con
 - [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 - [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

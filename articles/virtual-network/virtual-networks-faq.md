@@ -23,4 +23,4 @@
 
 Pour les dernières questions sur les VPN du réseau virtuel, voir [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

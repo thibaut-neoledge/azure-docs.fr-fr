@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/12/2015"
 	ms.author="rkarlin"/>
 
 # Utilisation de l’accès conditionnel
@@ -29,7 +29,7 @@ Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupe
 - Un locataire Azure Active Directory fédéré ou géré 
 - Les clients fédérés nécessitent l’activation de l'authentification multifacteur (MFA). 
 
-![](http://i.imgur.com/rv28onQ.png)
+![](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configurer l'authentification multifacteur pour chaque application
 1. Connectez-vous en tant qu’administrateur dans le portail de gestion Azure.
@@ -38,16 +38,30 @@ Ces règles peuvent s’appliquer à tous les utilisateurs et à tous les groupe
 4. Activez la règle en positionnant **Activer les règles d'accès** sur **Oui**.
 5. Spécifiez les utilisateurs et les groupes auxquels les règles s'appliqueront. Utilisez le bouton **Ajouter un groupe** pour sélectionner un ou plusieurs groupes auxquels s'appliquera la règle d'accès. Cette boîte de dialogue peut également servir à supprimer les groupes sélectionnés. Lorsque les règles d’accès s’appliquent aux groupes, elles ne s’appliqueront qu’aux utilisateurs qui appartiennent à un des groupes de sécurité spécifiés. <br> Pour exclure explicitement des groupes de sécurité de la règle, cochez **Sauf** et spécifiez un ou plusieurs groupes. Les utilisateurs qui sont membres d'un groupe dans la liste Sauf ne seront pas tenus d’effectuer l'authentification multifacteur. <br>Si un utilisateur a été configuré à l'aide de la fonctionnalité d'authentification multifacteur en fonction de l’utilisateur, ce paramètre aura priorité sur les règles d'authentification multifacteur par application. Cela signifie qu'un utilisateur qui a été configuré pour l'authentification multifacteur en fonction de l’utilisateur devra effectuer l'authentification multifacteur, même s’il a été exclu des règles d'authentification multifacteur de l'application. [En savoir plus sur l’authentification multifacteur et sur les paramètres pour chaque utilisateur](../multi-factor-authentication/multi-factor-authentication.md). 
 6. Sélectionnez la règle d'accès que vous souhaitez définir :
-- **Exiger une authentification multifacteur**: les utilisateurs auxquels s’appliquent des règles d'accès devront effectuer l'authentification multifacteur pour accéder à l'application à laquelle la règle s'applique.
-- **Exiger une authentification multifacteur en dehors du travail**: les utilisateurs qui tentent d'accéder à l'application à partir d'une adresse IP approuvée ne seront pas tenus d’effectuer l'authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
-- **Bloquer l'accès en dehors du travail**: les utilisateurs qui tentent d'accéder à l'application en dehors de votre réseau d'entreprise ne seront pas en mesure d'accéder à l'application.
+	- **Exiger une authentification multifacteur**: les utilisateurs auxquels s’appliquent des règles d'accès devront effectuer l'authentification multifacteur pour accéder à l'application à laquelle la règle s'applique.
+	- **Exiger une authentification multifacteur en dehors du travail**: les utilisateurs qui tentent d'accéder à l'application à partir d'une adresse IP approuvée ne seront pas tenus d’effectuer l'authentification multifacteur. Les plages d'adresses IP approuvées peuvent être configurées sur la page des paramètres de l'authentification multifacteur.
+	- **Bloquer l'accès en dehors du travail**: les utilisateurs qui tentent d'accéder à l'application en dehors de votre réseau d'entreprise ne seront pas en mesure d'accéder à l'application.
 
 
 ## Configuration de l'authentification multifacteur pour les services de fédération
 Pour les clients fédérés, l'authentification multifacteur (MFA) peut être effectuée par Azure Active Directory ou par le serveur local AD FS. Par défaut, l'authentification multifacteur a lieu sur n'importe quelle page hébergée par Azure Active Directory. Pour configurer l'authentification multifacteur localement, exécutez Windows PowerShell et utilisez la propriété –SupportsMFA pour configurer le module Azure AD. L'exemple suivant montre comment activer l'authentification multifacteur localement à l'aide de l’[applet de commande Set-MsolDomainFederationSettings](https://msdn.microsoft.com/library/azure/dn194088.aspx) sur le locataire contoso.com : `Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true ` en plus de la définition de cet indicateur, l'instance de locataire fédéré AD FS doit être configurée pour effectuer l'authentification multifacteur. Suivez les instructions décrites dans [Déploiement de Microsoft Azure Multi-Factor Authentication en local](..multi-factor-authentication-get-started-server.md).
+## Voir aussi
+Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
+
+- [Publiez des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
+- [Publier des applications avec votre propre nom de domaine](active-directory-application-proxy-custom-domains.md)
+- [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md)
+- [Utiliser des applications utilisant les revendications](active-directory-application-proxy-claims-aware-apps.md)
+- [Résoudre les problèmes rencontrés avec le proxy d'application](active-directory-application-proxy-troubleshoot.md)
+
+## En savoir plus sur le Proxy d’application
+- [Consultez notre aide en ligne](active-directory-application-proxy-enable.md)
+- [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
+- [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
+
 ## Ressources supplémentaires
 
 * [Inscription à Azure en tant qu’organisation](..sign-up-organization.md)
 * [Identité Azure](..fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

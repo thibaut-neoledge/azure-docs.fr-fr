@@ -58,4 +58,4 @@ Le modèle d'architecture de mise en réseau hybride est particulièrement compl
 
 [Niveau de traitement par lots](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1) (en anglais)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

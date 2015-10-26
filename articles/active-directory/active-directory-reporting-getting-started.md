@@ -156,4 +156,4 @@ Envoyez un message à [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@m
 
 > [AZURE.TIP]Pour plus d’informations sur la création de rapports Azure AD, consultez la page [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

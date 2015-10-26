@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/07/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+>[AZURE.TIP]Si vous êtes novice dans le développement mobile avec Microsoft Azure, [utilisez Azure Mobile Apps](app-service-mobile-dotnet-backend-ios-get-started-preview.md) plutôt qu’Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Ce didacticiel présente l’ajout d’un service principal cloud à une application iOS à l’aide d’Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile utilise .NET et Visual Studio pour la logique métier côté serveur. Pour créer un service mobile avec une logique métier côté serveur en JavaScript, consultez la [version relative au service principal JavaScript] de cette rubrique.
 
@@ -64,7 +66,9 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 * [Ajout de notifications Push à votre application existante] <br/>Découvrez comment envoyer une notification Push très basique à votre application.
 
-* [Résolution des problèmes d’un service principal .NET Mobile Services ] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un backend .NET Mobile Services.
+* [Résolution des problèmes d’un serveur principal .NET Mobile Services] <br/>Découvrez comment diagnostiquer et résoudre les problèmes qui peuvent se produire avec un serveur principal .NET Mobile Services.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -89,7 +93,7 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-ios-get-started-offline-data.md
 [Ajout de l’authentification à une application existante]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Ajout de notifications Push à votre application existante]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Résolution des problèmes d’un service principal .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
+[Résolution des problèmes d’un serveur principal .NET Mobile Services]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
@@ -97,4 +101,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version relative au service principal JavaScript]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

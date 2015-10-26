@@ -45,4 +45,4 @@ Utilisateurs RMS les plus actifs | 30 jours
 Utilisation d’un périphérique RMS | 30 jours
 Utilisation d’applications fonctionnant avec RMS | 30 jours
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

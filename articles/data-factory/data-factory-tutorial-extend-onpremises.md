@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure)"
+	pageTitle="Copie des données de sortie vers une base de données SQL Server locale (portail Azure)" 
 	description="Cette procédure pas à pas étend le didacticiel à l'aide de Data Factory Editor dans le portail Azure de telle façon que le pipeline copie des données de sortie vers une base de données SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -169,4 +169,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

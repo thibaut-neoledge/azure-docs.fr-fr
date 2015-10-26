@@ -571,10 +571,10 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li> **PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>**MergeFiles :** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>** PreserveHierarchy : ** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>** FlattenHierarchy : ** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>** MergeFiles : ** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
 
 ### exemples de valeurs recursive et copyBehavior
-Cette section décrit le comportement résultant de l'opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
+Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
 
 recursive | copyBehavior | Comportement résultant
 --------- | ------------ | --------
@@ -599,4 +599,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré com
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Cluster Redis avec un modèle Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’un cluster Redis avec le modèle de déploiement du Gestionnaire des ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Redis est une solution de cache et stockage clé-valeur open-source dont les clés peuvent contenir des structures de données, telles que des chaînes de caractères, des hachages, des listes, des groupes et des groupes triés. Redis prend en charge un ensemble d'opérations atomiques pour ces types de données. Avec la version de Redis 3.0, Redis Cluster est désormais disponible dans la version stable la plus récente de Redis. Redis Cluster est une implémentation distribuée de Redis dans laquelle les données sont automatiquement partitionnées sur plusieurs nœuds de Redis, avec la possibilité de continuer à fonctionner lorsqu’un sous-ensemble de nœuds rencontre des erreurs.
 
@@ -669,4 +670,4 @@ Pour résumer, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

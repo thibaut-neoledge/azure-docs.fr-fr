@@ -64,4 +64,4 @@ Dans cette procédure, vous allez :
 
 2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l'application Web** pour la base de données de contenu souhaitée afin d’activer à nouveau la Corbeille. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)** -> **SharePoint - 80** -> **Paramètres généraux de l'application**. Définissez l’état de la Corbeille sur **ON**.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

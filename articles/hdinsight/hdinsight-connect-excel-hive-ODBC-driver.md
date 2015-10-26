@@ -1,6 +1,6 @@
 <properties
    pageTitle="Connexion d’Excel à Hadoop à l’aide du pilote ODBC Hive | Microsoft Azure"
-   description="Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d&#39;interroger des données dans un cluster HDInsight."
+   description="Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d'interroger des données dans un cluster HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -131,4 +131,4 @@ Dans cet article, vous avez appris à utiliser le pilote Microsoft Hive ODBC pou
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

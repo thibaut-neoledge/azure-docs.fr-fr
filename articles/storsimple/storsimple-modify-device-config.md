@@ -129,4 +129,4 @@ Pour échanger ou réaffecter les adresses IP virtuelles d’interfaces réseau,
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

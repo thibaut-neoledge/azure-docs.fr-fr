@@ -103,7 +103,11 @@ Vous définissez des paramètres avec la structure suivante :
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@ Vous définissez des paramètres avec la structure suivante :
 | type | Oui | Type de la valeur du paramètre. Consultez la liste ci-dessous pour découvrir les types autorisés.
 | defaultValue | Non | Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre.
 | allowedValues | Non | Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie.
+| minValue | Non | Valeur minimale pour les paramètres de type int, cette valeur est inclusive.
+| maxValue | Non | Valeur maximale pour les paramètres de type int. Cette valeur est inclusive.
+| minLength | Non | Valeur minimale pour les paramètres de type string, secureString et array. Cette valeur est inclusive.
+| maxLength | Non | Valeur maximale pour les paramètres de type string, secureString et array. Cette valeur est inclusive.
 
 Les valeurs et types autorisés sont :
 
@@ -130,10 +138,13 @@ L’exemple suivant vous indique comment définir les paramètres :
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@ L’exemple suivant vous indique comment définir les paramètres :
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -232,7 +251,7 @@ Vous définissez des ressources avec la structure suivante :
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs pour l’élément des **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST ( méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
+Les valeurs pour l’élément **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
 
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
@@ -410,4 +429,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

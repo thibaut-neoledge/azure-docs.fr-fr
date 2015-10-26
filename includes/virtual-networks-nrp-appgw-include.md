@@ -10,4 +10,4 @@ Les passerelles Application Gateway contiennent les ressources enfant suivantes�
 - **Écouteur** : l'écouteur a un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
 - **Règle** : la règle lie l'écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle de base est prise en charge. La règle de base est la distribution de charge par tourniquet (round robin).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN : compression des fichiers pour améliorer les performances"
-	description="Vous pouvez améliorer la vitesse de transfert de fichiers et les performances de chargement de page en compressant vos fichiers."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN : compression des fichiers pour améliorer les performances" 
+	description="Vous pouvez améliorer la vitesse de transfert de fichiers et les performances de chargement de page en compressant vos fichiers." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Compression des fichiers pour améliorer les performances
@@ -54,4 +54,4 @@ CDN peut prendre en charge la compression de deux façons :
 1. Pour les points de terminaison de diffusion en continu avec Media Services CDN, la compression est activée par défaut pour les types de contenu suivants : application/vnd.ms-sstr+xml, application/dash+xml, application/vnd.apple.mpegurl, application/f4m+xml. Vous ne pouvez pas activer ou désactiver la compression pour les types mentionnés à l'aide du portail Azure.  
 2. Une seule version d'un fichier (compressée ou non compressée) est mise en cache sur le serveur Edge. La demande d’une autre version entraîne un transcodage du contenu par le serveur Edge.  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Guide de prise en charge et de stratégie de suppression pour le SE invité d'Azure | Microsoft Azure"
-	description="Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud."
-	services="cloud-services"
-	documentationCenter="na"
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Guide de prise en charge et de stratégie de suppression pour le SE invité d'Azure | Microsoft Azure" 
+   description="Fournit des informations sur les éléments pris en charge par Microsoft en ce qui concerne le SE invité d'Azure utilisé par les services cloud." 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="Thraka" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/18/2015"
-	ms.author="adegeo"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="08/18/2015"
+   ms.author="adegeo"/>
 
 # Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](https://msdn.microsoft.com/library/azure/ff729422.aspx)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
@@ -90,4 +90,4 @@ Si l'architecture de votre application Web nécessite une intégration plus avan
 ## Étapes suivantes
 Consultez les dernières [versions du système d’exploitation invité](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

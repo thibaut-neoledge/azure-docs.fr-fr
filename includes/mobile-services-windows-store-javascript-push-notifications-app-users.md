@@ -78,4 +78,4 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 		    });
 		}  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

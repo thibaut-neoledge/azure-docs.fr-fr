@@ -21,7 +21,7 @@
 
 L’inclusion des fonctions de calcul, de réseau et de stockage dans le Gestionnaire de ressources Azure simplifie radicalement le déploiement et la gestion d’applications complexes sur IaaS. De nombreuses applications nécessitent une combinaison de ressources, dont un réseau virtuel, un compte de stockage, une machine virtuelle et une interface réseau. Le Gestionnaire de ressources Azure offre la possibilité de créer un modèle JSON pour déployer et gérer ensemble toutes ces ressources comme une seule application.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ## Avantages de l’intégration du calcul, du réseau et du stockage dans Azure Resource Manager
@@ -116,4 +116,4 @@ Cette opération n’est pas possible pour le moment. Vous ne pouvez pas connect
 
 Vous trouverez un ensemble complet de modèles de démarrage sur [Modèles de démarrage rapide Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

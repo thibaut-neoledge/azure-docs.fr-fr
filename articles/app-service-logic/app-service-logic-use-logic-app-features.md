@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Utiliser les fonctionnalités des applications logiques"
-	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="Utiliser les fonctionnalités des applications logiques" 
+	description="Découvrez comment utiliser les fonctionnalités avancées des applications logiques." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -143,4 +143,4 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

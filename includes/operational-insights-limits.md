@@ -1,3 +1,20 @@
+<properties
+   pageTitle="Tableau des limites Operational Insights"
+   description="Décrit les limites du système pour Operational Insights."
+   services="operational-insights"
+   documentationCenter="NA"
+   authors="bandersmsft"
+   manager="jwhit"
+   editor="" />
+<tags
+   ms.service="operational-insights"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/01/2015"
+   ms.author="banders" />
+
 
 Les limites suivantes s’appliquent aux abonnements Operational Insights.
 
@@ -11,4 +28,4 @@ Les limites suivantes s’appliquent aux abonnements Operational Insights.
 
 <sup>1</sup>Lorsque les clients atteignent leur limite quotidienne de transfert de données de 500 Mo, l’analyse des données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

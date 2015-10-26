@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure Backup - Forum Aux Questions
 Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
@@ -46,7 +46,7 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Q9. Comment inscrire mon serveur dans un autre centre de données ?**<br/> R9. En général, les données de sauvegarde sont envoyées au centre de données du service Azure Backup dans lequel elles sont inscrites. Le moyen le plus simple de modifier le centre de données est de désinstaller/réinstaller l’agent et de l’inscrire dans un nouveau centre de données.
 
-**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?** <br/> R10. Toutes les sauvegardes actuellement configurées seront interrompues. Vous devrez réenregistrer le serveur dans l’archivage de sauvegarde et il sera considéré comme un nouveau serveur par Recovery Services. La première opération de sauvegarde qui se produira après l’inscription sera donc une sauvegarde complète de toutes les données incluses dans la sauvegarde, au lieu d’une sauvegarde des modifications uniquement depuis la dernière sauvegarde. Toutefois, si vous devez effectuer une opération de récupération, vous pouvez récupérer les données qui ont été sauvegardées à l’aide de l’option Récupérer les données d’une autre récupération de serveur. Pour plus d’informations, consultez Renommer un serveur.
+**Q10. Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?** <br/> R10. Toutes les sauvegardes actuellement configurées seront interrompues. Vous devrez réenregistrer le serveur dans l’archivage de sauvegarde et il sera considéré comme un nouveau serveur par Recovery Services. La première opération de sauvegarde qui se produira après l’inscription sera donc une sauvegarde complète de toutes les données incluses dans la sauvegarde, au lieu d’une sauvegarde des modifications uniquement depuis la dernière sauvegarde. Toutefois, si vous devez effectuer une opération de récupération, vous pouvez récupérer les données qui ont été sauvegardées à l’aide de l’option Récupérer les données d’une autre récupération de serveur.
 
 **Q11. À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?** <br/> R11. L’ensemble suivant de lecteurs/volumes ne peut pas être sauvegardé :
 
@@ -99,10 +99,10 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 |N° |	Système d’exploitation |	Taille maximale de la source de données |
 | :-------------: |:-------------| :-----|
 |1| Windows Server 2012 ou version ultérieure| 54 400 Go|
-|2| Windows Server 8 ou version ultérieure| 54 400 Go|
+|2| Windows 8 ou version ultérieure| 54 400 Go|
 |3| Windows Server 2008, Windows Server 2008 R2 | 1 700 Go|
 |4| Windows 7 | 1 700 Go|
- 
+
 La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 |	Source de données |	Détails |
@@ -120,7 +120,7 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 **Q4. Existe-t-il une différence entre les stratégies de rétention de DPM et d’Azure Backup (par ex., sur Windows Server sans DPM) ?**<br/> R4. Non, vous avez les mêmes fonctionnalités. Vous pouvez spécifier des stratégies de rétention quotidiennes, hebdomadaires, mensuelles et annuelles.
 
-**Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Vous disposez d’un jeu complet de boutons pour définir des stratégies qui définissent au mieux vos exigences en matière de conformité et de rétention.
+**Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Oui, la structure de rétention Azure Backup vous permet une flexibilité complète dans la définition de la stratégie de rétention selon vos besoins.
 
 **Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18:00. <br/>
 
@@ -175,4 +175,4 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

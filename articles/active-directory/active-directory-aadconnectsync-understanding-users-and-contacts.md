@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync : présentation des utilisateurs et des contacts"
+	pageTitle="Azure AD Connect Sync : Présentation des utilisateurs et des contacts | Microsoft Azure"
 	description="Décrit les utilisateurs et les contacts dans Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -72,7 +72,7 @@ Quand un objet a été exporté vers Azure AD, il n’est plus autorisé à modi
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

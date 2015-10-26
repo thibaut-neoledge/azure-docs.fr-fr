@@ -3,8 +3,7 @@
 #Didacticiel : Intégration d’Azure AD à TimeOffManager
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=534748).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager.  
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement TimeOffManager pour lequel l’authentification unique est activée
@@ -54,9 +53,7 @@ Cette section décrit l’activation de l’intégration d’applications pour T
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML.  
-Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire TimeOffManager.  
-Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur TimeOffManager avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire TimeOffManager. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -68,7 +65,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par ex., « *Exemple : https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par ex., « Exemple : https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurer l’URL de l’application")
 
@@ -128,9 +125,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 ##Configuration de l'approvisionnement des utilisateurs
   
-Pour se connecter à TimeOffManager, les utilisateurs d’Azure AD doivent être approvisionnés dans TimeOffManager.  
-TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisateurs. Vous n’avez rien à faire.  
-Les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.
+Pour se connecter à TimeOffManager, les utilisateurs d’Azure AD doivent être approvisionnés dans TimeOffManager. TimeOffManager prend en charge l’approvisionnement juste-à-temps des utilisateurs. Vous n’avez rien à faire. Les utilisateurs sont ajoutés automatiquement lors de la première connexion à l’aide de l’authentification unique.
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur, fourni par TimeOffManager, pour approvisionner des comptes d’utilisateur AAD.
 
@@ -150,6 +145,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Installer .NET sur un rôle de service cloud"
-	description="Cet article explique comment installer manuellement le .NET Framework sur les rôles web et les rôles de travail de Cloud Services."
-	services="cloud-services"
-	documentationCenter=".net"
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+   description="Cet article explique comment installer manuellement le .NET Framework sur les rôles web et les rôles de travail de Cloud Services."
+   services="cloud-services"
+   documentationCenter=".net"
+   authors="sbtron"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/03/2015"
-	ms.author="saurabh"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/03/2015"
+   ms.author="saurabh"/>
 
 # Installer .NET sur un rôle de service cloud 
 
@@ -142,4 +142,4 @@ Quand vous déployez un service, les tâches de démarrage s'exécutent et insta
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

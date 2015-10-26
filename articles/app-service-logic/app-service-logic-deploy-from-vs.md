@@ -7,7 +7,6 @@
 	services="app-service\logic" 
 	documentationCenter=""/>
 
-
 <tags
 	ms.service="app-service-logic"
 	ms.workload="integration"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/30/2015"
 	ms.author="stepsic"/>
-
 	
 # Déploiement depuis Visual Studio
 
@@ -67,4 +65,4 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en ayant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez toujours utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [Powershell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

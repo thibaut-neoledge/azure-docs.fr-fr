@@ -67,4 +67,4 @@ Les articles suivants fournissent des conseils spécifiques à des tâches :
 
 - Ce téléchargement contient l'exemple d'application HelloKeyVault et un exemple de service web Azure. [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

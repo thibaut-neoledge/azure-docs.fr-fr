@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **Syncplicity** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans la page d’intégration d’applications **Syncplicity** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-syncplicity-tutorial/IC769534.png "Configurer l’authentification unique")
 
@@ -67,7 +67,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3.  Dans la zone de texte **URL de connexion à Syncplicity** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application Syncplicity, puis cliquez sur **Suivant**.
 
-    L’URL de l’application est celle de votre locataire Syncplicity (par exemple, \**http://company.Syncplicity.com*) :
+    L’URL de l’application est celle de votre locataire Syncplicity (par exemple, **http://company.Syncplicity.com*) :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-syncplicity-tutorial/IC769536.png "Configurer l’URL de l’application")
 
@@ -103,7 +103,7 @@ Pour que les utilisateurs AAD puissent se connecter, ils doivent être approvisi
 
 ###Pour approvisionner un compte d’utilisateur dans Syncplicity, procédez comme suit :
 
-1.  Connectez-vous à votre locataire **Syncplicity** (par exemple : \**https://company.Syncplicity.com*).
+1.  Connectez-vous à votre locataire **Syncplicity** (par exemple : **https://company.Syncplicity.com*).
 
 2.  Cliquez sur **Admin** et sélectionnez **User accounts**.
 
@@ -145,6 +145,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-syncplicity-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

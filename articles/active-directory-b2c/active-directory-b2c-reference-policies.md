@@ -115,4 +115,4 @@ Pour activer la modification de profil dans votre application, vous devez créer
 
     > [AZURE.NOTE]La création de la stratégie et les mises à jour peuvent prendre jusqu'à une minute.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

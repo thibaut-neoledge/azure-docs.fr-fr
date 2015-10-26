@@ -1,19 +1,19 @@
 <properties
  pageTitle="Liste des Kits de développement logiciel (SDK) Azure IoT Hub | Microsoft Azure"
- description="Informations et liens à propos des différents Kits de développement logiciel (SDK) d’appareils et de services IoT Hub"
+ description="Informations et liens à propos des différents Kits de développement logiciel (SDK) d’appareils et de services Azure IoT Hub."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # Kits de développement logiciel (SDK) IoT Hub
@@ -73,4 +73,4 @@ Voici une liste de liens de documentation de référence d’API en ligne pour l
 [Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

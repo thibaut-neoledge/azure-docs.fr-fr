@@ -111,4 +111,4 @@ Considérez les points suivants pour réduire la vulnérabilité de vos applicat
 
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

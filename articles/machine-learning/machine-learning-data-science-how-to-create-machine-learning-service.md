@@ -2,8 +2,11 @@
 	pageTitle="Création de solutions d’analyse avancées dans Azure | Microsoft Azure" 
 	description="Utilisez ce guide pour comprendre les différentes étapes d’utilisation d’Azure pour la science des données et l’apprentissage automatique dans le Cloud." 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
+	videoId="" 
+	scriptId="" 
 	manager="paulettm" />
 
 <tags 
@@ -26,4 +29,4 @@ L'étape intitulée **Traitement des données avancé dans Microsoft Azure** pe
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

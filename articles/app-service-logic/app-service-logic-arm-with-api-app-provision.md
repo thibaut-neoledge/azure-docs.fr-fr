@@ -394,4 +394,4 @@ Notez que l'application logique utilise le jeton pour appeler la passerelle.
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

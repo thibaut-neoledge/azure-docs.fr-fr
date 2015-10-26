@@ -7,7 +7,6 @@
 	manager="paulettm"
 	editor="" />
 
-
 <tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
-
 
 
 # Scénarios d’analyses avancées dans Azure Machine Learning
@@ -232,11 +230,11 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 Pour répliquer l’ensemble de la base de données SQL Server dans votre machine virtuelle SQL Server, vous devez copier une base de données à partir d’un emplacement/serveur vers un autre, en supposant que la base de données puisse être mise temporairement hors connexion. Pour cela, utilisez l’interface utilisateur graphique de l’Explorateur d’objets SQL Server Management Studio ou les commandes Transact-SQL équivalentes.
 
-1. Détachez la base de données à l’emplacement source. Pour plus d’informations, consultez la rubrique [Détacher une base de données\](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
+1. Détachez la base de données à l’emplacement source. Pour plus d’informations, consultez la rubrique [Détacher une base de données](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. Dans l’Explorateur Windows ou l’invite de commandes Windows, copiez les fichiers de la base de données détachée et les fichiers journaux à l’emplacement cible sur la machine virtuelle SQL Server dans Azure.
-3. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez la rubrique [Attacher une base de données\](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx).
+3. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez la rubrique [Attacher une base de données](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx).
 
-[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)\](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
+[Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
 ## <a name="largedbtohive"></a>Scénario n°7 : données volumineuses (« Big Data ») dans des fichiers locaux, ciblant une base de données Hive dans des clusters Hadoop Azure HDInsight
 
@@ -318,4 +316,4 @@ Pour connaître les procédures pas à pas de bout en bout pour Azure Machine Le
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

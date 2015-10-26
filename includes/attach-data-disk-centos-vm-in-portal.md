@@ -114,4 +114,4 @@ Connectez-vous à la machine virtuelle pour terminer l'installation du disque et
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

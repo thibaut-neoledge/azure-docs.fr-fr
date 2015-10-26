@@ -70,4 +70,4 @@ Pour associer votre domaine personnalisé à une application web dans Azure App
  
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

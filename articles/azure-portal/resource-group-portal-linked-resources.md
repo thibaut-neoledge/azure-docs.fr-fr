@@ -34,4 +34,4 @@ Lorsque vous créez des ressources par le biais du portail ou en déployant un m
 - Pour plus d’informations sur la création de liens entre les ressources, voir l’article [Liaison des ressources dans Azure Resource Manager](../resource-group-link-resources.md).
 - Pour plus d’informations sur l’utilisation des groupes de ressources par le biais du portail en version préliminaire, voir l’article [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

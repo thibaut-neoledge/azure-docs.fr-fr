@@ -204,4 +204,4 @@ Une fois que les services sont en cours d'exécution, vous pouvez voir les évé
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

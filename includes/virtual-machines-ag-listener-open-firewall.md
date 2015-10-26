@@ -16,4 +16,4 @@ Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir l
 
 1. Répétez les étapes ci-dessus pour le port de l'écouteur du groupe de disponibilité (comme spécifié précédemment à l'aide du paramètre $EndpointPort du script), puis spécifiez un nom de règle approprié, tel que **Port de l'écouteur AlwaysOn**.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

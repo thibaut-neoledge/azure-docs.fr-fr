@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Traffic Manager - Méthodes de routage du trafic | Microsoft Azure"
-	description="Cet article vous aide à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Cet article vous aide à comprendre les différentes méthodes de routage du trafic utilisées par Traffic Manager."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Méthodes de routage de Traffic Manager
 
@@ -137,4 +137,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

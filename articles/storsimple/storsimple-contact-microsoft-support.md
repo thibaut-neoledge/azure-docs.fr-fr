@@ -76,4 +76,4 @@ Procédez comme suit pour démarrer une session de support :
 
 > [AZURE.IMPORTANT]Vous pouvez désactiver l’accès au support en exécutant `Disable-HcsSupportAccess`. L’appareil StorSimple tentera également de désactiver l'accès au support 8 heures après le début de la session. Il est recommandé de modifier vos informations d'identification de l’appareil StorSimple après le lancement d'une session de support.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -68,4 +68,4 @@ Les nouvelles fonctionnalités et mises à jour intégrées dans le Kit de déve
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

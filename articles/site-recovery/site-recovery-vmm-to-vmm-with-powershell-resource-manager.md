@@ -183,4 +183,4 @@ Activer la protection des machines virtuelles dans les clouds VMM :
 
 Pour les questions et les commentaires relatifs à ce scénario, visitez le [forum Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

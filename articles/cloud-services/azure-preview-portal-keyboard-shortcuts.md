@@ -37,17 +37,11 @@
 | J | Panneau ouvert précédemment |
 | K | Panneau suivant ouvert |
 | L | Dernier panneau ouvert |
-| - | Réduire le panneau ou le restaurer depuis la version optimale |
-| + | Optimiser le panneau ou restaurer depuis la version minimale |
-| # | Fermer panneau actuel |
-| ¦ | Fermer tous les panneaux |
-| , | Déplacer le focus sur la barre de commandes |
-| . | Déplacer le focus sur la barre de navigation |
-| ? | Afficher les raccourcis clavier |
+| - | Réduire le panneau ou le restaurer depuis la version optimale | | + | Optimiser le panneau ou restaurer depuis la version minimale | | # | Fermer panneau actuel | | ¦ | Fermer tous les panneaux | | , | Déplacer le focus sur la barre de commandes | | . | Déplacer le focus sur la barre de navigation | | ? | Afficher les raccourcis clavier |
 
 
 ## Étapes suivantes
 
 Découvrez plus en détail le portail Azure : http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

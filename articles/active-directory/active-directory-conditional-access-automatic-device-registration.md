@@ -85,4 +85,4 @@ Les entreprises qui utilisent des appareils mobiles et des appareils traditionne
 
 Pour en savoir plus sur le déploiement de l’inscription d’appareils avec AD FS, cliquez [ici](https://technet.microsoft.com/fr-FR/library/dn486831.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

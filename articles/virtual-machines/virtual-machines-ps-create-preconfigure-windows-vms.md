@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Création et préconfiguration d’une machine virtuelle | Microsoft Azure"
-	description="Créer et préconfigurer des machines virtuelles Windows avec le modèle de déploiement classique et PowerShell"
+	pageTitle="Créer une machine virtuelle Windows PowerShell | Microsoft Azure"
+	description="Créez des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,17 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/13/2015"
 	ms.author="cynthn"/>
 
-# Créer et préconfigurer une machine virtuelle Windows avec le modèle de déploiement classique et PowerShell
+# Créer des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique 
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique. Vous pouvez également créer des ressources avec le [modèle de déploiement Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+
 
 Ces étapes vous montrent comment personnaliser un jeu de commandes Azure PowerShell en vue de créer et de préconfigurer une machine virtuelle Azure basée sur Windows à l'aide d'une approche modulaire. À l'aide de cette procédure, vous pouvez créer rapidement un jeu de commandes pour une nouvelle machine virtuelle basée sur Windows et étendre un déploiement existant, ou créer plusieurs jeux de commandes qui génèrent rapidement un environnement personnalisé de développement/test ou destiné aux professionnels de l'informatique.
 
@@ -32,9 +36,6 @@ Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de c
 
 Pour plus d’informations sur la configuration des machines virtuelles basées sur Linux, voir l’article [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux](virtual-machines-ps-create-preconfigure-linux-vms.md).
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## Étape 1 : installer Azure PowerShell
 
@@ -53,11 +54,7 @@ Le nom de l’abonnement apparaît dans la propriété SubscriptionName du résu
 
 ## Étape 3 : déterminer la valeur ImageFamily
 
-Vous devez ensuite déterminer la valeur ImageFamily ou Étiquette pour l'image spécifique correspondant à la machine virtuelle Azure que vous voulez créer. Voici quelques exemples tirés de la galerie du portail de gestion Azure.
-
-![](./media/virtual-machines-ps-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
-
-Vous pouvez obtenir la liste des valeurs ImageFamily disponibles à l'aide de cette commande.
+Vous devez ensuite déterminer la valeur ImageFamily ou Étiquette pour l'image spécifique correspondant à la machine virtuelle Azure que vous voulez créer. Vous pouvez obtenir la liste des valeurs ImageFamily disponibles à l'aide de cette commande.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -268,8 +265,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-[Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
-
-[Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

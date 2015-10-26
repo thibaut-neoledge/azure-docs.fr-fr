@@ -126,4 +126,4 @@ Non, cette opération n'est pas prise en charge dans Azure RemoteApp, qui utilis
 
 Non, cette fonctionnalité n’est pas prise en charge dans Azure RemoteApp.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

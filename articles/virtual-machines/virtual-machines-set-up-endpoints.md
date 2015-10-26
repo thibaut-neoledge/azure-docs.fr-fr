@@ -96,4 +96,4 @@ Pour effectuer cette configuration avec une applet de commande Azure PowerShell,
 
 [Équilibrage de charge pour les services d’infrastructure Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

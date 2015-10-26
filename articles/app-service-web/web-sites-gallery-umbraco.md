@@ -8,7 +8,6 @@
 	manager="wpickett" 
 	editor="mollybos"/>
 
-
 <tags 
 	ms.service="app-service-web" 
 	ms.workload="web" 
@@ -17,7 +16,6 @@
 	ms.topic="article" 
 	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
-
 
 #Créer une application web Umbraco à partir de MarketPlace dans Microsoft Azure#
 
@@ -129,4 +127,4 @@ Et voilà ! Vous avez créé un blog à l’aide d’Umbraco CMS en quelques mi
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -50,4 +50,4 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

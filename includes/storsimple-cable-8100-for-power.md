@@ -24,4 +24,4 @@
 
 4. Activez le système en mettant en marche les commutateurs d'alimentation des deux PCM.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

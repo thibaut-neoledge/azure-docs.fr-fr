@@ -46,4 +46,4 @@ L’attribut personnalisé est actuellement disponible dans la liste des **attri
 
 La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vous devez maintenant voir « ShoeSize » dans la liste d’attributs collectés lors de l’inscription du consommateur, et le voir dans le jeton retourné à votre application.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

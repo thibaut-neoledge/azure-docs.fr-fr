@@ -66,4 +66,4 @@ L’API Graph sert dans de nombreux scénarios d’application. Les scénarios s
 
 [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

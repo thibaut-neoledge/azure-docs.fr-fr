@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Cloud Services - Tout ce que vous devez savoir sur les certificats" 
+	pageTitle="Cloud Services et certificats de gestion | Microsoft Azure" 
 	description="Découvrez comment créer et utiliser des certificats avec Microsoft Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -7,16 +7,14 @@
 	manager="timlt" 
 	editor=""/>
 
-
 <tags 
 	ms.service="cloud-services" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
-
 
 # Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificat et vous décrit comment les [créer](#create) et les [déployer](#deploy) dans Azure.
@@ -71,6 +69,9 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. Vou
 ### Java
 Vous pouvez utiliser Java pour [créer un certificat](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
+### Linux
+[Cet ](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) article décrit comment créer des certificats avec SSH.
+
 ## Étapes suivantes
 
 [Chargez votre certificat de service dans le portail Azure](cloud-services-configure-ssl-certificate.md) (ou dans le [portail en version préliminaire](cloud-services-configure-ssl-certificate-portal.md)), puis [configurez-le](cloud-services-xml-certs.md) pour le service cloud.
@@ -79,4 +80,4 @@ Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dan
 
 >[AZURE.NOTE]Le portail Azure en version préliminaire n’utilise pas de certificats de gestion pour accéder à l’API, mais utilise plutôt des comptes d’utilisateurs.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

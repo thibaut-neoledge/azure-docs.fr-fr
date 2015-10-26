@@ -8,7 +8,7 @@ Pour exécuter l'exemple de code PHP fourni dans cette rubrique, les éléments 
 - [Pilotes Microsoft Microsoft SQL Server pour PHP](http://www.microsoft.com/download/details.aspx?id=20098)
  - `SQLSRV32.EXE` contient les derniers éléments disponibles.
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Pilote Microsoft ODBC](https://www.microsoft.com/fr-fr/download/details.aspx?id=36434)
+- [Pilote Microsoft ODBC](https://www.microsoft.com/fr-FR/download/details.aspx?id=36434)
 - IIS Express
 - [PHP 5.6 pour IIS Express](http://www.microsoft.com/web/downloads/platform.aspx)
  - téléchargez-le à partir du programme d'installation de la plateforme.
@@ -29,4 +29,4 @@ DateOfLatestFreshnessVerification = 2015-07-10
 DateOfLatestContentUpdate = 2015-07-10
 -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

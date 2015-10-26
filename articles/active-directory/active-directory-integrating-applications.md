@@ -351,4 +351,4 @@ Afin de pouvoir supprimer l'accès d'une application à son répertoire (après 
 
 - Consulter le [Guide du développeur Active Directory](active-directory-developer’s guide.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

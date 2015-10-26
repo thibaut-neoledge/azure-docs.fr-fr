@@ -2,7 +2,7 @@
  pageTitle="Informations sur Azure IoT Hub pour les professionnels de l’informatique | Microsoft Azure"
  description="Ces informations sont destinées à aider les professionnels de l’informatique à utiliser Azure IoT Hub en ce qui concerne la configuration requise pour les ports et la sécurité."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Configuration et gestion de l’accès à IoT Hub
@@ -49,4 +49,4 @@ Cet article contient des informations destinées aux professionnels de l’infor
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -133,4 +133,4 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 
 - Si les problèmes persistent, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@ Une ressource de carte d’interface réseau fournit la connectivité à un sous
 |**virtualMachine**|Machine virtuelle à laquelle est associée la carte d’interface réseau.|/subscriptions/{guid}/../Microsoft.Compute/virtualMachines/vm1|
 |**macAddress**|Adresse MAC de la carte d’interface réseau|Toute valeur aléatoire comprise entre 4 et 30.|
 |**networkSecurityGroup**|Groupe de sécurité réseau associé à la carte d’interface réseau|/subscriptions/{guid}/../Microsoft.Network/networkSecurityGroups/myNSG1|
-|**dnsSettings**|Paramètres DNS pour la carte d’interface réseau.|Consultez [Adresse IP publique](#Public-IP-address).|
+|**dnsSettings**|Paramètres DNS pour la carte d’interface réseau|Consultez [Adresse IP publique](#Public-IP-address).|
 
 La carte d'interface réseau, ou NIC, représente une interface réseau qui peut être associée à une machine virtuelle. Une machine virtuelle peut comporter une ou plusieurs cartes d'interface réseau.
 
@@ -31,49 +31,50 @@ Exemple d’adresse IP publique au format JSON :
 
 	{
 	    "name": "lb-nic1-be",
-	    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
-	    "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
+	    "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be",
+	    "etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
 	    "type": "Microsoft.Network/networkInterfaces",
 	    "location": "eastus",
 	    "properties": {
 	        "provisioningState": "Succeeded",
-	        "resourceGuid": "e80fdad0-f0da-44ab-816a-828c9ac3c20e",
+	        "resourceGuid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
 	        "ipConfigurations": [
 	            {
 	                "name": "NIC-config",
-	                "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
+	                "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/NIC-config",
 	                "etag": "W/"0027f1a2-3ac8-49de-b5d5-fd46550500b1"",
 	                "properties": {
 	                    "provisioningState": "Succeeded",
 	                    "privateIPAddress": "10.0.0.4",
 	                    "privateIPAllocationMethod": "Dynamic",
 	                    "subnet": {
-	                        "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
+	                        "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet"
 	                    },
 	                    "loadBalancerBackendAddressPools": [
 	                        {
-	                            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool"
 	                        }
 	                    ],
 	                    "loadBalancerInboundNatRules": [
 	                        {
-	                            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
+	                            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1"
 	                        }
 	                    ]
 	                }
 	            }
 	        ],
-	        "dnsSettings": {
-	            "dnsServers": [],
-	            "appliedDnsServers": []
-	        },
+	        "dnsSettings": { ... },
 	        "macAddress": "00-0D-3A-10-F1-29",
 	        "enableIPForwarding": false,
 	        "primary": true,
 	        "virtualMachine": {
-	            "id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
+	            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/nrprg/providers/Microsoft.Compute/virtualMachines/web1"
 	        }
 	    }
 	}
 
-<!---HONumber=Oct15_HO2-->
+### Ressources supplémentaires
+
+- Consultez la [documentation de référence d’API REST](https://msdn.microsoft.com/library/azure/mt163579.aspx) pour les cartes réseau.
+
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell"
-	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide d'Azure PowerShell."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide d'Azure PowerShell" 
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide d'Azure PowerShell." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Création et surveillance d’une fabrique de données à l’aide d’Azure PowerShell
@@ -229,9 +229,9 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 
 	Pour plus d’informations sur les propriétés JSON, consultez la rubrique [Référence de script JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-2.	Exécutez la commande suivante pour créer la table Data Factory :
+2.	Exécutez la commande suivante pour créer le jeu de données Data Factory :
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Créer la table de sortie
 Dans cette partie de l’étape, vous allez créer une table de sortie nommée **EmpSQLTable** qui pointe vers une table SQL (**emp**) de la base de données SQL Azure, représentée par le service lié **AzureSqlLinkedService**. Le pipeline copie les données à partir de l’objet blob d’entrée vers la table **emp**.
@@ -271,9 +271,9 @@ Dans cette partie de l’étape, vous allez créer une table de sortie nommée *
 	* Il existe trois colonnes (**ID**, **FirstName** et **LastName**) dans la table emp de la base de données. Toutefois, ID étant une colonne d'identité, vous devez donc spécifier uniquement **FirstName** et **LastName**.
 	* **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
 
-2.	Exécutez la commande suivante pour créer la table Data Factory :
+2.	Exécutez la commande suivante pour créer le jeu de données Data Factory :
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Étape 4 : créer et exécuter un pipeline
@@ -432,4 +432,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

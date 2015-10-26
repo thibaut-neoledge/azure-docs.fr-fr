@@ -205,4 +205,4 @@ L’objectif de cette section consiste à tester la configuration de l’authent
 
 [400]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_csstars_403.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

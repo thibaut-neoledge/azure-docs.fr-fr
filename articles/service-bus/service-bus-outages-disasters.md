@@ -109,4 +109,4 @@ Pour plus d'informations sur la récupération d'urgence, consultez les articles
   [Continuité de l’activité des bases de données SQL Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Guide technique Azure Business Continuity]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

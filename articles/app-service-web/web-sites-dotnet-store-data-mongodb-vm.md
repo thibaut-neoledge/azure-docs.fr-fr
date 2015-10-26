@@ -326,7 +326,7 @@ Ouvrez le fichier *Controllers\\HomeController.cs* dans l'**Explorateur de solut
 	}
 
 ## Configuration des styles ##
-Pour changer le titre en haut de la page, ouvrez le fichier \*Views\\Shared\\\_Layout.cshtml\* dans l'**Explorateur de solutions** et remplacez « Nom de l'application » dans le titre de la barre de navigation par « Application My Task List » afin d'afficher ce qui suit :
+Pour changer le titre en haut de la page, ouvrez le fichier *Views\\Shared\\_Layout.cshtml* dans l'**Explorateur de solutions** et remplacez « Nom de l'application » dans le titre de la barre de navigation par « Application My Task List » afin d'afficher ce qui suit :
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -367,7 +367,7 @@ Pour configurer le menu Liste des tâches, ouvrez le fichier *\\Views\\Home\\Ind
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home\\* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
+Pour permettre la création d'une tâche, cliquez avec le bouton droit sur le dossier *Views\\Home\* et **ajoutez** une **vue** que vous nommez *Créer*. Remplacez le code par ce qui suit :
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ Pour plus d'informations sur le développement d'applications C# sur MongoDB, re
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

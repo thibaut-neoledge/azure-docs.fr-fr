@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/12/2015" 
 	ms.author="spelluru"/>
 
 # Jeux de données
@@ -103,7 +103,7 @@ Les sources de données prises en charge et les types de jeux de données sont a
 
 ## <a name="Availability"></a> Disponibilité du jeu de données
 
-La section Disponibilité dans un jeu de données définit la fenêtre de traitement ou le modèle de découpage pour la production du jeu de données. Consultez la rubrique Segment de jeu de données pour obtenir plus d'informations sur le découpage du jeu de données et le modèle de dépendance.
+La section Disponibilité dans un jeu de données définit la fenêtre de traitement ou le modèle de découpage pour la production du jeu de données. Consultez l’article [Planification et exécution](data-factory-scheduling-and-execution.md) pour plus d'informations sur le découpage du jeu de données et le modèle de dépendance.
 
 | Propriété | Description | Requis | Default |
 | -------- | ----------- | -------- | ------- |
@@ -121,7 +121,7 @@ La section Disponibilité dans un jeu de données définit la fenêtre de traite
 	{	
 		"frequency": "Hour",		
 		"interval": "23",	
-		"anchorDataTime":"2007-04-19T08:00:00"	
+		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
 
@@ -217,4 +217,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

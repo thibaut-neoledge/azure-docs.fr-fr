@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Gestion d&#39;Azure Storage à l&#39;aide d&#39;Azure Automation"
+	pageTitle="Gestion d'Azure Storage à l'aide d'Azure Automation"
 	description="Découvrez comment le service Azure Automation peut être utilisé pour gérer Azure Storage à grande échelle."
 	services="storage, automation"
 	documentationCenter=""
@@ -50,4 +50,4 @@ Maintenant que vous avez appris les bases d'Azure Automation et la manière de 
 Consultez le [Didacticiel de prise en main](../automation-create-runbook-from-samples.md) d'Azure Automation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite du dépannage d’une machine virtuelle créée avec le modèle de déploiement du Gestionnaire des ressources ou du modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Plusieurs raisons peuvent expliquer l’incapacité de Bureau à distance (RDP) à se connecter à votre machine virtuelle Azure exécutant Windows. Cet article vous aidera à en déterminer les causes et à les corriger.
 
@@ -157,4 +158,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

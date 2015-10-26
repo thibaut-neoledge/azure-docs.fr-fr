@@ -180,10 +180,6 @@ Les tableaux suivants montrent le mappage entre les propriétés de message stan
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 - [Vue d’ensemble d’AMQP de Service Bus]
-- [Utilisation de Service Bus à partir de .NET avec AMQP]
-- [Utilisation de Service Bus à partir de Java avec AMQP]
-- [Utilisation de Service Bus à partir de Python avec AMQP]
-- [Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]
 - [AMQP dans Service Bus pour Windows Server]
 
 
@@ -192,9 +188,5 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
-[Utilisation de Service Bus à partir de .NET avec AMQP]: service-bus-amqp-dotnet.md
-[Utilisation de Service Bus à partir de Java avec AMQP]: service-bus-amqp-java.md
-[Utilisation de Service Bus à partir de Python avec AMQP]: service-bus-amqp-python.md
-[Installation d’Apache Qpid Proton-C sur une machine virtuelle Linux Azure]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,8 +1,9 @@
 <properties 
+	title="Elastic database jobs overview" 
 	pageTitle="Vue d'ensemble des tâches de base de données élastiques" 
 	description="Illustre le service de tâche de base de données élastique" 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -86,4 +87,4 @@ Il existe plusieurs types de tâches qui effectuent l'exécution des tâches :
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

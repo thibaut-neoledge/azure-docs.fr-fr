@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure | Microsoft Azure"
-	description="Découvrez la façon d'administrer le service HDInsight. Créez un cluster HDInsight, ouvrez la console JavaScript interactive et ouvrez la console de commandes Hadoop."
+	pageTitle="Gestion des clusters Hadoop basés sur Linux dans HDInsight avec le portail Azure | Microsoft Azure"
+	description="Apprenez à créer et à gérer des clusters HDInsight basés sur Linux avec le portail Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Gestion des clusters Hadoop dans HDInsight au moyen du portail Azure en version préliminaire
@@ -51,7 +51,7 @@ Vous pouvez approvisionner des clusters HDInsight à partir du portail Azure en 
 
 2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__
 
-	![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
+	![Création d'un nouveau cluster dans la version préliminaire du portail Azure](./media/hdinsight-administer-use-portal-linux/new-cluster.png)
 
 3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez le __Type de cluster__ que vous souhaitez créer. Une coche verte s’affiche en regard du __Nom de cluster__ s’il est disponible.
 
@@ -195,4 +195,4 @@ Cet article vous a appris à créer un cluster HDInsight à l’aide du portail 
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

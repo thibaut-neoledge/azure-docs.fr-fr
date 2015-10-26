@@ -120,4 +120,4 @@ Les différences entre SQL Database V11 et SQL Database V12 pour la connexion cl
 
 - [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

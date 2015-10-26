@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Connexion à l'aide d'un appel sur votre téléphone de bureau ou mobile avec Azure Multi-Factor Authentication"
-	description="Cette page décrit la connexion d’un utilisateur à l’aide de son téléphone mobile."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Connexion à l'aide d'un appel sur votre téléphone de bureau ou mobile avec Azure Multi-Factor Authentication" 
+	description="Cette page décrit la connexion d’un utilisateur à l’aide de son téléphone mobile." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Connexion à l'aide d'un appel sur votre téléphone de bureau ou mobile avec Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <li>Vous devez maintenant être connecté.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

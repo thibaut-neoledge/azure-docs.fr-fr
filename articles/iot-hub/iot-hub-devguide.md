@@ -1,5 +1,5 @@
 <properties
- pageTitle="Guide du développeur Azure IoT Hub | Microsoft Azure"
+ pageTitle="Rubriques du guide du développeur pour IoT Hub | Microsoft Azure"
  description="Guide du développeur Azure IoT Hub portant sur les points de terminaison, la sécurité, le registre d’identité des appareils et la messagerie pour IoT Hub"
  services="iot-hub"
  documentationCenter=".net"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -488,6 +488,7 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 
 - [Prise en main de concentrateurs IoT Hubs (didacticiel)][lnk-get-started].
 - [Compatibilité des plateformes de système d’exploitation et du matériel][lnk-compatibility]
+- [Centre de développement Azure IoT][lnk-iotdev]
 - [Planifier votre implémentation IoT][lnk-guidance]
 
 [Event Hubs - Hôte du processeur d’événements]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,5 +532,6 @@ Maintenant que vous disposez d’une vue d’ensemble du développement IoT Hub,
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

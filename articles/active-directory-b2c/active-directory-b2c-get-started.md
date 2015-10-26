@@ -70,4 +70,4 @@ Procédez comme suit pour créer un client Azure AD B2C. Actuellement, les fon
 
 Passez à l’[inscription d’une application auprès d’Azure AD B2C et à la création d’une application de démarrage rapide](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

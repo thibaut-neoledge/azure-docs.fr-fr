@@ -78,4 +78,4 @@ Dans l’idéal, les étapes de renouvellement ci-dessous ne doivent pas entraî
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

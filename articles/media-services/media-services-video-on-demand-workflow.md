@@ -100,4 +100,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

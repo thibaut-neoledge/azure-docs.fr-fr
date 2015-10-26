@@ -164,4 +164,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 
 Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -87,4 +87,4 @@ Maintenant que vous avez intégré votre service mobile au service BLOB et que v
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

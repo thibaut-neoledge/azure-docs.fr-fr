@@ -2,4 +2,4 @@ Seuls les modes **Partagé**, **De base** et **Standard** autorisent la définit
 
 Pour plus d’informations sur les modes de plan App Service, notamment sur la modification du mode de votre site, consultez [Mise à l’échelle des applications web](../article/app-service-web/web-sites-scale.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

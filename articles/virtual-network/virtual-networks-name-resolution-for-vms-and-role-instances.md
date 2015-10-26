@@ -177,4 +177,4 @@ Le fichier de configuration de service est créé pour chaque service cloud que 
 
 [Configuration d'un réseau virtuel à l'aide d'un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

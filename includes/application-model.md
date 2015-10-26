@@ -168,7 +168,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-\~5&#160;Mbits/s
+~5&#160;Mbits/s
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-\~100&#160;Mbits/s
+~100&#160;Mbits/s
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-\~200&#160;Mbits/s
+~200&#160;Mbits/s
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-\~400&#160;Mbits/s
+~400&#160;Mbits/s
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Pour chaque rôle, indiquez la taille de la machine virtuelle que les instances 
 
 </td>
 <td>
-\~800&#160;Mbits/s
+~800&#160;Mbits/s
 
 </td>
 </tr>
@@ -346,4 +346,4 @@ Pour plus d'informations sur le déploiement, la mise à niveau et la reconfigur
   [Migration des applications vers Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Configuration d'une application Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

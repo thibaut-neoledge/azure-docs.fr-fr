@@ -13,4 +13,4 @@ La dernière étape facultative de ce didacticiel consiste à archiver la base d
 
 	Notez que la table inclut les colonnes Id, \_\_createdAt, \_\_updatedAt, et \_\_version. Ces colonnes prennent en charge la synchronisation des données hors connexion et sont implémentées dans la classe de base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Pour plus d'informations, consultez la page [Prise en main de la synchronisation des données hors connexion].
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

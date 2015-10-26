@@ -115,4 +115,4 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

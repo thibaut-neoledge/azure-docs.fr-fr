@@ -95,7 +95,7 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Ajout de l’authentification à votre application]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Ajout de notifications Push à votre application]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

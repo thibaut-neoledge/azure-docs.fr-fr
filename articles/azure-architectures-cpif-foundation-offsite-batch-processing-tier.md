@@ -52,4 +52,4 @@ Ce document présente un modèle de traitement par lots hors site utilisant des 
 
 [Niveau d’Azure Search](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) (en anglais)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

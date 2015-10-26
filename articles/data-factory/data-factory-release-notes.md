@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/09/2015" 
 	ms.author="spelluru"/>
 
 # Notes de publication sur Azure Data Factory
+Consultez l’article [Data Factory - Journal des modifications de l’API .NET](data-factory-api-change-log.md) pour en savoir plus sur les modifications apportées au Kit de développement logiciel (SDK) .NET de Data Fabric dans une version en particulier.
 
 ## Notes relatives à la version du 17/07/2015 de Data Factory
 Les modifications JSON suivantes sont introduites dans la version de juillet 2015 d’Azure PowerShell.
@@ -56,7 +57,7 @@ Activité | AzureMLBatchScoringActivity | AzureMLBatchScoring
 Activité | StoredProcedureActivity | SqlServerStoredProcedure
 
 ## Nouvel élément typeProperties
-Le nouvel élément **typeProperties** contient des propriétés propres au type pour un service lié/une table/une activité.
+Le nouvel élément **typeProperties** contient des propriétés propres au type pour un service/une table/une activité lié(e).
 
 ### Ancien service lié JSON
 	{
@@ -81,7 +82,7 @@ Le nouvel élément **typeProperties** contient des propriétés propres au type
 
 Notez les points suivants :
 
-- La propriété **type** est déplacée d’un niveau vers le haut et définie sur **AzureStorage** (remplacement d’**AzureStorageLinkedService** par **AzureStorage**). 
+- La propriété **type** est déplacée d’un niveau vers le haut et définie sur **AzureStorage** (**AzureStorageLinkedService** est remplacé par **AzureStorage**). 
 - Le nouvel élément **typeProperties** contient des propriétés prises en charge par le service lié Azure Storage (**connectionString** dans cet exemple).  
 
 ### Ancien jeu de données JSON
@@ -353,4 +354,4 @@ Consultez le billet de blog : [Mise à jour d’Azure Data Factory - nouveaux m
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

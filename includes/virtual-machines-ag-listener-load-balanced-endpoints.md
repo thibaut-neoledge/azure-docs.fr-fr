@@ -18,4 +18,4 @@ Vous devez créer un point de terminaison avec équilibrage de charge pour chaqu
 
 	Une fois le fichier de paramètres de publication importé, vous pouvez gérer votre abonnement Azure dans la session PowerShell.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->
