@@ -21,7 +21,8 @@
 
 Azure permet d'utiliser une machine virtuelle pour gérer les tâches nécessitant beaucoup de ressources. Par exemple, une machine virtuelle peut gérer des tâches et fournir des résultats à des ordinateurs clients ou à des applications mobiles. Après avoir suivi le didacticiel, vous saurez créer une machine virtuelle exécutée sur une application .NET nécessitant beaucoup de ressources et pouvant être surveillée par une autre application .NET.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Ce didacticiel part du principe que vous savez créer des applications console .NET. Aucune connaissance d'Azure n'est nécessaire.
 
@@ -549,4 +550,4 @@ Au lieu d’utiliser TSPSolver pour créer ou supprimer la file d’attente, vou
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

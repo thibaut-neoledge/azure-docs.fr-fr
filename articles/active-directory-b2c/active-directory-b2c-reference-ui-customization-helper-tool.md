@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Version préliminaire d’Azure Active Directory B2C : un outil d’assistance d’utilisé pour illustrer la fonctionnalité de personnalisation de la Page utilisateur Interface (UI)
@@ -22,7 +22,7 @@ Cet article complète le [principal article sur la personnalisation de l'interfa
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Obtention d'un client B2C
+## Obtention d’un client Azure AD B2C
 
 Avant de pouvoir personnaliser quoi que ce soit, vous devrez [obtenir un client Azure AD B2C](active-directory-b2c-get-started.md), si ce n'est déjà fait.
 
@@ -90,4 +90,4 @@ Maintenant que vous avez chargé l'exemple de contenu sur votre propre compte de
         
 Vous pouvez à présent utiliser le bouton **Exécuter maintenant** ou votre propre application pour réexécuter votre stratégie. Le résultat devrait être quasiment identique puisque vous avez utilisé les mêmes exemples de codes HTML et CSS dans les deux cas. Cependant, vos stratégies référencent maintenant votre propre instance de stockage d'objets blob Azure, et vous êtes libre de modifier et de recharger les fichiers. Pour plus d'informations sur la personnalisation du code HTML et CSS, reportez-vous au [principal article sur la personnalisation de l'interface utilisateur](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

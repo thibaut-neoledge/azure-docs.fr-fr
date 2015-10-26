@@ -1,20 +1,20 @@
 <properties 
-                pageTitle="Présentation de l'accès aux ressources dans Azure"
-	description="Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="swadhwa"
-	editor=""/>
+                pageTitle="Présentation de l'accès aux ressources dans Azure" 
+                description="Cette rubrique explique les concepts relatifs à l'utilisation des administrateurs des abonnements pour contrôler l'accès aux ressources dans l’ensemble du portail Azure." 
+                services="active-directory" 
+                documentationCenter="" 
+                authors="markusvi" 
+                manager="swadhwa" 
+                editor=""/>
 
 <tags 
-                ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="markusvi"/>
+                ms.service="active-directory" 
+                ms.workload="identity" 
+                ms.tgt_pltfrm="na" 
+                ms.devlang="na" 
+                ms.topic="article" 
+                ms.date="08/10/2015" 
+                ms.author="markusvi"/>
 
 
 # Présentation de l'accès aux ressources dans Azure
@@ -64,4 +64,4 @@ Les opérations telles que le déplacement de ressources entre des abonnements p
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

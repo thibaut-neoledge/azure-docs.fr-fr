@@ -40,4 +40,4 @@ Dans le fichier web.config de votre projet, un élément a été créé avec la 
 
 Pour plus d'informations, consultez la page [ASP.NET](http://www.asp.net).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -51,4 +51,4 @@ Si un projet est mis à niveau automatiquement ou si vous spécifiez que vous vo
 
 1. Générez le projet, puis résolvez les erreurs qui résultent des modifications de l’API. Pour plus d’informations sur la modification de votre code pour la nouvelle version, consultez la documentation de l’API concernée.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

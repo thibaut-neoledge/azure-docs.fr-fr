@@ -21,7 +21,8 @@
 
 Si vous avez créé un compte Azure personnel ou si vous disposez d'un abonnement MSDN personnel et avez créé le compte Azure pour profiter des crédits Azure MSDN, alors vous avez utilisé une identité de *compte Microsoft* pour le créer. Pour fonctionner correctement, de nombreuses fonctionnalités d'Azure, parmi lesquelles les [modèles de groupes de ressources](../resource-group-overview.md), nécessitent un compte professionnel ou scolaire (une identité gérée par Azure Active Directory).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une identité AAD nécessaire pour le modèle de déploiement du Gestionnaire des ressources et le modèle de déploiement classique.
+
+> [AZURE.NOTE]Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite des deux modèles, mais Microsoft recommande d’utiliser le modèle Resource Manager dans la plupart des nouveaux déploiements.
 
 
 Heureusement, l’un des atouts de votre compte personnel Azure est qu'il est fourni avec un domaine Azure Active Directory par défaut que vous pouvez utiliser pour créer un nouveau compte professionnel ou scolaire à utiliser avec les fonctionnalités Azure qui le nécessitent.
@@ -144,4 +145,4 @@ Vous pouvez maintenant vous servir de votre nouvelle identité Azure Active Dire
     data:
     info:    group create command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

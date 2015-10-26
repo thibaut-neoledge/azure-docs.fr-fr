@@ -94,4 +94,4 @@ Pour créer de véritables services de mise à l’échelle du cloud, vous devez
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

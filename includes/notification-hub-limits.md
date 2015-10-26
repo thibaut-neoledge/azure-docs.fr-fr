@@ -8,4 +8,4 @@
 
 Pour plus d'informations sur ces limites et sur la tarification, voir [Tarification des concentrateurs de notification](http://azure.microsoft.com/pricing/details/notification-hubs/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

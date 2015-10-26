@@ -385,4 +385,4 @@ Chaque nœud d’un pool se voit attribuer un nom unique et le nœud sur lequel 
 
 [vue d'ensemble d’Azure Batch]: batch-technical-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

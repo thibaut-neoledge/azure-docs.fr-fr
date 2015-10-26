@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect - Connexion utilisateur"
+<properties
+	pageTitle="Azure AD Connect - Connexion utilisateur | Microsoft Azure"
 	description="Connexion utilisateur Azure AD Connect pour une configuration personnalisée."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@ Pour la plupart des organisations qui souhaitent juste activer l’authentificat
 	- Authentification multifacteur locale à l’aide d’un fournisseur tiers ou de cartes à puce (en savoir plus sur les fournisseurs MFA tiers pour AD FS dans Windows Server 2012 R2)
 	- Fonctionnalités d’intégration Active Directory telles que le verrouillage souple du compte ou une stratégie d’heures de travail et de mot de passe AD
 	- Accès conditionnel aux ressources locales et cloud via l’inscription de l’appareil, une adhésion à Azure AD ou des stratégies Intune MDM
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

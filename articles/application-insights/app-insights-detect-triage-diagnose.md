@@ -6,7 +6,6 @@
     documentationCenter=""
 	manager="douge"/>
 
-
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
@@ -15,7 +14,6 @@
 	ms.topic="article" 
 	ms.date="08/04/2015"
 	ms.author="awills"/>
-
 
 # Détection, tri et diagnostic avec Application Insights
 
@@ -262,4 +260,4 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

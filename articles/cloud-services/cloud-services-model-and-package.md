@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Modèle de service cloud et package dans Azure"
+    pageTitle="Package et modèle Cloud Service dans Azure | Microsoft Azure"
     description="Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure."
     services="cloud-services"
     documentationCenter=""
@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
-# Qu’est-ce que le modèle de service cloud, et comment en créer un package ?
+# Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
 Un service cloud est créé à partir de trois composants : la définition de service _(.csdef)_, la configuration de service _(.cscfg)_ et un package de service _(.cspkg)_. Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration ; il désignent collectivement le modèle. Le fichier zip **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
 
 Une fois que le service cloud s’exécute dans Azure, vous pouvez le reconfigurer via le fichier **ServiceConfig.cscfg**, mais vous ne pouvez pas en modifier la définition.
@@ -251,11 +251,7 @@ Où les variables sont définies comme suit :
 
 Je crée un package de service cloud et je souhaite...
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Configuration des ressources de stockage local](cloud-services-configure-local-storage-resources.md)
 * [Configurer un Bureau à distance pour une instance de service cloud][remotedesktop]
 * [Déployer un projet de service cloud][deploy]
 
@@ -269,9 +265,9 @@ J’utilise Visual Studio et souhaite...
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/fr-FR/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/fr-FR/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/fr-FR/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

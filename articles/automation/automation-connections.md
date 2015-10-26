@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Ressources de connexion dans Azure Automation | Microsoft Azure"
-	description="Les ressources de connexion dans Azure Automation contiennent les informations requises pour se connecter à une application ou un service externe à partir d’un Runbook. Cet article présente de façon détaillée les connexions et leur utilisation dans la création textuelle et graphique."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Les ressources de connexion dans Azure Automation contiennent les informations requises pour se connecter à une application ou un service externe à partir d’un Runbook. Cet article présente de façon détaillée les connexions et leur utilisation dans la création textuelle et graphique."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags 
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/18/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/18/2015"
+   ms.author="bwren" />
 
 # Ressources de connexion dans Azure Automation
 
@@ -120,4 +120,4 @@ L’image ci-dessous montre le même exemple que plus haut, mais utilise le jeu 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

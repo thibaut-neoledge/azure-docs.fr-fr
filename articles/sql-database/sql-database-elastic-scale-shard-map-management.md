@@ -253,4 +253,4 @@ Cependant, pour les scénarios requérant le déplacement de données, l’outil
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -208,4 +208,4 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

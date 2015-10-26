@@ -312,4 +312,4 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 -  Pour plus d’informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
 -  Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

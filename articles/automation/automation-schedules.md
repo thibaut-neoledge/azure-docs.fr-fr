@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Planifications dans Azure Automation | Microsoft Azure"
-	description="Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu'ils démarrent automatiquement. Cet article décrit comment créer les planifications."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Les planifications Automation permettent de planifier les Runbooks dans Azure pour qu'ils démarrent automatiquement. Cet article décrit comment créer les planifications."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags 
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/18/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/18/2015"
+   ms.author="bwren" />
 
 # Planifications dans Azure Automation
 
@@ -66,4 +66,4 @@ L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/lib
 - [Planification d'un Runbook dans Azure Automation](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

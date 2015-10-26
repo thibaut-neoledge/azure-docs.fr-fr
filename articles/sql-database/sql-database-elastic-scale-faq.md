@@ -48,4 +48,4 @@ Non. Pour les opérations de **fractionnement**, la base de données cible doit 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

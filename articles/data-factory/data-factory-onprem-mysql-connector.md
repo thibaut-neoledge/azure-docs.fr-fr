@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Déplacer des données depuis MySQL | Azure Data Factory"
-	description="Découvrez comment déplacer des données depuis une base de données MySQL à l’aide d’Azure Data Factory."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Déplacer des données depuis MySQL | Azure Data Factory" 
+	description="Découvrez comment déplacer des données depuis une base de données MySQL à l’aide d’Azure Data Factory." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données depuis MySQL à l’aide d’Azure Data Factory
@@ -177,7 +177,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -310,4 +310,4 @@ Lors du déplacement de données vers MySQL, les mappages suivants seront utilis
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

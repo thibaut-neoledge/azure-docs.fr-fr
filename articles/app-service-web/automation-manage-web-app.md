@@ -43,4 +43,4 @@ Maintenant que vous connaissez les bases d’Azure Automation et que vous savez 
 * Consultez le [Didacticiel de prise en main](../automation-intro.md) d'Azure Automation
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

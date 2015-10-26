@@ -22,4 +22,4 @@
 
 * Appuyez sur **Exécuter** pour démarrer l’application, puis ouvrez une session. Une fois connecté, vous devez être en mesure d’afficher la liste des tâches et d’effectuer des mises à jour.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

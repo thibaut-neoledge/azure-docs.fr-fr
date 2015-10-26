@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Récupération d’une base de données SQL Azure à l’aide de la géo-restauration dans Azure PowerShell
 
@@ -25,6 +25,8 @@
 ## Vue d’ensemble
 
 Ce didacticiel vous montre comment récupérer une base de données SQL Azure à l’aide de la géo-restauration dans [Azure PowerShell](../powershell-install-configure.md). La géo-restauration est la protection de récupération d’urgence de base qui est fournie pour tous les niveaux de service De base, Standard et Premium des bases de données SQL Azure.
+
+> [AZURE.IMPORTANT]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
 
 ## Restrictions et sécurité
 
@@ -39,13 +41,13 @@ Vous devez utiliser l’authentification par certificat pour exécuter les apple
 1. Obtenez la liste des bases de données récupérables en utilisant l’applet de commande [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Spécifiez le paramètre suivant :
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Choisissez la base de données que vous souhaitez récupérer à l’aide de l’applet de commande [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Spécifiez les paramètres suivants :
 	* **ServerName**, qui désigne le serveur où se trouve la base de données.
 	* **DatabaseName**, qui désigne la base de données à récupérer.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. Lancez la récupération avec l’applet de commande [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Spécifiez les paramètres suivants :
 	* **SourceDatabase**, qui désigne la base de données à récupérer.
@@ -54,14 +56,14 @@ Vous devez utiliser l’authentification par certificat pour exécuter les apple
 
 	Stockez les données retournées dans une variable appelée **$RestoreRequest**. Cette variable contient l’ID de demande de restauration qui est utilisé pour surveiller l’état de la restauration.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 Le processus de récupération d’une base de données peut prendre du temps. Pour surveiller l’état de la récupération, utilisez l’applet de commande [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) et spécifiez les paramètres suivants :
 
 * **ServerName**, qui désigne le serveur où se trouve la base de données dans laquelle vous effectuez la restauration.
 * **OperationGuid**, qui est l’ID de demande de restauration ayant été stocké dans la variable **$RecoveryRequest** à l’étape 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 Les champs **State** et **PercentComplete** indiquent l’état de la restauration.
 
@@ -82,4 +84,4 @@ Pour plus d’informations, consultez les liens suivants :
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

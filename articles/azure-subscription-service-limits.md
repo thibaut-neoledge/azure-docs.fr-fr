@@ -258,4 +258,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

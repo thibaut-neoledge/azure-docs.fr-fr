@@ -59,4 +59,4 @@
 [Soumettre une application]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

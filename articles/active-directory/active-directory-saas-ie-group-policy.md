@@ -148,4 +148,4 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

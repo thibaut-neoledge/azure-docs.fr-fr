@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation de PowerShell pour gérer des ressources Service Bus et des concentrateurs d&#39;événements"
-   description="Utilisation de PowerShell pour créer et gérer des ressources Service Bus et des concentrateurs d&#39;événements"
+   pageTitle="Utilisation de PowerShell pour gérer des ressources Service Bus et des concentrateurs d'événements"
+   description="Utilisation de PowerShell pour créer et gérer des ressources Service Bus et des concentrateurs d'événements"
    services="service-bus"
    documentationCenter=".NET"
    authors="sethmanheim"
@@ -274,4 +274,4 @@ Vous pouvez également télécharger des scripts prêts à l'emploi : - [Scripts
 [API .NET pour Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [Installation et configuration d'Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -1,22 +1,24 @@
-Organizations are using more Software as a Service (SaaS) applications for productivity because cloud technology and tools are becoming more readily available. As the number of SaaS apps grows, it becomes challenging for the administrators to manage accounts and access rights, and for the users to remember their different passwords. Managing these applications individually creates extra work and is less secure.
+Les organisations utilisent davantage de logiciels comme des applications Software as a Service (SaaS) pour augmenter la productivité car la technologie et les outils cloud deviennent de plus en plus disponibles. Le nombre d'applications SaaS ne cessant d’augmenter, il devient difficile pour les administrateurs de gérer les comptes et les droits d'accès, et pour les utilisateurs de se souvenir de leurs différents mots de passe. La gestion individuelle de ces applications augmente la charge de travail et constitue une tâche moins sécurisée.
 
-- Employees who have to keep track of many passwords tend to use less-secure methods to remember them, either writing down passwords or using the same passwords across many accounts.
+- Les employés qui doivent effectuer le suivi de nombreux mots de passe ont tendance à utiliser des méthodes moins sécurisées pour les retenir, en écrivant leurs mots de passe ou en utilisant les mêmes mots de passe sur plusieurs comptes.
 
-- When a new employee arrives or one leaves, all their accounts must be individually provisioned or de-provisioned.
+- Lors de l'arrivée d'un nouvel employé ou lorsqu’un employé quitte l’entreprise, l’approvisionnement de leur compte doit être activé ou désactivé individuellement.
 
-- Additionally, employees may start using SaaS apps for their work without going through IT, which means they are creating their own accounts on systems that the IT administrators haven't approved and aren't monitoring.  
+- En outre, les employés peuvent commencer à utiliser des applications SaaS pour leur travail sans passer par le service informatique, ce qui signifie qu'ils créent leurs propres comptes sur des systèmes que les administrateurs système n'ont pas approuvés et qui ne sont pas surveillés.
 
-A solution for all of these challenges is single sign-on (SSO). It's the simplest way to manage multiple apps and provide users with a consistent sign-on experience. Azure Active Directory (Azure AD) provides a robust SSO solution and has many available pre-integrated applications, with tutorials for admins to quickly set up a new app and start provisioning users.
+L’authentification unique (SSO) constitue une solution pour répondre à tous ces défis. C’est le moyen le plus simple de gérer plusieurs applications et d’offrir aux utilisateurs une expérience de connexion homogène. Azure Active Directory (Azure AD) fournit une solution d'authentification unique robuste et propose de nombreuses applications pré-intégrées, ainsi que des didacticiels permettant aux administrateurs de rapidement configurer une nouvelle app et de commencer à approvisionner les utilisateurs.
 
 
-## How does Azure Active Directory integrate apps?  
+## Intégration d'applications avec Azure Active Directory  
 
-Azure AD allows you to integrate your apps and provisioned accounts. This can be done through either of two approaches.
+Azure AD vous permet d'intégrer vos applications et comptes approvisionnés. Pour cela, vous pouvez adopter l'une de ces deux approches.
 
-- If the app is pre-integrated in the app Gallery, you can go through that portal to set up apps and configure the settings to allow SSO. For any Gallery app, you can get started by follow the simple step-by-step instructions presented in the app gallery and in the Azure portal to enable single sign-on.
+- Si l'app est pré-intégrée dans la galerie d’applications, vous pouvez utiliser le portail pour configurer des applications et définir les paramètres nécessaires à l'authentification unique. Pour toute app de cette galerie, vous pouvez commencer par suivre les instructions détaillées présentées dans la galerie d’applications et dans le portail Azure pour activer l’authentification unique.
 
-- If the app is not in the Gallery, you can still set up most apps in Azure AD as a custom app. This requires a bit more technical expertise to configure. You can add any application that supports SAML 2.0 as a federated app, or any application that has an HTML-based sign-in page as a password SSO app.
+- Si l'app ne figure pas dans la galerie, vous pouvez toujours configurer la plupart des applications dans Azure AD en tant qu'app personnalisée. Cette configuration nécessite des connaissances techniques plus approfondies. Vous pouvez ajouter n’importe quelle application qui prend en charge SAML 2.0 comme application fédérée, ou bien toute application qui possède une page de connexion HTML comme étape d’authentification unique avec mot de passe.
 
-In the case where users have created their own accounts for SaaS apps that aren't managed by IT, the [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) tool provides a solution. This tool monitors the web traffic to identify which apps are being used throughout the organization, and the number of people using each of them. IT can use this information to learn what apps the users prefer and decide which to integrate into Azure AD for SSO.  
+Si les utilisateurs ont créé leurs propres comptes pour les applications SaaS qui ne sont pas gérées par le service informatique, l’outil de [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md) offre une solution. Cet outil analyse le trafic web afin d'identifier les applications utilisées dans toute l'organisation ainsi que le nombre de personnes qui utilisent chacune de ces applications . Le service informatique peut utiliser ces informations pour identifier les applications préférées des utilisateurs et choisir ainsi celles à intégrer dans Azure AD pour l'authentification unique.
 
-When you integrate an app into Azure AD, you can map the users' established application identities to their respective Azure AD identities.  
+Lorsque vous intégrez une app dans Azure AD, vous pouvez mapper les identités d'application établies des utilisateurs à leurs identités Azure AD respectives.
+
+<!---HONumber=Oct15_HO3-->

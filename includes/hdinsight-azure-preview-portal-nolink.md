@@ -4,4 +4,4 @@
 > 
 > Les services et les ressources créés dans le portail Azure en version préliminaire ne sont pas visibles dans le portail Azure, car ces éléments utilisent un nouveau modèle de ressource.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

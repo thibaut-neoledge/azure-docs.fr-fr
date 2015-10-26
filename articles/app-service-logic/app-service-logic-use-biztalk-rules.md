@@ -136,7 +136,7 @@ Si le type de vocabulaire choisi est XML, vous devez spécifier les entrées sui
 
 ### Ajouter en bloc
 Les étapes ci-dessus décrivent l'expérience de création de définitions de vocabulaire. Une fois créées, les définitions de vocabulaire sont affichées sous forme de liste. Il existe des exigences pour pouvoir générer plusieurs définitions à partir du même schéma au lieu de répéter chaque fois les étapes ci-dessus. La fonctionnalité « Ajouter en bloc » est très utile dans ce cas. 
-Un clic sur « Ajouter en bloc » vous permet d'accéder à un nouveau panneau. La première étape consiste à sélectionner le schéma pour lequel vous voulez créer plusieurs définitions. Un nouveau panneau s'ouvre, dans lequel vous pouvez choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau. 
+Un clic sur « Ajouter en bloc » vous permet d'accéder à un nouveau panneau. La première étape consiste à sélectionner le schéma pour lequel vous voulez créer plusieurs définitions. Un nouveau panneau s'ouvre, dans lequel vous pouvez choisir parmi une liste de schémas déjà téléchargés ou en télécharger un nouveau.
 La propriété XPATHS est maintenant déverrouillée. Un clic dessus ouvre la Visionneuse de schéma, où vous pouvez sélectionner plusieurs nœuds. 
 Les noms des définitions créées correspondent par défaut au nom du nœud sélectionné. Vous pouvez toujours les modifier après la création.
 
@@ -182,9 +182,9 @@ Les zones de condition et d'action offrent des fonctionnalités Intellisense pou
 ![Alt text][9]
 
 ##Chaînage avant explicite
-Les règles BizTalk prennent en charge le chaînage avant explicite. Cela signifie que si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants :  
-   1.	update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition.  
-   2.	Halt : ce mot clé arrête toutes les exécutions de règles.
+Les règles BizTalk prennent en charge le chaînage avant explicite. Cela signifie que si des utilisateurs souhaitent réévaluer des règles en réponse à certaines actions, ils peuvent déclencher cette réévaluation en utilisant certains mots clés. Les mots clés pris en charge sont les suivants : 
+1. update <vocabulary definition> : ce mot clé réévalue toutes les règles qui utilisent la définition de vocabulaire spécifiée dans sa condition. 
+2. Halt : ce mot clé arrête toutes les exécutions de règles.
 
 ##Activer/désactiver des règles
 Chaque règle de la stratégie peut être activée ou désactivée. Par défaut, toutes les règles sont activées. Les règles désactivées ne sont pas exécutées lors de l'exécution de la stratégie. Vous pouvez activer/désactiver une règle directement à partir du panneau de la règle (les commandes sont disponibles dans la barre de commandes en haut du panneau) ou à partir de la stratégie (le menu contextuel, accessible par un clic droit sur une règle, contient une option pour activer/désactiver la règle).
@@ -250,4 +250,4 @@ L'un des principaux avantages offerts par l'utilisation des règles d'entreprise
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

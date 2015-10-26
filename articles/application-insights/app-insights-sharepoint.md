@@ -102,10 +102,10 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 * [Tests Web](app-insights-monitor-web-app-availability.md) pour surveiller la disponibilité de votre site.
 
-* [Application Insights](app-insights-get-started.md) pour les autres types d'applications.
+* [Application Insights](app-insights-overview.md) pour les autres types d'applications.
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

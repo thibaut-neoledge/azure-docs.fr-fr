@@ -92,7 +92,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure 
 
 3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer les paramètres d’application][10]
  
-     3\.1. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SciQuest Spend Director, au format suivant : \**https://.*sciquest.com/.**
+     3\.1. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SciQuest Spend Director, au format suivant : **https://.*sciquest.com/.**
 
      3\.2. Dans la zone de texte **URL de réponse**, tapez la valeur que vous venez de taper dans la zone de texte **URL d’authentification**.
 
@@ -195,4 +195,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

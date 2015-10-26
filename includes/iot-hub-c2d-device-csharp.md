@@ -37,4 +37,4 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

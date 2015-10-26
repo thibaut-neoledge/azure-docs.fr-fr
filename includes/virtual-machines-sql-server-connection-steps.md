@@ -183,4 +183,4 @@ Pour vous connecter au moteur de base de données SQL Server à partir d'un autr
 
 	![Connexion en utilisant SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

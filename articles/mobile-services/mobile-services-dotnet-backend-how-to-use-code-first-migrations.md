@@ -176,4 +176,4 @@ Ce code appelle la méthode d'extension de l'assistance [AddOrUpdate] pour ajout
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

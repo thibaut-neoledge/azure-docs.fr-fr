@@ -1,20 +1,20 @@
 <properties
    pageTitle="Considérations sur les performances d’Azure Traffic Manager | Microsoft Azure"
-	description="Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="kwill-MSFT"
-	manager="adinah"
-	editor="joaoma"/>
+   description="Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="kwill-MSFT"
+   manager="adinah"
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 
 # Considérations sur les performances de Traffic Manager
@@ -98,4 +98,4 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Scénarios de testabilité de Service Fabric : Communication de service"
-	description="La communication service à service constitue un point d’intégration critique d’une application Service Fabric. Cet article aborde les problématiques de conception et les techniques de test."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="vturecek"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Scénarios de testabilité de Service Fabric : Communication de service" 
+   description="La communication service à service constitue un point d’intégration critique d’une application Service Fabric. Cet article aborde les problématiques de conception et les techniques de test." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="vturecek" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="vturecek"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="vturecek"/>
 
 # Scénarios de testabilité de Service Fabric : Communication de service
 
@@ -101,4 +101,4 @@ Dans cet exemple, nous avons défini `QuorumLossMode` sur `PartialQuorumLoss` af
 
 [En savoir plus sur les scénarios de testabilité](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

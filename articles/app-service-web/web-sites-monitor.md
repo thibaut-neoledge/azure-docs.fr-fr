@@ -13,14 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
-	ms.author="cephalin"/>
+	ms.date="10/14/2015"
+	ms.author="byvinyal"/>
 
 #<a name="howtomonitor"></a>Surveiller les applications web dans Microsoft Azure App Service
 
 [Application Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités d’analyse pour les plans APP Service Standard et Premium, via la page de gestion Surveiller. Cette page fournit les statistiques relatives aux performances d’un site web, comme décrit ci-dessous.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
+##Stratégie de rétention des métriques
+
+>[AZURE.NOTE]La stratégie de rétention des métriques d’application varie en fonction de la granularité.
+
+- Les métriques de granularité **Minute** sont conservées **24 heures**
+- Les métriques de granularité **Hour** sont conservées **7 jours**
+- Les métriques de granularité **Day** sont conservées **30 jours**
 
 ##<a name="websitemetrics"></a>Procédure : ajouter des métriques relatives à une application web
 
@@ -36,13 +44,15 @@
 
 6. Pour supprimer des mesures de la page **Monitor**, sélectionnez la ou les mesure(s) de votre choix, puis cliquez sur l'icône **Delete Metric** au bas de la page.
 
+
+
 ##<a name="howtoreceivealerts"></a>Procédure : recevoir des notifications d’alerte et gérer des règles d’alerte dans Azure
 
 Lorsque l’application web est en mode **Standard**, vous pouvez recevoir des alertes basées sur les métriques de surveillance de cette application web. La fonction d'alerte requiert le paramétrage préalable de la surveillance d'un point de terminaison Web, à effectuer dans la section **Monitoring** de la page **Configure**. Vous pouvez également choisir de recevoir un courrier électronique lorsqu'une mesure de votre choix atteint une valeur que vous spécifiez. Pour plus d’informations, consultez la page [Réception de notifications d’alerte et gestion des règles d’alerte dans Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Procédure : afficher les quotas d’utilisation d’une application web
 
-Les Web Apps peuvent être configurées pour s’exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l’échelle** de l’application web du [portail Azure](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
+Les applications web peuvent être configurées pour s’exécuter en mode **Partagé** ou **Standard** dans la page de gestion **Mettre à l’échelle** de l’application web du [portail Azure](https://manage.windowsazure.com). Chaque abonnement à Microsoft Azure donne accès à un pool de ressources fourni dans le but d’exécuter jusqu’à 100 applications web par région en mode **Partagé**. Le pool de ressources disponibles à cette fin pour chaque abonnement à l’application web est partagé par d’autres applications web situées dans la même région géographique et configurées pour s’exécuter en mode **Partagé**. Ces ressources étant partagées pour pouvoir être utilisées par d’autres applications web, leur exploitation par l’ensemble des abonnements est limitée. Les limites appliquées à l’utilisation de ces ressources par un abonnement sont exprimées sous la forme de quotas d’utilisation, répertoriés dans la section de présentation de l’utilisation, sur la page de gestion **Tableau de bord** de chaque application web.
 
 >[AZURE.NOTE]Lorsqu’une application web est configurée pour s’exécuter en mode **Standard**, elle se voit allouer des ressources dédiées équivalentes aux valeurs **Petit** (par défaut), **Moyen** ou **Grand** associées aux tailles de machine virtuelle figurant dans le tableau situé sur la page [Tailles de machines virtuelles et de services cloud pour Microsoft Azure][vmsizes]. Aucune limite n’est fixée concernant les ressources qu’un abonnement peut utiliser pour exécuter des applications web en mode **Standard**. Toutefois, vous ne pouvez pas créer plus de 500 applications web en mode **Standard**, pour chaque région.
 
@@ -279,4 +289,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

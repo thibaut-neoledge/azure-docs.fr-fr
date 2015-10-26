@@ -1,52 +1,39 @@
 <properties 
-	pageTitle="Déplacer des données vers SQL Server sur une machine virtuelle Azure | Azure"
-	description="Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure."
-	services="machine-learning"
-	documentationCenter=""
-	authors="msolhab"
-	manager="paulettm"
-	editor="cgronlun"/>
+	pageTitle="Déplacer des données vers SQL Server sur une machine virtuelle Azure | Azure" 
+	description="Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="fashah;mohabib;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
 # Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
-Ce document présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou d’un SQL Server local vers un SQL Server sur une machine virtuelle Azure. Ces tâches de déplacement de données vers le cloud font partie du processus d’analyse avancé et technologie en action (ADAPT) fourni par Azure Machine Learning.
+Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introduction
+**Ce document** présente les options de déplacement des données à partir de fichiers plats (format CSV ou TSV) ou d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure. Ces tâches de déplacement de données vers le cloud font partie du processus d’analyse Cortana fourni par Azure.
 
 Pour la rubrique présentant les options de déplacement de données sur une base de données SQL Azure pour Machine Learning, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](machine-learning-data-science-move-sql-azure.md).
 
-Le tableau suivant récapitule les options de déplacement de données vers SQL Server sur une machine virtuelle Azure. <table>
+Le tableau suivant récapitule les options de déplacement de données vers SQL Server sur une machine virtuelle Azure.
 
-<tr>
-<td><b>SOURCE</b></td>
-<td colspan="2" align="center"><b>DESTINATION&#160;: SQL&#160;Server dans les machines virtuelles Azure</b></td>
-</tr>
-
-<tr>
-  <td><b>Fichier plat</b></td>  
-  <td>
-    1. <a href="#insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a><br>
-    2. <a href="#insert-tables-bulkquery">Requête SQL Bulk Insert </a><br>
-    3. <a href="#sql-builtin-utilities">Utilitaires graphiques intégrés dans SQL Server</a>
-  </td>
-</tr>
-<tr>
-  <td><b>Instance&#160;SQL Server locale</b></td>
-  <td>
-    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br>
-    2. <a href="#export-flat-file">Exportation dans un fichier plat</a><br>
-    3. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br>    
-    4. <a href="#sql-backup">Sauvegarde et restauration de base de données </a> <br>
-  </td>
-</tr>
-</table>
+<b>SOURCE</b> |<b>DESTINATION : SQL Server dans les machines virtuelles Azure</b> |
+------------------ |-------------------- |
+<b>Fichier plat</b> |1\. <a href="#insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP) </a><br> 2. <a href="#insert-tables-bulkquery">Requête SQL Bulk Insert </a><br> 3. <a href="#sql-builtin-utilities">Utilitaires graphiques intégrés dans SQL Server</a>
+<b>Serveur SQL Server local</b> | 1\. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportation dans un fichier plat </a><br> 3. <a href="#sql-migration">Assistant Migration de la base de données SQL </a> <br> 4. <a href="#sql-backup">Sauvegarde et restauration de base de données </a><br>
 
 Notez que ce document suppose que les commandes SQL sont exécutées à partir de SQL Server Management Studio ou Visual Studio Database Explorer.
 
@@ -56,13 +43,13 @@ Notez que ce document suppose que les commandes SQL sont exécutées à partir 
 ## <a name="prereqs"></a>Configuration requise
 Ce didacticiel part du principe que vous disposez de :
 
-* Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à une [évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/).
-* Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
-* Approvisionnement d’un**SQL Server sur une machine virtuelle Azure**. Pour obtenir des instructions, consultez [Configuration d’une machine virtuelle SQL Server Azure en tant que serveur IPython Notebook pour des analyses avancées](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* **Azure PowerShell installé** et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](powershell-install-configure.md).
+* Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
+* Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account). Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Affichage, copie et régénération de clés d’accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+* Approvisionnement d’un **serveur SQL Server sur une machine virtuelle Azure**. Pour obtenir des instructions, consultez [Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées](machine-learning-data-science-setup-sql-server-virtual-machine.md).
+* **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](powershell-install-configure.md).
 
 
-## <a name="filesource_to_sqlonazurevm"></a> Déplacement des données à partir d'un fichier plat source vers SQL Server sur une machine virtuelle Azure
+## <a name="filesource_to_sqlonazurevm"></a> Déplacement des données à partir d’un fichier plat source vers SQL Server sur une machine virtuelle Azure
 
 Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les méthodes suivantes permettent de les copier dans l’instance SQL Server VM on Azure :
 
@@ -71,12 +58,11 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)
+### <a name="insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
-> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?**  
-> Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
+> [AZURE.NOTE]**Où mes données doivent-elles se trouver pour BCP ?** Ce n’est pas une obligation, mais le transfert est plus rapide si les fichiers contenant les données source résident sur la même machine que l’instance SQL Server cible (débit du réseau par rapport au débit d’E/S du disque local). Vous pouvez déplacer les fichiers plats contenant les données vers la machine hébergeant SQL Server, en utilisant différents outils de copie, tels que [AZCopy](../storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) ou le copier/coller Windows via le protocole RDP (Remote Desktop Protocol).
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
@@ -173,7 +159,7 @@ Vous pouvez utiliser l’utilitaire SSIS (SQL Server Integrations Services) pour
 - Pour en savoir plus sur les outils SQL Server Data Tools, consultez l’article [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx).  
 - Pour en savoir plus sur l’Assistant Importation et Exportation, consultez l’article [Assistant Importation et Exportation SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
-## <a name="sqlonprem_to_sqlonazurevm"></a>Déplacement des données à partir d'un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure
+## <a name="sqlonprem_to_sqlonazurevm"></a>Déplacement des données à partir d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure
 
 Vous pouvez également utiliser les stratégies de migration suivantes :
 
@@ -186,11 +172,11 @@ Chacune de ces étapes est décrite ci-après :
 
 ### Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure
 
-L'**Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d'une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu'une discussion des autres possibilités, consultez [Migration d'une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
+L’**Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une discussion des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../virtual-machines/virtual-machines-migrate-onpremises-database.md).
 
 ### <a name="export-flat-file"></a>Exporter dans un fichier plat
 
-Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données à partir d'un SQL Server local et sont documentées [ici](https://msdn.microsoft.com/library/ms175937.aspx). Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
+Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données à partir d’un serveur SQL Server local et sont documentées [ici](https://msdn.microsoft.com/library/ms175937.aspx). Ce document utilise l’outil BCP (Bulk Copy Program) à titre d’exemple. Une fois les données exportées dans un fichier plat, il est possible de les importer en bloc dans une autre instance SQL Server.
 
 1. Pour exporter les données de l’instance SQL Server locale vers un fichier à l’aide de l’utilitaire BCP, procédez comme suit :
 
@@ -237,4 +223,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

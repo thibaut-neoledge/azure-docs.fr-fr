@@ -1,3 +1,5 @@
+<properties writer="kathydav" editor="tysonn" manager="timlt" />
+
 
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Cela supprime le disque de la machine virtuelle, mais pas du stockage. Si vous souhaitez réutiliser les données du disque, vous pouvez l’attacher à la même machine virtuelle ou à une autre.
 
@@ -58,4 +60,4 @@ Après avoir trouvé le LUN du disque, vous êtes prêt à le détacher :
 
 Le disque détaché reste dans le stockage, mais il n'est plus attaché à une machine virtuelle.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

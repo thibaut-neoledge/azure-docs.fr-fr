@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Meilleures pratiques pour la modification de la configuration par défaut | Microsoft Azure"
+	pageTitle="Meilleures pratiques pour la modification de la configuration par défaut | Microsoft Azure | Microsoft Azure"
 	description="Décrit les meilleures pratiques pour la modification de la configuration par défaut d’Azure AD Connect Sync."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@ Lorsque vous devez modifier la configuration par défaut, procédez comme suit 
 
 
 
-## Ressources supplémentaires
+## Étapes suivantes
+En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
 
-* [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
-* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

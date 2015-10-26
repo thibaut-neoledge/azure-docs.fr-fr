@@ -19,7 +19,9 @@
 
 # Architecture d’Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
+
 
 Cet article présente une vue d’ensemble des architectures de Service Management et de Resource Manager permettant de créer des applications et charges de travail basées sur une infrastructure.
 
@@ -81,4 +83,4 @@ Vous pouvez également observer la modularité et les relations dépendantes ent
 
 [Présentation du gestionnaire des ressources Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -382,4 +382,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Vue d’ensemble de l’encodage de Media Services](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

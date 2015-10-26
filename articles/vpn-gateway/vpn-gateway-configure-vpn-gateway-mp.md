@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Configuration d'une passerelle VPN dans le portail Azure | Microsoft Azure"
-	description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage de passerelle VPN, de statique à dynamique ou de dynamique à statique."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Cet article vous indique comment configurer votre passerelle VPN de réseau virtuel et comment modifier un type de routage de passerelle VPN, de statique à dynamique ou de dynamique à statique."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # Configuration d'une passerelle VPN dans le portail Azure
 
@@ -151,4 +151,4 @@ Si vous souhaitez configurer une connexion VPN de point à site, consultez l'art
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

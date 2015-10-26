@@ -45,4 +45,4 @@ Vous devez également créer les objets Active Directory locaux suivants :
 
 Vous avez besoin de ces deux objets lorsque vous créez votre collection RemoteApp ; veuillez donc vous assurer d’avoir déjà effectué ces étapes.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

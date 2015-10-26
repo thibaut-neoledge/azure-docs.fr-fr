@@ -250,4 +250,4 @@ Vous trouverez le code pour cette démonstration dans [ce référentiel GitHub](
 Cet article vous a expliqué comment personnaliser la façon dont Swashbuckle génère des identificateurs d'opération et des codes de réponse valides. Pour plus d’informations, consultez [Swashbuckle sur GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

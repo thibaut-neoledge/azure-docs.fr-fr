@@ -301,4 +301,4 @@ Une fois que le pipeline s'exécute, vous devez être en mesure de voir des donn
 
 Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

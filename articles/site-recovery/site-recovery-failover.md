@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/07/2015" 
+	ms.date="10/12/2015" 
 	ms.author="raynew"/>
 
 # Basculement via Microsoft Azure Site Recovery
@@ -94,13 +94,7 @@ Lorsque vous exécutez un test de basculement, vous êtes invité à sélectionn
 **Basculement vers un site VMM secondaire, via un réseau** | Un réseau de machines virtuelles existant est sélectionné. | Vérifie la création des machines virtuelles. | <p>La machine virtuelle de test est créée sur l’hôte qui héberge déjà l’ordinateur virtuel de réplication. Elle n’est pas ajoutée au cloud hébergeant l’ordinateur virtuel de réplication.</p><p>Créez un réseau de machines virtuelles isolé de votre réseau de production.</p><p>Si vous utilisez un réseau basé sur un réseau VLAN, nous vous recommandons de créer un réseau logique distinct (non utilisé en production) dans VMM, à cet effet. Ce réseau logique est utilisé pour créer des réseaux de machines virtuelles à des fins de test du basculement.</p><p>Il doit être associé à l’une des cartes réseau (minimum) installées sur l’ensemble des serveurs Hyper-V hébergeant des machines virtuelles.</p><p>Pour les réseaux logiques VLAN, les sites réseau ajoutés au réseau logique doivent être isolés.</p><p>Si vous utilisez un réseau logique basé sur la fonction de virtualisation réseau Windows, Microsoft Azure Site Recovery crée automatiquement des réseaux de machines virtuelles isolés.</p>
 **Basculement vers un site VMM secondaire : création d’un réseau** | Un réseau de test temporaire est créé automatiquement, en fonction du paramètre que vous spécifiez dans le champ **Réseau logique** et sur les sites réseau associés. | Vérifie la création des machines virtuelles. | <p>Utilisez cette option si le plan de récupération fait appel à plusieurs réseaux de machines virtuelles. Si vous exploitez des réseaux de virtualisation de réseau Windows, cette option peut être utilisée pour créer automatiquement des réseaux de machines virtuelles à partir des mêmes paramètres (sous-réseaux et pools d’adresses IP) que ceux du réseau de l’ordinateur virtuel de réplication. Ces réseaux de machines virtuelles sont automatiquement nettoyés une fois le test de basculement terminé.</p><p>La machine virtuelle de test est créée sur l’hôte qui héberge déjà l’ordinateur virtuel de réplication. Elle n’est pas ajoutée au cloud sur lequel se trouve l’ordinateur virtuel de réplication.</p>
 
-Notez les points suivants :
-
-- Lors de la réplication vers un site secondaire, le type de réseau utilisé par l’ordinateur de réplication ne doit pas nécessairement correspondre au type de réseau logique utilisé pour le test de basculement. Cependant, il se peut que certaines combinaisons ne fonctionnent pas. Si le réplica utilise l’isolement basé sur VLAN ou DHCP, le réseau de machines virtuelles associé au réplica n’a pas besoin d’un pool d’adresses IP statiques. Ainsi, l’utilisation de la fonction de virtualisation de réseau Windows pour un test de basculement ne peut pas aboutir, car aucun pool d’adresses n’est disponible. En outre, le test de basculement ne fonctionne pas si le réseau du réplica n’est associé à aucun isolement et si le réseau de test utilise la fonction de virtualisation de réseau Windows. En effet, un réseau ne présentant aucun isolement n’inclut aucun sous-réseau requis pour créer un réseau utilisant la fonction de virtualisation de réseau Windows.
-- Le mode de connexion des ordinateurs virtuels de réplication aux réseaux de machines virtuelles mappés après le basculement dépend de la configuration choisie pour le réseau de machines virtuelles dans la console VMM :
-	- **Réseau de machines virtuelles configuré sans isolement ou isolement VLAN** : si le protocole DHCP est défini pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du serveur DHCP disponible. Vous n’avez pas besoin de définir un pool d’adresses IP statiques pour le réseau de machines virtuelles cible. Si un pool d’adresses IP statiques est utilisé pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du pool défini pour le réseau de machines virtuelles. Si aucun pool d’adresses IP statiques n’est défini sur le réseau de machines virtuelles cible, le processus d’allocation d’une adresse IP échoue. Le pool d’adresses IP doit être créé sur les serveurs VMM source et cible que vous allez utiliser à des fins de protection et de récupération.
-	- **Réseau de machines virtuelles avec virtualisation de réseau Windows** : si un réseau de machines virtuelles est configuré avec ce paramètre, un pool statique doit être défini pour le réseau de machines virtuelles cible, que le réseau de machines virtuelles source soit configuré pour utiliser le protocole DHCP ou un pool d’adresses IP statiques ou non. Si vous définissez le protocole DHCP, le serveur VMM cible joue le rôle de serveur DHCP et fournit une adresse IP provenant du pool défini pour le réseau de machines virtuelles cible. Si l’utilisation d’un pool d’adresses IP statiques est définie pour le serveur source, le serveur VMM cible alloue une adresse IP à partir du pool. Dans les deux cas, le processus d’allocation d’une adresse IP échoue si aucun pool d’adresses IP statiques n’est défini.
-
+>[AZURE.NOTE]L’adresse IP affectée à une machine virtuelle dans un test de basculement est identique à l’adresse IP qu’elle obtiendrait dans un basculement planifié ou non planifié, étant donné que cette adresse IP est disponible dans le réseau de test de basculement. Si la même adresse IP n’est pas disponible dans le réseau de test de basculement, la machine virtuelle obtient une autre adresse IP disponible sur le réseau de test de basculement.
 
 
 
@@ -119,58 +113,50 @@ Cette procédure explique comment exécuter un test de basculement pour un plan 
 
 > [AZURE.NOTE]Si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du basculement de test sont supprimés.
   
-#### Exemples
 
-Exécutez un exemple de test de basculement, en procédant comme suit :
+### Exécution d’un test de basculement depuis un site local principal vers un site local secondaire
 
-1. Effectuez un test de basculement de la machine virtuelle Active Directory et de la machine virtuelle DNS sur le même réseau que celui que vous utiliserez pour le test de basculement de la machine virtuelle locale.
-2. Notez les adresses IP allouées aux machines ayant fait l’objet d’un basculement.
-3. Sur le réseau virtuel Microsoft Azure qui doit être utilisé pour le basculement de test, ajoutez les adresses IP en tant qu’adresses des serveurs DNS et Active Directory.
-4. Exécutez un test de basculement de la machine virtuelle, en spécifiant le réseau Microsoft Azure.
-5. Assurez-vous que le test s’effectue comme prévu. Ensuite, effectuez le basculement des machines virtuelles, puis celui des machines virtuelles Active Directory et DNS.
-
-### Exécuter un test de basculement depuis un site local principal vers un site secondaire
-
-Vous devez effectuer un certain nombre d’actions pour pouvoir exécuter un test de basculement. Cela inclut la création d’une copie du système Active Directory et le déplacement des serveurs DHCP et DNS de test vers votre environnement de test. Vous pouvez accomplir cette opération de différentes manières :
+Vous devez effectuer un certain nombre d’actions pour pouvoir exécuter un test de basculement. Cela inclut la création d’une copie du contrôleur de domaine et le déplacement des serveurs DHCP et DNS de test vers votre environnement de test. Vous pouvez accomplir cette opération de différentes manières :
 
 - Si vous souhaitez exécuter un test de basculement à l’aide d’un réseau existant, vous devez préparer les systèmes Active Directory, DHCP et DNS de ce réseau.
 - Si vous souhaitez exécuter un test de basculement via l’option de création automatique des réseaux de machines virtuelles, ajoutez une étape manuelle avant Group1 dans le plan de récupération que vous utiliserez pour le basculement de test. Ensuite, ajoutez les ressources d’infrastructure au réseau créé de manière automatique avant de procéder au basculement de test.
 
-#### Préparation du système Active Directory
-Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Voici comment procéder.
+#### Points à noter
 
-1. **Création d’une copie** : créez une copie de l’environnement Active Directory via l’une des méthodes décrites ci-après.
+- Lors de la réplication vers un site secondaire, le type de réseau utilisé par l’ordinateur de réplication ne doit pas nécessairement correspondre au type de réseau logique utilisé pour le test de basculement. Cependant, il se peut que certaines combinaisons ne fonctionnent pas. Si le réplica utilise l’isolement basé sur VLAN ou DHCP, le réseau de machines virtuelles associé au réplica n’a pas besoin d’un pool d’adresses IP statiques. Ainsi, l’utilisation de la fonction de virtualisation de réseau Windows pour un test de basculement ne peut pas aboutir, car aucun pool d’adresses n’est disponible. En outre, le test de basculement ne fonctionne pas si le réseau du réplica n’est associé à aucun isolement et si le réseau de test utilise la fonction de virtualisation de réseau Windows. En effet, un réseau ne présentant aucun isolement n’inclut aucun sous-réseau requis pour créer un réseau utilisant la fonction de virtualisation de réseau Windows.
+- Le mode de connexion des ordinateurs virtuels de réplication aux réseaux de machines virtuelles mappés après le basculement dépend de la configuration choisie pour le réseau de machines virtuelles dans la console VMM :
+	- **Réseau de machines virtuelles configuré sans isolement ou isolement VLAN** : si le protocole DHCP est défini pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du serveur DHCP disponible. Vous n’avez pas besoin de définir un pool d’adresses IP statiques pour le réseau de machines virtuelles cible. Si un pool d’adresses IP statiques est utilisé pour le réseau de machines virtuelles, l’ordinateur virtuel de réplication est connecté à l’ID VLAN au moyen des paramètres spécifiés pour le site réseau dans le réseau logique associé. La machine virtuelle reçoit son adresse IP du pool défini pour le réseau de machines virtuelles. Si aucun pool d’adresses IP statiques n’est défini sur le réseau de machines virtuelles cible, le processus d’allocation d’une adresse IP échoue. Le pool d’adresses IP doit être créé sur les serveurs VMM source et cible que vous allez utiliser à des fins de protection et de récupération.
+	- **Réseau de machines virtuelles avec virtualisation de réseau Windows** : si un réseau de machines virtuelles est configuré avec ce paramètre, un pool statique doit être défini pour le réseau de machines virtuelles cible, que le réseau de machines virtuelles source soit configuré pour utiliser le protocole DHCP ou un pool d’adresses IP statiques ou non. Si vous définissez le protocole DHCP, le serveur VMM cible joue le rôle de serveur DHCP et fournit une adresse IP provenant du pool défini pour le réseau de machines virtuelles cible. Si l’utilisation d’un pool d’adresses IP statiques est définie pour le serveur source, le serveur VMM cible alloue une adresse IP à partir du pool. Dans les deux cas, le processus d’allocation d’une adresse IP échoue si aucun pool d’adresses IP statiques n’est défini.
 
-	- Réplication Hyper-V : vous pouvez démarrer la réplication Active Directory à l’aide de la réplication Hyper-V, comme vous le faites pour d’autres machines virtuelles. Lorsque vous effectuez le test de basculement d’un plan de récupération, vous pouvez également effectuer le test de basculement de la machine virtuelle Active Directory.
-	- Réplication Active Directory : vous pouvez utiliser la réplication Active Directory pour créer une copie de votre installation Active Directory dans votre site de réplication. Lorsque vous effectuez le test de basculement d’un plan de récupération, vous pouvez créer une copie de la machine virtuelle Active Directory en prenant un instantané de l’installation Active Directory du réplica. Vous pouvez utiliser cette copie dans le cadre du test de basculement. Une fois ce test effectué, vous pouvez supprimer la copie de l’environnement Active Directory.
+#### Exécuter un test
 
-2. **Importation et exportation** : vous pouvez créer une copie d’une machine virtuelle Active Directory en l’exportant, puis en l’important avec un nouveau GUID.
-3. **Ajout au réseau** : ajoutez la fonction Active Directory au réseau créé par le test de basculement. Notez les points suivants : 
+Cette procédure explique comment exécuter un test de basculement pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles**.
 
-	- Il est important de s’assurer que le réseau auquel vous allez ajouter la fonction Active Directory est complètement isolé de votre réseau de production. Si vous utilisez un réseau Microsoft Windows en tant que réseau de test, le système garantit l’isolement des réseaux de machines virtuelles créés automatiquement, tant que vous n’ajoutez aucune passerelle externe au réseau. Si vous utilisez l’isolement VLAN, vous devez vous assurer que les réseaux de machines virtuelles créés sont isolés de l’environnement de production.
-	- Les étapes que vous devrez peut-être suivre seront légèrement différentes, selon que les services Active Directory et DNS sont exécutés sur la même machine virtuelle ou sur des machines différentes :
-		- Exécution sur une même machine virtuelle : si ces deux services s’exécutent sur la même machine virtuelle, vous pouvez utiliser cette machine virtuelle en tant que ressource DNS pour le test de basculement. Vous pouvez opter pour le nettoyage de l’ensemble des entrées sur le système DNS, puis recréer les zones requises dans ce dernier. 
-		- Exécution sur une machine virtuelle différente : si les services Active Directory et DNS se trouvent sur des machines virtuelles différentes, vous devez créer une ressource DNS pour le test de basculement. Vous pouvez utiliser un nouveau serveur DNS et créer toutes les zones requises. Par exemple, si votre domaine Active Directory est contoso.com, vous pouvez créer une zone portant le nom contoso.com. 
+1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
+2. Sur la page **Confirmer le test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux, après le test de basculement.
+3. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
+4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
+4. Une fois l’opération terminée, vérifiez que les machines virtuelles démarrent correctement.
+5. Après avoir effectué cette vérification, terminez le test de basculement afin de nettoyer l’environnement isolé. Si vous avez opté pour la création automatique de réseaux de machines virtuelles, le nettoyage supprime toutes les machines virtuelles de test, ainsi que les réseaux de test.
 
-4. **Mise à jour du système Active Directory dans DNS** : dans les deux cas, les entrées correspondant à Active Directory doivent être mises à jour dans le système DNS. Procédez comme suit :
+> [AZURE.NOTE]Si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du basculement de test sont supprimés.
 
-	- Vérifiez que les paramètres suivants sont en place avant toute apparition d’une autre machine virtuelle du plan de récupération :
-		- La zone doit être nommée en fonction du nom racine de la forêt.
-		- La zone doit être sauvegardée dans un fichier.
-		- La zone doit être activée pour les mises à jour sécurisées et non sécurisées.
-		- Si les systèmes Active Directory et DNS se trouvent sur deux machines virtuelles distinctes, le programme de résolution de la machine virtuelle Active Directory doit pointer vers l’adresse IP de la machine virtuelle DNS.
-	- Exécutez la commande suivante dans Active Directory : nltest/dsregdns.
 
 #### Préparer le service DHCP
 
 Si les machines virtuelles impliquées dans le test de basculement utilisent le protocole DHCP, un serveur DHCP de test doit être créé dans le réseau isolé est créé pour les besoins du test de basculement.
 
-#### Préparer le service DNS
+
+### Préparation du système Active Directory
+Pour exécuter un test de basculement afin de tester des applications, vous devez créer une copie de l’environnement Active Directory de production dans votre environnement de test. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#considerations-for-test-failover]) pour plus de détails.
+
+
+### Préparer le service DNS
 
 Préparer un serveur DNS pour le test de basculement en procédant comme suit :
 
-- **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le pool d’adresses IP statiques utilisé pour le test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
-- **Adresse statique** : si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans les pools d’adresses IP statiques utilisés pour le test de basculement. Vous devez mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant : 
+- **DHCP** : si les machines virtuelles utilisent DHCP, l’adresse IP du serveur DNS de test doit être mise à jour sur le serveur DHCP de test. Si vous utilisez un type de réseau associé à la virtualisation de réseau Windows, le serveur VMM joue le rôle de serveur DHCP. Par conséquent, l’adresse IP du serveur DNS doit être mise à jour dans le réseau de test de basculement. Dans ce cas, les machines virtuelles s’enregistrent auprès du serveur DNS pertinent.
+- **Adresse statique** : si les machines virtuelles utilisent une adresse IP statique, l’adresse IP du serveur DNS de test doit être mise à jour dans le réseau de test de basculement. Vous devrez peut-être mettre à jour le service DNS en indiquant l’adresse IP des machines virtuelles de test. À cette fin, vous pouvez utiliser l’exemple de script suivant : 
 
 	    Param(
 	    [string]$Zone,
@@ -182,25 +168,7 @@ Préparer un serveur DNS pour le test de basculement en procédant comme suit 
 	    $newrecord.RecordData[0].IPv4Address  =  $IP
 	    Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-- **Ajout d’une zone** : utilisez le script suivant pour ajouter une zone sur le serveur DNS, autoriser les mises à jour non sécurisées et ajouter une entrée pour ce dernier dans le service DNS :
 
-	    dnscmd /zoneadd contoso.com  /Primary 
-	    dnscmd /recordadd contoso.com  contoso.com. SOA %computername%.contoso.com. hostmaster. 1 15 10 1 1 
-	    dnscmd /recordadd contoso.com %computername%  A <IP_OF_DNS_VM> 
-	    dnscmd /config contoso.com /allowupdate 1
-
-#### Exécuter un test
-
-Cette procédure explique comment exécuter un test de basculement non planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique, via l’onglet **Machines virtuelles**.
-
-1. Sélectionnez **Plans de récupération** > *nom\_planrécupération*. Cliquez sur **Basculement** > **Test de basculement**.
-2. Sur la page **Confirmer le test de basculement**, indiquez le mode de connexion des machines virtuelles aux réseaux, après le test de basculement.
-3. Effectuez un suivi de l’opération sur l’onglet **Tâches**. Lorsque le basculement atteint la phase **Terminer le test**, cliquez sur **Terminer le test** pour finir l’opération.
-4. Cliquez sur **Notes** pour consigner et enregistrer les éventuelles observations associées au test de basculement.
-4. Une fois l’opération terminée, vérifiez que les machines virtuelles démarrent correctement.
-5. Après avoir effectué cette vérification, terminez le test de basculement afin de nettoyer l’environnement isolé. Si vous avez opté pour la création automatique de réseaux de machines virtuelles, le nettoyage supprime toutes les machines virtuelles de test, ainsi que les réseaux de test.
-
-Remarque : si un test de basculement s’étend sur plus de deux semaines, le système l’oblige à s’achever. Toutes les machines virtuelles ou les éléments créés automatiquement lors du test de basculement sont supprimés.
 
 ## Exécuter un basculement planifié (depuis un système principal vers un système secondaire)
 
@@ -282,4 +250,4 @@ Si vous avez déployé la fonction de protection entre un [site Hyper-V et Micro
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

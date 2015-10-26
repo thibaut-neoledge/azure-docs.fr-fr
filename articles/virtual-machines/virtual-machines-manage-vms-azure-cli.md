@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Gestion de vos machines virtuelles Azure à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
-   description="Décrit comment gérer vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows"
+   pageTitle="Gestion des machines virtuelles avec l’interface de ligne de commande | Microsoft Azure"
+   description="Automatisez la gestion de vos machines virtuelles Azure Resource Manager à l’aide de l’interface de ligne de commande Azure."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
    editor=""
-   tags="azure-service-management"/>
+   tags="azure-resource-manager"/>
 
    <tags
    ms.service="virtual-machines"
@@ -14,16 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="danlep"/>
 
-# Gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows
+# Gestion de vos machines virtuelles Resource Manager à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la gestion d’une ressource créée avec le modèle de déploiement classique. Vous pouvez également gérer une ressource avec le [modèle de déploiement Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md).
 
-Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-how-to-automate-azure-resource-manager.md).
 
->[AZURE.NOTE]Si vous n’avez pas encore installé ni configuré l’interface de ligne de commande Azure, cliquez [ici](../xplat-cli-install.md) pour obtenir les instructions. Si vous souhaitez un démarrage rapide pour les mêmes tâches dans PowerShell, consultez [Gestion de vos machines virtuelles à l’aide d’Azure PowerShell](virtual-machines-manage-vms-powershell.md).
+Il est possible d’automatiser les nombreuses tâches quotidiennes liées à la gestion de vos machines virtuelles à l’aide de l’interface de ligne de commande Azure pour Mac, Linux et Windows. Cet article donne des exemples de commandes pour réaliser des tâches simples et contient des liens vers des articles indiquant les commandes à utiliser pour des tâches plus complexes.
+
+>[AZURE.NOTE]Si vous n’avez pas installé l’interface de ligne de commande Azure, vous pouvez obtenir des instructions [ici](../xplat-cli-install.md), et découvrir comment vous connecter à votre abonnement [ici](../xplat-cli-connect.md). Vous devez également configurer l’interface de ligne de commande en mode Azure Resource Manager (arm).
 
 ## Utilisation des exemples de commandes
 Vous devrez remplacer une partie du texte des commandes par un texte approprié à votre environnement. Les symboles < and > indiquent le texte à remplacer. Lorsque vous remplacez le texte, supprimez les symboles, mais laissez les guillemets en place.
@@ -81,6 +82,8 @@ Bien sûr, si vous disposez déjà de ces valeurs, vous pouvez trouver des moyen
 
 ## Étapes suivantes
 
-Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+* Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode Azure Resource Manager, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Azure Resource Management](xplat-cli-azure-resource-manager.md).
 
-<!---HONumber=Oct15_HO1-->
+* Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+
+<!---HONumber=Oct15_HO3-->

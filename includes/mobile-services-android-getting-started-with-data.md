@@ -162,4 +162,4 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l'application pour
 <!-- URLs. -->
 [Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

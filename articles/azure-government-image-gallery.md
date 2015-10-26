@@ -7,7 +7,6 @@
    manager="chrisnie" 
    editor=""/>
 
-
 <tags
    ms.service="multiple"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="azure-government" 
    ms.date="05/20/2015"
    ms.author="jharve"/>
-
 
 
 #  Bibliothèque d'images Microsoft Azure Government
@@ -120,4 +118,4 @@ Les ressources ci-dessous fournissent des informations supplémentaires sur le d
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

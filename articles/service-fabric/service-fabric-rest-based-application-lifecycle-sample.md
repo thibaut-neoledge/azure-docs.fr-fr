@@ -710,4 +710,4 @@ namespace ServiceFabricRestCaller
 
 [Cycle de vie des applications de la structure du service](service-fabric-application-lifecycle.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

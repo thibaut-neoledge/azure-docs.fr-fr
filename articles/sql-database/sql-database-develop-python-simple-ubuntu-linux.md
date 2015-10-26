@@ -115,4 +115,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

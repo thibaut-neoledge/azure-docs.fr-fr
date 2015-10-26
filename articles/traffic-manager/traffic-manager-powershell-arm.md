@@ -211,4 +211,4 @@ Cette séquence peut également être canalisée :
 [Prise en main des applets de commande Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

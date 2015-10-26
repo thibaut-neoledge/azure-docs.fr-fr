@@ -134,34 +134,34 @@ namespace ContactsList.Models
         public string Name { get; set; }
         public string EmailAddress { get; set; }
     }
-	}
-	</pre>
+}
+</pre>
 
 3. Cliquez avec le bouton droit de la souris sur le dossier **Controllers** et ajoutez un fichier *ContactsController.cs*, de façon qu’il apparaisse comme suit :
 
 	<pre class="prettyprint">
-	using System.Collections.Generic;
-	using Microsoft.AspNet.Mvc;
-	using ContactsList.Models;
-	
-	namespace ContactsList.Controllers
-	{
-	    [Route("api/[controller]")]
-	    public class ContactsController : Controller
-	    {
-	        // GET: api/Contacts
-	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
-	        {
-	            return new Contact[]{
-	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-	            };
-	        }
-	    }
-	}
-	</pre>
+using System.Collections.Generic;
+using Microsoft.AspNet.Mvc;
+using ContactsList.Models;
+
+namespace ContactsList.Controllers
+{
+    [Route("api/[controller]")]
+    public class ContactsController : Controller
+    {
+        // GET: api/Contacts
+        [HttpGet]
+        public IEnumerable&lt;Contact> Get()
+        {
+            return new Contact[]{
+                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+            };
+        }
+    }
+}
+</pre>
 
 4. Assurez-vous que tous vos fichiers sont enregistrés en cliquant sur **Fichier** > **Enregistrer tout**.
 5. Dans la zone **Palette de commandes**, saisissez la commande suivante pour exécuter l’application en local :
@@ -399,8 +399,7 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 
 	![Initialiser Git](./media/app-service-create-aspnet-api-app-using-vscode/19-initgit.png)
 
-5. 
-6. Ajoutez un message de validation, puis cochez la case **Valider tout**.
+5. Ajoutez un message de validation, puis cochez la case **Valider tout**.
 
 	![Option Valider tout de Git](./media/app-service-create-aspnet-api-app-using-vscode/20-git-commit.png)
 
@@ -411,13 +410,13 @@ Dans cette section, vous créez un référentiel Git local et vous effectuez une
 cd c:\VSCodeProjects\ContactsList
 </pre>
 
-7. Créez une référence distante pour l’envoi des mises à jour vers l’application web (hôte de l’application API) que vous avez créée précédemment, en utilisant l’URL Git copiée précédemment (qui se termine par « .git ») :
+8. Créez une référence distante pour l’envoi des mises à jour vers l’application web (hôte de l’application API) que vous avez créée précédemment, en utilisant l’URL Git copiée précédemment (qui se termine par « .git ») :
 
 	<pre class="prettyprint">
 git remote add azure [URL de votre référentiel distant]
 </pre>
 
-8. Envoyez vos modifications dans Azure en entrant la commande suivante :
+9. Envoyez vos modifications dans Azure en entrant la commande suivante :
 
 	<pre class="prettyprint">
 git push azure master
@@ -449,4 +448,4 @@ Dans le portail Microsoft Azure en version préliminaire, accédez au panneau *
 Ce didacticiel vous a montré comment créer une application API dans Visual Studio Code. Pour en savoir plus sur ce logiciel, voir [Visual Studio Code](https://code.visualstudio.com/Docs/). Pour en savoir plus sur les applications API, voir [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

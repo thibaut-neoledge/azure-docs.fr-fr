@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/05/2015"
+	ms.date="10/14/2015"
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ##Vue d'ensemble
@@ -30,34 +30,41 @@ Ce didacticiel vous guide tout au long des étapes de création d'un **canal** q
 
 >[AZURE.NOTE]Pour plus d’informations sur les concepts relatifs aux canaux prenant en charge l’encodage en temps réel, voir [Utilisation de canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple](media-services-manage-live-encoder-enabled-channels.md).
 
->[AZURE.NOTE]Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
 
-##Scénario courant de diffusion dynamique en continu
+##Scénario courant de vidéo en flux continu
 
 Les étapes suivantes décrivent les tâches impliquées dans la création d'applications courantes de vidéo en flux continu.
 
+>[AZURE.NOTE]Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+
 1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur dynamique local capable de générer un flux à débit binaire unique dans l’un des protocoles suivants : RTMP, Smooth Streaming ou RTP (MPEG-TS). Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Cette étape peut également être effectuée après la création du canal.
+	Cette étape peut également être effectuée après la création du canal.
 
 1. Créez et démarrez un canal.
 
 1. Récupérez l’URL de réception du canal.
 
-L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal. 1. Récupérez l’URL d’aperçu du canal.
+	L’URL de réception est utilisée par l’encodeur dynamique pour envoyer le flux au canal.
 
-Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
+1. Récupérez l’URL d’aperçu du canal.
+
+	Utilisez cette URL pour vérifier que votre canal reçoit correctement le flux dynamique.
 
 2. Créez un élément multimédia.
 3. Si vous souhaitez que l'élément multimédia soit chiffré dynamiquement pendant la lecture, procédez comme suit :
-
-1. 	Créez une clé de contenu.
-1. 	Configurez la stratégie d'autorisation de la clé de contenu.
-1. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
+	1. Créez une clé de contenu.
+	1. Configurez la stratégie d'autorisation de la clé de contenu.
+	1. Configurez la stratégie de remise d'éléments multimédias (utilisée par l'empaquetage dynamique et le chiffrement dynamique).
 3. Créez un programme et spécifiez l'utilisation de l'élément multimédia créé.
 1. Publiez l'élément multimédia associé au programme en créant un localisateur OnDemand.
 
-Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu. 1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage. 2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie. 1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement. 1. Supprimez le programme (et éventuellement la ressource).
+	Assurez-vous d'avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
+
+1. Démarrez le programme dès que vous êtes prêt à lancer la diffusion en continu et l’archivage.
+2. Un signal peut éventuellement être envoyé à l’encodeur dynamique pour qu’il démarre une publicité. La publicité est insérée dans le flux de sortie.
+1. Arrêtez le programme chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
+1. Supprimez le programme (et éventuellement l'élément multimédia).
 
 ##Dans cette rubrique
 
@@ -74,7 +81,11 @@ La rubrique montre comment effectuer les opérations suivantes :
 1. Afficher et masquer des slates. Démarrer et arrêter des publicités. Des API de longue durée sont utilisées.
 1. Nettoyer votre canal et toutes les ressources associées.
 
->[AZURE.NOTE]La durée maximale recommandée d'un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+
+##Considérations
+
+- Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez contacter amslived à l’adresse Microsoft point com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+- Assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu.
 
 ##Configuration requise
 Les éléments suivants sont requis pour suivre le didacticiel.
@@ -82,6 +93,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 - Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](azure.microsoft.com).
 - Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-create-account.md).
 - Visual Studio 2010 SP1 ou version ultérieure.
+- Vous devez utiliser le Kit de développement logiciel (SDK) .NET de Media Services version 3.2.0.0 ou ultérieure.
 - Une webcam et un encodeur capable d'envoyer un flux continu à vitesse de transmission unique.
 
 ##Configurer le développement avec le Kit de développement logiciel (SDK) Media Services pour .NET
@@ -97,10 +109,15 @@ Il est recommandé d'utiliser un fichier app.config pour stocker le nom et la cl
 Ajoutez la section appSettings au fichier app.config, puis définissez les valeurs du nom et de la clé de votre compte Media Services.
 
 
-<?xml version="1.0"?> <configuration> <appSettings> <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" /> <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" /> </appSettings> </configuration>
+	<?xml version="1.0"?>
+	<configuration>
+	  <appSettings>
+	      <add key="MediaServicesAccountName" value="YouMediaServicesAccountName" />
+	      <add key="MediaServicesAccountKey" value="YouMediaServicesAccountKey" />
+	  </appSettings>
+	</configuration>
 	 
 	
-
 ##Exemple de code
 
 	using System;
@@ -493,11 +510,11 @@ Ajoutez la section appSettings au fichier app.config, puis définissez les valeu
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ### Vous recherchez quelque chose d’autre ?
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Authentification IIS et serveur Azure Multi-Factor Authentication"
-	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification IIS et du serveur Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Authentification IIS et serveur Azure Multi-Factor Authentication" 
+	description="Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de l’authentification IIS et du serveur Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Authentification IIS
@@ -76,4 +76,4 @@ Les adresses IP approuvées permettent aux utilisateurs de contourner l'authenti
 3. Lorsque la boîte de dialogue Ajouter des adresses IP de confiance s'affiche, sélectionnez le bouton Adresse IP unique, Plage d'adresses IP ou Sous-réseau.
 4. Entrez l'adresse IP, la plage d'adresses IP ou le sous-réseau à ajouter à la liste blanche. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur OK. La liste blanche est alors mise à jour.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

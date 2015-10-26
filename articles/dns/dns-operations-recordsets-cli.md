@@ -34,7 +34,7 @@ Des jeux d’enregistrements sont créés à l’aide de la commande `azure netw
 
 >Pour un jeu d'enregistrements à l'apex de la zone, utilisez "@" comme nom du jeu d'enregistrements, guillemets compris. Le nom complet du jeu d'enregistrements est donc égal au nom de la zone, dans cet exemple, « contoso.com ».
 
-Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Les jeux d'enregistrements de type SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément.
+Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Les jeux d'enregistrements de type SOA sont créés automatiquement avec chaque zone. Ils ne peuvent pas être créés séparément. Notez que [le type d’enregistrement SPF a été abandonné dans les normes DNS en faveur de la création d’enregistrements SPF à l’aide du type d’enregistrement TXT](http://tools.ietf.org/html/rfc7208#section-3.1).
 
 	azure network dns record-set create myresourcegroup contoso.com  www  A --ttl 300
 
@@ -43,7 +43,7 @@ Azure DNS prend en charge les types d'enregistrements suivants : A, AAAA, CNAME
 
 ### Enregistrements génériques
 
-Azure DNS prend en charge les [enregistrements de caractères génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
+Azure DNS prend en charge les [enregistrements génériques](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Ces derniers sont retournés pour toute requête avec un nom correspondant (à moins qu’une correspondance plus proche provienne d'un jeu d'enregistrements non génériques).
 
 >[AZURE.NOTE]Pour créer un jeu d'enregistrements génériques, utilisez le nom de jeu d'enregistrements « * », ou un nom dont la première étiquette est « * », par exemple, « *.foo ».
 
@@ -188,7 +188,7 @@ Vous allez utiliser `azure network dns record-set delete-record` pour supprimer 
 
 ## Suppression d’un enregistrement d’un jeu d'enregistrements existant
 
-Des enregistrements peuvent être supprimés d’un jeu d’enregistrements à l’aide de `azure network dns record-set delete-record`. Notez que l’enregistrement qui est supprimé doit correspondre précisément à un enregistrement existant, sur tous les paramètres.
+Les enregistrements peuvent être supprimés d’un jeu d’enregistrements à l’aide de `azure network dns record-set delete-record`. Notez que l’enregistrement qui est supprimé doit correspondre précisément à un enregistrement existant, sur tous les paramètres.
 
 La suppression du dernier enregistrement d'un jeu d'enregistrements ne supprime pas le jeu d'enregistrements. Consultez [Suppression d’un jeu d'enregistrements](#delete-a-record-set) ci-dessous pour en savoir plus.
 
@@ -239,4 +239,4 @@ Le commutateur facultatif « -q » peut être utilisé pour supprimer l’invi
 [Prise en main de la création de jeux d'enregistrements et des enregistrements](dns-getstarted-create-recordset-cli.md)<BR> [Réalisation d’opérations sur des zones DNS](dns-operations-dnszones-cli.md)<BR> [Automatisation d’opérations à l'aide du Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

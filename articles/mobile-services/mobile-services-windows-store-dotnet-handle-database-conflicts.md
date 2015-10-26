@@ -366,4 +366,4 @@ Ce didacticiel a montré comment permettre à une application Windows Store de g
 [Propriétés système]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

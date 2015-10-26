@@ -90,4 +90,4 @@
 
 9. Cliquez avec le bouton droit sur le projet d'application Windows Phone Store, cliquez sur **Définir comme projet de démarrage**, puis répétez l'étape précédente pour vérifier que l'application Windows Phone Store s'exécute correctement.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Résolution des problèmes d'un appareil StorSimple déployé | Microsoft Azure"
-	description="Décrit comment diagnostiquer et corriger les erreurs qui se produisent sur un appareil StorSimple actuellement déployé et opérationnel."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Décrit comment diagnostiquer et corriger les erreurs qui se produisent sur un appareil StorSimple actuellement déployé et opérationnel."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="v-sharos" />
 
 # Résolution des problèmes d'un appareil StorSimple opérationnel
 
@@ -67,4 +67,4 @@ Si vous ne pouvez pas résoudre le problème, [contactez le support technique Mi
 [1]: https://technet.microsoft.com/fr-FR/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/fr-FR/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

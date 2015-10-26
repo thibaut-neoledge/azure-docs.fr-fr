@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Sauvegarde de la machine virtuelle Azure
 
@@ -87,7 +87,7 @@ L’image ci-dessous illustre les relations entre les différentes entités d’
 
 5. Cliquez sur **Créer un archivage**. La création du coffre de sauvegarde peut prendre du temps. Surveillez les notifications d’état en bas du portail. ![Créer une notification toast l’archivage](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. Un message confirme que l'archivage a été correctement créé et l'archivage est affiché dans la page Services de récupération avec l'état Actif. Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](../backup-azure-backup-create-vault.md#storage-redundancy-options). ![Liste des archivages de sauvegarde](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. Un message confirme que l'archivage a été correctement créé et l'archivage est affiché dans la page Services de récupération avec l'état Actif. Assurez-vous que l’option de redondance de stockage appropriée est choisie juste après la création de l’archivage. En savoir plus sur la [définition de l’option de redondance de stockage dans le coffre de sauvegarde](backup-configure-vault.md#azure-backup---storage-redundancy-options). ![Liste des archivages de sauvegarde](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. En cliquant sur l’archivage de sauvegarde, vous accédez à la page **Démarrage rapide**, où sont affichées les instructions pour la sauvegarde des machines virtuelles Azure. ![Instructions de sauvegarde de machines virtuelles dans la page Tableau de bord](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
@@ -104,7 +104,8 @@ En savoir plus sur l’[agent de machine virtuelle](https://go.microsoft.com/fwL
 - La sauvegarde de machines virtuelles à l’aide du stockage Premium n’est pas prise en charge.
 - La sauvegarde de machines virtuelles ayant plusieurs adresses IP réservées n’est pas prise en charge.
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et aucun point de terminaison défini n’est pas prise en charge.
-- La sauvegarde de machines virtuelles à l’aide de plusieurs cartes réseau ou dans une configuration à charge équilibrée n’est pas prise en charge.
+- La sauvegarde de machines virtuelles à l’aide de plusieurs cartes réseau n’est pas prise en charge.
+- La sauvegarde de machines virtuelles dans une configuration à charge équilibrée (interne ou accessible via Internet) n’est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l’aide du service Azure Backup n’est pas prise en charge dans toutes les régions publiques d’Azure. Voici la [liste](http://azure.microsoft.com/regions/#services) des régions prises en charge. Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
@@ -122,4 +123,4 @@ Pour bien démarrer avec la sauvegarde des machines virtuelles, découvrez comme
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

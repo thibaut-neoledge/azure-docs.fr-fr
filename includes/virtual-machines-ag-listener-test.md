@@ -14,4 +14,4 @@ Par exemple, vous pouvez vous connecter à l'écouteur à partir de l'une des ma
 
 Lorsque vous testez l'écouteur, procédez au basculement du groupe de disponibilité pour vérifier que les clients peuvent se connecter à l'écouteur d'un basculement à un autre.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

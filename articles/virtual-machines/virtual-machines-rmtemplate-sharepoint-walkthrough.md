@@ -18,7 +18,7 @@
 
 # Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Cette rubrique vous explique la structure du fichier de modèle azuredeploy.json pour la batterie de serveurs SharePoint à trois serveurs. Vous pouvez également voir le contenu de ce modèle dans votre navigateur à partir d’[ici](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
@@ -376,4 +376,4 @@ Pour plus d’informations, consultez [Langage du modèle Azure Resource Manag
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

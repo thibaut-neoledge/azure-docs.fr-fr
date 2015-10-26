@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace"
-	description="Didacticiel qui explique comment créer une application Web dans Azure. Apprenez également à utiliser le portail Azure pour lancer et gérer votre application Web."
+	pageTitle="Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace" 
+	description="Didacticiel qui explique comment créer une application Web dans Azure. Apprenez également à utiliser le portail Azure pour lancer et gérer votre application Web." 
 	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="tfitzmac"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Création d’une application Web avec système de gestion de contenu Orchard à partir d’Azure Marketplace
@@ -91,4 +91,4 @@ Vous allez configurer une application Web Orchard CMS avec un modèle par défau
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -104,4 +104,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -130,4 +130,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

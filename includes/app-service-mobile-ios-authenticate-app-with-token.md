@@ -34,4 +34,4 @@ L’exemple précédent contacte le fournisseur d’identité et le service mobi
 				[self loadAuthInfo];
 ```
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

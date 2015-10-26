@@ -12,21 +12,26 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="10/13/2015" 
 	ms.author="awills"/>
 
 
-# Application Insights pour ASP.NET
+# Configurer Application Insights pour ASP.NET
 
 *Application Insights est à l'état de version préliminaire.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+<a name="selector1"></a>
+
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi [découvrir comment votre application est utilisée][knowUsers]. Il fonctionne en installant un SDK dans votre application. Le Kit de développement logiciel (SDK) envoie la télémétrie de votre application au service Application Insights afin que vous puissiez analyser le comportement de celle-ci.
 
 
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille votre application en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi à [découvrir comment votre application est utilisée][knowUsers]. Il peut être utilisé avec de nombreux types d’application. Il fonctionne pour les applications hébergées sur vos propres serveurs locaux IIS ou sur les machines virtuelles Azure, ainsi que les applications Web Azure. ([Les applications pour appareils et les serveurs Java sont aussi compris][start].)
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
+Ajoutez le SDK à votre application dans Visual Studio afin d’obtenir des tableaux indiquant les demandes serveur, les temps de réponse et les échecs.
 
 ![Exemples de graphiques d’analyse des performances](./media/app-insights-asp-net/10-perf.png)
 
+Vous pourrez également utiliser l'API pour surveiller l’utilisation attentivement.
 
 #### Avant de commencer
 
@@ -85,19 +90,27 @@ Ouvrez votre ressource Application Insights dans le [portail Azure][portal].
 
 ![Cliquez avec le bouton droit de la souris sur votre projet et ouvrez le portail Azure](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
+### Métriques : données regroupées
 
 Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
 
 ![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-asp-net/12-first-perf.png)
 
-Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les métriques.][perf]
+Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.][perf]
 
-À présent, déployez votre application et regardez les données s'accumuler.
+* *Pas de données utilisateur ou de page ?* - [Ajouter des données utilisateur et de page](../article/application-insights/app-insights-asp-net-client.md)
 
+### Rechercher : événements individuels
 
-Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
+Ouvrez Rechercher afin d'examiner les requêtes individuelles et les événements associés.
 
-#### Pas de données ?
+![](./media/app-insights-asp-net/21-search.png)
+
+[En savoir plus sur la recherche](app-insights-diagnostic-search.md)
+
+* *Aucun événement associé ?* Configurez les [exceptions de serveur](../article/application-insights/app-insights-asp-net-exception-mvc.md) et les [dépendances](../article/application-insights/app-insights-asp-net-dependencies.md).
+
+### Pas de données ?
 
 * Assurez-vous que vous regardez les bonnes informations. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur « Parcourir », « Application Insights », puis sélectionnez votre application.
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.
@@ -105,104 +118,23 @@ Lorsque vous exécutez l'application en mode débogage, la télémétrie est env
 * Attendez quelques secondes, puis cliquez sur Actualiser.
 * Consultez la rubrique [Résolution des problèmes][qna].
 
+
+## Publier votre application
+
+À présent, déployez votre application et regardez les données s'accumuler.
+
+Lorsque vous exécutez l'application en mode débogage, la télémétrie est envoyée via le pipeline, ce qui vous permet d'accéder aux données en quelques secondes. Lorsque vous déployez votre application, les données s'accumulent plus lentement.
+
 #### Vous rencontrez des problèmes sur votre serveur de builds ?
 
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Étapes suivantes
 
-## Ajouter une surveillance du navigateur
-
-La surveillance du navigateur vous fournit des données sur les utilisateurs, les sessions, les pages consultées et les exceptions ou incidents qui se produisent dans le navigateur.
-
-![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-asp-net/16-page-views.png)
-
-Vous pourrez également écrire votre propre code pour suivre la façon dont les utilisateurs travaillent avec votre application, même jusqu'au niveau du nombre de clics et de frappes sur les touches.
-
-Ajoutez un extrait de code JavaScript à chaque page. Récupérez le code à partir de votre ressource Application Insights :
-
-![Dans votre application web, ouvrez Démarrage rapide, puis cliquez sur Obtenir le code pour analyser mes pages web.](./media/app-insights-asp-net/02-monitor-web-page.png)
-
-Notez que le code contient la clé d’instrumentation qui identifie la ressource de votre application.
-
-[En savoir plus sur le suivi de page web.](app-insights-web-track-usage.md)
-
-
-## Suivi de l’utilisation
-
-Après avoir proposé une nouvelle solution à un utilisateur, vous souhaitez savoir dans quelle proportion vos clients l’ont adoptée et s’ils ont atteint leurs objectifs ou rencontrent des difficultés. Bénéficiez d’un aperçu détaillé de l’activité des utilisateurs en insérant un élément TrackEvent() et d’autres appels dans votre code, à la fois côté client et côté serveur.
-
-[Suivi de l’utilisation à l’aide de l’API][api]
-
-
-## Journaux de diagnostic
-
-[Capturez le suivi du journal][netlogs] dans votre framework de journalisation favori pour faciliter le diagnostic des problèmes. Vos entrées de journal apparaissent dans [Recherche de diagnostic][diagnostic] avec les événements de télémétrie Application Insights.
-
-## Publier votre application
-
-Si vous n’avez pas encore publié votre application (depuis que vous avez ajouté Application Insights), faites-le maintenant. Observez l’évolution des données dans les graphiques à mesure que les personnes utilisent votre application.
-
-
-#### Les données n’apparaissent pas après leur publication sur votre serveur ?
-
-Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
-
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
-
-## Développement, test et release
-
-Dans le cas d’une application majeure, il est conseillé de transmettre les données de télémétrie de différents horodatages (builds de débogage, test et production) dans des [ressources distinctes](app-insights-separate-resources.md).
-
-## Suivi de la version de l'application
-
-Assurez-vous que `buildinfo.config` est généré par votre processus de génération. Dans votre fichier .csproj, ajoutez :
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-Lorsqu'il détient les informations de build, le module Web Application Insights ajoute automatiquement la **version de l'application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version lors de l'exécution de [recherches de diagnostic][diagnostic] ou lors de l’[exploration de mesures][metrics].
-
-
-
-## Ajouter un suivi de dépendance et des compteurs de performances système
-
-Les [mesures de dépendance](app-insights-dependencies.md) peuvent vous être très utiles pour diagnostiquer les problèmes de performance. Ils comptabilisent les appels de votre application vers les bases de données, les API REST et d’autres composants externes.
-
-![](./media/app-insights-asp-net/04-dependencies.png)
-
-Cette étape permet aussi d’établir un [rapport des compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters), tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
-
-#### Si votre application s'exécute sur votre serveur IIS
-
-Connectez-vous à votre serveur avec des droits d’administrateur, puis installez [Application Insights Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648).
-
-Vous devez vous assurer que certains [autres ports sont ouverts dans le pare-feu de votre serveur](app-insights-monitor-performance-live-website-now.md#troubleshooting).
-
-#### Si votre application est une application web Azure
-
-Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
-
-![Dans votre application web, Paramètres, Extensions, Ajouter, Application Insights](./media/app-insights-asp-net/05-extend.png)
-
-(Vous pouvez également ajouter l’extension à une application qui est déjà active, même si vous n’avez pas installé le Kit de développement logiciel (SDK) qu’elle contient).
-
-#### Pour surveiller les rôles de services cloud Azure
-
-Il existe une [procédure manuelle pour ajouter le moniteur d’état](app-insights-cloudservices.md).
-
-## Tests web de disponibilité
-
-[Configurez des tests Web][availability] pour vérifier depuis l’extérieur que votre application est opérationnelle et réactive.
-
-
-![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
-
+- [Données utilisateur et de page](../article/application-insights/app-insights-asp-net-client.md#selector1)
+- [Exceptions](../article/application-insights/app-insights-asp-net-exception-mvc.md#selector1)
+- [Dépendances](../article/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Availability](../article/application-insights/app-insights-monitor-web-app-availability.md#selector1)
 
 
 
@@ -238,8 +170,8 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

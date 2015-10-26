@@ -32,4 +32,4 @@ Dans le cas des images, vous disposez des options suivantes :
 Quel que soit le mode de création ou la provenance de votre image, vérifiez que vous comprenez les [exigences de l’application](remoteapp-appreqs.md) afin de vous assurer que celle-ci fonctionne dans RemoteApp. L’étape suivante consiste à créer une collection [cloud](remoteapp-create-cloud-deployment.md) ou [hybride](remoteapp-create-hybrid-deployment.md).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

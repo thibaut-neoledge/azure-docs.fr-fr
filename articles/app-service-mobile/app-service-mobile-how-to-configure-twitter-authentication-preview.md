@@ -33,7 +33,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 3. Accédez au site web [Twitter Developers], connectez-vous avec vos identifiants Twitter, puis cliquez sur **Create New App**.
 
-4. Tapez le **Name** et une **Description** pour votre nouvelle application. Collez l’**URL de votre application Mobile App** en guise de **Website**. Ensuite, pour l’**Callback URL**, collez l’**Callback URL** que vous avez copiée précédemment. Il s’agit de la passerelle de votre application Mobile App suivie du chemin _/signin-twitter_. Par exemple, `https://contosogateway.azurewebsites.net/signin-twitter`. Assurez-vous d'utiliser le schéma HTTPS.
+4. Tapez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL de votre application Mobile App** en guise de **Site web**. Ensuite, pour l’**URL de rappel**, collez l’**URL de rappel** que vous avez copiée précédemment. Il s’agit de la passerelle de votre application Mobile App suivie du chemin _/signin-twitter_. Par exemple, `https://contosogateway.azurewebsites.net/signin-twitter`. Assurez-vous d'utiliser le schéma HTTPS.
 
     ![][0]
 
@@ -72,4 +72,4 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

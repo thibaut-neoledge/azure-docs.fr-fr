@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tamram"/>
 
 # Introduction à Microsoft Azure Storage
@@ -79,6 +79,8 @@ Pour apprendre à créer un compte de stockage standard, consultez [À propos de
 ### Comptes de stockage Premium
 
 Actuellement, Azure Premium Storage prend uniquement en charge les disques d’Azure Virtual Machines. Pour une présentation détaillée du stockage Premium Azure, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+
+[AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Stockage d'objets blob
 
@@ -234,4 +236,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

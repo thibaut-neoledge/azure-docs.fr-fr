@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Utilisation de R dans HDInsight pour personnaliser des clusters| Microsoft Azure"
-	description="Découvrez comment installer et utiliser R pour personnaliser des clusters Hadoop."
+	pageTitle="Installation de R sur HDInsight basé sur Linux | Microsoft Azure"
+	description="Découvrez comment installer et utiliser R pour personnaliser des clusters Hadoop basés sur Linux."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -148,4 +148,4 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

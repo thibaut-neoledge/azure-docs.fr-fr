@@ -19,7 +19,8 @@
 
 # Création de modèles Azure Resource Manager avec des extensions de machine virtuelle
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+ 
 
 ## Vue d’ensemble des modèles Azure Resource Manager
 
@@ -88,4 +89,4 @@ Reportez-vous à ce qui suit pour les modèles de machine virtuelle pour obtenir
 
 Une fois le modèle créé, vous pouvez le déployer en utilisant l’interface de ligne de commande Azure ou Azure Powershell.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

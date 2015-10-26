@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@ Découvrez comment surveiller et gérer les ressources Stream Analytics à l’a
 
 ## Conditions requises pour l'exécution des applets de commande Azure PowerShell pour Stream Analytics
 
-1.	Installez et configurez Azure PowerShell.
+ - Créez un groupe de ressources Azure dans votre abonnement. Voici un exemple de script Azure PowerShell : Pour obtenir des informations sur Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).  
 
-	Suivez les instructions de la page [Installation et configuration d'Azure PowerShell][powershell-install] pour installer Azure PowerShell.
 
-	Pour vous connecter à votre abonnement Azure à l'aide de la méthode Azure Active Directory :
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	Pour sélectionner votre abonnement Azure avec le service Azure Stream Analytics activé, utilisez la méthode :
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Configurez le mode Azure.
-
-	Après avoir installé Azure PowerShell, exécutez l'applet de commande [Switch-AzureMode][msdn-switch-azuremode] pour définir le mode Azure approprié afin d'accéder aux applets de commande Stream Analytics :
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]Par défaut, la surveillance n’est pas activée pour les travaux Stream Analytics créés par programme. Vous pouvez activer manuellement la surveillance dans le portail Azure. Pour cela, accédez à la page de surveillance du travail et cliquez sur le bouton Activer. Vous pouvez également procéder par programme en suivant les étapes décrites dans [Azure Stream Analytics - Surveillance des travaux Stream Analytics par programme](stream-analytics-monitor-jobs.md).
 
@@ -288,4 +287,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

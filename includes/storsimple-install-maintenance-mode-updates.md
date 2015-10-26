@@ -26,4 +26,4 @@
 
 8. Après la mise à jour des deux contrôleurs, quittez le mode Maintenance. Pour obtenir des instructions, consultez l’[Étape 4 : quitter le mode Maintenance](storsimple-update-device.md#step4).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

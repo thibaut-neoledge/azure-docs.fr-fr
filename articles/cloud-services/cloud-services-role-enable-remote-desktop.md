@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services"
-	description="Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance"
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services" 
+description="Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services
 
@@ -147,4 +147,4 @@ Le fichier [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#cscf
 
 [Configuration des services cloud](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

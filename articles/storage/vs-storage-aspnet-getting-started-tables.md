@@ -167,4 +167,4 @@ Une fois l'entité trouvée, vous pouvez la supprimer. Le code suivant recherche
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

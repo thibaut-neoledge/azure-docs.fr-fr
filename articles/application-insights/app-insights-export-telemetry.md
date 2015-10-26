@@ -217,4 +217,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

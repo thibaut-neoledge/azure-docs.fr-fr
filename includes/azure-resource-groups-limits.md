@@ -5,4 +5,4 @@ Déploiements par groupe de ressources|800|800
 Ressources par déploiement|800|800
 Verrous de gestion (par étendue unique)|20|20
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

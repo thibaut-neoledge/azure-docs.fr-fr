@@ -20,7 +20,8 @@
 #Création d’une machine virtuelle personnalisée
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 
 Une machine virtuelle *personnalisée* correspond à une machine virtuelle que vous avez créée à l’aide de l’option **À partir de la galerie**, car elle propose davantage de possibilités de configuration que l’option **Création rapide**. Les choix sont les suivants :
@@ -35,4 +36,4 @@ Une machine virtuelle *personnalisée* correspond à une machine virtuelle que v
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

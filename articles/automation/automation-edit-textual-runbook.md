@@ -144,4 +144,4 @@ Les exemples de commandes suivants montrent comment remplacer le contenu existan
 - [Planifications](automation-schedules.md)
 - [Variables](automation-variables.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

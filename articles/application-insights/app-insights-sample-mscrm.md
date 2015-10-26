@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Procédure pas à pas : surveiller Microsoft Dynamics CRM avec Application Insights"
-	description="Obtenez des données de télémétrie à partir de Microsoft Dynamics CRM Online à l’aide d’Application Insights. Procédure pas à pas de configuration, obtention de données, visualisation et exportation."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Procédure pas à pas : surveiller Microsoft Dynamics CRM avec Application Insights" 
+	description="Obtenez des données de télémétrie à partir de Microsoft Dynamics CRM Online à l’aide d’Application Insights. Procédure pas à pas de configuration, obtention de données, visualisation et exportation." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Procédure pas à pas : activation de télémétrie pour Microsoft Dynamics CRM Online à l’aide d’Application Insights
@@ -60,7 +60,7 @@ Pour analyser votre application, vous devez y ajouter un Kit de développement l
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copiez le code à partir d’Application Insights.
+4. Copiez le code à partir d’Application Insights. Lors de la copie, veillez à ignorer les balises <script>. Reportez-vous à la capture d’écran ci-dessous :
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -147,7 +147,7 @@ Cliquez sur le graphique pour obtenir plus de détails :
 
 ## Power BI
 
-Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les données vers Microsoft Power BI](app-insights-export-power-bi.md).
+Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les données vers Microsoft Power BI](app-insights-export-power-bi.md).
 
 ## Exemple de solution Dynamics CRM
 
@@ -161,4 +161,4 @@ Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

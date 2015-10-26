@@ -70,4 +70,4 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services et s'appuie
 [portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

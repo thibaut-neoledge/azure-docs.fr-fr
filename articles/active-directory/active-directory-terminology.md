@@ -43,4 +43,4 @@ Comptes professionnels ou scolaires | Un compte d'utilisateur attribué par une 
 - [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restrictions et limites du service Azure Active Directory](active-directory-service-limits-restrictions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

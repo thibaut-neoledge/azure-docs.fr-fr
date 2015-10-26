@@ -115,7 +115,7 @@ L’exemple ci-dessous illustre une stratégie qui refuse toutes les demandes o�
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,17 +213,37 @@ Avec un corps de demande semblable au suivant :
 
 La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
+### Création d'une définition de stratégie à l'aide de PowerShell
+
+Vous pouvez créer une nouvelle définition de stratégie à l'aide de l'applet de commande New-AzureRmPolicyDefinition comme indiqué ci-dessous. Les exemples ci-dessous créent une stratégie permettant d'attribuer des ressources uniquement en Europe du Nord et en Europe de l'ouest.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être utilisé ultérieurement lors de l'affectation de la stratégie. Pour le paramètre de stratégie, vous pouvez également utiliser le chemin d'accès au fichier .json contenant la stratégie au lieu de spécifier la stratégie en ligne, comme indiqué ci-dessous.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## Application d’une stratégie
 
 ### Affectation de stratégie avec l’API REST
 
-Vous pouvez appliquer la définition de stratégie à l’étendue souhaitée par le biais de l’[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
+Vous pouvez appliquer la définition de stratégie en fonction l’étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
 Pour créer une affectation de stratégie, exécutez la commande suivante :
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l’API, utilisez *2015-10-01-preview*.
+{policyAssignmentName} correspond au nom de l’affectation de stratégie. Pour la version de l'API, utilisez *2015-10-01-preview*.
 
 Avec un corps de demande semblable au suivant :
 
@@ -238,6 +258,22 @@ Avec un corps de demande semblable au suivant :
       "name":"VMPolicyAssignment"
     }
 
-Pour plus d’informations et des exemples, consultez [API REST pour l’affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Pour plus d'informations et des exemples, consultez [API REST pour l'affectation de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-<!---HONumber=Oct15_HO2-->
+### Affectation de stratégies à l'aide de PowerShell
+
+Vous pouvez appliquer la stratégie créée précédemment à l'aide de PowerShell selon l'étendue de votre choix à l'aide de l'applet de commande New-AzureRmPolicyAssignment, comme indiqué ci-dessous :
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+Dans ce cas, $policy est l'objet de stratégie qui a été renvoyé suite à l'exécution de l'applet de commande New-AzureRmPolicyDefinition, comme indiqué ci-dessus. L'étendue est ici le nom du groupe de ressources que vous spécifiez.
+
+Si vous souhaitez supprimer l'affectation de stratégie ci-dessus, procédez comme suit :
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'aide des applets de commande Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition et Remove-AzureRmPolicyDefinition respectivement.
+
+De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
+
+<!---HONumber=Oct15_HO3-->

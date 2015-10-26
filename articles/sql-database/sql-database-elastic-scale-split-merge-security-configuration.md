@@ -1,8 +1,9 @@
 <properties 
+    title="Elastic Scale Security Configurations" 
     pageTitle="Configuration de la sécurité de l'infrastructure élastique" 
     description="Définissez les certificats x 409 pour le chiffrement" 
-    services="sql-database" 
-	documentationCenter="" 
+    metaKeywords="Elastic Database certificates security" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -473,4 +474,4 @@ Les informations d’identification stockées dans cette base de données sont c
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

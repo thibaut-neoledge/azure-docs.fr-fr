@@ -238,4 +238,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 ![Capture d'écran d'une erreur lorsque les utilisateurs n'ont pas enregistré leur appareil auprès d'Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

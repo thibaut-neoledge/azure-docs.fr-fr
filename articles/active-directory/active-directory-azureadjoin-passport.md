@@ -18,7 +18,7 @@
 
 # Authentification des identités sans mot de passe avec Microsoft Passport
 
-Les méthodes actuelles d’authentification avec un simple mot de passe ne sont pas suffisantes pour protéger les utilisateurs. Les utilisateurs réutilisent et oublient les mots de passe. Les mots de passe peuvent faire l’objet d’une violation, de tentatives de phishing, de piratage ou être faciles à deviner. Ils sont également difficiles à mémoriser et sujets aux attaques de type « pass-the-hash ».
+Les méthodes actuelles d’authentification avec un simple mot de passe ne sont pas suffisantes pour protéger les utilisateurs. Les utilisateurs réutilisent et oublient les mots de passe. Les mots de passe peuvent faire l’objet d’une violation, de tentatives de phishing, de piratage ou être faciles à deviner. Ils sont également difficiles à mémoriser et sujets aux attaques de type « pass-the-hash ». Le hachage est une technique de piratage qui permet à un pirate de s'authentifier auprès d’un serveur/service distant en utilisant le hachage NTLM et/ou LanMan du mot de passe d'un utilisateur, au lieu de demander le mot de passe en texte clair associé comme c'est normalement le cas. Pour plus d'informations sur le hachage de test, consultez [Pass-the-hash](https://technet.microsoft.com/fr-FR/dn785092.aspx).
 
 ## Qu’est-ce que Microsoft Passport ?
 Microsoft Passport est une nouvelle approche d’authentification par clé publique/privée ou basée sur les certificats pour les organisations et les consommateurs qui ne nécessite pas de passer par un mot de passe. Cette forme d’authentification s’appuie sur des informations d’identification constituées d’une paire de clés, qui peuvent remplacer les mots de passe et être résistantes aux failles, aux vols et au phishing. Microsoft Passport permet aux utilisateurs de s’authentifier auprès d’un compte Microsoft, d’un compte Active Directory, d’un compte Microsoft Azure Active Directory (AD) ou d’un service non-Microsoft qui prend en charge l’authentification Fast ID Online (FIDO). Après une vérification initiale en deux étapes lors de l’inscription à Microsoft Passport, Microsoft Passport est configuré sur l’appareil de l’utilisateur et l’utilisateur définit un mouvement, de type Windows Hello ou code confidentiel. L’utilisateur effectue le mouvement qui permet de vérifier son identité. Windows utilise ensuite Microsoft Passport pour authentifier l’utilisateur et l’aider à accéder aux ressources et services protégés.
@@ -43,7 +43,7 @@ En activant Microsoft Passport, les entreprises peuvent sécuriser davantage leu
 3. Un mouvement de déverrouillage unique déverrouille l’appareil et ce mouvement sera autorisé pour obtenir un accès à plusieurs ressources si l’appareil est joint au domaine ou à Azure AD.
 
 ## Cycle de vie Microsoft Passport
-Cycle de vie de l’authentification Microsoft Passport![](./media/active-directory-azureadjoin/active-directory-azureadjoin-microsoft-passport.png) Le schéma ci-dessus illustre la paire de clés publique-privée et la validation par le fournisseur d’identité. Chacune de ces étapes est décrite en détail ci-dessous :
+Cycle de vie de l’authentification Microsoft Passport ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-microsoft-passport.png) Le schéma ci-dessus illustre la paire de clés publique-privée et la validation par le fournisseur d’identité. Chacune de ces étapes est décrite en détail ci-dessous :
 
 1. L’utilisateur prouve son identité via plusieurs méthodes de vérification intégrées (mouvements, cartes à puce physiques, authentification multifacteur) et envoie ces informations au fournisseur d’identité comme Azure Active Directory ou Active Directory.
 
@@ -68,5 +68,6 @@ Au niveau de l’utilisateur
 
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
+* [Gérer la vérification d'identité à l'aide de Microsoft Passport] (https://technet.microsoft.com/library/mt219735(v=vs.85).aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

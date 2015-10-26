@@ -73,4 +73,4 @@ Pour commencer à développer votre entrepôt de données, consultez la [vue d�
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

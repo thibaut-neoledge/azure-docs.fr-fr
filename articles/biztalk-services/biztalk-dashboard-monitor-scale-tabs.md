@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure"
-	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides dans BizTalk Services | Microsoft Azure" 
+	description="Découvrez les commandes et surveillez les performances sous les onglets du portail de gestion de BizTalk Services : Tableau de bord, Surveiller, Mettre à l’échelle, Configurer et Connexions hybrides. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -44,7 +44,7 @@ Selon l'édition de BizTalk Services, toutes les options énumérées peuvent ne
 
         <td>Ouvre le portail Azure BizTalk Services hébergé sur Azure, qui vous permet d'ajouter des partenaires et de créer des contrats EDI X12, AS2 et EDIFACT.
         <br/><br/>
-        La rubrique <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuration de composants pour la messagerie EDI sur le portail BizTalk Services</a> reprend la procédure de mise en route.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -240,7 +240,7 @@ Vous pouvez également spécifier les valeurs **Relatif** ou **Absolu** et l'**i
 ![Sélectionnez Ajouter des métriques.][AddMetrics]
 3. Vérifiez les mesures de performances que vous souhaitez afficher.
 4. Sélectionnez la coche pour revenir à l'onglet **Surveiller**.
-5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.
+5. Sélectionnez le cercle en regard de la mesure pour afficher la valeur associée dans le graphique.  
 
 	Par exemple, la mesure **Utilisation du processeur** apparaît en grisé ; son résultat n’apparaît pas dans le graphique:  
 ![La mesure Utilisation du processeur apparaît en grisé][GrayedMetric]  
@@ -365,4 +365,4 @@ Pour créer ou gérer des connexions hybrides dans Azure BizTalk Services, consu
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

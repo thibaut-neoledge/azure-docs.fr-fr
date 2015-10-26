@@ -7,7 +7,6 @@
 	editor="monicar" 
 	documentationCenter=""/>
 
-
 <tags 
 	ms.service="documentdb" 
 	ms.workload="data-services" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
-
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager #
 
@@ -212,4 +210,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

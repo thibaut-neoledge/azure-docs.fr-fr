@@ -31,7 +31,7 @@ Lorsque vous utilisez RemoteApp, les redirections suivantes sont activées par d
 - Périphérique à carte à puce (redirectsmartcards:i:1)
 - Presse-papiers (capacité à copier et coller) (redirectclipboard:i:1)
 - Lissage des polices ClearType (allowfontsmoothing:i:1)
-- Rediriger tous les périphériques Plug-and-Play pris en charge (devicestoredirect:s:\*)
+- Rediriger tous les périphériques Plug-and-Play pris en charge (devicestoredirect:s:*)
 
 ## Quelle autre redirection est disponible ?
 Deux options de redirection sont désactivées par défaut :
@@ -104,4 +104,4 @@ Vous pouvez également utiliser l'outil de gestion des stratégie de groupe pour
 7. Sélectionnez **Activé**, puis sélectionnez **Administrateurs et utilisateurs dans les droits d'accès à la redirection USB RemoteFX**.
 8. Cliquez sur **OK**.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

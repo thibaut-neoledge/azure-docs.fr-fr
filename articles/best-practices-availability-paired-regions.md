@@ -84,4 +84,4 @@ Conformément à la figure 2.
 
 ![9Orange](./media/best-practices-availability-paired-regions/9Orange.png) **Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

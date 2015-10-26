@@ -281,4 +281,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

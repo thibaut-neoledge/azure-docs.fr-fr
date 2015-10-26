@@ -186,4 +186,4 @@ Pour le code source du Kit de développement logiciel (SDK) Azure pour .NET, y c
 
 Pour la documentation de référence de la bibliothèque cliente Azure, consultez [Référence Azure .NET](/documentation/api/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

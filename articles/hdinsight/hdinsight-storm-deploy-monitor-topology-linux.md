@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Déploiement et gestion des topologies Apache Storm sur HDInsight | Microsoft Azure"
-   description="Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight. Utilisez les outils Hadoop pour Visual Studio."
+   pageTitle="Déploiement et gestion de topologies Apache Storm sur HDInsight basé sur Linux | Microsoft Azure"
+   description="Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight basé sur Linux. Utilisez les outils Hadoop pour Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="10/04/2015"
    ms.author="larryfr"/>
 
 # Déploiement et gestion des topologies Apache Storm sur HDInsight Linux
@@ -161,4 +161,4 @@ Maintenant que vous avez appris à déployer et surveiller des topologies à l�
 
 Pour accéder à une liste d’exemples supplémentaires de topologies, consultez la rubrique [Exemples de topologies Storm sur HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

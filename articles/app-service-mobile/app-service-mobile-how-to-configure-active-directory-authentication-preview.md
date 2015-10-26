@@ -75,4 +75,4 @@ Authentification des utilisateurs de votre application Mobile App à l’aide de
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

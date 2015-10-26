@@ -20,7 +20,8 @@
 
 #Modifiez la lettre de lecteur du disque temporaire Windows sur une machine virtuelle créée avec le modèle de déploiement classique.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Si vous avez besoin d'utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser un autre lecteur de disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
 
@@ -74,4 +75,4 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, ass
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

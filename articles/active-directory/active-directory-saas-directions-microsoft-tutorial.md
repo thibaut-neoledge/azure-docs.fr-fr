@@ -8,7 +8,7 @@ L’objectif de ce didacticiel est de montrer comment intégrer Azure Active Dir
 -   Un abonnement Azure valide
 -   Un abonnement Directions on Microsoft
 
-Si vous ne disposez pas d’un abonnement fédéré à Directions on Microsoft, envoyez une demande par e-mail à l’adresse “\*service@DirectionsOnMicrosoft.com*”.
+Si vous ne disposez pas d’un abonnement fédéré à Directions on Microsoft, envoyez une demande par e-mail à l’adresse “*service@DirectionsOnMicrosoft.com*”.
 
 À l’issue de ce didacticiel, les utilisateurs Azure Active Directory que vous avez affectés à Directions on Microsoft pourront s’authentifier dans l’application à l’aide de l’authentification unique.
 
@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, dans la page d’intégration d’applications **Directions on Microsoft**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, dans la page d’intégration d’applications **Directions on Microsoft**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![activation de l'authentification unique](./media/active-directory-saas-directions-microsoft-tutorial/IC786879.png "activation de l'authentification unique")
 
@@ -65,7 +65,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique avec Microsoft Azure AD](./media/active-directory-saas-directions-microsoft-tutorial/IC786880.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte URL de connexion, tapez \*\***https://www.directionsonmicrosoft.com/user/login**, puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte URL de connexion, tapez ****https://www.directionsonmicrosoft.com/user/login**, puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configurer l’URL de l’application")
 
@@ -73,7 +73,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configurer l’authentification unique")
 
-5.  Envoyez le fichier de métadonnées à l’équipe du support technique Directions on Microsoft (\**service@DirectionsOnMicrosoft.com*). Pour permettre à l’équipe du support technique Directions on Microsoft de trouver votre adhésion au site fédéré, indiquez les informations de votre entreprise dans votre e-mail.
+5.  Envoyez le fichier de métadonnées à l’équipe du support technique Directions on Microsoft (**service@DirectionsOnMicrosoft.com*). Pour permettre à l’équipe du support technique Directions on Microsoft de trouver votre adhésion au site fédéré, indiquez les informations de votre entreprise dans votre e-mail.
 
     >[AZURE.NOTE]L’authentification unique pour Directions on Microsoft doit être activée par l’équipe du support technique Directions on Microsoft. Vous recevrez une notification une fois l’authentification unique activée.
 
@@ -91,7 +91,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Directions on Microsoft\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Directions on Microsoft**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-directions-microsoft-tutorial/IC786884.png "Affecter des utilisateurs")
 
@@ -99,4 +99,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Oui")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -106,4 +106,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

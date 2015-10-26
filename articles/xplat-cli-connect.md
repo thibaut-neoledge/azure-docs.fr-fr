@@ -21,7 +21,9 @@
 
 L’interface Azure CLI offre un ensemble de commandes multiplateforme open-source pour l’utilisation de la plateforme Azure. Cet article vous explique comment vous connecter à votre abonnement Azure à partir de l’interface de ligne de commande Azure afin d’utiliser l’ensemble des commandes de l’interface de ligne de commande. Si vous n'avez pas déjà installé l’interface de ligne de commande, consultez [Installer l’interface de ligne de commande Azure](xplat-cli-install.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]Cet article traite de la création et de la gestion de ressources avec le modèle de déploiement Gestionnaire des ressources ou classique.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 Pour vous connecter à votre abonnement à partir de l’interface de ligne de commande Azure, vous pouvez au choix :
 
@@ -159,4 +161,4 @@ Que vous vous connectiez avec un compte professionnel ou scolaire ou que vous im
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

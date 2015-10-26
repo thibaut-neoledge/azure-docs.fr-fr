@@ -14,19 +14,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/12/2015"
 	ms.author="garye;bradsev" />
 
 
 # Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
 
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
+
+## Introduction
 
 Pour utiliser vos propres données dans Machine Learning Studio afin de développer et de tester une solution d'analyse prédictive, vous pouvez :
 
-- télécharger par avance les données d'un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.  
+- télécharger par avance les données d’un **fichier local** sur votre disque dur pour créer un module de jeu de données dans votre espace de travail.  
 - accéder aux données à partir d’une des nombreuses **sources de données en ligne** pendant que votre expérience s’exécute à l’aide du module [Lecteur][reader]. 
-- utiliser les données d'une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**. 
+- utiliser les données d’une autre expérimentation Azure Machine Learning enregistrée en tant que **jeu de données**. 
+
+[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Chacune de ces options est décrite dans une des rubriques du menu ci-dessus. Cette rubrique vous montre comment importer des données à partir de différentes sources afin de les utiliser dans Machine Learning Studio.
 
@@ -89,4 +96,4 @@ Au besoin, vous pouvez convertir à nouveau le format de la table de données au
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

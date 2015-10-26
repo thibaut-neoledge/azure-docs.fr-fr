@@ -137,4 +137,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

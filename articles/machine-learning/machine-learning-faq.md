@@ -93,9 +93,8 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
-Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. 
-<!--
-SEE CLOUD DS PROCESS>
+Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
+<SEE CLOUD DS PROCESS>
 -->
 
 **Existe-t-il une capacité d’entrée d’image intégrée ?**
@@ -308,4 +307,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,10 +1,10 @@
 <properties
- pageTitle="Comparaison entre Azure IoT Hub et Event Hubs | Microsoft Azure"
- description="Comparaison entre IoT Hub et Event Hubs."
+ pageTitle="Comparaison d’Azure IoT Hub et Azure Event Hubs | Microsoft Azure"
+ description="Comparaison des services Azure IoT Hub et Azure Event Hubs mettant en avant les différences de fonction et des exemples d’utilisation."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -49,4 +49,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

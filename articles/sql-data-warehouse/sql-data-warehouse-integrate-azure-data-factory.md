@@ -51,4 +51,4 @@ Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique
 [documentation relative à ce logiciel]: https://azure.microsoft.com/documentation/services/data-factory/
 [Copy data with Azure Data Factory]: https://azure.microsoft.com/fr-FR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

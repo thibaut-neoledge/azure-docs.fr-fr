@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - En savoir plus"
-	description="Voici la page sur Azure Multi-factor Authentication qui fournit des liens vers du contenu supplémentaire au sujet d’Azure Multi-Factor Authentication. Ici, vous pouvez découvrir des rubriques supplémentaires sur Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - En savoir plus" 
+	description="Voici la page sur Azure Multi-factor Authentication qui fournit des liens vers du contenu supplémentaire au sujet d’Azure Multi-Factor Authentication. Ici, vous pouvez découvrir des rubriques supplémentaires sur Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # En savoir plus sur Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@ Voici un ensemble de ressources supplémentaires qui vous aideront à tirer plei
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

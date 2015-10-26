@@ -348,4 +348,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -131,40 +131,7 @@ Donnez-lui un nom. Les profils de calcul de score sont facultatifs mais, si vous
 
 Le corps du profil de calcul de score est construit à partir de champs et de fonctions pondérés.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>élément</td><td>description</td></tr></thead>
-<tbody
-<tr>
-<td><b>Pondérations</b></td>
-<td>
-Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante.
-</td>
-</tr>
-<tr>
-<td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques.
-<br>
-- La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness.
-<br>
-- `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier
-<br>
-- `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`.
-<br>
-<b>Règles d'utilisation des fonctions</b>
-<br>
-Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules.
-<br>
-Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier.
-<br>
-Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search).
-<br>
-Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>élément</td><td>description</td></tr></thead> <tbody <tr> <td><b>Pondérations</b></td> <td> Spécifiez des paires nom-valeur qui affectent une pondération relative à un champ. Dans l'Exemple [#bkmk\_ex](#bkmk_ex), les valeurs de pondération des champs albumTitle, genre et artistName sont respectivement 1, 5 et null. Pourquoi la pondération du champ genre est-elle beaucoup plus élevée que celle des autres champs ? Si la recherche est effectuée sur des données relativement homogènes (comme c'est le cas du « genre » dans le `musicstoreindex`), il se peut que vous ayez besoin d'une variance plus importante dans les pondérations relatives. Par exemple, dans le `musicstoreindex`, « rock » apparaît à la fois comme genre et dans des descriptions de genre formulées de façon identique. Si vous souhaitez que le genre ait une pondération plus élevée que la description du genre, la pondération relative du champ Genre doit être sensiblement plus importante. </td> </tr> <tr> <td><b>Fonctions</b></td><td>Utilisées quand des calculs supplémentaires sont nécessaires dans des contextes spécifiques. Les valeurs autorisées sont `freshness`, `magnitude` et `distance`. Chaque fonction est dotée de paramètres qui lui sont spécifiques. <br> - La fonction `freshness` permet de privilégier ou non un élément sur la base de son ancienneté. Cette fonction peut être utilisée uniquement avec des champs datetime (edm.DataTimeOffset). Notez que l'attribut `boostingDuration` peut être utilisé uniquement avec la fonction freshness. <br> - `magnitude` permet de privilégier ou non un élément sur la base de sa valeur numérique. Parmi les scénarios qui appellent cette fonction figurent la valorisation de la marge bénéficiaire, du prix le plus élevé, du prix le plus bas ou du nombre de téléchargements. Cette fonction peut être utilisée uniquement avec des champs de type Double et Entier <br> - `distance` permet de privilégier un élément sur la base de son emplacement ou sa proximité géographiques. Cette fonction peut être utilisée uniquement avec des champs `geo.distance`. <br> <b>Règles d'utilisation des fonctions</b> <br> Le type de fonction (freshness, magnitude, distance) doit être en lettres minuscules. <br> Les fonctions ne peut pas contenir de valeurs null ou vides. En particulier, si vous incluez la valeur fieldname, vous devez la spécifier. <br> Des fonctions ne peuvent être appliquées qu'à des champs filtrables. Pour plus d'informations sur les champs filtrables, consultez [Création d'index]() (API Azure Search). <br> Vous ne pouvez pas appliquer de fonctions à des champs définis dans la collection de champs d'un index. <td> </tr> </tbody> </table> </font>
 
 Une fois l'index défini, générez-le en chargeant le schéma d'index, puis des documents. Pour obtenir des instructions sur ces opérations, consultez [Création d'index (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798941.aspx) et [Ajout, mise à jour ou suppression de documents (API Azure Search)](https://msdn.microsoft.com/library/azure/dn798930.aspx). Une fois l'index généré, vous disposez d'un profil de calcul de score fonctionnel qui opère avec vos données de recherche.
 
@@ -326,4 +293,4 @@ ________________________________________
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

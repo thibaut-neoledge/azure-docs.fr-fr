@@ -12,7 +12,7 @@
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="09/01/2015"
 	ms.author="sethm"/>
 
@@ -113,4 +113,4 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

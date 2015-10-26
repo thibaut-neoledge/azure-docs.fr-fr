@@ -45,4 +45,4 @@
 		
 	Désormais, lors de l’insertion d’un nouveau TodoItem, une notification Push est envoyée à tous les appareils inscrits.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

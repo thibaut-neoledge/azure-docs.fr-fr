@@ -199,4 +199,4 @@ Serveur de configuration, Serveur de traitement, Cible maître : [Échec de l�
 ### Résolution des problèmes après un basculement de bureau à distance
 -   Suite à un basculement, de nombreux clients ont été confrontés à des problèmes de connexion à la machine virtuelle dans Azure. [Utiliser le document de résolution des problèmes pour le protocole RDP dans la machine virtuelle](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

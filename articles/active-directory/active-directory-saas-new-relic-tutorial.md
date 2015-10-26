@@ -55,7 +55,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configurer l’authentification unique")
 
@@ -65,7 +65,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3.  Dans la zone de texte **URL de connexion à New Relic** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application New Relic, puis cliquez sur **Suivant**.
 
-    L’URL de l’application est votre locataire New Relic (par exemple, \**https://rpm.newrelic.com*) :
+    L’URL de l’application est votre locataire New Relic (par exemple, **https://rpm.newrelic.com*) :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-new-relic-tutorial/IC797034.png "Configurer l’URL de l’application")
 
@@ -137,6 +137,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

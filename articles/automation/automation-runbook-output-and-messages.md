@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Sortie et messages de Runbook dans Azure Automation | Microsoft Azure"
-	description="Décrit comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks dans Azure Automation."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Décrit comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks dans Azure Automation."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags 
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="bwren" />
 
 # Sortie et messages de Runbook dans Azure Automation
 
@@ -168,4 +168,4 @@ Dans l’exemple suivant, un exemple de Runbook est démarré et exécuté. À l
 - [Suivre une tâche de Runbook](automation-runbook-execution.md)
 - [Runbooks enfants](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -205,4 +205,4 @@ Dans la réponse ci-dessous, vous obtenez la liste des expressions clés associ�
 Les ID d’entrée saisis dans le système sont les ID retournés par le système. Le service Web ne vérifie pas que les ID sont uniques. Il incombe à l’appelant d’en vérifier l’unicité.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

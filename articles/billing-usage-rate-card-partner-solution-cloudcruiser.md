@@ -234,4 +234,4 @@ Et vous n'avez à exécuter ce processus qu'une seule fois ! Lorsque le classeu
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Figure 13 : créer des champs pour les informations de balise"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Figure 14 : remplissage de la structure de compte avec les informations des recherches"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

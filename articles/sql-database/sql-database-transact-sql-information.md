@@ -94,4 +94,4 @@ La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, 
 
 Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L’instruction **CREATE USER** peut être utilisée dans n’importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S’applique à** sont insérées dans les descriptions d’argument appropriées dans le corps de la rubrique.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Régression linéaire multivariable | Microsoft Azure"
-	description="Régression linéaire multivariable"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Régression linéaire multivariable | Microsoft Azure" 
+	description="Régression linéaire multivariable" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
 	ms.author="jaymathe"/>
 
 
@@ -26,7 +26,7 @@ Supposons que vous disposez d’un jeu de données et que vous souhaitez prédir
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Exemple de scénario simple : un chercheur tente de prédire le poids d'un individu (y) en fonction de sa taille (x). Exemple de scénario plus avancé : un chercheur dispose d'informations supplémentaires concernant la personne (par exemple, son poids, son origine ethnique) et tente de prédire son poids. Ce [service web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) correspond au modèle de régression linéaire pour les données et renvoie la valeur prédite (y) pour chacune des observations dans les données.
+Exemple de scénario simple : un chercheur tente de prédire le poids d'un individu (y) en fonction de sa taille (x). Exemple de scénario plus avancé : un chercheur dispose d'informations supplémentaires concernant la personne (par exemple, son poids, son genre et sa race) et tente de prédire son poids. Ce [service web](https://datamarket.azure.com/dataset/aml_labs/multivariate_regression) correspond au modèle de régression linéaire pour les données et renvoie la valeur prédite (y) pour chacune des observations dans les données.
 
 >Les utilisateurs peuvent potentiellement accéder à ce service web par le biais d’une application mobile, d’un site web ou même d’un ordinateur local, par exemple. Mais l’objectif du service web est également de servir d’exemple d’utilisation d’Azure Machine Learning pour créer des services web avec le code R. Avec seulement quelques lignes de code R et quelques clics dans Azure Machine Learning Studio, vous pouvez créer une expérience avec le code R et la publier en tant que service web. Le service web peut ensuite être publié sur Azure Marketplace afin que les utilisateurs et les appareils du monde entier l’utilisent sans que l’auteur du service web n’ait à configurer l’infrastructure.
 
@@ -117,4 +117,4 @@ Pour les questions fréquemment posées relatives à l’utilisation du service 
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

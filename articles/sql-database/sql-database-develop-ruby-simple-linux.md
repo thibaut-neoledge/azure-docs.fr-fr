@@ -117,4 +117,4 @@ Pour être en harmonie avec le format [DateHeure](http://msdn.microsoft.com/libr
     puts row
     end 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

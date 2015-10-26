@@ -7,7 +7,6 @@
    manager="timlt"
    editor=""/>
 
-
 <tags
    ms.service="service-fabric"
    ms.devlang="dotnet"
@@ -16,7 +15,6 @@
    ms.workload="required"
    ms.date="07/23/2015"
    ms.author="vturecek"/>
-
 
 # Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN
 
@@ -345,7 +343,6 @@ Configurer un point de terminaison HTTP dans PackageRoot\\ServiceManifest.xml :
 <Resources>
     <Endpoints>
         <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="80" />
-
     </Endpoints>
 </Resources>
 
@@ -601,7 +598,6 @@ Ou lors de la définition d'un service par défaut dans un projet de service san
   <Service Name="WebService">
     <StatelessService ServiceTypeName="WebServiceType" InstanceCount="-1">
       <SingletonPartition />
-
     </StatelessService>
   </Service>
 </DefaultServices>
@@ -618,4 +614,4 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

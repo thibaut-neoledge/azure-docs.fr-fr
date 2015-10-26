@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Utiliser le service StorSimple Manager pour cloner un volume
@@ -21,7 +21,7 @@
 
 La page **Catalogue de sauvegarde** du service StorSimple Manager affiche tous les jeux de sauvegarde créés lors de sauvegardes manuelles ou automatisées. Vous pouvez utiliser cette page pour répertorier toutes les sauvegardes pour une stratégie de sauvegarde ou un volume, sélectionner ou supprimer des sauvegardes, ou utiliser une sauvegarde pour restaurer ou cloner un volume.
 
-  ![Page Catalogue de sauvegarde](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+![Page Catalogue de sauvegarde](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
 
 Ce didacticiel explique comment vous pouvez utiliser un jeu de sauvegarde pour cloner un volume individuel. Il explique également la différence entre les clones *temporaires* et *permanents*.
 
@@ -46,7 +46,7 @@ Vous pouvez créer un clone sur le même appareil, sur un autre ou même une mac
         >  [AZURE.NOTE] Assurez-vous que la capacité requise pour le clone est inférieure à la capacité disponible sur le périphérique cible.
 
   2. Indiquez un nom de volume unique pour votre clone. Le nom doit contenir entre 3 et 127 caractères.
-  3. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png)pour passer à la page suivante.
+  3. Cliquez sur l’icône en forme de flèche ![icône-flèche](./media/storsimple-clone-volume/HCS_ArrowIcon.png) pour passer à la page suivante.
 
 5. Sous **Spécifier des hôtes qui peuvent utiliser ce volume** :
 
@@ -88,7 +88,6 @@ Pour visionner une vidéo expliquant comment utiliser les fonctionnalités de cl
 
 Vous devez vérifier un bogue de test dans l’environnement de production. Vous créez un clone du volume dans l’environnement de production. Pour améliorer les performances, vous devez prendre un instantané de cloud de ce clone. Le volume cloné est désormais indépendant, ce qui entraîne de meilleures performances. Dans ce scénario, un clone permanent est utilisé.
 
-
 ## Étapes suivantes
 - Découvrez comment [restaurer un volume StorSimple à partir d’un jeu de sauvegarde](storsimple-restore-from-backup-set.md).
 
@@ -96,4 +95,4 @@ Vous devez vérifier un bogue de test dans l’environnement de production. Vous
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,9 @@
 
 # Utilisation de l’extension Docker VM à partir de l’interface de ligne de commande Microsoft Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
+
 
 Cette rubrique décrit la création d’une machine virtuelle avec l’extension Docker VM, en mode Azure Service Management (ASM) à partir de l’interface de ligne de commande Azure sur toute plateforme. [Docker](https://www.docker.com/) fait partie des méthodes de virtualisation les plus prisées. Cet outil utilise des [conteneurs Linux](http://en.wikipedia.org/wiki/LXC) plutôt que des machines virtuelles pour isoler les données et le traitement sur des ressources partagées. Vous pouvez utiliser l'extension Docker VM sur l'[agent Linux Azure](virtual-machines-linux-agent-user-guide.md) afin de créer une machine virtuelle Docker hébergeant un nombre indéfini de conteneurs pour vos applications sur Azure. Pour une discussion sur les conteneurs et leurs avantages, consultez le [Tableau blanc Docker de haut niveau](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -65,10 +67,10 @@ Dans une session Bash ou Terminal, utilisez la commande d’interface de ligne
 
 `azure vm image list | grep Ubuntu-14_04`
 
-Puis sélectionnez un des noms d’images (par ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-FR-FR-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image.
+Puis sélectionnez un des noms d’images (par ex. `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-fr-FR-30GB`) ; utilisez la commande suivante pour créer une machine virtuelle en utilisant cette image.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-FR-FR-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-fr-FR-30GB" <username> <password>
 ```
 
 où :
@@ -85,18 +87,59 @@ Si la commande a été exécutée correctement, vous devriez normalement obtenir
 
 ![](./media/virtual-machines-docker-with-xplat-cli/dockercreateresults.png)
 
-> [AZURE.NOTE]La création d’une machine virtuelle peut prendre quelques minutes. Cependant, une fois l’approvisionnement terminé, le démon Docker (service Docker) démarre et vous pouvez vous connecter à l’hôte du conteneur Docker.
+> [AZURE.NOTE]La création d’une machine virtuelle peut prendre quelques minutes. Cependant, une fois l’approvisionnement terminé (valeur de l’état `ReadyRole`), le démon Docker (service Docker) démarre et vous pouvez vous connecter à l’hôte du conteneur Docker.
 
 Pour tester la machine virtuelle Docker que vous avez créée dans Azure, tapez
 
 `docker --tls -H tcp://<vm-name-you-used>.cloudapp.net:2376 info`
 
-où *<vm-name-you-used>* est le nom de la machine virtuelle utilisée dans votre appel vers `azure vm docker create`. Ce que vous devez voir est similaire à ce qui suit ; cela indique que votre machine virtuelle hôte Docker est en service et attend vos commandes.
+où *&lt;vm-name-you-used&gt;* est le nom de la machine virtuelle utilisée dans votre appel vers `azure vm docker create`. Ce que vous devez voir est similaire à ce qui suit ; cela indique que votre machine virtuelle hôte Docker est en service et attend vos commandes.
 
-![](./media/virtual-machines-docker-with-xplat-cli/connectingtodockerhost.png)
+Vous pouvez maintenant essayer de vous connecter à l’aide de votre client docker pour obtenir des informations (dans certaines configurations du client Docker, par exemple sur Mac, vous devrez peut-être utiliser `sudo`) :
+
+	sudo docker --tls -H tcp://testsshasm.cloudapp.net:2376 info
+	Password:
+	Containers: 0
+	Images: 0
+	Storage Driver: devicemapper
+	Pool Name: docker-8:1-131781-pool
+	Pool Blocksize: 65.54 kB
+	Backing Filesystem: extfs
+	Data file: /dev/loop0
+	Metadata file: /dev/loop1
+	Data Space Used: 1.821 GB
+	Data Space Total: 107.4 GB
+	Data Space Available: 28 GB
+	Metadata Space Used: 1.479 MB
+	Metadata Space Total: 2.147 GB
+	Metadata Space Available: 2.146 GB
+	Udev Sync Supported: true
+	Deferred Removal Enabled: false
+	Data loop file: /var/lib/docker/devicemapper/devicemapper/data
+	Metadata loop file: /var/lib/docker/devicemapper/devicemapper/metadata
+	Library Version: 1.02.77 (2012-10-15)
+	Execution Driver: native-0.2
+	Logging Driver: json-file
+	Kernel Version: 3.19.0-28-generic
+	Operating System: Ubuntu 14.04.3 LTS
+	CPUs: 1
+	Total Memory: 1.637 GiB
+	Name: testsshasm
+	WARNING: No swap limit support
+
+Pour vous assurer que tout fonctionne, vous pouvez examiner la machine virtuelle pour l’extension Docker :
+
+	azure vm extension get testsshasm
+	info: Executing command vm extension get
+	+ Getting virtual machines
+	data: Publisher Extension name ReferenceName Version State
+	data: -------------------- --------------- ------------------------- ------- ------
+	data: Microsoft.Azure.E... DockerExtension DockerExtension 1.* Enable
+	info: vm extension get command OK
 
 ### Authentification de la machine virtuelle hôte Docker
-Outre la création de la machine virtuelle Docker, la commande `azure vm docker create` crée automatiquement les certificats nécessaires pour autoriser votre ordinateur client Docker à se connecter à l’hôte de conteneur Azure à l’aide du protocole HTTPS. Les certificats sont stockés sur les ordinateurs clients et hôtes, suivant le cas. Lors des exécutions suivantes, les certificats existants sont réutilisés et partagés avec le nouvel hôte.
+
+Outre la création de la machine virtuelle Docker, la commande `azure vm docker create` crée automatiquement les certificats nécessaires pour autoriser votre ordinateur client Docker à se connecter à l’hôte de conteneur Azure à l’aide du protocole HTTPS. Les certificats sont stockés sur les ordinateurs clients et hôtes, suivant le cas. Lors des tentatives suivantes, les certificats existants sont réutilisés et partagés avec le nouvel hôte.
 
 Par défaut, les certificats sont placés dans `~/.docker`, et Docker est configuré pour s’exécuter sur le port **2376**. Si vous souhaitez utiliser un autre port ou répertoire, vous pouvez utiliser l’une des options de ligne de commande `azure vm docker create` suivantes afin de configurer votre machine virtuelle hôte de conteneur Docker, de telle sorte qu’elle utilise un port ou des certificats différents pour la connexion des clients :
 
@@ -108,9 +151,6 @@ Par défaut, les certificats sont placés dans `~/.docker`, et Docker est config
 Le démon Docker sur l’hôte est configuré pour écouter et authentifier les connexions client sur le port spécifié à l’aide des certificats générés par la commande `azure vm docker create`. L’ordinateur client doit posséder ces certificats pour avoir accès à l’hôte Docker.
 
 > [AZURE.NOTE]Un hôte en réseau qui s’exécute sans ces certificats est à la merci de toute personne capable de se connecter à l’ordinateur. Avant de modifier la configuration par défaut, vous devez bien comprendre les risques auxquels sont exposés vos ordinateurs et applications.
-
-
-
 
 ## Étapes suivantes
 
@@ -141,4 +181,4 @@ Vous êtes prêt à consulter le [Guide d'utilisation Docker] et à utiliser vo
 [Guide d'utilisation Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

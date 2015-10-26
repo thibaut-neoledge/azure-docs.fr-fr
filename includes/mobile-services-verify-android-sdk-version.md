@@ -20,4 +20,4 @@ Dans ce cas, la version du Kit de développement logiciel (SDK) Android install�
 
 4. Dans Android Studio, le fichier manifeste ne permet plus de spécifier le Kit de développement (SDK) cible et la version minimale du Kit de développement logiciel (SDK), contrairement à Eclipse.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

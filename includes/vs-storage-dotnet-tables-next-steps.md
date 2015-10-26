@@ -8,4 +8,4 @@ Maintenant que vous connaissez les bases du stockage des tables Azure, consultez
   - Utilisez le [stockage de table](./storage-dotnet-how-to-use-tables.md) pour stocker des données structurées.
   - Utilisez une [base de données SQL](../sql-database/sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

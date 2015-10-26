@@ -69,4 +69,4 @@ Pour en savoir plus sur les améliorations des performances de Service Bus, cons
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
   [Partitionnement des entités de messagerie]: service-bus-partitioning.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor"
-	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor" 
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor
@@ -501,4 +501,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

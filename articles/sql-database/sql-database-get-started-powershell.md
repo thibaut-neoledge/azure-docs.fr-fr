@@ -1,20 +1,20 @@
 <properties 
-    pageTitle="Créer une base de données SQL Azure à l’aide de PowerShell"
-	description="Créer une base de données SQL Azure à l’aide de PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+    pageTitle="Créer une base de données SQL Azure à l’aide de PowerShell" 
+    description="Créer une base de données SQL Azure à l’aide de PowerShell" 
+    services="sql-database" 
+    documentationCenter="" 
+    authors="stevestein" 
+    manager="jeffreyg" 
+    editor=""/>
 
 <tags
     ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="powershell"
+    ms.workload="data-management" 
+    ms.date="10/08/2015"
+    ms.author="sstein"/>
 
 # Créer une base de données SQL à l’aide de PowerShell
 
@@ -30,19 +30,12 @@
 
 Cet article vous montre comment créer une base de données SQL à l’aide de PowerShell.
 
+> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
-- Azure PowerShell. Vous pouvez télécharger et installer les modules Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
-Les applets de commande pour créer et gérer des bases de données SQL Azure sont situés dans le module Azure Resource Manager. Si vous démarrez Azure PowerShell, les applets de commande du module Azure sont importées par défaut. Pour passer au module Azure Resource Manager, utilisez l'applet de commande Switch-AzureMode.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-Si vous exécutez l’applet de commande **Switch-AzureMode** et que vous recevez l’avertissement suivant : « *L’applet de commande Switch-AzureMode est déconseillée et sera supprimée dans une version future* », ce n’est pas un problème : accédez simplement à l’étape suivante pour configurer vos informations d’identification.
-
-Pour plus d'informations, consultez [Utilisation de Windows PowerShell avec Resource Manager](powershell-azure-resource-manager.md).
+- Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 
 
 ## Configurer vos informations d'identification et sélectionner votre abonnement
@@ -62,7 +55,7 @@ Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. 
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-Après avoir exécuté **Select-AzureSubscription**, vous revenez à l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
+Après avoir exécuté **Select-AzureSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
 
 ## Créer un groupe de ressources, un serveur et une règle de pare-feu
 
@@ -70,16 +63,16 @@ Vous disposez maintenant d’un accès pour exécuter des applets de commande po
 
 Utilisez la commande suivante pour créer un groupe de ressources :
 
-	New-AzureResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
+	New-AzureRMResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
-Après avoir créé le nouveau groupe de ressources, vous voyez des informations sur l’écran, notamment **ProvisioningState : Opération réussie**.
+Après avoir créé le groupe de ressources, vous pouvez notamment voir affiché **ProvisioningState : Opération réussie**.
 
 
 ### Créer un serveur 
 
-Les bases de données SQL sont créées dans les serveurs Azure SQL Database. Exécutez **New-AzureSqlServer** pour créer un serveur. Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour tous les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Vous pouvez modifier la commande à utiliser n’importe quel emplacement valide de votre choix, mais vous devez utiliser le même emplacement que celui utilisé pour le groupe de ressources créé à l’étape précédente.
+Les bases de données SQL sont créées dans les serveurs Azure SQL Database. Exécutez **New-AzureRMSqlServer** pour créer un serveur. Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour tous les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Vous pouvez modifier la commande à utiliser n’importe quel emplacement valide de votre choix, mais vous devez utiliser le même emplacement que celui utilisé pour le groupe de ressources créé à l’étape précédente.
 
-	New-AzureSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRMSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous devez entrer un **Nom d'utilisateur** et un **Mot de passe**. Il ne s'agit pas de vos informations d'identification Azure. Entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur que vous souhaitez créer pour le nouveau serveur.
 
@@ -89,13 +82,13 @@ Les détails du serveur apparaissent une fois le serveur créé.
 
 Établissez une règle de pare-feu pour accéder au serveur. Exécutez la commande suivante en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
 
-	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
+	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
 
 Les détails de la règle de pare-feu apparaissent une fois la règle créée.
 
 Pour autoriser d’autres services Azure à accéder à un serveur, ajoutez une règle de pare-feu, et définissez StartIpAddress et EndIpAddress sur 0.0.0.0. Notez que cette configuration autorise le trafic Azure à accéder au serveur depuis n’importe quel abonnement Azure.
 
-Pour en savoir plus, consultez [Pare-feu Azure SQL Database](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 
 ## Créer une base de données SQL
@@ -105,7 +98,7 @@ Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle
 La commande suivante crée une base de données SQL (vide) au niveau de service Standard avec un niveau de performance S1 :
 
 
-	New-AzureSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
+	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
 
 
 Les détails de la base de données apparaissent une fois la base de données créée.
@@ -130,13 +123,13 @@ Les détails de la base de données apparaissent une fois la base de données cr
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId
     
-    $ResourceGroup = New-AzureResourceGroup -Name $ResourceGroupName -Location $Location
+    $ResourceGroup = New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
     
-    $Server = New-AzureSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
+    $Server = New-AzureRMSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
     
-    $FirewallRule = New-AzureSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
+    $FirewallRule = New-AzureRMSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
     
-    $SqlDatabase = New-AzureSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
+    $SqlDatabase = New-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
     
     $SqlDatabase
     
@@ -151,4 +144,4 @@ Les détails de la base de données apparaissent une fois la base de données cr
 
 - [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

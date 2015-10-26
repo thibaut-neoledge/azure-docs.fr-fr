@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business | Microsoft Azure" description="Apprenez à utiliser Dropbox for Business avec Azure Active Directory pour activer l'authentification unique, l'approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Didacticiel : Intégration d'Azure Active Directory à Dropbox for Business
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522415).
   
@@ -47,7 +47,7 @@ Cette section décrit l'activation de l'intégration d'applications pour Dropbox
 
 6.  Dans la **zone de recherche**, saisissez **Dropbox for Business**.
 
-    ![Galerie d'applications](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-dropboxforbusiness-tutorial/IC701010.png "Galerie d'applications")
 
 7.  Dans le volet des résultats, sélectionnez **Dropbox for Business**, puis cliquez sur **Terminer** pour ajouter l'application.
 
@@ -173,4 +173,4 @@ Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

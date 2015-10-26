@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation du Gestionnaire de connexion hybride dans Azure App Service | Microsoft Azure App Service"
-	description="Installation et configuration du gestionnaire de connexion hybride et connexion à des connecteurs locaux dans Azure App Service"
-	services="app-service\logic"
+	pageTitle="Utilisation du Gestionnaire de connexion hybride dans Azure App Service | Microsoft Azure App Service" 
+	description="Installation et configuration du gestionnaire de connexion hybride et connexion à des connecteurs locaux dans Azure App Service" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # Connexion à des connecteurs locaux dans Azure App Services à l’aide du gestionnaire de connexion hybride
@@ -133,4 +133,4 @@ Si votre API personnalisée utilise un port TCP ou HTTP, vous pouvez utiliser le
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

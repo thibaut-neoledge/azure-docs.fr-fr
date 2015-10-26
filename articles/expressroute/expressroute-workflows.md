@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Workflow de configuration d'un circuit ExpressRoute | Microsoft Azure"
+   pageTitle="Workflows de configuration d’un circuit ExpressRoute | Microsoft Azure"
    description="Cette page vous guide tout au long des workflows pour la configuration du circuit ExpressRoute et des homologations"
    documentationCenter="na"
    services="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# Workflows d’approvisionnement du circuit ExpressRoute et états du circuit
+# Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -121,4 +121,4 @@ Si l'état du préfixe public publié indique qu’une *validation est nécessai
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

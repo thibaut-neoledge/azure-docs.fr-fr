@@ -19,7 +19,8 @@
 
 # Dépannage des échecs d'extension de machine virtuelle Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de l’utilisation du modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 ## Vue d’ensemble des modèles Azure Resource Manager
 
@@ -84,4 +85,4 @@ Où « publsher-name » correspond au type d'extension à partir de la sortie 
 
 Une fois que l'extension a été supprimée, le modèle peut être réexécuté pour exécuter les scripts sur la machine virtuelle.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

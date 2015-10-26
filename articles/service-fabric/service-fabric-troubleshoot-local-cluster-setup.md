@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Résoudre les problèmes de configuration de votre cluster local"
+   pageTitle="Dépanner votre configuration de cluster Service Fabric locale | Microsoft Azure"
    description="Cet article aborde un ensemble de suggestions relatives à la résolution des problèmes de votre cluster de développement local"
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Résoudre les problèmes d'installation de votre cluster de développement local
@@ -86,4 +86,4 @@ Assurez-vous de ne pas disposer de projets de service définis en tant que proje
 - [Comprendre votre cluster et résoudre les problèmes à l’aide des rapports d’intégrité système](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualisation de votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -85,4 +85,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

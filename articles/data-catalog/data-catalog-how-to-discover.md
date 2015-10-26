@@ -1,20 +1,20 @@
 <properties
    pageTitle="Détection de sources de données"
-	description="Article de procédure relatif à la détection de ressources de données inscrites avec Azure Data Catalog et abordant notamment la recherche, le filtrage et l’utilisation de la mise en surbrillance des correspondances dans le portail Azure Data Catalog."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Article de procédure relatif à la détection de ressources de données inscrites avec Azure Data Catalog et abordant notamment la recherche, le filtrage et l’utilisation de la mise en surbrillance des correspondances dans le portail Azure Data Catalog."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/17/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/17/2015"
+   ms.author="maroche"/>
 
 
 # Détection de sources de données
@@ -60,4 +60,4 @@ Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les 
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent la détecter grâce au filtrage et à la recherche, à partir du portail **Azure Data Catalog**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

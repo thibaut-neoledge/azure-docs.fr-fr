@@ -19,7 +19,8 @@
 
 # Configuration de la synchronisation d'annuaires Office 365 (DirSync) dans un cloud hybride pour le test
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 Cette rubrique vous guide lors de la création d'un environnement de cloud hybride pour le test de la synchronisation d'annuaires (DirSync) Office 365 avec la synchronisation de mot de passe hébergée dans Microsoft Azure. Voici la configuration obtenue.
 
@@ -199,4 +200,4 @@ Cet environnement est maintenant prêt à exécuter le test des applications Off
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

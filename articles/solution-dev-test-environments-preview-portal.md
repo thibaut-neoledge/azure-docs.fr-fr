@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Environnements de développement et de test dans Microsoft Azure
@@ -178,9 +178,9 @@ Toutes les ressources Azure doivent être créées dans un [groupe de ressources
 
   **Méthode 2 :** PowerShell
 
-  Vérifiez que PowerShell est installé sur un ordinateur Windows et connecté à votre abonnement, comme expliqué dans l’article [Installation et configuration d’Azure PowerShell](powershell-install-configure.md). À partir d’une invite de commande PowerShell, tapez la commande suivante pour créer le groupe de ressources pour l’environnement de développement.
+  Vérifiez que PowerShell est installé sur un ordinateur Windows et connecté à votre abonnement, comme expliqué dans l’article [Installation et configuration d’Azure PowerShell](powershell-install-configure.md). À partir d’une invite de commande PowerShell, tapez la commande suivante pour créer le groupe de ressources pour l’environnement de développement. Si vous utilisez Azure PowerShell 1.0 en version préliminaire, la commande est **New-AzureRmResourceGroup** comme indiqué ci-dessous. Si vous utilisez une version d'Azure PowerShell antérieure à la version préliminaire 1.0, la commande est **New-AzureResourceGroup**.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   Si elle réussit, la commande retourne les éléments suivants :
 
@@ -200,13 +200,13 @@ Toutes les ressources Azure doivent être créées dans un [groupe de ressources
 
   Pour créer le groupe de ressources pour l’environnement de test, tapez la commande suivante :
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   Pour créer le groupe de ressources pour l’environnement de préproduction, tapez la commande suivante :
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
- **Étape 6 :** Déployez des ressources Azure dans les groupes de ressources pour chaque environnement à l’aide du fichier de modèle pour l’application et des fichiers de paramètres pour chaque environnement en utilisant l’une des deux méthodes ci-dessous. Les deux méthodes permettent d’obtenir exactement le même résultat.
+ **Étape 6 :** Déployez des ressources Azure dans les groupes de ressources pour chaque environnement à l'aide du fichier de modèle pour l'application et des fichiers de paramètres pour chaque environnement en utilisant l'une des deux méthodes ci-dessous. Les deux méthodes permettent d’obtenir exactement le même résultat.
 
   **Méthode 1 :** Interface de ligne de commande Azure
 
@@ -244,7 +244,7 @@ Toutes les ressources Azure doivent être créées dans un [groupe de ressources
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-  Si la commande échoue, résolvez tous les messages d’erreur et réessayez. Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D’autres conseils de dépannage sont disponibles dans l’article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md).
+  Si la commande échoue, résolvez tous les messages d’erreur et réessayez. Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md).
 
   À partir de la ligne de commande de l’interface de ligne de commande, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de test, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
 
@@ -256,9 +256,9 @@ Toutes les ressources Azure doivent être créées dans un [groupe de ressources
   
   **Méthode 2 :** PowerShell
 
-  À partir d’une invite de commande PowerShell, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de développement, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
+  À partir d’une invite de commande PowerShell, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de développement, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes. Si vous utilisez Azure PowerShell 1.0 en version préliminaire, la commande est **New-AzureRmResourceGroupDeployment** comme indiqué ci-dessous. Si vous utilisez une version d'Azure PowerShell antérieure à la version préliminaire 1.0, la commande est **New-AzureResourceGroupDeployment**.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   Si elle réussit, la commande retourne les éléments suivants :
 
@@ -288,15 +288,15 @@ Toutes les ressources Azure doivent être créées dans un [groupe de ressources
 	                    
 	Outputs           :
 
-  Si la commande échoue, résolvez tous les messages d’erreur et réessayez. Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D’autres conseils de dépannage sont disponibles dans l’article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md).
+  Si la commande échoue, résolvez tous les messages d’erreur et réessayez. Les problèmes courants sont l’utilisation de valeurs de paramètres qui ne respectent pas les contraintes d’affectation de noms des ressources Azure. D'autres conseils de dépannage sont disponibles dans l'article [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](virtual-machines/resource-group-deploy-debug.md).
 
   À partir d’une invite de commande PowerShell, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de test, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   À partir d’une invite de commande PowerShell, tapez la commande ci-dessous pour déployer des ressources dans le groupe de ressources créé pour l’environnement de préproduction, en remplaçant [chemin d’accès] par le chemin d’accès aux fichiers que vous avez enregistrés dans les étapes précédentes.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 Les fichiers de modèles et de paramètres peuvent être créés, dotés d’une version et gérés avec le code de votre application dans un système de contrôle de code source. Vous pouvez également enregistrer les commandes ci-dessus dans des fichiers de script et les enregistrer avec votre code.
 
@@ -313,9 +313,9 @@ Au cours du développement, la configuration des ressources Azure dans les diff�
 
   Cliquez sur Oui lorsque le portail vous demande si vous voulez vraiment supprimer la ressource. Le contenu du groupe de ressources est maintenant différent de ce qu’il devrait être. Vous pouvez poursuivre vos expériences en supprimant plusieurs ressources de plusieurs groupes de ressources, voire en modifiant les paramètres de configuration de certaines ressources.
 
-> [AZURE.NOTE]Au lieu d’utiliser le portail Azure en version préliminaire pour supprimer une ressource d’un groupe de ressources, vous pouvez utiliser la commande PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) ou la commande « azure resource delete » à partir de l’interface de ligne de commande pour effectuer la même tâche.
+> [AZURE.NOTE]Au lieu d'utiliser le portail Azure en version préliminaire pour supprimer une ressource d'un groupe de ressources, vous pouvez utiliser la commande PowerShell [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) ou la commande « azure resource delete » à partir de l'interface de ligne de commande pour effectuer la même tâche.
 
-  **Étape 8 :** Redéployez les environnements dans les groupes de ressources à l’aide des commandes utilisées à l’étape 6, mais remplacez « Deployment1 » par « Deployment2 ». Comme indiqué dans la section Résumé de l’image ci-dessous, vous verrez que toutes les ressources du modèle existent à nouveau dans le groupe de ressources TestApp1-Development. L’un des avantages du déploiement de vos environnements avec les modèles Azure Resource Manager est que vous pouvez facilement effectuer de nouveaux déploiements vers un état connu à tout moment.
+  **Étape 8 :** Redéployez les environnements dans les groupes de ressources à l'aide des commandes utilisées à l'étape 6, mais remplacez « Deployment1 » par « Deployment2 ». Comme indiqué dans la section Résumé de l’image ci-dessous, vous verrez que toutes les ressources du modèle existent à nouveau dans le groupe de ressources TestApp1-Development. L’un des avantages du déploiement de vos environnements avec les modèles Azure Resource Manager est que vous pouvez facilement effectuer de nouveaux déploiements vers un état connu à tout moment.
 
   ![Portail](./media/solution-dev-test-environments-preview-portal/portal3.png)
 
@@ -324,7 +324,7 @@ Au cours du développement, la configuration des ressources Azure dans les diff�
 ## Suppression d’environnements
 Une fois que vous aurez terminé avec un environnement, vous souhaiterez le supprimer afin d’éviter des frais d’utilisation de ressources Azure dont vous ne vous servez plus. La suppression d’environnements est encore plus facile que leur création. Dans les étapes précédentes, des groupes de ressources Azure individuels ont été créés pour chaque environnement. Lorsque vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont également supprimées. Ainsi, les méthodes ci-dessous permettent de supprimer les environnements (groupes de ressources), ainsi que toutes les ressources Azure qu’ils contiennent et que vous avez déployées précédemment.
 
-  **Étape 9 :** Supprimez les environnements à l’aide de l’une des méthodes ci-dessous. Les deux méthodes permettent d’obtenir exactement le même résultat.
+  **Étape 9 :** Supprimez les environnements à l'aide de l'une des méthodes ci-dessous. Les deux méthodes permettent d’obtenir exactement le même résultat.
 
   **Méthode 1 : Interface de ligne de commande Azure**
 
@@ -346,9 +346,9 @@ Une fois que vous aurez terminé avec un environnement, vous souhaiterez le supp
   
   **Méthode 2 :** PowerShell
 
-  À partir d’une invite PowerShell, tapez les éléments suivants :
+  Si vous utilisez Azure PowerShell 1.0 en version préliminaire, la commande pour supprimer les groupe de ressources est **Remove-AzureRmResourceGroup** comme indiqué ci-dessous. Si vous utilisez une version d'Azure PowerShell antérieure à la version préliminaire 1.0, la commande est **Remove-AzureResourceGroup**. À partir d’une invite PowerShell, tapez les éléments suivants :
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   La commande retournera les éléments suivants si vous tapez « y » lorsque vous y êtes invité :
 
@@ -358,12 +358,12 @@ Une fois que vous aurez terminé avec un environnement, vous souhaiterez le supp
 
   À partir d’une invite PowerShell, tapez les éléments suivants pour supprimer les environnements restants :
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Quelle que soit la méthode que vous utilisez, une fois que les commandes terminent l’exécution, les groupes de ressources et toutes les ressources qu’ils contiennent n’existent plus et vous n’êtes plus facturé pour les ressources.
 
-Pour réduire les dépenses liées à l’utilisation des ressources Azure pendant le développement des applications, vous pouvez utiliser [Azure Automation](automation/automation-intro.md) pour planifier des tâches qui :
+Pour réduire les dépenses liées à l'utilisation des ressources Azure pendant le développement des applications, vous pouvez utiliser [Azure Automation](automation/automation-intro.md) pour planifier des tâches qui :
 
 - arrêtent les machines virtuelles à la fin de chaque journée et les redémarrent au début de chaque journée.
 - suppriment des environnements entiers à la fin de chaque journée et les recréent au début de chaque journée.
@@ -372,16 +372,16 @@ Maintenant que vous avez pu constater comme il est facile de créer, de gérer e
 
 ## Étapes suivantes
 
-- [Déléguer le contrôle administratif](role-based-access-control-configure.md) à différentes ressources dans chaque environnement en affectant des groupes ou des utilisateurs Microsoft Azure AD à des rôles spécifiques qui ont la possibilité d’exécuter un sous-ensemble d’opérations sur des ressources Azure.
+- [Déléguer le contrôle administratif](role-based-access-control-configure.md) à différentes ressources dans chaque environnement en affectant des groupes ou des utilisateurs Microsoft Azure AD à des rôles spécifiques qui ont la possibilité d'exécuter un sous-ensemble d'opérations sur des ressources Azure.
 - [Affecter des balises](resource-group-using-tags.md) aux groupes de ressources pour chaque environnement et/ou aux ressources individuelles. Vous pouvez ajouter une balise « Environment » à vos groupes de ressources et définir sa valeur de sorte qu’elle corresponde aux noms de votre environnement. Les balises peuvent être particulièrement utiles si vous devez organiser les ressources à des fins de facturation ou de gestion.
 - Surveiller les alertes et la facturation pour les ressources du groupe de ressources dans le [portail Azure en version préliminaire](https://portal.azure.com).
 
 ## Ressources supplémentaires
 
 - [Créer et déployer des modèles Azure Resource Manager dans Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) avec le Kit de développement logiciel (SDK) Azure 2.6 installé.
-- Créer votre application à l’aide de [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) ou [Web Matrix](http://www.microsoft.com/web/webmatrix/).
+- Créer votre application à l'aide de [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) ou [Web Matrix](http://www.microsoft.com/web/webmatrix/).
 - [Déployer une application web](app-service-web/web-sites-deploy.md) dans les environnements que vous avez créés.
 - Utiliser [Visual Studio Release Management](http://msdn.microsoft.com/Library/vs/alm/Release/overview) pour créer des pipelines de déploiement gérés et continus pour des publications rapides, faciles et fréquentes.
-- Demander une invitation pour la version préliminaire d’[Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/). Cela vous permet de gérer les environnements de laboratoire de développement et de test à l’aide de modèles, ainsi que de configurer des quotas et des stratégies pour l’utilisation au sein de votre organisation.
+- Demander une invitation pour la version préliminaire d'[Azure Dev/Test Lab](http://azure.microsoft.com/campaigns/devtest-lab/). Cela vous permet de gérer les environnements de laboratoire de développement et de test à l’aide de modèles, ainsi que de configurer des quotas et des stratégies pour l’utilisation au sein de votre organisation.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

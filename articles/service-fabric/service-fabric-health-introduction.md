@@ -336,4 +336,4 @@ Le modèle d'intégrité est très utilisé pour la surveillance et le diagnosti
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

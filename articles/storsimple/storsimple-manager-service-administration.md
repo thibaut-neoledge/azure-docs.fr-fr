@@ -116,4 +116,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

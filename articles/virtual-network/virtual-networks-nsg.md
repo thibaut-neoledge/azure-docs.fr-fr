@@ -164,4 +164,4 @@ Assurez-vous que vous pouvez afficher toutes les [limites liées aux services de
 - [Déploiement des groupes de sécurité réseau dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
 - [Déploiement des groupes de sécurité réseau dans le Gestionnaire de ressources](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

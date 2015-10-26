@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Définition des paramètres DNS dans un fichier de configuration de réseau virtuel | Microsoft Azure"
-	description="Comment modifier les paramètres de serveur DNS dans un réseau virtuel à l'aide d'un fichier de configuration de réseau virtuel"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Comment modifier les paramètres de serveur DNS dans un réseau virtuel à l'aide d'un fichier de configuration de réseau virtuel"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
 
@@ -53,4 +53,4 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 
 [Schéma de configuration de service Microsoft Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

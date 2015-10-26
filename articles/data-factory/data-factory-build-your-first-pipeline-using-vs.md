@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="10/09/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Visual Studio
@@ -39,15 +39,17 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 ### Conditions préalables
 
-Vous devez avoir installé le logiciel suivant sur votre ordinateur :
-- Visual Studio 2013
-- Téléchargez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **Installation de Visual Studio 2013** dans la section **.NET**.
-- Mettez à jour « Visual Studio Tools For Azure Data Factory » avec la version la plus récente en sélectionnant Visual Studio 2013 --> Outils --> Mises à jour --> Galerie Visual Studio, puis en cliquant sur « Mettre à jour » dans l'entrée du plug-in « Visual Studio Tools for Azure Data Factory ».
+Les composants suivants doivent être installés sur votre ordinateur :
 
+- Visual Studio 2013 ou Visual Studio 2015
+- Téléchargez Azure SDK pour Visual Studio 2013 ou Visual Studio 2015. Accédez à la [page de téléchargement d'Azure](http://azure.microsoft.com/downloads/), puis cliquez sur **VS 2013** ou **VS 2015** dans la section **.NET**.
+- Téléchargez le denier plug-in Azure Data Factory pour Visual Studio : [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Si vous utilisez Visual Studio 2013, vous pouvez également mettre à jour le plug-in de la manière suivante : dans le menu, cliquez sur **Outils** -> **Extensions et mises à jour** -> **En ligne** -> **Galerie Visual Studio** -> **Outils Microsoft Azure Data Factory pour Visual Studio** -> **Mise à jour**. 
+	
+	
 
 ### Créer le projet Visual Studio 
-1. Lancez **Visual Studio 2013**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s'afficher.  
-2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory**, puis cliquez sur **Projet Data Factory vide**. Si le modèle DataFactory n’est pas affiché, fermez Visual Studio, installez le Kit de développement logiciel (SDK) Azure pour Visual Studio 2013, puis rouvrez Visual Studio.  
+1. Lancez **Visual Studio 2013** ou **Visual Studio 2015**. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**. La boîte de dialogue **Nouveau projet** doit s'afficher.  
+2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez le modèle **DataFactory**, puis cliquez sur **Projet Data Factory vide**.   
 
 	![Boîte de dialogue Nouveau projet](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -110,7 +112,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 
 1. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Ajouter**, puis cliquez sur **Nouvel élément**. 
 2. Sélectionnez **Azure Blob**dans la liste, puis cliquez sur **Ajouter**. 
-3. Remplacez le code **JSON** dans l'éditeur de la manière suivante : dans l'extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
+3. Remplacez le code **JSON** dans l'éditeur de la manière suivante : dans l'extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -240,4 +242,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

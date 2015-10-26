@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication"
-	description="Ce document décrit comment démarrer avec le serveur Azure MFA et mettre à niveau à partir de l'ancien agent phonefactor."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication" 
+	description="Ce document décrit comment démarrer avec le serveur Azure MFA et mettre à niveau à partir de l'ancien agent phonefactor." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Mise à niveau de l'agent PhoneFactor vers le serveur Azure Multi-Factor Authentication
@@ -60,4 +60,4 @@ La mise à niveau à partir de l’agent PhoneFactor v5.x ou version antérieur
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

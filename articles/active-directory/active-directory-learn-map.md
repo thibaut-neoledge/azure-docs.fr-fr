@@ -37,4 +37,4 @@ Pour comprendre les contraintes d'utilisation et autres limites de service pour 
 * [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 * [Identité Azure](fundamentals-identity.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -352,10 +352,10 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
 - [API REST d’Azure Storage]
 - [Blog de l'équipe Azure Storage]
 
-Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/fr-fr/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](http://feedback.azure.com/forums/217298-storage).
+Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à les publier sur notre [forum MSDN Azure](http://social.msdn.microsoft.com/Forums/windowsazure/fr-FR/home?forum=windowsazuredata) ou sur [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Si vous avez des suggestions de fonctionnalités pour Azure Storage, envoyez un message sur [Commentaires Azure Storage](http://feedback.azure.com/forums/217298-storage).
 
 [Bibliothèque iOS Azure Storage]: https://github.com/azure/azure-storage-ios
 [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

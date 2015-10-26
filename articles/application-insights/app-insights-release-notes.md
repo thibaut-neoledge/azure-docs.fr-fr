@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Notes de publication pour Application Insights"
-	description="Les dernières mises à jour."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Notes de publication pour Application Insights" 
+	description="Les dernières mises à jour." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/11/2015" 
 	ms.author="awills"/>
  
 # Notes de publication du Kit de développement logiciel (SDK) : Application Insights
@@ -33,4 +33,4 @@ Lisez également nos [Mises à jour de service](http://azure.microsoft.com/updat
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

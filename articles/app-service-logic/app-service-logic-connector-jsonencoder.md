@@ -68,4 +68,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Création d’une application logique]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Déploiement de SharePoint avec des groupe de disponibilité SQL Server AlwaysOn dans Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Cette rubrique contient des liens vers des instructions pas à pas pour le déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec des groupes de disponibilité SQL Server AlwaysOn avec le modèle de déploiement classique. La batterie de serveurs comprend les ordinateurs suivants :
 
@@ -76,4 +77,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

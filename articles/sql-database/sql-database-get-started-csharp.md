@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Créer une base de données Azure SQL Database avec C#"
-	description="Cet article vous montre comment créer une base de données SQL Azure à l’aide de la bibliothèque Azure SQL Database pour .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Créer une base de données Azure SQL Database avec C#" 
+   description="Cet article vous montre comment créer une base de données SQL Azure à l’aide de la bibliothèque Azure SQL Database pour .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/01/2015"
+   ms.author="sstein"/>
 
 # Création d’une base de données SQL avec C&#x23;
 
@@ -434,4 +434,4 @@ La commande suivante crée une base de données de base si aucune base de donné
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

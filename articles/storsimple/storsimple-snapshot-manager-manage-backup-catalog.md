@@ -208,4 +208,4 @@ Il est recommandé de sauvegarder régulièrement la base de données du Gestion
 - En savoir plus sur [l’utilisation du Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 - En savoir plus sur [les tâches et les flux de travail du Gestionnaire d’instantanés StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -87,4 +87,4 @@ Vous pouvez configurer vos employés et utilisateurs afin qu’ils utilisent leu
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

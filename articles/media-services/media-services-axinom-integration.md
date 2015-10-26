@@ -3,7 +3,7 @@
 	description="Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences Axinom." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/14/2015"  
 	ms.author="juliako"/>
 
 #Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services  
@@ -24,7 +24,7 @@
 
 ##Vue d'ensemble
 
-Azure Media Services (AMS) a ajouté la protection dynamique Google Widevine (voir le [blog de Mingfei](https://azure.microsoft.com/fr-fr/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) pour plus de détails). En outre, Azure Media Player (AMP) a ajouté la prise en charge de Widevine (voir [Document AMP](http://amp.azure.net/libs/amp/latest/docs/) pour plus d’informations). Il s’agit d’un succès majeur en matière de diffusion en continu de contenu DASH protégé par CENC avec DRM multi-natif (PlayReady et Widevine) sur les navigateurs modernes équipés de MSE et EME.
+Azure Media Services (AMS) a ajouté la protection dynamique Google Widevine (voir le [blog de Mingfei](https://azure.microsoft.com/fr-FR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) pour plus de détails). En outre, Azure Media Player (AMP) a ajouté la prise en charge de Widevine (voir [Document AMP](http://amp.azure.net/libs/amp/latest/docs/) pour plus d’informations). Il s’agit d’un succès majeur en matière de diffusion en continu de contenu DASH protégé par CENC avec DRM multi-natif (PlayReady et Widevine) sur les navigateurs modernes équipés de MSE et EME.
 
 >[AZURE.NOTE]Actuellement, Media Services ne fournit pas de serveur de licences Widevine. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -56,7 +56,7 @@ Veuillez consulter la rubrique [Génération de jetons JWT](media-services-axino
 
 ##Préparation d’Azure Media Player
 
-AMP 1.4.0 prend en charge la lecture de contenu AMS qui est empaqueté dynamiquement avec les DRM de PlayReady et Widevine. Si le serveur de licences Widevine n’exige pas l’authentification de jeton, vous n’avez besoin de rien d’autre pour tester un contenu DASH protégé par Widevine. Par exemple, l’équipe AMP fournit un exemple simple [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html). Vous pouvez voir qu’il fonctionne dans Edge et IE11 avec PlayReady et Chrome avec Widevine. Le serveur de licences Widevine fourni par Axinom requiert l’authentification des jetons JWT. Le jeton JWT doit être soumis avec la demande de licence par le biais d’un en-tête HTTP « X-AxDRM-Message ». Pour ce faire, vous devez ajouter le code javascript suivant dans la page web d’hébergement AMP avant de définir la source :
+AMP 1.4.0 prend en charge la lecture de contenu AMS qui est empaqueté dynamiquement avec les DRM de PlayReady et Widevine. Si le serveur de licences Widevine n’exige pas l’authentification de jeton, vous n’avez besoin de rien d’autre pour tester un contenu DASH protégé par Widevine. Par exemple, l’équipe AMP fournit un [exemple](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html) simple, dans lequel vous pouvez voir qu’il fonctionne dans Edge et IE11 avec PlayReady et Chrome avec Widevine. Le serveur de licences Widevine fourni par Axinom requiert l’authentification des jetons JWT. Le jeton JWT doit être soumis avec la demande de licence par le biais d’un en-tête HTTP « X-AxDRM-Message ». Pour ce faire, vous devez ajouter le code javascript suivant dans la page web d’hébergement AMP avant de définir la source :
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
@@ -188,14 +188,22 @@ Grâce à la récente prise en charge de Widevine dans Protection de contenu Azu
 Les paramètres suivants sont requis pour la mini-solution qui utilise serveur de licences Axinom Widevine. À l’exception de l’ID de clé, le reste des paramètres sont fournis par Axinom en fonction du programme d’installation du serveur Widevine.
 
 
-![Paramètres](./media/media-services-axinom-integration/media-services-axinom2.png)
+Paramètre|Utilisation
+---|---
+ID de clé de communication|Doit être inclus en tant que valeur de revendication « com\_key\_id » dans le jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section).
+Clé de communication|Doit être utilisé comme clé de signature de jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section).
+Amorce de clé|Doit être utilisé pour générer la clé de contenu avec un ID de clé de contenu donné (consultez [cette](media-services-axinom-integration.md#content-protection) section).
+URL d’acquisition de licence Widevine.|Doit être utilisé dans la configuration de la stratégie de remise de l’élément multimédia de diffusion en continu DASH (consultez [cette](media-services-axinom-integration.md#content-protection) section).
+ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendication Entitlement Message du jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section). 
+
+
 
 
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

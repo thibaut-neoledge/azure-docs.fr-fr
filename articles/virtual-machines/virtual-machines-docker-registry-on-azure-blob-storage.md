@@ -19,7 +19,8 @@
 
 # Déploiement de votre propre registre Docker privé sur Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article concerne la création de machines virtuelles avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Ce document décrit ce qu’est un registre privé Docker et montre comment vous pouvez déployer une image de conteneur Docker Registry 2.0 vers un registre privé Docker sur Microsoft Azure en utilisant Azure Blob Storage.
@@ -95,4 +96,4 @@ Une fois le registre configuré, vous pouvez l’utiliser. Démarrez avec le doc
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

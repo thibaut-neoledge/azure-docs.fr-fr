@@ -234,4 +234,4 @@ En cas d'échec de la connexion au cloud sur votre appareil de production StorS
 - En savoir plus sur les [erreurs StorSimple](storsimple-troubleshoot-operational-device.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

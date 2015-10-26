@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/09/2015"
    ms.author="coreyp"/>
 
 # Vue d'ensemble d'Azure Automation DSC #
@@ -107,9 +107,9 @@ Dans Azure Automation DSC, une tâche de compilation est une instance de compila
 
 Azure Automation DSC fournit actuellement les applets de commande suivantes dans le [module PowerShell Azure Resource Manager](https://msdn.microsoft.com/library/mt244122.aspx) pour la gestion des tâches de compilation :
 
--	`Get-AzureAutomationDscCompilationJob`
--	`Get-AzureAutomationDscCompilationJobOutput`
--	`Start-AzureAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJobOutput`
+-	`Start-AzureRmAutomationDscCompilationJob`
 
 ##Cycle de vie d’Azure Automation DSC##
 Passer d’un compte Automation vide à un ensemble géré de nœuds correctement configurés implique un ensemble de processus permettant de définir des configurations, de convertir ces configurations en configurations de nœud et d’intégrer ces nœuds à Azure Automation DSC et à ces configurations de nœud. Le diagramme suivant illustre le cycle de vie d’Azure Automation DSC :
@@ -143,5 +143,6 @@ Passer d’un compte Automation vide à un ensemble géré de nœuds correctemen
 
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Tarification d’Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
+- [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

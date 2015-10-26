@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Récupération des erreurs des utilisateurs de bases de données SQL"
-	description="Découvrez comment récupérer le système après une erreur d’un utilisateur, une altération accidentelle des données ou une base de données supprimée à l’aide de la fonctionnalité de limite de restauration dans le temps de la base de données SQL Microsoft Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Récupération des erreurs des utilisateurs de bases de données SQL" 
+   description="Découvrez comment récupérer le système après une erreur d’un utilisateur, une altération accidentelle des données ou une base de données supprimée à l’aide de la fonctionnalité de limite de restauration dans le temps de la base de données SQL Microsoft Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/23/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="10/08/2015"
+   ms.author="elfish"/>
 
 # Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur
 
@@ -44,6 +44,8 @@ Les bases de données de niveau de base proposent une période de rétention de 
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
 ###PowerShell
 Utilisez PowerShell pour exécuter par programmation la restauration d’une base de données.
+
+> [AZURE.IMPORTANT]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
 
 Pour restaurer une base de données avec la fonction de limite de restauration dans le temps, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir les étapes détaillées à suivre, consultez notre [vidéo de procédure](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
@@ -113,4 +115,4 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

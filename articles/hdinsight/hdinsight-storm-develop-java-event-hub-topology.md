@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Traitement des événements de concentrateurs d’événements avec Storm sur HDInsight | Azure"
+   pageTitle="Traitement des événements de Event Hubs avec Storm sur HDInsight avec Java | Azure"
    description="Découvrez comment traiter les données Event Hubs avec une topologie Storm basée sur Java créée avec Maven."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)
@@ -476,4 +476,4 @@ Pour plus d’informations sur l’utilisation de l’interface utilisateur de S
 
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

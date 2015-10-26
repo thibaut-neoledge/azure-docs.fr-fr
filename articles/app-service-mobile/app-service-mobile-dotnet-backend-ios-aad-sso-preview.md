@@ -124,4 +124,4 @@ Vous pourrez désormais faire référence à la bibliothèque d'authentification
  [Prise en main des applications mobiles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Ajout d’une authentification à votre application]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

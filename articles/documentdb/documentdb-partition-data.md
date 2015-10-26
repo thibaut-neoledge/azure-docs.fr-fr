@@ -112,4 +112,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

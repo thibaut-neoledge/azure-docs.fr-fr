@@ -7,4 +7,4 @@
 | [Appeler des API Office 365 Rest depuis une application](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Sécuriser une API web NodeJS](active-directory-v2-devquickstarts-node-api.md) | Daemons côté serveur (bientôt disponible) |
 | | [Appeler des API Office 365 REST depuis le Web](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

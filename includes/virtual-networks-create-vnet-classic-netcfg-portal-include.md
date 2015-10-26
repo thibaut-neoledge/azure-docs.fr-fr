@@ -49,4 +49,4 @@ Pour créer un réseau virtuel à l’aide d’un fichier netcfg en utilisant le
 
 	![Nouveau réseau virtuel](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -13,4 +13,4 @@ Par défaut, les API d’un backend d’application mobile peuvent être appelé
    
 3. Publiez à nouveau votre projet de serveur.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

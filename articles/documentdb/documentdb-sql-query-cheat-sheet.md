@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Aide-mémoire des requêtes DocumentDB | Microsoft Azure"
-	description="Aide-mémoire des requêtes imprimable qui vous aide à utiliser la grammaire de type SQL de DocumentDB pour interroger les documents JSON dans la base de données NoSQL."
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
+	pageTitle="Aide-mémoire des requêtes DocumentDB | Microsoft Azure" 
+	description="Aide-mémoire des requêtes imprimable qui vous aide à utiliser la grammaire de type SQL de DocumentDB pour interroger les documents JSON dans la base de données NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # Aide-mémoire des requêtes SQL DocumentDB téléchargeable
@@ -38,4 +38,4 @@ DocumentDB prend en charge l’interrogation relationnelle, hiérarchique et spa
 - Pour suivre des options de requête disponibles dans DocumentDB, consultez [requête DocumentDB](documentdb-sql-query.md).
 - Pour obtenir la documentation de référence associée, consultez [langage de requête SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

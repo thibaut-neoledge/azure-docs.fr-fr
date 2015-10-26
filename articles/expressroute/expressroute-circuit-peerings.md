@@ -90,4 +90,4 @@ Si vous choisissez d’avoir les trois sessions d’homologation, vous devez di
 	- [Configuration d’un routage (homologations de circuit)](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

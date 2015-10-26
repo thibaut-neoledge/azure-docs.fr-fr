@@ -132,4 +132,4 @@ Ensuite, vous allez mettre à jour l'application de démarrage rapide pour ajout
 [Création d'un compte de stockage]: ../articles/storage/storage-create-storage-account.md
 [Paramètres de l'application]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

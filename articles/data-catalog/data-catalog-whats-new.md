@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/09/2015"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
+
+## Nouveautés de la version de la semaine du 9 octobre 2015
+
+À compter de la semaine du 9 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge de la documentation complète pour les données et les conteneurs inscrits dans Azure Data Catalog. Les utilisateurs peuvent désormais fournir une documentation pour les données telles que les tableaux, les vues et les rapports, ainsi que pour les conteneurs tels que les bases de données et les modèles, pour les scénarios où les balises et les descriptions ne sont pas suffisantes. 
 
 ## Nouveautés de la version de la semaine du 2 octobre 2015
 
@@ -84,4 +90,4 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

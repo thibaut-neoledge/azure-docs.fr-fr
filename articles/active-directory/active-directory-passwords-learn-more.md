@@ -281,4 +281,4 @@ Le tableau suivant indique où et comment ces données sont utilisées lors de l
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

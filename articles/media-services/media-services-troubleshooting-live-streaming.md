@@ -67,4 +67,4 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 	
 >[AZURE.NOTE]Si, après avoir suivi les étapes de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail de gestion Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

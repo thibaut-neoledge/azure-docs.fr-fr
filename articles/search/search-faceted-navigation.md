@@ -7,7 +7,6 @@
 	manager="mblythe" 
 	editor=""/>
 
-
 <tags 
 	ms.service="search" 
 	ms.devlang="rest-api" 
@@ -16,7 +15,6 @@
 	ms.tgt_pltfrm="na" 
 	ms.date="07/07/2015" 
 	ms.author="heidist"/>
-
 
 #Implémentation de la navigation à facettes dans Azure Search
 
@@ -81,11 +79,9 @@ Dans Azure Search, une requête est spécifiée par le biais d'un ou de plusieur
 
 La précision, généralement interprétée comme la possibilité de filtrer les résultats non pertinents, s'effectue par le biais d'une ou de ces deux expressions :
 
-- **search=**<br/>
- La valeur de ce paramètre constitue l'expression de recherche. Il peut s'agir d'une portion de texte unique ou d'une expression de recherche complexe qui comprend plusieurs termes et opérateurs. Sur le serveur, une expression de recherche est utilisée pour la recherche en texte intégral. Elle interroge les champs pouvant faire l'objet d'une recherche dans l'index pour la correspondance des termes et renvoie les résultats classés. Si vous définissez `search` sur null, l'exécution de la requête est effectuée sur la totalité de l'index (c'est-à-dire, `search=*`). Dans ce cas, d'autres éléments de la requête, comme un `$filter` ou un profil de score, seront les principaux facteurs qui influencent les documents renvoyés (`($filter`) et dans quel ordre (`scoringProfile` ou `$orderb`).
+- **search=**<br/> La valeur de ce paramètre constitue l'expression de recherche. Il peut s'agir d'une portion de texte unique ou d'une expression de recherche complexe qui comprend plusieurs termes et opérateurs. Sur le serveur, une expression de recherche est utilisée pour la recherche en texte intégral. Elle interroge les champs pouvant faire l'objet d'une recherche dans l'index pour la correspondance des termes et renvoie les résultats classés. Si vous définissez `search` sur null, l'exécution de la requête est effectuée sur la totalité de l'index (c'est-à-dire, `search=*`). Dans ce cas, d'autres éléments de la requête, comme un `$filter` ou un profil de score, seront les principaux facteurs qui influencent les documents renvoyés (`($filter`) et dans quel ordre (`scoringProfile` ou `$orderb`).
 
-- **$filter =**<br/>
- Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
+- **$filter =**<br/> Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
 
 Les expressions de recherche complexes diminuent les performances de la requête. Si possible, utilisez des expressions de filtre bien construites pour augmenter la précision et améliorer les performances de la requête.
 
@@ -186,17 +182,13 @@ Lorsqu'un utilisateur clique sur « Rouge » pour indiquer que seuls les produ
 
 La liste suivante récapitule certaines meilleures pratiques.
 
-- **Précision**<br/>
- Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs. 
+- **Précision**<br/> Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs. 
 
-- **Champs cibles**<br/>
- Dans l'exploration à facettes, vous ne voulez en général inclure que les documents qui contiennent la valeur de facette dans un champ spécifique (facette), non pas n'importe où dans tous les champs de recherche. L'ajout d'un filtre renforce le champ cible en indiquant au service de rechercher uniquement dans le champ à facette pour trouver une valeur correspondante.
+- **Champs cibles**<br/> Dans l'exploration à facettes, vous ne voulez en général inclure que les documents qui contiennent la valeur de facette dans un champ spécifique (facette), non pas n'importe où dans tous les champs de recherche. L'ajout d'un filtre renforce le champ cible en indiquant au service de rechercher uniquement dans le champ à facette pour trouver une valeur correspondante.
 
-- **Efficacité de l'index**<br/>
- Si votre application utilise exclusivement la navigation à facettes (autrement dit, aucune zone de recherche), vous pouvez marquer le champ en tant que `searchable=false`, `facetable=true` pour produire un index plus compact. En outre, l'indexation se produit uniquement sur les valeurs de facettes entières, sans césure de mots ou indexation des composants d'une valeur à plusieurs mots.
+- **Efficacité de l'index**<br/> Si votre application utilise exclusivement la navigation à facettes (autrement dit, aucune zone de recherche), vous pouvez marquer le champ en tant que `searchable=false`, `facetable=true` pour produire un index plus compact. En outre, l'indexation se produit uniquement sur les valeurs de facettes entières, sans césure de mots ou indexation des composants d'une valeur à plusieurs mots.
 
-- **Performances**<br/>
- Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Si vous avez un grand jeu de documents, l'utilisation d'une exploration à facettes très sélective vous offrira souvent de meilleures performances.
+- **Performances**<br/> Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Si vous avez un grand jeu de documents, l'utilisation d'une exploration à facettes très sélective vous offrira souvent de meilleures performances.
 
 
 <a name="tips"></a>
@@ -237,14 +229,11 @@ Notez la différence entre les résultats de la recherche et les résultats de l
 
 > [AZURE.NOTE]Traiter de `count` lorsqu'il existe plus d'un type peut prêter à confusion. Le tableau suivant offre un bref résumé de l'utilisation du terme dans l'API Azure Search, un exemple de code et la documentation.
 
-- `@colorFacet.count`<br/>
- Dans le code de présentation, un paramètre de décompte doit s'afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
+- `@colorFacet.count`<br/> Dans le code de présentation, un paramètre de décompte doit s'afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
 
-- `&facet=City,count:12`<br/>
- Dans une requête de facette, vous pouvez définir le décompte sur une valeur. La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
+- `&facet=City,count:12`<br/> Dans une requête de facette, vous pouvez définir le décompte sur une valeur. La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
 
-- « `@odata.count` »<br/>
- Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
+- « `@odata.count` »<br/> Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
 
 
 **Niveaux dans la navigation à facettes**
@@ -274,12 +263,10 @@ L'utilisation de facettes sur des plages est une condition d'application de rech
 
 Azure Search simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, Azure Search crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Azure Seach crée automatiquement les plages 0-10, 10-20, 20-30. L'exemple d'application supprime les intervalles qui sont vides.
 
-**Approche 1 : utiliser le paramètre d'intervalle**<br/>
- Pour définir les facettes de prix par incréments de 10 $, vous devez spécifier : `&facet=price,interval:10`
+**Approche 1 : utiliser le paramètre d'intervalle**<br/> Pour définir les facettes de prix par incréments de 10 $, vous devez spécifier : `&facet=price,interval:10`
 
 
-**Approche 2 : utiliser une liste de valeurs**<br/>
- Pour les données numériques, vous pouvez utiliser une liste de valeurs. Prenez en compte la plage de facette pour listPrice, indiquée comme suit :
+**Approche 2 : utiliser une liste de valeurs**<br/> Pour les données numériques, vous pouvez utiliser une liste de valeurs. Prenez en compte la plage de facette pour listPrice, indiquée comme suit :
 
   ![][5]
 
@@ -385,4 +372,4 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

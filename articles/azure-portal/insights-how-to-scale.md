@@ -137,4 +137,4 @@ Toutefois, vous souhaiterez peut-être définir des règles d’extension ou de 
 * [Surveillance de la disponibilité et de la réactivité des pages Web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -35,31 +35,31 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-L'application finalisée est également disponible à la fin de ce didacticiel.
+L'application terminée est également fournie à la fin de ce didacticiel.
 
 
-## 1. Inscription d’une application
-Créez une nouvelle application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md).  Veillez à respecter les points suivants:
+## 1\. Inscription d’une application
+Créez une application à l’adresse [apps.dev.microsoft.com](https://apps.dev.microsoft.com), ou suivez cette [procédure détaillée](active-directory-v2-app-registration.md). Veillez à respecter les points suivants :
 
-- Copiez l’**ID d’application** affecté à votre application, vous en aurez bientôt besoin.
-- Ajoutez la plateforme **Mobile** pour votre application.
-- Copiez l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut « urn:ietf:wg:oauth:2.0:oob ».
+- copier l'**ID d'application** attribué à votre application, vous en aurez bientôt besoin ;
+- ajouter la plateforme **Mobile** pour votre application.
+- copier l'**URI de redirection** à partir du portail. Vous devez utiliser la valeur par défaut de `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: téléchargement de node.js pour votre plateforme
+## 2 : Téléchargement de node.js pour votre plateforme
 Pour réussir à utiliser cet exemple, Node.js doit être installé correctement.
 
-Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
+Installez Node.js à partir de l’adresse suivante : [http://nodejs.org](http://nodejs.org).
 
-## 3: installation de MongoDB sur votre plateforme
+## 3 : Installation de MongoDB sur votre plateforme
 
 Pour réussir à utiliser cet exemple, MongoDB doit être installé correctement. Nous allons utiliser MongoDB afin que notre API REST soit persistante sur plusieurs instances de serveur.
 
-Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
+Installez MongoDB à partir de l’adresse suivante : [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
+> [AZURE.NOTE]Cette procédure détaillée suppose que vous utilisez l’installation et les points de terminaison du serveur par défaut pour MongoDB, c’est-à-dire les suivants au moment de la rédaction : mongodb://localhost
 
-## 4: installation des modules Restify sur votre API web
+## 4 : Installation des modules Restify sur votre API web
 
 Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infrastructure d’application Node.js minimale et flexible dérivée d’Express, qui inclut un ensemble complet de fonctionnalités permettant de créer des API REST sur Connect.
 
@@ -67,21 +67,21 @@ Nous allons utiliser Restify pour concevoir notre API REST. Restify est une infr
 
 À partir de la ligne de commande, accédez au répertoire azuread. Si le répertoire **azuread** n’existe pas, créez-le.
 
-`cd azuread` - or- `mkdir azuread;`
+`cd azuread` - ou - `mkdir azuread;`
 
-Tapez la commande suivante :
+Tapez la commande suivante :
 
 `npm install restify`
 
 Cette commande permet d’installer Restify.
 
-#### Une erreur est-elle survenue?
+#### Une erreur est-elle survenue ?
 
 Sur certains systèmes d’exploitation, NPM peut générer une erreur Error: EPERM, chmod ’/usr/local/bin/..’ et une demande pour essayer d’exécuter le compte en tant qu’administrateur. Si cette erreur survient, utilisez la commande sudo pour exécuter npm avec des privilèges plus élevés.
 
-#### Une erreur relative à DTrace est-elle survenue?
+#### Une erreur relative à DTrace est-elle survenue ?
 
-Lors de l’installation de Restify, vous risquez de voir ceci :
+Lors de l’installation de Restify, vous risquez de voir ceci :
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
@@ -149,7 +149,7 @@ Le résultat de la commande doit ressembler à ceci :
 
 Ensuite, nous allons ajouter la stratégie OAuth, à l’aide de passport-azuread, un ensemble de stratégies qui connectent Azure Active Directory à Passport. Nous allons utiliser cette stratégie pour les jetons du porteur dans cet exemple d’API Rest.
 
-> [AZURE.NOTE] Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
+> [AZURE.NOTE]Bien qu’OAuth2 fournisse une infrastructure dans laquelle tout type de jeton connu peut être émis, seuls certains types de jeton sont utilisés de manière généralisée. Pour protéger les points de terminaison qui se sont révélés être des jetons porteurs. Les jetons porteurs sont les jetons les plus largement émis dans OAuth2, et de nombreuses implémentations considèrent qu’ils sont le seul type de jeton émis.
 
 Depuis la ligne de commande, accédez au répertoire azuread
 
@@ -268,7 +268,7 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 ### Valeurs requises
 
-*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour le fournisseur d’identité, ainsi que les clés pour valider les jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
+*IdentityMetadata* : il s’agit de l’emplacement dans lequel passport-azure-ad recherche vos données de configuration pour l’IdP, ainsi que les clés pour la validation des jetons JWT. Vous ne souhaitez probablement pas modifier cela si vous utilisez Azure Active Directory.
 
 *audience* : URI de redirection à partir du portail.
 
@@ -314,7 +314,7 @@ Toute cette préparation va maintenant prouver son utilité : associez ces troi
 
 Pour cette procédure détaillée, nous utilisons MongoDB pour stocker les tâches, comme indiqué dans l’***étape 4***.
 
-Si vous vous rappelez du contenu du fichier config.js que nous avons créé dans l’étape 11, vous savez que nous avons appelé notre base de données *tasklist*, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose\_auth\_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
+Si vous vous rappelez, dans le fichier config.js que nous avons créé à l’étape 11, nous avons appelé notre base de données *tasklist*, car c’était ce que nous avions placé à la fin de l’URL de connexion mogoose\_auth\_local. Vous n’avez pas besoin de créer cette base de données au préalable dans MongoDB ; il la crée lors de la première exécution de notre application de serveur (à condition qu’elle n’existe pas déjà).
 
 Maintenant que nous avons indiqué au serveur quelle base de données MongoDB nous souhaitons utiliser, nous devons écrire du code supplémentaire pour créer le modèle et le schéma pour les tâches du serveur.
 
@@ -716,7 +716,8 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’abonnement de l’utilisateur dans le jeton (appelé via token.sub) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
+> [AZURE.TIP]
+Lors de l’écriture d’API, vous devez toujours lier les données à un élément unique du jeton, dont un utilisateur ne peut pas usurper l’identité. Lorsque ce serveur stocke les éléments TODO, il le fait en fonction de l’ID d’abonnement de l’utilisateur dans le jeton (appelé via token.sub) que nous avons placé dans le champ « propriétaire ». Cela garantit que seul cet utilisateur peut accéder à ses TODO et que personne d’autre ne peut accéder aux TODO entrés. Il n’y a pas d’exposition dans l’API du « propriétaire », afin qu’un utilisateur externe puisse demander les TODO d’un tiers même s’ils sont authentifiés.
 
 Ensuite, nous allons utiliser la stratégie Open ID Connect Bearer fournie avec passport-azure-ad. Contentez-vous d’examiner le code pour l’instant, je fournirai des explications sous peu. Placez ceci après ce que vous avez collé ci-dessus :
 
@@ -765,7 +766,8 @@ passport.use(oidcStrategy);
 
 Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Facebook, etc.), que respectent tous les enregistreurs de stratégie. Comme vous pouvez le voir dans la stratégie, nous transmettons une function() dont les paramètres sont un jeton et un done. La stratégie revient vers nous une fois le travail terminé. Il est alors intéressant de stocker l’utilisateur et le jeton afin de ne pas avoir à les redemander.
 
-> [AZURE.IMPORTANT]Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
+> [AZURE.IMPORTANT]
+Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un programme de ligne de commande, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
 ### 2\. Pour finir, protégez certains points de terminaison
 
@@ -845,7 +847,7 @@ Si vous recherchiez simplement des informations concernant l’implémentation d
 
 ## Étapes suivantes
 
-Pour référence, l’exemple terminé (sans vos valeurs de configuration) [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé (sans vos valeurs de configuration) [est fourni ici au format .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
@@ -855,4 +857,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 Pour obtenir des ressources supplémentaires, consultez : - [Version préliminaire du modèle d’application v2.0 >>](active-directory-appmodel-v2-overview.md) - [Balise azure-active-directory StackOverflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

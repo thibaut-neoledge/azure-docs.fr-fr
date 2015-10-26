@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
+	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Comment intégrer le module de couverture Engagement sur Android
 
-> [AZURE.IMPORTANT] Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
+> [AZURE.IMPORTANT]Vous devez suivre la procédure d'intégration décrite dans le document « Comment intégrer Engagement sur Android » avant de suivre ce guide.
 
 ##Intégration standard
 
@@ -87,7 +87,7 @@ Modifiez le fichier `AndroidManifest.xml` :
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT] Cette section est **obligatoire** si vous prévoyez d'utiliser les notifications système lors de la création de campagnes de couverture. Android empêche les notifications système sans icône de s'afficher. Si vous omettez cette section, vos utilisateurs finaux ne pourront donc pas les recevoir.
+> [AZURE.IMPORTANT]Cette section est **obligatoire** si vous prévoyez d'utiliser les notifications système lors de la création de campagnes de couverture. Android empêche les notifications système sans icône de s'afficher. Si vous omettez cette section, vos utilisateurs finaux ne pourront donc pas les recevoir.
 
 -   Si vous créez des campagnes avec notifications système qui utilisent BigPicture, vous devez ajouter les autorisations suivantes (après la balise `</application>`) si elles sont absentes :
 
@@ -193,7 +193,7 @@ Par défaut, une notification dans l'application est une vue qui est ajoutée dy
 
 Pour modifier l'apparence de vos superpositions de notification, vous pouvez simplement modifier le fichier `engagement_notification_area.xml` selon vos besoins.
 
-> [AZURE.NOTE] Le fichier `engagement_notification_overlay.xml` est celui qui est utilisé pour créer une superposition de notification. Il comprend le fichier `engagement_notification_area.xml`. Vous pouvez également le personnaliser pour l'adapter à vos besoins (tels que le positionnement de la zone de notification au sein de la superposition).
+> [AZURE.NOTE]Le fichier `engagement_notification_overlay.xml` est celui qui est utilisé pour créer une superposition de notification. Il comprend le fichier `engagement_notification_area.xml`. Vous pouvez également le personnaliser pour l'adapter à vos besoins (tels que le positionnement de la zone de notification au sein de la superposition).
 
 ##### Inclure une disposition de notification dans une disposition d'activité
 
@@ -233,7 +233,7 @@ Dans cet exemple, nous avons ajouté un conteneur parent puisque la disposition 
 
 Le SDK du module de couverture d'Engagement détecte automatiquement que la disposition de notification est incluse dans cette activité et n'ajoutera pas de superposition pour cette activité.
 
-> [AZURE.TIP] Si vous utilisez une ListActivity dans votre application, une superposition de couverture visible vous empêchera de réagir aux clics sur les éléments de la vue de liste. Il s'agit d'un problème connu. Pour contourner ce problème, nous vous suggérons d'intégrer la disposition de notification à votre disposition d'activité de liste, comme dans l'exemple précédent.
+> [AZURE.TIP]Si vous utilisez une ListActivity dans votre application, une superposition de couverture visible vous empêchera de réagir aux clics sur les éléments de la vue de liste. Il s'agit d'un problème connu. Pour contourner ce problème, nous vous suggérons d'intégrer la disposition de notification à votre disposition d'activité de liste, comme dans l'exemple précédent.
 
 ##### Désactivation des notifications d'application par activité
 
@@ -249,7 +249,7 @@ Quand vous modifiez les dispositions fournies, vous modifiez l'apparence de tout
 
 Pour inscrire un gestionnaire de catégories pour vos notifications, vous devez ajouter un appel quand l'application est initialisée.
 
-> [AZURE.IMPORTANT] Lisez l'avertissement concernant l'attribut android:process <android-sdk-engagement-process> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
+> [AZURE.IMPORTANT]Lisez l'avertissement concernant l'attribut android:process <android-sdk-engagement-process> dans la rubrique « Comment intégrer Engagement sur Android » avant de continuer.
 
 L'exemple suivant suppose que vous avez pris en compte l'avertissement précédent et que vous utilisez une sous-classe de `EngagementApplication` :
 
@@ -499,7 +499,7 @@ Si votre implémentation de `EngagementNotifier` contourne le comportement par d
 -   Pour les notifications système, vous avez remplacé `onNotificationPrepared` et vous avez modifié `contentIntent` ou `deleteIntent` dans l'objet `Notification`.
 -   Pour les notifications dans l'application, vous avez remplacé `prepareInAppArea`. Veillez à mapper au moins `actionNotification` à l'un des contrôles d'interface utilisateur.
 
-> [AZURE.NOTE] Si `handleNotification` lève une exception, le contenu est supprimé et `dropContent` est appelé. Ceci est signalé dans les statistiques et les campagnes suivantes peuvent être traitées.
+> [AZURE.NOTE]Si `handleNotification` lève une exception, le contenu est supprimé et `dropContent` est appelé. Ceci est signalé dans les statistiques et les campagnes suivantes peuvent être traitées.
 
 ### Annonces et sondages
 
@@ -649,4 +649,4 @@ Maintenant, vérifiez votre intégration en lisant « Comment tester l'intégra
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

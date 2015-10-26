@@ -1,8 +1,8 @@
 <properties
- pageTitle="Gestion de périphériques IoT | Microsoft Azure"
- description="Vue d’ensemble de la gestion de périphériques Azure IoT Hub"
+ pageTitle="Gérer vos appareils IoT | Microsoft Azure"
+ description="Une vue d’ensemble de l’utilisation d’IoT Hub et IoT Suite pour gérer vos appareils IoT"
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="juanjperez"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="juanpere"/>
 
@@ -118,4 +118,4 @@ La livraison du package de mise à jour peut s’effectuer par le biais d’un s
 
 Après avoir effectué une mise à jour du microprogramme, le périphérique doit être en mesure de vérifier et d’identifier un état correct. Si le périphérique ne prend pas l’état correct, le logiciel sur le périphérique doit lancer une restauration à un état correct connu. L’état connu doit être le dernier état connu ou une image de microprogramme de périphérique connu sous le nom « Golden State » dans une partition de stockage.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

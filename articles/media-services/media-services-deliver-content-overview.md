@@ -189,4 +189,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Mettre à jour les localisateurs de Media Services après le déploiement des clés de stockage](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

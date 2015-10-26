@@ -56,4 +56,4 @@ Pour créer des règles dans un NSG existant à partir du portail en version pr�
 
 ![Portail en version préliminaire : Nouvelle règle](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Recommandations relatives à l’implémentation de l’API | Microsoft Azure"
-	description="Conseils sur l’implémentation d’une API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Conseils sur l’implémentation d’une API."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="05/13/2015"
-	ms.author="masashin"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/13/2015"
+   ms.author="masashin"/>
 
 # Recommandations relatives à l’implémentation de l’API
 
@@ -1152,4 +1152,4 @@ Ces informations peuvent être mises à profit pour déterminer si une API Web 
 - La page [Vérification du code à l’aide de tests unitaires](https://msdn.microsoft.com/library/dd264975.aspx) du site Web Microsoft fournit des informations détaillées sur la création et la gestion de tests unitaires à l’aide de Visual Studio.
 - La page [Exécuter des tests de performances sur votre application](https://msdn.microsoft.com/library/dn250793.aspx) du site Web Microsoft explique comment utiliser Visual Studio Ultimate pour créer un projet de test de performances Web et de chargement.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

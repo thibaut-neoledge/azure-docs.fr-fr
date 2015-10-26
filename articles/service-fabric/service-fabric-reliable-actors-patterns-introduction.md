@@ -70,4 +70,4 @@ Les principaux avantages d'Azure Fabric Actors sont : 1) **productivité des dé
 
 * *Comportement asynchrone explicite.* Le modèle de programmation Azure Fabric Actors rend explicite la nature asynchrone d'une application distribuée et incite les programmeurs à écrire un code asynchrone non bloquant. Cela garantit un grand degré de parallélisme distribué et un débit global sans utilisation explicite de plusieurs threads.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

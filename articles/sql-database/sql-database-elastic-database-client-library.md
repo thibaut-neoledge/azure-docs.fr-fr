@@ -53,4 +53,4 @@ Pour obtenir des instructions sur l’utilisation de l’outil de fusion et de f
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

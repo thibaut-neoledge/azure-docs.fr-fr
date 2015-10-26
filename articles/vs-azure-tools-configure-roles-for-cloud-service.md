@@ -376,4 +376,4 @@ Les certificats de gestion que vous associez à vos configurations de service s�
 ## Étapes suivantes
 En savoir plus sur les projets Azure dans Visual Studio en lisant [Configuration d’un projet Azure](vs-azure-tools-configuring-an-azure-project.md). En savoir plus sur le schéma de service cloud en lisant [Référence de schéma](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

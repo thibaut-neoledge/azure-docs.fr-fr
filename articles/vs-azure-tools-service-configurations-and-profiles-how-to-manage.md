@@ -131,4 +131,4 @@ Lorsque vous exécutez l'Assistant pour la première fois, un profil par défaut
 
 Pour en savoir plus sur la configuration des autres parties de votre projet Azure à partir de Visual Studio, consultez [Configuration d'un projet Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

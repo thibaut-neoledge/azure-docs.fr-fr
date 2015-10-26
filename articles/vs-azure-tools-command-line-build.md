@@ -62,4 +62,4 @@ Si vous souhaitez utiliser un autre répertoire pour les fichiers de configurati
 
 Une fois le package créé, vous pouvez le déployer sur Azure. Pour voir un didacticiel qui illustre ce processus, consultez le site web Azure. Pour plus d'informations sur la façon d'automatiser ce processus, consultez [Remise continue pour Cloud Services dans Azure](../cloud-services/cloud-services-dotnet-continuous-delivery).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,6 @@
 	manager="dwrede" 
 	editor=""/>
 
-
 <tags 
 	ms.service="api-management" 
 	ms.workload="mobile" 
@@ -16,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="08/05/2015" 
 	ms.author="sdanie"/>
-
 
 # Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 
@@ -162,4 +160,4 @@ Pour plus d’informations sur l’utilisation d’OAuth 2.0 et la gestion des 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -51,4 +51,4 @@ Pour pouvoir stocker des données d’application dans le nouveau service mobile
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

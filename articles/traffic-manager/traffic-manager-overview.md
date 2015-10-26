@@ -172,4 +172,4 @@ Si vous souhaitez récupérer les figures de cette rubrique sous forme de diapos
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

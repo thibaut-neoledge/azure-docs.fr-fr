@@ -4,8 +4,8 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="thinkingserious" 
-	manager="sendgrid" 
-	editor="erikre"/>
+	manager="dwrede" 
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
+	ms.date="10/12/2015" 
+	ms.author="team-pi@sendgrid.com"/>
 
 
 
@@ -22,9 +22,8 @@
 
 # Envoi de courriers électroniques à l'aide de SendGrid avec Azure
 
-Dernière mise à jour : 24 février 2015
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce guide présente l'exécution de tâches de programmation courantes avec le service de messagerie SendGrid dans Azure. Les exemples sont écrits en C# et utilisent l'API .NET. Les scénarios traités incluent le **développement d'une messagerie électronique**, l'**envoi de courriers électroniques**, l'**ajout de pièces jointes** et l'**utilisation de filtres**. Pour plus d'informations sur SendGrid et l'envoi de courriers électroniques, consultez la section [Étapes suivantes][].
 
@@ -39,7 +38,7 @@ SendGrid est un [service de messagerie dans le cloud] qui fournit des fonctionna
 -   transfert des demandes de renseignements des clients.
 -   traitement des messages électroniques entrants.
 
-Pour plus d'informations, consultez la page [https://sendgrid.com](https://sendgrid.com).
+Pour plus d'informations, consultez la page [https://sendgrid.com](https://sendgrid.com) ou notre [bibliothèque C#][sendgrid-csharp]
 
 ## Création d'un compte SendGrid
 
@@ -47,21 +46,23 @@ Pour plus d'informations, consultez la page [https://sendgrid.com](https://sendg
 
 ## Référencement de la bibliothèque de classes .NET de SendGrid
 
-Le [package NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) permet facilement d'obtenir l'API SendGrid et de configurer votre application avec toutes les dépendances associées. NuGet est une extension Visual Studio incluse dans Microsoft Visual Studio 2012 et qui facilite l'installation et la mise à jour des bibliothèques et outils.
+Le [package NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) permet facilement d'obtenir l'API SendGrid et de configurer votre application avec toutes les dépendances associées. NuGet est une extension Visual Studio incluse dans Microsoft Visual Studio 2015 qui facilite l'installation et la mise à jour des bibliothèques et outils.
 
-> [AZURE.NOTE]Pour installer NuGet si vous exécutez une version de Visual Studio antérieure à Visual Studio 2012, consultez la page [http://www.nuget.org](http://www.nuget.org), puis cliquez sur le bouton **Install NuGet**.
+> [AZURE.NOTE]Pour installer NuGet si vous exécutez une version de Visual Studio antérieure à Visual Studio 2015, consultez la page [http://www.nuget.org](http://www.nuget.org), puis cliquez sur le bouton **Install NuGet**.
 
 Pour installer le package NuGet SendGrid dans votre application, procédez comme suit :
 
-1.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
+1.  Créez un nouveau projet : ![Création d'un projet][create-new-project]
 
-2.  Dans le volet gauche de la boîte de dialogue **Manage NuGet Packages**, cliquez sur **En ligne**.
+2.  Sélectionnez un modèle : ![Sélectionner un modèle][select-a-template]
 
-3.  Recherchez **SendGrid** et sélectionnez l'élément **SendGrid** dans la liste des résultats (la version actuelle est 5.0.0).
+3.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
+
+4.  Recherchez **SendGrid**, puis sélectionnez l'élément **SendGrid** dans la liste de résultats.
 
     ![Package NuGet SendGrid][SendGrid-NuGet-package]
 
-4.  Cliquez sur **Install** pour terminer l'installation, puis fermez cette boîte de dialogue.
+5.  Cliquez sur **Install** pour terminer l'installation, puis fermez cette boîte de dialogue.
 
 La bibliothèque de classes .NET de SendGrid est appelée **SendGridMail**. Elle contient les espaces de noms suivants :
 
@@ -109,20 +110,34 @@ Pour plus d'informations sur les propriétés et méthodes prises en charge par 
 
 Une fois le message électronique créé, vous pouvez l'envoyer à l'aide de l'API Web fournie par SendGrid. Vous pouvez également [utiliser la bibliothèque intégrée de .NET](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
-Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe). Le code suivant montre comment encapsuler vos informations d'identification dans un objet **NetworkCredential** :
+Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe) ou votre clé d’API SendGrid. La clé d’API est la méthode privilégiée. Pour plus de détails sur la configuration des clés d’API, consultez notre [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
+
+Vous pouvez stocker ces informations d'identification via votre portail Azure en cliquant sur CONFIGURER et en ajoutant les paires clé/valeur sous « paramètres de l'application ».
+
+ ![Paramètres de l’application Azure][azure_app_settings]
+
+ Vous pouvez ensuite y accéder comme suit :
+    
+    var username = System.Environment.GetEnvironmentVariable("SENDGRID_USER"); 
+    var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASS");
+    var apiKey = System.Environment.GetEnvironmentVariable("SENDGRID_APIKEY");
+
+Utilisation des informations d’identification
     
     // Create network credentials to access your SendGrid account
     var username = "your_sendgrid_username";
     var pswd = "your_sendgrid_password";
 
-    /* Alternatively, you may store these credentials via your Azure portal
-       by clicking CONFIGURE and adding the key/value pairs under "app settings".
-       Then, you may access them as follows: 
-       var username = System.Environment.GetEnvironmentVariable("SENDGRID_USER"); 
-       var pswd = System.Environment.GetEnvironmentVariable("SENDGRID_PASS");
-       assuming you named your keys SENDGRID_USER and SENDGRID_PASS */
-
     var credentials = new NetworkCredential(username, pswd);
+    // Create an Web transport for sending email.
+    var transportWeb = new Web(credentials);
+
+Utilisation de la clé d’API :
+
+    var apiKey = "your_sendgrid_api_key";  
+    // create a Web transport, using API Key
+    var transportWeb = new Web(apiKey);
+
 
 Les exemples suivants montrent comment envoyer un message à l'aide de l'API Web.
 
@@ -141,6 +156,9 @@ Les exemples suivants montrent comment envoyer un message à l'aide de l'API Web
 
     // Send the email, which returns an awaitable task.
     transportWeb.DeliverAsync(myMessage);
+
+    // If developing a Console Application, use the following
+    // transportWeb.DeliverAsync(mail).Wait();
 
 ## Ajout d'une pièce jointe
 
@@ -210,11 +228,11 @@ SendGrid propose des API web et des « webhooks » que vous pouvez utiliser po
 
 Maintenant que vous avez appris les bases du service de messagerie SendGrid, consultez ces liens pour en savoir plus.
 
-* Référentiel de la bibliothèque C# de SendGrid : [sendgrid-csharp][]
+*   Référentiel de la bibliothèque C# de SendGrid : [sendgrid-csharp][]
 *   Documentation de l'API SendGrid : <https://sendgrid.com/docs>
 *   Offre spéciale SendGrid pour les clients Azure : [https://sendgrid.com](https://sendgrid.com)
 
-  [Étapes suivantes]: #nextsteps
+  [Étapes suivantes]: #next-steps
   [What is the SendGrid Email Service?]: #whatis
   [Create a SendGrid Account]: #createaccount
   [Reference the SendGrid .NET Class Library]: #reference
@@ -224,12 +242,12 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
   [How to: Use Additional SendGrid Services]: #useservices
   
-  
   [special offer]: https://www.sendgrid.com/windowsazure.html
   
-  
-  
-  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
+  [create-new-project]: ./media/sendgrid-dotnet-how-to-send-email/create_new_project.png
+  [select-a-template]: ./media/sendgrid-dotnet-how-to-send-email/select_a_template.png
+  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid_nuget.png
+  [azure_app_settings]: ./media/sendgrid-dotnet-how-to-send-email/app_settings.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
   [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
   [Paramètres de l'application]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
@@ -239,4 +257,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

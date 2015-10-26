@@ -24,4 +24,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
 * Pour supprimer des enregistrements du magasin local de l’appareil lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible]. Sinon, votre application doit appeler `IMobileServiceSyncTable.PurgeAsync()` régulièrement afin de vider le magasin local.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

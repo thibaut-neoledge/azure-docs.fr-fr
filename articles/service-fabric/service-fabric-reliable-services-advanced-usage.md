@@ -59,4 +59,4 @@ Pour parcourir des rubriques plus avancées concernant Service Fabric, consultez
 
 - [Vue d'ensemble des contraintes de placement](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

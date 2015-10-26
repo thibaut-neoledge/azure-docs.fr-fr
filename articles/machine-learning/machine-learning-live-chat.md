@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Obtenir de l'aide de la part du support par conversation en direct sur Machine Learning
 
 [Azure Machine Learning Studio](machine-learning-what-is-ml-studio.md) fournit une interface intuitive pour générer des modèles Machine Learning. Une [galerie](machine-learning-gallery-how-to-use-contribute-publish.md) et des [forums](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) sont à votre disposition pour vous apporter de l'aide.
@@ -31,4 +31,4 @@ Les membres de l’équipe sont en fait en train de répondre à votre question.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -3,7 +3,7 @@
 	description="Découvrez comment utiliser Azure Mobile Apps pour authentifier les utilisateurs de votre application iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -50,4 +50,4 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exceptio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

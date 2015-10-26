@@ -1,5 +1,5 @@
 <properties pageTitle="Didacticiel : Intégration d'Azure Active Directory à Box | Microsoft Azure" description="Apprenez à utiliser Box avec Azure Active Directory pour activer l'authentification unique, l'approvisionnement automatisé et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 
 
 
@@ -53,7 +53,7 @@ Cette section décrit l'activation de l'intégration d'application pour Box.
 
 6.  Dans la **zone de recherche**, tapez **Box**.
 
-    ![Galerie d'applications](./media/active-directory-saas-box-tutorial/IC701023.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-box-tutorial/IC701023.png "Galerie d'applications")
 
 7.  Dans le volet de résultats, sélectionnez **Box**, puis cliquez sur **Terminer** pour ajouter l'application.
 
@@ -141,4 +141,4 @@ Dans votre locataire Box, les utilisateurs synchronisés sont répertoriés sous
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

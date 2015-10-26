@@ -1,22 +1,22 @@
 <properties
    pageTitle="Démarrage rapide pour l'API Graph Azure AD | Microsoft Aure"
-	description="L’API Graph Azure Active Directory fournit un accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire."
-	services="active-directory"
-	documentationCenter="n/a"
-	authors="JimacoMS"
-	manager="msmbaldwin"
-	editor=""
-	tags=""/>
+   description="L’API Graph Azure Active Directory fournit un accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l'API Graph pour effectuer des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur les données et objets d'annuaire."
+   services="active-directory"
+   documentationCenter="n/a"
+   authors="JimacoMS"
+   manager="msmbaldwin"
+   editor=""
+   tags=""/>
 
 
    <tags
       ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="v-jibran@microsoft.com"/>
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="08/24/2015"
+      ms.author="v-jibran@microsoft.com"/>
 
 # Démarrage rapide pour l'API Graph Azure AD
 
@@ -123,4 +123,4 @@ Pour plus d'informations sur les entités et les types Azure AD exposés par Gr
 
 En savoir plus sur l’[API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

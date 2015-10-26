@@ -35,4 +35,4 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

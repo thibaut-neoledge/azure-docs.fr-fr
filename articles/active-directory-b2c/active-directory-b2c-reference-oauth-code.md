@@ -272,4 +272,4 @@ Si vous souhaitez tester ces demandes par vous-même, vous devez suivre ces troi
 - [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un Id d'application et un redirect\_uri. Vous pouvez inclure un **client natif** dans votre application.
 - [Créez vos stratégies](active-directory-b2c-reference-policies.md) pour obtenir les noms de vos stratégies.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

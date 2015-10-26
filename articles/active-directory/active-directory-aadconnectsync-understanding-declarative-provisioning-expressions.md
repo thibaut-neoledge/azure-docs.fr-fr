@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif"
+	pageTitle="Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif | Microsoft Azure"
 	description="Explique les expressions d’approvisionnement déclaratif."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -47,14 +47,14 @@ Les attributs sont fortement typés. Une fonction qui attend un attribut de cha�
 Vous pouvez utiliser les opérateurs suivants :
 
 - **Comparaison** : <, < =, <>, =, >, > =
-- **Mathématiques** : +, -, \*, -
+- **Mathématiques** : +, -, *, -
 - **Chaîne** : & (concaténation)
 - **Logiques** : && (et), || (ou)
 - **Ordre d’évaluation** : ( )
 
 
 
-Les opérateurs sont évalués de gauche à droite. 2\*(5+3) n’est pas la même chose que 2\*5+3.<br> Les parenthèses () servent à modifier l’ordre d’évaluation.
+Les opérateurs sont évalués de gauche à droite. 2*(5+3) n’est pas la même chose que 2*5+3.<br> Les parenthèses () servent à modifier l’ordre d’évaluation.
 
 
 
@@ -66,9 +66,9 @@ Un paramètre est défini par un connecteur ou par un administrateur à l’aide
 
 Le connecteur Active Directory fournissait les paramètres suivants pour les règles de synchronisation entrantes :
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 Le système fournit le paramètre suivant :
 
@@ -132,7 +132,7 @@ Pour obtenir une liste complète de fonctions, consultez [Azure AD Connect Sync�
 
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

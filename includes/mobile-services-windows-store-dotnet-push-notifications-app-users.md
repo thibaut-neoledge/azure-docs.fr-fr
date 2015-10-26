@@ -69,4 +69,4 @@ Dans cette méthode, vous avez ajouté du code pour l'inscription provenant du d
 	
 	Cela vous garantit que l’authentification se produit avant la tentative d’enregistrement de la notification push.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

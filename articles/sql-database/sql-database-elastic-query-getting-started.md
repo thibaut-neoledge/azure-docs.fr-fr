@@ -1,6 +1,9 @@
 <properties
+	title="Getting started with elastic database query"
 	pageTitle="Prise en main des requêtes de base de données élastique"
 	description="comment utiliser la requête de base de données élastique"
+	metaKeywords="azure sql database elastic queries"
+	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -141,4 +144,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

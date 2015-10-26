@@ -138,8 +138,8 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
 [Vue d’ensemble sur l’intégration de SQL Data Warehouse]: ./sql-data-warehouse-overview-integration/
-[didacticiel consacré à la création d’une expérience]: https://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-create-experiment/
-[Introduction à Machine Learning sur Microsoft Azure]: https://azure.microsoft.com/fr-fr/documentation/articles/machine-learning-what-is-machine-learning/
+[didacticiel consacré à la création d’une expérience]: https://azure.microsoft.com/fr-FR/documentation/articles/machine-learning-create-experiment/
+[Introduction à Machine Learning sur Microsoft Azure]: https://azure.microsoft.com/fr-FR/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure Machine Learning Studio]: https://studio.azureml.net/Home
 [portail Azure]: https://portal.azure.com/
 
@@ -149,4 +149,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

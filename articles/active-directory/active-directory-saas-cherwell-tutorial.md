@@ -14,7 +14,7 @@ Le scénario décrit dans ce didacticiel se compose des blocs de construction su
 
 1.  Activation de l’intégration d’applications pour Cherwell
 2.  Configuration de l’authentification unique
-3.  Configuration de l’approvisionnement des utilisateurs
+3.  Configuration de l'approvisionnement des utilisateurs
 4.  Affectation d’utilisateurs
 
 ![Scénario](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Scénario")
@@ -28,9 +28,9 @@ Cette section décrit l’activation de l’intégration d’applications pour C
 
     ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
 
-2.  Dans la liste **Annuaire**, sélectionnez l’annuaire pour lequel vous voulez activer l’intégration d’annuaire.
+2.  Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
-3.  Pour ouvrir la vue des applications, dans la vue d’annuaire, cliquez sur **Applications** dans le menu du haut.
+3.  Pour ouvrir la vue des applications, dans la vue d'annuaire, cliquez sur **Applications** dans le menu du haut.
 
     ![Applications](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Applications")
 
@@ -53,7 +53,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Cherwell**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Cherwell**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configurer l’authentification unique")
 
@@ -65,8 +65,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Cherwell** (par exemple, \**https://pictdev.cherwellondemand.com/cherwellclient*).
-    2.  Cliquez sur **Suivant**
+    1.  Dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à **Cherwell** (par exemple, **https://pictdev.cherwellondemand.com/cherwellclient*).
+2.  Cliquez sur **Suivant**
 
 4.  Dans la page **Configurer l’authentification unique sur Cherwell**, procédez comme suit :
 
@@ -98,7 +98,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’applications \*\*Cherwell\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’applications **Cherwell**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Affecter des utilisateurs")
 
@@ -108,4 +108,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

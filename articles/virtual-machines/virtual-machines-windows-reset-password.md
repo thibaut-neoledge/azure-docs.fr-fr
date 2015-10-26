@@ -19,7 +19,8 @@
 
 # Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite des machines virtuelles créées avec le modèle de déploiement du Gestionnaire des ressources.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
 
@@ -113,4 +114,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

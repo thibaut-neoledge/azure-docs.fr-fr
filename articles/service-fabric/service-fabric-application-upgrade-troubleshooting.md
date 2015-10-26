@@ -225,4 +225,4 @@ La durée de mise à niveau d'un domaine de mise à niveau est limitée par *Upg
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

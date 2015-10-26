@@ -241,4 +241,4 @@ Pour d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’
 
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

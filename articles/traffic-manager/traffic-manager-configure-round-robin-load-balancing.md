@@ -52,4 +52,4 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

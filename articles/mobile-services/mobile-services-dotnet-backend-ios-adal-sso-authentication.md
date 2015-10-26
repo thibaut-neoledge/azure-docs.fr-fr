@@ -120,4 +120,4 @@ Ce didacticiel requiert les éléments suivants :
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Bibliothèque d'authentification Active Directory pour iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

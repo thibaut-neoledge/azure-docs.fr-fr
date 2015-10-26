@@ -253,4 +253,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

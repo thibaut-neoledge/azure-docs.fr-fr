@@ -258,4 +258,4 @@ Vous pouvez insérer le code dans le JavaScript de la page web et dans le Java c
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -76,7 +76,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 - Profil : Élevé (niveau 4.0) 
 - Débit binaire : 5 000 kbit/s 
 - Image clé : 2 secondes (60 secondes) 
-- Images par seconde : 30
+- Fréquence d’images : 30
  
 **Audio** :
 
@@ -171,4 +171,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

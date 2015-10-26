@@ -3,8 +3,7 @@
 #Didacticiel : Intégration d’Azure Active Directory à Egnyte
 >[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528188).
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte.
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et Egnyte. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Egnyte pour lequel l’authentification unique est activée
@@ -58,7 +57,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Egnyte**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Egnyte**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787815.png "Configurer l’authentification unique")
 
@@ -66,7 +65,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-egnyte-tutorial/IC787816.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant « \**https://company.egnyte.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Egnyte**, tapez votre URL selon le modèle suivant « **https://company.egnyte.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-egnyte-tutorial/IC787817.png "Configurer l’URL de l’application")
 
@@ -94,7 +93,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     1.  Pour **Single sign-on authentication**, sélectionnez **SAML 2.0**.
     2.  Pour **Identity provider**, sélectionnez **AzureAD**.
-    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte \*\*URL de connexion du fournisseur d’identité\*\*.
+    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **URL de connexion du fournisseur d’identité**.
 4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Egnyte**, copiez la valeur **ID d’identité**, puis collez-la dans la zone de texte **Identity provider entity ID**.
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
@@ -141,7 +140,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Egnyte\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Egnyte**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-egnyte-tutorial/IC787826.png "Affecter des utilisateurs")
 
@@ -149,6 +148,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-egnyte-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

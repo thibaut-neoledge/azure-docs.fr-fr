@@ -27,4 +27,4 @@ Un exemple indiquant comment utiliser MySQL avec PHP sur Azure est disponible à
 
 Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develop/php/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

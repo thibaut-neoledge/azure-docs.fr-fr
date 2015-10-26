@@ -1,20 +1,20 @@
 <properties
    pageTitle="Pile de communication WCF fournie par l'API de services fiables"
-	description="Cet article décrit la pile de communication WCF fournie par l'API de services fiables."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="Cet article décrit la pile de communication WCF fournie par l'API de services fiables."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Pile de communication WCF pour les services fiables
 L'infrastructure de services fiables permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix via le `ICommunicationListener` retourné à partir de la méthode [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). L'infrastructure fournit une implémentation WCF de la pile de communication pour les auteurs de service qui souhaitent utiliser une communication WCF.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

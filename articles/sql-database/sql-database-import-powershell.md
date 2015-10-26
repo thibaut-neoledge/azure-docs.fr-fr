@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de PowerShell" 
-    description="Importer un fichier BACPAC vers une base de données SQL Azure à l’aide de PowerShell" 
+    pageTitle="Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell" 
+    description="Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell" 
     services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
@@ -13,10 +13,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="09/23/2015"
+    ms.date="10/13/2015"
     ms.author="sstein"/>
 
-# Importer un fichier BACPAC vers une base de données SQL à l’aide de PowerShell
+# Importer un fichier BACPAC pour créer une base de données SQL Azure à l’aide de PowerShell
 
 **Base de données unique**
 
@@ -25,11 +25,11 @@
 - [PowerShell](sql-database-import-powershell.md)
 
 
-Cet article vous montre comment créer une base de données SQL en important un fichier BACPAC avec PowerShell.
+Cet article fournit des instructions pour créer une base de données SQL Azure en important un fichier BACPAC à l’aide de PowerShell.
 
 Un BACPAC est un fichier .bacpac qui contient un schéma de base de données et des données. Pour plus d'informations, consultez Backup Package (.bacpac) dans [Applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx).
 
-La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n'avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant les étapes de [Créer et exporter un fichier BACPAC à partir d'une base de données SQL Azure](sql-database-backup.md).
+La base de données est créée à partir d'un fichier BACPAC importé depuis un conteneur d'objets blob de stockage Azure. Si vous n’avez pas de fichier .bacpac dans le stockage Azure, vous pouvez en créer un en suivant la procédure décrite dans [Créer et exporter un fichier BACPAC à partir d’une base de données SQL Azure](sql-database-export-powershell.md).
 
 > [AZURE.NOTE]La base de données SQL Azure crée automatiquement des sauvegardes pour chaque base de données utilisateur que vous pouvez restaurer, et en assure la maintenance. Pour plus d’informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
@@ -38,7 +38,9 @@ Pour importer une base de données SQL, vous avez besoin des éléments suivants
 
 - Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - Un fichier .bacpac (BACPAC) de la base de données à restaurer. Le fichier BACPAC doit se trouver dans un conteneur d’objets blob de [Compte Azure Storage (classique)](storage-create-storage-account.md).
-- Azure PowerShell. Vous pouvez télécharger et installer les modules Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
+
+
+> [AZURE.IMPORTANT]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**.
 
 
 
@@ -53,7 +55,7 @@ Après vous être connecté, vous voyez des informations sur l’écran, notamme
 
 ### Sélectionner votre abonnement Azure
 
-Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l'étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l'applet de commande **Get-AzureSubscription** et copier les informations d'abonnement souhaitées affichées dans les résultats. Une fois en possession de votre identifiant d’abonnement, exécutez l'applet de commande suivante :
+Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. Vous pouvez copier l’identifiant d’abonnement à partir des informations affichées à l’étape précédente ou, si vous avez plusieurs abonnements et besoin de plus de détails, vous pouvez exécuter l’applet de commande **Get-AzureSubscription** et copier les informations d’abonnement souhaitées affichées dans les résultats. Une fois en possession de votre identifiant d’abonnement, exécutez l'applet de commande suivante :
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -83,7 +85,7 @@ Le nom de l'objet blob est le nom du fichier .bacpac existant à partir duquel v
 
 ## Créer un pointeur vers votre serveur et votre compte de stockage
 
-L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre vous demandant votre nom d'utilisateur et votre mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur du serveur SQL sur lequel vous souhaitez créer la base de données ($ServerName ci-dessus), et non le nom d'utilisateur et le mot de passe de votre compte Azure.
+L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre vous demandant votre nom d’utilisateur et votre mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur du serveur SQL sur lequel vous souhaitez créer la base de données ($ServerName ci-dessus), et non le nom d'utilisateur et le mot de passe de votre compte Azure.
 
     $credential = Get-Credential
     $SqlCtx = New-AzureSqlDatabaseServerContext -ServerName $ServerName -Credential $credential
@@ -101,9 +103,9 @@ Cette commande envoie une demande d’importation de la base de données au serv
 
 ## Surveillez la progression de l’opération
 
-Après l'exécution de **Start-AzureSqlDatabaseImport**, vous pouvez vérifier l'état de la demande.
+Après l’exécution de **Start-AzureSqlDatabaseImport**, vous pouvez vérifier l’état de la demande.
 
-En cas de vérification de l’état immédiatement après la demande, cela renvoie généralement un état **En attente** ou **En cours d'exécution** et vous donne le pourcentage de progression actuel. Vous pouvez donc exécuter cette opération plusieurs fois jusqu'à ce que vous voyiez **État : Terminé** en sortie.
+En cas de vérification de l’état immédiatement après la demande, un état **En attente** ou **En cours d’exécution** est généralement renvoyé, accompagné du pourcentage de progression. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
 
 Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et le mot de passe administrateur de votre serveur SQL.
 
@@ -150,4 +152,4 @@ Cette commande vous demandera un mot de passe. Entrez le nom d’utilisateur et 
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

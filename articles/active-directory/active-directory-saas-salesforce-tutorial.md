@@ -7,7 +7,6 @@
    manager="TerryLanfear"
    editor=""/>
 
-
 <tags
    ms.service="active-directory"
    ms.devlang="na"
@@ -16,7 +15,6 @@
    ms.workload="identity"
    ms.date="07/15/2015"
    ms.author="liviodlc"/>
-
 
 #Didacticiel : intégration de Salesforce avec Azure Active Directory
 
@@ -255,4 +253,4 @@ Ce didacticiel est aussi disponible sous forme de vidéos, ci-dessous.
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

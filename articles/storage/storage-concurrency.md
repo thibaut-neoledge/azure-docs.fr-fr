@@ -273,4 +273,4 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

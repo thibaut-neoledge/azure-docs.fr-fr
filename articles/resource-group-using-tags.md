@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="10/14/2015"
 	ms.author="tomfitz"/>
 
 
@@ -48,15 +48,11 @@ Pour afficher votre classification de balises dans le portail, utilisez le hub P
 
 ## Balisage avec PowerShell
 
-Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md). Cet article part du principe que vous avez déjà ajouté un compte et sélectionné un abonnement avec les ressources que vous souhaitez baliser.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Le balisage est uniquement disponible pour les ressources et les groupes de ressources disponibles dans le [Gestionnaire de ressources](http://msdn.microsoft.com/library/azure/dn790568.aspx). La prochaine chose à faire consiste à passer au Gestionnaire de ressources.
+Les balises se trouvent directement sur les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliquées, il suffit de récupérer une ressource ou un groupe de ressources avec **Get-AzureRmResource** ou **Get-AzureRmResourceGroup**. Commençons par un groupe de ressources.
 
-    Switch-AzureMode AzureResourceManager
-
-Les balises se trouvent directement sur les ressources et les groupes de ressources. Pour savoir quelles balises sont déjà appliquées, il suffit de récupérer une ressource ou un groupe de ressources avec `Get-AzureResource` ou `Get-AzureResourceGroup`, le cas échéant. Commençons par un groupe de ressources.
-
-    PS C:\> Get-AzureResourceGroup tag-demo
+    PS C:\> Get-AzureRmResourceGroup tag-demo
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -80,9 +76,9 @@ Les balises se trouvent directement sur les ressources et les groupes de ressour
                     tag-demo-site                    Microsoft.Web/sites                   southcentralus
 
 
-Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant. Pour baliser un groupe de ressources, utilisez simplement la commande `Set-AzureResourceGroup` avant d'indiquer un nom et une valeur de balise.
+Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressources, notamment les balises déjà appliquées, le cas échéant. Pour baliser un groupe de ressources, utilisez simplement la commande **Set-AzureRmResourceGroup** avant d'indiquer un nom et une valeur de balise.
 
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag @( @{ Name="project"; Value="tags" }, @{ Name="env"; Value="demo"} )
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -95,9 +91,9 @@ Cette cmdlet renvoie plusieurs octets de métadonnées sur le groupe de ressourc
 
 Les balises sont mises à jour en tant qu'ensemble, donc si vous ajoutez une balise à une ressource déjà balisée, vous devrez utiliser un tableau avec toutes les balises que vous souhaitez conserver. Pour ce faire, vous pouvez tout d'abord sélectionner les balises existantes et ajouter une nouvelle.
 
-    PS C:\> $tags = (Get-AzureResourceGroup -Name tag-demo).Tags
+    PS C:\> $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
     PS C:\> $tags += @{Name="status";Value="approved"}
-    PS C:\> Set-AzureResourceGroup tag-demo -Tag $tags
+    PS C:\> Set-AzureRmResourceGroup tag-demo -Tag $tags
 
     ResourceGroupName : tag-demo
     Location          : southcentralus
@@ -112,7 +108,15 @@ Les balises sont mises à jour en tant qu'ensemble, donc si vous ajoutez une bal
 
 Pour supprimer une ou plusieurs balises, enregistrez simplement le tableau sans les balises que vous souhaitez supprimer.
 
-Le processus est le même pour les ressources, sauf que vous allez utiliser les applets de commande `Get-AzureResource` et `Set-AzureResource`. Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l'applet de commande `Get-AzureResource` ou `Get-AzureResourceGroup` avec le paramètre `-Tag`.
+Le processus est le même pour les ressources, sauf que vous allez utiliser les applets de commande **Get-AzureRmResource** et **Set-AzureRmResource**.
+
+Pour récupérer des ressources ou des groupes de ressources avec une balise spécifique, utilisez l'applet de commande **Find-AzureRmResourceGroup** avec le paramètre **-Tag**.
+
+    PS C:\> Find-AzureRmResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
+    rbacdemo-group
+    tag-demo
+
+Pour les versions d’Azure PowerShell antérieures à la version préliminaire 1.0, utilisez les commandes suivantes pour obtenir les ressources avec une balise particulière.
 
     PS C:\> Get-AzureResourceGroup -Tag @{ Name="env"; Value="demo" } | %{ $_.ResourceGroupName }
     rbacdemo-group
@@ -120,11 +124,11 @@ Le processus est le même pour les ressources, sauf que vous allez utiliser les 
     PS C:\> Get-AzureResource -Tag @{ Name="env"; Value="demo" } | %{ $_.Name }
     rbacdemo-web
     rbacdemo-docdb
-    ...
+    ...    
 
-Pour obtenir une liste de toutes les balises d'un abonnement à l'aide de PowerShell, utilisez l'applet de commande `Get-AzureTag`.
+Pour obtenir une liste de toutes les balises d'un abonnement à l'aide de PowerShell, utilisez l'applet de commande **Get-AzureRmTag**.
 
-    PS C:/> Get-AzureTag
+    PS C:/> Get-AzureRmTag
     Name                      Count
     ----                      ------
     env                       8
@@ -132,7 +136,7 @@ Pour obtenir une liste de toutes les balises d'un abonnement à l'aide de PowerS
 
 Vous pouvez consulter les balises commençant par « masqué-» et « lien: ». Il s'agit de balises internes, que vous devez ignorer et éviter de modifier.
 
-Utilisez l'applet de commande `New-AzureTag` pour ajouter des balises à la classification. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l'applet de commande `Remove-AzureTag` pour la supprimer de la classification.
+Utilisez l'applet de commande **New-AzureRmTag** pour ajouter des balises à la classification. Ces balises seront incluses dans la saisie semi-automatique, même si elles n'ont pas encore été appliquées à des ressources ou des groupes de ressources. Pour supprimer un nom ou une valeur de balise, commencez par supprimer la balise sur toutes les ressources où elle est appliquée, puis utilisez l'applet de commande **Remove-AzureRmTag** pour la supprimer de la classification.
 
 ## Balisage avec une API REST
 
@@ -152,7 +156,7 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 ## Étapes suivantes
 
 - Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
-- Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 - Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

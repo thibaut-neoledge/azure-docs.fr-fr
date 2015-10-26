@@ -118,7 +118,7 @@ Ce didacticiel se base sur un scénario dans lequel un utilisateur SharePoint re
                 client.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", CreateAuthZHeader());
                 
                 // Create the payload to send the content
-                // Reference -> https://msdn.microsoft.com/fr-fr/library/dn913749.aspx
+                // Reference -> https://msdn.microsoft.com/fr-FR/library/dn913749.aspx
                 string data =
                     @"{""name"":""" + campaignName + @"""," + 
                     @"""type"":""only_notif""," + 
@@ -207,4 +207,4 @@ Cet exemple permet de créer une campagne d’annonces simple en spécifiant pri
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

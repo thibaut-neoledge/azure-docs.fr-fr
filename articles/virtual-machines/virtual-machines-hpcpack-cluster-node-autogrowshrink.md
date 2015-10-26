@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Adapter automatiquement les ressources de calcul Azure dans un cluster HPC Pack en fonction de la charge de travail du cluster
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article concerne la gestion d’une ressource créée avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Si vous déployez des nœuds « d’extension » Azure dans votre cluster HPC Pack ou que vous créez un cluster HPC Pack dans des machines virtuelles Azure, un moyen d’augmenter ou de réduire automatiquement les ressources de calcul Azure en fonction de la charge de travail actuelle des travaux et des tâches sur le cluster peut s’avérer utile. Vous pouvez ainsi utiliser vos ressources Azure plus efficacement et contrôler leurs coûts. Pour ce faire, utilisez le script PowerShell HPC **AzureAutoGrowShrink.ps1** qui est installé avec HPC Pack.
 
@@ -101,4 +102,4 @@ L’exemple suivant configure les machines virtuelles à nœud de calcul Azure d
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

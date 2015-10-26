@@ -165,4 +165,4 @@ Si la surveillance détaillée est configurée pour votre service cloud, Azure n
 * Configurez un [nom de domaine personnalisé](cloud-services-custom-domain-name.md).
 * Configurez des [certificats SSL](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -26,7 +26,8 @@
 
 Cette rubrique explique comment configurer un écouteur pour un groupe de disponibilité AlwaysOn à l'aide d'un **équilibrage de charge interne (ILB)**.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 Votre groupe de disponibilité peut contenir des réplicas locaux uniquement, Azure uniquement, ou locaux et Azure pour les configurations hybrides. Les réplicas Azure peuvent se trouver dans une même région ou dans plusieurs régions grâce à plusieurs réseaux virtuels. Les étapes suivantes supposent que vous avez déjà [configuré un groupe de disponibilité](virtual-machines-sql-server-alwayson-availability-groups-gui.md), mais pas un écouteur.
 
@@ -136,4 +137,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

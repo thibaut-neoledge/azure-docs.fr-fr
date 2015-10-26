@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2015"
+	ms.date="10/13/2015"
 	ms.author="tdykstra"/>
 
 # Interface de ligne de commande (CLI) Azure et applications API
@@ -288,4 +288,4 @@ Pour plus d'informations sur l'utilisation des utilitaires de ligne de commande 
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

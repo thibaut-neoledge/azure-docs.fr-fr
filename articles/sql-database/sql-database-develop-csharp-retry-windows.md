@@ -281,4 +281,4 @@ Il exécuterait le programme avec le paramètre « test » et vérifierait que
 
 - [Exemples de code de démarrage rapide client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

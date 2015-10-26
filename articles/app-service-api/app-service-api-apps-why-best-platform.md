@@ -70,10 +70,10 @@ La plupart de ces fonctionnalités, comme le Marketplace public et les mises à 
 
 Pour prendre en main les applications API, suivez le didacticiel [Créer une application API](app-service-dotnet-create-api-app.md).
 
-Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/fr-fr/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Pour voir la liste des problèmes connus des applications API, reportez-vous à [ce billet de forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Pour plus d’informations sur la plateforme Azure App Service, consultez la rubrique [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

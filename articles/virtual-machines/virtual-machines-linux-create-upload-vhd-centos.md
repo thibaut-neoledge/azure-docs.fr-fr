@@ -19,7 +19,6 @@
 
 # Préparation d'une machine virtuelle CentOS pour Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Préparation d’une machine virtuelle CentOS 6.x pour Azure](#centos6)
 - [Préparation d’une machine virtuelle CentOS 7.0+ pour Azure](#centos7)
@@ -364,4 +363,4 @@ La préparation d'une machine virtuelle CentOS 7 pour Azure est très similai
 
 16. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

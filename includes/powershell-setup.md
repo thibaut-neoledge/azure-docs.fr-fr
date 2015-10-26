@@ -1,3 +1,13 @@
+<properties services="virtual-machines" title="Setting up PowerShell" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machines"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm=""
+   ms.workload="infrastructure"
+   ms.date="05/12/2015"
+   ms.author="josephd" />
 
 ## Configuration de PowerShell
 
@@ -68,4 +78,4 @@ Vous pouvez configurer l'abonnement Azure actuel en exécutant ces commandes à 
 
 Pour plus d’informations sur les comptes et les abonnements Azure, consultez [Procédure : Connexion à votre abonnement](powershell-install-configure.md#Connect).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

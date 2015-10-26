@@ -23,7 +23,7 @@ Cet article donne une vue d’ensemble de l’utilisation de l’extension de sc
 
 Les extensions de machine virtuelle créées par Microsoft et les éditeurs tiers de confiance étendent les fonctionnalités de la machine virtuelle. Pour consulter une vue d’ensemble des extensions de machine virtuelles, voir [Fonctionnalités et extensions de machine virtuelle Azure](virtual-machines-extensions-features.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique. Vous pouvez également créer une ressource avec le [modèle de déploiement du Gestionnaire des ressources](virtual-machines-extensions-customscript%20-with%20template.md).
+Lien :[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Vue d’ensemble de l’extension de script personnalisé
@@ -32,7 +32,7 @@ L’extension de script personnalisé pour Windows vous permet d’exécuter des
 
 ### Conditions préalables pour exécuter l’extension de script personnalisé
 
-1. Installez les applets de commande Microsoft Azure PowerShell version 0.8.0 ou ultérieure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
+1. Installez les applets de commande Microsoft Azure PowerShell version 0.8.0 ou ultérieure à partir d’<a href="http://azure.microsoft.com/downloads" target="_blank">ici</a>.
 2. Si les scripts sont exécutés sur une machine virtuelle existante, assurez-vous que l’agent de machine virtuelle est activé sur la machine virtuelle, sinon suivez les instructions de cet <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">article</a> pour en installer un.
 3. Téléchargez les scripts que vous souhaitez exécuter sur la machine virtuelle vers Azure Storage. Les scripts peuvent provenir d’un seul ou de plusieurs conteneurs de stockage.
 4. Le script doit être conçu de manière à ce que le script d’entrée lancé par l’extension lance à son tour les autres scripts.
@@ -91,4 +91,4 @@ Pour en savoir plus sur l’utilisation de l’extension de script personnalisé
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

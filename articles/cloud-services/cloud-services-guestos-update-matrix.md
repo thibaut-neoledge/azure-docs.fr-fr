@@ -99,7 +99,6 @@ Microsoft prend en charge au moins deux versions récentes de chaque famille de 
 
 > [AZURE.WARNING]Le retrait de la famille du SE invité 1 a commencé le 1er juin 2013 et devrait s’achever bientôt. Veuillez ne pas créer d’installations, et procédez à la mise à niveau des anciennes installations utilisant cette famille de SE invité. Pour plus d’informations, consultez la page [Informations relatives à la suppression de la Famille 1 de systèmes d’exploitation invités Azure][fam1retire]
 
-Le SE invité inclut une configuration différente par défaut de Windows Server. Pour plus d’informations, consultez la page [Différences entre un système d’exploitation invité Azure et Windows Server par défaut][server and gos].
 
 ### Informations sur la famille, la version et la publication du SE invité
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
@@ -232,7 +231,7 @@ Cette page contient des informations sur les prochaines publications de SE invit
 
 Microsoft Azure publie constamment des mises à jour. Le SE invité n’est qu’une mise à jour parmi d’autres. Une version peut être affectée par un certain nombre de facteurs trop nombreux pour être répertoriés ici. En outre, Azure s’exécute sur des centaines de milliers d’ordinateurs. Cela signifie qu’il est impossible de donner une date et une heure précises pour le redémarrage de vos rôles. Nous mettrons à jour le [Flux RSS de mise à jour du SE invité][rss] avec les dernières informations dont nous disposons, mais considérez les dates présentées comme approximatives. Nous sommes conscients que cela peut être problématique pour les clients et travaillons sur un plan pour limiter ou régler ces redémarrages.
 
-La propagation complète sur Azure d’une nouvelle publication de SE invité peut prendre du temps. Lorsque les services sont mis à jour pour le nouveau SE invité, ils sont redémarrés en respectant les domaines de mise à jour. Les services définis pour utiliser des mises à jour « Automatiques » obtiennent une publication en premier. Après la mise à jour, la nouvelle version du SE invité est répertoriée pour votre service dans le portail de gestion Azure. De nouvelles publications peuvent se produire pendant cette période. Il est possible que certaines versions soient déployées sur de longues périodes et donc que des redémarrages de mise à niveau automatiques ne se produisent pas pendant plusieurs semaines après la date officielle de la publication. Une fois qu’un SE invité est disponible, vous pouvez choisir explicitement cette version à partir du portail ou dans votre fichier de configuration. Pour plus d’informations, consultez les pages [Mettre à jour le système d’exploitation invité de Azure à partir du portail de gestion][update guest os portal] et [Mettre à jour le système d’exploitation invité de Azure en modifiant le fichier de configuration de service][update guest os svc].
+La propagation complète sur Azure d’une nouvelle publication de SE invité peut prendre du temps. Lorsque les services sont mis à jour pour le nouveau SE invité, ils sont redémarrés en respectant les domaines de mise à jour. Les services définis pour utiliser des mises à jour « Automatiques » obtiennent une publication en premier. Après la mise à jour, la nouvelle version du SE invité est répertoriée pour votre service dans le portail de gestion Azure. De nouvelles publications peuvent se produire pendant cette période. Il est possible que certaines versions soient déployées sur de longues périodes et donc que des redémarrages de mise à niveau automatiques ne se produisent pas pendant plusieurs semaines après la date officielle de la publication. Une fois qu’un SE invité est disponible, vous pouvez choisir explicitement cette version à partir du portail ou dans votre fichier de configuration.
 
 Pour consulter un grand nombre d’informations utiles sur les redémarrages et des orientations vers d’autres informations techniques sur les mises à jour de SE invités et hôtes, consultez le blog de MSDN intitulé [Redémarrage d’instance de rôle en raison d’une mise à niveau du SE][restarts].
 
@@ -324,7 +323,7 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 septembre 2013 | N/A | 14 mai 2014 |
 
 
-[Paramètres de mise à jour du système d’exploitation invité Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
+[Paramètres de mise à jour du système d’exploitation invité Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [avis de sécurité Microsoft 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
@@ -344,4 +343,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

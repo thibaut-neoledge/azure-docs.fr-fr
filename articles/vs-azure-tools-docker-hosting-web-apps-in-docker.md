@@ -1,19 +1,19 @@
 <properties
    pageTitle="Hébergement d’applications web dans Docker | Microsoft Azure"
-	description="Apprenez à utiliser Visual Studio pour héberger une application web dans un conteneur Docker."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Apprenez à utiliser Visual Studio pour héberger une application web dans un conteneur Docker."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Hébergement d’applications web dans Docker
 
@@ -80,7 +80,7 @@ En suivant ces procédures, vous allez créer un projet d’application web ASP.
     |Image|Choisissez une image du système d’exploitation à utiliser dans l’hôte Docker, le cas échéant. Pour cet exemple, choisissez une image Ubuntu Server. (Notez qu’une image Windows Server est désormais proposée dans la liste des images disponibles).|
     |Nom d’utilisateur|Entrez un nom d’utilisateur unique pour la machine virtuelle.|
     |Mot de passe|Entrez un mot de passe pour l’utilisateur, puis confirmez-le.|
-    |Répertoire des certificats |Spécifie le dossier où sont stockés vos certificats Docker. Vous pouvez spécifier un nouveau dossier ou un dossier existant, mais il est recommandé d’utiliser le dossier de certificats par défaut (C:\\Users\[*username*]\\.docker). Sinon, les options d’authentification ne peuvent pas être automatiquement récupérées quand vous utilisez le même hôte sur un autre projet ou système.|
+    |Répertoire des certificats |Spécifie le dossier où sont stockés vos certificats Docker. Vous pouvez spécifier un nouveau dossier ou un dossier existant, mais il est recommandé d’utiliser le dossier de certificats par défaut (C:\\Users\\[*username*]\\.docker). Sinon, les options d’authentification ne peuvent pas être automatiquement récupérées quand vous utilisez le même hôte sur un autre projet ou système.|
 
 1. Cliquez sur le bouton de sélection (...) à côté de l’entrée **Répertoire des certificats**, puis créez un dossier pour les certificats Docker ou accédez à un dossier de certificats Docker existant.
 
@@ -177,4 +177,4 @@ Pour résoudre les problèmes d’utilisation de Docker dans Visual Studio, cons
 [7]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796685.png
 [8]: ./media/vs-azure-tools-docker-hosting-web-apps-in-docker/IC796686.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

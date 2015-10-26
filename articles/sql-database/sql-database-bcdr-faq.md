@@ -7,7 +7,6 @@
    manager="jeffreyg" 
    editor="monicar"/>
 
-
 <tags
    ms.service="sql-database"
    ms.devlang="NA"
@@ -16,7 +15,6 @@
    ms.workload="data-management" 
    ms.date="07/14/2015"
    ms.author="elfish"/>
-
 
 # FAQ sur la continuité des activités
 
@@ -67,4 +65,4 @@ La géo-réplication utilise la copie continue. Par conséquent, utilisez la vue
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -83,4 +83,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [Azure Mobile Services]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -90,7 +90,7 @@ La fonctionnalité de synchronisation hors connexion des données d'Azure Mobile
 
     Le deuxième paramètre `pullWithQuery` est un ID de requête qui est utilisé pour la *synchronisation incrémentielle*. La synchronisation incrémentielle récupère uniquement les enregistrements modifiés depuis la dernière synchronisation, à l’aide de l’horodatage `UpdatedAt` de l’enregistrement (appelé `ms_updatedAt` dans le magasin local). L’ID de requête doit être une chaîne descriptive unique pour chaque requête logique de votre application. Pour refuser la synchronisation incrémentielle, passez `nil` comme ID de requête. Notez que cette opération peut ne pas être très efficace, dans la mesure où elle récupère tous les enregistrements de chaque opération d'extraction.
 
-	<!--     >[AZURE.NOTE] Pour supprimer des enregistrements du magasin local de l’appareil lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible].Sinon, votre application doit appeler périodiquement {MSSyncTable.purgeWithQuery} pour vider le magasin local.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. Dans la classe `QSTodoService`, la méthode `syncData` est appelée après les opérations qui modifient les données, `addItem` et `completeItem`. Elle est également appelée à partir de `QSTodoListViewController.refresh`, pour que l’utilisateur obtienne les données les plus récentes chaque fois qu’il effectue le mouvement d’actualisation. L’application exécute également une synchronisation au démarrage, puisque `QSTodoListViewController.init` appelle `refresh`.
@@ -226,7 +226,7 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 
     Si vous souhaitez désactiver la synchronisation incrémentielle, transmettez `nil` en tant qu’ID de requête. Dans ce cas, tous les enregistrements seront extraits à chaque appel à `pullWithQuery`, ce qui est potentiellement inefficace.
 
-<!-- * Pour supprimer des enregistrements du magasin local de l’appareil lorsqu'ils ont été supprimés dans la base de données de votre service mobile, vous devez activer la [Suppression réversible].Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Ressources supplémentaires
@@ -251,4 +251,4 @@ Lorsque nous avons voulu synchroniser le magasin local avec le serveur, nous avo
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

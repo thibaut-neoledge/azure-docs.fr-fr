@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Comparaison d’Apache Storm et d’Azure Stream Analytics #
@@ -578,7 +578,7 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
             </td>
             <td width="204" valign="top">
                 <p>
-                    Oui, en configurant des modèles Azure Machine Learning publiés en tant que fonctions lors de la création de travail&#160;ASA.
+                    En configurant des modèles Azure Machine Learning publiés en tant que fonctions lors de la création de travail&#160;ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(aperçu privé)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

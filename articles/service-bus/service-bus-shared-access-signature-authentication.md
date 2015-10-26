@@ -256,4 +256,4 @@ Pour obtenir une vue d’ensemble de SAP dans Service Bus, consultez [Signatures
 
 Pour plus de contexte au sujet de l’authentification Service Bus, consultez [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

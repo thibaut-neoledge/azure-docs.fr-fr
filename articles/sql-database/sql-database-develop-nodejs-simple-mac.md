@@ -170,4 +170,4 @@ L'exemple de code dans cette section applique des paramètres à une instruction
 		connection.execSql(request);
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

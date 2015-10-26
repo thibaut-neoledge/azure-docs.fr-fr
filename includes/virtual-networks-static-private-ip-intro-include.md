@@ -2,4 +2,4 @@ Vos machines virtuelles IaaS et instances de rôle PaaS dans un réseau virtuel 
 
 Dans certains cas, vous souhaitez qu’une machine virtuelle ou instance de rôle ait une adresse IP statique, par exemple si votre machine virtuelle doit exécuter DNS ou faire office de contrôleur de domaine. Pour ce faire, définissez une adresse IP privée statique.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -85,9 +85,48 @@ Ensuite, mettez à jour les localisateurs existants (qui font l’objet d’une 
 
 ##Étape 3 : mettre à jour les localisateurs 
 
-Après 30 minutes, vous pouvez mettre à jour les localisateurs existants afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage secondaire.
+Au bout de 30 minutes, vous pouvez recréer vos localisateurs OnDemand afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage secondaire et qu’ils conservent l’URL existante.
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[API REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Notez que lorsque vous mettez à jour (ou que vous recréez) un localisateur SAS, l’URL sera toujours modifiée.
+
+>[AZURE.NOTE]Pour vous assurer de conserver les URL existantes de vos localisateurs OnDemand, vous devez supprimer le localisateur existant et en créer un avec le même ID.
+ 
+L’exemple .NET suivant montre comment recréer un localisateur avec le même ID.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##Étape 5 : régénérer la clé d’accès de stockage primaire
 
@@ -101,9 +140,9 @@ Reprenez l’[étape 2](media-services-roll-storage-access-keys.md#step2) en sy
 
 ##Étape 7 : mettre à jour les localisateurs  
 
-Après 30 minutes, vous pouvez mettre à jour les localisateurs existants afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage primaire.
+Au bout de 30 minutes, vous pouvez recréer vos localisateurs OnDemand afin qu’ils adoptent la dépendance par rapport à la nouvelle clé de stockage principale et qu’ils conservent l’URL existante.
 
-Pour mettre à jour la date d’expiration d’un localisateur, utilisez l’[API REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) ou [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Notez que lorsque vous mettez à jour la date d’expiration d’un localisateur SAS, l’URL est modifiée.
+Utilisez la même procédure que celle décrite dans l’[étape 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
  
 ##Parcours d’apprentissage de Media Services
@@ -113,4 +152,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

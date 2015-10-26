@@ -36,4 +36,4 @@ Pour tester, utilisez la fonctionnalité « Exécuter maintenant » sur une stra
 
 > [AZURE.NOTE]Les pages de réinitialisation de mot de passe libre-service sont personnalisables à l’aide de la [fonctionnalité de personnalisation de la société](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

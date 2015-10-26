@@ -104,4 +104,4 @@ Le code s'exécutant dans une instance de rôle peut accéder à une ressource d
 
 - [Configuration d'un service cloud pour Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

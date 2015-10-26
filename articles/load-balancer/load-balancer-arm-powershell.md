@@ -251,4 +251,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

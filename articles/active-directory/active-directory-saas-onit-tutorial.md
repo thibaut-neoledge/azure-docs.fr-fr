@@ -80,7 +80,7 @@ Votre application Onit s’attend à recevoir les assertions SAML dans un format
 
 4.  Dans votre navigateur, cliquez sur **Précédent** pour ouvrir la boîte de dialogue **Démarrage rapide**.
 
-5.  Cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+5.  Cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-onit-tutorial/IC791170.png "Configurer l’authentification unique")
 
@@ -88,7 +88,7 @@ Votre application Onit s’attend à recevoir les assertions SAML dans un format
 
     ![Configurer l’authentification unique](./media/active-directory-saas-onit-tutorial/IC791171.png "Configurer l’authentification unique")
 
-7.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Onit**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Onit (par exemple, « \**https://ms-sso-test.onit.com*”), puis cliquez sur **Suivant**.
+7.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Onit**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Onit (par exemple, « **https://ms-sso-test.onit.com*”), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-onit-tutorial/IC791172.png "Configurer l’URL de l’application")
 
@@ -159,7 +159,7 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*Onit\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **Onit**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-onit-tutorial/IC791182.png "Affecter des utilisateurs")
 
@@ -167,6 +167,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-onit-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

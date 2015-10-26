@@ -410,4 +410,4 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
 			  #endregion
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

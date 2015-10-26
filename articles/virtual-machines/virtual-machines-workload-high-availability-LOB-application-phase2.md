@@ -19,7 +19,8 @@
 
 # Charge de travail des applications métier, phase 2 : configurer des contrôleurs de domaine
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+ 
 
 Dans cette phase de déploiement d'une application métier à haute disponibilité dans des services d'infrastructure Azure, vous configurez deux contrôleurs de domaine réplica dans le réseau virtuel Azure afin que les requêtes Web des clients pour les ressources Web puissent être authentifiées localement dans le réseau virtuel Azure, au lieu d'envoyer ce trafic d'authentification à travers la connexion à votre réseau local.
 
@@ -212,4 +213,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

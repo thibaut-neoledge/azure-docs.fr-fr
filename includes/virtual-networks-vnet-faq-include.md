@@ -265,4 +265,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

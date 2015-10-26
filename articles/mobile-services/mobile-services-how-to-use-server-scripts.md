@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Utilisation d'un service mobile de backend Javascript"
-	description="Fournit des exemples sur la façon de définir, enregistrer et utiliser des scripts serveurs dans Azure Mobile Services."
-	services="mobile-services"
-	documentationCenter=""
-	authors="RickSaling"
-	manager="dwrede"
+	pageTitle="Utilisation d'un service mobile de backend Javascript" 
+	description="Fournit des exemples sur la façon de définir, enregistrer et utiliser des scripts serveurs dans Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="javascript"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="javascript" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="ricksal"/>
 
 
@@ -1052,4 +1052,4 @@ Pour éviter de surcharger votre journal, il est conseillé de supprimer ou de d
 [Prise en charge de package.json dans Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

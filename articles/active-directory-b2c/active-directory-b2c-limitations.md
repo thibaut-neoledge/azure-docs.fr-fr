@@ -88,4 +88,4 @@ Si vous réinitialisez le mot de passe pour un consommateur basé sur un compte 
 
 Vous ne pourrez pas supprimer un client Azure AD B2C dans le portail Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

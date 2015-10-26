@@ -73,4 +73,4 @@ Les opérations API peuvent également retourner des informations d'erreur suppl
 
  [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

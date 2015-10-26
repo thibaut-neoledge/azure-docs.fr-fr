@@ -62,4 +62,4 @@ Ce sous-système fournit une messagerie fiable au sein du cluster et la détecti
 La testabilité est une suite d'outils conçus spécifiquement pour tester les services créés sur la plateforme Service Fabric. Les outils permettent au développeur de provoquer facilement des erreurs significatives et d'exécuter des scénarios de test pour explorer et valider les nombreux états et transitions qu'un service connaît tout au long de sa durée de vie, de manière contrôlée et sécurisée. La testabilité fournit également un mécanisme permettant de réaliser des tests de longue durée par itération dans le cadre de diverses défaillances possibles, sans aucune perte de disponibilité, offrant ainsi aux utilisateurs un environnement de test en production.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

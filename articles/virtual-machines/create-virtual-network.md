@@ -20,7 +20,7 @@
 # Didacticiel : Création d’un réseau virtuel cloud uniquement dans Azure
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
 Ce didacticiel décrit les étapes à effectuer dans le portail de gestion Azure pour créer un exemple de réseau virtuel Azure cloud uniquement qui contient deux sous-réseaux. Le réseau virtuel obtenu ressemblera à ceci :
@@ -123,4 +123,4 @@ Pour plus d'informations sur les paramètres et procédures de configuration du 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

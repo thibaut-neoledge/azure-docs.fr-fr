@@ -290,4 +290,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

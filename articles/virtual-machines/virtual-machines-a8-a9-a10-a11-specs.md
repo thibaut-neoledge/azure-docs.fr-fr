@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # À propos des instances de calcul intensif A8, A9, A10 et A11
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Cet article contient des informations et des considérations générales sur l’utilisation des instances Azure A8, A9, A10 et A11, également appelées instances de *calcul intensif*. Les fonctionnalités clés de ces instances sont les suivantes :
 
@@ -133,4 +134,4 @@ MPI | MS-MPI 2012 R2 ou ultérieur, autonome ou installé via HPC Pack 2012 R2
 * Pour déployer et configurer un cluster Linux avec des instances A8 et A9 pour accéder au réseau Azure RDMA, consultez [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](virtual-machines-linux-cluster-rdma.md).
 * Pour commencer à déployer et à utiliser des instances A8 et A9 avec HPC Pack sur Windows, consultez [Configuration d’un cluster RDMA Windows avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

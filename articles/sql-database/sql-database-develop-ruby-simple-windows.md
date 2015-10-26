@@ -131,4 +131,4 @@ Pour être en harmonie avec le format [datetime](http://msdn.microsoft.com/libra
     puts row
     end
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

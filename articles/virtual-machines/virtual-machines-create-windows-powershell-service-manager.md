@@ -21,7 +21,7 @@
 
 Cet article explique comment créer et gérer les machines virtuelles Windows à l’aide d’Azure PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une machine virtuelle Windows avec le modèle de déploiement classique. Vous pouvez également créer une machine virtuelle Windows avec le [modèle de déploiement Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-deploy-rmtemplates-powershell.md).
 
 
 
@@ -43,7 +43,7 @@ Ensuite, si vous avez plusieurs abonnements, vous devez sélectionner l’abonne
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-À présent, remplacez tous les éléments entre guillemets, y compris les caractères < and >, par le nom de l’abonnement approprié, puis exécutez ces commandes :
+À présent, remplacez tous les éléments entre guillemets, y compris les caractères < and >, par le nom de l’abonnement approprié, puis exécutez les commandes suivantes :
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
@@ -209,4 +209,4 @@ Pour attacher des disques de données à partir d’un fichier .vhd existant dan
 
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

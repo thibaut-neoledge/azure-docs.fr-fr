@@ -1,8 +1,9 @@
 <properties 
+	title="How to add a users to an elastic database pool" 
 	pageTitle="Ajout d'utilisateurs à un pool élastique de bases de données" 
 	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases credentials" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -44,4 +45,4 @@ Pour assurer la création et la gestion des tâches, consultez la rubrique [Cré
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -270,4 +270,4 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [tâche web Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [Notification Hubs : didacticiel Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

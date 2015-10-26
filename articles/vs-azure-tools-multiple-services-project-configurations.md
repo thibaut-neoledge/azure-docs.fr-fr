@@ -110,4 +110,4 @@ Pour configurer les paramètres qui s'appliquent à un projet de service cloud A
 |Développement|Sur cette page, vous pouvez spécifier des instructions de configuration de build et les conditions dans lesquelles les événements post-build s’exécutent.|
 |Web|Sur cette page, vous pouvez configurer les paramètres relatifs au serveur web.|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

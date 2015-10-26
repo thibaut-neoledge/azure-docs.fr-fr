@@ -85,4 +85,4 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

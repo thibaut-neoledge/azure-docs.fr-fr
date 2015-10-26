@@ -9,7 +9,7 @@ Les données de votre compte de stockage Microsoft Azure sont toujours répliqu
 
 	Le stockage ZRS offre un niveau de durabilité supérieur à celui du stockage LRS ; toutefois, pour une durabilité maximale, nous vous recommandons d'utiliser le stockage géo-redondant décrit ci-dessous.
 
-	> [AZURE.NOTE]Actuellement, le stockage ZRS est uniquement disponible pour les objets blob de blocs.
+	> [AZURE.NOTE]ZRS est actuellement disponible uniquement pour les objets BLOB de blocs et est pris en charge uniquement dans les versions 2014-02-14 et versions ultérieures.
 	> 
 	> Une fois votre compte de stockage créé et la réplication ZRS sélectionné, vous ne pouvez plus revenir en arrière et choisir un autre type de réplication (ou inversement).
 
@@ -26,4 +26,4 @@ Pour plus d’informations sur la tarification relative à la réplication du co
 
 Pour plus d’informations sur la durabilité avec Azure Storage, consultez la page [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

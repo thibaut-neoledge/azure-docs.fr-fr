@@ -36,4 +36,4 @@ Pour plus d'informations sur la configuration logicielle requise et sur l’inst
 ## Étapes suivantes
 [Éditions d’Azure Active Directory](active-directory-editions.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

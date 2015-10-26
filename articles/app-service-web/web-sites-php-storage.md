@@ -46,7 +46,7 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
 
 2. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :
 
-		{
+         {
              "repositories": [
                  {
                      "type": "pear",
@@ -59,7 +59,7 @@ Pour installer manuellement les bibliothèques clientes PHP pour Azure via Compo
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. Téléchargez **[composer.phar][composer-phar]** à la racine du projet.
 
@@ -431,4 +431,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -70,4 +70,4 @@ Cette procédure explique pas à pas comment configurer un réseau virtuel et un
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -250,9 +250,9 @@ Lors de l'approvisionnement d'un cluster HDInsight, un compte Azure Storage et 
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE] Seule la syntaxe **wasb://* est prise en charge dans la version 3.0 du cluster HDInsight. L'ancienne syntaxe **asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
+> [AZURE.NOTE]Seule la syntaxe **wasb://* est prise en charge dans la version 3.0 du cluster HDInsight. L'ancienne syntaxe **asv://* est prise en charge dans les clusters HDInsight 2.1 et 1.6, mais elle n’est pas prise en charge dans les clusters HDInsight 3.0.
 
-> [AZURE.NOTE] Le chemin d'accès wasb:// est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
+> [AZURE.NOTE]Le chemin d'accès wasb:// est un chemin d'accès virtuel. Pour plus d'informations, consultez la rubrique [Utilisation du stockage d'objets blob Azure avec HDInsight][hdinsight-storage].
 
 Vous pouvez accéder à un fichier stocké dans le conteneur du système de fichiers par défaut à partir de HDInsight en utilisant l'un des URI suivants (workflow.xml est utilisé comme exemple) :
 
@@ -285,7 +285,7 @@ Pour plus d'informations, consultez la rubrique [HDInsight : introduction aux t
 
 	Vous êtes invité à entrer les informations d'identification de votre compte Azure. Cette méthode d'ajout d'une connexion à un abonnement expire ; 12 heures plus tard, vous devez à nouveau exécuter la cmdlet.
 
-	> [AZURE.NOTE] Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l'abonnement défini par défaut, utilisez la cmdlet <strong>Select-AzureSubscription</strong> pour sélectionner un abonnement.
+	> [AZURE.NOTE]Si vous disposez de plusieurs abonnements Azure et que vous ne souhaitez pas utiliser l'abonnement défini par défaut, utilisez la cmdlet <strong>Select-AzureSubscription</strong> pour sélectionner un abonnement.
 
 3. Copiez le script suivant dans le volet de script, puis définissez les six premières variables :
 
@@ -516,7 +516,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 		</configuration>
 		"@
 
-	>[AZURE.NOTE] La principale différence avec le fichier de charge utile d'envoi du workflow est la variable **oozie.coord.application.path**. Lors de l'envoi d'une tâche de workflow, vous utilisez **oozie.wf.application.path**.
+	>[AZURE.NOTE]La principale différence avec le fichier de charge utile d'envoi du workflow est la variable **oozie.coord.application.path**. Lors de l'envoi d'une tâche de workflow, vous utilisez **oozie.wf.application.path**.
 
 4. Ajoutez ce qui suit au script. Cette partie vérifie l'état du service Web Oozie :
 
@@ -554,7 +554,7 @@ Azure PowerShell ne fournit actuellement aucune cmdlet pour la définition de t�
 		    return $oozieJobId
 		}
 
-	> [AZURE.NOTE] Lors de l'envoi d'une tâche de workflow, vous devez passer un autre appel de services web pour démarrer la tâche une fois qu'elle est créée. Dans ce cas, la tâche du coordinateur est déclenchée par l'heure. La tâche va démarrer automatiquement.
+	> [AZURE.NOTE]Lors de l'envoi d'une tâche de workflow, vous devez passer un autre appel de services web pour démarrer la tâche une fois qu'elle est créée. Dans ce cas, la tâche du coordinateur est déclenchée par l'heure. La tâche va démarrer automatiquement.
 
 6. Ajoutez ce qui suit au script : Cette partie vérifie le statut de la tâche Oozie :
 
@@ -738,4 +738,4 @@ Dans ce didacticiel, vous avez appris à définir un workflow Oozie et un coordi
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

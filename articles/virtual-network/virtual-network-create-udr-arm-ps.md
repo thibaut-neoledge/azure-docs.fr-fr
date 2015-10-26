@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/30/2015"
+   ms.date="10/08/2015"
    ms.author="telmos" />
 
 #Création d'itinéraires définis par l'utilisateur (UDR) dans PowerShell
@@ -34,34 +34,24 @@ Les exemples de commandes PowerShell ci-dessous supposent qu’un environnement 
 ## Création des itinéraires définis par l'utilisateur pour le sous-réseau frontal
 Pour créer la table de routage et l'itinéraire nécessaires pour le sous-réseau frontal selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-2. À partir d'une invite de commandes Azure PowerShell, exécutez l'applet de commande **`Switch-AzureMode`** pour passer en mode Resource Manager, comme illustré ci-dessous.
+3. Créez un itinéraire pour que tout le trafic destiné au sous-réseau Backend (192.168.2.0/24) soit acheminé vers l’équipement virtuel **FW1** (192.168.0.4).
 
-		Switch-AzureMode AzureResourceManager
-	
-	Sortie attendue :
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]L’applet de commande Switch-AzureMode sera bientôt obsolète. Lorsque ce sera le cas, toutes les applets de commande Resource Manager seront renommées.
-
-3. Créez un itinéraire pour que tout le trafic destiné au sous-réseau Backend (192.168.2.0/24) soit acheminé vers l'appliance virtuelle **FW1** (192.168.0.4).
-
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRMRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
-4. Créez une table de routage nommée **UDR-FrontEnd** dans la région **westus** qui contient l'itinéraire créé ci-dessus.
+4. Créez une table de routage nommée **UDR-FrontEnd** dans la région **westus** qui contient l’itinéraire créé ci-dessus.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Créez une variable qui contient le réseau virtuel où se situe le sous-réseau. Dans notre scénario, le réseau virtuel est nommé **TestVNet**.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associez la table de routage créée ci-dessus au sous-réseau **FrontEnd**.
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 	Sortie attendue :
@@ -69,8 +59,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : westus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mic
-		                    rosoft.Network/virtualNetworks/TestVNet
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
 		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
 		ProvisioningState : Succeeded
 		Tags              : 
@@ -91,27 +80,22 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 								...,
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/pr
-		                    oviders/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestR
-		                    G/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConfigurations/ipconfig1"
 		                          },
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestR
-		                    G/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConfigurations/ipconfig1"
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/
-		                    providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-BackEnd"
 		                        },
 		                        "RouteTable": {
-		                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/
-		                    providers/Microsoft.Network/routeTables/UDR-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-FrontEnd"
 		                        },
 		                        "ProvisioningState": "Succeeded"
 		                      },
@@ -121,20 +105,20 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 ## Création des itinéraires définis par l'utilisateur (UDR) pour le sous-réseau Backend
 Pour créer la table de routage et l'itinéraire nécessaires pour le sous-réseau Backend selon le scénario ci-dessus, suivez les étapes ci-dessous.
 
-1. Créez un itinéraire pour que tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) soit acheminé vers l'appliance virtuelle **FW1** (192.168.0.4).
+1. Créez un itinéraire pour que tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) soit acheminé vers l’équipement virtuel **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRMRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
-4. Créez une table de routage nommée **UDR-BackEnd** dans la région **uswest** qui contient l'itinéraire créé ci-dessus.
+4. Créez une table de routage nommée **UDR-BackEnd** dans la région **uswest** qui contient l’itinéraire créé ci-dessus.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRMRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associez la table de routage créée ci-dessus au sous-réseau **BackEnd**.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRMVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 	Sortie attendue :
@@ -142,9 +126,8 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : westus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Mic
-		                    rosoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              : 
 		                    Name         Value
@@ -164,52 +147,46 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 		                      ...,
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/"7df26c0e-652f-4754-bc4e-733fef7d5b2b"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/pr
-		                    oviders/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestR
-		                    G/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL2/ipConfigurations/ipconfig1"
 		                          },
 		                          {
-		                            "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestR
-		                    G/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
+		                            "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICSQL1/ipConfigurations/ipconfig1"
 		                          }
 		                        ],
 		                        "NetworkSecurityGroup": {
-		                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/
-		                    providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkSecurityGroups/NSG-FrontEnd"
 		                        },
 		                        "RouteTable": {
-		                          "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/
-		                    providers/Microsoft.Network/routeTables/UDR-BackEnd"
+		                          "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/routeTables/UDR-BackEnd"
 		                        },
 		                        "ProvisioningState": "Succeeded"
 		                      }
 		                    ]
 
 ## Activer le transfert IP sur FW1
-Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
+Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez les étapes ci-dessous.
 
 1. Créez une variable qui contient les paramètres de la carte réseau utilisée par FW1. Dans notre scénario, la carte réseau est nommée **NICFW1**.
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRMNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Activez le transfert IP et enregistrez les paramètres de la carte réseau.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRMNetworkInterface -NetworkInterface $nicfw1
 
 	Sortie attendue :
 
 		Name                 : NICFW1
 		ResourceGroupName    : TestRG
 		Location             : westus
-		Id                   : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/
-		                       Microsoft.Network/networkInterfaces/NICFW1
-		Etag                 : W/"e0f9adc0-d8bf-4def-beab-5ed3e1305c9a"
+		Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1
+		Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState    : Succeeded
 		Tags                 : 
 		                       Name         Value                  
@@ -217,24 +194,20 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		                       displayName  NetworkInterfaces - DMZ
 		                       
 		VirtualMachine       : {
-		                         "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/p
-		                       roviders/Microsoft.Compute/virtualMachines/FW1"
+		                         "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/FW1"
 		                       }
 		IpConfigurations     : [
 		                         {
 		                           "Name": "ipconfig1",
-		                           "Etag": "W/"e0f9adc0-d8bf-4def-beab-5ed3e1305c9a"",
-		                           "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
-		                       /providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
+		                           "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                           "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICFW1/ipConfigurations/ipconfig1",
 		                           "PrivateIpAddress": "192.168.0.4",
 		                           "PrivateIpAllocationMethod": "Static",
 		                           "Subnet": {
-		                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/Test
-		                       RG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
+		                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/DMZ"
 		                           },
 		                           "PublicIpAddress": {
-		                             "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/Test
-		                       RG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
+		                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/PIPFW1"
 		                           },
 		                           "LoadBalancerBackendAddressPools": [],
 		                           "LoadBalancerInboundNatRules": [],
@@ -251,4 +224,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

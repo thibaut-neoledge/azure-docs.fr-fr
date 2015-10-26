@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Activation de l’écriture différée des appareils dans Azure AD Connect" 
-	description="Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="msStevenPo" 
+<properties
+	pageTitle="Activation de l’écriture différée des appareils dans Azure AD Connect | Microsoft Azure"
+	description="Ce document explique comment activer l’écriture différée des appareils à l’aide d’Azure AD Connect"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="StevenPo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="billmath"/>
 
@@ -62,7 +62,7 @@ Description :
 Paramètres :
 
 
-- DomainName : domaine Active Directory où les objets d’appareil seront créés. Remarque : tous les appareils pour une forêt Active Directory donnée seront créés dans un domaine unique. 
+- DomainName : domaine Active Directory où les objets d’appareil seront créés. Remarque : tous les appareils pour une forêt Active Directory donnée seront créés dans un domaine unique.
 
 
 - AdConnectorAccount : compte Active Directory qui servira à Azure AD Connect pour gérer des objets dans le répertoire.
@@ -83,17 +83,18 @@ Des instructions détaillées pour activer ce scénario sont disponibles dans [C
 
 ## Vérifier la synchronisation des appareils avec Active Directory
 L’écriture différée des appareils doit désormais fonctionner correctement. Sachez que la réécriture des objets d’appareil dans AD peut prendre jusqu’à 3 heures. Pour vérifier que vos appareils sont correctement synchronisés, procédez comme suit après la fin des règles de synchronisation :
- 
-1.	Lancez le Centre d’administration Active Directory. 
+
+1.	Lancez le Centre d’administration Active Directory.
 2.	Développez RegisteredDevices au sein du domaine en cours de fédération. ![Installation personnalisée](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement. 
+3.	Les appareils enregistrés actuels sont répertoriés à cet emplacement.
 
 ![Installation personnalisée](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
-## Informations supplémentaires 
-
-
+## Informations supplémentaires
 - [Gestion des risques avec accès conditionnel](active-directory-conditional-access.md)
 - [Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-<!---HONumber=Sept15_HO3-->
+## Étapes suivantes
+En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

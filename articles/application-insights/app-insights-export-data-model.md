@@ -1081,4 +1081,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

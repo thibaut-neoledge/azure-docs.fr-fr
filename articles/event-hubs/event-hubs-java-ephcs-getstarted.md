@@ -119,4 +119,4 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

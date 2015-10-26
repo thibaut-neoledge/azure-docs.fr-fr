@@ -299,4 +299,4 @@ Le code du canal de persistance est sur [github](https://github.com/Microsoft/Ap
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

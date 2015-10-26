@@ -48,4 +48,4 @@ Même dans le cadre des applications logiques, vous pouvez utiliser votre propre
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

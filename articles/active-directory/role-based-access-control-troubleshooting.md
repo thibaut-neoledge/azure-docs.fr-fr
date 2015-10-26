@@ -82,4 +82,4 @@ Les machines virtuelles ont les ressources associées suivantes : * Noms de dom
 
 Si vous n'accédez à aucune de ces vignettes, vous devez obtenir auprès de votre administrateur l'accès Collaborateur au groupe de ressources.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

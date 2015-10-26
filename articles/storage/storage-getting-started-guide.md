@@ -107,4 +107,4 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

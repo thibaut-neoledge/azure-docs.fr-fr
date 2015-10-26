@@ -44,4 +44,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

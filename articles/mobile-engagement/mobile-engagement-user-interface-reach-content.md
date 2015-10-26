@@ -50,7 +50,7 @@ Toute URL qui peut être interprétée par le système d'exploitation d'un appar
 
 - **Actions Android et iOS**
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
@@ -74,7 +74,7 @@ Toute URL qui peut être interprétée par le système d'exploitation d'un appar
     - Exemple :http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Actions Windows
     - Ouvrir une page Web
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Exemple :http://www.azure.com
     - Envoyer un courrier électronique
     - mailto:[destinataire-e-mail]?subject=[objet]&body=[message] 
@@ -230,4 +230,4 @@ La charge utile de la vignette correspond au texte qui s'affichera dans la vigne
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

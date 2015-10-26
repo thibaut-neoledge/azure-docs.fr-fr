@@ -7,4 +7,4 @@
 | | [Sécuriser une API web NodeJS](active-directory-b2c-devquickstarts-api-node.md) | Daemons côté serveur (bientôt disponible) |
 | | [Appeler une API web à partir d’une application web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Daemons côté serveur (bientôt disponible) |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

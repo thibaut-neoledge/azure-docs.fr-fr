@@ -169,4 +169,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

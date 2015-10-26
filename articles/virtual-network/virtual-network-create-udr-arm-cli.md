@@ -191,4 +191,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez 
 
 	- **-f (ou --enable-ip-forwarding)**. *true* ou *false*.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

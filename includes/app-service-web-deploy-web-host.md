@@ -15,4 +15,4 @@ Crée le plan de service pour l'hébergement de l'application web. Vous fourniss
        }
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

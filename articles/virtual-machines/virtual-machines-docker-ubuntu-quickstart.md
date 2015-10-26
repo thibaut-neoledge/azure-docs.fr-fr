@@ -18,7 +18,8 @@
 
 # Prise en main rapide de Docker dans Azure Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+ 
 
 Le moyen le plus rapide pour se familiariser avec [Docker] consiste à accéder à Microsoft Azure Marketplace et à créer une machine virtuelle à l’aide du modèle d’image **Docker on Ubuntu Server**, créé par [Canonical] conjointement avec [MSOpenTech]. Ceci permet de créer une machine virtuelle du serveur Ubuntu et d’installer automatiquement l’[extension de machine virtuelle Docker](virtual-machines-docker-vm-extension.md), ainsi que le **dernier** moteur Docker pré-installé et exécuté sur Microsoft Azure.
 
@@ -77,4 +78,4 @@ L’idéal est de commencer en utilisant [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

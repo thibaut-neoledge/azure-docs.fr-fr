@@ -70,4 +70,4 @@ Supposons maintenant que John Doe doit se connecter au portail de gestion Azure 
 ##Étapes suivantes
 Pour plus d'informations sur la relation entre les annuaires et les abonnements, consultez [Association des abonnements Azure avec Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -12,4 +12,4 @@
 La page **Stratégies de sauvegarde** affiche la nouvelle liste des stratégies.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

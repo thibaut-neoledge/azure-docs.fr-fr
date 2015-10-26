@@ -90,4 +90,4 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Connexion des utilisateurs à l'aide d'Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

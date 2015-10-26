@@ -109,4 +109,4 @@ Vous devez prendre en compte les considérations supplémentaires suivantes pour
 - [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - [Création ou importation d'un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

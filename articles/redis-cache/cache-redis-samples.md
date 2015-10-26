@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Exemples de Cache Redis Azure"
-	description="Découvrez comment utiliser le Cache Redis Azure"
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Exemples de Cache Redis Azure" 
+	description="Découvrez comment utiliser le Cache Redis Azure" 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Exemples de Cache Redis Azure 
@@ -75,4 +75,4 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

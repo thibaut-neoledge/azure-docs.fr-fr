@@ -120,4 +120,4 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

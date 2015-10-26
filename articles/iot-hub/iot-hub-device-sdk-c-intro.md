@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Présentation du kit de développement logiciel (SDK) d’appareil Azure IoT pour C"
-	description="Découvrez et commencez à utiliser l’exemple de code dans le kit de développement logiciel d’appareil Azure IoT pour C"
+	pageTitle="Utilisation du Kit de développement logiciel (SDK) d’appareil Azure IoT pour C | Microsoft Azure"
+	description="Découvrez et commencez à utiliser l’exemple de code dans le Kit de développement logiciel d’appareil Azure IoT pour C."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/30/2015"
      ms.author="michelb"/>
 
@@ -455,4 +455,4 @@ Chacune de ces trois fonctions s’aligne sur les trois fonctions d’initialisa
 
 Cet article aborde les principes fondamentaux de l’utilisation des bibliothèques dans le **kit de développement logiciel du périphérique Azure IoT pour C**. Il devrait vous fournir suffisamment d’informations pour comprendre ce qui est inclus dans le kit de développement logiciel, son architecture et la façon d’utiliser avec les exemples Windows. Le prochain article poursuit la description du kit de développement logiciel en approfondissant les explications relatives à [la bibliothèque IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

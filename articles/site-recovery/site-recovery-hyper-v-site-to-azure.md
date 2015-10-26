@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="09/29/2015"
+	ms.date="10/12/2015"
 	ms.author="raynew"/>
 
 
@@ -49,11 +49,11 @@ Avant de commencer, assurez-vous que tout est en place.
 - Sur le site local source, vous devez disposer d’au moins un serveur exécutant Windows Server 2012 R2 avec le rôle Hyper-V.
 - Le serveur Hyper-V doit contenir une ou plusieurs machines virtuelles.
 - Les serveurs Hyper-V doivent être connectés à Internet, directement ou via un proxy.
-- Les correctifs mentionnés dans le document [KB2961977](https://support.microsoft.com/fr-fr/kb/2961977 "KB2961977") doivent être installés sur les serveurs Hyper-V.
+- Les correctifs mentionnés dans le document [KB2961977](https://support.microsoft.com/fr-FR/kb/2961977 "KB2961977") doivent être installés sur les serveurs Hyper-V.
 
 ### Configuration requise pour les machines virtuelles
 
-Les machines virtuelles à protéger doivent répondre à la [configuration requise des machines virtuelles](site-recovery-best-practices.md/#virtual-machines).
+Les machines virtuelles à protéger doivent répondre à la [configuration requise pour les machines virtuelles](site-recovery-best-practices.md#virtual-machines).
 
 ### Conditions préalables requises par les fournisseurs et les agents
 
@@ -62,11 +62,11 @@ Dans le cadre du déploiement de Microsoft Azure Site Recovery, vous allez inst
 - Vous devez exécuter la dernière version de ce fournisseur et de cet agent.
 - Tous les serveurs Hyper-V d’un coffre doivent présenter la même version.
 - Le fournisseur devra se connecter à Microsoft Azure Site Recovery via Internet. Vous pouvez décider d’effectuer cette action sans proxy, au moyen des paramètres de proxy actuellement configurés sur le serveur VMM, ou via les paramètres de proxy personnalisés que vous avez configurés lors de l’installation du fournisseur. Pour utiliser un serveur proxy existant, vérifiez que les URL de connexion à Microsoft Azure sont autorisées à traverser le pare-feu :
-	- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+	- *.hypervrecoverymanager.windowsazure.com
+	- *.accesscontrol.windows.net
+	- *.backup.windowsazure.com
+	- *.blob.core.windows.net
+	- *.store.core.windows.net
  
 - Pour utiliser un proxy personnalisé, configurez le serveur proxy avant l’installation du fournisseur. Lors de la configuration du fournisseur, vous devez indiquer l’adresse et le port du serveur proxy et saisir les informations d’identification utilisées pour l’accès. Notez que HTTPS basé sur proxy n’est pas pris en charge.
 
@@ -145,11 +145,11 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 	- Si le proxy par défaut se trouvant sur le serveur Hyper-V nécessite une authentification, vous devez opter pour l’utilisation d’un serveur proxy personnalisé. Saisissez les informations de proxy par défaut et spécifiez les informations d’identification.
 	- Si vous souhaitez utiliser un serveur proxy personnalisé, configurez-le avant d’installer le fournisseur.
 	- Les URL suivantes doivent être accessibles à partir de l'hôte Hyper-V.
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- Autorisez les adresses IP décrites dans la zone [Étendues d’adresses IP du centre de données Azure](http://go.microsoft.com/fwlink/?LinkId=511094) et le protocole HTTPS (443). Vous devez autoriser les plages IP de la région Microsoft Azure que vous prévoyez d’utiliser, ainsi que celles de la région ouest des États-Unis.
 
@@ -192,7 +192,7 @@ Installez le fournisseur et l’agent. Si vous les installez sur un cluster Hype
 	> - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
 	> - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
 
->[AZURE.TIP]Vous pouvez configurer chacun des hôtes Hyper-V individuellement afin d’utiliser des paramètres de bande passante réseau différents pour répliquer les machines virtuelles vers Azure. En savoir plus sur la [Gestion de l’utilisation de la bande passante réseau de protection d’un serveur local vers Azure](https://support.microsoft.com/fr-fr/kb/3056159)
+>[AZURE.TIP]Vous pouvez configurer chacun des hôtes Hyper-V individuellement afin d’utiliser des paramètres de bande passante réseau différents pour répliquer les machines virtuelles vers Azure. En savoir plus sur la [Gestion de l’utilisation de la bande passante réseau de protection d’un serveur local vers Azure](https://support.microsoft.com/fr-FR/kb/3056159)
 
 
 ## Étape 4 : Créer des ressources Microsoft Azure
@@ -270,14 +270,10 @@ Il existe deux manières d’exécuter un test de basculement vers Azure.
 - Tester le basculement sans réseau Azure : ce type de test de basculement vérifie que la machine virtuelle s’affiche correctement dans Azure. La machine virtuelle ne sera connectée à aucun réseau Azure après le basculement.
 - Tester le basculement avec un réseau Azure : ce type de basculement vérifie que l’ensemble de l’environnement de réplication s’affiche comme prévu et qu’après le basculement les machines virtuelles seront connectées au réseau Azure cible spécifié. Pour la gestion de sous-réseau, pour le test de basculement le sous-réseau de la machine virtuelle test sera déterminé en fonction du sous-réseau de la machine virtuelle de réplication. Ceci diffère de la réplication normale, selon laquelle le sous-réseau d’une machine virtuelle de réplication est basé sur le sous-réseau de la machine virtuelle source.
 
-Si vous souhaitez exécuter un test de basculement pour une machine virtuelle activée pour la protection dans Azure sans spécifier de réseau Azure cible, vous n’avez pas besoin de rien préparer. Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure) et configurer l’infrastructure pour que la machine virtuelle répliquée fonctionne comme prévu. Par exemple, une machine virtuelle sur laquelle le contrôleur de domaine et DNS sont installés peut être répliquée sur Microsoft Azure via Microsoft Azure Site Recovery et peut être créée dans le réseau de test, via le test de basculement. Pour exécuter un test de basculement, procédez comme suit :
+Si vous souhaitez exécuter un test de basculement pour une machine virtuelle activée pour la protection dans Azure sans spécifier de réseau Azure cible, vous n’avez pas besoin de rien préparer. Pour exécuter un test de basculement avec un réseau Azure cible, vous devez créer un réseau Azure isolé de votre réseau de production Azure (comportement par défaut quand vous créez un réseau dans Azure). Découvrez comment [exécuter un test de basculement](site-recovery-failover.md#run-a-test-failover) pour plus de détails.
 
 
-1. Effectuez un test de basculement de la machine virtuelle avec le contrôleur de domaine et DNS, dans le même réseau que celui que vous utiliserez pour le test de basculement réel de la machine virtuelle locale.
-2. Notez les adresses IP allouées à la machine virtuelle DNS soumise au basculement.
-3. Sur le réseau virtuel Microsoft Azure qui sera utilisé pour le basculement, ajoutez l’adresse IP en tant qu’adresse du serveur DNS.
-4. Exécutez le test de basculement des machines virtuelles locales sources, en spécifiant le réseau de test Microsoft Azure.
-5. Après avoir vérifié que le test de basculement a fonctionné comme prévu, signalez qu’il a abouti pour le plan de récupération, puis pour le contrôleur de domaine et les machines virtuelles DNS.
+Vous devez également configurer l’infrastructure pour que la machine virtuelle répliquée fonctionne comme prévu. Par exemple, une machine virtuelle sur laquelle le contrôleur de domaine et DNS sont installés peut être répliquée sur Microsoft Azure via Microsoft Azure Site Recovery et peut être créée dans le réseau de test, via le test de basculement. Consultez la rubrique [Considérations en matière de test de basculement](site-recovery-active-directory.md#considerations-for-test-failover) pour plus de détails.
 
 Pour exécuter le test de basculement, procédez comme suit :
 
@@ -309,4 +305,4 @@ Pour exécuter le test de basculement, procédez comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -60,4 +60,4 @@ Dans votre base de données, définissez le type de table portant le même nom q
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

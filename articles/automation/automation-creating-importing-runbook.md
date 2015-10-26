@@ -131,4 +131,4 @@ Vous pouvez utiliser l’applet de commande [Publish-AzureAutomationRunbook](htt
 - [Modifier des runbooks textuels dans Azure Automation](automation-edit-textual-runbook.md)
 - [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

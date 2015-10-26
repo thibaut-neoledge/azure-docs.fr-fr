@@ -86,4 +86,4 @@ Cette version ne contient aucune mise à jour pour le microprogramme ou le contr
 Cette version ne contient aucune mise à jour pour l’appareil virtuel. L’installation de cette mise à jour ne modifie pas la version logicielle de l’appareil virtuel.
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

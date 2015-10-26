@@ -98,4 +98,4 @@ Le panneau de détails affiche les informations disponibles relatives à l’op�
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

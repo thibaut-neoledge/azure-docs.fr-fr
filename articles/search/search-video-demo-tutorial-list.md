@@ -91,4 +91,4 @@ Sur CodePlex, vous trouverez plusieurs exemples publiés à l’occasion de la p
 - [**SQL Server to Azure Search Sync Sample**](http://sqlserver2azuresearch.codeplex.com/) est une application de console Windows qui charge un ensemble de lignes SQL Server à partir d’une base de données locale intégrée.
 - [**Scoring Profiles Demo**](https://azuresearchscoringprofiles.codeplex.com/) est une application de console Windows qui définit, exécute et met à jour un profil de score pour le paramétrage des résultats de la recherche.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

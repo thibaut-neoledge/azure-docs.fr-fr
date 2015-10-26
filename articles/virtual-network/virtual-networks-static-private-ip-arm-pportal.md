@@ -97,4 +97,4 @@ Pour supprimer l’adresse IP privée statique de la machine virtuelle créée c
 - En savoir plus sur les [adresses IP publiques de niveau d’instance](../virtual-networks-instance-level-public-ip).
 - Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

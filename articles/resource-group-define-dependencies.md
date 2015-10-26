@@ -62,4 +62,4 @@ Pour plus d’informations, consultez la section [fonction de référence](../re
 - Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez la section [Création de modèles](resource-group-authoring-templates.md). 
 - Pour obtenir la liste des fonctions disponibles dans un modèle, consultez la section [Fonctions de modèle](resource-group-template-functions.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

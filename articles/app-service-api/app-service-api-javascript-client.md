@@ -36,7 +36,7 @@ En règle générale, CORS (Cross-Origin Resource Sharing) est nécessaire dans 
 
 ### Activation de CORS pour les passerelles d'application API
 
-Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
+Les passerelles des applications API peuvent être configurées pour activer CORS à l’aide du portail Microsoft Azure en version préliminaire. En ajoutant l'*appSetting* **MS\_CrossDomainOrigins**, vous pouvez spécifier les URL qui sont autorisées à appeler votre application API. Cette section explique comment utiliser cet *appSetting* pour activer CORS au niveau de la passerelle d'API.
 
 1. Accédez au panneau du portail Azure en version préliminaire de l'application API pour laquelle vous voulez activer CORS. Une fois dans ce panneau, cliquez sur l'icône *Passerelle* pour votre application API. 
 
@@ -54,7 +54,7 @@ Les passerelles des applications API peuvent être configurées pour activer CO
 
 	![Paramètres de l'application de passerelle](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Ajoutez le paramètre d'application **MS_CrossDomainOrigins**. Affectez comme valeur du paramètre la liste (séparée par des virgules) des hôtes HTTP auxquels vous voulez donner accès à votre application API. Si vous voulez fournir un accès à plusieurs hôtes, la valeur de l'*appSetting* peut être définie avec un code similaire au code ci-dessous.
+1. Ajoutez le paramètre d'application **MS\_CrossDomainOrigins**. Affectez comme valeur du paramètre la liste (séparée par des virgules) des hôtes HTTP auxquels vous voulez donner accès à votre application API. Si vous voulez fournir un accès à plusieurs hôtes, la valeur de l'*appSetting* peut être définie avec un code similaire au code ci-dessous.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,7 +66,7 @@ Les passerelles des applications API peuvent être configurées pour activer CO
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-Le paramètre d'application **MS_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
+Le paramètre d'application **MS\_CrossDomainOrigins** est décrit en détail dans le billet de blog [Mises à jour de .NET pour Azure Mobile Services](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/). Consultez donc ce billet pour plus d'informations sur les détails du paramètre.
 
 ### Activation de CORS dans du code Web API
 
@@ -80,7 +80,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 	![apiapp.JSON et les métadonnées dans l'Explorateur de solutions](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Ouvrez le fichier *App_Start/WebApiConfig.cs*. Ajoutez la ligne de code ci-dessous à la méthode **Register** de la classe **WebApiConfig** dans le fichier.
+1. Ouvrez le fichier *App\_Start/WebApiConfig.cs*. Ajoutez la ligne de code ci-dessous à la méthode **Register** de la classe **WebApiConfig** dans le fichier.
 
 		config.EnableCors();
 
@@ -310,7 +310,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
             $scope.refresh();
         });
 
- Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
+1, Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
 
 	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
 
@@ -371,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -27,7 +27,8 @@ Ce didacticiel explique comment héberger un site web Ruby on Rails sur Azure �
 
 Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous utilisez une distribution Linux différente, vous devrez peut-être modifier les étapes pour installer Rails.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 ## Création d’une machine virtuelle Azure
 
@@ -174,4 +175,4 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

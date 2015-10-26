@@ -80,4 +80,4 @@ Les termes suivants sont définis pour les outils de base de données élastique
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

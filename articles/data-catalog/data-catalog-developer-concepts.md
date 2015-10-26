@@ -1,20 +1,20 @@
 <properties
    pageTitle="Concepts de développeur Azure Data Catalog"
-	description="Présentation des concepts clés du modèle conceptuel d’Azure Data Catalog, tels qu’ils sont exposés via l’API REST Catalog."
-	services="data-catalog"
-	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Présentation des concepts clés du modèle conceptuel d’Azure Data Catalog, tels qu’ils sont exposés via l’API REST Catalog."
+   services="data-catalog"
+   documentationCenter=""
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags 
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="07/13/2015"
+   ms.author="derrickv"/>
 
 # Concepts de développeur Azure Data Catalog
 
@@ -258,4 +258,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

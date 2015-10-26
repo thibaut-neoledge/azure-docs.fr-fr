@@ -179,4 +179,4 @@ Pour en savoir plus sur les objets blob, les tables et les files d’attente, su
 [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

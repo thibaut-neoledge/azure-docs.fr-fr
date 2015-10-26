@@ -7,7 +7,6 @@
 	manager="swadhwa"
 	editor=""/>
 
-
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
@@ -16,7 +15,6 @@
 	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="markusvi"/>
-
 
 
 # Personnalisation des mappages d’attributs
@@ -92,4 +90,4 @@ Microsoft Azure AD fournit une implémentation très efficace d’un processus d
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

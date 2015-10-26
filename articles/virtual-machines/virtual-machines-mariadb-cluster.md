@@ -19,7 +19,8 @@
 
 # Cluster MariaDB (MySQL) - Didacticiel Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’un cluster MariaDB avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 Nous créons un cluster [Galera](http://galeracluster.com/products/) multimaîtres de [MariaDB](https://mariadb.org/en/about/), un remplacement de dernière minute solide, évolutif et fiable pour MySQL, qui fonctionnera dans un environnement à haute disponibilité dans des machines virtuelles Azure.
 
@@ -372,4 +373,4 @@ Vous souhaiterez peut-être étudier [une autre façon de mettre MySQL en cluste
 [problème n° 1268 dans les outils d'interface de ligne de commande Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [une autre façon de mettre MySQL en cluster sur Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -48,4 +48,4 @@ L’objectif de cette rubrique est de présenter les étapes que vous devez effe
 
 * [Comment puis-je détecter les applications cloud non approuvées utilisées au sein de mon organisation ?](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

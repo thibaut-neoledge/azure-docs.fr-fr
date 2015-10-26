@@ -1,10 +1,10 @@
 <properties
- pageTitle="Qu’est-ce qu’IoT Hub Azure ? | Microsoft Azure"
- description="Une vue d’ensemble du service Azure IoT Hub, et notamment de la connectivité de l’appareil, des schémas de communication et du schéma de communication de service assistée"
+ pageTitle="Présentation d’IoT Hub Azure | Microsoft Azure"
+ description="Une vue d’ensemble du service Azure IoT Hub, et notamment de la connectivité de l’appareil, des schémas de communication et du schéma de communication de service assistée."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # Qu’est-ce qu’Azure IoT Hub ?
 
- Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. Azure IoT Hub propose une messagerie « appareil vers cloud » et « cloud vers appareil » à grande échelle extensible et fiable, garantit la sécurité des communications grâce au contrôle d’accès et aux informations d’identification de sécurité par appareil, et offre des bibliothèques de périphériques pour les plateformes et les langages les plus répandus.
+Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. Azure IoT Hub propose une messagerie « appareil vers cloud » et « cloud vers appareil » à grande échelle extensible et fiable, garantit la sécurité des communications grâce au contrôle d’accès et aux informations d’identification de sécurité par appareil, et offre des bibliothèques de périphériques pour les plateformes et les langages les plus répandus.
 
 ![IoT Hub comme passerelle cloud ?][img-architecture]
 
@@ -92,11 +92,11 @@ Pour en savoir plus sur Azure IoT Hub, consultez ces liens :
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Prise en main d’IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Langages et plateformes d’appareils pris en charge]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Centre de développement Azure IoT]: http://www.azure.com/iotdev
+[Centre de développement Azure IoT]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Communication de service assistée, billet de blog de Clemens Vasters"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

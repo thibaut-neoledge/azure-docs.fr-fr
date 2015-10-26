@@ -1,20 +1,20 @@
 <properties
    pageTitle="Vue d’ensemble technique"
-	description="Une vue d’ensemble technique de Service Fabric. Traite des concepts clés et présente une vue d’ensemble architecturale."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="chackdan;subramar"/>
+   description="Une vue d’ensemble technique de Service Fabric. Traite des concepts clés et présente une vue d’ensemble architecturale."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="msfussell"
+   manager="timlt"
+   editor="chackdan;subramar"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Vue d'ensemble technique de Service Fabric
 
@@ -54,4 +54,4 @@ Pour en savoir plus sur Service Fabric, consultez les pages suivantes :
 - [Scénarios d’application](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

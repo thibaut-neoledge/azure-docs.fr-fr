@@ -1,11 +1,11 @@
 <properties
    pageTitle="Restaurer des données sur un serveur Windows ou un ordinateur client Windows à partir d’Azure | Microsoft Azure"
-	description="Découvrez comment restaurer des fichiers à partir d’un serveur/client Windows."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="jwhit"
-	editor=""/>
+   description="Découvrez comment restaurer des fichiers à partir d’un serveur/client Windows."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="jwhit"
+   editor=""/>
 
 <tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
 
@@ -109,4 +109,4 @@ Les termes ci-après sont utilisés pour cette procédure :
 - [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md)
 - [Sauvegarde des charges de travail Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -25,7 +25,8 @@ PostgreSQL est une base de données open source avancée similaire à Oracle et 
 Dans cet article, vous allez apprendre à installer et à configurer PostgreSQL sur une machine virtuelle Azure exécutant Linux.
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement Resource Manager ou le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Installation de PostgreSQL
 
@@ -254,4 +255,4 @@ Utilisez les commandes suivantes pour mettre à jour des données dans une table
 ##Obtenez davantage d’informations sur PostgreSQL
 Maintenant que vous avez terminé l’installation de PostgreSQL dans une machine virtuelle Azure Linux, vous pouvez ne profiter dans Microsoft Azure. Pour en savoir plus sur PostgreSQL, consultez le [site web PostgreSQL](http://www.postgresql.org/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -603,4 +603,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Gestion des notifications de travaux de Media Services]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

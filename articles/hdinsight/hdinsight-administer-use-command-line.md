@@ -163,4 +163,4 @@ Dans cet article, vous avez appris comment effectuer différentes tâches d'admi
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Énumération et affichage des clusters"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

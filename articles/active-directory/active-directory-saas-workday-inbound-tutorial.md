@@ -1,18 +1,18 @@
 <properties 
-  pageTitle="Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Azure"
-	description="Découvrez comment utiliser Workday en tant que source de données d'identité pour Azure Active Directory."
-	services="active-directory"
-	authors="MarkusVi"
-	documentationCenter="na"
-	manager="msStevenPo"/>
+  pageTitle="Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Azure" 
+  description="Découvrez comment utiliser Workday en tant que source de données d'identité pour Azure Active Directory." 
+  services="active-directory" 
+  authors="MarkusVi"  
+  documentationCenter="na" 
+  manager="msStevenPo"/>
 <tags 
-  ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/01/2015"
-	ms.author="markvi"/>
+  ms.service="active-directory" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.tgt_pltfrm="na" 
+  ms.workload="identity" 
+  ms.date="08/01/2015" 
+  ms.author="markvi" />
 
 
 #Didacticiel : Configuration de Workday pour la synchronisation entrante
@@ -78,7 +78,7 @@ Cette section décrit l’activation de l’intégration d’applications pour W
 
 6. Dans le volet de résultats, sélectionnez Workday, puis cliquez sur Terminer pour ajouter l’application.
 
-    ![Galerie d'applications](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-workday-inbound-tutorial/IC701022.png "Galerie d'applications")
 
 
 
@@ -226,4 +226,4 @@ Vous pouvez maintenant accéder à la section **Utilisateurs**et vérifier si vo
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

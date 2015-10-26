@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Indicateurs de surveillance de StorSimple | Microsoft Azure"
-	description="Décrit les diodes électroluminescentes (LED) et les alarmes sonores utilisées pour analyser l’état de l’appareil StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="Indicateurs de surveillance de StorSimple | Microsoft Azure" 
+    description="Décrit les diodes électroluminescentes (LED) et les alarmes sonores utilisées pour analyser l’état de l’appareil StorSimple."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil   
 
@@ -256,4 +256,4 @@ En savoir plus sur [les composants matériels StorSimple et leur état](storsimp
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -120,4 +120,4 @@ SAP est un logiciel ERP de pointe utilisé par la plupart des organisations dans
 
 Consultez le document lié pour des instructions détaillées sur le [déploiement d'Azure Site Recovery pour SAP NetWeaver](http://aka.ms/asr-sap)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -47,4 +47,4 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -98,4 +98,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

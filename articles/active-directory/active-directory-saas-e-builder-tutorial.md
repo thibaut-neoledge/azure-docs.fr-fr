@@ -44,7 +44,7 @@ Cette section décrit l'activation de l'intégration de l'application pour e-Bui
 
 6.  Dans la **zone de recherche**, entrez **e-Builder**.
 
-    ![Galerie d'applications](./media/active-directory-saas-e-builder-tutorial/IC777379.png "Galerie d'applications")
+    ![Galerie d’applications](./media/active-directory-saas-e-builder-tutorial/IC777379.png "Galerie d'applications")
 
 7.  Dans le volet des résultats, sélectionnez **e-Builder**, puis cliquez sur **Terminer** pour ajouter l’application.
 
@@ -63,7 +63,7 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-e-builder-tutorial/IC777382.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configuration l’URL de l'application**, dans la zone de texte **URL de connexion à e-Builder**, tapez votre URL selon le modèle suivant « *https://<nom\_locataire>.e-Builder.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configuration l’URL de l'application**, dans la zone de texte **URL de connexion à e-Builder**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.e-Builder.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-e-builder-tutorial/IC777383.png "Configurer l’URL de l’application")
 
@@ -95,6 +95,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-e-builder-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d'accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d'accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

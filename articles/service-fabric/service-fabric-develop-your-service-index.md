@@ -87,4 +87,4 @@ Reliable Services émet des événements et des compteurs de performance, qui pe
 
 - [Diagnostics de Reliable Service avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

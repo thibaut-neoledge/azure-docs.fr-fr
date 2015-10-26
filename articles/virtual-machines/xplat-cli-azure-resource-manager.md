@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement Resource Manager.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
+
 
 Cette rubrique décrit comment créer, gérer et supprimer des ressources et des machines virtuelles Azure en utilisant l’interface de ligne de commande Azure pour Mac, Linux et Windows en mode Azure Resource Manager.
 
@@ -341,4 +342,4 @@ Pour afficher les informations de journalisation sur les opérations effectuées
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

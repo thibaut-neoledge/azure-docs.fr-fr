@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,9 +14,16 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Notes de publication
+
+##3\.2.0 (10/08/2015)
+
+-   Activation de Bitcode dans le Kit de développement logiciel (SDK) pour qu’il fonctionne avec **Xcode 7**.
+-   Correction de bogues liés aux notifications dans l’application.
+-   Modification des notifications dans l’application pour qu’elles soient plus fiables en cas de batterie faible et dans d’autres cas de figure.
+-   Suppression des journaux de console supplémentaires générés par la bibliothèque tierce.
 
 ##3\.1.0 (26/08/2015)
 
@@ -47,4 +54,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi SmartAd.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

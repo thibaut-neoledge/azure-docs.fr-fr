@@ -31,4 +31,4 @@ Enfin, vous devez mettre à jour le script inscrit dans l'opération d'insertion
 
 	À l'issue de l'insertion, ce script d'insertion envoie une notification Push (avec le texte de l'élément inséré) à tous les enregistrements d'application Windows Store.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

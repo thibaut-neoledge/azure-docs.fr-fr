@@ -2,7 +2,7 @@
 	pageTitle="Utilisation du portail Application Insights"
 	description="Présentation de l'analyse de l'utilisation avec Application Insights"
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -11,13 +11,13 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="08/17/2015"
 	ms.author="awills"/>
 
 # Utilisation du portail Application Insights
 
-Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-get-started.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans votre ressource de projet Application Insights dans le [portail Azure](https://portal.azure.com).
+Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
 
 ## Localiser vos données de télémétrie dans Azure
 
@@ -139,4 +139,4 @@ Pour réafficher la recherche, **allez dans le panneau Vue d’ensemble** et ouv
 
 Si vous avez enregistré une période relative, le panneau rouvert comporte les données les plus récentes. Si vous avez enregistré une période absolue, vous voyez les mêmes données à chaque fois.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

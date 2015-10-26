@@ -20,7 +20,8 @@
 
 # Installation de MongoDB sur une machine virtuelle créée avec le modèle de déploiement classique exécutant Windows Server 2012 R2
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création de ressources avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 [MySQL](http://www.mysql.com) est une base de données SQL open source connue. Vous pouvez créer une machine virtuelle exécutant Windows Server 2012 R2 à partir de la bibliothèque d’images du [portail Azure](http://manage.windowsazure.com). Vous pouvez ensuite l'installer et la configurer en tant que serveur MySQL Server.
 
@@ -129,4 +130,4 @@ Pour tester votre connexion à distance au service MySQL Server exécuté sur l
 
 Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

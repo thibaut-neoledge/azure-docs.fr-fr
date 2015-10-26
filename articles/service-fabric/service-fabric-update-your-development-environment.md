@@ -53,4 +53,4 @@ Et voilà ! Vous pouvez maintenant démarrer Visual Studio et poursuivre la cr
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

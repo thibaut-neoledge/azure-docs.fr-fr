@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation de l’interface de ligne de commande Azure avec la gestion des services | Microsoft Azure"
-	description="Découvrez comment utiliser les outils de ligne de commande pour Mac, Linux et Windows pour gérer Azure à l’aide du mode de déploiement classique (gestion des services) de l’interface de ligne de commande Azure."
+	description="Découvrez comment utiliser les outils de ligne de commande pour Mac, Linux et Windows pour gérer Azure à l'aide du mode classique (Azure Service Management) de l'interface de ligne de commande Azure."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,24 +14,26 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création d’une ressource avec le modèle de déploiement classique. Vous pouvez également créer une ressource avec le [modèle de déploiement Resource Manager](virtual-machines-deploy-rmtemplates-azure-cli.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création et la gestion d'une ressource avec des commandes CLI dans le modèle de déploiement classique. Vous pouvez également créer et gérer une ressource avec des commandes CLI dans le [modèle de déploiement Resource Manager](azure-cli-arm-commands.md).
 
-Cette rubrique décrit comment utiliser l’interface de ligne de commande Microsoft Azure dans le mode **asm** pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Elles sont comparables à celles fournies par les applets de commande Windows PowerShell Service Management installées avec les Kits de développement logiciel (SDK) Azure pour .NET, Node.JS et PHP.
+Cet article décrit comment utiliser l'interface de ligne de commande (CLI) Azure dans le mode Service Management (asm) pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure. L'utilisation des services Azure avec le mode Service Management revient, dans les grandes lignes, à la création et la gestion des services et concepts isolés Azure tels que les sites Web, les machines virtuelles, les réseaux virtuels, le stockage, etc.
 
-> [AZURE.NOTE]L’utilisation des services Microsoft Azure avec le mode **asm** revient, dans les grandes lignes, à la valorisation des services et concepts isolés Microsoft Azure comme Websites, Virtual Machines, Virtual Network, Storage, etc. Des fonctionnalités plus riches associées à un modèle hiérarchique de ressources, groupé de façon logique sont disponibles sur la ligne de commande, dans le mode **arm**. Pour passer sur ce mode, consultez la section [Utilisation de l’interface de ligne de commande Microsoft Azure avec Microsoft Azure Resource Manager](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]Pour commencer, [installez l'interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous pour utiliser des ressources Azure associées à votre compte](../xplat-cli-connect.md).
 
-Pour bénéficier d’instructions sur l’installation, consultez la section [Installation et configuration de l’interface de ligne de commande Microsoft Azure](../xplat-cli-install.md).
+## Étendue de l'article
+
+Cet article fournit la syntaxe et les options des commandes de l'interface CLI Azure couramment utilisées pour le modèle de déploiement classique (Service Management). Il ne s'agit pas d'une référence complète, et votre version d'interface CLI peut présenter des commandes ou paramètres différents. Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Service Management, tapez `azure help` ou, pour afficher de l'aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d'interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
 
 Les paramètres facultatifs sont indiqués entre crochets (par exemple, [paramètres]). Tous les autres paramètres sont obligatoires.
 
 Outre les paramètres facultatifs propres aux commandes qui vous sont présentés dans ce document, vous pouvez utiliser trois paramètres facultatifs pour afficher une sortie détaillée, telle que les options de demande et les codes d'état. Si le paramètre -v fournit une sortie détaillée, le paramètre -vv propose des informations encore plus complètes. L'option --json génère le résultat au format json brut.
 
-## Définition du mode **asm**
+## Configuration du mode Service Management
 
 Le mode Service Management est actuellement activé par défaut lorsque vous installez l'interface CLI. Si vous en avez besoin, utilisez la commande suivante pour activer les commandes Service Management d’Azure CLI.
 
@@ -789,7 +791,7 @@ Cette commande échange deux connecteurs d’applications Web.
 
 Cette commande prend en charge l'option supplémentaire suivante :
 
-****-q or **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
+****-q ou **--quiet** : ne demande pas de confirmation. Utilisez cette option dans les scripts automatisés.
 
 
 **site start [options] [nom]**
@@ -2348,4 +2350,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

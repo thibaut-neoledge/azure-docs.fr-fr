@@ -19,7 +19,7 @@
 
 # Comment se connecter à une machine virtuelle exécutant Windows Server 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la connexion à une machine virtuelle Windows à l'aide du modèle de déploiement Resource Manager. Vous pouvez également créer une ressource avec le [modèle de déploiement classique](virtual-machines-log-on-windows-server.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md).
 
 Utilisez le bouton **Se connecter** dans le portail Azure en version préliminaire pour démarrer une session Bureau à distance. Tout d’abord, vous allez vous connecter à la machine virtuelle, puis ouvrir une session.
 
@@ -47,4 +47,4 @@ Utilisez le bouton **Se connecter** dans le portail Azure en version préliminai
 
 Si les conseils de connexion ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Développement de travaux MapReduce Python avec HDInsight | Microsoft Azure"
-	description="Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="Découvrez comment créer et exécuter des tâches MapReduce Python sur des clusters HDInsight Linux."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/04/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="10/09/2015"
+   ms.author="larryfr"/>
 
 #Développement de programmes de diffusion en continu Python pour HDInsight
 
@@ -205,4 +205,4 @@ Maintenant que vous avez découvert comment utiliser des travaux de diffusion en
 * [Utilisation de Pig avec HDInsight](hdinsight-use-pig.md)
 * [Utilisation des tâches MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

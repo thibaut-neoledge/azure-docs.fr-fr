@@ -57,7 +57,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans la page d’intégration d’applications **SpringCM** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue \*\*Configurer l’authentification unique\*\*.
+1.  Dans la page d’intégration d’applications **SpringCM** du portail Azure AD, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configurer l’authentification unique")
 
@@ -67,7 +67,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 3.  Dans la zone de texte **URL de connexion** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SpringCM, puis cliquez sur **Suivant**.
 
-    L’URL de l’application est votre locataire SpringCM (par exemple, \**https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*) :
+    L’URL de l’application est votre locataire SpringCM (par exemple, **https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*) :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-spring-cm-tutorial/IC797049.png "Configurer l’URL de l’application")
 
@@ -107,7 +107,7 @@ Pour se connecter à SpringCM, les utilisateurs d’Azure AD doivent être appro
 
 2.  Cliquez sur **GOTO** puis sur**Address Book**.
 
-    ![Create User](./media/active-directory-saas-spring-cm-tutorial/IC797054.png "Create User")
+    ![Create User](./media/active-directory-saas-spring-cm-tutorial/IC797054.png "Créer un utilisateur")
 
 3.  Cliquez sur **Create User**.
 
@@ -139,6 +139,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Navigateurs et appareils pris en charge"
-	description=""
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	manager="lwelicki"
+	pageTitle="Navigateurs et appareils pris en charge" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="flanakin" 
+	manager="lwelicki" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/23/2015" 
 	ms.author="micflan"/>
 
 #Navigateurs et appareils pris en charge
@@ -33,4 +34,4 @@ Les versions les plus récentes des navigateurs suivants sont prises en charge 
 
 *Safari 6 et les versions antérieures ne sont pas pris en charge. Si vous utilisez OS X, vous avez le choix entre Chrome et Firefox, ou vous pouvez passer à OS X Mavericks pour utiliser Safari 7.*
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

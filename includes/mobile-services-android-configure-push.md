@@ -9,4 +9,4 @@
 
 Votre service mobile et votre application sont désormais configurés pour fonctionner avec GCM et Notification Hubs.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

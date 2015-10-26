@@ -169,7 +169,7 @@ Une simple action `Index` permet aux clients de spécifier les superlatifs dans 
 
 Procédez comme ci-dessus pour configurer cette action de contrôleur :
 
-1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. Remplacez votre chemin d'accès au fichier par `~/Content/chuck.bmp` et votre nom de CDN par `yourCDNName`.
+1. Dans le dossier *\\Controllers*, créez un fichier .cs nommé *MemeGeneratorController.cs* et remplacez son contenu par le code suivant. Remplacez votre chemin d’accès au fichier par `~/Content/chuck.bmp` et votre nom de CDN par `yourCDNName`.
 
 
         using System;
@@ -447,7 +447,7 @@ Lorsque le point de terminaison de votre réseau de distribution de contenu (CDN
 
 La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contient la propriété [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) qui vous permet de configurer le mécanisme de secours en cas de défaillance CDN. Pour utiliser cette propriété, procédez comme suit :
 
-1. Dans votre projet ASP.NET, ouvrez *App\_Start\\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx). Ajoutez ensuite le code `CdnFallbackExpression` aux quatre emplacements comme indiqué pour ajouter un mécanisme de secours aux regroupements par défaut.  
+1. Dans votre projet ASP.NET, ouvrez *App\_Start\\BundleConfig.cs*, où vous avez ajouté une URL CDN dans chaque [constructeur de regroupement](http://msdn.microsoft.com/library/jj646464.aspx). Ajoutez ensuite le code `CdnFallbackExpression` aux quatre emplacements, comme indiqué, pour ajouter un mécanisme de secours aux regroupements par défaut.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -509,27 +509,8 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 4. Republiez votre application web Azure et accédez à la page d'accueil.
 5. Affichez le code HTML de la page. Vous devez trouver des scripts injectés similaires à ce qui suit :    
 	
-	``` 
-	... 
-	<link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i < len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('<script src="/Content/css"><\/script>');</script>
+	``` ... <link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+<script>(function() { var loadFallback, len = document.styleSheets.length; for (var i = 0; i < len; i++) { var sheet = document.styleSheets[i]; if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) { var meta = document.createElement('meta'); meta.className = 'sr-only'; document.head.appendChild(meta); var value = window.getComputedStyle(meta).getPropertyValue('width'); document.head.removeChild(meta); if (value !== '1px') { document.write('<link href="/Content/css" rel="stylesheet" type="text/css" />'); } } } return true; }())||document.write('<script src="/Content/css"><\\/script>');</script>
 
 	<script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
@@ -566,4 +547,4 @@ La classe [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bun
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

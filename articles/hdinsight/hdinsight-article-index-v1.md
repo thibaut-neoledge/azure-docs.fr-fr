@@ -133,4 +133,4 @@ Pour obtenir des articles relatifs à l'utilisation des clusters Apache Spark na
 * [Interprétation des messages d'erreur](hdinsight-debug-jobs.md)
 * [Obtenir de l'aide sur le forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

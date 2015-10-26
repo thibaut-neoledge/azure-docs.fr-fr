@@ -20,4 +20,4 @@ Vous pouvez ensuite modifier votre application pour activer les notifications Pu
 <!-- URLs -->
 [portail de gestion Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

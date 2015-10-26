@@ -18,9 +18,11 @@
  ms.author="rasquill"/>
 
 #À propos de l'agent de machine virtuelle et des extensions
+
 L'Agent de machine virtuelle Azure (VM Agent) est utilisé pour installer, configurer, gérer et exécuter des extensions de machine virtuelle Azure (VM Extensions). Les extensions de machine virtuelle fournissent des fonctionnalités dynamiques fournies par Microsoft et des fournisseurs tiers. L'agent et les extensions sont ajoutés principalement dans le portail de gestion, mais vous pouvez également utiliser les applets de commande [Powershell](../install-configure-powershell.md) ou [Azure CLI](xplat-install.md) pour les ajouter et les configurer lorsque vous créez une machine virtuelle ou travaillez avec des machines virtuelles existantes.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article fait référence aux appels de déploiement dans le cadre du modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+
 
 
 Les extensions de machine virtuelle peuvent vous aider à :
@@ -64,4 +66,4 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
 
 Pour plus d’informations sur ces tâches, consultez [Ajouter, rechercher, mettre à jour et supprimer des extensions de machines virtuelles Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

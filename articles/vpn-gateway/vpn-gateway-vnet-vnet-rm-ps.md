@@ -1,20 +1,21 @@
 <properties
    pageTitle="Créer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell | Microsoft Azure"
-	description="Cet article vous guide dans l’interconnexion de réseaux virtuels avec Azure Resource Manager et PowerShell"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="Cet article vous guide dans l’interconnexion de réseaux virtuels avec Azure Resource Manager et PowerShell"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="10/13/2015"
+   ms.author="cherylmc"/>
 
 # Configurer une connexion de réseau virtuel à réseau virtuel à l’aide d’Azure Resource Manager et de PowerShell
 
@@ -22,6 +23,9 @@
 - [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
+Cet article vous guidera à travers les étapes à l'aide du modèle de déploiement Resource Manager. Vous pouvez sélectionner l'article correspondant au modèle de déploiement et l'outil de déploiement à l'aide des onglets ci-dessus.
+
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 La connexion entre deux réseaux virtuels est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Les réseaux virtuels que vous connectez peuvent être situés dans différentes régions. Vous pouvez même combiner une communication de réseau virtuel à réseau virtuel avec des configurations multisites. Vous établissez ainsi des topologies réseau qui combinent une connectivité entre différents locaux et une connectivité entre différents réseaux virtuels, comme indiqué dans le schéma ci-dessous.
 
@@ -29,9 +33,6 @@ La connexion entre deux réseaux virtuels est semblable à la connexion d’un r
 ![Schéma de connectivité de réseau virtuel à réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
 
  
-
->[AZURE.NOTE]Azure propose actuellement deux modes de déploiement : le mode de déploiement classique et le mode de déploiement Azure Resource Manager. Les applets de commande de configuration et les étapes diffèrent selon le mode de déploiement. Cette rubrique vous guide dans la connexion de réseaux virtuels créés à l’aide du mode Azure Resource Manager. Si vous souhaitez créer une connexion de réseau virtuel à réseau virtuel avec le mode de déploiement classique, consultez l’article [Configurer une connexion de réseau virtuel à réseau virtuel à l’aide du portail Azure](virtual-networks-configure-vnet-to-vnet-connection.md). Si vous souhaitez connecter un réseau virtuel qui a été créé en mode classique à un réseau virtuel créé dans Azure Resource Manager, consultez l’article [Connexion de réseaux virtuels classiques aux nouveaux réseaux virtuels](../virtual-network/virtual-networks-arm-asm-s2s.md).
-
 ## Pourquoi connecter des réseaux virtuels ?
 
 Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivantes :
@@ -43,15 +44,12 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 - **Applications multiniveaux régionales avec une forte limite d’isolement**
 	- Dans la même région, vous pouvez configurer des applications multiniveaux avec plusieurs réseaux virtuels interconnectés avec une isolation renforcée et une communication sécurisée entre les niveaux.
 
-
-
 ### Points à noter
 
 Cet article vous guide lors de la connexion de deux réseaux virtuels : VNet1 et VNet2. Vous devez disposer d’une bonne connaissance de la mise en réseau pour remplacer les plages d’adresses IP qui sont compatibles avec les exigences liées à la conception de votre réseau.
 
 
 ![Connexion de réseau virtuel à réseau virtuel](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
-
 
 
 - Les réseaux virtuels peuvent être situés dans des régions (emplacements) identiques ou différentes.
@@ -74,35 +72,19 @@ Cet article vous guide lors de la connexion de deux réseaux virtuels : VNet1 e
 
 - Le trafic de réseau virtuel à réseau virtuel circule sur la dorsale principale d’Azure.
 
-
 ## Avant tout chose
-
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
-
-- La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/). 
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
-- Si vous avez déjà créé vos réseaux virtuels, consultez l’article [Connexion de réseaux virtuels existants](#connecting-existing-vnets).
-	
+
+- La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la [page Téléchargements](http://azure.microsoft.com/downloads/). Cet article est rédigé pour Azure PowerShell *0.9.8*.
+
+>[AZURE.NOTE]Si vous exécutez des applications stratégiques, continuez à utiliser Azure PowerShell 0.9.8. Dans la plupart des cas, la seule différence entre les deux versions est que le nom d'applet de commande de la version préliminaire 1.0 suit le modèle {verbe}-AzureRm{nom}, tandis que dans la version 0.9.8, le nom n'inclut pas Rm. Par exemple, New-AzureRmResourceGroup au lieu de New-AzureResourceGroup. Pour plus d'informations sur la version préliminaire d'Azure PowerShell 1.0, consultez le [billet de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Pour plus d'informations sur les applets de commande de la version préliminaire d'Azure PowerShell 1.0, consultez [Applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
 
 
-La création et la configuration d’une connexion de réseau virtuel à réseau virtuel se font en plusieurs étapes. Configurez chaque section dans l’ordre indiqué ci-dessous.
+## 1\. Planification de vos plages d’adresses IP
 
-
-1. [Planification de vos plages d’adresses IP](#plan-your-ip-address-ranges)
-2. [Connexion à votre abonnement](#connect-to-your-subscription)
-3. [Créez un réseau virtuel](#create-a-virtual-network)
-4. [Demander une adresse IP publique pour votre passerelle](#request-a-public-ip-address)
-5. [Créer la configuration de la passerelle](#create-the-gateway-configuration)
-6. [Créer la passerelle](#create-the-gateway)
-7. [Répéter ces étapes pour configurer VNet2](#create-vnet2)
-8. [Connexion des passerelles VPN](#connect-the-gateways)
-
-
-## Planification de vos plages d’adresses IP
-
-### Étape 1
 
 Il est important de choisir les plages que vous utiliserez pour paramétrer votre configuration réseau. Du point de vue de VNet1, VNet2 est simplement une autre connexion VPN définie dans la plateforme Azure. Et pour VNet2, VNet1 est simplement une autre connexion VPN. N’oubliez pas que vous devez vous assurer qu’aucune plage de réseaux virtuels ou de réseaux locaux ne se chevauche.
 
@@ -129,26 +111,23 @@ Valeurs pour VNet2 :
 - Sous-réseau de passerelle = 10.2.0.0/28
 - Sous-réseau 1 = 10.2.1.0/28
 
-## Connexion à votre abonnement 
+## 2\. Connexion à votre abonnement 
 
-### Étape 2
+Ouvrez la console PowerShell et connectez-vous à votre compte. Les instructions ci-dessous utilisent Azure PowerShell version 0.9.8. Vous pouvez télécharger et installer cette version à partir de la section Windows PowerShell de la [page Téléchargements](http://azure.microsoft.com/downloads/).
 
-
-Ouvrez votre console PowerShell et passez en mode Azure Resource Manager. Utilisez l’exemple suivant pour faciliter votre connexion :
+Utilisez l’exemple suivant pour faciliter votre connexion :
 
 		Add-AzureAccount
 
-Utilisez Select-AzureSubscription pour vous connecter à l’abonnement que vous voulez utiliser.
+Si vous avez plusieurs abonnements, utilisez *Select-AzureSubscription* pour vous connecter à l'abonnement que vous voulez utiliser.
 
 		Select-AzureSubscription "yoursubscription"
 
-Passez ensuite au mode ARM. Vous passez ainsi au mode qui vous permet d’utiliser les applets de commande ARM.
-
+Basculez ensuite sur le mode Azure Resource Manager.
+		
 		Switch-AzureMode -Name AzureResourceManager
 
-## Créez un réseau virtuel
-
-### Étape 3
+## 3\. Créez un réseau virtuel
 
 
 Utilisez l’exemple ci-dessous pour créer un réseau virtuel et un sous-réseau de passerelle. Remplacez les valeurs par les vôtres. Dans cet exemple, nous allons créer VNet1. Vous devez répéter ces étapes pour créer VNet2 ultérieurement.
@@ -157,15 +136,14 @@ Créez d’abord un groupe de ressources.
 
 			New-AzureResourceGroup -Name testrg1 -Location 'West US'
 
-Ensuite, créez votre réseau virtuel L’exemple ci-dessous crée un réseau virtuel nommé *VNet1* et deux sous-réseaux, un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera. Dans l’exemple ci-dessous, notre sous-réseau de passerelle utilise /28. Vous pouvez choisir d’utiliser un sous-réseau de passerelle jusqu’à /29. Notez que certaines fonctionnalités (comme la connexion coexistante ExpressRoute/site à site) requièrent un sous-réseau de passerelle supérieur à /27. Vous pouvez donc créer votre sous-réseau de passerelle pour prendre en charge d’autres fonctionnalités à utiliser à l’avenir.
+Ensuite, créez votre réseau virtuel L'exemple ci-dessous crée un réseau virtuel nommé *VNet1* et deux sous-réseaux, un nommé *GatewaySubnet* et l'autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera. Dans l’exemple ci-dessous, notre sous-réseau de passerelle utilise /28. Vous pouvez choisir d’utiliser un sous-réseau de passerelle jusqu’à /29. Notez que certaines fonctionnalités (comme la connexion coexistante ExpressRoute/site à site) requièrent un sous-réseau de passerelle supérieur à /27. Vous pouvez donc créer votre sous-réseau de passerelle pour prendre en charge d’autres fonctionnalités à utiliser à l’avenir.
 
  		$subnet = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
 		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzurevirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+		New-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
 
-## Demander une adresse IP publique
+## 4\. Demander une adresse IP publique
 
-### Étape 4
 
 Ensuite, vous demandez qu’une adresse IP publique soit allouée à la passerelle que vous créez pour votre réseau virtuel. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser, car elle est allouée de façon dynamique à votre passerelle. Vous utiliserez cette adresse IP dans la section de configuration suivante.
 
@@ -174,10 +152,8 @@ Utilisez l’exemple ci-dessous. La méthode d’allocation pour cette adresse d
 
 		$gwpip= New-AzurePublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
+## 5\. Créer la configuration de la passerelle
 
-## Créer la configuration de la passerelle
-
-### Étape 5
 
 La configuration de la passerelle définit le sous-réseau et l’adresse IP publique à utiliser. Utilisez l’exemple ci-dessous pour créer la configuration de votre passerelle.
 
@@ -186,25 +162,19 @@ La configuration de la passerelle définit le sous-réseau et l’adresse IP pub
 		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
 		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
+## 6\. Créer la passerelle
 
-## Créer la passerelle
-
-### Étape 6
 
 Dans cette étape, vous allez créer la passerelle de réseau virtuel de votre réseau virtuel. Les configurations de réseau virtuel à réseau virtuel requièrent un VPN de type RouteBased. La création d’une passerelle peut prendre du temps, soyez donc patient.
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## Créer VNet2
-
-### Étape 7
-
-Une fois que vous avez configuré VNet1, répétez les étapes précédentes pour paramétrer VNet2 et la configuration de sa passerelle. Une fois que vous avez terminé la configuration des deux réseaux virtuels et de leurs passerelles, passez à [Connecter les passerelles](#connect-the-gateways).
+## 7\. Créer VNet2
 
 
-## Connecter les passerelles
+Une fois que vous avez configuré VNet1, répétez les étapes précédentes pour paramétrer VNet2 et la configuration de sa passerelle. Une fois que vous avez terminé la configuration des deux réseaux virtuels et de leurs passerelles, passez à l'**Étape 8. Connecter les passerelles**.
 
-### Étape 8
+## 8\. Connecter les passerelles
 
 Dans cette étape, vous allez créer les connexions de la passerelle VPN entre les deux passerelles de réseau virtuel. Une clé partagée est référencée dans les exemples. Vous pouvez utiliser vos propres valeurs pour cette clé partagée. Il est important que la clé partagée corresponde aux deux configurations.
 
@@ -226,8 +196,39 @@ Lorsque vous créez des connexions, notez que cela peut prendre du temps.
     New-AzureVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
     
 
-
 Après quelques minutes, la connexion doit être établie. Notez qu’à ce stade, les passerelles et les connexions créées avec Azure Resource Manager ne sont pas visibles dans le portail en version préliminaire.
+
+## Vérification des connexions
+
+À ce stade, les connexions VPN créées avec Resource Manager ne sont pas visibles dans la version préliminaire du portail. Vous pouvez néanmoins vérifier que votre connexion a abouti en exécutant la commande *Get-AzureVirtualNetworkGatewayConnection –Debug*. Nous proposerons prochainement à cet effet une applet de commande, avec la possibilité d'afficher votre connexion dans la version préliminaire du portail.
+
+Vous pouvez utiliser l'exemple d'applet de commande suivant. Veillez à modifier les valeurs pour les faire correspondre à chaque connexion que vous souhaitez vérifier. Lorsque vous y êtes invité, sélectionnez *A* pour exécuter Tout.
+
+		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+
+ Une fois l'applet de commande exécutée, faites défiler pour afficher les valeurs. Dans l'exemple ci-dessous, l'état de la connexion indique *Connecté*, et vous pouvez voir les octets d'entrée et de sortie.
+
+	Body:
+	{
+	  "name": "Vnet2Connection",
+	  "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/connections/Vnet2Connection",
+	  "properties": {
+	    "provisioningState": "Succeeded",
+	    "resourceGuid": "3c0bc049-860d-46ea-9909-e08098680a8bdef",
+	    "virtualNetworkGateway1": {
+	      "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/virtualNetworkGateways/Vnet2Gw"
+	    },
+	    "virtualNetworkGateway2": {
+	      "id": "/subscriptions/a932c0e6-b5cb-4e68-b23d-5064372c8a3cdef/resourceGroups/Vnet2VnetRG/providers/Microsoft.Network/virtualNetworkGateways/Vnet1Gw"
+	    },
+	    "connectionType": "Vnet2Vnet",
+	    "routingWeight": 3,
+	    "sharedKey": "abc123",
+	    "connectionStatus": "Connected",
+	    "ingressBytesTransferred": 3359044,
+	    "egressBytesTransferred": 4142451
+	  }
+	} 
 
 ## Connexion de réseaux virtuels existants
 
@@ -243,10 +244,13 @@ Si vous devez ajouter des sous-réseaux de passerelle à vos réseaux virtuels, 
 		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet
 
-Après avoir vérifié que les sous-réseaux de votre passerelle sont correctement configurés, suivez les étapes de la section [Demander une adresse IP publique](#request-a-public-ip-address).
+Après avoir vérifié que les sous-réseaux de votre passerelle sont correctement configurés, passez à l'**Étape 4. Demander une adresse IP publique** et suivez les étapes.
+
 
 ## Étapes suivantes
 
-Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
+Vous pouvez ajouter des machines virtuelles à vos réseaux virtuels. [Création d'une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO9-->
+Pour plus d'informations sur les passerelles VPN, consultez la [FAQ sur la passerelle VPN](vpn-gateway-faq.md).
+
+<!---HONumber=Oct15_HO3-->

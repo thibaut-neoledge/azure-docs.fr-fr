@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Protéger une application API Azure"
-	description="Découvrez comment protéger une application API Azure à l’aide de Visual Studio."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Protéger une application API Azure" 
+	description="Découvrez comment protéger une application API Azure à l’aide de Visual Studio." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Protéger une application API : ajouter une authentification de fournisseur de réseau social ou Azure Active Directory
@@ -272,4 +272,4 @@ Vous avez vu comment protéger une application API Azure en exigeant une authent
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

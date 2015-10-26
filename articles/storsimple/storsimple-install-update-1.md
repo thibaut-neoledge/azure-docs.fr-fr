@@ -153,4 +153,4 @@ Si vous avez vérifié l’existence de la connectivité et que le problème per
 
 En savoir plus sur la [version Update 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

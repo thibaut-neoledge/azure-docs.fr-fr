@@ -74,4 +74,4 @@ L'action retourne le résultat sous forme de chaîne - fichier plat. La sortie c
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

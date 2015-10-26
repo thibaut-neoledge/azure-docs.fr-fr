@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Version préliminaire d'Azure Active Directory B2C : FAQ
@@ -22,9 +22,9 @@ Cette page répond aux questions fréquemment posées sur la version préliminai
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-### Puis-je utiliser Azure AD B2C dans mon répertoire Azure AD Directory existant, basé sur les employés ?
+### Puis-je utiliser Azure AD B2C dans mon client Azure AD existant, basé sur les employés ?
 
-Actuellement, les fonctionnalités Azure AD B2C ne peuvent pas être activées dans votre répertoire Azure AD existant. Il est recommandé de créer un répertoire séparé pour utiliser les fonctionnalités d'Azure AD B2C, c'est-à-dire, pour gérer vos clients.
+Actuellement, les fonctionnalités Azure AD B2C ne peuvent pas être activées dans votre client Azure AD existant. Il est recommandé de créer un client séparé pour utiliser les fonctionnalités d'Azure AD B2C, c'est-à-dire pour gérer vos clients.
 
 ### Puis-je utiliser Azure AD B2C pour activer la connexion à des réseaux sociaux (Facebook et Google+) dans Office 365 ?
 
@@ -32,9 +32,9 @@ Azure AD B2C ne peut pas être utilisé avec Office 365. En général, il ne peu
 
 ### Que sont les « Comptes locaux » dans Azure AD B2C ? En quoi sont-ils différents des « Comptes professionnels ou scolaires » dans Azure AD ?
 
-Dans un répertoire Azure AD, chaque utilisateur (à l'exception des utilisateurs avec des comptes Microsoft existants) se connecte avec une adresse de messagerie sous la forme `<xyz>@<directory domain>` où `<directory domain>` est l'un des domaines vérifiés dans le répertoire ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un « compte professionnel ou scolaire », également appelé un « compte professionnel ».
+Dans un client Azure AD, chaque utilisateur (à l'exception des utilisateurs avec des comptes Microsoft existants) se connecte avec une adresse de messagerie sous la forme `<xyz>@<tenant domain>`, où `<tenant domain>` est l'un des domaines vérifiés dans le client ou le domaine `<...>.onmicrosoft.com` initial. Ce type de compte est un « compte professionnel ou scolaire », également appelé un « compte professionnel ».
 
-Dans un répertoire Azure AD B2C, la plupart des applications veulent que l'utilisateur se connecte avec n'importe quelle adresse de messagerie arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Ce type de compte est un « compte local ». Aujourd'hui, nous prenons également en charge les noms d'utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l'un de ces deux « types » de compte local dans le service Azure AD B2C.
+Dans un client Azure AD B2C, la plupart des applications veulent que l'utilisateur se connecte avec n'importe quelle adresse de messagerie arbitraire (par exemple, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com)). Ce type de compte est un « compte local ». Aujourd'hui, nous prenons également en charge les noms d'utilisateur arbitraires (chaînes simples) en tant que comptes locaux (par exemple, joe, bob, sarah ou jim). Vous pouvez choisir l'un de ces deux « types » de compte local dans le service Azure AD B2C.
 
 ### Quels fournisseurs d'identité sociaux prenez-vous en charge maintenant ? Lesquels envisagez-vous de prendre en charge à l'avenir ?
 
@@ -55,7 +55,7 @@ Non, vous pouvez héberger votre application n'importe où (dans le cloud ou sur
 
 ### J'ai plusieurs répertoires Azure AD B2C. Comment puis-je les gérer sur le portail Azure en version préliminaire ?
 
-Chaque répertoire Azure AD B2C a son propre volet de fonctionnalités B2C sur le portail Azure en version préliminaire. Lisez [ceci](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) pour savoir comment accéder à un volet de fonctionnalités B2C d'un répertoire spécifique sur le portail Azure en version préliminaire. Le fait de basculer entre des répertoires Azure AD B2C sur le portail Azure en version préliminaire ne conserve pas le volet de fonctionnalités B2C ouvert dans la plupart des navigateurs.
+Chaque client Azure AD B2C a son propre volet de fonctionnalités B2C sur le portail Azure en version préliminaire. Lisez [ceci](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) pour savoir comment accéder à un volet de fonctionnalités B2C d'un client spécifique sur le portail Azure en version préliminaire. Le fait de basculer entre des répertoires Azure AD B2C sur le portail Azure en version préliminaire ne conserve pas le volet de fonctionnalités B2C ouvert dans la plupart des navigateurs.
 
 ### Comment puis-je personnaliser les courriers électroniques de vérification (le contenu et le champ de l'expéditeur, c'est-à-dire le champ « De: ») envoyés par Azure AD B2C ?
 
@@ -87,7 +87,7 @@ Actuellement, Azure AD B2C est optimisé pour l'anglais uniquement. Nous prévoy
 
 ### Puis-je utiliser mes propres URL sur mes pages d'inscription et de connexion présentées par Azure AD B2C ? Par exemple, puis-je remplacer l'URL login.microsoftonline.com par login.contoso.com ?
 
-Pas actuellement. Mais cette fonctionnalité est sur notre feuille de route.
+Pas actuellement. Cette fonctionnalité est sur notre feuille de route. Notez également que la « vérification » de votre domaine dans l’onglet **Domaines** de votre client sur le portail Azure ne le fera pas.
 
 ### Puis-je obtenir Azure AD B2C dans le cadre d'Enterprise Mobility Suite (EMS) ?
 
@@ -95,7 +95,7 @@ Non, Azure AD B2C est un service Azure avec paiement à l'utilisation et ne fait
 
 ### Comment signaler des problèmes avec Azure AD B2C ?
 
-Consultez [cette rubrique de prise en charge](active-directory-b2c-support.md) pour Azure AD B2C.
+Consultez [cette rubrique de prise en charge](active-directory-b2c-support.md) pour Azure AD B2C.
 
 ### Quand Azure AD B2C sera-t-il disponible sur le marché ?
 
@@ -105,4 +105,4 @@ Nous ne pouvons fournir aucune informations sur la date de disponibilité pour l
 
 Vous pouvez également consulter les [Limites, restrictions et contraintes de la version préliminaire](active-directory-b2c-limitations.md) actuelle.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

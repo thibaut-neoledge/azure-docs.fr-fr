@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)"
-	description=""
-	services="cdn"
-	documentationCenter=".NET"
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+ pageTitle="Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)" 
+ description="" 
+ services="cdn" 
+ documentationCenter=".NET" 
+ authors="zhangmanling" 
+ manager="dwrede" 
+ editor=""/>
 <tags 
- ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+ ms.service="cdn" 
+ ms.workload="media" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="09/01/2015" 
+ ms.author="mazha"/>
 
 
 #Comment gérer l'expiration des contenus d'objets blob dans le réseau de distribution de contenu Azure (CDN)  
@@ -96,4 +96,4 @@ Si vous le souhaitez, vous pouvez utiliser un outil comme **wget** ou Fiddler po
 
 [Comment gérer l’expiration des contenus de service cloud dans le réseau de distribution de contenu Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->
