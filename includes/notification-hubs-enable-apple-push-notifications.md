@@ -93,7 +93,14 @@ Pour pouvoir envoyer des notifications Push vers une application iOS, vous deve
 
     > [AZURE.NOTE]Il se peut que le nom de votre certificat soit différent. Il portera toutefois le préfixe **Apple Development iOS Push Notification Services:**.
 
-Plus tard, vous utiliserez ce certificat pour générer un fichier .p12 pour activer l'authentification avec APNS.
+8. Dans Trousseau d’accès, cliquez avec le bouton droit sur le certificat push que vous avez créé dans la catégorie **Certificats**. Cliquez sur **Exporter**, nommez le fichier, sélectionnez le format **.p12**, puis cliquez sur **Enregistrer**.
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	Notez le nom du fichier et l’emplacement du certificat .p12 exporté. Il sera utilisé pour activer l’authentification avec APNS.
+
+	>[AZURE.NOTE]Ce didacticiel permet de créer un fichier QuickStart.p12. Il est possible que le nom de votre fichier et son emplacement sont différents.
+
 
 ##Création d’un profil d’approvisionnement pour l’application
 
@@ -128,4 +135,4 @@ Plus tard, vous utiliserez ce certificat pour générer un fichier .p12 pour ac
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

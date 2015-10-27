@@ -19,8 +19,9 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
+Il s’agit d’implémentations dont nous avons entendu parler, y compris par des tiers.
 
-## Langages
+## Langues
 
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
@@ -37,21 +38,24 @@
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
-+ [ASP.NET - Déjà actif](app-insights-monitor-performance-live-website-now.md)
++ [ASP.NET : pour les applications déjà actives](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Applications web Azure et machines virtuelles](../insights-perf-analytics.md)
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online pour Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
-+ [J2EE - Déjà actif](app-insights-java-live.md)
++ [J2EE : pour les applications déjà actives](app-insights-java-live.md)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
++ Journalisation sémantique [SLAB](https://github.com/fidmor89/SLAB_AppInsights)
 + [Windows Store C#|VB](app-insights-windows-get-started.md)
 + [Windows Store C++](app-insights-windows-cpp.md)
 + [Rôles de travail, services et applications de bureau Windows](app-insights-windows-desktop.md)
@@ -79,4 +83,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

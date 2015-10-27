@@ -2,7 +2,7 @@
 	pageTitle="Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB | Microsoft Azure"
 	description="Découvrez l'Explorateur de documents DocumentDB, un outil du portail Azure Preview qui permet d'afficher, de modifier, de créer et de télécharger des documents JSON avec DocumentDB."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article" 
 	ms.date="09/09/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB #
 
@@ -144,4 +144,4 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/10/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide du portail Azure
@@ -25,7 +25,7 @@
 
 Cet article vous guidera tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Cet article s’applique au modèle de déploiement classique.
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 Vous pouvez sélectionner l’article correspondant au modèle de déploiement et l’outil de déploiement à l’aide des onglets situés ci-dessus. Par exemple, si vous souhaitez créer une connexion de passerelle VPN site à site à l’aide du modèle Azure Resource Manager au lieu d’utiliser le modèle classique, cliquez sur l’onglet **PowerShell - Resource Manager** (ci-dessus) pour accéder à [Créer une connexion VPN de site à site à l’aide d’Azure Resource Manager et de PowerShell.](vpn-gateway-create-site-to-site-rm-powershell.md).
 
@@ -34,11 +34,12 @@ Vous pouvez sélectionner l’article correspondant au modèle de déploiement e
 
 Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
 
-- Un appareil VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
-- Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+- Un appareil VPN compatible et une personne qui est en mesure de le configurer. Consultez [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre appareil VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut fournir les informations.
+
+-  Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
+
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
->[AZURE.IMPORTANT]Si vous n’êtes pas familiarisé avec la configuration de votre appareil VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut fournir les informations.
 
 ## Création de votre réseau virtuel
 
@@ -70,7 +71,7 @@ Saisissez les informations ci-dessous puis cliquez sur la flèche Suivant.
 - 	**Nom** : nom que vous souhaitez donner à votre site de réseau local.
 - 	**Adresse IP du périphérique VPN** : adresse IPv4 de votre périphérique VPN local que vous utiliserez pour vous connecter à Azure. Le périphérique VPN ne peut pas se trouver derrière un traducteur d'adresses réseau.
 - 	**Espace d’adressage** : comprend l’adresse IP de départ et le CIDR (nombre d’adresses). C’est ici que vous spécifiez la ou les plages d’adresses que vous voulez envoyer via la passerelle de réseau virtuel à l'emplacement de votre site local. Si une adresse IP de destination se situe dans les plages que vous spécifiez ici, elle sera routée via la passerelle de réseau virtuel.
-- 	**Ajouter un espace d'adressage** : si vous avez plusieurs plages d'adresses que vous voulez envoyer via la passerelle de réseau virtuel, c’est ici que vous spécifiez chaque plage d'adresses supplémentaire. Vous pouvez ajouter ou supprimer des plages par la suite dans la page **Réseau local**.
+- 	**Ajouter un espace d'adressage** : si vous avez plusieurs plages d'adresses que vous voulez envoyer via la passerelle de réseau virtuel, c’est ici que vous spécifiez chaque plage d'adresses supplémentaire. Vous pouvez ajouter ou supprimer des plages par la suite sur la page **Réseau local**.
 
 ## Espaces d’adressage du réseau virtuel
 Indiquez la plage d’adresses que vous voulez utiliser pour votre réseau virtuel. Il s’agit des adresses IP dynamiques qui seront affectées aux machines virtuelles et aux autres instances de rôle que vous déployez dans ce réseau virtuel.
@@ -83,7 +84,9 @@ Entrez les informations suivantes, puis cliquez sur la coche située dans le coi
 - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
 - **Ajouter un sous-réseau de passerelle** : cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel et est nécessaire pour cette configuration.
 
-Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** dans la page **Réseaux** du portail Azure. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
+Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du portail Azure. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Configuration de votre passerelle de réseau virtuel
 
@@ -95,8 +98,8 @@ Pour plus d’informations sur les connexions entre locaux des réseaux virtuels
 
 Si vous souhaitez configurer une connexion VPN de point à site, consultez l’article [Configuration d’une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
 
-Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
+Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez l’article [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
 
 Si vous souhaitez configurer une connexion entre votre réseau virtuel classique et un réseau virtuel créé en mode Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques à des réseaux virtuels Azure Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

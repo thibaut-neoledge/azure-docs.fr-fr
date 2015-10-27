@@ -165,26 +165,26 @@ Pour plus d’informations sur le stockage d’objets blob, voir l’article [Ut
 
 		static void CreateFiles()
 		{
-			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-				ConfigurationManager.AppSettings["StorageConnectionString"]);
-			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+		  CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+			ConfigurationManager.AppSettings["StorageConnectionString"]);
+		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
 
-			CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-			CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-			CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-			taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-			taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-			taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
 
 			CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
 			storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
 
 			CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-			dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
 
-			Console.WriteLine("Uploaded the files. Press Enter to continue.");
-			Console.ReadLine();
+		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
+		  Console.ReadLine();
 		}
 
 2. Ajoutez à la section Main le code ci-après qui appelle la méthode que vous venez d’ajouter :
@@ -495,4 +495,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

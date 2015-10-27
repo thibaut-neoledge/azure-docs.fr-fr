@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/15/2015"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -25,7 +25,7 @@
 
 ![Exemples de données](./media/app-insights-java-get-started/5-results.png)
 
-Les [tests web Application Insights][availability] surveillent la disponibilité de votre application.
+Application Insights prend en charge les applications Java exécutées sur Linux, Unix ou Windows.
 
 Vous devez avoir :
 
@@ -37,7 +37,7 @@ Vous devez avoir :
 
 ## 1\. Obtenir une clé d'instrumentation Application Insights
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Microsoft Azure.](https://portal.azure.com)
 2. Créez une ressource Application Insights.
 
     ![Cliquez sur + et choisissez Ajouter Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -282,7 +282,7 @@ Pour collecter les données concernant d’autres exceptions, vous disposez de d
 
 ## Compteurs de performances
 
-Cliquez sur la mosaïque **Serveurs** et vous verrez un ensemble de compteurs de performances.
+Cliquez sur la vignette **Serveurs** afin d’afficher un ensemble de compteurs de performances.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -396,4 +396,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

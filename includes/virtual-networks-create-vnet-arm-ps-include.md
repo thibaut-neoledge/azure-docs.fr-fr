@@ -1,12 +1,11 @@
 ## Comment créer un réseau virtuel à l’aide de PowerShell
-
 Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit :
 
 1. Si vous n’avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 	
-3. Au besoin, exécutez l’applet de commande **New-AzureRMResourceGroup** pour créer un groupe de ressources, comme illustré ci-dessous. Dans le cadre de notre scénario, créez un groupe de ressources nommé *TestRG*. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md/#resource-groups).
+3. Si nécessaire, créez un groupe de ressources, comme indiqué ci-dessous. Dans le cadre de notre scénario, créez un groupe de ressources nommé *TestRG*. Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureResourceGroup -Name TestRG -Location centralus
 
 	Sortie attendue :
 	
@@ -21,9 +20,9 @@ Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit 
 		
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
-4. Exécutez l’applet de commande **New-AzureRMVirtualNetwork** pour créer un réseau virtuel, comme illustré ci-dessous.
+4. Créez un réseau virtuel nommé *TestVNet*, comme indiqué ci-dessous.
 
-		New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
 	Sortie attendue :
@@ -46,15 +45,15 @@ Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit 
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Exécutez l’applet de commande **Get-AzureRMVirtualNetwork** pour stocker l’objet de réseau virtuel dans une variable, comme illustré ci-dessous.
+5. Stockez l’objet de réseau virtuel dans une variable, comme indiqué ci-dessous.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Vous pouvez combiner les étapes 4 et 5 en exécutant **$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Vous pouvez combiner les étapes 4 et 5 en exécutant **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Exécutez l’applet de commande **Add-AzureRMVirtualNetworkSubnetConfig** pour ajouter un sous-réseau au nouveau réseau virtuel, comme illustré ci-dessous.
+6. Ajoutez un sous-réseau à la nouvelle variable de réseau virtuel, comme indiqué ci-dessous.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name FrontEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
 	Sortie attendue :
@@ -90,12 +89,12 @@ Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit 
 
 7. Répétez l’étape 6 ci-dessus pour chaque sous-réseau à créer. La commande ci-dessous crée le sous-réseau *BackEnd* pour notre scénario.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name BackEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Bien que vous créiez des sous-réseaux, ils n’existent actuellement que dans la variable locale utilisée pour récupérer le réseau virtuel créé à l’étape 4 ci-dessus. Pour enregistrer les modifications dans Azure, exécutez l’applet de commande **Set-AzureRMVirtualNetwork**, comme illustré ci-dessous.
+8. Bien que vous créiez des sous-réseaux, ils n’existent actuellement que dans la variable locale utilisée pour récupérer le réseau virtuel créé à l’étape 4 ci-dessus. Pour enregistrer les modifications dans Azure, exécutez l’applet de commande **Set-AzureVirtualNetwork**, comme indiqué ci-dessous.
 
-		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet	
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
 	Sortie attendue :
 
@@ -138,4 +137,4 @@ Pour créer un réseau virtuel à l’aide de PowerShell, procédez comme suit 
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

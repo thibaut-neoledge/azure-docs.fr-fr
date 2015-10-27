@@ -2,7 +2,7 @@
 	pageTitle="Création, modification et exécution de requêtes SQL dans le cadre d'une collection DocumentDB à l'aide de l'Explorateur de requête | Microsoft Azure" 
 	description="Découvrez l'Explorateur de requête DocumentDB, un outil du portail en version préliminaire Azure qui permet de créer, de modifier et d'exécuter des requêtes SQL dans le cadre d'une collection DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/08/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Création, modification et exécution de requêtes SQL dans le cadre d'une collection DocumentDB à l'aide de l'Explorateur de requête. #
 
@@ -78,4 +78,4 @@ L'Explorateur de requête vous permet de créer, de modifier et d'exécuter faci
 - Pour en savoir plus sur la syntaxe du langage SQL DocumentDB prise en charge par l’Explorateur de requête, cliquez [ici](documentdb-sql-query.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

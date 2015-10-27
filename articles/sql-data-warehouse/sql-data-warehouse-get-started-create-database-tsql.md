@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 # Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL).
@@ -36,7 +36,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 ## Créer une base de données avec Visual Studio
 
-Cet article n’abordera pas la façon de configurer correctement Visual Studio et de se connecter. Pour une description complète de la procédure à suivre, consultez la documentation servant à [se connecter et lancer des requêtes][]. Pour commencer, ouvrez l’Explorateur d’objets SQL Server dans Visual Studio et connectez-vous au serveur que vous allez utiliser pour créer votre base de données SQL Data Warehouse. Une fois que vous avez terminé, vous êtes en mesure de créer un entrepôt SQL Data Warehouse en exécutant la commande suivante sur la base de données MASTER :
+Cet article n’abordera pas la façon de configurer correctement Visual Studio et de se connecter. Pour obtenir une description complète de la procédure à suivre, consultez la documentation relative aux [connexions et requêtes][]. Pour commencer, ouvrez l’Explorateur d’objets SQL Server dans Visual Studio et connectez-vous au serveur que vous allez utiliser pour créer votre base de données SQL Data Warehouse. Une fois que vous avez terminé, vous êtes en mesure de créer un entrepôt SQL Data Warehouse en exécutant la commande suivante sur la base de données MASTER :
 
         CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
 
@@ -51,14 +51,14 @@ Lors de l’exécution des instructions TSQL, notez les paramètres MAXSIZE et S
 SERVICE\_OBJECTIVE indique le nombre de DWU avec lequel votre instance démarre et accepte les valeurs suivantes : DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000. Pour plus d’informations sur l’impact de ces paramètres sur la facturation, consultez notre [page de tarification][].
 
 ## Étapes suivantes
-Une fois votre entrepôt SQL Data Warehouse configuré, vous pouvez [charger les données d’exemple][] ou découvrir comment effectuer le [développement][], [chargement][] ou la [migration][].
+Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][] les données.
 
 [didacticiel de la version préliminaire du portail Azure]: ./sql-data-warehouse-get-started-provision.md
-[se connecter et lancer des requêtes]: ./sql-data-warehouse-get-started-connect-query.md
-[migration]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-migrate/
-[développement]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
-[chargement]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-load/
-[charger les données d’exemple]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[page de tarification]: https://azure.microsoft.com/fr-FR/pricing/details/sql-data-warehouse/
+[connexions et requêtes]: ./sql-data-warehouse-get-started-connect.md
+[migrer]: ./sql-data-warehouse-overview-migrate.md
+[développer]: ./sql-data-warehouse-overview-develop.md
+[charger]: ./sql-data-warehouse-overview-load.md
+[charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[page de tarification]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 >[AZURE.NOTE]Pour effectuer cette procédure, vous devez disposer d’un compte Google avec une adresse de messagerie valide. Pour créer un compte Google, accédez à <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
-1. Accédez au site web <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a>, connectez-vous avec vos informations d'identification de compte Google, puis cliquez sur **Create Project**.
+1. Accédez à [Google Cloud Console](https://console.developers.google.com/project), connectez-vous avec vos informations d’identification de compte Google, puis cliquez sur **Create Project**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Cliquez sur **Credentials**, puis sur **Create new Key**
+5. Cliquez sur **Informations d’identification**, puis cliquez sur **Ajouter des informations d’identification** et **Clé API**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
@@ -25,10 +25,11 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Prenez note de la valeur de **API KEY**.
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
+
+7. Prenez note de la valeur de **API KEY**.
 
 	Cette valeur de clé API vous servira à activer Azure pour l’authentification avec GCM et l’envoi des notifications Push au nom de votre application.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

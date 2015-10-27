@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Connecter une application web dans Azure App Service à Cache Redis via le protocole Memcache | Microsoft Azure"
 	description="Connecter une application web dans Azure App Service à Cache Redis en utilisant le protocole Memcache"
-	services="app-service"
+	services="app-service\web"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
 	editor="riande"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
@@ -198,4 +198,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
