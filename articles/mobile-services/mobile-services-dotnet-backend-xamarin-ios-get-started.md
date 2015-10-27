@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Si vous êtes novice dans le développement mobile avec Microsoft Azure, [commencez par la prise en main des applications Azure Mobile](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) plutôt que par celle d’Azure Mobile Services ; vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version du backend JavaScript] de cette rubrique.
 
@@ -138,4 +138,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
->[AZURE.TIP]Si vous êtes novice dans le développement mobile avec Microsoft Azure, [commencez par la prise en main des applications Azure Mobile](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) plutôt que par celle d’Azure Mobile Services ; vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
+>[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
  
 Ce didacticiel présente l’ajout d’un service principal cloud à une application Windows universelle à l’aide d’Azure Mobile Services. Les solutions d'application Windows universelles incluent des projets pour Windows Store 8.1 et Windows Phone Store 8.1, et un projet partagé commun. Pour plus d'informations, consultez la page [Créer des applications Windows universelles qui ciblent Windows et Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
@@ -128,4 +128,4 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

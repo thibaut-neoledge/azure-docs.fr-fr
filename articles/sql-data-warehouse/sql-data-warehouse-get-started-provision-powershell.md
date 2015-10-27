@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 # Création de SQL Data Warehouse à l'aide de Powershell
@@ -71,4 +71,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [firewall rules]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-database-configure-firewall-settings/
 [Comment installer et configurer Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Création d'une tâche web .NET dans Azure App Service | Microsoft Azure"
 	description="Créez une application multiniveau avec ASP.NET MVC et Azure. Le serveur frontal s'exécute dans une application web d'Azure App Service, tandis que le serveur principal s'exécute sous la forme d'une tâche web. L’application utilise Entity Framework, la base de données SQL, ainsi que les files d’attente et objets blobs du stockage Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -69,12 +69,11 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 1. Ouvrez la fenêtre **Explorateur de serveurs** dans Visual Studio.
 
-2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. 
-![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Cliquez avec le bouton droit sur le nœud **Azure**, puis cliquez sur **Connexion à Microsoft Azure**. ![Connexion à Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Connectez-vous à l'aide de vos informations d'identification Azure.
-5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**.
-![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+
+5. Cliquez avec le bouton droit sur **Stockage** sous le nœud Azure, puis cliquez sur **Créer un compte de stockage**. ![Créer un compte de stockage](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. Dans la boîte de dialogue **Créer un compte de stockage**, entrez un nom correspondant au compte de stockage.
 
@@ -139,17 +138,7 @@ Dans une application réelle, on crée généralement des comptes distincts pour
 
 6. Ouvrez le fichier *App.config* dans le projet ContosoAdsWebJob.
 
-	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-       &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-     &lt;/connectionStrings&gt;
-         &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-     &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Ce fichier comporte deux chaînes de connexion : une pour les données de l'application et une pour la journalisation. Pour ce didacticiel, vous allez utiliser le même compte pour les deux. Les chaînes de connexion utilisent des espaces réservés pour les clés de compte de stockage. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	Par défaut, le Kit de développement logiciel (SDK) WebJobs recherche les chaînes de connexion AzureWebJobsStorage et AzureWebJobsDashboard. Vous pouvez également stocker la [chaîne de connexion comme vous le souhaitez et la transmettre explicitement à l’objet `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -810,4 +799,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -29,6 +29,8 @@ Data Factory fonctionne pour des sources de données locales et dans le cloud e
 
 Vous pouvez utiliser Data Factory à tout moment dès que vous en avez besoin pour collecter des données de différentes formes et tailles, les transformer et les publier pour extraire des informations détaillées. Le tout, avec un calendrier fiable. Data Factory permet de créer des pipelines de flux de données hautement disponibles pour de nombreux scénarios, à travers des secteurs différents, pour leurs besoins en matière de pipeline d’analyse. Les détaillants en ligne peuvent l’utiliser pour générer des [recommandations de produits](data-factory-product-reco-usecase.md) personnalisées basées sur le comportement de navigation du client. Des studios de jeux l'utilisent pour comprendre [l'efficacité de leur campagnes](data-factory-customer-profiling-usecase.md) marketing. Découvrez directement auprès de nos clients comment et pourquoi ils utilisent Data Factory en consultant les [Études de cas client](data-factory-customer-case-studies.md).
 
+> [AZURE.VIDEO azure-data-factory-overview]
+
 ## Concepts clés
 
 Azure Data Factory contient quelques entités clés qui fonctionnent conjointement pour définir les données d’entrée et de sortie, les événements de traitement et le calendrier et les ressources nécessaires pour exécuter le flux de données souhaité.
@@ -39,7 +41,7 @@ Azure Data Factory contient quelques entités clés qui fonctionnent conjointeme
 
 
 ### Activités
-Les activités définissent les actions à effectuer sur les données. Chaque activité accepte ou non des [jeux de données](data-factory-create-datasets.md) en tant qu’entrées et produit au moins un jeu de données en tant que sortie. Une activité est une unité d'orchestration dans Azure Data Factory. Par exemple, vous pouvez utiliser une [activité de copie](data-factory-data-movement-activities.md) pour orchestrer la copie de données d’un jeu de données vers un autre. De même, vous pouvez utiliser une [activité Hive](data-factory-data-transformation-activities.md) qui exécutera une requête Hive sur un cluster Azure HDInsight afin de transformer ou d’analyser vos données. Azure Data Factory fournit un large éventail d'activités de transformation, d’analyse et de déplacement de données.
+Les activités définissent les actions à effectuer sur les données. Chaque activité accepte ou non des [jeux de données](data-factory-create-datasets.md) en tant qu’entrées et produit au moins un jeu de données en tant que sortie. Une activité est une unité d'orchestration dans Azure Data Factory. Par exemple, vous pouvez utiliser une [activité de copie](data-factory-data-movement-activities.md) pour orchestrer la copie de données d’un jeu de données vers un autre. De même, vous pouvez utiliser une [activité Hive](data-factory-data-transformation-activities.md) qui exécutera une requête Hive sur un cluster Azure HDInsight afin de convertir ou d’analyser vos données. Azure Data Factory fournit un large éventail d'activités de transformation, d’analyse et de déplacement de données.
 
 ### Pipelines
 Les [pipelines](data-factory-create-pipelines.md) constituent un regroupement logique d’activités. Ils sont utilisés pour regrouper des activités dans une unité. Ces activités exécutent alors conjointement une tâche. Par exemple, une séquence de plusieurs activités de transformation peut être nécessaire pour nettoyer les données d’un fichier journal. Cette séquence peut présenter un calendrier et des dépendances complexes qui doivent être orchestrés et automatisés. Toutes ces activités pourraient être regroupées en un seul pipeline nommé « CleanLogFiles ». « CleanLogFiles » pourrait ensuite être déployé, planifié ou supprimé sous la forme d'une seule unité. Plus besoin de gérer chaque activité de manière indépendante.
@@ -55,7 +57,4 @@ Les services liés définissent les informations nécessaires à Data Factory p
 
 Avec ces quatre concepts simples de jeux de données, activités, pipelines et services liés, plus instant à perdre pour vous y mettre ! Vous pouvez [créer votre premier pipeline](data-factory-build-your-first-pipeline.md) de A à Z ou déployer un exemple prêt à l’emploi en suivant les instructions présentées dans l’article [Azure Data Factory - Exemples](data-factory-samples.md).
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md).
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

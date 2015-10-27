@@ -3,7 +3,7 @@
 	description="Microsoft Azure Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (Http-Live-Streaming) protégés par Microsoft PlayReady DRM. Vous pouvez également l’utiliser pour diffuser du contenu DASH chiffré avec Widevine DRM. Cette rubrique montre comment chiffrer dynamiquement avec PlayReady et Widevine DRM."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako"
+	authors="Juliako,Mingfeiy"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="10/14/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
@@ -569,4 +569,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 [Configurer l’empaquetage Widevine avec AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

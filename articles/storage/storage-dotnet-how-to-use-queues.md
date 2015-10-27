@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="08/04/2015"
+	ms.date="10/21/2015"
 	ms.author="tamram"/>
 
 # Utilisation du stockage de files d’attente à partir de .NET
@@ -123,9 +123,9 @@ Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si l
 
 	// Get the message from the queue and update the message contents.
     CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.") ;
+    message.SetMessageContent("Updated contents.");
     queue.UpdateMessage(message,
-        TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
+        TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 
 ## Enlèvement du message suivant de la file d'attente
@@ -199,7 +199,7 @@ Il existe deux façons de personnaliser la récupération des messages à partir
 
 ## Obtention de la longueur de la file d'attente
 
-Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **FetchAttributes** demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété **ApproximateMethodCount** renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d'attente.
+Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **FetchAttributes** demande au service de files d'attente d'extraire les attributs de la file d'attente, y compris le nombre de messages. La propriété **ApproximateMessageCount** renvoie la dernière valeur extraite par la méthode **FetchAttributes**, sans appeler le service de files d’attente.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -263,4 +263,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

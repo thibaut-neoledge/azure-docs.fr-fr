@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Créer une base de données SQL Data Warehouse à l’aide du portail Azure en version préliminaire#
@@ -121,6 +121,6 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 ## Étapes suivantes
 
-Maintenant que vous avez créé un exemple de base de données pour SQL Data Warehouse, découvrez comment utiliser SQL Data Warehouse dans [Se connecter et interroger](./sql-data-warehouse-get-started-connect-query.md).
+Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Connecter Azure Search avec les applications web ASP.NET | Microsoft Azure"
+	pageTitle="Connecter Azure Search avec les applications web ASP.NET MVC | Microsoft Azure"
 	description="Raccorder une application web ASP.NET avec Azure Search. Apprenez à vous connecter, à interroger et à afficher des résultats à l’aide de la bibliothèque .Net ou de l’API REST."
 	services="search"
 	documentationCenter=""
@@ -16,9 +16,9 @@
 	ms.date="08/26/2015"
 	ms.author="heidist"/>
 
-#Processus d’intégration d’Azure Search avec des applications web ASP.NET
+#Processus d’intégration d’Azure Search avec des applications web ASP.NET MVC
 
-ASP.NET est l’infrastructure d’application web prédominante dans les solutions personnalisées qui s’intègrent avec Azure Search. Dans cet article, vous allez apprendre à connecter votre application web ASP.NET à Azure Search, à démarrer rapidement avec des modèles de conception pour les opérations courantes et à passer en revue quelques pratiques de codage qui pourraient simplifier votre expérience de développement.
+ASP.NET MVC est l’infrastructure d’application web prédominante dans les solutions personnalisées s’intégrant à Azure Search. Dans cet article, vous allez apprendre à connecter votre application web ASP.NET à Azure Search, à démarrer rapidement avec des modèles de conception pour les opérations courantes et à passer en revue quelques pratiques de codage qui pourraient simplifier votre expérience de développement.
 
 ##Exemples et démonstrations de l’utilisation d’ASP.NET et d’Azure Search
 
@@ -462,4 +462,4 @@ Pour mieux comprendre l’intégration entre Azure Search et ASP.NET, consultez 
 - [Étude de cas d’un développeur Azure Search](search-dev-case-study-whattopedia.md)
 - [Flux de travail typique de développement Azure Search](search-workflow.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

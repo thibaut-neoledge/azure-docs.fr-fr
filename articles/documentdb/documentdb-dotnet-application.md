@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Développement d’une application web avec ASP.NET MVC et DocumentDB | Microsoft Azure" 
 	description="Découvrez comment utiliser DocumentDB avec .NET pour créer une application web de liste To Do. Vous allez stocker les données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure Websites." 
-	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
+	keywords="Github, visual studio, développement d’applications web, développement d’applications, didacticiel de la base de données, les applications mvc, données json, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -32,7 +32,7 @@ Pour mettre en évidence la façon dont vous pouvez exploiter efficacement Azure
 
 Cette procédure pas à pas montre comment utiliser le service DocumentDB fourni par Azure pour stocker des données et y accéder à partir d'une application web ASP.NET MVC hébergée sur Azure.
 
-> [AZURE.TIP]Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou avec les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
+> [AZURE.TIP]Ce didacticiel suppose que vous disposez d'une expérience préalable de l'utilisation d'ASP.NET MVC et d'Azure Websites. Si vous débutez avec ASP.NET ou les [outils requis](#_Toc395637760), nous vous recommandons de télécharger le projet exemple complet à partir de [GitHub][] et de suivre les instructions fournies dans cet exemple. Une fois que vous l'avez créé, vous pouvez consulter cet article pour obtenir des informations sur le code dans le contexte du projet.
 
 ## <a name="_Toc395637760"></a>Conditions préalables à l’exécution de ce didacticiel de base de données
 
@@ -91,7 +91,7 @@ Maintenant que vous avez un compte, nous allons créer notre nouveau projet ASP.
 
 	Nous allons sauter l'exécution du projet localement, car je suis sûr que nous avons tous vu l'application « Hello World » ASP.NET. Nous allons maintenant ajouter DocumentDB à ce projet et créer notre application.
 
-## <a name="_Toc395637767"></a>Étape 3 : Ajout de DocumentDB à votre projet d’application Web
+## <a name="_Toc395637767"></a>Étape 3 : Ajout de DocumentDB à votre projet d’application web
 
 Maintenant que nous avons la plupart des éléments ASP.NET MVC nécessaires à cette solution, passons au véritable objectif de ce didacticiel, à savoir, ajouter Azure DocumentDB à notre application web.
 
@@ -247,7 +247,7 @@ Une fois cette opération effectuée, fermez tous les documents .cshtml dans Vis
 
 ## <a name="_Toc395637769"></a>Étape 5 : liaison de DocumentDB
 
-Maintenant que nous nous sommes occupé des éléments de base de MVC, ajoutons le code pour DocumentDB.
+Maintenant que nous nous sommes occupés des éléments de base de MVC, ajoutons le code pour DocumentDB.
 
 Dans cette section, nous allons ajouter du code pour gérer les éléments suivants :
 
@@ -454,7 +454,7 @@ Ouvrez ***App\_Start\\RouteConfig.cs***. Recherchez la ligne commençant par «�
 
 Ce code indique maintenant à ASP.NET MVC que vous n'avez pas spécifié de valeur dans l'URL pour contrôler le comportement de routage qui, au lieu de **Home**, utilise **Item** comme contrôleur et **Index** comme vue.
 
-Maintenant, si vous exécutez l’application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour retourner tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
+Maintenant, si vous exécutez l’application, elle appellera votre **ItemController**, qui appellera la classe de référentiel et utilisera la méthode GetItems pour renvoyer tous les éléments non terminés à la vue **Views**\**Item**\**Index**.
 
 Si vous créez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
 
@@ -540,19 +540,6 @@ La dernière chose à faire est d'ajouter la possibilité de modifier des **él�
 
 2. Ajoutez le code suivant à la classe **ItemController**.
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -569,6 +556,19 @@ La dernière chose à faire est d'ajouter la possibilité de modifier des **él�
 		 	
 		    return View(item);
 		}
+		
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
+
+  	      return View(item);
+ 	   	}
 		
 	
 	La première méthode traite l’opération Http GET qui se produit lorsque l’utilisateur clique sur le lien **Edit** de la vue **Index**. Elle extrait un [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) à partir de DocumentDB et le transmet à la vue **Edit**.
@@ -633,4 +633,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

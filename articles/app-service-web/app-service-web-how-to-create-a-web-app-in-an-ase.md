@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Comment créer une application web dans un environnement App Service"
 	description="Flux de création pour les applications web et les plans App Service examinés d'un environnement App Service"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -100,4 +100,4 @@ Après avoir créé votre application web et votre plan App Service, leur mise �
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

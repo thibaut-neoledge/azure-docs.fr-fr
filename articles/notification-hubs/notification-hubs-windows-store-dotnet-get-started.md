@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/11/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs pour les applications Windows Store
@@ -90,31 +90,15 @@ Pour envoyer des notifications Push vers des applications Windows Store, vous de
 
 ##Configuration de votre hub de notification
 
-1. Connectez-vous au [portail Azure], puis cliquez sur **+NOUVEAU** en bas de l’écran.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Cliquez sur **App Services**, sur **Service Bus**, sur **Notification Hub**, puis cliquez sur **Création rapide**.
+<ol start="7">
+<li><p>Sélectionnez l’onglet <b>Configure</b> en haut de la page, entrez les valeurs de la <b>Clé secrète client</b> et du <b>SID du package</b> que vous avez obtenues de WNS dans la section précédente, puis cliquez sur <b>Enregistrer</b>.</p>
+</li>
+</ol>
 
-   	![][7]
+&emsp;&emsp;![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
-3. Tapez un nom pour votre hub de notification, sélectionnez la région souhaitée, puis cliquez sur **Créer un hub de notification**.
-
-   	![][8]
-
-4. Cliquez sur l’espace de noms que vous venez de créer (en général ***nom du hub de notification*-ns**), puis cliquez sur l’onglet **Configurer** en haut de l’écran.
-
-   	![][9]
-
-5. Sélectionnez l’onglet **Notifications Hubs** en haut de la page, puis cliquez sur le hub de notification que vous venez de créer.
-
-   	![][10]
-
-6. Sélectionnez l’onglet **Configure** en haut de la page, entrez les valeurs de la **Clé secrète client** et du **SID du package** que vous avez obtenues de WNS dans la section précédente, puis cliquez sur **Enregistrer**.
-
-   	![][11]
-
-7. Sélectionnez l’onglet **Tableau de bord** en haut de la page, puis cliquez sur le bouton **Informations de connexion** en bas. Notez les deux chaînes de connexion.
-
-   	![][12]
 
 Votre Notification Hub est désormais configuré pour WNS, et vous disposez des chaînes de connexion pour inscrire votre application et envoyer des notifications.
 
@@ -193,7 +177,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 Les notifications Push sont normalement envoyées dans un service principal tel que Mobile Services ou ASP.NET à l’aide d’une bibliothèque compatible. Vous pouvez également utiliser l’API REST directement pour envoyer des messages de notification si aucune bibliothèque n’est disponible pour votre serveur principal.
 
-Dans ce didacticiel, nous nous contenterons pour plus de simplicité de tester votre application cliente en envoyant des notifications à l'aide du Kit de développement logiciel (SDK) .NET pour Notification Hubs dans une application de console au lieu d'un service principal. Nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications push aux utilisateurs] comme prochaine étape pour envoyer des notifications à partir d’un serveur principal ASP.NET. Toutefois, les approches suivantes peuvent servir à envoyer des notifications :
+Dans ce didacticiel, nous nous contenterons pour plus de simplicité de tester votre application cliente en envoyant des notifications à l'aide du Kit de développement logiciel (SDK) .NET pour Notification Hubs dans une application de console au lieu d'un service principal. Nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs] comme prochaine étape pour envoyer des notifications à partir d’un serveur principal ASP.NET. Toutefois, les approches suivantes peuvent servir à envoyer des notifications :
 
 * **Interface REST** : vous pouvez prendre en charge les notifications sur n’importe quelle plateforme principale à l’aide de l’[interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
@@ -203,7 +187,7 @@ Dans ce didacticiel, nous nous contenterons pour plus de simplicité de tester v
 
 * **Azure Mobile Services** : pour découvrir un exemple d’envoi de notifications depuis un serveur principal Azure Mobile Services intégré à Notification Hubs, consultez « Prise en main des notifications Push dans Mobile Services » ([Serveur principal .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Serveur principal JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
 
-* **Java / PHP** : Pour voir un exemple d’envoi de notifications au moyen des API REST, consultez « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+* **Java/PHP** : Pour voir un exemple d’envoi de notifications au moyen des API REST, consultez « Utilisation de Notification Hubs depuis Java/PHP » ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 
 ## (Facultatif) Envoi de notifications à partir d’une application de console
@@ -217,24 +201,24 @@ Procédez comme suit pour envoyer des notifications à l’aide d’une applicat
 
 	Une nouvelle application console Visual C# est ajoutée à la solution. Vous pouvez également réaliser cette opération dans une solution distincte.
 
-4. Dans Visual Studio, cliquez successivement sur **Outils**, **Gestionnaire de package NuGet** et **Console du gestionnaire de package**.
+2. Dans Visual Studio, cliquez successivement sur **Outils**, **Gestionnaire de package NuGet** et **Console du gestionnaire de package**.
 
 	La console du gestionnaire de package s’affiche dans Visual Studio.
 
-6. Dans la fenêtre Console du gestionnaire de package, affectez votre nouveau projet d’application console comme **Projet par défaut**, puis exécutez la commande suivante dans la fenêtre de console :
+3. Dans la fenêtre Console du gestionnaire de package, affectez votre nouveau projet d’application console comme **Projet par défaut**, puis exécutez la commande suivante dans la fenêtre de console :
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	Cette opération ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
+	Cette opération ajoute une référence au kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">package NuGet Microsoft.Azure.Notification Hubs</a>.
 
 	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 
-5. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
+4. Ouvrez le fichier Program.cs et ajoutez l’instruction `using` suivante :
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Dans la classe **Program**, ajoutez la méthode suivante :
+5. Dans la classe **Program**, ajoutez la méthode suivante :
 
         private static async void SendNotificationAsync()
         {
@@ -248,12 +232,12 @@ Procédez comme suit pour envoyer des notifications à l’aide d’une applicat
 
 	>[AZURE.NOTE]Assurez-vous d’utiliser la chaîne de connexion avec un accès **Total**, et non un accès **Écouter**. La chaîne d’accès en écoute seule ne dispose pas des autorisations pour envoyer des notifications.
 
-7. Ajoutez les lignes suivantes à la méthode **Main** :
+6. Ajoutez les lignes suivantes à la méthode **Main** :
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
-8. Cliquez avec le bouton droit sur le projet d’application de console dans Visual Studio, puis cliquez sur **Définir comme projet de démarrage**. Appuyez ensuite sur la touche **F5** pour exécuter l’application.
+7. Cliquez avec le bouton droit sur le projet d’application de console dans Visual Studio, puis cliquez sur **Définir comme projet de démarrage**. Appuyez ensuite sur la touche **F5** pour exécuter l’application.
 
    	![][14]
 
@@ -263,11 +247,11 @@ Vous trouverez toutes les charges utiles prises en charge dans les rubriques du 
 
 ##Étapes suivantes
 
-Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils Windows en utilisant le portail ou une application de console. Nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications push aux utilisateurs] comme prochaine étape. Il vous expliquera comment envoyer des notifications à partir d’un serveur principal ASP.NET en utilisant des balises pour cibler des utilisateurs spécifiques.
+Dans cet exemple simple, vous avez envoyé des notifications à tous vos appareils Windows en utilisant le portail ou une application de console. Nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs] comme prochaine étape. Il vous expliquera comment envoyer des notifications à partir d’un serveur principal ASP.NET en utilisant des balises pour cibler des utilisateurs spécifiques.
 
 Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles].
 
-Pour obtenir des informations générales sur Notification Hubs, consultez [Recommandations relatives à Notification Hubs].
+Pour obtenir des informations générales sur Notification Hubs, consultez la section [Recommandations relatives à Notification Hubs].
 
 
 
@@ -279,12 +263,7 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
-[7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
-[8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
-[9]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-select-from-portal2.png
 [11]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png
-[12]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
@@ -294,14 +273,14 @@ Pour obtenir des informations générales sur Notification Hubs, consultez [Reco
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[portail Azure]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Utiliser Notification Hubs pour envoyer des notifications push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [catalogue toast]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer une application logique | Microsoft Azure"
-	description="Apprenez à créer une application logique App Services de base"
+	description="Apprendre à créer une application logique connectant les services SaaS"
 	authors="stepsic-microsoft-com"
 	manager="dwrede"
 	editor=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="stepsic"/>
 
-# Créer une application logique
+# Créer une application logique connectant les services SaaS
 
 | Référence rapide |
 | --------------- |
@@ -94,15 +94,19 @@ Les déclencheurs sont les éléments qui permettent à votre application logiqu
 
 1. Toujours dans la vue **Créer une application logique**, cliquez sur **Déclencheurs et actions**.
 
-	Cela affiche un concepteur plein écran qui affiche vos flux. Sur le côté droit se trouve une liste de tous les services qui peuvent avoir des déclencheurs.
+	Cette action provoque l’affichage d’un concepteur plein écran qui comporte vos flux et quelques modèles de départ.
+	
+2. Pour ce didacticiel, nous allons **Créer du contenu de toutes pièces**. Si vous le jugez utile, vous pouvez toujours utiliser un modèle.
+    
+    Sur le côté droit se trouve une liste de tous les services qui peuvent présenter des déclencheurs.
 
-2. Dans la section supérieure, cliquez sur **Périodicité**.
+3. Dans la section supérieure, cliquez sur **Périodicité**.
 
 	Cela ajoute une zone où vous pouvez spécifier les paramètres de périodicité.
 
 	![Périodicité](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
-3.  Choisissez une **Fréquence** et un **Intervalle** de périodicité (par exemple une fois par heure), puis cliquez sur la coche verte.
+4.  Choisissez une **Fréquence** et un **Intervalle** de périodicité (par exemple une fois par heure), puis cliquez sur la coche verte.
 
 À présent, vous allez ajouter une action au flux.
 
@@ -110,9 +114,9 @@ Les déclencheurs sont les éléments qui permettent à votre application logiqu
 
 Les actions correspondent à ce que fait votre flux de travail. Vous pouvez avoir un nombre quelconque d'actions et les organiser pour que les informations d'une action soient passées à la suivante.
 
-1. Dans le volet de droite, cliquez sur **Connecteur Twitter**.
+1. Dans le panneau de droite, cliquez sur **Connecteur Twitter**.
 
-2. Une fois le connecteur chargé, cliquez sur **Autoriser**, connectez-vous à votre compte Twitter, puis cliquez sur **Autoriser l’application**.
+2. Une fois le connecteur chargé, cliquez sur **Autoriser**, connectez-vous à votre compte Twitter, puis cliquez sur **Autoriser l’application**.
 
 	Ce paramètre accorde au connecteur l'accès à votre compte Twitter. Une liste d'opérations possibles fournies par le connecteur Twitter est affichée.
 
@@ -169,7 +173,7 @@ L'étape finale consiste à ajouter une action qui charge un tweet vers un fichi
 
 Votre application logique est maintenant opérationnelle. Chaque fois que le flux de travail planifié s’exécute, il vérifie la présence de tweets avec le hashtag spécifique. Quand il trouve un tweet correspondant, il le place dans votre dossier Dropbox. Pour finir, vous allez découvrir comment désactiver l'application ou analyser ses performances.
 
-1. Cliquez sur **Parcourir** sur le côté gauche de l’écran et sélectionnez **Applications logiques**.
+1. Cliquez sur **Parcourir** sur le côté gauche de l’écran, et sélectionnez **Applications logiques**.
 
 2. Cliquez sur la nouvelle application logique que vous venez de créer pour afficher l'état actuel et des informations générales.
 
@@ -184,4 +188,4 @@ En moins de cinq minutes, vous avez réussi à configurer une application logiq
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Utiliser les fonctionnalités des applications logiques]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

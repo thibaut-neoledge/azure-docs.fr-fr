@@ -170,6 +170,8 @@ Utilisez Visual Studio Enterprise ou Ultimate pour enregistrer une session web.
 
     ![Sélectionnez test web multi-étapes.](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
+    Définissez les emplacements de test, la fréquence et les paramètres d’alerte comme pour les tests ping.
+
 Affichez les résultats de votre test et les échecs éventuels de la même manière que pour les tests d'URL unique.
 
 Un échec est souvent dû à un test trop long. Le test ne doit pas durer plus de deux minutes.
@@ -244,4 +246,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -85,7 +85,7 @@ Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout momen
 ![Click the Application Insights icon on the task bar](./media/app-insights-monitor-performance-live-website-now/appinsights-033-aicRunning.png)
 
 
-### Si votre application s’exécute en tant que qu’application web Azure
+### Si votre application s’exécute en tant qu’application web Azure
 
 Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
@@ -174,6 +174,7 @@ Cette liste peut évoluer de temps à autre.
   * Si un message relatif à des « autorisations insuffisantes » s’affiche sur le serveur, procédez comme suit :
     * Dans le Gestionnaire des services Internet, sélectionnez votre pool d’applications, ouvrez **Paramètres avancés** puis, sous **Modèle de processus**, notez l’identité.
     * Dans le panneau de configuration relatif à la gestion de l’ordinateur, ajoutez cette identité au groupe Utilisateurs de l’Analyseur de performances.
+  * Si les services MMA/SCOM sont installés sur votre serveur, certaines versions peuvent entrer en conflit. Désinstallez à la fois SCOM et Moniteur d’état, puis réinstallez des versions les plus récentes.
   * Consultez la rubrique [Résolution des problèmes][qna].
 
 ## Configuration requise
@@ -215,4 +216,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
