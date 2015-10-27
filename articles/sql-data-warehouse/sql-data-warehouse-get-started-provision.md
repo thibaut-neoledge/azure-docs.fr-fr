@@ -48,7 +48,12 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 ## Étape 2 : Configurer et créer un serveur
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
+  >
+  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
+  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*.
+  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
+  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 

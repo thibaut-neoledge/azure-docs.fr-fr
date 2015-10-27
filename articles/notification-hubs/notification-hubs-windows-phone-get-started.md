@@ -51,7 +51,8 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 Le concentrateur est maintenant créé et configuré pour envoyer une notification non authentifiée pour Windows Phone.
 
-> [AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Le mode MPNS non authentifié est assorti de restrictions sur les notifications que vous pouvez envoyer à chaque canal. Notification Hubs prend en charge le [mode authentifié MPNS](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) en vous permettant de télécharger votre certificat.
+> [AZURE.NOTE]Ce didacticiel utilise MPNS en mode non authentifié. Le mode MPNS non authentifié est assorti de restrictions sur les notifications que vous pouvez envoyer à chaque canal. Notification Hubs prend en charge le [mode MPNS authentifié](http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
+<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##Connexion de votre application au hub de notification
 
