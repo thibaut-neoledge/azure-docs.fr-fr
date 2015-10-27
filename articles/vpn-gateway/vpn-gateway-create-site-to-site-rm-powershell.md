@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="cherylmc"/>
 
 # Créer un réseau virtuel avec une connexion VPN site à site à l’aide de PowerShell
@@ -31,17 +31,18 @@ Cet article vous guidera dans la création d’un réseau virtuel et d’une con
 
 Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
 
-- Un appareil VPN compatible et une personne qui est en mesure de le configurer. Consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
+- Un appareil VPN compatible et une personne qui est en mesure de le configurer. Consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md). Si vous n’êtes pas familiarisé avec la configuration de votre appareil VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut vous fournir ces informations.
 
 - Une adresse IP publique exposée en externe pour votre périphérique VPN. Cette adresse IP ne peut pas se trouver derrière un NAT.
-
->[AZURE.IMPORTANT]Si vous n’êtes pas familiarisé avec la configuration de votre appareil VPN ou avec les plages d’adresses IP situées dans la configuration de votre réseau local, vous devez vous associer à une personne qui peut fournir les informations.
 	
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-- La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la [page Téléchargements](http://azure.microsoft.com/downloads/). Cet article est rédigé pour Azure PowerShell *0.9.8*.
+- Des applets de commande Azure PowerShell 0.9.8. Vous pouvez télécharger et installer cette version à partir de la section Windows PowerShell de la [page Téléchargements](http://azure.microsoft.com/downloads/). Cet article a été écrit pour la version 0.9.8, bien qu’il soit possible d’utiliser cette procédure (avec quelques modifications des applets de commande) avec la version préliminaire PowerShell 1.0.
 
->[AZURE.NOTE]Si vous exécutez des applications stratégiques, continuez à utiliser Azure PowerShell 0.9.8. Dans la plupart des cas, la seule différence entre les deux versions est que le nom d’applet de commande de la version préliminaire 1.0 suit le modèle {verbe}-AzureRm{nom}, tandis que dans la version 0.9.8, le nom n’inclut pas Rm. Par exemple, New-AzureRmResourceGroup au lieu de New-AzureResourceGroup. Pour plus d’informations sur la version préliminaire d’Azure PowerShell 1.0, consultez le [billet de blog](https://azure.microsoft.com/blog/azps-1-0-pre/). Pour plus d’informations sur les applets de commande de la version préliminaire d’Azure PowerShell 1.0, consultez [Applets de commande Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx).
+**À propos de l’utilisation de cette procédure avec la version préliminaire Azure PowerShell 1.0**
+
+	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+	
 
 
 ## 1\. Connexion à votre abonnement 
@@ -49,13 +50,13 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 Ouvrez la console PowerShell et connectez-vous à votre compte.
 
-**Remarque :** les instructions ci-dessous sont basées sur la version 0.9.8 des applets de commande PowerShell Azure.
+**Remarque :** les instructions ci-dessous sont basées sur la version 0.9.8 des applets de commande Azure PowerShell.
 
 Utilisez l’exemple suivant pour faciliter votre connexion :
 
 		Add-AzureAccount
 
-Si vous avez plusieurs abonnements, utilisez *Select-AzureSubscription* pour vous connecter à l’abonnement que vous voulez utiliser.
+Si vous possédez plusieurs abonnements, utilisez *Select-AzureSubscription* pour vous connecter à l’abonnement que vous souhaitez utiliser.
 
 		Select-AzureSubscription "yoursubscription"
 
@@ -66,7 +67,7 @@ Basculez ensuite sur le mode Azure Resource Manager.
 ## 2\. Créer un réseau virtuel et un sous-réseau de passerelle
 
 - Si vous disposez déjà d’un réseau virtuel avec un sous-réseau de passerelle, vous pouvez passer d’emblée à **Étape 3 : Ajouter votre site local**. 
-- Si vous disposez déjà d’un réseau virtuel et voulez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
+- Si vous disposez déjà d’un réseau virtuel et que vous souhaitez ajouter un sous-réseau de passerelle à votre réseau virtuel, consultez [Ajouter un sous-réseau de passerelle à un réseau virtuel](#gatewaysubnet).
 
 ### Pour créer un réseau virtuel et un sous-réseau de passerelle
 
@@ -79,7 +80,7 @@ Créez d’abord un groupe de ressources :
 
 Ensuite, créez votre réseau virtuel Vérifiez que les espaces d’adressage que vous spécifiez ne chevauchent pas les espaces d’adressage de votre réseau local.
 
-L’exemple ci-dessous crée un réseau virtuel nommé *testvnet* et deux sous-réseaux, un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera.
+L’exemple ci-dessous crée un réseau virtuel nommé *testvnet* et deux sous-réseaux, l’un nommé *GatewaySubnet* et l’autre *Subnet1*. Il est important de créer un sous-réseau nommé spécifiquement *GatewaySubnet*. Si vous le nommez autrement, la configuration de votre connexion échouera.
 
 		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.0.0/28
 		$subnet2 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.0.1.0/28'
@@ -173,7 +174,7 @@ Après un bref délai, la connexion sera établie.
 
 À ce stade, les connexions VPN de site à site créées avec Resource Manager ne sont pas visibles dans la version préliminaire du portail. Vous pouvez néanmoins vérifier que votre connexion a abouti en exécutant la commande *Get-AzureVirtualNetworkGatewayConnection –Debug*. Nous proposerons prochainement à cet effet une applet de commande, avec la possibilité d'afficher votre connexion dans la version préliminaire du portail.
 
-Vous pouvez utiliser l'exemple d'applet de commande suivant, en le configurant selon vos propres valeurs. Lorsque vous y êtes invité, sélectionnez *A* pour exécuter Tout.
+Vous pouvez utiliser l'exemple d'applet de commande suivant, en le configurant selon vos propres valeurs. Lorsque vous y êtes invité, sélectionnez *A* pour Tout exécuter.
 
 		Get-AzureVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
@@ -251,6 +252,6 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 
 ## Étapes suivantes
 
-Ajoutez une machine virtuelle à votre réseau virtuel. [Créer une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
+Ajoutez une machine virtuelle à votre réseau virtuel. [Création d’une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

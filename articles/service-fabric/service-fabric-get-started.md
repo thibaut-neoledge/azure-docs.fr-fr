@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configurer votre environnement de développement Service Fabric | Microsoft Azure"
-   description="Installez le runtime, le SDK et les outils Service Fabric, et créez un cluster de développement local."
+   pageTitle="Configurer votre environnement de développement | Microsoft Azure"
+   description="Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois l’installation terminée, vous serez prêt à créer des applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Configurer votre environnement de développement Service Fabric
- Cet article décrit tout ce dont vous avez besoin pour commencer à créer des applications [Service Fabric][1], y compris l'installation du runtime, du Kit de développement logiciel (SDK) et des outils, ainsi que la configuration d'un cluster local.
+# Préparer votre environnement de développement
+ Pour générer et exécuter des [applications Service Fabric][1] sur votre ordinateur de développement, vous devez installer le runtime, le kit de développement logiciel et configurer un cluster local.
 
- >[AZURE.NOTE]Ces instructions sont prévues pour configurer de nouveaux ordinateurs. Si vous avez installé une version antérieure de Service Fabric sur votre ordinateur, suivez les [instructions pour mettre à jour votre environnement de développement](service-fabric-update-your-development-environment.md).
+ >[AZURE.NOTE]Ces instructions sont prévues pour configurer de nouvelles machines. Si vous avez installé une version antérieure de Service Fabric, suivez les [instructions pour mettre à jour votre environnement de développement](service-fabric-update-your-development-environment.md).
 
-## Composants requis
+## Configuration requise
 ### Versions de système d'exploitation prises en charge
 Les versions de système d'exploitation prises en charge sont les suivantes :
 
@@ -33,7 +33,7 @@ Les versions de système d'exploitation prises en charge sont les suivantes :
 
 Les outils pour Service Fabric dépendent de Visual Studio 2015, que vous pouvez trouver [ici][2].
 
-> [AZURE.NOTE]Si vous n'exécutez pas l'une des versions de système d'exploitation prises en charge ou que vous préférez ne pas installer Visual Studio 2015 sur votre ordinateur, vous pouvez configurer une machine virtuelle Azure avec Windows Server 2012 R2 et Visual Studio 2015 préinstallés à l'aide d'une image de la galerie de machines virtuelles.
+> [AZURE.NOTE]Si vous n’exécutez pas l’une des versions de système d’exploitation prises en charge ou si vous préférez ne pas installer Visual Studio 2015 sur votre ordinateur, vous pouvez configurer une machine virtuelle Azure avec Windows Server 2012 R2 et Visual Studio 2015 préinstallés à l’aide d’une image de la galerie de machines virtuelles Azure.
 
 ## Installer le runtime, le SDK et les outils
 
@@ -106,4 +106,4 @@ Si aucun élément n'est vert ou qu'un message d'erreur s'affiche, attendez quel
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Lien WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

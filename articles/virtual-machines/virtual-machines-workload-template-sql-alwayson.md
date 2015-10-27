@@ -19,7 +19,7 @@
 
 # Déployer SQL Server AlwaysOn à l’aide d’un modèle Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Suivez les instructions de cet article pour déployer SQL Server AlwaysOn à l’aide d’un modèle Resource Manager Azure. Ce modèle crée cinq machines virtuelles dans un nouveau réseau virtuel, sur deux sous-réseaux différents.
 
@@ -43,9 +43,9 @@ Pour déployer cette charge de travail à l’aide d’un modèle Azure Resourc
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration SQL Server à cinq serveurs dans votre groupe de ressources nouveau ou existant.
 
-## Azure PowerShell
+## Azure PowerShell
 
-Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Gestionnaire des ressources. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -67,7 +67,7 @@ Voici un exemple.
 
 Ensuite, exécutez votre bloc de commande dans l’invite Azure PowerShell.
 
-Lorsque vous exécutez la commande **New-AzureResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureResourceGroupDeployment** crée et configure les machines virtuelles.
+Lorsque vous exécutez la commande **New-AzureRmResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureRmResourceGroupDeployment** crée et configure les machines virtuelles.
 
 Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration SQL Server à cinq serveurs dans votre nouveau groupe de ressources.
 
@@ -88,7 +88,7 @@ Voici un exemple.
 	azure group create sqlao eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc/azuredeploy.json sqlao sqldevtest
 
-Lors de l’exécution de la commande **azure group deployment create**, vous serez invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle configuration SQL Server à cinq serveurs dans votre nouveau groupe de ressources.
 
@@ -107,4 +107,4 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

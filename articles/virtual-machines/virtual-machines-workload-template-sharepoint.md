@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Déployer des batteries de serveurs avec des modèles Azure Resource Manager
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique. Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas créer cette ressource avec le modèle de déploiement classique.
 
 Suivez les instructions de cet article afin de déployer une nouvelle batterie SharePoint Server 2013 à trois ou neuf serveurs à l’aide de modèles Resource Manager.
 
@@ -31,26 +31,26 @@ Pour une batterie de base SharePoint Server 2013, un modèle Resource Manag
 
 Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire, Azure PowerShell ou l’interface de ligne de commande Azure.
 
+> [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace au niveau du portail Azure.
+
 ### Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Cliquez sur **Paramètres**. Dans le volet **Paramètres**, saisissez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
+1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
-6.	Cliquez sur **Mentions légales** pour passer en revue les conditions d’utilisation de ce modèle.
+6.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 7.	Cliquez sur **Create**.
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque vous avez terminé, vous disposez d’une nouvelle batterie SharePoint à trois serveurs dans votre groupe de ressource nouveau ou existant.
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Cet article contient des commandes pour les versions d’Azure PowerShell *antérieures* à la version 1.0.0. Vous pouvez déterminer votre version d’Azure PowerShell à l’aide de la commande **Get-Module azure | format-table version**. Les blocs de commande Azure PowerShell dans cet article font actuellement l’objet de tests et de mises à jour pour prendre en charge les nouvelles applets de commande dans les versions Azure PowerShell 1.0.0 et ultérieures. Nous vous remercions de votre patience.
-
-Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Gestionnaire des ressources. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **New-AzureResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -58,8 +58,8 @@ Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources e
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Voici un exemple.
 
@@ -67,12 +67,12 @@ Voici un exemple.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Ensuite, exécutez votre bloc de commande dans l’invite Azure PowerShell.
 
-Quand vous exécutez la commande **New-AzureResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureResourceGroupDeployment** crée et configure les machines virtuelles.
+Lorsque vous exécutez la commande **New-AzureRMResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureRMResourceGroupDeployment** crée et configure les machines virtuelles.
 
 Lorsque vous avez terminé, vous disposez d’une nouvelle batterie SharePoint à trois serveurs dans votre nouveau groupe de ressources.
 
@@ -93,7 +93,7 @@ Voici un exemple.
 	azure group create sp3serverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json sp3serverfarm spdevtest
 
-Quand vous exécutez la commande **azure group deployment create**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Vous disposez désormais d’une nouvelle batterie SharePoint à trois serveurs dans votre nouveau groupe de ressources.
 
@@ -103,24 +103,26 @@ Pour une batterie de base SharePoint Server 2013 à haute disponibilité, un 
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
+> [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace au niveau du portail Azure.
+
 ### Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Cliquez sur **Paramètres**. Dans le volet **Paramètres**, entrez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
+1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
-5.	Cliquez sur **Mentions légales** pour passer en revue les conditions d’utilisation de ce modèle.
+5.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 6.	Cliquez sur **Create**.
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque vous avez terminé, vous disposez d’une nouvelle batterie SharePoint à neuf serveurs dans votre groupe de ressource nouveau ou existant.
 
-### Azure PowerShell
+### Azure PowerShell
 
-Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Gestionnaire des ressources. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **New-AzureResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -128,8 +130,8 @@ Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources e
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Voici un exemple.
 
@@ -137,12 +139,12 @@ Voici un exemple.
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Ensuite, exécutez votre bloc de commande dans l'invite de commande Azure PowerShell.
 
-Quand vous exécutez la commande **New-AzureResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureResourceGroupDeployment** crée et configure les machines virtuelles.
+Lorsque vous exécutez la commande **New-AzureRMResourceGroupDeployment**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez spécifié l’ensemble des valeurs de paramètres, la commande **New-AzureRMResourceGroupDeployment** crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’une nouvelle batterie SharePoint à neuf serveurs dans votre nouveau groupe de ressources.
 
@@ -163,7 +165,7 @@ Voici un exemple.
 	azure group create sphaserverfarm eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json sphaserverfarm spdevtest
 
-Quand vous exécutez la commande **azure group deployment create**, vous êtes invité à fournir les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’une nouvelle batterie SharePoint Server 2013 à neuf serveurs dans votre nouveau groupe de ressources.
 
@@ -184,4 +186,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
