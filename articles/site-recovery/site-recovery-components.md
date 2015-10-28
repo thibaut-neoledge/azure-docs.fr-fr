@@ -111,10 +111,10 @@ Le fournisseur s'exécute sur vos serveurs VMM, sur les serveurs hôtes Hyper-V 
 - Si vous voulez connecter le serveur sur lequel le fournisseur s'exécute à internet à l'aide d'un serveur proxy, vous pouvez utiliser les paramètres de proxy existants ou spécifier un proxy personnalisé.
 - Le serveur proxy doit laisser passer ces adresses à travers le pare-feu :
 
-	-  **.accesscontrol.windows.net
--  .backup.windowsazure.com
-	-  **.blob.core.windows.net
--  **.store.core.windows.net
+	-  *.accesscontrol.windows.net
+	-  .backup.windowsazure.com
+	-  *.blob.core.windows.net
+	-  *.store.core.windows.net
 
 - Si votre pare-feu a des règles basées sur l’adresse IP, assurez-vous qu'elles autorisent la communication à partir du serveur de configuration vers les adresses IP décrites dans la section [Plages d’adresses IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) et pour le protocole HTTPS (443). Vous devrez autoriser les plages IP de la région Azure que vous prévoyez d'utiliser, ainsi que celles de la région ouest des États-Unis.
 - Si vous déployez Site Recovery avec VMM et utilisez un proxy personnalisé, un compte RunAs VMM (DRAProxyAccount) sera créé automatiquement à l’aide des informations d’identification du proxy spécifiées dans les paramètres personnalisés du proxy dans le portail Site Recovery. Pour permettre l’authentification du compte, vous devez configurer le serveur proxy.
@@ -178,4 +178,4 @@ Pour plus d’informations sur la planification de ces composants, consultez la 
 
 Commencez à configurer les composants pour votre scénario de déploiement. [En savoir plus](site-recovery-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
