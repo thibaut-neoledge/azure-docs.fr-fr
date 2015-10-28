@@ -369,7 +369,14 @@ Similarly, install Courier module on your production site and configure it point
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Cliquez sur l’onglet Courier2 dans le tableau de bord de l’application web Umbraco CMS et sélectionnez des emplacements. Vous devez voir le nom du référentiel comme indiqué dans `courier.config`. Exécutez l’opération à la fois sur votre application de production et votre application intermédiaire.
 
@@ -422,4 +429,4 @@ Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez él
 
 [Comment limiter l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
