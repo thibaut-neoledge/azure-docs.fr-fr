@@ -132,7 +132,7 @@ Vous pouvez commencer par créer la structure de répertoires, comme décrit ci-
 ### Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires Code et Config. Vous pouvez également créer d'autres répertoires ou sous-répertoires dans les répertoires Code ou Config. Service Fabric crée une copie xcopy du contenu du répertoire racine de l’application. Par conséquent, il n'existe aucune structure prédéfinie à utiliser autre que la création des deux principaux répertoires Code et Config (mais vous pouvez choisir des noms différents si vous le souhaitez ; consultez la section suivante pour plus de détails).
 
->[AZURE.NOTE]Veillez à bien inclure la totalité des fichiers/dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n'est pas recommandé de supposer que les dépendances sont déjà installées.
+>[AZURE.NOTE]: Veillez à bien inclure la totalité des fichiers/dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n'est pas recommandé de supposer que les dépendances sont déjà installées.
 
 ### Modification du fichier de manifeste de service
 L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
@@ -353,4 +353,4 @@ Consultez [ceci](service-fabric-develop-your-service-index.md) si vous souhaitez
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
