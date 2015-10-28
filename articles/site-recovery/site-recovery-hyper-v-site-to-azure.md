@@ -49,7 +49,7 @@ Avant de commencer, assurez-vous que tout est en place.
 - Sur le site local source, vous devez disposer d’au moins un serveur exécutant Windows Server 2012 R2 avec le rôle Hyper-V.
 - Le serveur Hyper-V doit contenir une ou plusieurs machines virtuelles.
 - Les serveurs Hyper-V doivent être connectés à Internet, directement ou via un proxy.
-- Les correctifs mentionnés dans le document [KB2961977](https://support.microsoft.com/fr-FR/kb/2961977 "KB2961977") doivent être installés sur les serveurs Hyper-V.
+- Les correctifs mentionnés dans le document [KB2961977](https://support.microsoft.com/fr-fr/kb/2961977 "KB2961977") doivent être installés sur les serveurs Hyper-V.
 
 ### Configuration requise pour les machines virtuelles
 
@@ -305,4 +305,4 @@ Pour exécuter le test de basculement, procédez comme suit :
 
 Une fois votre déploiement configuré et en cours d'exécution, découvrez [plus d'informations](site-recovery-failover.md) sur le basculement.
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
