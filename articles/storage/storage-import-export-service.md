@@ -95,7 +95,7 @@ L'outil Microsoft Azure Import/Export génère un fichier *journal de lecteur* l
 
 	Si vous avez un numéro de suivi, entrez-le après avoir sélectionné le transporteur dans la liste.
 
-	Si vous n'avez pas encore de numéro de suivi, choisissez **I will provide my shipping information for this import job once I have shipped my package**, puis terminez le processus d'importation.
+	Si vous n'avez pas encore de numéro de suivi, choisissez **Je fournirai mes informations d’expédition pour ce travail d’importation après envoi de mon colis**, puis terminez le processus d'importation.
 
 7. Pour entrer le numéro de suivi après avoir expédié votre colis, revenez à la page **Importer/Exporter** de votre compte de stockage dans le portail de gestion, sélectionnez votre tâche dans la liste, puis choisissez **Informations d'expédition**. Parcourez l’Assistant, puis entrez votre numéro de suivi à l’étape 2.
 	
@@ -275,4 +275,4 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
