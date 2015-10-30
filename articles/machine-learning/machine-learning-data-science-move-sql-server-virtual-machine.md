@@ -58,7 +58,7 @@ Si vos données se trouvent dans un fichier plat (au format ligne/colonne), les 
 3. [Utilitaires graphiques intégrés dans SQL Server (Importation/Exportation, SSIS)](#sql-builtin-utilities)
 
 
-### <a name="insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a>
+### <a name="insert-tables-bcp"></a>Utilitaire de copie en bloc à ligne de commande (BCP)</a>
 
 BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l’un des outils les plus rapides pour déplacer des données. Il fonctionne sur les trois variantes de SQL Server (instance SQL Server locale, SQL Azure et machine virtuelle SQL Server sur Azure).
 
@@ -223,4 +223,4 @@ Voici une copie d’écran des options de sauvegarde/restauration de base de don
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
