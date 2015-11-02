@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="09/09/2015"
+    ms.date="10/10/2015"
     ms.author="elizapo" />
 
 
@@ -28,12 +28,11 @@ Dans cette rubrique, nous allons passer en revue les clients actuellement pris e
 
 Vous pouvez accéder à RemoteApp en suivant la procédure mentionnée ci-dessous si votre appareil exécute l'un des systèmes d'exploitation suivants :
 
- - Windows 10 Preview
+ - Windows 10 
  - Windows 8.1
  - Windows 8
  - Windows 7 Service Pack 1
- - Windows RT
- - Windows Phone 8.1
+ - Windows Phone 8,1
  - iOS
  - Mac OS X
  - Android
@@ -208,4 +207,4 @@ Une fois l'application Bureau à distance Microsoft installée à partir du maga
 	![Démonstration de flux pour Azure RemoteApp](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Comment mettre à l’échelle des unités réservées d’encodage" 
+	pageTitle="Comment mettre à l’échelle les unités réservées d’encodage à l’aide du portail Azure" 
 	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Comment mettre à l’échelle l’encodage
+#Comment mettre à l’échelle l’encodage à l’aide du portail Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -25,7 +25,7 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-##Vue d’ensemble
+##Vue d'ensemble
 
 Un compte Media Services est associé à un Type d’unité réservé qui détermine la vitesse à laquelle vos tâches d’encodage sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **Standard** que le type **De base**. Pour plus d’informations, consultez [Types d’unités réservées d’encodage](http://azure.microsoft.com/blog/author/milanga).
 
@@ -69,4 +69,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

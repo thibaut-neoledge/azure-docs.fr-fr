@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -93,12 +93,15 @@ L’exécution de l’applet de commande **Get-Credential** ouvre une fenêtre v
 
 Cette commande envoie une demande d’exportation de la base de données au service. Selon la taille de votre base de données, l'opération d'exportation peut prendre plus ou moins longtemps.
 
+> [AZURE.IMPORTANT]Pour garantir un fichier BACPAC cohérent au niveau transactionnel, vous devez d’abord [créer une copie de votre base de données](sql-database-copy-powershell.md), puis exporter la copie de base de données.
+
+
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
 ## Surveillez la progression de l’opération d’exportation
 
-Après l'exécution de **Start-AzureSqlDatabaseExport**, vous pouvez vérifier l'état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d'exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu'à ce que vous voyiez **État : Terminé** en sortie.
+Après l’exécution de **Start-AzureSqlDatabaseExport**, vous pouvez vérifier l’état de la demande. En cas d’exécution immédiatement après la demande, cela renvoie généralement **État : En attente** ou **État : En cours d’exécution**. Vous pouvez donc exécuter cette opération plusieurs fois jusqu’à ce que vous voyiez **État : Terminé** en sortie.
 
 Cette commande vous demandera un mot de passe. Entrez le mot de passe administrateur de votre serveur SQL.
 
@@ -144,4 +147,4 @@ Cette commande vous demandera un mot de passe. Entrez le mot de passe administra
 - [Exercices de récupération d'urgence](sql-database-disaster-recovery-drills.md)
 - [Documentation sur la base de données SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

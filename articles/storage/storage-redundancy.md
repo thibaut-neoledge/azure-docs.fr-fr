@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="10/07/2015" 
+  ms.date="10/20/2015" 
   ms.author="tamram"/>
 
 # Réplication Azure Storage
@@ -88,14 +88,16 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 |Ouest du Japon |Est du Japon
 |Sud du Brésil |États-Unis - partie centrale méridionale
 |Est de l’Australie |Sud-est de l’Australie
-|Sud-est de l’Australie|Est de l’Australie  
-
+|Sud-est de l’Australie|Est de l’Australie
+|Sud de l'Inde |Inde-Centre
+|Inde-Centre |Sud de l'Inde
+  
 
 ## Stockage géo-redondant avec accès en lecture
 
 Le stockage géo-redondant avec accès en lecture (RA-GRS) optimise la disponibilité de votre compte de stockage, en fournissant un accès en lecture seule aux données dans l’emplacement secondaire, en plus de la réplication entre les deux régions offerte par GRS. Dans le cas où les données sont indisponibles dans la région primaire, votre application peut lire des données à partir de la région secondaire.
 
-Lorsque vous activez l’accès en lecture seule à vos données dans la région secondaire, vos données sont disponibles sur un point de terminaison secondaire, en plus du point de terminaison primaire pour votre compte de stockage. Le point de terminaison secondaire est similaire au point de terminaison primaire, mais ajoute le suffixe `–secondary` au nom du compte. Par exemple, si votre point de terminaison primaire pour le service BLOB est `myaccount.blob.core.windows.net`, votre point de terminaison secondaire est `myaccount-secondary.blob.core.windows.net`. Les clés d’accès pour votre compte de stockage sont les mêmes pour le point de terminaison primaire et secondaire.
+Lorsque vous activez l’accès en lecture seule à vos données dans la région secondaire, vos données sont disponibles sur un point de terminaison secondaire, en plus du point de terminaison primaire pour votre compte de stockage. Le point de terminaison secondaire est similaire au point de terminaison principal, mais ajoute le suffixe `–secondary` au nom du compte. Par exemple, si votre point de terminaison principal pour le service d’objets blob est `myaccount.blob.core.windows.net`, votre point de terminaison secondaire est `myaccount-secondary.blob.core.windows.net`. Les clés d’accès pour votre compte de stockage sont les mêmes pour le point de terminaison primaire et secondaire.
 
 ## Étapes suivantes
 
@@ -104,4 +106,4 @@ Lorsque vous activez l’accès en lecture seule à vos données dans la région
 - [Émulateur de stockage Microsoft Azure 3.1 avec RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Document SOSP sur Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

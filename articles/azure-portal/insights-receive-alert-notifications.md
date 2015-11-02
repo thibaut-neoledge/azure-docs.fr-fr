@@ -57,6 +57,7 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 
 ## Étapes suivantes
 
+* [Configurer des webhooks sur vos alertes](insights-webhooks-alerts.md) pour acheminer des notifications vers différents canaux
 * [Surveillance des mesures de service](insights-how-to-customize-monitoring.md) pour vous assurer que votre service est disponible et réactif.
 * [Activation de la surveillance et des diagnostics](insights-how-to-use-diagnostics.md) pour collecter des mesures détaillées à fréquence élevée sur votre service.
 * [Surveillance de la disponibilité et de la réactivité des pages web](../app-insights-monitor-web-app-availability.md) avec Application Insights pour déterminer si vos pages sont inactives.
@@ -65,4 +66,4 @@ Vous pouvez bien entendu modifier cette règle d'alerte, la **désactiver** ou l
 * [Suivi de l'intégrité du service](insights-service-health.md) pour déterminer à quel moment Azure a rencontré des interruptions de service ou une dégradation des performances.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

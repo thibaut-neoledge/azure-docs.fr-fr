@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Tri de données DocumentDB à l'aide de la clause Order By
@@ -125,7 +125,7 @@ Voici comment vous pouvez créer une collection avec une indexation pour la clau
         });
 
 ## Exemples
-Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) qui montre comment utiliser la clause Order By, y compris la création de stratégies d'indexation et de pagination à l'aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.
+Examinez ce [projet d'exemples Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) qui montre comment utiliser la clause Order By, y compris la création de stratégies d'indexation et de pagination à l'aide de la clause Order By. Les exemples sont open source et nous vous invitons à envoyer des requêtes d'extraction avec des contributions qui permettront aux autres développeurs DocumentDB de les exploiter. Veuillez vous reporter aux [instructions de contribution](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) pour obtenir des conseils sur la façon de contribuer.
 
 ## Quelles sont les étapes suivantes ?
 
@@ -152,7 +152,7 @@ La surcharge de stockage de l'indexation sera proportionnelle au nombre de propr
 
 **Comment puis-je interroger mes données existantes dans DocumentDB à l'aide de la clause Order By ?**
 
-Ceci sera pris en charge avec la disponibilité de l'amélioration des Stratégies d'indexation dynamique mentionnée dans la section [Quelles sont les étapes suivantes ?](what's-coming-next). Pour faire ceci aujourd'hui, vous devez exporter vos données et les réimporter dans une nouvelle collection DocumentDB créée avec un index Range/Order By. L'outil d'importation de DocumentDB permet de migrer les données entre les collections.
+Pour trier les résultats de la requête à l’aide de la clause Order By, vous devez modifier la stratégie d’indexation de la collection afin d’utiliser un type d’index de plage (Range) par rapport à la propriété utilisée pour le tri. Consultez [Modification de la stratégie d’indexation](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
 **Quelles sont les limitations actuelles de la clause Order By ?**
 
@@ -168,13 +168,13 @@ Vous ne pouvez pas effectuer les opérations suivantes :
 
 ## Étapes suivantes
 
-Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) et classez vos données !
+Répliquez le [projet d'exemples Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) et classez vos données !
 
 ## Références
 * [Référence de requête DocumentDB](documentdb-sql-query.md)
 * [Référence de stratégie d'indexation de DocumentDB](documentdb-indexing-policies.md)
 * [Référence SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [Exemples Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

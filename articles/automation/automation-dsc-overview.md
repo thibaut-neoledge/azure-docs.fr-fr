@@ -76,7 +76,7 @@ Azure Automation DSC vous permet d'importer, de créer et de compiler des config
 
 ###Configuration de nœuds###
 
-Lors de la compilation d'une configuration DSC, une ou plusieurs configurations de nœuds sont générées, en fonction des blocs Node de la configuration. Une configuration de nœud est semblable à un document « MOF » ou « document de configuration » (si ces termes PS DSC vous sont familiers) et représente un « rôle », par exemple de serveur web ou de travail, dont un ou plusieurs nœuds doivent adopter l'état souhaité. Les noms de configurations de nœuds dans Azure Automation DSC prennent la forme « <Configuration-name>.<Node configuration-block-name> ».
+Lors de la compilation d'une configuration DSC, une ou plusieurs configurations de nœuds sont générées, en fonction des blocs Node de la configuration. Une configuration de nœud est semblable à un document « MOF » ou « document de configuration » (si ces termes PS DSC vous sont familiers) et représente un « rôle », par exemple de serveur web ou de travail, dont un ou plusieurs nœuds doivent adopter l'état souhaité. Les noms de configurations de nœuds dans Azure Automation DSC prennent la forme « nom\_configuration.nom\_bloc\_de\_la\_configuration\_du\_nœud ».
 
 Les nœuds PS DSC sont informés des configurations de nœuds qu'ils doivent adopter via des méthodes Push ou Pull DSC. Azure Automation DSC repose sur la méthode Pull DSC, où les nœuds demandent des configurations de nœuds qu'ils doivent appliquer à partir de serveurs collecteurs Azure Automation DSC. Étant donné que les nœuds effectuent la demande à Azure Automation DSC, ils peuvent se trouver derrière des pare-feu, avoir tous les ports entrants fermés, etc. Ils ont uniquement besoin d'un accès sortant à Internet.
 
@@ -97,7 +97,7 @@ Azure Automation DSC est fourni avec exactement les mêmes ressources DSC intég
 
 
 ###Tâche de compilation###
-Dans Azure Automation DSC, une tâche de compilation est une instance de compilation d'une configuration destinée à créer une ou plusieurs configurations de nœuds. Elles sont semblables aux tâches de Runbook Azure Automation, sauf qu'elles n'effectuent en fait aucune tâche excepté créer des configurations de nœuds. Toutes les configurations de nœuds créées par une tâche de compilation sont automatiquement placées sur le serveur collecteur Azure Automation DSC, et remplacent les versions précédentes des configurations de nœuds, si elles existaient pour cette configuration. Le nom d'une configuration de nœud produite par une tâche de compilation se présente sous la forme « <Configuration-name>.<Node configuration-block-name> ». Par exemple, la compilation de la configuration ci-dessous produirait une configuration de nœud unique appelée « MyConfiguration.webserver »
+Dans Azure Automation DSC, une tâche de compilation est une instance de compilation d'une configuration destinée à créer une ou plusieurs configurations de nœuds. Elles sont semblables aux tâches de Runbook Azure Automation, sauf qu'elles n'effectuent en fait aucune tâche excepté créer des configurations de nœuds. Toutes les configurations de nœuds créées par une tâche de compilation sont automatiquement placées sur le serveur collecteur Azure Automation DSC, et remplacent les versions précédentes des configurations de nœuds, si elles existaient pour cette configuration. Le nom d’une configuration de nœud produite par une tâche de compilation se présente sous la forme « nom\_configuration.nom\_bloc\_de\_la\_configuration\_du\_nœud ». Par exemple, la compilation de la configuration ci-dessous produirait une configuration de nœud unique appelée « MyConfiguration.webserver »
 
 
 ![texte de remplacement](./media/automation-dsc-overview/AADSC_5.png)
@@ -121,7 +121,7 @@ Passer d’un compte Automation vide à un ensemble géré de nœuds correctemen
 
 - Azure Automation DSC ne prend pas en charge les configurations DSC partielles ou composites pour le moment.
 
-- La dernière version de WMF 5 doit être installée pour que l'agent PowerShell DSC pour Windows puisse communiquer avec Azure Automation. L'agent PowerShell DSC pour Linux ne prend pas en charge la communication avec Azure Automation pour le moment. Cela devrait être mis à jour prochainement.
+- La dernière version de WMF 5 doit être installée pour que l'agent PowerShell DSC pour Windows puisse communiquer avec Azure Automation. La dernière version de l’agent PowerShell DSC pour Linux doit être installée pour que Linux puisse communiquer avec Azure Automation.
 
 - Azure Automation ne prend pas en charge l'utilisation côte à côte de modules PowerShell. Cela signifie que toutes les configurations au sein d'un compte Automation doivent fonctionner avec la dernière version d'un module PowerShell importé dans ce compte Automation, ainsi qu'avec toutes les ressources PowerShell DSC contenues dans ce module et que la configuration utilise.
 
@@ -145,4 +145,4 @@ Passer d’un compte Automation vide à un ensemble géré de nœuds correctemen
 - [Tarification d’Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
 - [Déploiement continu sur les machines virtuelles IaaS à l’aide d'Azure Automation DSC et Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Planification et exécution avec Data Factory
@@ -676,4 +676,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Niveaux de cohérence dans DocumentDB | Microsoft Azure" 
 	description="Découvrez les quatre niveaux de cohérence proposés par DocumentDB et les niveaux de performance associés qui permettent de faire des compromis avisés entre cohérence finale, disponibilité et latence." 
-	keywords="eventual consistency, documentdb, azure, Microsoft azure"
+	keywords="cohérence éventuelle, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -40,9 +40,9 @@ Vous pouvez configurer le niveau de cohérence par défaut sur le compte de base
  
 La cohérence forte fournit des garanties absolues concernant la cohérence des données, mais offre un niveau de performances inférieur en termes de lecture et d'écriture.
 
-**En fonction de l’obsolescence** : ce niveau de cohérence garantit l’ordre global de propagation des écritures avec la possibilité que des lectures soient retardées derrière les écritures par, au plus, des préfixes K. La lecture est toujours reconnue par un quorum majoritaire de réplicas. La réponse d'une demande de lecture spécifie son actualisation relative (en termes de K).
+**En fonction de l’obsolescence** : ce niveau de cohérence garantit l’ordre global de propagation des écritures avec la possibilité que des lectures soient retardées derrière les écritures par, au plus, des préfixes K. La lecture est toujours reconnue par un quorum majoritaire de réplicas. La réponse d'une demande de lecture spécifie son actualisation relative (en termes de K). Grâce au niveau En fonction de l’obsolescence, vous pouvez définir un seuil configurable d’obsolescence (sous forme de préfixes ou de durée) pour les lectures pour trouver un compromis entre latence et cohérence dans l’état stable.
 
-Le niveau En fonction de l'obsolescence fournit un comportement plus prévisible pour la cohérence des lectures, tout en offrant des écritures avec la latence la plus faible. Comme les lectures sont reconnues par un quorum majoritaire, la latence associée n'est pas la plus faible offerte par le système.
+Le niveau En fonction de l'obsolescence fournit un comportement plus prévisible pour la cohérence des lectures, tout en offrant des écritures avec la latence la plus faible. Comme les lectures sont reconnues par un quorum majoritaire, la latence associée n'est pas la plus faible offerte par le système. Le niveau En fonction de l’obsolescence est approprié pour les scénarios où une forte cohérence, bien que souhaitable, est délicate à mettre en œuvre. Si vous affectez une valeur arbitrairement élevée à « l’intervalle d’obsolescence » de la cohérence en fonction de l’obsolescence, l’ordre global total des écritures est quand même préservé. Ce niveau fournit une meilleure garantie que les niveaux Session ou Éventuel.
 
 >[AZURE.NOTE]Le niveau En fonction de l’obsolescence garantit des lectures unitones uniquement sur les demandes de lecture explicites. La réponse que répercute le serveur aux demandes d’écriture n’offre aucune garantie liée à l’obsolescence.
 
@@ -88,4 +88,4 @@ Si vous souhaitez en lire plus sur les niveaux de cohérence et les différents 
 -	Werner Vogels. Niveau de cohérence Éventuel repensé. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

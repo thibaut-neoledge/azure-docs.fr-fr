@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -43,31 +43,33 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## Exporter votre base de données
 
-Ouvrez le panneau Base de données SQL de la base de données que vous souhaitez exporter en tant que fichier .bacpac :
+Ouvrez le panneau Base de données SQL de la base de données que vous souhaitez exporter en tant que fichier .bacpac :
+
+> [AZURE.IMPORTANT]Pour garantir un fichier BACPAC cohérent au niveau transactionnel, vous devez d’abord [créer une copie de votre base de données](sql-database-copy.md), puis exporter la copie de base de données.
 
 1.	Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Bases de données SQL**.
 2.	Cliquez sur la base de données à exporter en tant que BACPAC.
-3.	Dans le panneau de la base de données SQL, cliquez sur **Exporter** pour ouvrir le panneau **Exporter la base de données** :
+3.	Dans le panneau Base de données SQL, cliquez sur **Exporter** pour ouvrir le panneau **Exporter la base de données** :
 
     ![bouton exporter][1]
 
-1.  Cliquez sur **Stockage** et sélectionnez votre compte de stockage et le conteneur blob où sera stocké le fichier BACPAC :
+1.  Cliquez sur **Stockage** et sélectionnez votre compte de stockage et le conteneur d’objets blob où sera stocké le fichier BACPAC :
 
     ![exporter une base de données][2]
 
-1.  Entrez le **Nom d’utilisateur** et le **Mot de passe** administrateur du serveur SQL Azure qui contient la base de données que vous sauvegardez.
+1.  Entrez la **Connexion de l’administrateur du serveur** et le **Mot de passe** du serveur SQL Azure qui contient la base de données que vous sauvegardez.
 1.  Cliquez sur **Créer** pour exporter la base de données.
 
-En cliquant sur **Créer**, une demande d'exportation de la base de données est créée et envoyée au service. Selon la taille de votre base de données, l'opération d'exportation peut prendre plus ou moins longtemps.
+En cliquant sur **Créer**, une demande d’exportation de la base de données est créée et envoyée au service. Selon la taille de votre base de données, l'opération d'exportation peut prendre plus ou moins longtemps.
 
 ## Surveillez la progression de l’opération d’exportation
 
 2.	Cliquez sur **PARCOURIR TOUT**.
 3.	Cliquez sur **Serveurs SQL**.
 2.	Cliquez sur le serveur contenant la base de données (source) d'origine que vous venez d'exporter.
-3.	Dans le panneau du serveur SQL, cliquez sur **Historique d'Import/Export** :
+3.	Dans le panneau du serveur SQL, cliquez sur **Historique d’importation/exportation** :
 
     ![historique d’import export][3] ![historique d’import export][4]
 
@@ -101,4 +103,4 @@ En cliquant sur **Créer**, une demande d'exportation de la base de données est
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -24,8 +24,8 @@ Les limites suivantes s’appliquent aux ressources ExpressRoute par abonnement.
 | 200 Mbits/s | 10 | 25 |
 | 500 Mbits/s | 10 | 40 |
 | 1 Gbit/s | 10 | 50 |
-| 2 Gbit/s | 10 | 50 |
-| 5 Gbit/s | 10 | 50 |
+| 2 Gbit/s | 10 | 60 |
+| 5 Gbit/s | 10 | 75 |
 | 10 Gbits/s | 10 | 100 |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

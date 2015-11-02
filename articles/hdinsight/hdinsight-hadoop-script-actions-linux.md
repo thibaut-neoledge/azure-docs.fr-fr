@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/09/2015"
+    ms.date="10/19/2015"
     ms.author="larryfr"/>
 
 # Développement d'actions de script avec HDInsight
@@ -36,11 +36,14 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 
 - [Rechercher la version Hadoop](#bPS1)
 - [Fournir des liens stables vers les ressources de script](#bPS2)
+- [Utiliser des ressources précompilées](#bPS4)
 - [S’assurer que le script de personnalisation du cluster est idempotent](#bPS3)
 - [Garantir la haute disponibilité de l’architecture du cluster](#bPS5)
 - [Configurer les composants personnalisés pour utiliser le stockage d’objets blob Azure](#bPS6)
 - [Écrire des informations sur STDOUT et STDERR](#bPS7)
 - [Enregistrer des fichiers au format ASCII avec les fins de ligne LF](#bps8)
+
+> [AZURE.IMPORTANT]Les actions de script doivent se terminer dans les 15 minutes, ou elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
 ### <a name="bPS1"></a>Cible de la version Hadoop
 
@@ -55,6 +58,10 @@ La meilleure pratique consiste à tout télécharger et à tout archiver dans un
 > [AZURE.IMPORTANT]Le compte de stockage utilisé doit être le compte de stockage par défaut du cluster ou un conteneur public en lecture seule d’un autre compte de stockage.
 
 Par exemple, les exemples fournis par Microsoft sont stockés dans le compte de stockage [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/), qui est un conteneur public en lecture seule géré par l’équipe de HDInsight.
+
+### <a name="bPS4"></a>Utiliser des ressources précompilées
+
+Pour réduire le temps nécessaire à l’exécution du script, évitez les opérations qui compilent des ressources depuis le code source. Au lieu de cela, précompilez les ressources et stockez la version binaire dans le stockage d’objets blob Azure afin de pouvoir la télécharger rapidement vers le cluster à partir de votre script.
 
 ### <a name="bPS3"></a>Assurez-vous que le script de personnalisation de cluster est idempotent
 
@@ -213,4 +220,4 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 [Personnaliser des clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

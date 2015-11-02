@@ -132,7 +132,7 @@ Si vous souhaitez qu’Azure Key Vault crée pour vous une clé protégée par l
 
 Toutefois, si vous avez une clé existante dans un fichier .pem enregistré sous la forme d’un fichier local dans un fichier nommé softkey.pem que vous souhaitez télécharger dans Azure Key Vault, tapez la commande suivante pour importer la clé à partir du fichier .PEM qui protège la clé par logiciel dans le service Key Vault :
 
-    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' –-password 'PaSSWORD' --destination software
+    azure keyvault key import --vaultName 'ContosoKeyVault' --key-name 'ContosoFirstKey' --pem-file './softkey.pem' --password 'PaSSWORD' --destination software
 
 Vous pouvez maintenant référencer la clé que vous avez créée ou téléchargée dans Azure Key Vault à l’aide de son URI. Utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**pour toujours obtenir la version actuelle, utilisez ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** pour obtenir cette version spécifique.
 
@@ -145,7 +145,7 @@ Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté dans A
 Examinons la clé ou le secret que vous venez de créer :
 
 - Pour afficher votre clé, tapez : `azure keyvault key list --vault-name 'ContosoKeyVault'`
-- Pour afficher votre secret, tapez : `azure keyvault secret list -–vault-name 'ContosoKeyVault'`
+- Pour afficher votre secret, tapez : `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 
 ## Inscription d’une application auprès d’Azure Active Directory
@@ -207,7 +207,7 @@ Vous pouvez ajouter des clés protégées par logiciel (comme indiqué plus haut
 
 Vous pouvez utiliser la commande suivante pour importer une clé à partir d’un fichier pem sur votre ordinateur. Cette commande importe la clé dans les modules de sécurité matériels dans le service Key Vault :
 
-    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' –-password 'PaSSWORD'
+    azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --pem-file '/.softkey.pem' --destination 'HSM' --password 'PaSSWORD'
 
 La commande suivante importe un package BYOK (Bring Your Own Key, Apporter votre propre clé). Cela vous permet de générer votre clé dans votre module de sécurité matériel local et de la transférer vers les modules de sécurité matériels du service Key Vault, sans que la clé quitte la limite HSM :
 
@@ -237,7 +237,7 @@ Cette commande permet d’obtenir un affichage sous forme de tableau de l’ense
 
 Cette commande affiche la liste complète des propriétés pour la clé spécifiée :
 
-    azure keyvault key show --vault-name 'ContosoKeyVault' –-key-name 'ContosoFirstKey'
+    azure keyvault key show --vault-name 'ContosoKeyVault' --key-name 'ContosoFirstKey'
 
 Cette commande permet d’obtenir un affichage sous forme de tableau de l’ensemble des secrets et des propriétés sélectionnées.
 
@@ -256,4 +256,4 @@ Voici un exemple montrant comment supprimer un secret spécifique :
 
 Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

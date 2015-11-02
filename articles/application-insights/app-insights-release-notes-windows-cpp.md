@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notes de publication pour le kit de développement logiciel (SDK) Application Insights C++" 
-	description="Les dernières mises à jour." 
+	description="Les dernières mises à jour pour le Kit de développement logiciel (SDK) C++." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -37,4 +37,4 @@ Version préliminaire 05/06/2015
 Première version
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

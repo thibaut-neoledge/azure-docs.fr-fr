@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Apprenez à gérer les services web AzureML à l’aide de la gestion des API | Microsoft Azure"
 	description="Guide montrant comment gérer les services web AzureML à l’aide de la gestion des API"
-	keywords="machine learning,api management"
+	keywords="apprentissage automatique,gestion des api"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -54,7 +54,7 @@ Spécifiez une valeur pour le **nom de l’organisation**. Ce guide utilise **de
 
 ![create-service-2](./media/machine-learning-manage-web-service-endpoints-using-api-management/create-service-2.png)
 
-Cliquez sur la coche pour créer votre instance de service. *Jusqu’à trente minutes sont nécessaires pour créer un nouveau service*.
+Cliquez sur la coche pour créer votre instance de service. *Jusqu’à trente minutes sont nécessaires pour créer un service*.
 
 ##Création de l’API
 
@@ -72,13 +72,13 @@ Cliquez sur **API** dans le menu **Gestion des API** à gauche, puis sur **Ajout
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-Saisissez **API de démonstration AzureML** comme **nom de l’API Web**. Saisissez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API web**. Cochez **HTTPS** comme schéma d’**URL de l’API web**. Sélectionnez **Starter** comme **produit**. Lorsque vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
+Tapez **API de démonstration AzureML** comme **nom de l’API web**. Tapez ****https://ussouthcentral.services.azureml.net** comme **URL du service web**. Saisissez **azureml-demo** comme **suffixe d’URL de l’API Web**. Cochez **HTTPS** comme schéma d’**URL de l’API Web**. Sélectionnez **Starter** comme **produit**. Quand vous avez terminé, cliquez sur **Enregistrer** pour créer l’API.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ##Ajout des opérations
 
-Cliquez sur **Ajouter une opération** pour ajouter des opérations à cette API.
+Cliquez sur **Ajouter une opération** pour ajouter des opérations à l’API.
 
 ![add-operation](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-operation.png)
 
@@ -90,7 +90,7 @@ Créez une opération pour le service AzureML RRS. Sélectionnez **POST** comme 
 
 ![add-rrs-operation-signature](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-Cliquez sur **Réponses** > **AJOUTER** sur la gauche et sélectionnez **200 OK**. Cliquez sur **Enregistrer** pour enregistrer cette opération.
+Cliquez sur **Réponses** > **AJOUTER** sur la gauche et sélectionnez **200 OK**. Cliquez sur **Enregistrer** pour enregistrer cette opération.
 
 ![add-rrs-operation-response](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
@@ -184,11 +184,11 @@ Saisissez **3** pour la **Taille de bits de hachage**. Cela crée 8 (23) colonne
 
 ###Création d’un service web
 
-Maintenant, créez un service web. Développez **Service web** et faites glisser **Entrée** sur votre expérience. Connectez **Entrée** à **Fonction de hachage**. Faites également glisser **Sortie** sur votre expérience. Connectez **Sortie** à **Fonction de hachage**.
+Maintenant, créez un service web. Développez **Service Web** et faites glisser **Entrée** sur votre expérience. Connectez **Entrée** à **Fonction de hachage**. Faites également glisser **Sortie** sur votre expérience. Connectez **Sortie** à **Fonction de hachage**.
 
 ![output-to-feature-hashing](./media/machine-learning-manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
-Cliquez sur **Publier le service web**.
+Cliquez sur **Publier le service Web**.
 
 ![publish-web-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
@@ -228,7 +228,7 @@ Le résultat suivant doit s’afficher :
 
 Vous pouvez également tester votre RRS à partir de votre code client. Si vous cliquez sur **Requête/réponse** sur le tableau de bord et faites défiler la liste vers le bas, vous trouverez des exemples de code pour C#, Python et R. Vous trouverez également la syntaxe de la requête RRS, y compris l’URI, les en-têtes et le corps de la requête.
 
-Ce guide fournit un exemple Python opérationnel. Vous devrez le modifier avec les **espace de travail**, **service** et **api\_key** de votre expérience.
+Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec les **espace de travail**, **service** et **api\_key** de votre expérience.
 
 	import urllib2
 	import json
@@ -384,4 +384,4 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

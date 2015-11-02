@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)* : prise en main
@@ -55,6 +55,18 @@ Vous devez installer la version de disponibilité générale d’Azure AD Connec
 Les instructions d’installation d’Azure AD Connect sont disponibles dans l’article suivant : [Prise en main d’Azure AD Connect](../active-directory/active-directory-aadconnect.md).
 
 
+#### Activer la synchronisation des informations d’identification héritées avec Azure AD
+
+Activez la synchronisation des informations d’identification héritées nécessaires pour l’authentification NTLM dans les services de domaine Azure Active Directory. Pour ce faire, vous pouvez créer la clé de Registre suivante sur l’ordinateur sur lequel Azure AD Connect a été installé.
+
+Créez la clé de Registre DWORD suivante et affectez-lui la valeur 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Forcer la synchronisation de mot de passe complète avec Azure AD
 
 Pour forcer la synchronisation de mot de passe complète et permettre aux hachages de mot de passe de tous les utilisateurs locaux (y compris les hachages d’informations d’identification nécessaires pour l’authentification NTLM/Kerberos) de se synchroniser avec votre client Azure AD, exécutez le script PowerShell suivant sur chaque forêt Active Directory.
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 Selon la taille de votre annuaire (nombre d’utilisateurs, groupes, etc.), la synchronisation des informations d’identification avec Azure AD, puis avec les services de domaine Azure AD, peut prendre du temps.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

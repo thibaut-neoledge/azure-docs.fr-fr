@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Créer une ressource Application Insights dans Azure" 
-	description="Procédez à la configuration destinée à une nouvelle application et obtenez une nouvelle clé d’instrumentation. Application Insights analyse les performances et l’utilisation des applications actives." 
+	description="Configurez la surveillance d’Application Insights pour une nouvelle application en direct. Approche basée sur le web." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ Vous pouvez écrire un [script PowerShell](app-insights-powershell-script-create
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

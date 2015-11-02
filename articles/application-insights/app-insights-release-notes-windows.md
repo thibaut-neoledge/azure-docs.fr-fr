@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notes de publication pour Application Insights pour Windows" 
-	description="Les dernières mises à jour." 
+	description="Les dernières mises à jour pour le Kit de développement logiciel (SDK) Windows Store." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@ Aperçu 28/04/2015
 
 Aucune note de publication pour des versions antérieures.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

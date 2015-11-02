@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Processus et technologie d’analyse avancée en action : utilisation des clusters Hadoop | Microsoft Azure"
+	pageTitle="Processus d’analyse Cortana en action : utiliser des clusters Hadoop | Microsoft Azure"
 	description="Utilisation du processus et de la technologie d'analyse avancée (ADAPT) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle à l'aide d'un jeu de données disponible publiquement."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/18/2015"
 	ms.author="hangzh;bradsev" />
 
 
-# Processus et technologie d’analyse avancée en action : utilisation de clusters Hadoop HDInsight
+# Processus d’analyse Cortana en action : utilisation de clusters Hadoop HDInsight
 
-Dans cette procédure pas à pas, vous allez utiliser le processus et la technologie d'analyse avancée (ADAPT) avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](http://azure.microsoft.com/services/hdinsight/) pour stocker, explorer et représenter des données techniques à partir du jeu de données[NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, et pour réduire l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
+Dans cette procédure pas à pas, vous allez utiliser le processus d’analyse Cortana avec un scénario complet au moyen d’un [cluster Hadoop HDInsight](http://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Les modèles de données sont créés avec Azure Machine Learning pour gérer les tâches prédictives de classification et de régression binaires et multiclasses.
 
-Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l'aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus et technologie d’analyse avancée en action : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
+Pour une procédure pas à pas qui montre comment gérer un jeu de données plus grand (1 téraoctet) avec un scénario similaire à l’aide de clusters Hadoop HDInsight pour le traitement des données, consultez [Processus d’analyse Cortana : utilisation des clusters Hadoop Azure HDInsight sur un jeu de données de 1 To](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
 Il est également possible d'avoir recours à un interpréteur IPython notebook pour accomplir les tâches présentées dans cette procédure pas à pas au moyen du jeu de données de 1 To. Les utilisateurs qui souhaitent essayer cette approche doivent consulter la rubrique [Procédure pas à pas Criteo à l'aide d'une connexion Hive ODBC](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
@@ -794,9 +794,7 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 
 ## Références
 
-•	[Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/)  
-•	[Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](http://www.andresmh.com/nyctaxitrips/) • [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](http://chriswhong.com/open-data/foil_nyc_taxi/) • [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la lic
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

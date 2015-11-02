@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Prise en main de l'authentification pour Mobile Apps dans Xamarin iOS" 
 	description="Découvrez comment utiliser Mobile Apps pour authentifier les utilisateurs de votre application Xamarin iOS via divers fournisseurs d'identité, notamment AAD, Google, Facebook, Twitter et Microsoft." 
-	services="app-service" 
+	services="app-service\mobile" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
@@ -18,9 +18,7 @@
 
 # Ajout de l'authentification à votre application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche.
 
@@ -120,4 +118,4 @@ Dans cette section, vous allez modifier l'application de façon à afficher un �
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

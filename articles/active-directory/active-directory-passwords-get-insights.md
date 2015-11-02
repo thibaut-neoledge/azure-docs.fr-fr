@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Obtention d’informations grâce aux rapports sur la gestion des mots de passe | Microsoft Azure"
-	description="Cet article explique comment utiliser les rapports pour obtenir des informations sur les opérations de gestion des mots de passe dans votre organisation."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Obtention d’informations grâce aux rapports sur la gestion des mots de passe | Microsoft Azure" 
+	description="Cet article explique comment utiliser les rapports pour obtenir des informations sur les opérations de gestion des mots de passe dans votre organisation." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Obtention d’informations grâce aux rapports sur la gestion des mots de passe
@@ -48,6 +48,16 @@ Pour accéder aux rapports de gestion des mots de passe, procédez comme suit :
 
     ![][001]
 
+## Comment accéder aux rapports de gestion des mots de passe depuis une API
+Depuis août 2015, les rapports et les événements Azure AD prennent désormais en charge la récupération de toutes les informations incluses dans les rapports de réinitialisation des mots de passe et d’inscription de réinitialisation des mots de passe.
+
+Pour accéder à ces données, vous devrez écrire une petite application ou un petit script permettant de les extraire de nos serveurs. [Procédure de prise en main de l'API de création de rapports Azure AD](active-directory-reporting-api-getting-started.md).
+
+Une fois que votre script est opérationnel, vous devrez examiner les événements d’inscription et de réinitialisation des mots de passe que vous pouvez récupérer pour répondre à vos scénarios.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) : Répertorie les colonnes disponibles pour les événements de réinitialisation de mot de passe
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) : Répertorie les colonnes disponibles pour les événements d’inscription de réinitialisation de mot de passe
+
 ## Visualiser l’activité d’inscription à la réinitialisation de mot de passe dans votre organisation
 
 Le rapport Activité d’inscription de réinitialisation de mot de passe montre toutes les inscriptions à la réinitialisation de mot de passe qui ont eu lieu dans votre organisation. Une inscription à la réinitialisation de mot de passe est affichée dans ce rapport pour tout utilisateur qui a inscrit des informations d’authentification dans le portail d’inscription à la réinitialisation de mot de passe ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
@@ -71,7 +81,7 @@ Le tableau suivant décrit les différentes valeurs autorisées pour chaque colo
 
 des colonnes|Valeurs autorisées et leur signification
 ---|---
-Données inscrites| **Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier.<p><p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier.<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier.<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier.<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.
+Données inscrites| **Adresse de messagerie de secours** : l’utilisateur a utilisé une autre adresse de messagerie électronique ou une adresse électronique d’authentification pour s’authentifier<p><p>**Téléphone professionnel** : l’utilisateur a utilisé un téléphone professionnel pour s’authentifier<p>**Téléphone mobile** : l’utilisateur a utilisé un téléphone portable ou un téléphone d’authentification pour s’authentifier<p>**Questions de sécurité** : l’utilisateur a utilisé des questions de sécurité pour s’authentifier<p>**Toute combinaison des éléments ci-dessus (par exemple, Adresse de messagerie de secours + Téléphone mobile)** : se produit lorsqu’une stratégie à 2 voies d’accès est spécifiée et indique les deux méthodes employées par l’utilisateur pour authentifier sa demande de réinitialisation de mot de passe.
 
 ## Visualiser l’activité de réinitialisation de mot de passe dans votre organisation
 
@@ -95,7 +105,6 @@ La liste suivante décrit chacune des colonnes du rapport en détail :
 
 ### Description des valeurs du rapport
 Le tableau suivant décrit les différentes valeurs autorisées pour chaque colonne :
-
 
 des colonnes|Valeurs autorisées et leur signification
 ---|---
@@ -163,4 +172,4 @@ L’utilisateur a réinitialisé le mot de passe.|Succeeded
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

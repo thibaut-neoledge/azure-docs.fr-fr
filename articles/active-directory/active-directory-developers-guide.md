@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="10/16/2015"
    ms.author="mbaldwin"/>
 
 
@@ -46,9 +46,9 @@ Ces didacticiels sont adaptés pour plusieurs plateformes et vous aident à comm
 
 ### Guides de démarrage rapide pour les applications web
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
 |:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs)
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### Guides de démarrage rapide pour les API web
 
@@ -137,4 +137,4 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

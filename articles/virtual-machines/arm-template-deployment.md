@@ -31,7 +31,8 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Un compte Azure Storage](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/fr-FR/download/details.aspx?id=40855)
-- [Azure PowerShell](../powershell-install-configure.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Ces étapes prennent environ 30 minutes.
 
@@ -446,4 +447,4 @@ Les ressources sont toujours déployées à partir d’un modèle dans un groupe
 
 	![Création d'une application Active Directory](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

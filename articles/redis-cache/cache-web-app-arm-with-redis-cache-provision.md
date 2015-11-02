@@ -1,16 +1,16 @@
 <properties 
 	pageTitle="Approvisionnement de l’application web avec le cache Redis" 
 	description="Utilisez un modèle Azure Resource Manager pour déployer une application web Azure avec le cache Redis." 
-	services="redis-cache" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
+	ms.service="app-service" 
 	ms.workload="web" 
-	ms.tgt_pltfrm="cache-redis" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/08/2015" 
@@ -125,4 +125,4 @@ Notez que l’application web est configurée selon des paramètres qui lui perm
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-with-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

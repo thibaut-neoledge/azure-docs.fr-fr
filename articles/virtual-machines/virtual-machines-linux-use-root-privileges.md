@@ -20,6 +20,8 @@
 
 # Utilisation des privilèges root sur les machines virtuelles Linux dans Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Par défaut, l’utilisateur `root` est désactivé sur les machines virtuelles Linux dans Microsoft Azure. Les utilisateurs peuvent exécuter des commandes avec des privilèges élevés à l’aide de la commande `sudo`. Toutefois, l'expérience peut varier en fonction du mode de déploiement du système.
 
 1. **Clé SSH et mot de passe OU mot de passe uniquement :** la machine virtuelle a été déployée soit avec un certificat (fichier `.CER`) ou une clé SSH et un mot de passe, soit avec seulement un nom d’utilisateur et un mot de passe. Dans ce cas, `sudo` demande le mot de passe de l’utilisateur avant d’exécuter la commande.
@@ -53,4 +55,4 @@ Dans ce cas, l'utilisateur **n'est pas** invité à fournir un mot de passe. Une
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

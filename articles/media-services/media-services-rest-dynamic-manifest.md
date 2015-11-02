@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Création de filtres avec l'API REST Media Services" 
-	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective." 
+	pageTitle="Création de filtres avec l’API REST Media Services Azure" 
+	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective."
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,cenkdin" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#Création de filtres avec l'API REST Media Services
+#Création de filtres avec l’API REST Media Services Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
 - [REST](media-services-rest-dynamic-manifest.md)
 
 
-À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
+À partir de la version 2.11, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques** créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
 Pour plus d'informations sur les filtres et le manifeste dynamique, consultez [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md).
 
@@ -372,4 +372,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

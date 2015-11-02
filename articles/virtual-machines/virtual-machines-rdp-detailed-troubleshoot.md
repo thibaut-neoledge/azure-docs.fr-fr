@@ -19,9 +19,11 @@
 
 # Dépannage de connexions du Bureau à distance à des machines virtuelles Azure Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Cet article décrit les étapes de dépannage détaillées d’erreurs du Bureau à distance complexes.
 
-> [AZURE.IMPORTANT]Pour éliminer des erreurs du Bureau à distance plus courantes, veillez à lire [le dépannage de base pour le Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) avant de continuer.
+> [AZURE.IMPORTANT]Pour éliminer les erreurs du Bureau à distance plus courantes, veillez à lire [le dépannage de base pour le Bureau à distance](virtual-machines-troubleshoot-remote-desktop-connections.md) avant de continuer.
 
 ## Contacter le support clientèle de Windows Azure
 
@@ -115,13 +117,13 @@ Si vous pouvez créer une connexion Bureau à distance avec une machine virtuell
 - La configuration du point de terminaison pour le trafic de Bureau à distance sur la machine virtuelle cible. Le port TCP privé du point de terminaison doit correspondre au port TCP sur lequel le service Services Bureau à distance de la machine virtuelle procède à l’écoute. Par défaut, il s’agit du port 3389.
 - La liste de contrôle d’accès du point de terminaison du trafic de Bureau à distance sur la machine virtuelle cible. Les listes de contrôle d’accès vous permettent de spécifier le trafic Internet entrant autorisé et interdit en fonction de l’adresse IP source. Une mauvaise configuration des listes de contrôle d’accès peut empêcher le trafic du Bureau à distance d’accéder au point de terminaison. Examinez vos listes de contrôle d’accès pour vous assurer que le trafic entrant provenant des adresses IP publiques de votre proxy ou d’un autre serveur Edge est autorisé. Pour plus d’informations, consultez [Qu’est-ce qu’une liste de contrôle d’accès (ACL) réseau ?](../virtual-network/virtual-networks-acl.md).
 
-Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, voir [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
+Pour vérifier que le point de terminaison n’est pas la source du problème, supprimez le point de terminaison actuel et créez un autre point de terminaison en choisissant un port aléatoire dont le numéro externe se situe entre 49152 et 65535. Pour plus d’informations, consultez [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md).
 
 ### <a id="nsgs"></a>Source 4 : groupes de sécurité réseau
 
 Les groupes de sécurité réseau vous permettent de contrôler plus précisément le trafic entrant et sortant autorisé. Vous pouvez créer des règles qui s’étendent aux sous-réseaux et aux services cloud d’un réseau virtuel Azure. Examinez les règles de votre groupe de sécurité réseau pour vous assurer que le trafic de Bureau à distance provenant d’Internet est autorisé.
 
-Pour plus d’informations, voir [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
+Pour plus d’informations, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
 ### Source 5 : Machine virtuelle Azure Windows
 
@@ -145,7 +147,7 @@ Pour corriger ces problèmes éventuels des machines virtuelles créées à l’
 
 Installez ensuite Azure PowerShell si ce n’est pas déjà fait. Consultez [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md).
 
-Ouvrez ensuite une invite de commande Azure PowerShell, puis modifiez le dossier actif à l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1**. Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
+Ouvrez ensuite une invite de commandes Azure PowerShell, puis remplacez le dossier actif par l’emplacement du fichier de script **InstallWinRMCertAzureVM.ps1**. Pour exécuter un script Azure PowerShell, vous devez définir la bonne stratégie d’exécution. Exécutez la commande **Get-ExecutionPolicy** afin de déterminer votre niveau de stratégie actuel. Pour plus d’informations sur la définition du niveau approprié, consultez [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 
 Indiquez ensuite le nom de votre abonnement Azure, le nom du service cloud et le nom de votre machine virtuelle (en supprimant les caractères < and >), puis exécutez ces commandes.
 
@@ -205,4 +207,4 @@ Vérifiez que le point de terminaison du Bureau à distance de la machine virtue
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

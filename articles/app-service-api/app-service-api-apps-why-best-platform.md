@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="10/15/2015" 
 	ms.author="tdykstra"/>
 
 # Que sont les applications API ?
 
-Les applications API offrent une plateforme et un écosystème enrichis pour la création, l’hébergement, l’utilisation et la distribution d’API dans le cloud et en local. Déployez votre API sous forme d'application API et bénéficiez d’une sécurité de classe entreprise, d’un contrôle d'accès simple, d’une connectivité hybrides et SaaS, de la génération automatique de Kit de développement logiciel et d’une intégration transparente avec [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Les applications API offrent une plateforme enrichie pour la création, l’hébergement et l’utilisation d’API dans le cloud et en local. Déployez votre API sous forme d'application API et bénéficiez d’une sécurité de classe entreprise, d’un contrôle d'accès simple, d’une connectivité hybrides et SaaS, de la génération automatique de Kit de développement logiciel et d’une intégration transparente avec [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md).
 
 Les applications API font partie de [Azure App Service](../app-service/app-service-value-prop-what-is.md) qui comprend également Web Apps, Mobile Apps et Logic Apps.
 
@@ -46,18 +46,6 @@ Applications API inclut en outre les [fonctions d’App Service Web Apps](../app
 >
 >Les applications API sont actuellement en version préliminaire publique. [App Service Web Apps](../app-service-web/app-service-web-overview.md) est un service en disponibilité générale conçu pour la création et l’hébergement d’applications critiques sécurisées à l’échelle mondiale. Si vous recherchez un service en disponibilité générale pour créer votre API aujourd’hui, Web Apps est une option intéressante. Quand la fonction API Apps passera en disponibilité générale, nous proposerons un chemin de mise à jour des applications web existantes et d’exploitation des fonctionnalités supplémentaires proposées par API Apps.
 
-### Fonctions d’API Apps prochainement accessibles
-
-Dans un avenir proche, la plateforme API Apps créera également un écosystème complet d’API en simplifiant le partage de votre code :
-
-- **Marchés publics et privés** : [Azure Marketplace](http://azure.microsoft.com/marketplace/) rend plus accessibles et plus simples à déployer sur votre abonnement Azure des applications API prépackagées développées par Microsoft et d’autres sociétés. Et vous serez en mesure de packager et de publier les applications API que vous développez, afin que les autres développeurs les déploient sur leur abonnement Azure. Lorsque vous publiez vos API sur Azure Marketplace, vous pourrez les rendre accessibles uniquement à d’autres membres de votre organisation. 
-
-- **Déploiement automatique des dépendances** : chaque fois que vous déployez une application API depuis le Marketplace vers votre abonnement Azure, Azure déploie automatiquement les applications API dépendantes et crée les ressources nécessaires. Les packages d’application API spécifient les applications API dont ils dépendent, ainsi que les ressources Azure dont ils ont besoin.
-
-- **Mises à jour automatiques** : lorsque vous mettez à jour le code d’un des packages d’application API que vous avez partagés, vous êtes en mesure de distribuer la mise à jour à tous les utilisateurs qui ont installé et exécuté votre application API. Ceci fonctionnera pour les modifications sans rupture et les utilisateurs qui ont choisi de recevoir les mises à jour.
-
-La plupart de ces fonctionnalités, comme le Marketplace public et les mises à jour automatiques, sont déjà disponibles pour les applications API fournies par Microsoft.
-
 ## Concepts liés aux applications API ##
 
 - **Passerelle** : application web qui gère les fonctions d’administration des API et l’authentification de toutes les applications API dans un groupe de ressources. 
@@ -76,4 +64,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

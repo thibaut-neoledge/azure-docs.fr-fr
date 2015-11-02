@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)* : prise en main
@@ -43,11 +43,16 @@ Au cours de cette étape, vous pouvez activer les services de domaine Azure AD 
 
 7. Spécifiez le **Nom de domaine DNS des services de domaine**.
    - Le nom de domaine par défaut de l’annuaire (qui se termine par le suffixe de domaine **.onmicrosoft.com**) est sélectionné par défaut.
-   - La liste déroulante répertorie tous les domaines qui ont été configurés pour votre annuaire Azure AD, y compris les domaines vérifiés et non vérifiés que vous configurez sous l’onglet « Domaines ».
-   - En outre, vous pouvez spécifier un nom de domaine personnalisé dans cette liste modifiable déroulante en le tapant dans cette dernière.
+   - La liste contient tous les domaines qui ont été configurés pour votre annuaire Azure AD, y compris les domaines vérifiés et non vérifiés que vous configurez sous l’onglet « Domaines ».
+   - En outre, vous pouvez ajouter un nom de domaine personnalisé à cette liste en le tapant dans celle-ci.
+
+     >[AZURE.WARNING]Assurez-vous que le préfixe de domaine du nom de domaine que vous spécifiez (par exemple, « contoso » dans le nom de domaine « contoso.local ») contient moins de 15 caractères. Vous ne pouvez pas créer un domaine des services de domaine Azure Active Directory avec un préfixe de domaine comportant plus de 15 caractères.
 
 8. L’étape suivante consiste à sélectionner un réseau virtuel dans lequel vous souhaitez que les services de domaine Azure AD soient disponibles. Sélectionnez le réseau virtuel que vous venez de créer dans la liste déroulante **Connecter les services de domaine à ce réseau virtuel**.
-9. Après avoir sélectionné les options ci-dessus, cliquez sur « Enregistrer » dans le volet des tâches en bas de la page pour activer les services de domaine Azure AD.
+   - Assurez-vous que le réseau virtuel que vous avez spécifié appartient à une région Azure prise en charge par les services de domaine Azure Active Directory.
+   - Reportez-vous à la [page Régions](active-directory-ds-regions.md) pour afficher la liste des régions Azure prises en charge.
+
+9. Après avoir sélectionné les options ci-dessus, cliquez sur **Enregistrer** dans le volet des tâches en bas de la page pour activer les services de domaine Azure AD.
 10. La page affiche l’état « En attente... », le temps que les services de domaine Azure AD soient activés pour votre annuaire.
 
     ![Activer les services de domaine : état d’attente](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
@@ -62,10 +67,10 @@ Au cours de cette étape, vous pouvez activer les services de domaine Azure AD 
 
     ![Services de domaine activés : les deux adresses IP configurées](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-  >[AZURE.NOTE]Selon la taille de votre annuaire Azure AD (nombre d’utilisateurs, groupes, etc.), la mise à disposition du contenu de l’annuaire dans les services de domaine Azure AD peut prendre du temps. Ce processus de synchronisation se produit en arrière-plan. Pour les annuaires volumineux comportant des dizaines de milliers d’objets, un ou deux jours peuvent s’écouler avant que la totalité des utilisateurs, des appartenances aux groupes et des informations d’identification soient synchronisés et disponibles dans les services de domaine Azure AD.
+> [AZURE.NOTE]Selon la taille de votre annuaire Azure AD (nombre d’utilisateurs, groupes, etc.), la mise à disposition du contenu de l’annuaire dans les services de domaine Azure AD peut prendre du temps. Ce processus de synchronisation se produit en arrière-plan. Pour les annuaires volumineux comportant des dizaines de milliers d’objets, un ou deux jours peuvent s’écouler avant que la totalité des utilisateurs, des appartenances aux groupes et des informations d’identification soient synchronisés et disponibles dans les services de domaine Azure AD.
 
 
 ---
 [**Étape suivante : mettre à jour les paramètres DNS pour le réseau virtuel Azure.**](active-directory-ds-getting-started-dns.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

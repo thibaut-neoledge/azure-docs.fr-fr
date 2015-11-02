@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/27/2015"
+   ms.date="10/20/2015"
    ms.author="tomfitz"/>
 
 # Création de plusieurs instances de ressources dans Azure Resource Manager
@@ -61,12 +61,14 @@ Utilisez le modèle suivant :
           "name": "[concat('examplecopy-', copyIndex())]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[parameters('count')]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          }
       } 
     ]
 
@@ -103,20 +105,55 @@ Utilisez le modèle suivant :
           "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[length(parameters('org'))]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          } 
       } 
     ]
 
 Bien sûr, vous définissez le nombre de copies sur une valeur autre que la longueur du tableau. Par exemple, vous pouvez créer un tableau avec de nombreuses valeurs et ensuite passer une valeur de paramètre qui spécifie le nombre d'éléments du tableau à déployer. Dans ce cas, vous définissez le nombre de copies comme indiqué dans le premier exemple.
 
+## Selon les ressources dans une boucle
+
+Vous pouvez spécifier le déploiement d’une ressource après une autre ressource à l’aide de l’élément **dependsOn**. Quand vous devez déployer une ressource qui dépend de la collection de ressources dans une boucle, vous pouvez utiliser le nom de la boucle de copie dans l’élément **dependsOn**. L’exemple suivant montre comment déployer 3 comptes de stockage avant de déployer la machine virtuelle. La définition complète de la machine virtuelle n’est pas affichée. Notez que le **nom** de l’élément de copie a la valeur **storagecopy** et que l’élément **dependsOn** pour la machine virtuelle est également défini sur **storagecopy**.
+
+    {
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {},
+	    "resources": [
+	        {
+		        "apiVersion": "2015-06-15",
+		        "type": "Microsoft.Storage/storageAccounts",
+		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+		        "location": "[resourceGroup().location]",
+		        "properties": {
+                    "accountType": "Standard_LRS"
+            	 },
+		        "copy": { 
+         	        "name": "storagecopy", 
+         	        "count": 3 
+      		    }
+	        },
+           {
+               "apiVersion": "2015-06-15", 
+               "type": "Microsoft.Compute/virtualMachines", 
+               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+               "dependsOn": ["storagecopy"],
+               ...
+           }
+	    ],
+	    "outputs": {}
+    }
+
 ## Étapes suivantes
 - Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
-- Pour savoir comment déployer votre modèle, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

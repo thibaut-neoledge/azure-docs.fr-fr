@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Comparaison : Apache Storm et Azure Stream Analytics | Microsoft Azure"
 	description="Découvrez comment utiliser Stream Analytics pour l’analyse de sentiments Twitter en temps réel. Aide pas à pas allant de la génération d’événements à la gestion des données sur un tableau de bord en direct."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="twitter en temps réel,analyse de sentiments,analyse des médias sociaux,outils d’analyse de médias sociaux"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -289,12 +289,12 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
                 </p>
             </td>
             <td width="204" valign="top">
-                <p>Les sources d’entrée prises en charge sont les concentrateurs Azure Event Hubs et les objets blob Azure.
+                <p>Les sources d’entrée prises en charge sont Azure Event Hubs et Azure Blob.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Des connecteurs sont disponibles pour les concentrateurs Event Hubs, Service Bus, Kafka, etc. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
+                    Des connecteurs sont disponibles pour Event Hubs, Service Bus, Kafka, etc. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
             </td>
         </tr>
@@ -323,12 +323,12 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
             </td>
             <td width="204" valign="top">
                 <p>
-                    Un travail de diffusion en continu peut avoir plusieurs sorties. Sorties prises en charge&#160;: Azure Event Hubs, stockage d’objets blob Azure, tables Azure, base de données&#160;SQL Azure et PowerBI.
+                    Un travail de diffusion en continu peut avoir plusieurs sorties. Sorties prises en charge&#160;: Azure Event Hubs, Azure Blob Storage, Azure Tables, Azure SQL DB et PowerBI.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-                    Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, les concentrateurs Azure Event Hubs, le magasin d’objets blob Azure, Azure DocumentDB, SQL et&#160;HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
+                    Prise en charge de nombreuses sorties dans une topologie, chacune pouvant disposer d’une logique personnalisée pour le traitement en aval. Storm prêt à l’emploi inclut des connecteurs pour PowerBI, Azure Event Hubs, Azure Blob Store, Azure DocumentDB, SQL et&#160;HBase. Des connecteurs non pris en charge peuvent être implémentés via du code personnalisé.
                 </p>
             </td>
         </tr>
@@ -590,4 +590,4 @@ Si ces deux services fournissent les avantages d’une solution PaaS, il exist
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

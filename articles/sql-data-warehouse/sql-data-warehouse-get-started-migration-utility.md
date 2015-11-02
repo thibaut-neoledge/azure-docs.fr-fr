@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 
@@ -57,4 +57,4 @@ Maintenant que vous avez migré certaines données, découvrez comment [dévelop
 [développer]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
 [ici]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

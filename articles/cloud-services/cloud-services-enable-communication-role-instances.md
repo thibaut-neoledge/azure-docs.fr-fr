@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Activer la communication pour les instances de rôle dans Cloud Services | Microsoft Azure" 
-description="" 
+pageTitle="Communication pour les rôles dans Cloud Services | Microsoft Azure" 
+description="Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici
 ## Étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md) de service cloud.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

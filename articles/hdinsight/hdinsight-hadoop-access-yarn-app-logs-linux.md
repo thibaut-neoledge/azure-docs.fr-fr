@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Accéder aux journaux des applications Hadoop YARN par programmation | Microsoft Azure"
-	description="Accéder aux journaux des applications par programmation sur un cluster Hadoop dans HDInsight."
+	pageTitle="Accéder aux journaux des applications Hadoop YARN dans HDInsight sous Linux | Microsoft Azure"
+	description="Découvrez comment accéder aux journaux des applications YARN sur un cluster HDInsight sous Linux (Hadoop) à l’aide de la ligne de commande et d’un navigateur web."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Accéder aux journaux des applications YARN dans HDInsight sous Linux
@@ -96,4 +96,4 @@ Une fois que vous avez créé un tunnel SSH, procédez comme suit pour afficher 
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

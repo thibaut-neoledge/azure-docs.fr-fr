@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Présentation de la surveillance des tâches Stream Analytics | Microsoft Azure" 
 	description="Présentation de la surveillance des tâches Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analyse de données volumineuses,service cloud,internet des objets,service administré, traitement de flux,streaming analytics,données de diffusion"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -104,4 +104,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

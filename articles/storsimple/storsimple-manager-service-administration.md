@@ -57,12 +57,11 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 |Page d’accueil|Pages de niveau de service|Pages de niveau appareil|Pages de niveau appareil|
 |---|---|---|---|
 |Service StorSimple Manager|Tableau de bord du service|Page du tableau de bord d’un appareil||
-||Appareils →|Surveillance|| 
-||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| 
-||Configurer (Service)|Stratégies de sauvegarde|| 
-||Tâches|Configurer (Appareil)|| 
-||Alertes|Maintenance||
+||Appareils →|Surveillance| ||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| ||Configurer (Service)|Stratégies de sauvegarde|| ||Tâches|Configurer (Appareil)| ||Alertes|Maintenance|
 
+![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
+
+Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestion d’un appareil StorSimple via le service StorSimple Manager
 
@@ -74,19 +73,19 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 
 |Pour ce faire...|Accédez à cette page de l'interface utilisateur...|Suivez cette procédure.|
 |---|---|---|
-|Création d’un service</br>Suppression d’un service</br>Obtention d’une clé d'inscription de service</br>Régénération d’une clé d'inscription de service|Service StorSimple Manager|[Déploiement du service StorSimple Manager](storsimple-manage-service.md)
+|Création d’un service</br>Suppression d’un service</br>Obtention d’une clé d’inscription de service</br>Régénération d’une clé d’inscription de service|Service StorSimple Manager|[Déploiement du service StorSimple Manager](storsimple-manage-service.md)
 |Modification de la clé de chiffrement des données de service</br>Affichage des journaux des opérations|Service StorSimple Manager → Tableau de bord|[Utilisation du tableau de bord du service StorSimple Manager](storsimple-service-dashboard.md)|
 |Désactivation d’un appareil</br>Suppression d’un appareil|Service StorSimple Manager → Appareil|[Désactivation ou suppression d’un appareil](storsimple-deactivate-and-delete-device.md)|
-|En savoir plus sur le basculement entre appareils et la récupération d'urgence</br>Basculement vers un appareil physique</br>Basculement vers un appareil virtuel</br>Récupération BCDR|Service StorSimple Manager → Appareil|[Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md)|
-|Liste des sauvegardes d'un volume</br>Sélection d’un jeu de sauvegarde</br>Suppression d’un jeu de sauvegarde|Service StorSimple Manager → Catalogue de sauvegarde|[Gestion des sauvegardes](storsimple-manage-backup-catalog.md)|
+|En savoir plus sur le basculement entre appareils et la récupération d’urgence</br>Basculement vers un appareil physique</br>Basculement vers un appareil virtuel</br>Récupération BCDR|Service StorSimple Manager → Appareil|[Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md)|
+|Liste des sauvegardes d’un volume</br>Sélection d’un jeu de sauvegarde</br>Suppression d’un jeu de sauvegarde|Service StorSimple Manager → Catalogue de sauvegarde|[Gestion des sauvegardes](storsimple-manage-backup-catalog.md)|
 |Clonage d’un volume|Service StorSimple Manager → Catalogue de sauvegarde|[Clonage d’un volume](storsimple-clone-volume.md)|
 |Restauration d'un jeu de sauvegarde|Service StorSimple Manager → Catalogue de sauvegarde|[Restauration d'un jeu de sauvegarde](storsimple-restore-from-backup-set.md)|
 |À propos des comptes de stockage</br>Ajout d’un compte de stockage</br>Modification d’un compte de stockage</br>Suppression d’un compte de stockage</br>Rotation des clés des comptes de stockage.|Service StorSimple Manager → Configuration|[Gestion des comptes de stockage](storsimple-manage-storage-accounts.md)|
 |À propos des modèles de bande passante</br>Ajout d’un modèle de bande passante</br>Modification d’un modèle de bande passante</br>Suppression d’un modèle de bande passante</br>Utilisation d’un modèle de bande passante par défaut</br>Création d’un modèle de bande passante à la journée commençant à une heure précise|Service StorSimple Manager → Configuration|[Modèles de bande passante](storsimple-manage-bandwidth-templates.md)|
-|À propos des enregistrements de contrôle d'accès</br>Création d’un enregistrement de contrôle d'accès</br>Modification d’un enregistrement de contrôle d'accès</br>Suppression d’un enregistrement de contrôle d'accès|Service StorSimple Manager → Configuration|[Gestion d’enregistrements de contrôle d’accès](storsimple-manage-acrs.md)|
-|Affichage des détails d'une tâche</br>Annulation d’un travail|Service StorSimple Manager → Tâches|[Gestion des travaux](storsimple-manage-jobs.md)
-|Réception de notifications d'alerte</br>Gestion d’alertes</br>Consultation d’alertes|Service StorSimple Manager → Alertes|[Affichage et gestion des alertes StorSimple](storsimple-manage-alerts.md)
-|Affichage des initiateurs connectés</br>Recherche du numéro de série d’un appareil</br>Recherche de l'IQN cible|Service StorSimple Manager → Appareils → Tableau de bord|[Utilisation du tableau de bord d’un appareil StorSimple](storsimple-device-dashboard.md)|
+|À propos des enregistrements de contrôle d’accès</br>Création d’un enregistrement de contrôle d’accès</br>Modification d’un enregistrement de contrôle d’accès</br>Suppression d’un enregistrement de contrôle d’accès|Service StorSimple Manager → Configuration|[Gestion d’enregistrements de contrôle d’accès](storsimple-manage-acrs.md)|
+|Affichage des détails d’une tâche</br>Annulation d’un travail|Service StorSimple Manager → Tâches|[Gestion des travaux](storsimple-manage-jobs.md)
+|Réception de notifications d’alerte</br>Gestion d’alertes</br>Consultation d’alertes|Service StorSimple Manager → Alertes|[Affichage et gestion des alertes StorSimple](storsimple-manage-alerts.md)
+|Affichage des initiateurs connectés</br>Recherche du numéro de série d’un appareil</br>Recherche de l’IQN cible|Service StorSimple Manager → Appareils → Tableau de bord|[Utilisation du tableau de bord d’un appareil StorSimple](storsimple-device-dashboard.md)|
 |Création de graphiques d’analyse|Service StorSimple Manager → Appareils → Surveillance|[Surveillance de votre appareil StorSimple](storsimple-monitor-device.md)|
 |Ajout d’un conteneur de volumes</br>Modification d’un conteneur de volumes</br>Suppression d’un conteneur de volumes|Service StorSimple Manager → Appareils → Conteneurs de volume|[Gestion de conteneurs de volume](storsimple-manage-volume-containers.md)|
 |Ajout d’un volume</br>Modification d’un volume</br>Déconnexion d’un volume</br>Suppression d’un volume</br>Surveillance d’un volume|Service StorSimple Manager → Appareils → Conteneurs de volume → Volumes|[Gestion de volumes](storsimple-manage-volumes.md)|
@@ -97,14 +96,11 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 |Configuration des paramètres d'alerte|Service StorSimple Manager → Appareils → Configuration|[Affichage et gestion des alertes StorSimple](storsimple-manage-alerts.md)|
 |Configuration de CHAP pour votre appareil StorSimple|Service StorSimple Manager → Appareils → Configuration|[Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md)|
 |Ajout d’une stratégie de sauvegarde</br>Ajout ou modification d’une planification</br>Suppression d’une stratégie de sauvegarde</br>Exécution d’une sauvegarde manuelle</br>Création d’une stratégie de sauvegarde personnalisée avec plusieurs volumes et planifications|Service StorSimple Manager → Appareils → Stratégies de sauvegarde|[Gestion des stratégies de sauvegarde](storsimple-manage-backup-policies.md)|
-|Arrêt des contrôleurs d’appareil</br>Redémarrage des contrôleurs d’appareil</br>Fermeture des contrôleurs de périphérique</br>Réinitialisation des paramètres par défaut de votre appareil</br>(Les données ci-dessus s’appliquent aux appareils sur site uniquement)|Service StorSimple Manager → Appareils → Maintenance|[Gestion du contrôleur d’appareil StorSimple](storsimple-manage-device-controller.md)|
-|En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l'état du matériel</br>(Les données ci-dessus s’appliquent aux appareils sur site uniquement)|Service StorSimple Manager → Appareils → Maintenance|[Surveillance des composants matériels](storsimple-monitor-hardware-status.md)|
+|Arrêt des contrôleurs d’appareil</br>Redémarrage des contrôleurs d’appareil</br>Fermeture des contrôleurs d’appareil</br>Réinitialisation des paramètres par défaut de votre appareil</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement)|Service StorSimple Manager → Appareils → Maintenance|[Gestion du contrôleur d’appareil StorSimple](storsimple-manage-device-controller.md)|
+|En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l’état du matériel</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement)|Service StorSimple Manager → Appareils → Maintenance|[Surveillance des composants matériels](storsimple-monitor-hardware-status.md)|
 |Création d’un package de prise en charge|Service StorSimple Manager → Appareils → Maintenance|[Création et gestion d’un package de prise en charge](storsimple-create-manage-support-package.md)|
 |Installer les mises à jour logicielles|Service StorSimple Manager → Appareils → Maintenance|[Mise à jour de votre appareil](storsimple-update-device.md)|
 
-![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
-
-Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Étapes suivantes
 Si vous rencontrez des problèmes de fonctionnement quotidien de votre appareil StorSimple ou avec l’un de ses composants matériels, consultez la rubriques suivantes :
@@ -116,4 +112,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

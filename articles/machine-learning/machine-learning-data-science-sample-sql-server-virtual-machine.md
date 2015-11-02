@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
-Ce document traite des données d’échantillonnage stockées dans SQL Server sur Azure à l’aide de SQL et à l'aide du langage de programmation Python.
+Ce document montre comment échantillonner des données stockées dans SQL Server sur Azure à l’aide de SQL et du langage de programmation Python. Il montre également comment déplacer les données échantillonnées vers Azure Machine Learning en les enregistrant dans un fichier, les charger vers un objet blob Azure, puis les lire dans Azure ML.
 
->[AZURE.NOTE]L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n'est pas le cas, reportez-vous à la section [Déplacer des données vers SQL Server sur Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) du [Guide de processus de données avancée](machine-learning-data-science-advanced-data-processing.md) pour obtenir des instructions pour déplacer vos données vers un serveur SQL Server dans Azure.
+L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.google.com/p/pyodbc/) pour se connecter à SQL Server sur Azure et la bibliothèque [Pandas](http://pandas.pydata.org/) pour effectuer l’échantillonnage proprement dit.
+
+>[AZURE.NOTE]L’exemple de code SQL figurant dans ce document repose sur l’hypothèse que les données sont stockées dans SQL Server sur Azure. Si ce n’est pas le cas, reportez-vous à la rubrique [Déplacer des données vers SQL Server sur Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) pour savoir comment déplacer vos données vers SQL Server sur Azure.
 
 ##<a name="SQL"></a>Utilisation de SQL
 
@@ -55,7 +57,7 @@ Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le mod
 
 ##<a name="python"></a>Utilisation du langage de programmation Python 
 
-Cette section décrit l’utilisation de la bibliothèque pyodbc pour vous connecter à une base de données SQL Server dans Python. La chaîne de connexion de base de données se présente comme suit :(remplacez les variables servername, dbname, username et password par les valeurs de votre configuration) :
+Cette section décrit l’utilisation de la [bibliothèque pyodbc](https://code.google.com/p/pyodbc/) pour établir une connexion ODBC à une base de données SQL Server dans Python. La chaîne de connexion de base de données se présente comme suit :(remplacez les variables servername, dbname, username et password par les valeurs de votre configuration) :
 
 	#Set up the SQL Azure connection
 	import pyodbc	
@@ -104,13 +106,13 @@ Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données
  
 ![objet blob de lecteur][2]
 
-## Exemple de processus d’analyse avancée et technologie en action ADAPT (Advanced Analytics Process and Technology)
+## Exemple de processus d’analyse Cortana en action
 
-Pour obtenir un exemple de procédure pas à pas de bout en bout à l’aide du processus d’analyse avancée et technologie (ADAPT) avec un jeu de données public, consultez [Processus d’analyse avancée et technologie en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas complet du processus d’analyse Cortana à l’aide d’un jeu de données public, consultez [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

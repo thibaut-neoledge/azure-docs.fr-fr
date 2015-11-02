@@ -90,7 +90,7 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 Vous pouvez trouver le mappage d'un système de type natif donné en .NET pour le magasin de données dans les articles sur les connecteurs de magasin de données respectifs. Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d’exécuter les conversions appropriées lors de l'activité de copie.
 
 ### Utilisation de différents formats de fichiers
-Pour les sources basées sur des fichiers, l’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte et Avro. Vous pouvez utiliser l’activité de copie pour convertir d’un format vers un autre. Exemple : du format texte (CSV) au format Avro.
+L’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte et Avro pour les magasins basés sur des fichiers. Il est possible d’utiliser l’activité de copie pour convertir des données d’un format vers un autre. Exemple : du format texte (CSV) au format Avro.
 
 ### Propriétés de l’activité de copie
 Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités. En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité.
@@ -101,4 +101,4 @@ Pour l’activité de copie, la section **typeProperties** varie selon les types
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

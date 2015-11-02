@@ -18,13 +18,15 @@
 
 # Utilisation des rubriques et abonnements Service Bus
 
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
 Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][]. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
-Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
+Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
 
 ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
@@ -42,7 +44,7 @@ Ajoutez les bibliothèques Azure pour Java au chemin de votre build et incluez-l
 
 Les opérations de gestion des rubriques Service Bus peuvent être effectuées via la classe **ServiceBusContract**. Un objet **ServiceBusContract** est construit avec une configuration appropriée qui encapsule le jeton SAP avec des autorisations pour le gérer, et la classe **ServiceBusContract** est le point de communication unique avec Azure.
 
-La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des rubriques. L'exemple suivant présente un objet **ServiceBusService** qui peut être utilisé pour créer une rubrique `TestTopic`, avec un espace de noms appelé `HowToSample` :
+La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des rubriques. L’exemple suivant présente un objet **ServiceBusService** qui peut être utilisé pour créer une rubrique `TestTopic`, avec un espace de noms appelé `HowToSample` :
 
     Configuration config =
     	ServiceBusConfiguration.configureWithSASAuthentication(
@@ -75,7 +77,7 @@ Notez que vous pouvez utiliser la méthode **listTopics** sur les objets **Servi
 
 ## Création d'abonnements
 
-Les abonnements à des rubriques sont également créés à l'aide de la classe **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
+Les abonnements à des rubriques sont également créés à l’aide de la classe **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
 
 ### Création d'un abonnement avec le filtre par défaut (MatchAll)
 
@@ -91,7 +93,7 @@ Vous pouvez également configurer des filtres pour spécifier quels sont les mes
 
 Parmi les types de filtre pris en charge par les abonnements, [SqlFilter][] est le plus flexible ; il implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus de détails sur les expressions utilisables avec un filtre SQL, examinez la syntaxe[SqlFilter.SqlExpression][].
 
-Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3.
+Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété personnalisée **MessageNumber** a une valeur supérieure à 3 :
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -104,7 +106,7 @@ Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-De même, l’exemple suivant crée l’abonnement `LowMessages` avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété **MessageNumber** a une valeur inférieure ou égale à 3 :
+De même, l’exemple suivant crée l’abonnement `LowMessages` avec un objet [SqlFilter][] qui sélectionne uniquement les messages dont la propriété **MessageNumber** a une valeur inférieure ou égale à 3 :
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -122,14 +124,14 @@ De même, l’exemple suivant crée l’abonnement `LowMessages` avec un objet [
 
 ## Envoi de messages à une rubrique
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit obtenir un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message à la rubrique `TestTopic` créée plus haut dans l’espace de noms `HowToSample` :
+Pour envoyer un message à une rubrique Service Bus, votre application doit obtenir un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message à la rubrique `TestTopic` créée plus haut dans l’espace de noms `HowToSample` :
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][]* possèdent un ensemble de propriétés standard (telles que **Label** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][] ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
+Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage][]. Les objets [BrokeredMessage][]* possèdent un ensemble de propriétés standard (telles que **setLabel** et **TimeToLive**), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l'objet [BrokeredMessage][] ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l'objet. Une autre possibilité consiste à fournir un **java.io.InputStream**.
 
-L'exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** `TestTopic` obtenu dans l'extrait de code précédent. Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l'itération de la boucle (détermine les abonnements qui le reçoivent) :
+L’exemple suivant montre comment envoyer cinq messages de test au client **MessageSender** `TestTopic` obtenu dans l’extrait de code précédent. Notez que la valeur de la propriété **MessageNumber** de chaque message varie au niveau de l'itération de la boucle (détermine les abonnements qui le reçoivent) :
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -235,4 +237,4 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

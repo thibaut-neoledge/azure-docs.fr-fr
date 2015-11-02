@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Résolution des problèmes Application Insights avec des appareils Windows" 
-	description="Guide de dépannage et questions-réponses." 
+	description="Guide de dépannage et questions-réponses concernant Application Insights pour les appareils Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -120,4 +120,4 @@ Consultez [Rétention de données et confidentialité][data].
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

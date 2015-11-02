@@ -3,8 +3,8 @@
 	description="Gestion de l’accès concurrentiel pour les services BLOB, de File d’attente, de Table et de Fichier" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # Gestion de l’accès concurrentiel dans Microsoft Azure Storage
 
@@ -273,4 +273,4 @@ Pour plus d’informations concernant Azure Storage, consultez la page :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

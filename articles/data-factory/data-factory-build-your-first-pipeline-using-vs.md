@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="10/09/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Visual Studio
@@ -205,20 +205,24 @@ Lorsque vous publierez la solution à l’étape suivante, le fichier HQL sera c
 
 21. Dans la page Configurer une fabrique de données, procédez comme suit :
 	1. Sélectionnez l'option **Créer une fabrique de données**.
-	2. Entrez **FirstPipelineUsingVS** comme **Nom**.
-	3. Sélectionnez l'abonnement correct dans le champ **Abonnement**. 
+	2. Entrez **FirstPipelineUsingVS** comme **Nom**. 
+	
+		> [AZURE.IMPORTANT]Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez l’erreur **Le nom de la fabrique de données « FirstPipelineUsingVS » n’est pas disponible** au moment de la publication, changez le nom (par exemple, votrenomFirstPipelineUsingVS). Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+		> 
+		> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+	3. Sélectionnez l’abonnement correct dans le champ **Abonnement**. 
 	4. Sélectionnez le **groupe de ressources** pour la fabrique de données à créer. 
 	5. Sélectionnez la **région** pour la fabrique de données. 
-	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (utilisez la touche **TABULATION** pour passer au champ Nom si le bouton **Suivant** est désactivé.) 
+	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. (utilisez la touche **Tab** pour passer au champ Nom si le bouton **Suivant** est désactivé.) 
 23. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
-24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l'**état du déploiement**.
-25. Dans la page **État du déploiement**, vous devez voir l'état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
+24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
+25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
  
 
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L'état de cette opération s'affiche dans la fenêtre **Liste des tâches de Data Factory**.
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**.
 
 	![Explorateur de serveurs](./media/data-factory-build-your-first-pipeline-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner **Exporter la fabrique de données vers le nouveau projet** pour créer un projet Visual Studio basé sur une fabrique de données existante.
@@ -233,13 +237,13 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 2. Dans le volet gauche, sélectionnez **Mises à jour**, puis **Galerie Visual Studio**.
 3. Sélectionnez **Outils Azure Data Factory pour Visual Studio**, puis cliquez sur **Mettre à jour**. Si cette entrée n’est pas affichée, c’est que vous possédez déjà la dernière version de ces outils. 
 
-Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l'utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
+Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
  
 
 ## Étapes suivantes
-Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d'un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
+Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

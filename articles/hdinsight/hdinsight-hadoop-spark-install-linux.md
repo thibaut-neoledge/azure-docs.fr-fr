@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utiliser une action de script dans HDInsight pour installer Spark sur un cluster Hadoop| Azure" 
-	description="Découvrez comment personnaliser un cluster HDInsight avec Spark. Vous allez employer une option de configuration d’action de script pour utiliser un script afin d’installer Spark." 
+	pageTitle="Utilisation d’une action de script pour installer Apache Spark sur HDInsight basé sur Linux (Hadoop) | Microsoft Azure" 
+	description="Découvrez comment installer Spark sur un cluster HDInsight basé sur Linux à l’aide des actions de script. Les actions de script vous permettent de personnaliser le cluster pendant la création, en modifiant la configuration du cluster ou en installant des services et des utilitaires." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/19/2015" 
 	ms.author="larryfr"/>
 
 # Installation et utilisation de Spark sur des clusters HDInsight Hadoop
@@ -40,9 +40,11 @@ Vous pouvez modifier ce script ou créer votre propre script pour installer d’
 
 Ce script installe Spark version 1.5.1 dans `/usr/hdp/current/spark`.
 
+> [AZURE.WARNING]Vous pouvez constater que certains fichiers binaires Spark 1.3.1 sont installés par défaut sur votre cluster HDInsight. Ces derniers ne doivent pas être utilisés et seront supprimés de l’image de cluster HDInsight dans une mise à jour future.
+
 ## <a name="install"></a>Installer Spark à l’aide d’actions de script
 
-Un exemple de script pour installer Spark sur un cluster HDInsight est disponible depuis un objet blob de stockage Azure à l'adresse [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Cette section explique comment utiliser l’exemple de script dans le cadre de la création du cluster à l’aide du portail Azure.
+Un exemple de script pour installer Spark sur un cluster HDInsight est disponible depuis un objet blob de stockage Azure à l’adresse [https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh). Cette section explique comment utiliser l’exemple de script dans le cadre de la création du cluster à l’aide du portail Azure.
 
 > [AZURE.NOTE]Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -51,11 +53,13 @@ Un exemple de script pour installer Spark sur un cluster HDInsight est disponibl
 2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations ci-dessous :
 
 	* __NAME__ : entrez un nom convivial pour l’action de script.
-	* __URI DU SCRIPT__ : https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
+	* __SCRIPT URI__ : https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__ : cochez cette option.
-	* __WORKER__ : cochez cette option.
-	* __ZOOKEEPER__ : cochez cette option pour installer le nœud ZooKeeper.
+	* __WORKER__ : décochez cette option.
+	* __ZOOKEEPER__: décochez cette option.
 	* __PARAMETERS__ : laissez ce champ vide.
+    
+    > [AZURE.NOTE]L’exemple de script Spark installe uniquement les composants sur les nœuds principaux ; vous pouvez donc décocher les autres types de nœuds.
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
 
@@ -148,7 +152,7 @@ Dans cette section, vous allez écrire une application Scala qui compte le nombr
 		sudo apt-get update
 		sudo apt-get install sbt
 		
-	Lorsque vous y êtes invité, sélectionnez __Y__ pour continuer.
+	Quand vous y êtes invité, sélectionnez __Y__ pour continuer.
 
 2. Créez la structure de répertoire du projet Scala :
 
@@ -216,7 +220,7 @@ Dans cette section, vous allez écrire une application Scala qui compte le nombr
 
 ## Étapes suivantes
 
-- [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
+- [Installation et utilisation de Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md) Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
 
 - [Installation de R sur des clusters HDInsight][hdinsight-install-r] fournit des instructions sur l’utilisation de la personnalisation des clusters pour installer et utiliser R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
 
@@ -234,4 +238,4 @@ Dans cette section, vous allez écrire une application Scala qui compte le nombr
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

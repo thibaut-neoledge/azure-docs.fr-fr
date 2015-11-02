@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -46,4 +46,4 @@ Ce document présente un modèle de base permettant d'utiliser Azure Search à 
 
 [Niveau de traitement par lots](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1) (en anglais)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

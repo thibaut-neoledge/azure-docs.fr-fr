@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Connexion d’une application web à une application API dans Azure App Service" 
 	description="Ce didacticiel montre comment utiliser une application API depuis une application web ASP.NET hébergée dans Azure App Service." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
@@ -81,9 +81,7 @@ Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/
         &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
     }
 &lt;/ul> 
-	</pre>
-
-	![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+</pre>![Mises à jour du code contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Déployer l'application web vers Web Apps dans App Service
 
@@ -96,4 +94,4 @@ Suivez les instructions fournies dans [Comment déployer une application web Azu
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

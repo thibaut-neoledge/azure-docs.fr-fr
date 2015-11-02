@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/15/2015"
    ms.author="sahajs"/>
 
 # Sécuriser une base de données dans SQL Data Warehouse
@@ -78,7 +78,7 @@ La gestion des bases de données et serveurs logiques à partir du portail de ge
 
 ## Chiffrement
 
-Azure SQL Data Warehouse peut vous aider à protéger vos données en les chiffrant lorsqu’elles sont « au repos » ou stockées dans des fichiers de base de données et des sauvegardes, à l’aide d’un [chiffrement transparent des données][]. Pour chiffrer votre base de données, connectez-vous en tant que propriétaire de la base de données et exécutez la commande suivante :
+Azure SQL Data Warehouse peut vous aider à protéger vos données en les chiffrant lorsqu’elles sont « au repos » ou stockées dans des fichiers de base de données et des sauvegardes, à l’aide d’un [chiffrement transparent des données][]. Pour chiffrer votre base de données, connectez-vous à la base de données MASTER sur votre serveur et exécutez :
 
 
 ```
@@ -119,4 +119,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Other Web references-->
 [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

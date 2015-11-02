@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="10/19/2015"
 	ms.author="curtand"/>
 
 # Attribution de rôles d’administrateur dans Azure AD
@@ -28,8 +28,7 @@ Les rôles d’administrateur disponibles sont les suivants :
 - **Administrateur général** : peut accéder à toutes les fonctionnalités d’administration. La personne qui s’inscrit pour le compte Azure devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux.
 - **Administrateur de mots de passe** : réinitialise les mots de passe, gère les demandes de service et surveille l’état des services. Les administrateurs de mots de passe peuvent réinitialiser uniquement les mots de passe des utilisateurs et des autres administrateurs de mots de passe.
 - **Administrateur de services fédérés** : gère les demandes de service et surveille l’état des services.
-    > [AZURE.NOTE] 
-    > Pour assigner le rôle d'administrateur du service à un utilisateur, l'administrateur général doit d'abord assigner des autorisations administratives à l'utilisateur du service, comme Exchange Online, puis lui assigner le rôle d'administrateur du service dans le portail de gestion Windows Azure. 
+    > [AZURE.NOTE]Pour assigner le rôle d'administrateur du service à un utilisateur, l'administrateur général doit d'abord assigner des autorisations administratives à l'utilisateur du service, comme Exchange Online, puis lui assigner le rôle d'administrateur du service dans le portail de gestion Windows Azure.
 - **Administrateur d’utilisateurs** : réinitialise les mots de passe, surveille l’état des services et gère les comptes d’utilisateur, les groupes d’utilisateurs et les demandes de service. Certaines limitations s’appliquent aux autorisations des administrateurs d’utilisateurs. Par exemple, ils ne peuvent pas supprimer un administrateur général, ni créer d’autres administrateurs. Ils ne peuvent pas non plus réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.
 
 ## Autorisations des administrateurs
@@ -44,7 +43,7 @@ Peut | Ne peut pas
 
 Peut | Ne peut pas
 ------------- | -------------
-<p>Afficher les informations de la société et des utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p> <p>Réinitialiser les mots de passe d’utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et des groupes et gérer les licences utilisateur</p><p>Gérer les domaines</p><p>Gérer les informations de la société</p><p>Déléguer des rôles d’administrateur à d’autres personnes</p><p>Utiliser la synchronisation d’annuaires</p> | N/A
+<p>Afficher les informations de la société et des utilisateurs</p><p>Gérer les tickets de support Office</p><p>Effectuer des opérations de facturation et d’achat pour des produits Office</p> <p>Réinitialiser les mots de passe d’utilisateur</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et des groupes et gérer les licences utilisateur</p><p>Gérer les domaines</p><p>Gérer les informations de la société</p><p>Déléguer des rôles d’administrateur à d’autres personnes</p><p>Utiliser la synchronisation d’annuaires</p><p>Activer ou désactiver l’authentification multifacteur</p> | N/A
 
 ### Administrateur de mots de passe
 
@@ -62,7 +61,7 @@ Peut | Ne peut pas
 
 Peut | Ne peut pas
 ------------- | -------------
-<p>Afficher les informations de la société et des utilisateurs</p><p>Gérer les tickets de support Office</p><p>Réinitialiser les mots de passe d’utilisateur, avec certaines limitations Il lui est impossible de réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et des groupes et gérer les licences utilisateur, avec certaines limitations. Il lui est impossible de supprimer un administrateur général ou de créer d’autres administrateurs.</p> | <p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Gérer les domaines</p><p>Gérer les informations de la société</p><p>Déléguer des rôles d’administrateur à d’autres personnes</p><p>Utiliser la synchronisation d’annuaires</p>
+<p>Afficher les informations de la société et des utilisateurs</p><p>Gérer les tickets de support Office</p><p>Réinitialiser les mots de passe d’utilisateur, avec certaines limitations Il lui est impossible de réinitialiser les mots de passe des administrateurs de facturation, généraux et de services fédérés.</p><p>Créer et gérer des vues utilisateur</p><p>Créer, modifier et supprimer des utilisateurs et des groupes et gérer les licences utilisateur, avec certaines limitations. Il lui est impossible de supprimer un administrateur général ou de créer d’autres administrateurs.</p> | <p>Effectuer des opérations de facturation et d’achat pour des produits Office</p><p>Gérer les domaines</p><p>Gérer les informations de la société</p><p>Déléguer des rôles d’administrateur à d’autres personnes</p><p>Utiliser la synchronisation d’annuaires</p><p>Activer ou désactiver l’authentification multifacteur</p>
 
 ## Informations sur le rôle d’administrateur général
 
@@ -85,4 +84,4 @@ L’administrateur général a accès à toutes les fonctionnalités d’adminis
 - [Gestion des mots de passe](active-directory-manage-passwords.md)
 - [Gestion des groupes](active-directory-manage-groups.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

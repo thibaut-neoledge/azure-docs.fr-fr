@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Configuration de stratégies de remise d'éléments multimédias à l'aide de .NET" 
-	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources." 
+	pageTitle="Configuration de stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET" 
+	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#Procédure : configuration de stratégies de remise de ressources
+#Configuration de stratégies de remise de ressources à l’aide du Kit de développement logiciel (SDK) .NET
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Si vous envisagez la remise de ressources chiffrées, l'une des étapes du workflow de remise de contenu Media Services consiste à configurer les stratégies de remise pour les ressources. La stratégie de remise de ressources indique à Media Services comment vous souhaitez distribuer vos ressources : dans quel protocole de diffusion en continu votre ressource doit être empaquetée dynamiquement (par exemple, MPEG DASH, HLS, diffusion en continu lisse ou tous), si vous souhaitez chiffrer dynamiquement votre ressource ou non et comment (chiffrement commun ou d’enveloppe).
@@ -328,4 +328,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

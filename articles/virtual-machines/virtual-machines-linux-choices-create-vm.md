@@ -19,6 +19,8 @@
 
 # Différentes façons de créer une machine virtuelle Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Microsoft Azure propose différents moyens de créer des machines virtuelles, adaptées à tous les utilisateurs et toutes les applications. En conséquence, vous devez effectuer certains choix relatifs à la machine virtuelle et à sa création. Cet article vous propose un résumé de ces options et des liens pour obtenir des instructions.
 
 Les modèles Microsoft Azure Resource Manager ont été récemment introduits comme un moyen de créer et de gérer une machine virtuelle et ses différentes ressources en tant qu’unité logique unique de déploiement. Des instructions relatives à cette approche sont fournies ci-dessous, le cas échéant. Pour plus d’informations sur Microsoft Azure Resource Manager et sur la gestion des ressources en tant qu’unité unique, consultez la [vue d’ensemble][].
@@ -27,7 +29,7 @@ Les modèles Microsoft Azure Resource Manager ont été récemment introduits 
 
 ### Interface utilisateur graphique : le portail ou le portail en version préliminaire Microsoft Azure
 
-L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le [portail Azure](http://manage.windowsazure.com) ou la [version préliminaire du portail Azure](http://portal.azure.com). Pour plus d'informations, consultez la rubrique [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**. Notez que le [portail Azure](http://manage.windowsazure.com) crée des machines virtuelles en utilisant uniquement le modèle de déploiement classique.
+L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le [portail Azure](http://manage.windowsazure.com) ou le [portail Azure en version préliminaire](http://portal.azure.com). Pour obtenir des instructions générales, consultez [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**. Notez que le [portail Azure](http://manage.windowsazure.com) crée des machines virtuelles en utilisant uniquement le modèle de déploiement classique.
 
 ### Interface de commande : interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell
 
@@ -101,4 +103,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

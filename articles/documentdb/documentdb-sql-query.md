@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Requêtes SQL sur une base de données DocumentDB – Requête SQL | Microsoft Azure" 
 	description="Découvrez comment DocumentDB prend en charge les requêtes SQL sur les documents JSON hiérarchiques pour l’indexation automatique. Découvrez un environnement de base de données compatible avec les requêtes SQL et véritablement exempt de schéma." 
-	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
+	keywords="Interroger la base de données, requêtes sql, requête sql, langage de requête structuré, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -137,7 +137,7 @@ Voici un second document comportant une différence subtile : `givenName` et `f
 	}]
 
 
-La requête suivante retourne tous les noms donnés des enfants de la famille dont l'ID correspond à `WakefieldFamily` classés par ville de résidence.
+La requête suivante retourne tous les noms donnés des enfants de la famille dont l’ID correspond à `WakefieldFamily` classés par ville de résidence.
 
 **Requête**
 
@@ -396,7 +396,7 @@ Vous pouvez utiliser l'opérateur Coalesce (?) pour vérifier la présence d'une
     FROM Families f
 
 ### Accesseur de propriété entre guillemets
-Vous pouvez également accéder aux propriétés à l’aide de l’opérateur de propriété entre guillemets `[]`. Par exemple, `SELECT c.grade` et `SELECT c["grade"]` sont équivalentes. Cette syntaxe est utile si vous devez placer dans une séquence d’échappement une propriété qui contient des espaces, des caractères spéciaux, ou qui partage le même nom qu’un mot clé SQL ou un mot réservé.
+Vous pouvez également accéder aux propriétés à l’aide de l’opérateur de propriété entre guillemets `[]`. Par exemple, les requêtes `SELECT c.grade` et `SELECT c["grade"]` sont équivalentes. Cette syntaxe est utile si vous devez placer dans une séquence d’échappement une propriété qui contient des espaces, des caractères spéciaux, ou qui partage le même nom qu’un mot clé SQL ou un mot réservé.
 
     SELECT f["lastName"]
     FROM Families f
@@ -404,7 +404,7 @@ Vous pouvez également accéder aux propriétés à l’aide de l’opérateur d
 
 
 ## Clause SELECT
-La clause SELECT (**`SELECT <select_list>`**) est obligatoire et indique les valeurs qui seront récupérées à partir de la requête, comme dans ANSI-SQL. Le sous-ensemble filtré au début des documents source est transmis à la phase de projection, où les valeurs JSON spécifiées sont récupérées et un nouvel objet JSON est construit, pour chaque entrée qui lui est transmise.
+La clause SELECT (**`SELECT <select_list>`**) est obligatoire et indique les valeurs à récupérer à partir de la requête, comme dans ANSI-SQL. Le sous-ensemble filtré au début des documents source est transmis à la phase de projection, où les valeurs JSON spécifiées sont récupérées et un nouvel objet JSON est construit, pour chaque entrée qui lui est transmise.
 
 L'exemple ci-dessous illustre une requête SELECT classique.
 
@@ -1390,7 +1390,7 @@ Cela encapsule les fonctions intégrées et la grammaire SQL pour DocumentDB. M
 
 ### Fonctions spatiales
 
-DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d'informations sur la prise en charge géospatiale dans DocumentDB, consultez [Working with geospatial data in Azure DocumentDB](documentdb-geospatial.md).
+DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d’informations sur la prise en charge géospatiale dans DocumentDB, consultez [Utilisation de données géospatiales dans Azure DocumentDB](documentdb-geospatial.md).
 
 <table>
 <tr>
@@ -1429,7 +1429,7 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
       "id": "WakefieldFamily"
     }]
 
-Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n'avez pas un index spatial pour les chemins d'accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
+Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n’avez pas d’index spatial pour les chemins d’accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
 
 ST\_WITHIN peut être utilisé pour vérifier si un point se trouve dans un polygone. Généralement, les polygones sont utilisés pour représenter des limites comme les codes postaux, les frontières d'États ou les formations naturelles. Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les requêtes « within » seront servies efficacement dans l'index.
 
@@ -1450,7 +1450,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l'emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
+>[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l’emplacement spécifié dans un argument est incorrecte ou non valide, elle prend la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
@@ -2089,4 +2089,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

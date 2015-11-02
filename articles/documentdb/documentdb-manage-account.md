@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Gestion d’un compte DocumentDB via le portail Azure en version préliminaire | Microsoft Azure" 
 	description="Apprenez à gérer un compte DocumentDB via le portail Azure en version préliminaire. Trouvez un guide vous expliquant comment utiliser le portail Azure en version préliminaire pour afficher, copier, supprimer et accéder aux comptes." 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Portail Azure en version préliminaire, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Comment gérer un compte DocumentDB dans le portail Azure en version préliminaire
 
@@ -113,4 +113,4 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

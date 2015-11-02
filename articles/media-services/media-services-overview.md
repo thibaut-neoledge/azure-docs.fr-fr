@@ -3,7 +3,7 @@
 	description="Cette rubrique offre une vue d'ensemble d'Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="Juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 #Vue d’ensemble d’Azure Media Services et scénarios courants
@@ -74,7 +74,7 @@ Cette section décrit les scénarios courants et fournit des liens vers des rubr
 	
 	Il est recommandé d’appliquer une option de chiffrement de stockage à votre ressource afin de protéger votre contenu lors du téléchargement et lorsqu’il est au repos, lors du stockage.
  
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif.
+1. Encoder en un ensemble de fichiers MP4 à débit adaptatif.
 
 	Il est recommandé d’appliquer une option de chiffrement de stockage à la ressource de sortie afin de protéger votre contenu lorsqu’il est au repos.
 	
@@ -93,7 +93,7 @@ Cette section décrit les scénarios courants et fournit des liens vers des rubr
 Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de diffuser votre contenu chiffré.
 
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource. Appliquez l’option de chiffrement de stockage à la ressource.
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif. Appliquez l’option de chiffrement de stockage à la ressource de sortie.
+1. Encoder en un ensemble de fichiers MP4 à débit adaptatif. Appliquez l’option de chiffrement de stockage à la ressource de sortie.
 1. Créez la clé de contenu de chiffrement pour la ressource que vous souhaitez chiffrer dynamiquement pendant la lecture.
 2. Configurez la stratégie d’autorisation de clé de contenu.
 1. Configurez la stratégie de remise de ressources (utilisée par l’empaquetage dynamique et le chiffrement dynamique).
@@ -113,7 +113,7 @@ Pour pouvoir utiliser le chiffrement dynamique, vous devez obtenir au moins une 
 ###Remettre le téléchargement progressif 
 
 1. Téléchargez un fichier mezzanine de haute qualité dans une ressource.
-1. Encodez-la sous forme de jeu de fichiers MP4 à débit adaptatif ou de fichier MP4 unique.
+1. Encoder en un fichier MP4 unique.
 1. Publiez la ressource en créant un localisateur à la demande ou de signature d’accès partagé (SAS, Shared Access Signature).
 
 	Si vous utilisez un localisateur à la demande, assurez-vous d’avoir au moins une unité réservée de diffusion en continu pour le point de terminaison de diffusion en continu à partir duquel vous prévoyez de télécharger progressivement le contenu.
@@ -227,4 +227,4 @@ Le [support Azure](http://azure.microsoft.com/support/options/) propose des opti
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

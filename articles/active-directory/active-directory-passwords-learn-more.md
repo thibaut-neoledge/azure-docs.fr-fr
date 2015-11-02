@@ -1,19 +1,19 @@
-<properties
-	pageTitle="En savoir plus : Gestion des mots de passe Azure AD | Microsoft Azure"
-	description="Rubriques avancées sur la gestion des mots de passe Azure AD, y compris le fonctionnement de l’écriture différée de mot de passe, la sécurité de l’écriture différée de mot de passe, le fonctionnement du portail de réinitialisation de mot de passe et les données utilisées par la réinitialisation de mot de passe."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="En savoir plus : Gestion des mots de passe Azure AD | Microsoft Azure" 
+	description="Rubriques avancées sur la gestion des mots de passe Azure AD, y compris le fonctionnement de l’écriture différée de mot de passe, la sécurité de l’écriture différée de mot de passe, le fonctionnement du portail de réinitialisation de mot de passe et les données utilisées par la réinitialisation de mot de passe." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # En savoir plus sur la gestion des mots de passe
@@ -73,7 +73,7 @@ Le tableau ci-dessous décrit les scénarios pris en charge pour les différente
 L’écriture différée des mots de passe est un service hautement sécurisé et robuste. Pour garantir la protection de vos informations, nous activons un modèle de sécurité à quatre niveaux, décrit ci-dessous.
 
 - **Relais Service Bus spécifique du client** : lorsque vous configurez le service, nous définissons un relais Service Bus spécifique au client et protégé par un mot de passe fort généré de manière aléatoire, auquel Microsoft n’a jamais accès.
-- **Clé de chiffrement de mot de passe forte et verrouillée** : une fois le relais Service Bus créé, nous créons une paire de clés asymétriques forte qui nous permet de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets du client dans le cloud, qui est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
+- **Clé de chiffrement de mot de passe forte et verrouillée** : une fois le relais Service Bus créé, nous créons une paire de clés asymétriques forte qui nous permet de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, qui est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
 - **Sécurité de couche de transport (TLS) standard** : lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, nous prenons le mot de passe et nous le chiffrons avec votre clé publique. Ensuite, nous insérons cela dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré à l’aide de certificats SSL Microsoft. Une fois ce message arrivé dans Service Bus, votre agent local sort de veille, s’authentifie auprès de Service Bus à l’aide du mot de passe fort généré précédemment, récupère le message chiffré, le déchiffre à l’aide de la clé privée que nous avons générée et essaie ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui nous permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique, filtres, etc.) dans le cloud.
 - **Stratégies d’expiration de message** : pour finir, si pour une raison quelconque le message reste dans Service Bus car votre service local est arrêté, le message est supprimé après quelques minutes, afin d’accroître encore davantage la sécurité.
 
@@ -281,4 +281,4 @@ Le tableau suivant indique où et comment ces données sont utilisées lors de l
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

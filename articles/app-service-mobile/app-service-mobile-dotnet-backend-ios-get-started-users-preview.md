@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
@@ -18,9 +18,7 @@
 
 # Authentification iOS avec Azure Mobile Apps
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 Dans ce didacticiel, vous allez ajouter l'authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d'identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
@@ -50,4 +48,4 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exceptio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

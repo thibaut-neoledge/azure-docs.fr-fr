@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="10/15/2015"
 	ms.author="mandia"/>
 
 
 # En savoir plus sur la sécurité OAUTH dans les connecteurs SaaS
-Nombreux sont les connecteurs SaaS, tels que Facebook, Twitter, DropBox, etc. qui requièrent que les utilisateurs autorisent l'utilisation du protocole OAUTH. Lorsque vous utilisez ces connecteurs SaaS à partir d'applications logiques, nous fournissons une expérience utilisateur simplifiée où vous pouvez cliquer sur « Autoriser » dans le concepteur d'applications logiques. Lorsque vous donnez votre **autorisation**, vous êtes invité à vous connecter (si ce n'est pas déjà) et à fournir votre consentement pour la connexion au service SaaS en votre nom. Lorsque vous donnez votre consentement et votre autorisation, vos applications logiques peuvent alors accéder à ces services SaaS.
+Nombreux sont les connecteurs SaaS, tels que Facebook, Twitter, DropBox, etc. qui nécessitent que les utilisateurs s’authentifient à l’aide du protocole OAUTH. Lorsque vous utilisez ces connecteurs SaaS à partir d'applications logiques, nous fournissons une expérience utilisateur simplifiée où vous pouvez cliquer sur « Autoriser » dans le concepteur d'applications logiques. Lorsque vous donnez votre **autorisation**, vous êtes invité à vous connecter (si ce n'est pas déjà) et à fournir votre consentement pour la connexion au service SaaS en votre nom. Une fois que vous avez donné votre consentement et votre autorisation, vos applications logiques peuvent accéder à ces services SaaS.
 
 ## Création de votre propre application SaaS
 Cette expérience simplifiée est possible parce que nous avons au préalable créé et enregistré notre application dans ces services SaaS. Dans certains cas, vous souhaiterez peut-être vous inscrire et utiliser votre propre application. Cela est nécessaire, par exemple, lorsque vous souhaitez utiliser ces connecteurs SaaS dans vos applications personnalisées, par exemple pour [déployer une application API de connecteur SaaS](app-service-api-connnect-your-app-to-saas-connector.md). Cet exemple utilise le connecteur DropBox, mais le processus est identique pour tous les connecteurs qui s'appuient sur OAUTH.
@@ -48,4 +48,4 @@ Même dans le cadre des applications logiques, vous pouvez utiliser votre propre
 [4]: ./media/app-service-logic-oauth-security/TwitterApp.png
 [5]: ./media/app-service-logic-oauth-security/TwitterKeys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

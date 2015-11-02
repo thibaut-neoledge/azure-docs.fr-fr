@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis DocumentDB à l’aide d’Azure Data Factory
@@ -416,4 +416,4 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 	**Réponse :** non. Il n’est possible d’indiquer qu’une collection pour le moment.
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

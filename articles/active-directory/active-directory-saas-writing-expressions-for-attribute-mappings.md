@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory"
+	pageTitle="Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory | Microsoft Azure"
 	description="Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -307,4 +307,4 @@ Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d�
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

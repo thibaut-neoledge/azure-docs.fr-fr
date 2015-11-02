@@ -47,15 +47,15 @@ Une fois que vous avez activé le Bureau à distance (Windows), l’accès dist
 
 À partir d’un client REST. suivez ces instructions :
 
-1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez la procédure présentée dans la section [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx).
+1. Assurez-vous de disposer d’un certificat client pour vous connecter au portail Azure. Pour obtenir un certificat client, suivez la procédure présentée dans la section [Téléchargement et importation des paramètres de publication et des informations d’abonnement](https://msdn.microsoft.com/library/dn385850.aspx). 
 
 1. Définissez une entrée d’en-tête intitulée x-ms-version , présentant une valeur de 2013-11-01.
 
-1. Envoyez une requête au format suivant : https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. Envoyez une demande au format suivant : https://management.core.windows.net/\<ID\_abonnement>/services/hostedservices/<nom\_service>?embed-detail=true
 
 1. Recherchez l’élément **HostName** associé à chaque élément **RoleInstance**.
 
->[AZURE.WARNING]Pour afficher le suffixe de domaine interne de votre service cloud à partir d’une réponse d’appel REST, sélectionnez l’élément **InternalDnsSuffix**, ou exécutez ipconfig /all à partir d’une invite de commande dans une session de Bureau à distance (Windows), ou exécutez cat /etc/resolv.conf à partir d’un terminal SSH (Linux).
+>[AZURE.WARNING]Pour afficher le suffixe de domaine interne de votre service cloud à partir d’une réponse d’appel REST, sélectionnez l’élément **InternalDnsSuffix** ou exécutez ipconfig /all à partir d’une invite de commandes dans une session Bureau à distance (Windows) ou exécutez cat /etc/resolv.conf à partir d’un terminal SSH (Linux).
 
 ## Modification d’un nom d’hôte
 
@@ -71,4 +71,4 @@ Pour modifier le nom d’hôte associé à une machine virtuelle ou à une insta
 
 [Définir les paramètres DNS à l'aide de fichiers de configuration réseau](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

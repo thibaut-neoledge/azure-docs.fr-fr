@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prise en main de l'émulateur Hadoop pour HDInsight | Microsoft Azure"
 	description="Utiliser un émulateur installé avec un didacticiel MapReduce et d'autres exemples pour en savoir plus l'écosystème Hadoop. L'émulateur HDInsight fonctionne comme un bac à sable (sandbox) Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	keywords="émulateur, écosystème hadoop, bac à sable (sandbox) Hadoop, didacticiel mapreduce"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -109,7 +109,7 @@ Une fois la connexion établie, vous pouvez utiliser les outils Visual Studio HD
 
 ## Résolution des problèmes : connexion d’outils HDInsight à l’émulateur HDInsight
 
-1. Lors de la connexion à l’émulateur HDInsight, même si la boîte de dialogue indique que HiveServer2 est connecté avec succès, vous devez définir manuellement **hive.security.authorization.enabled property** sur **false** dans le fichier de configuration Hive situé sur C:\\hdp\\hive-*version*\\conf\\hive-site.xml, puis redémarrer l’émulateur local. Les outils HDInsight pour Visual Studio se connectent uniquement à HiveServer2 lorsque vous affichez un aperçu des 100 premières lignes de votre table. Si vous ne souhaitez pas utiliser une telle requête, ne modifiez pas la configuration du fichier Hive.
+1. Au moment de la connexion à l’émulateur HDInsight, même si la boîte de dialogue indique que HiveServer2 est connecté avec succès, vous devez définir manuellement **hive.security.authorization.enabled property** sur **false** dans le fichier de configuration Hive situé sur C:\\hdp\\hive-*version*\\conf\\hive-site.xml, puis redémarrer l’émulateur local. Les outils HDInsight pour Visual Studio se connectent uniquement à HiveServer2 lorsque vous affichez un aperçu des 100 premières lignes de votre table. Si vous ne souhaitez pas utiliser une telle requête, ne modifiez pas la configuration du fichier Hive.
 
 2. Si vous utilisez l’allocation d’adresse IP dynamique (DHCP) sur l’ordinateur exécutant l’émulateur HDInsight, vous devrez peut-être mettre à jour C:\\hdp\\hadoop-*version*\\etc\\hadoop\\core-site.xml et remplacer la valeur de la propriété **hadoop.proxyuser.hadoop.hosts** par (*). Cela permet à l’utilisateur Hadoop de se connecter à tous les hôtes pour emprunter l’identité de l’utilisateur que vous avez entrée dans Visual Studio.
 
@@ -403,9 +403,9 @@ Avant de commencer à suivre les instructions ci-dessous, vous devez créer un c
 	
 	![Créer un compte de stockage](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
 
-	Sélectionnez **Épingler au tableau d'accueil**, puis cliquez sur **Créer**.
+	Sélectionnez **Épingler au Tableau d’accueil**, puis cliquez sur **Créer**.
 4. Une fois le compte de stockage créé, à partir du nouveau panneau de compte de stockage, cliquez sur **Conteneurs** pour ouvrir le panneau de conteneurs, puis cliquez sur **Ajouter**.
-5. Saisissez le nom du conteneur, puis cliquez sur **Sélectionner**.
+5. Entrez le nom du conteneur, puis cliquez sur **Sélectionner**.
 
 	![Créez un conteneur.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
@@ -498,4 +498,4 @@ Dans ce didacticiel MapReduce, vous avez installé l'émulateur HDInsight, un ba
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/20/2015"
 	ms.author="larryfr"/>
 
 # Installation et utilisation de R sur des clusters HDInsight Hadoop
@@ -62,7 +62,7 @@ L’action de script [https://hdiconfigactions.blob.core.windows.net/linuxrconfi
 
 > [AZURE.NOTE]Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Démarrez l’approvisionnement d’un cluster à l’aide de la procédure décrite dans [Approvisionnement de clusters HDInsight sous Linux](hdinsight-provision-linux-clusters.md#portal), mais ne terminez pas l’approvisionnement.
+1. Démarrez l’approvisionnement d’un cluster à l’aide de la procédure décrite dans [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md#portal), mais ne terminez pas l’approvisionnement.
 
 2. Dans le panneau **Configuration facultative**, sélectionnez **Actions de script**, puis indiquez les informations ci-dessous :
 
@@ -75,7 +75,7 @@ L’action de script [https://hdiconfigactions.blob.core.windows.net/linuxrconfi
 
 3. En bas de l’écran **Actions de script**, utilisez le bouton **Sélectionner** pour enregistrer la configuration. Enfin, utilisez le bouton **Sélectionner** au bas du panneau **Configuration facultative** pour enregistrer les informations de configuration facultatives.
 
-4. Continuez l’approvisionnement du cluster, comme décrit dans [Approvisionnement de cluster HDInsight sous Linux](hdinsight-provision-linux-clusters.md#portal).
+4. Continuer l’approvisionnement du cluster, comme décrit dans la section [Approvisionnement de cluster HDInsight Linux](hdinsight-hadoop-provision-linux-clusters.md#portal).
 
 ## Exécuter des scripts R
 
@@ -148,4 +148,4 @@ Une fois que le cluster a terminé l’approvisionnement, procédez comme suit p
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

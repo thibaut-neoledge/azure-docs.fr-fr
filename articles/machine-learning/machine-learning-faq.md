@@ -1,7 +1,7 @@
 <properties
 	pageTitle="FAQ Azure Machine Learning Studio | Microsoft Azure"
 	description="Présentation d'Azure Machine Learning : FAQ portant sur la facturation, les fonctionnalités et les limitations d'un service cloud pour la modélisation prédictive rationalisée."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="introduction à l’apprentissage automatique, modélisation prédictive, présentation de l’apprentissage automatique"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -178,7 +178,7 @@ Actuellement non. Toutefois, le module Python standard ou un jeu de modules per
 
 **Existe-t-il un environnement REPL pour Python ?**
 
-Vous pouvez utiliser les blocs-notes Jupyter dans Machine Learning Studio. Pour plus d'informations, consultez [Présentation des ordinateurs portables Jupyter dans Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
+Vous pouvez utiliser les blocs-notes Jupyter dans Machine Learning Studio. Pour plus d’informations, consultez [Présentation des notebooks Jupyter dans Azure ML Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## Service Web
 ###Recyclage de modèles par programme
@@ -201,7 +201,7 @@ Le service de requête-réponse (RRS, Request-Response Service) est un service w
 
 **Comment puis-je mettre à jour le modèle pour le service Web déployé ?**
 
-Pour mettre à jour un modèle prédictif pour un service déjà déployé, il suffit de modifier et de réexécuter l'expérience utilisée pour créer et enregistrer le modèle formé. Une fois que la nouvelle version du modèle formé est disponible, ML Studio vous invite à indiquer si vous voulez mettre à jour votre service web en phase intermédiaire. Lorsque la mise à jour est appliquée au service Web en phase intermédiaire, la même mise à jour est disponible pour vous permettre de l’appliquer au service Web de production également. Consultez la rubrique [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md) pour plus d’informations sur la mise à jour d’un service web déployé.
+Pour mettre à jour un modèle prédictif pour un service déjà déployé, il suffit de modifier et de réexécuter l'expérience utilisée pour créer et enregistrer le modèle formé. Une fois que la nouvelle version du modèle formé est disponible, ML Studio vous invite à indiquer si vous voulez mettre à jour votre service web en phase intermédiaire. Lorsque la mise à jour est appliquée au service Web en phase intermédiaire, la même mise à jour est disponible pour vous permettre de l’appliquer au service Web de production également. Pour plus d’informations sur la mise à jour d’un service web déployé, consultez [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Vous pouvez également utiliser les API de recyclage. Un exemple de code est disponible [ici](https://azuremlretrain.codeplex.com/).
 
@@ -214,7 +214,7 @@ Une fois qu’un modèle prédictif a été mis en production, vous pouvez le su
 
 Pour les enregistrements de ressources, c'est généralement dans la réponse du service web que vous voyez le résultat. Vous pouvez également écrire un objet blob. Pour les environnements d'initialisation, la sortie est écrite dans un objet blob par défaut. Vous pouvez également écrire la sortie dans une base de données ou une table à l'aide du module Writer.
 
- ** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
+ **** Puis-je créer des services web uniquement à partir de modèles créés dans Studio ? Non. Vous pouvez également créer des services web directement à partir de notebooks Jupyter et RStudio.
 
 
 ##Extensibilité
@@ -307,4 +307,4 @@ Azure Machine Learning dispose également d'un forum communautaire sur MSDN, où
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

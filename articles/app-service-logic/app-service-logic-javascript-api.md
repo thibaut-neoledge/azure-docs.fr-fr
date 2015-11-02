@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/15/2015"
    ms.author="stepsic"/>
 
 #Application API JavaScript
@@ -29,11 +29,11 @@ Enfin, si vous voulez inclure des packages supplémentaires, vous devrez égalem
 Si vous préférez écrire vos expressions en C#, utilisez l’[application API C#](app-service-logic-cs-api.md).
 
 ##Création d’une application API JavaScript
-Pour utiliser l’application API JavaScript, vous devez commencer par en créer une instance. Vous pouvez effectuer cette opération inline lorsque vous créez une application logique ou en sélectionnant l’application API JavaScript à partir d’Azure Marketplace.
+Pour utiliser l’application API JavaScript, vous devez commencer par en créer une instance. Vous pouvez effectuer cette opération inline quand vous créez une application logique ou en sélectionnant l’application API JavaScript à partir d’Azure Marketplace.
 
 ##Utilisation de l’application API JavaScript dans l’aire du concepteur d’applications logiques
 ###Déclencheur
-Vous pouvez créer un déclencheur que le service Application logique interrogera (selon un intervalle que vous définissez). Si ce déclencheur renvoie un contenu quelconque, l’application logique s’exécutera. Dans le cas contraire, elle attendra le prochain intervalle d’interrogation pour vérifier la réponse renvoyée.
+Vous pouvez créer un déclencheur que le service Application logique interrogera (selon un intervalle que vous définissez). Si ce déclencheur renvoie un contenu quelconque, l’application logique s’exécute. Dans le cas contraire, elle attend le prochain intervalle d’interrogation pour vérifier la réponse renvoyée.
 
 Les entrées du déclencheur sont les suivantes : - **Expression JavaScript** - Il s’agit de l’expression qui sera évaluée. Elle sera appelée à l’intérieur d’une fonction et doit renvoyer la valeur `false` lorsque vous ne souhaitez pas que l’application logique s’exécute, ou toute autre valeur pour que l’application logique s’exécute. Vous ne pourrez pas utiliser le contenu de la réponse dans les actions de l’application logique. - **Objet de contexte** - Objet facultatif pouvant être transmis dans le déclencheur. Vous pouvez définir autant de propriétés que vous le souhaitez, mais l’entité de niveau supérieur doit être un objet, par exemple `{ "bar" : 0}`.
 
@@ -73,7 +73,7 @@ Par exemple, supposons que vous utilisiez le déclencheur d’Office 365 **Nouv
 }
 ```
 
-Toutefois, vous voulez charger ces pièces jointes dans une publication Yammer. Malheureusement, le schéma des pièces jointes Yammer est légèrement différent. À présent, vous êtes désormais en mesure d’analyser ceci à l’intérieur de votre application logique. Pour l’objet de contexte, transmettez simplement la chaîne : `@triggerBody()`, et pour l’expression, transmettez le code suivant :
+Toutefois, vous voulez charger ces pièces jointes dans une publication Yammer. Malheureusement, le schéma des pièces jointes Yammer est légèrement différent. Vous êtes désormais en mesure d’analyser ceci à l’intérieur de votre application logique. Pour l’objet de contexte, transmettez simplement la chaîne : `@triggerBody()`, et pour l’expression, transmettez le code suivant :
 
 ```
 return Attachments.map(function(obj){var a = obj.Content; a.FileName = obj.Name; return a;})
@@ -91,4 +91,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

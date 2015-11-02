@@ -272,9 +272,9 @@ Vous devez configurer le réseau virtuel classique de manière à utiliser l'adr
 
 4. Ouvrez le fichier que vous venez de télécharger et modifiez l’élément **LocalNetworkSite** pour **vnet02** afin d’ajouter l'adresse IP de la passerelle pour le nouveau réseau virtuel obtenu au cours de l'étape 1 ci-dessus. L'élément doit ressembler à l'exemple ci-dessous.
 
-	      <LocalNetworkSite name="vnet03">
+	      <LocalNetworkSite name="vnet02">
 	        <AddressSpace>
-	          <AddressPrefix>10.3.0.0/16</AddressPrefix>
+	          <AddressPrefix>10.2.0.0/16</AddressPrefix>
 	        </AddressSpace>
 	        <VPNGatewayAddress>23.99.213.28</VPNGatewayAddress>
 	      </LocalNetworkSite>
@@ -363,4 +363,4 @@ Maintenant que les deux réseaux virtuels sont connectés, il est temps de teste
 - En savoir plus sur [le fournisseur de ressources réseau (NRP) pour ARM](../resource-groups-networking.md).
 - Afficher les instructions générales sur la [création d’une connexion VPN S2S entre un réseau virtuel classique et un réseau virtuel ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

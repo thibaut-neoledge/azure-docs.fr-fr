@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure"
-	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Fonctionnement de la gestion des mots de passe Azure AD | Microsoft Azure" 
+	description="Découvrez les différents composants de la gestion des mots de passe Azure AD, y compris l’emplacement où les utilisateurs s’inscrivent, réinitialisent et modifient leurs mots de passe et celui où les administrateurs configurent, créent des rapports et activent la gestion des mots de passe Active Directory locaux." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Fonctionnement de la gestion des mots de passe
@@ -38,7 +38,8 @@ Vous pouvez configurer des stratégies de gestion des mots de passe pour un annu
  - Questions de sécurité (authentification basée sur des informations)
 - Définition du nombre de questions qu’un utilisateur doit indiquer pour utiliser la méthode d’authentification via des questions de sécurité (visible uniquement si les questions de sécurité sont activées)
 - Définition du nombre de questions qu’un utilisateur doit fournir lors de la réinitialisation pour utiliser la méthode d’authentification via des questions de sécurité (visible uniquement si les questions de sécurité sont activées)
-- Définition des questions de sécurité personnalisées auxquelles un utilisateur peut choisir de s’inscrire pour utiliser la méthode d’authentification via des questions de sécurité (visible uniquement si les questions de sécurité sont activées)
+- Utilisation de questions de sécurité localisées préconçues, sur lesquelles peut s’appuyer un utilisateur pour s’inscrire à la réinitialisation de mot de passe (visible uniquement si les questions de sécurité sont activées)
+- Définition de questions de sécurité personnalisées, sur lesquelles peut s’appuyer un utilisateur pour s’inscrire à la réinitialisation de mot de passe (visible uniquement si les questions de sécurité sont activées)
 - Demander aux utilisateurs de s’inscrire à la réinitialisation de mot de passe lorsqu’ils accèdent au volet d’accès à l’application à la page [http://myapps.microsoft.com](http://myapps.microsoft.com)
 - Demander aux utilisateurs de reconfirmer leurs données précédemment inscrites après un nombre configurable de jours (visible uniquement si l’inscription forcée est activée)
 - Mise à disposition d’un courrier électronique de support technique personnalisé ou d’une URL qui sera affichée aux utilisateurs en cas de problème lors de la réinitialisation de leurs mots de passe
@@ -121,4 +122,4 @@ Pour plus d’informations sur Azure AD Connect, consultez la page [Prise en mai
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

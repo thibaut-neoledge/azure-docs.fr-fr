@@ -43,9 +43,9 @@ Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager
 
 Selon le modèle, la génération de la charge de travail par Azure peut prendre un certain temps. Lorsque vous avez terminé, vous disposez d’un nouveau serveur WordPress exécuté sur Ubuntu dans votre groupe de ressources existant ou nouveau.
 
-## Azure PowerShell
+## Azure PowerShell
 
-Avant de commencer, assurez-vous de disposer de la version appropriée d’Azure PowerShell, d’être connecté et d’être passé sur le nouveau mode Gestionnaire des ressources. Pour plus d’informations, cliquez [ici](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -88,7 +88,7 @@ Voici un exemple.
 	azure group create wordpress eastus2
 	azure group deployment create --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/wordpress-single-vm-ubuntu/azuredeploy.json wordpress wpdevtest
 
-Lors de l’exécution de la commande **azure group deployment create**, vous serez invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
+Lors de l’exécution de la commande **azure group deployment create**, vous êtes invité à renseigner les valeurs d’une série de paramètres. Une fois que vous avez défini l’ensemble des valeurs de paramètres, Azure crée et configure les machines virtuelles.
 
 Une fois que l’exécution du modèle est terminée, vous disposez d’un serveur WordPress exécuté sur Ubuntu dans votre nouveau groupe de ressources.
 
@@ -106,4 +106,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’un serve
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

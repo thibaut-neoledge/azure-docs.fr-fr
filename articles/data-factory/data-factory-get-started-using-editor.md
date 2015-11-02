@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor
@@ -58,9 +58,11 @@ Dans cette étape, vous utilisez le portail Azure en version préliminaire pour 
 7. Dans le panneau **Nouvelle fabrique de données**, notez que l'option **Ajouter au tableau d'accueil** est sélectionnée.
 8. Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
 
-	Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Utilisez ce nom à la place d'ADFTutorialFactory quand vous effectuez les étapes restantes de ce didacticiel. Consultez la rubrique [Data Factory - Règles d'affectation des noms][data-factory-naming-rules] pour savoir comment nommer les artefacts Data Factory.
+	Le nom de la fabrique de données Azure doit être un nom global unique. Si l'erreur suivante s'affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer : **Le nom de la fabrique de données « ADFTutorialDataFactory » n'est pas disponible**. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
 	 
 	![Nom de la fabrique de données indisponible][image-data-factory-name-not-available]
+	
+	> [AZURE.NOTE]Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
 
 9. Cliquez sur le hub **NOTIFICATIONS** situé à gauche et recherchez les notifications relatives au processus de création. Cliquez sur **X** pour fermer le panneau **NOTIFICATIONS** si celui-ci est ouvert.
 10. Une fois la création terminée, le panneau **FABRIQUE DE DONNÉES** apparaît de la manière suivante :
@@ -98,7 +100,7 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 
 	![Éditeur - Paramètres SQL Azure][image-editor-azure-sql-settings]
 
-2. Remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d'utilisateur et par le mot de passe.
+2. Remplacez **servername**, **databasename**, ****username@servername** et **password** par les noms de votre serveur SQL Azure, de la base de données, du compte d’utilisateur et par le mot de passe.
 3. Cliquez sur l’option **Déployer** de la barre d’outils pour créer et déployer le service AzureSqlLinkedService. 
    
 
@@ -150,10 +152,10 @@ Une table est un jeu de données rectangulaire qui dispose d'un schéma. Dans ce
 	- **folderPath** a la valeur du conteneur **adftutorial**. Vous pouvez également spécifier le nom d'un objet blob dans le dossier. Étant donné que vous ne spécifiez pas le nom de l'objet blob, les données provenant de tous les objets blob du conteneur sont considérées comme données d'entrée.  
 	- Le **type** de format a la valeur **TextFormat**.
 	- Il existe deux champs dans le fichier texte, **FirstName** et **LastName**, séparés par une virgule (**columnDelimiter**).	
-	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**), de sorte que le service Data Factory recherche les données d'entrée toutes les heures dans le dossier racine du conteneur d'objets blob (**adftutorial**) que vous avez spécifié. 
+	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**) ; ainsi, le service Data Factory recherche les données d’entrée toutes les heures dans le dossier racine du conteneur d’objets blob (**adftutorial**) que vous avez spécifié. 
 	
 
-	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** d'**entrée**, tous les fichiers/objets blob du dossier d'entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour plus d'informations.
+	Si vous ne spécifiez pas de nom (**fileName**) pour une **table** d’**entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Consultez les exemples de fichiers dans le [didacticiel][adf-tutorial] pour plus d'informations.
  
 	Si vous ne spécifiez pas de nom (**fileName**) pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.&lt;Guid&gt;.txt (exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -362,7 +364,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 
 	
 12. Cliquez sur **X** pour fermer tous les panneaux et revenir au panneau d'accueil d'**ADFTutorialDataFactory**.
-14. (facultatif) Cliquez sur **Pipelines** dans la page d'accueil d'**ADFTutorialDataFactory**, cliquez ensuite sur **ADFTutorialPipeline** dans le panneau **Pipelines** , puis extrayez les tables d'entrée (**Consumed**) ou les tables de sortie (**Produced**).
+14. (facultatif) Cliquez sur **Pipelines** dans la page d’accueil d’**ADFTutorialDataFactory**, cliquez ensuite sur **ADFTutorialPipeline** dans le panneau **Pipelines**, puis extrayez les tables d’entrée (**Consumed**) ou les tables de sortie (**Produced**).
 15. Lancez **SQL Server Management Studio**, connectez-vous à la base de données SQL Azure, puis vérifiez que les lignes sont insérées dans la table **emp** de la base de données.
 
 	![Résultats de la requête SQL][image-data-factory-get-started-sql-query-results]
@@ -501,4 +503,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -23,7 +23,9 @@
 - [Préparation d’une machine virtuelle SLES 11 SP3 pour Azure](#sles11)
 - [Préparation d’une machine virtuelle openSUSE 13.1+ pour Azure](#osuse)
 
-##Composants requis##
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -178,4 +180,4 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Choix d’une infrastructure Service Fabric | Microsoft Azure"
-   description="Service Fabric propose deux infrastructures de haut niveau pour la création de services : l'infrastructure d'acteurs et l'infrastructure de services. Bien comprendre la valeur de chacune vous aidera à prendre les bonnes décisions en matière d'architecture pour votre application."
+   pageTitle="Modèles de programmation Service Fabric | Microsoft Azure"
+   description="Service Fabric propose deux infrastructures pour la création de services : l’infrastructure d’acteurs et l’infrastructure de services. Elles offrent des compromis distincts en termes de simplicité et de contrôle."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Choix d'une infrastructure pour votre service
+# Choix d’une infrastructure pour votre service
 
 Service Fabric propose deux infrastructures générales pour la création de services : les API avec acteurs fiables et les API avec services fiables. Si les deux infrastructures reposent sur le même noyau Service Fabric, ils offrent différents compromis entre simplicité et flexibilité en termes de concurrence, partitionnement et communication. Vous devez comprendre les deux modèles pour choisir l'infrastructure appropriée pour un service particulier dans votre application.
 
@@ -36,4 +36,4 @@ N'oubliez pas qu'il est parfaitement raisonnable d'utiliser des infrastructures 
 - [En savoir plus sur les API avec acteurs fiables](service-fabric-reliable-actors-introduction.md)
 - [En savoir plus sur les API avec services fiables](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

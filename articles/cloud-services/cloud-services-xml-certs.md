@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015"
+	ms.date="10/20/2015"
 	ms.author="adegeo"/>
 
 
@@ -70,4 +70,4 @@ Voici un exemple de certificat défini dans la configuration de service.
 ## Étapes suivantes
 Examinez le schéma [Définition de service XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) et le schéma [Configuration de service XML](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

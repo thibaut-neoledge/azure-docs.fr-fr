@@ -36,7 +36,13 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 Toute d’abord, vous allez créer les objets dont a besoin PolyBase pour se connecter aux données des objets Blob Microsoft Azure Storage et les interroger.
 
-> [AZURE.IMPORTANT]Les types de compte de stockage Azure pris en charge par PolyBase sont : + Standard Locally Redundant Storage (Standard-LRS) + Standard Geo-Redundant Storage (Standard-GRS) + Standard Read-Access Geo-Redundant Storage (Standard-RAGRS) Les types de compte Standard Zone Redundant Storage (Standard-ZRS) et Premium Locally Redundant Storage (Premium-LRS) ne sont pas pris en charge par PolyBase. Si vous créez un compte de stockage Azure, veillez à sélectionner un type de compte de stockage pris en charge par PolyBase dans le niveau tarifaire.
+> [AZURE.IMPORTANT]Les types de compte de stockage Azure pris en charge par PolyBase sont :
+> 
+> + Stockage localement redondant standard (Standard-LRS)
+> + Stockage géo-redondant standard (Standard-GRS)
+> + Stockage géo-redondant avec accès en lecture standard (Standard-RAGRS)
+>
+> Les types de compte de stockage redondant de zone standard (Standard-ZRS) et de stockage localement redondant Premium (Premium-LRS) ne sont PAS pris en charge par PolyBase. Si vous créez un compte de stockage Azure, veillez à sélectionner un type de compte de stockage pris en charge par PolyBase dans le niveau tarifaire.
 
 
 ## Créer une clé principale de base de données
@@ -328,4 +334,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

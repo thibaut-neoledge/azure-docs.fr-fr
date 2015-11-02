@@ -3,7 +3,7 @@
 	description="Cette rubrique explique les finalités de l'ingénierie de caractéristiques et de la sélection de caractéristiques et fournit des exemples de leur rôle dans le processus d'amélioration des données de l'apprentissage automatique."
 	services="machine-learning"
 	documentationCenter=""
-	authors="YanZhangADS"
+	authors="bradsev"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/20/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -135,4 +135,4 @@ Notez qu'il n'est pas toujours nécessaire d'effectuer l'ingénierie de caracté
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

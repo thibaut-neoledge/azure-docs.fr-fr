@@ -2,9 +2,8 @@
 	pageTitle="Importer des données en parallèle et en bloc à l’aide de tables de partition SQL | Microsoft Azure" 
 	description="Importer des données en parallèle et en bloc à l’aide de tables de partition SQL" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2015" 
-	ms.author="msolhab" />
+	ms.author="bradsev" />
 
 # Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 
@@ -180,9 +179,9 @@ ou
 
  >[AZURE.NOTE]Vous pouvez créer les index avant d’importer les données en bloc. Mais la création des index avant l’opération d’importation ralentira le chargement des données.
 
-### Exemple de processus d’analyse avancé et technologie en action
+## Exemple de processus d’analyse avancé et technologie en action
 
-Pour obtenir un exemple de procédure pas à pas de bout en bout utilisant le processus de science des données avec un jeu de données public, consultez la page [Processus de science des données Azure en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas complet utilisant le processus d’analyse Cortana avec un jeu de données public, consultez [Processus d’analyse Cortana en action : utilisation de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
