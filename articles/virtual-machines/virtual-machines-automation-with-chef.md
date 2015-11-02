@@ -17,6 +17,8 @@ ms.author="diviso"/>
 
 # Automatisation du déploiement de machine virtuelle Azure avec Chef
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Chef est un excellent outil d’automatisation et de fourniture des configurations d’état souhaitées.
 
 Avec notre dernière version d’api-cloud, Chef assure l’intégration transparente avec Azure, ce qui vous donne la possibilité de configurer et de déployer les états de configuration via une commande unique.
@@ -237,4 +239,4 @@ Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

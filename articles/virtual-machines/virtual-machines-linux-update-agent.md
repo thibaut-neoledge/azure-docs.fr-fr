@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Mettre à jour l'agent Linux Azure depuis Github | Microsoft Azure"
+	pageTitle="Mettre à jour l’agent Linux Azure depuis Github | Microsoft Azure"
 	description="Découvrez comment mettre à jour l’agent Linux Azure pour votre machine virtuelle Linux dans Azure vers la dernière version de Github"
 	services="virtual-machines"
 	documentationCenter=""
@@ -56,7 +56,7 @@ Installez wget (certaines versions ne l’installent pas par défaut, telles que
 
 ## Télécharger la version la plus récente
 
-Ouvrez [la version de l’agent Linux Azure dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page Web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
+Ouvrez [la version de l’agent Linux Azure dans Github](https://github.com/Azure/WALinuxAgent/releases) dans une page web et cherchez le dernier numéro de version. (Vous pouvez rechercher votre version actuelle en tapant `#waagent --version`.)
 
 ###Pour la version 2.0.x, tapez :
 
@@ -126,4 +126,4 @@ Vous verrez que la version d’Azure Linux Agent a été mise à jour vers la 
 
 Pour plus d’informations sur Azure Linux Agent, consultez le fichier [Lisezmoi d’Azure Linux Agent](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

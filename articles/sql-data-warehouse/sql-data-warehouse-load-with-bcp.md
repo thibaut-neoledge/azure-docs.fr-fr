@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor="JRJ@BigBangData.co.uk"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -22,12 +22,22 @@
 
 bcp permet d’importer et d’exporter rapidement et simplement des ensembles de données plus petits de la base de données SQL Data Warehouse. La quantité exacte de données qu’il est recommandé de charger/extraire via bcp dépend de la connexion de votre réseau au centre de données Microsoft Azure. Généralement, des tables de dimension peuvent être chargées et extraites, mais les tables de faits légèrement plus grandes nécessitent des intervalles de chargement ou d’extraction légèrement plus importants.
 
-Grâce à bcp, vous pouvez : -Utiliser un simple utilitaire de ligne de commande pour charger des données dans SQL Data Warehouse - Utiliser un simple utilitaire de ligne de commande pour extraire des données de SQL Data Warehouse.
+Avec bcp, vous pouvez :
 
-Ce didacticiel vous explique comment : -Importer des données dans une table à l’aide de la commande bcp associée - Exporter des données d’une table à l’aide de la commande bcp associée
+- Utiliser un utilitaire en ligne de commande simple pour charger des données dans SQL Data Warehouse.
+- Utiliser un utilitaire en ligne de commande simple pour extraire des données de SQL Data Warehouse.
 
-## Composants requis
-Pour parcourir ce didacticiel, vous avez besoin des éléments suivants : - Une base de données SQL Data Warehouse - L’utilitaire de ligne de commande bcp installé - L’utilitaire de ligne de commande SQLCMD installé
+Ce didacticiel vous explique comment :
+ 
+- Importer des données dans une table à l’aide de la commande bcp in
+- Exporter des données d’une table à l’aide de la commande bcp out
+
+## Configuration requise
+Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
+
+- Base de données SQL Data Warehouse
+- Utilitaire en ligne de commande bcp installé
+- Utilitaire en ligne de commande SQLCMD installé
 
 >[AZURE.NOTE]Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
 
@@ -152,4 +162,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Utilisation des files d’attente Service Bus (Ruby) | Microsoft Azure"
+	pageTitle="Utilisation des files d’attente Service Bus avec Ruby | Microsoft Azure"
 	description="Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # Utilisation des files d’attente Service Bus
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Ce guide vous montre comment utiliser les files d'attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**. Pour plus d'informations sur les files d'attente, consultez la section [Étapes suivantes](#next-steps).
 
@@ -152,4 +151,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 Pour consulter un comparatif entre les files d'attente Azure Service Bus évoquées dans cet article et les files d'attente Azure présentées dans l'article [Utilisation du service de file d'attente Azure](/develop/ruby/how-to-guides/queue-service/), voir [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

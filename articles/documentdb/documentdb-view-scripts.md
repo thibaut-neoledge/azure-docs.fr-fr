@@ -2,7 +2,7 @@
 	pageTitle="Afficher les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB | Microsoft Azure"
 	description="Découvrez l'Explorateur de scripts de DocumentDB, un outil du portail Azure en version préliminaire qui permet d'afficher les artefacts de programmation côté serveur de DocumentDB, notamment les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Afficher, modifier et créer des procédures stockées, des déclencheurs et des fonctions définies par l'utilisateur à l'aide de l'Explorateur de scripts de DocumentDB
 
@@ -106,4 +106,4 @@ L'Explorateur de scripts vous permet d'exécuter facilement des opérations CRUD
 Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

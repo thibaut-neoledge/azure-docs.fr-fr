@@ -169,7 +169,7 @@ L’exemple suivant de runbook accepte la requête de l’exemple précédent et
 
 ## Démarrage de runbooks en réponse aux alertes Azure
 
-Les runbooks webhook peuvent être utilisés pour réagir aux [alertes Azure](Azure-portal/insights-receive-alert-notifications.md). Les ressources dans Azure peuvent être surveillées en collectant, au moyen d’alertes Azure, des statistiques telles que les performances, la disponibilité et l’utilisation. Vous pouvez recevoir une alerte basée sur des métriques ou événements de surveillance pour vos ressources Azure. Quand la valeur d’une métrique spécifiée dépasse le seuil attribué ou si l’événement configuré est déclenché, une notification est envoyée à l’administrateur ou aux co-administrateurs du service pour résoudre l’alerte. Pour plus d’informations sur les métriques et les événements, reportez-vous aux [alertes Azure](Azure-portal/insights-receive-alert-notifications.md).
+Les runbooks webhook peuvent être utilisés pour réagir aux [alertes Azure](Azure-portal/insights-receive-alert-notifications.md). Les ressources dans Azure peuvent être surveillées en collectant, au moyen d’alertes Azure, des statistiques telles que les performances, la disponibilité et l’utilisation. Vous pouvez recevoir une alerte basée sur des métriques ou événements de surveillance pour vos ressources Azure ; actuellement les comptes Automation prennent uniquement en charge les métriques. Quand la valeur d’une métrique spécifiée dépasse le seuil attribué ou si l’événement configuré est déclenché, une notification est envoyée à l’administrateur ou aux co-administrateurs du service pour résoudre l’alerte. Pour plus d’informations sur les métriques et les événements, reportez-vous aux [alertes Azure](Azure-portal/insights-receive-alert-notifications.md).
 
 Outre l’utilisation des alertes Azure comme système de notification, vous pouvez aussi lancer des runbooks en réponse aux alertes. Azure Automation vous permet d’exécuter des runbooks webhook compatibles avec les alertes Azure. Quand une métrique dépasse la valeur configurée du seuil, la règle d’alerte devient active et déclenche le webhook Automation qui, à son tour, exécute le runbook.
 
@@ -255,4 +255,4 @@ L’exemple de runbook suivant est déclenché quand la règle d’alerte devien
 - [Affichage de l’état d’une tâche de runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Utilisation d’Azure Automation pour exécuter des actions sur les alertes Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

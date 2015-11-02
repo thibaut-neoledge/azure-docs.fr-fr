@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Cas d’utilisation - Profilage des utilisateurs
@@ -48,4 +48,4 @@ Dans cet exemple de cas d'utilisation, Azure Data Factory sert à orchestrer les
 
 En optimisant l'analyse de leur profil d’utilisateur et en l’alignant sur les objectifs commerciaux, un développeur de jeux peut recueillir rapidement des modèles d'utilisation et analyser l'efficacité de ses campagnes marketing pour l’ensemble de ses jeux.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

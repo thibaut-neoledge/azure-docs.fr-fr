@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Résoudre les problèmes du proxy d’application"
+	pageTitle="Résoudre les problèmes du proxy d’application | Microsoft Azure"
 	description="Explique comment résoudre les erreurs dans le proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
@@ -27,12 +27,10 @@ Si des erreurs se produisent dans l’accès à une application publiée ou dans
 
 - Ouvrez la console Services Windows et vérifiez que le service « Connecteur de proxy d’application Microsoft AAD » est activé et en cours d’exécution. Vous pouvez également consulter la page de propriétés du service Proxy d’application, comme le montre l’image suivante :
 
-![Capture d’écran des propriétés du connecteur de proxy d’application Microsoft AAD][connectorproperties.png]
+![](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 
 - Ouvrez l’Observateur d’événements et recherchez les événements liés au connecteur de proxy d’application sous **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-- Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application, comme le montre l’image suivante :
-
-![Capture d’écran du journal de session du connecteur de proxy d’application][sessionlog.png]
+- Si nécessaire, des journaux plus détaillés sont disponibles en activant les journaux d’analyse et de débogage, et en activant le journal de session du connecteur de proxy d’application.
 
 
 ## Erreurs générales.
@@ -51,7 +49,7 @@ Si l’inscription échoue pendant l’installation de l’Assistant Connecteur,
 | Erreur | Description | Résolution : |
 | --- | --- | --- |
 | Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » | Vous avez fermé la fenêtre d’inscription sans effectuer de connexion à Azure AD. | Réexécutez l’Assistant Connecteur et inscrivez le connecteur. |
-| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50001 : La ressource `https://proxy.cloudwebappproxy.net/registerapp` est désactivée. » | Le proxy d’application est désactivé. | Assurez-vous d’activer le proxy d’application dans le portail Azure AD avant d’essayer d’inscrire le connecteur. Pour plus d’informations sur l’activation du proxy d’application, consultez [Activer le services du proxy d’application](active-directory-application-proxy-enable.md). |
+| Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « AADSTS50001 : La ressource `https://proxy.cloudwebappproxy.net/registerapp` est désactivée. » | Le proxy d’application est désactivé. | Assurez-vous d’activer le proxy d’application dans le portail Azure AD avant d’essayer d’inscrire le connecteur. Pour plus d’informations sur l’activation du proxy d’application, consultez [Activer les services du proxy d’application](active-directory-application-proxy-enable.md). |
 | Échec de l’inscription du connecteur : assurez-vous que vous avez activé le proxy d’application dans le portail de gestion Azure, et que vous avez entré correctement votre nom d’utilisateur et votre mot de passe Active Directory. Erreur : « Une ou plusieurs erreurs se sont produites. » | Si la fenêtre d’inscription s’ouvre puis ferme immédiatement sans vous permettre de vous connecter, vous recevrez probablement cette erreur. Cette erreur se produit quand il existe une erreur réseau sur votre système. | Assurez-vous qu’il est possible de se connecter à partir d’un navigateur à un site web public et que les ports sont ouverts comme spécifié dans les [conditions préalables du proxy d’application](active-directory-application-proxy-enable.md). |
 | Échec de l’inscription du connecteur : assurez-vous que votre ordinateur est connecté à Internet. Erreur : « Il n’existait pas de point de terminaison à l’écoute sur `https://connector.msappproxy.net:9090/register/RegisterConnector` pouvant accepter le message. Ceci est souvent dû à une adresse ou une action SOAP incorrecte. S’il est présent, voir l’élément InnerException pour plus d’informations. » | Si vous vous connectez en utilisant votre nom d’utilisateur et votre mot de passe Azure AD, mais que vous recevez ensuite cette erreur, la raison peut en être que tous les ports au-dessus de 8081 sont bloqués. | Assurez-vous que les ports nécessaires sont ouverts. Pour plus d’informations, consultez [Conditions préalables pour le proxy d’application](active-directory-application-proxy-enable.md). |
 | L’erreur est présentée en clair dans la fenêtre d’inscription. Impossible de continuer. Seule la fermeture de la fenêtre est possible. | Vous avez entré un nom d’utilisateur ou un mot de passe incorrect. | Réessayez. |
@@ -99,4 +97,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

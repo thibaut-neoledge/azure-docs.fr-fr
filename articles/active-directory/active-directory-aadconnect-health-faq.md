@@ -42,6 +42,7 @@ Les valeurs ci-dessous sont des approximations.
 - Consommation du processeur : environ 1 % d’augmentation
 - Consommation de la mémoire : jusqu’à 10 % de la mémoire totale du système
 - Utilisation de la bande passante réseau : environ 1 Mo/1 000 requêtes AD FS
+
 >[AZURE.NOTE]Si l’agent ne parvient pas à communiquer avec Azure, il stocke les données localement, jusqu’à une limite maximale définie. Une fois que l'agent atteint cette limite, s’il n'a pas été en mesure de télécharger les données sur le service, les nouvelles transactions ADFS remplaceront toutes les transactions « mises en cache » sur la base « dernier événement traité ».
 
 - Stockage de mémoire tampon locale pour l’agent AD Health : environ 20 Mo
@@ -59,7 +60,7 @@ Par exemple, sur Windows Server 2008 R2, l’installation de .Net 4.5 Framework 
 
 **Q: Les services Azure AD Connect Health fonctionnent-ils par le biais d’un proxy HTTP intermédiaire ?**
 
-Oui. Pour les opérations en cours, vous pouvez configurer l'agent Health pour transmettre les requêtes HTTP sortantes à l'aide d'un HTTP Proxy. Voir [Configuration des agents Azure AD Connect Health pour utiliser le proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy) pour plus d'informations.
+Oui. Pour les opérations en cours, vous pouvez configurer l'agent Health pour transmettre les requêtes HTTP sortantes à l'aide d'un HTTP Proxy. Pour plus d’informations, consultez [Configuration des agents Azure AD Connect Health pour utiliser le proxy HTTP](active-directory-aadconnect-health-agent-install-adfs.md#configure-azure-ad-connect-health-agent-to-use-http-proxy).
 
 Si vous devez configurer un serveur proxy lors de l'inscription de l'agent, vous devez modifier vos paramètres de proxy Internet Explorer. <br> Ouvrez Internet Explorer -> Paramètres -> Options Internet -> Connexions -> Paramètres de réseau local.<br> Sélectionnez Utiliser un serveur proxy pour votre réseau local.<br> Sélectionnez Avancé SI vous disposez de ports proxy différents pour les protocoles HTTP et HTTPS sécurisé.<br>
 
@@ -98,4 +99,4 @@ Les ports TCP/UDP 80, 443 et 5671 doivent être ouverts pour permettre à l’ag
 * [Utilisation d’Azure AD Connect Health avec AD FS](active-directory-aadconnect-health-adfs.md)
 * [Opérations Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

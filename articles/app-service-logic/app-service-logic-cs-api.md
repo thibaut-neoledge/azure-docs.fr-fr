@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/16/2015"
+   ms.date="10/17/2015"
    ms.author="jehollan"/>
 
 #Application API C#
 L’application API C# vous permet d’exécuter aisément des expressions C# simples *pendant que votre application logique s’exécute*.
 
 ##Quand utiliser cette application API ?
-Utilisez cette application API lorsque vous souhaitez que le cycle de vie du code que vous écrivez soit le même que celui de l’application logique, et que vous ne voulez *pas* que le code soit appelé dans d’autres scénarios.
+Utilisez cette application API quand vous souhaitez que le cycle de vie du code que vous écrivez soit le même que celui de l’application logique, et que vous ne voulez *pas* que le code soit appelé dans d’autres scénarios.
 
 En revanche, si vous souhaitez un extrait de code réutilisable avec un cycle de vie indépendant de celui de l’application logique, utilisez plutôt l’application API WebJobs pour créer des expressions de code simple et les appeler à partir de votre application logique.
 
@@ -29,11 +29,11 @@ Enfin, si vous voulez inclure des packages supplémentaires, vous devez transmet
 Si vous préférez écrire vos expressions en JS, utilisez l’[application API JavaScript](app-service-logic-javascript-api.md).
 
 ##Création d’une application API C#
-Pour utiliser l’application API C#, vous devez commencer par en créer une instance. Vous pouvez effectuer cette opération inline lorsque vous créez une application logique ou en sélectionnant l’application API C# à partir d’Azure Marketplace.
+Pour utiliser l’application API C#, vous devez commencer par en créer une instance. Vous pouvez effectuer cette opération inline quand vous créez une application logique ou en sélectionnant l’application API C# à partir d’Azure Marketplace.
 
 ##Utilisation de l’application API C# dans l’aire du concepteur d’applications logiques
 ###Déclencheur
-Vous pouvez créer un déclencheur que le service Application logique interrogera (selon un intervalle que vous définissez). Si ce déclencheur renvoie une valeur différente de `false`, l’application logique s’exécutera. Dans le cas contraire, elle attendra le prochain intervalle d’interrogation pour vérifier la réponse renvoyée.
+Vous pouvez créer un déclencheur que le service Application logique interrogera (selon un intervalle que vous définissez). Si ce déclencheur renvoie une valeur différente de `false`, l’application logique s’exécute. Dans le cas contraire, elle attend le prochain intervalle d’interrogation pour vérifier la réponse renvoyée.
 
 Les entrées du déclencheur sont les suivantes : - **Expression C#** - Il s’agit de l’expression qui sera évaluée. Elle sera appelée à l’intérieur d’une fonction et doit renvoyer la valeur `false` lorsque vous ne souhaitez pas que l’application logique s’exécute, ou toute autre valeur pour que l’application logique s’exécute. Vous ne pourrez pas utiliser le contenu de la réponse dans les actions de l’application logique.
 
@@ -96,7 +96,7 @@ return YammerAttachments;
 L’action renvoie l’objet que vous avez renvoyé à partir de votre fonction dans un objet résultats. Vous pouvez alors référencer `@body('csapi').results` pour la propriété **Attachments** dans l’application API Yammer.
 
 ## En faire plus avec votre connecteur
-Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
+Le connecteur étant créé, vous pouvez l’ajouter à un flux d’entreprise à l’aide d’une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Voir [Gérer et surveiller les applications API et le connecteur](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -105,4 +105,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

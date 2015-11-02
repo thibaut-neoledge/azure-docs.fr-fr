@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Déployer une application API avec une nouvelle passerelle" 
 	description="Utilisez le modèle Azure Resource Manager pour déployer une application API avec une nouvelle passerelle, ainsi qu’un nouveau plan App Service." 
-	services="app-service\api" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-api" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -308,4 +308,4 @@ Notez que les noms de la passerelle et de l’application web d’hébergement 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

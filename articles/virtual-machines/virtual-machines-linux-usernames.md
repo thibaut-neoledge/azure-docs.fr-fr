@@ -21,6 +21,8 @@
 
 #Sélection de noms d'utilisateur pour Linux dans Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 Quand vous configurez une machine virtuelle Linux sur Azure, vous devez spécifier le nom d’utilisateur non racine que vous pourrez utiliser ultérieurement pour vous connecter à la machine virtuelle. Vous pouvez choisir le nom du nouvel utilisateur, ou en cas d’approvisionnement via le portail de gestion, vous pouvez accepter le nom par défaut, « azureuser ».
 
 Dans la plupart des cas, ce nouvel utilisateur n’existe pas dans l’image de base et est créé pendant le processus d’approvisionnement. Si l'utilisateur existe dans l'image de machine virtuelle de base, l'agent Linux Azure configure simplement le mot de passe (et/ou la clé SSH) pour cet utilisateur selon les informations indiquées lors de la création de la machine virtuelle.
@@ -249,4 +251,4 @@ Voici les noms d’utilisateurs que vous ne devez pas utiliser pour approvisionn
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

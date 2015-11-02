@@ -2,7 +2,6 @@
 	pageTitle="Utilisation d’un service web Microsoft Azure Machine Learning | Microsoft Azure"
 	description="Lorsqu’un service Machine Learning est déployé, le service web RESTful qui est mis à disposition peut être exploité en tant que service requête-réponse ou d’exécution de lot."
 	services="machine-learning"
-	solutions="big-data"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd"
-	ms.date="09/09/2015" 
+	ms.date="10/19/2015"
 	ms.author="bradsev" />
 
 
@@ -34,11 +33,13 @@ Cela signifie que les services peuvent être utilisés à partir d’application
 
 Un service web Microsoft Azure Machine Learning peut être utilisé de deux manières différentes : en tant que service de requête-réponse ou comme service d’exécution de lot. Dans chaque scénario, la fonctionnalité est fournie par le biais du service web RESTful, qui peut être utilisé une fois l’expérience déployée. En déployant un service web ML dans Microsoft Azure avec un point de terminaison de service web Microsoft Azure, où le service est automatiquement mis à l’échelle en fonction de l’utilisation, vous pouvez éviter les coûts initiaux et permanents liés aux ressources matérielles.
 
+> [AZURE.TIP]Pour obtenir un moyen simple de créer une application web pour accéder à votre service web prédictif, consultez [Utilisation d'un service web Microsoft Azure Machine Learning avec un modèle d'application web](machine-learning-consume-web-service-with-web-app-template.md).
+
 <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-Pour plus d'informations sur la création et le déploiement d’un service web Azure Machine Learning, consultez la page [Déploiement d’un service web Azure Machine Learning][publish]. Pour obtenir une procédure pas à pas portant sur la création d’une expérience Machine Learning et son déploiement, consultez la page [Développement d’une solution prédictive avec Azure Machine Learning][walkthrough].
+Pour plus d'informations sur la création et le déploiement d'un service web Azure Machine Learning, consultez la page [Déploiement d'un service web Azure Machine Learning][publish]. Pour obtenir une procédure pas à pas portant sur la création d'une expérience Machine Learning et son déploiement, consultez la page [Développement d'une solution prédictive avec Azure Machine Learning][walkthrough].
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -60,14 +61,14 @@ Un service d’exécution de lots (BES) est un service qui gère la notation asy
 Un service BES peut être utile lorsque les réponses ne sont pas nécessaires immédiatement, comme dans le cas de la notation prévue à intervalles réguliers pour les individus ou les périphériques IoT (Internet of Things).
 
 ## Exemples
-Pour savoir comment les services RRS et BES, nous utilisons un exemple de service web Microsoft Azure. Ce service est utilisé dans un scénario IoT (Internet of Things). Pour faire simple, notre périphérique n’envoie qu’une seule valeur, `cog_speed`, et récupère une réponse unique.
+Pour savoir comment les services RRS et BES, nous utilisons un exemple de service web Microsoft Azure. Ce service est utilisé dans un scénario IoT (Internet of Things). Pour faire simple, notre périphérique n'envoie qu'une seule valeur, `cog_speed`, et récupère une réponse unique.
 
-Quatre éléments d’information sont nécessaires pour appeler le service BES ou RRS. Ces informations sont accessibles sur les [Pages de service d’Azure Machine Learning](https://studio.azureml.net) une fois que l’expérience a été déployée. Cliquez sur le lien des SERVICES WEB, sur la gauche de l’écran, pour faire apparaître les services déployés. Pour trouver des informations sur un service spécifique, vous pouvez accéder à des liens vers des pages d’aide sur les API, pour les services RSS et BES.
+Quatre éléments d’information sont nécessaires pour appeler le service BES ou RRS. Ces informations sont accessibles sur les [Pages de service d'Azure Machine Learning](https://studio.azureml.net) une fois que l'expérience a été déployée. Cliquez sur le lien des SERVICES WEB, sur la gauche de l’écran, pour faire apparaître les services déployés. Pour trouver des informations sur un service spécifique, vous pouvez accéder à des liens vers des pages d’aide sur les API, pour les services RSS et BES.
 
-1.	La **clé d’API de service** est disponible sur la page principale des services.
-2.	L’**URI de service** est disponible sur la page d’aide de l’API pour le service voulu.
-3.	Le **corps de demande d’API** attendu est disponible sur la page d’aide de l’API pour le service voulu.
-4.	Le **corps de réponse d’API** attendu est disponible sur la page d’aide de l’API pour le service voulu.
+1.	La **clé d'API de service** est disponible sur la page principale des services.
+2.	L'**URI de service** est disponible sur la page d'aide de l'API pour le service voulu.
+3.	Le **corps de demande d'API** attendu est disponible sur la page d'aide de l'API pour le service voulu.
+4.	Le **corps de réponse d'API** attendu est disponible sur la page d'aide de l'API pour le service voulu.
 
 Dans les deux exemples ci-dessous, nous utilisons le langage C# pour illustrer le code requis et la plate-forme ciblée est une version de Windows 8 pour ordinateur de bureau.
 
@@ -210,15 +211,15 @@ Sur la page d’aide de l’API, en plus de l’URI, vous trouverez des informat
 
 Lorsque vous créez un traitement par lots pour votre point de terminaison de service Microsoft Azure Machine Learning, vous pouvez spécifier plusieurs paramètres qui définissent l’exécution du traitement par lots :
 
-* **Input** : représente une référence d’objet blob où l’entrée du traitement par lots est stockée.
-* **GlobalParameters** : représente l’ensemble des paramètres qu’il est possible de définir pour l’expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
-* **Outputs** : si le service a défini une ou plusieurs sorties, nous autorisons l’appelant à les rediriger vers un emplacement d’objet blob Azure de son choix. Cela vous permettra d’enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire. **REMARQUE :** le service s’attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
+* **Input** : représente une référence d'objet blob où l'entrée du traitement par lots est stockée.
+* **GlobalParameters** : représente l'ensemble des paramètres qu'il est possible de définir pour l'expérience. Une expérience Microsoft Azure Machine Learning peut avoir des paramètres obligatoires et facultatifs qui personnalisent l’exécution du service, et l’appelant est censé fournir tous les paramètres requis, le cas échéant. Ces paramètres sont spécifiés comme une collection de paires clé-valeur.
+* **Outputs** : si le service a défini une ou plusieurs sorties, nous autorisons l'appelant à les rediriger vers un emplacement d'objet blob Azure de son choix. Cela vous permettra d’enregistrer la ou les sorties du service dans un nouvel emplacement et sous un nom prévisible ; sinon, le nom d’objet blob de sortie est généré de façon aléatoire. **REMARQUE :** le service s'attend à ce que le contenu de la sortie, selon son type, soit enregistré dans les formats pris en charge :
   - sorties de jeu de données : peuvent être enregistrées en tant que **.csv, .tsv, .arff**
   - sorties de modèle formé : peuvent être enregistrées en tant que **.ilearner**
 
-  Les remplacements d’emplacement de sortie sont spécifiés comme une collection de paires *<output name  blob reference>*, où le *nom de sortie* est le nom défini par l'utilisateur pour un nœud de sortie spécifique (également indiqué sur la page d’aide de l’API du service), et la *référence d’objet blob* est une référence à un emplacement d’objet blob Azure vers lequel la sortie doit être redirigée.
+  Les remplacements d'emplacement de sortie sont spécifiés comme une collection de paires *<output name  blob reference>*, où le *nom de sortie* est le nom défini par l'utilisateur pour un nœud de sortie spécifique (également indiqué sur la page d'aide de l'API du service) et la *référence d'objet blob* est une référence à un emplacement d'objet blob Azure vers lequel la sortie doit être redirigée.
 
-Tous ces paramètres de création de travail peuvent être facultatifs en fonction de la nature de votre service. Par exemple, les services avec aucun nœud d’entrée défini ne nécessitent pas la transmission d’un paramètre *Input* et la fonctionnalité de remplacement d’emplacement de sortie est entièrement facultative ; sinon, les sorties sont stockées dans le compte de stockage par défaut qui a été configuré pour votre espace de travail Microsoft Azure Machine Learning. Le code ci-dessus présente un exemple de demande de charge utile transmise à l’API REST pour un service où seules les informations d’entrée sont transmises :
+Tous ces paramètres de création de travail peuvent être facultatifs en fonction de la nature de votre service. Par exemple, les services avec aucun nœud d'entrée défini ne nécessitent pas la transmission d'un paramètre *Input* et la fonctionnalité de remplacement d'emplacement de sortie est entièrement facultative ; sinon, les sorties sont stockées dans le compte de stockage par défaut qui a été configuré pour votre espace de travail Microsoft Azure Machine Learning. Le code ci-dessus présente un exemple de demande de charge utile transmise à l’API REST pour un service où seules les informations d’entrée sont transmises :
 
 **Exemple de demande**
 
@@ -242,11 +243,11 @@ La réponse à l’API de création de traitement par lots est l'ID de travail u
 
 **2. Démarrer une tâche d’exécution de lots**
 
-Lorsque vous créez un traitement par lots, il est simplement enregistré dans le système et placé dans un état *Not started*. Pour planifier réellement le travail pour l’exécution, vous devez appeler l’API **start** décrite sur la page d’aide de l’API du point de terminaison et fournir l’ID de travail obtenu à la création du travail.
+Lorsque vous créez un traitement par lots, il est simplement enregistré dans le système et placé dans un état *Not started* (Non démarré). Pour planifier réellement le travail pour l'exécution, vous devez appeler l'API **start** décrite sur la page d'aide de l'API du point de terminaison et fournir l'ID de travail obtenu à la création du travail.
 
 **3. Obtenir l’état d’une tâche d’exécution de lots**
 
-Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d’erreur, plus d’informations sur les raisons réelles de l’échec sont retournées dans la propriété *Details*.
+Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout moment, en transmettant l’ID du travail à l’API GetJobStatus. La réponse de l’API contient un indicateur de l’état actuel du travail, ainsi que les résultats réels du traitement par lots s’il s’est terminé correctement. En cas d'erreur, plus d'informations sur les raisons réelles de l'échec sont retournées dans la propriété *Details*.
 
 **Charge utile de réponse**
 
@@ -256,7 +257,7 @@ Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout
 	    "Details": DETAILS
 	}
 
-*StatusCode* peut avoir l’une des valeurs suivantes :
+*StatusCode* peut avoir l'une des valeurs suivantes :
 
 * Not started
 * Exécution
@@ -264,7 +265,7 @@ Vous pouvez interroger l’état de votre traitement par lots asynchrone à tout
 * Annulé
 * Finished
 
-La propriété *Results* est remplie uniquement si le travail s’est terminé correctement (sinon, elle a la valeur **null**). À l’achèvement du travail et si le service a au moins un nœud de sortie défini, le résultat est retourné comme une collection de paires *[nom de sortie, référence d'objet blob]*, où la référence d’objet blob est une référence SAS en lecture seule à l’objet blob contenant le résultat réel.
+La propriété *Results* est remplie uniquement si le travail s'est terminé correctement (sinon, elle a la valeur **null**). À l'achèvement du travail et si le service a au moins un nœud de sortie défini, le résultat est retourné comme une collection de paires *[nom de sortie, référence d'objet blob]*, où la référence d'objet blob est une référence SAS en lecture seule à l'objet blob contenant le résultat réel.
 
 **Exemple de réponse**
 
@@ -298,7 +299,7 @@ Il est possible d’annuler à tout moment un traitement par lots en cours d'ex�
 
 #### Utilisation du [Kit de développement logiciel BES](machine-learning-consume-web-services.md#batch-execution-service-sdk)
 
-Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fournit des fonctions qui permettent d’appeler facilement BES pour la notation en mode par lot. Pour installer le package Nuget, dans Visual Studio, accédez à Outils, puis sélectionnez Gestionnaire de package Nuget et cliquez sur Console du gestionnaire de package.
+Le [package Nugget du Kit de développement logiciel BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) fournit des fonctions qui permettent d'appeler facilement BES pour la notation en mode par lot. Pour installer le package Nuget, dans Visual Studio, accédez à Outils, puis sélectionnez Gestionnaire de package Nuget et cliquez sur Console du gestionnaire de package.
 
 Les expériences AzureML déployées comme services web peuvent inclure des modules d’entrée de service web ; cela signifie qu’elles s’attendent à ce que l’entrée soit fournie via l’appel du service web sous la forme d’une référence à un emplacement d’objet blob. Il est également possible de ne pas utiliser de module d’entrée de service web et d’utiliser plutôt un module Reader. Dans ce cas, le module Reader lit généralement à partir d’une base de données SQL avec une requête au moment de l’exécution pour obtenir les données. Les paramètres de service web peuvent être utilisés pour pointer dynamiquement vers d’autres serveurs ou tables, etc. Le Kit de développement logiciel (SDK) prend en charge ces deux modèles.
 
@@ -432,4 +433,4 @@ L'exemple de code ci-dessous montre comment vous pouvez soumettre et surveiller 
 	    }
 	}
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

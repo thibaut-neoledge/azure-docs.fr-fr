@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Didacticiel de démarrage rapide sur le langage R pour Machine Learning | Microsoft Azure"
 	description="Utilisez ce didacticiel sur la programmation R pour prendre en main rapidement l'utilisation du langage R avec Azure Machine Learning Studio afin de créer une solution de prévision."
-	keywords="quickstart,r language,r programming language,r programming tutorial"
+	keywords="démarrage rapide,langage r,langage de programmation r,didacticiel de programmation en r"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -1346,4 +1346,4 @@ Quelques ressources Internet particulièrement utiles :
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

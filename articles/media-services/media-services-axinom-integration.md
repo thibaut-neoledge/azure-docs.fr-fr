@@ -3,7 +3,7 @@
 	description="Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences Axinom." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="willzhan,Juliako" 
+	authors="willzhan,Mingfeiy,rajputam,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"  
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Utilisation d’Axinom pour fournir des licences Widevine à Azure Media Services  
@@ -196,9 +196,6 @@ Amorce de clé|Doit être utilisé pour générer la clé de contenu avec un ID 
 URL d’acquisition de licence Widevine.|Doit être utilisé dans la configuration de la stratégie de remise de l’élément multimédia de diffusion en continu DASH (consultez [cette](media-services-axinom-integration.md#content-protection) section).
 ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendication Entitlement Message du jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section). 
 
-
-
-
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
@@ -206,4 +203,8 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 - [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+###Remerciements 
+
+Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
+
+<!---HONumber=Oct15_HO4-->

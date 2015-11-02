@@ -2,7 +2,7 @@
 	pageTitle="Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager | Microsoft Azure" 
 	description="Découvrez comment déployer un compte DocumentDB, Azure App Service Web Apps et un exemple d’application web avec un modèle Azure Resource Manager." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # Déploiement de DocumentDB et d’Azure App Service Web Apps avec un modèle Azure Resource Manager #
 
@@ -33,7 +33,7 @@ Avant de suivre les instructions de ce didacticiel, assurez-vous de disposer des
 
 - Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur la façon de se procurer un abonnement, consultez les [formules d'abonnement](http://azure.microsoft.com/pricing/purchase-options/), les [offres spéciales membres](http://azure.microsoft.com/pricing/member-offers/) ou la [version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 - Un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../storage-whatis-account.md).
-- Un poste de travail sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md).
+- Un poste de travail sur lequel est installé Azure PowerShell 0.9.8. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Ce didacticiel n’a pas encore été mis à jour pour la version préliminaire d’Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Étape 1 : téléchargement et extraction des fichiers d’exemple ##
 Commençons par télécharger les fichiers d'exemple que nous utiliserons dans ce didacticiel.
@@ -210,4 +210,4 @@ Félicitations ! Vous avez déployé DocumentDB, une application web App Servic
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

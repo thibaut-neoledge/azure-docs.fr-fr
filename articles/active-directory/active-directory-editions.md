@@ -3,7 +3,7 @@
 	description="Rubrique qui détaille les éditions gratuite et payantes d’Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="MarkusVi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,402 +13,70 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/17/2015"
 	ms.author="markvi"/>
 
 # Éditions d’Azure Active Directory
 
-Azure Active Directory est un service qui fournit des fonctionnalités complètes de gestion de l’accès et de l’identité dans le cloud. Il combine des services d’annuaire, de gouvernance avancée de l’identité et de gestion de l’accès à l’application, ainsi qu’une importante plateforme basée sur des normes pour les développeurs. Pour plus d’informations, [regardez cette vidéo](http://azure.microsoft.com/documentation/videos/teched-europe-2014-cloud-identity-microsoft-azure-active-directory-explained/).
+Tous les services d'entreprise Microsoft Online reposent sur Azure Active Directory pour l'authentification et autres besoins d’identification. Si vous vous abonnez à un service d’entreprise Microsoft Online (par exemple, Office 365, Microsoft Azure, etc.), vous obtenez Azure Active Directory (Azure AD) et un accès à toutes les fonctionnalités gratuites décrites ci-dessous.
 
-Basées sur un vaste ensemble de fonctionnalités gratuites dans Microsoft Azure Active Directory, les éditions Premium et Basic d’Azure Active Directory offrent un ensemble de fonctionnalités plus avancées afin de donner aux entreprises les moyens de faire face à leurs besoins exigeants en matière d’accès et d’identité. Pour les options de tarification pour ces éditions, consultez la [tarification d’Azure Active Directory](http://azure.microsoft.com/pricing/details/active-directory/). Lorsque vous vous abonnez à Azure, vous devez choisir votre édition, gratuite ou payante, d’Azure Active Directory parmi les suivantes :
+Azure Active Directory est un service qui fournit des fonctionnalités complètes de gestion de l’accès et de l’identité dans le cloud pour vos employés, partenaires et clients. Il combine des services d’annuaire, de gouvernance avancée de l’identité, une importante plateforme basée sur des normes pour les développeurs et une gestion de l’accès à l’application pour vos propres applications intégrées ou une des milliers d’autres disponibles. L’édition gratuite d’Azure Active Directory vous permet de gérer les utilisateurs et les groupes, d’effectuer une synchronisation avec les annuaires locaux, d’obtenir l’authentification unique entre Azure, Office 365 et des milliers d’applications SaaS populaires telles que Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, etc. Pour en savoir plus sur Azure Active Directory, consultez [Présentation d'Azure AD](active-directory-whatis.md).
 
-- **Gratuit** : l'édition gratuite d'Azure Active Directory fait partie de chaque abonnement Azure. Aucune licence ou installation n’est requise. Cette édition vous permet de gérer les comptes d’utilisateur, d’effectuer une synchronisation avec des répertoires locaux, d’obtenir une authentification unique pour Azure, Office 365 et des milliers d’applications SaaS populaires telles que Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, etc.
-- **De base** : l’édition de base d’Azure Active Directory permet de gérer en libre-service les identités et l’accès aux applications pour les processus de tâche avec des besoins principalement centrés sur le cloud. Avec l’édition de base d’Azure Active Directory, vous disposez de toutes les fonctionnalités de l’édition gratuite, ainsi que de la gestion d’accès basée sur les groupes, de la réinitialisation libre-service du mot de passe pour les applications cloud, d’un proxy d’application Azure Active Directory (pour publier des applications web locales à l’aide d’Azure Active Directory), d’un environnement personnalisable pour lancer des applications cloud pour entreprise et consommateur et d’un contrat SLA pour professionnel qui fournit 99,9 % de disponibilité. Avec l’édition de base d’Azure Active Directory, un administrateur peut également activer une version d’évaluation de l’édition Azure Active Directory Premium.
-- **Premium** : avec l’édition Azure Active Directory Premium, vous profitez de toutes les fonctionnalités des éditions Azure Active Directory gratuite et de base, ainsi que de fonctionnalités enrichies supplémentaires pour la gestion des identités professionnelles.
+
+Pour enrichir votre expérience Azure Active Directory, vous pouvez ajouter des fonctionnalités payées à l'aide des éditions Azure Active Directory de base et Premium. Les versions payées Azure Active Directory se superposent à votre annuaire gratuit existant et vous offrent de nombreuses fonctionnalités de classe entreprise : libre-service, surveillance améliorée, rapports de sécurité, authentification multifacteur MFA (Multi-Factor Authentication) et accès sécurisé pour votre personnel mobile.
+
+Les abonnements Office 365 incluent les fonctionnalités Azure Active Directory supplémentaires décrites dans le tableau comparatif ci-dessous.
+
+
+> [AZURE.NOTE]Pour les options de tarification de ces éditions, consultez la [tarification d’Azure Active Directory](https://azure.microsoft.com/fr-FR/pricing/details/active-directory/). <br>Les éditions Azure Active Directory Premium et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations, contactez-nous via le Forum Azure Active Directory.
+
+
+- **Azure Active Directory - version de base** : Conçue pour les employés avec des besoins principalement centrés sur le cloud, cette édition offre un accès aux applications avec des besoins principalement centrés sur le cloud ainsi que des solutions de gestion des identités en libre-service. Avec l’édition de base d’Azure Active Directory, vous disposez de fonctionnalités qui améliorent votre productivité et réduisent vos coûts comme la gestion d’accès basée sur les groupes, la réinitialisation libre-service du mot de passe pour les applications cloud et un proxy d’application Azure Active Directory (pour publier des applications web locales à l’aide d’Azure Active Directory). Le tout, avec un contrat SLA pour professionnel qui fournit 99,9 % de disponibilité.
+ 
+- **Azure Active Directory - version Premium** : Conçue pour permettre aux entreprises avec des besoins d’identification et de gestion des accès plus élevés, la version Premium d’Azure Active Directory ajoute des fonctionnalités de gestion des identités de niveau professionnel et permet aux utilisateurs hybrides d'accéder en toute transparence aux fonctionnalités locaux et disponibles sur le cloud. Cette édition inclut tout ce dont vous avez besoin pour les travailleurs de l'information et les administrateurs d'identités dans les environnements hybrides grâce à un accès inter-applications, à une gestion des identités et de l’accès en libre-service (IAM), à la protection des identités et à la sécurité dans le cloud. Elle prend en charge des ressources d'administration et de délégation avancées telles que des groupes dynamiques et la gestion de groupes en libre-service. Elle inclut Microsoft Identity Manager (une suite de gestion locale des identités et des accès) et fournit des fonctionnalités d'écriture différée sur le cloud offrant aux utilisateurs locaux des solutions comme la réinitialisation en libre-service du mot de passe du service.
 
 Pour vous connecter et commencer à utiliser Active Directory Premium dès aujourd’hui, consultez la rubrique [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md).
 
-> [AZURE.NOTE]Les éditions Azure Active Directory Premium et Azure Active Directory de base ne sont actuellement pas prises en charge en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Fonctionnalités de l’édition De base d’Azure Active Directory
+> [AZURE.NOTE]Plusieurs fonctionnalités Azure Active Directory sont disponibles via les éditions de « paiement à l’utilisation » :
+>
+>- Active Directory B2C constitue la solution de gestion des identités et des accès pour vos applications grand public. Pour plus d’informations, consultez [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
+ 
+>-	L'authentification multifacteur MFA (Multi-Factor Authentication) Azure peut être effectuée par utilisateur ou par le biais de fournisseurs d'authentification. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](multi-factor-authentication.md)
 
-L’édition De base d’Active Directory est une offre payante d’Azure Active Directory qui inclut les fonctionnalités suivantes :
 
-- **Charte graphique de la société** : pour améliorer davantage l’expérience de l’utilisateur final, vous pouvez appliquer les jeux de couleurs et le logo de votre société sur les pages de connexion et du volet d’accès. Une fois que vous avez ajouté votre logo, vous pouvez également ajouter des versions localisées de votre logo pour différentes langues et divers paramètres régionaux. Pour en savoir plus, consultez la rubrique [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md).
-- **Accès à l’application par groupe** : utilisez des groupes pour approvisionner les utilisateurs et autoriser un groupe d’utilisateurs à accéder à des milliers d’applications SaaS. Ces groupes peuvent être créés dans le cloud. Vous pouvez également tirer parti des groupes existants qui ont été synchronisés à partir de votre domaine Active Directory local. Pour plus d’informations, consultez la page [Autorisation d’accès d’un groupe à une application SaaS dans Azure AD](active-directory-accessmanagement-group-saasapps.md).
-- **Réinitialisation du mot de passe libre-service** : Azure a toujours autorisé les administrateurs d’annuaires à réinitialiser les mots de passe. Avec l’édition De base d’Azure Active Directory, vous pouvez désormais réduire les appels au support technique lorsque vos utilisateurs oublient un mot de passe en autorisant tous les utilisateurs de votre annuaire à réinitialiser eux-mêmes leurs mots de passe à l’aide du même type de connexion que celui utilisé pour Office 365. Pour plis d’informations, consultez la page [Gestion de vos mots de passe en tout lieu](active-directory-passwords.md).
-- **Contrat SLA professionnel avec 99,9 % de disponibilité** : nous garantissons au moins 99,9 % de disponibilité du service De base d’Azure Active Directory.
-- [**Offrir un accès à distance sécurisé aux applications locales**](active-directory-application-proxy-get-started.md) : offrez à vos employés un accès sécurisé aux applications locales telles que SharePoint et Exchange/OWA à partir du cloud, à l’aide d’Azure Active Directory.
-
-## Fonctionnalités d’Azure Active Directory Premium
-
-L’édition Azure Active Directory Premium est une offre payante d’Azure Active Directory et inclut toutes les fonctionnalités des éditions gratuite et de base combinées aux fonctionnalités suivantes :
-
-- **Gestion de groupes libre-service** : Azure Active Directory Premium simplifie l’administration quotidienne des groupes en permettant aux utilisateurs de créer des groupes, de demander l’accès à d’autres groupes et de déléguer la propriété d’un groupe afin que d’autres utilisateurs puissent approuver les demandes et mettre à jour les adhésions à ce groupe.
-
-    Pour plus d’informations, consultez la rubrique [Gestion de groupe libre service pour les utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/dn641267.aspx).
-
-- **Alertes et rapports de sécurité avancés** : contrôlez et protégez l’accès à vos applications cloud en consultant les journaux détaillés présentant des rapports plus avancés sur les anomalies et les modèles d’accès incohérents. Les rapports avancés sont basés sur l’apprentissage automatique et peuvent vous aider à obtenir de nouvelles perspectives pour améliorer la sécurité d’accès et répondre aux menaces potentielles.
-
-    Pour plus d’informations, consultez la rubrique [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md).
-
-- **Multi-Factor Authentication** : Multi-Factor Authentication est maintenant inclus avec l’édition Premium et peut vous aider à sécuriser l’accès à des applications locales (VPN, RADIUS, etc.), à Azure, à des services Microsoft Online Services, comme Office 365 et Dynamics CRM Online, ainsi qu’à des milliers de services cloud tiers préintégrés dans Azure Active Directory. Il suffit d’activer Multi-Factor Authentication pour les identités Azure Active Directory. Les utilisateurs sont ensuite invités à configurer des paramètres de vérification supplémentaires lors de leur prochaine connexion.
-
-    Pour plus d’informations, consultez [Qu’est-ce qu’Azure Multi-Factor Authentication ?](multi-factor-authentication.md)
-
-- **Microsoft Identity Manager (MIM, gestionnaire d’identité Microsoft)** : l’édition Premium offre la possibilité d’accorder les droits d’utilisation d’un serveur MIM (et des licences d’accès client) dans votre réseau local pour prendre en charge n’importe quelle combinaison de solutions d’identité hybride. Il s’agit d’une option intéressante si vous avez plusieurs répertoires et bases de données locaux que vous souhaitez synchroniser directement avec Azure Active Directory. Il n’existe aucune limite quant au nombre de serveurs MIM que vous pouvez utiliser ; toutefois, les licences d’accès client MIM accordées reposent sur l’attribution d’une licence d’utilisateur Azure Active Directory Premium.
-
-    Pour plus d’informations, consultez [Microsoft Identity Manager](http://www.microsoft.com/fr-FR/server-cloud/products/microsoft-identity-manager/default.aspx).
-
-- **Contrat SLA professionnel avec 99,9 % de disponibilité** : nous garantissons au moins 99,9 % de disponibilité du service Azure Active Directory Premium.
-
-    Pour plus d’informations, consultez la page sur les [contrats SLA et notamment Active Directory Premium](http://azure.microsoft.com/support/legal/sla/).
-
-- **Réinitialisation du mot de passe en écriture différée** : la réinitialisation libre-service des mots de passe peut être écrite en différé pour les annuaires locaux.
-
-- [Azure Active Directory Connect Health](active-directory-aadconnect-health.md) : surveillez l’intégrité de votre infrastructure locale Active Directory et bénéficiez d’une analyse de l’utilisation.
+<br>
 
 
 
-## Comparaison des éditions Gratuite, De base et Premium
 
-<br> Disponible dans cette édition : ![Liste de contrôle](./media/active-directory-editions/ic195031.png)
+| Type de fonctionnalité| Caractéristiques| Édition gratuite| Édition de base| Édition Premium |
+| --- | --- | --- | --- | --- |
+| **Fonctionnalités communes**| Répertoire en tant que service| ![Vérification][12] Jusqu’à 500 000 utilisateurs [1]| ![Vérification][12] Aucune limite d’objets| ![Vérification][12] Aucune limite d’objets|
+| | [Gestion des utilisateurs et d’un groupe à l’aide des applets de commande Windows PowerShell ou de l’interface utilisateur](active-directory-administer.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Enregistrement de l’appareil](active-directory-conditional-access-device-registration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Portail du panneau d’accès pour l’accès utilisateur basé sur l’authentification unique pour les applications SaaS et personnalisées](active-directory-saas-access-panel-introduction.md)| ![Vérification][12] Jusqu’à 10 applications par utilisateur [2]| ![Vérification][12] Jusqu’à 1- applications par utilisateur [2]| ![Vérification][12] Aucune limite d’applications|
+| | [Gestion et configuration de l’accès aux applications en fonction de l’utilisateur](active-directory-saas-app-provisioning.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | Modification libre-service du mot de passe pour les utilisateurs du cloud| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Azure AD Connect : pour la synchronisation entre les répertoires locaux et Azure Active Directory.](active-directory-aadconnect.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Rapports de sécurité standard](active-directory-view-access-usage-reports.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| | [Collaboration B2B (collaboration inter-organisation) (version préliminaire)](active-directory-b2b-collaboration-overview.md)| ![Vérification][12]| ![Vérification][12]| ![Vérification][12]|
+| **Fonctionnalités Premium et de base**| [Personnalisation des pages de connexion et d’accès avec le logo et les couleurs de l’entreprise](active-directory-add-company-branding.md)| Incluse dans les abonnements Office 365 [4]| ![Vérification][12]| ![Vérification][12]|
+| | [Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud](active-directory-passwords.md)| Incluse dans les abonnements Office 365 [4]| ![Vérification][12]| ![Vérification][12]|
+| | [Proxy d’application : sécurisez l’accès à distance et l’authentification unique des applications web locales](active-directory-application-proxy-get-started.md)| | ![Vérification][12]| ![Vérification][12]|
+| | [Gestion et configuration de l’accès à une application en fonction d’un groupe](active-directory-accessmanagement-group-saasapps.md)| | ![Vérification][12]| ![Vérification][12]|
+| | [Temps d’activité du contrat SLA à haute disponibilité (99,9 %)](https://azure.microsoft.com/fr-FR/support/legal/sla/)| Contrat SLA Microsoft Online Services [5]| ![Vérification][12]| ![Vérification][12]|
+| **Fonctionnalités Premium uniquement**| [Rapport avancé sur l’utilisation des applications](active-directory-view-access-usage-reports.md)| | | ![Vérification][12]|
+| | [Gestion de groupes en libre-service pour les utilisateurs du cloud] (Gestion de groupes en libre-service pour les utilisateurs dans Azure AD)| | | ![Vérification][12]|
+| | [Réinitialisation libre-service du mot de passe en écriture différée locale](active-directory-passwords-getting-started.md/#enable-users-to-reset-or-change-their-ad-passwords)| | | ![Vérification][12]|
+| | [Licences utilisateur Microsoft Identity Manager (MIM) : pour la gestion locale des accès et des identités](http://www.microsoft.com/fr-FR/server-cloud/products/microsoft-identity-manager/default.aspx)| | | ![Vérification][12] [3]|
+| | [Rapports de sécurité avancés concernant les anomalies (basés sur un apprentissage automatique)](active-directory-view-access-usage-reports.md)| | | ![Vérification][12]|
+| | [Cloud app discovery](active-directory-cloudappdiscovery-whatis.md)| | | ![Vérification][12]|
+| | [Service Multi-Factor Authentication pour les utilisateurs du cloud](multi-factor-authentication.md)| Incluse dans les abonnements Office 365 [4]| | ![Vérification][12]|
+| | [Service Multi-Factor Authentication pour les utilisateurs locaux](multi-factor-authentication.md)| | | ![Vérification][12]|
+| | [Azure Active Directory Connect Health pour surveiller l’intégrité de l’infrastructure locale Active Directory et bénéficier d’une analyse de l’utilisation](active-directory-aadconnect-health.md)| | | ![Vérification][12]|
 
 
-<table>
-	<tr>
-		<th>&#160;</th>
-		<th>Caractéristiques </th>
-		<th>Édition gratuite </th>
-		<th>Édition de base </th>
-		<th>Édition Premium </th>
-	</tr>
-	<tr>
-		<td rowspan="8">
-		<p>Fonctionnalités communes</p>
-		</td>
-		<td>
-		<p>Répertoire en tant que service</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Jusqu’à 500&#160;000&#160;objets [1]</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Aucune limite d’objets</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Aucune limite d’objets</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Gestion des utilisateurs et d’un groupe à l’aide des applets de commande Windows PowerShell ou de l’interface utilisateur</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Enregistrement de l’appareil</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Portail du panneau d’accès pour l’accès utilisateur basé sur l’authentification unique pour les applications SaaS et personnalisées</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Jusqu’à 10&#160;applications par utilisateur [2]</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Jusqu’à 10&#160;applications par utilisateur [2]</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /><br />
-		Aucune limite d’applications</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Gestion et configuration de l’accès aux applications en fonction de l’utilisateur</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Modification libre-service du mot de passe pour les utilisateurs du cloud</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Azure AD&#160;Connect&#160;: pour la synchronisation entre les répertoires locaux et Azure Active Directory.</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Rapports de sécurité standard</p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td rowspan="5">
-		<p>Fonctionnalités Premium et de base</p>
-		</td>
-		<td>
-		<p>Temps d’activité du contrat SLA à haute disponibilité (99,9&#160;%)</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Gestion et configuration de l’accès à une application en fonction d’un groupe</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Personnalisation des pages de connexion et d’accès avec le logo et les couleurs de l’entreprise</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Réinitialisation libre-service du mot de passe pour les utilisateurs du cloud</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Proxy d’application&#160;: sécurisez l’accès à distance et l’authentification unique des applications web locales</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td rowspan="9">
-		<p>Fonctionnalités uniquement présentes dans l’édition Premium</p>
-		</td>
-		<td>
-		<p>Rapport avancé sur l’utilisation des applications</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Gestion libre-service des groupes pour les utilisateurs du cloud</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Réinitialisation libre-service du mot de passe en écriture différée locale</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Licences utilisateur Microsoft Identity Manager (MIM)&#160;: pour la gestion locale des accès et des identités</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="Liste de vérification" xmlns="" /> [3]</p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Rapports de sécurité avancés concernant les anomalies (basés sur un apprentissage automatique)</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>
-		<a href="http://channel9.msdn.com/Series/EMS/Azure-Cloud-App-Discovery">Cloud app discovery</a> </p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Service Multi-Factor Authentication pour les utilisateurs du cloud</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>Service Multi-Factor Authentication pour les utilisateurs locaux</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<p>
-		<a href="https://msdn.microsoft.com/fr-FR/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a> pour surveiller l’intégrité de l’infrastructure locale Active Directory et bénéficier d’une analyse de l’utilisation.</p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p></p>
-		</td>
-		<td>
-		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="Liste de vérification" src="./media/active-directory-editions/ic195031.png" title="liste de vérification" xmlns="" /></p>
-		</td>
-	</tr>
-</table>
 
 
 [1] Cette limite d’objet de 500 000 ne s’applique pas à Office 365, Microsoft Intune ou tout autre service en ligne Microsoft s’appuyant sur Azure Active Directory pour les services de répertoire.
@@ -417,31 +85,11 @@ L’édition Azure Active Directory Premium est une offre payante d’Azure Acti
 
 [3] Les droits du logiciel Microsoft Identity Manager Server sont octroyés avec les licences Windows Server (toutes les éditions). Comme Microsoft Identity Manager s’exécute sur le système d’exploitation Windows Server, tant que le serveur exécute une copie sous licence valide de Windows Server, Microsoft Identity Manager peut être installé et utilisé sur ce serveur. Aucune autre licence séparée n’est nécessaire pour Microsoft Identity Manager Server.
 
+[4] Les fonctionnalités Azure AD payées incluses avec Office 365 nécessitent l’utilisation des applications Office 365.
+
+[5] Chacun des services Microsoft Online, Office 365, Microsoft Intune ou tout autre service en ligne Microsoft s'appuie sur Azure Active Directory pour les services d'annuaire, et possède son propre contrat SLA de service qui s'étend à l’utilisation d'Azure Active Directory. Pour en savoir plus, consultez [Contrat SLA des services en ligne Microsoft](https://gallery.technet.microsoft.com/online-SLA-ea09109e).
 
 
-<br> <br>
-
-
-
-
-
-
-
-
-
-## Fonctionnalités actuellement présentes dans la version préliminaire publique
-
-Les fonctionnalités suivantes sont actuellement intégrées dans la version préliminaire publique et seront bientôt disponibles :
-
-- [Unités administratives](https://msdn.microsoft.com/library/azure/dn832057.aspx) : il s’agit d’un nouveau conteneur de ressources Azure Active Directory qui peut être utilisé pour déléguer des autorisations administratives à des sous-ensembles d’utilisateurs et appliquer des stratégies à un sous-ensemble d’utilisateurs.
-- [Ajoutez vos propres applications SaaS](https://msdn.microsoft.com/library/azure/dn893637.aspx) dans Azure Active Directory.
-- Substitution du mot de passe pour Facebook, Twitter et LinkedIn. Pour plus d’informations, consultez [cet article](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
-- Appartenance au groupe dynamique. Pour plus d’informations, consultez [cet article](https://msdn.microsoft.com/library/azure/dn913807.aspx).
-- [Accès conditionnel](https://msdn.microsoft.com/library/azure/dn906877.aspx) : authentification multifacteur par application.
-- Intégration d’application RH : Workday
-- Gestion des identités privilégiées : la gestion des identités privilégiées offre un aperçu amélioré afin d’aider à répondre aux exigences de conformité réglementaire et des contrats de niveau de service.
-- Demandes d'applications en libre-service : les administrateurs peuvent fournir une liste d'applications SaaS aux utilisateurs depuis laquelle les utilisateurs peuvent choisir celles qu'ils souhaitent utiliser. Ces applications seront disponibles immédiatement ou après approbation.
-- Rapport des API Azure : les données de chaque rapport de sécurité d'Azure Active Directory seront disponibles sur d'autres outils SIEM ou de surveillance.
 
 
 ## Étapes suivantes
@@ -450,4 +98,8 @@ Les fonctionnalités suivantes sont actuellement intégrées dans la version pr�
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 - [Affichage de vos rapports d’accès et d’utilisation](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO3-->
+
+<!--Image references-->
+[12]: ./media/active-directory-editions/ic195031.png
+
+<!---HONumber=Oct15_HO4-->

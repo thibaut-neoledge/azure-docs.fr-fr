@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure"
-	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Meilleures pratiques Gestion des mots de passe Azure AD | Microsoft Azure" 
+	description="Meilleures pratiques concernant le déploiement et l’utilisation, exemple de documentation pour les utilisateurs finaux et guides de formation pour la gestion des mots de passe dans Azure Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Déploiement de la gestion des mots de passe et formation des utilisateurs
@@ -24,6 +24,7 @@ L’étape qui suit l’activation de la réinitialisation de mot de passe consi
   * [Méthodes permettant de remplir les données d’authentification](#ways-to-populate-authentication-data)
 * [**Meilleures pratiques de déploiement de la réinitialisation de mot de passe dans votre organisation**](#what-is-the-best-way-to-roll-out-password-reset-for-users)
   * [Déploiement par courrier électronique et exemples de communications concernant le déploiement par courrier électronique](#email-based-rollout)
+  * [Création de votre propre portail de gestion de mot de passe personnalisé pour vos utilisateurs](#creating-your-own-password-portal)
   * [Utilisation de l’inscription imposée pour forcer les utilisateurs à s’inscrire au moment de la connexion](#using-enforced-registration)
   * [Téléchargement des données d’authentification des comptes d’utilisateur](#uploading-data-yourself)
 * [**Exemples de supports de formation (bientôt disponibles)**](#sample-training-materials)
@@ -71,7 +72,18 @@ L’approche la plus simple pour informer vos utilisateurs qu’ils peuvent s’
 
   ![][001]
 
-Vous pouvez télécharger le modèle de courrier électronique [ici](http://1drv.ms/1xWFtQM).
+Vous pouvez [télécharger le modèle de courrier électronique ici](http://1drv.ms/1xWFtQM).
+
+### Création de votre propre portail de mot de passe
+Une stratégie adaptée aux clients de taille importante qui déploient des fonctionnalités de gestion de mot de passe consiste à créer un « portail de mot de passe » grâce auquel les utilisateurs peuvent gérer, en un emplacement unique, tous les éléments liés à leurs mots de passe.
+
+Nombre de nos clients les plus importants optent pour la création d’une entrée DNS racine comme https://passwords.contoso.com, avec des liens vers le portail de réinitialisation de mot de passe Azure AD, le portail d’inscription pour la réinitialisation du mot de passe et les pages de modification du mot de passe. Ainsi, dans toutes vos communications par messagerie électronique ou prospectus, vous pouvez inclure une URL unique facile à retenir que les utilisateurs peuvent suivre quand ils disposent d’une seconde pour prendre le service en main.
+
+Pour vous aider, nous avons créé une page simple qui utilise les derniers paradigmes de conception d’une interface utilisateur réactive et qui fonctionne sur tous les navigateurs et appareils mobiles.
+
+  ![][007]
+  
+Vous pouvez [télécharger le modèle de site web ici](https://github.com/kenhoff/password-reset-page). Nous vous recommandons de personnaliser le logo et les couleurs en fonction des besoins de votre organisation.
 
 ### Utilisation de l’inscription forcée
 Si vous souhaitez que vos utilisateurs s’inscrivent eux-mêmes à la réinitialisation de mot de passe, vous pouvez également leur imposer de s’inscrire lorsqu’ils se connectent au volet d’accès à la page [http://myapps.microsoft.com](http://myapps.microsoft.com). Pour cela, accédez à l’onglet **Configurer** de votre annuaire et activez l’option **Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent au volet d’accès**.
@@ -98,12 +110,12 @@ Vous pouvez télécharger les données d’authentification via le [portail de g
 1.	Accédez à votre annuaire dans l’**extension Active Directory** du [portail de gestion Azure](https://manage.windowsazure.com).
 2.	Cliquez sur l’onglet **Utilisateurs**.
 3.	Sélectionnez l’utilisateur qui vous intéresse dans la liste.
-4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe.
+4.	Le premier onglet affiche une **Adresse de messagerie de secours**, qui peut être utilisée en tant que propriété pour activer la réinitialisation de mot de passe. 
 
     ![][005]
 
 5.	Cliquez sur l’onglet **Informations professionnelles**.
-6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe.
+6.	Vous trouverez sur cette page les options **Téléphone professionnel**, **Téléphone mobile**, **Téléphone d’authentification** et **Adresse électronique d’authentification**. Ces propriétés peuvent également être définies pour permettre à un utilisateur de réinitialiser son mot de passe. 
 
     ![][006]
 
@@ -136,5 +148,6 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
+[007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

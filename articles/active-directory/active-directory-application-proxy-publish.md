@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Publication d’applications avec le Proxy d’application Azure AD"
+	pageTitle="Publication d’applications avec le proxy d’application Azure AD | Microsoft Azure"
 	description="Explique comment publier des applications locales avec le Proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # Publier des applications avec le Proxy d’application Azure AD
 
-> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-edition.md).
+> [AZURE.NOTE]Le Proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou Basic d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Une fois que le Proxy d’application Microsoft Azure AD est activé, vous pouvez publier des applications pour les rendre accessibles à vos utilisateurs hors de votre réseau privé.
 
@@ -94,4 +94,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
 * [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 
 ## Étapes suivantes ##
 
-Découvrez comment [appliquer les méthodologies agiles et publier en continu votre application de microservices en toute simplicité](app-service-agile-software-development.md).
+Découvrez comment [appliquer les méthodologies agiles et publier en continu votre application de micro-services en toute simplicité](app-service-agile-software-development.md) et utiliser facilement des techniques de déploiement avancées telles que le [déploiement avec distribution d’une version d’évaluation](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
 ## Autres ressources ##
@@ -305,4 +305,4 @@ Découvrez comment [appliquer les méthodologies agiles et publier en continu vo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

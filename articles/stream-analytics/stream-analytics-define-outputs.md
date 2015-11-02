@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Définition de sorties | Microsoft Azure" 
 	description="Présentation des sorties Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analyse de données volumineuses,service cloud,internet des objets,service administré, traitement de flux,streaming analytics,données de diffusion"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -96,9 +96,9 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 </tbody>
 </table>
 
-## Concentrateur d'événements
+## Hub d’événements
 
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de réception d’événements de publication/d’abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde. Un Event Hub peut être utilisé en tant que sortie quand la sortie d’une tâche Stream Analytics est l’entrée d’une autre tâche de diffusion.
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un service de réception d’événements de publication/d’abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde. Un hub d’événements peut être utilisé en tant que sortie quand la sortie d’une tâche Stream Analytics est l’entrée d’une autre tâche de diffusion.
 
 Quelques paramètres sont requis pour configurer les flux de données Event Hub en tant que sortie.
 
@@ -106,9 +106,9 @@ Quelques paramètres sont requis pour configurer les flux de données Event Hub 
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cet Event Hub. |
 | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
-| Concentrateur d'événements | Nom de votre sortie Event Hub |
-| Nom de la stratégie de l’Event Hub | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configurer de l’Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
-| Clé de la stratégie de l’Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
+| Hub d'événements | Nom de votre sortie Event Hub |
+| Nom de la stratégie Event Hub | Stratégie d’accès partagé, qui peut être créée dans l’onglet Configuration du hub d’événements. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
+| Clé de la stratégie Event Hub | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Colonne de clé de partition [facultatif] | Cette colonne contient la clé de partition pour la sortie du hub d’événements. |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge |
@@ -157,7 +157,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
 
 ## Stockage de tables
 
-Le [stockage de tables Azure](./articles/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, de telle sorte qu’application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
+Le [stockage de tables Azure](./articles/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu’une application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -173,7 +173,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 ## Files d'attente Service Bus
 
-Les [files d’attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) permettent de livrer des messages selon le principe du premier entré, premier sorti (FIFO), à un ou plusieurs destinataires concurrents. En général, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
+Les [files d’attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) permettent de livrer des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents. En général, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
 
 La table ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de file d’attente.
 
@@ -199,7 +199,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette rubrique Service Bus. |
 | Espace de noms Service Bus | Un espace de noms Service Bus est un conteneur pour un jeu d’entités de messagerie. En créant un Event Hub, vous avez également créé un espace de noms Service Bus |
-| Nom de la rubrique | Les rubriques sont des entités de messagerie qui sont similaires aux files d’attente et aux Event Hubs. Il est conçu pour recevoir des flux d’événements à partir d’appareils et de services divers. Quand une rubrique est créée, elle reçoit également un nom. Les messages envoyés à une rubrique ne seront pas disponibles si un abonnement n’a pas été créé. Assurez-vous donc que la rubrique comprend un ou plusieurs abonnements |
+| Nom de la rubrique | Les rubriques sont des entités de messagerie qui sont similaires aux files d’attente et aux hubs d’événements. Il est conçu pour recevoir des flux d’événements à partir d’appareils et de services divers. Quand une rubrique est créée, elle reçoit également un nom. Les messages envoyés à une rubrique ne seront pas disponibles si un abonnement n’a pas été créé. Assurez-vous donc que la rubrique comprend un ou plusieurs abonnements |
 | Nom de la stratégie de rubrique | Lorsque vous créez une rubrique, vous pouvez également créer des stratégies d’accès partagé sur l’onglet Configurer de la rubrique. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès |
 | Clé de la stratégie de rubrique | Clé d’accès partagé utilisée pour authentifier l’accès à l’espace de noms Service Bus |
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
@@ -208,7 +208,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 ## Base de données de documents
 
-[DocumentDB azure](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d’utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables et permet un développement rapide.
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d’utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
 
 Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
 
@@ -252,7 +252,7 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 ## Étapes suivantes
 Stream Analytics, un service géré d’analyse de diffusion en continu des données à partir de l’Internet des objets vous a été présenté. Pour en savoir plus sur ce service, consultez les rubriques suivantes :
 
-- [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md)
+- [Prise en main d’Azure Stream Analytics](stream-analytics-get-started.md)
 - [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
@@ -265,4 +265,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

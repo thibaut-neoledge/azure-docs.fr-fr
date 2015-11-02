@@ -378,11 +378,8 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 18. Vérifiez qu'un fichier de sortie est créé dans le dossier **apifactoryoutput** du conteneur **adftutorial**.
 
 
-## Voir aussi
 
-Article | Description
------- | ---------------
-[Référence du développeur Azure Data Factory][developer-reference] | Ces informations de référence pour les développeurs incluent des références complètes sur la bibliothèque de classes .NET, les applets de commande, le script JSON, les fonctions, etc. 
+> [AZURE.NOTE]L’exemple de code ci-dessus lance une boîte de dialogue dans laquelle vous pouvez entrer des informations d’identification Azure. Si vous devez vous connecter par programmation sans utiliser de boîte de dialogue, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@ Article | Description
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

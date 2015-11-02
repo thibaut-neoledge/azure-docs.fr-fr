@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Déplacer des ressources d’application web vers un autre groupe de ressources"
 	description="Décrit les scénarios dans lesquels vous pouvez déplacer des applications web et services d’application d’un groupe de ressources vers un autre."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ZainRizvi"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,4 +26,4 @@ Les applications web Azure prennent actuellement en charge les scénarios de dé
 	* Remarque : le groupe de ressources de destination ne peut pas contenir de ressources Microsoft.Web dans ce scénario
 * Déplacement des applications web individuelles vers un groupe de ressources différent, tout en les hébergeant toujours dans leur plan de service d’application actuel (le plan de service d’application reste dans l’ancien groupe de ressources)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Diagramme de vue d’ensemble des fonctionnalités de Machine Learning Studio | Microsoft Azure"
 	description="Diagramme imprimable des fonctionnalités d’Azure Machine Learning Studio, expliquant comment utiliser Studio pour développer une expérience d’analyse prédictive et la mettre en pratique dans le cloud Azure."
-	keywords="machine learning studio,overview diagram,download"
+	keywords="machine learning studio,diagramme de vue d’ensemble,télécharger"
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
@@ -26,7 +26,7 @@ Le diagramme **Vue d’ensemble des capacités de Microsoft Azure Machine Learni
 
 Ce diagramme illustre l’imbrication de tous ces éléments.
 
-> [AZURE.NOTE]Voir [Aide-mémoire d’algorithme d’apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) pour obtenir une aide supplémentaire lors de la navigation et de la sélection entre les algorithmes d’apprentissage automatisé disponibles dans Machine Learning Studio.
+> [AZURE.NOTE]Voir [Aide-mémoire d’algorithme d’apprentissage automatique pour Microsoft Azure Machine Learning Studio](machine-learning-algorithm-cheat-sheet.md) pour obtenir une aide supplémentaire pendant la navigation et la sélection entre les algorithmes d’apprentissage automatisé disponibles dans Machine Learning Studio.
 
 ## Téléchargez le diagramme de vue d’ensemble de Machine Learning Studio
 
@@ -42,9 +42,9 @@ Téléchargez le diagramme **Vue d’ensemble des capacités de Microsoft Azure 
 ## Aide supplémentaire sur Machine Learning Studio
 
 * Pour une vue d’ensemble de Microsoft Azure Machine Learning, consultez [Présentation de l’apprentissage automatique sur Microsoft Azure](machine-learning-what-is-machine-learning.md)
-* Pour une prise en main de Machine Learning Studio, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
+* Pour une vue d’ensemble de Machine Learning Studio, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](machine-learning-what-is-ml-studio.md).
 * Pour consulter une présentation détaillée des algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Comment choisir les algorithmes dans Microsoft Azure Machine Learning Studio](machine-learning-algorithm-choice.md).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Déclencheurs des applications API Azure App Service" 
 	description="Cet article montre comment implémenter des déclencheurs dans une application API" 
-	services="app-service" 
+	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-logic" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/15/2015" 
 	ms.author="guayan"/>
 
 # Déclencheurs des applications API Azure App Service
@@ -341,4 +341,4 @@ Voici un exemple de la façon dont cette classe peut être implémentée pour fa
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

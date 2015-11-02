@@ -52,9 +52,13 @@ Le [package NuGet SendGrid](https://www.nuget.org/packages/Sendgrid) permet faci
 
 Pour installer le package NuGet SendGrid dans votre application, procédez comme suit :
 
-1.  Créez un nouveau projet : ![Création d'un projet][create-new-project]
+1.  Créez un projet.
 
-2.  Sélectionnez un modèle : ![Sélectionner un modèle][select-a-template]
+    ![Création d'un projet][create-new-project]
+
+2.  Sélectionnez un modèle.
+
+    ![Sélectionner un modèle][select-a-template]
 
 3.  Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **References**, puis cliquez sur **Manage NuGet Packages**.
 
@@ -110,7 +114,7 @@ Pour plus d'informations sur les propriétés et méthodes prises en charge par 
 
 Une fois le message électronique créé, vous pouvez l'envoyer à l'aide de l'API Web fournie par SendGrid. Vous pouvez également [utiliser la bibliothèque intégrée de .NET](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
-Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe) ou votre clé d’API SendGrid. La clé d’API est la méthode privilégiée. Pour plus de détails sur la configuration des clés d’API, consultez notre [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html)
+Pour envoyer des messages électroniques, vous devez fournir les informations d'identification de votre compte SendGrid (nom d'utilisateur et mot de passe) ou votre clé d’API SendGrid. La clé d’API est la méthode privilégiée. Pour plus de détails sur la configuration des clés d’API, consultez notre [documentation](https://sendgrid.com/docs/Classroom/Send/api_keys.html).
 
 Vous pouvez stocker ces informations d'identification via votre portail Azure en cliquant sur CONFIGURER et en ajoutant les paires clé/valeur sous « paramètres de l'application ».
 
@@ -257,4 +261,4 @@ Maintenant que vous avez appris les bases du service de messagerie SendGrid, con
   [remise de courrier électronique transactionnelle]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

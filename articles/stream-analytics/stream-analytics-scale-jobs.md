@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Mise à l’échelle des travaux Stream Analytics pour augmenter le débit | Microsoft Azure"
 	description="Découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de diffusion en continu d’un travail."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="travaux d’analyse,flux de données,diffusion en continu de données"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -24,12 +24,12 @@ Découvrez comment calculer des *unités de diffusion en continu* pour des trava
 ## Quelles sont les parties d’un travail Stream Analytics ? ##
 La définition d'un travail Stream Analytics se compose d'entrées, d'une requête et d'une sortie. Les entrées correspondent à l’emplacement à partir duquel le travail lit le flux de données, la requête permet de transformer le flux d’entrée de données, et la sortie correspond à l’emplacement où le travail envoie ses résultats.
 
-Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d'entrée de flux de données peut être stockée sur un concentrateur d'événements Service Bus Azure ou un objet blob de stockage Azure. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md), [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md) et [Guide de développement pour Azure Stream Analytics](../stream-analytics-developer-guide.md).
+Un travail nécessite au moins une source d’entrée pour la diffusion de données en continu. La source d'entrée de flux de données peut être stockée sur un hub d'événements Service Bus Azure ou un objet blob de stockage Azure. Pour plus d'informations, consultez [Présentation d'Azure Stream Analytics](stream-analytics-introduction.md), [Prise en main d'Azure Stream Analytics](stream-analytics-get-started.md) et [Guide de développement pour Azure Stream Analytics](../stream-analytics-developer-guide.md).
 
 ## Configuration des unités de diffusion en continu ##
 Les unités de diffusion en continu représentent les ressources et la puissance pour exécuter un travail Azure Stream Analytics. Ces unités permettent de décrire la capacité relative de traitement des événements basée sur une mesure mixte du processeur, de la mémoire et des taux de lecture et d’écriture. Chaque unité de diffusion en continu correspond à un débit d'environ 1 Mo/s.
 
-Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour un travail à l’aide du portail Azure. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [Support Microsoft](http://support.microsoft.com).
+Le choix du nombre d’unités de diffusion en continu requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner des unités de diffusion en continu (jusqu’aux limites de votre quota) pour un travail à l’aide du portail Azure. Par défaut, chaque abonnement Azure peut avoir jusqu’à 50 unités de diffusion en continu pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter les unités de diffusion en continu de vos abonnements, contactez le [support technique de Microsoft](http://support.microsoft.com).
 
 Le nombre d'unités de diffusion en continu qu'un travail peut utiliser dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Notez également qu’une valeur valide pour les unités de diffusion en continu doit être utilisée. Les valeurs valides commencent à 1, 3, 6, puis vers le haut par incréments de 6, comme indiqué ci-dessous.
 
@@ -61,7 +61,7 @@ La requête précédente a deux étapes.
 
 Les conditions suivantes doivent être respectées pour procéder au partitionnement d'une étape :
 
-- La source d'entrée doit être partitionnée. Pour plus d'informations, consultez le [Guide de développement pour Azure Analytics](../stream-analytics-developer-guide.md) et le [Guide de programmation des concentrateurs d'événements](../azure-event-hubs-developer-guide.md).
+- La source d'entrée doit être partitionnée. Pour plus d'informations, consultez le [Guide de développement pour Azure Analytics](../stream-analytics-developer-guide.md) et le [Guide de programmation Event Hubs](../azure-event-hubs-developer-guide.md).
 - L'instruction SELECT de la requête doit lire à partir d'une source d'entrée partitionnée.
 - La requête de l'étape doit contenir le mot clé **Partition By**
 
@@ -169,9 +169,9 @@ Calculez le débit prévu pour la charge de travail en événements par seconde.
 ## Débit ASA à l'échelle - Scénario Raspberry Pi ##
 
 
-Pour comprendre comment ASA évolue dans un scénario classique en termes de débit de traitement sur plusieurs unités de diffusion en continu, voici une expérience qui envoie des données de capteur (clients) dans le concentrateur d'événements, ASA le traite et envoie une alerte ou des statistiques sous forme de sortie à un autre concentrateur d'événements.
+Pour comprendre comment ASA évolue dans un scénario classique en termes de débit de traitement sur plusieurs unités de diffusion en continu, voici une expérience qui envoie des données de capteur (clients) dans le hub d’événements, ASA le traite et envoie une alerte ou des statistiques sous forme de sortie à un autre hub d’événements.
 
-Le client envoie des données de capteur synthétisées aux concentrateurs d'événements au format JSON vers ASA et la sortie des données est également au format JSON. Voici à quoi ressemblerait l'exemple de données :
+Le client envoie des données de capteur synthétisées aux hubs d'événements au format JSON vers ASA et la sortie des données est également au format JSON. Voici à quoi ressemblerait l'exemple de données :
 
     {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
 
@@ -184,9 +184,9 @@ Requête : « Envoyer une alerte lorsque la lumière est éteinte »
 	 WHERE
 		lght< 0.05 GROUP BY TumblingWindow(second, 1)
 
-Mesure de débit : dans ce contexte, le débit est la quantité de données d'entrée traitées par ASA au cours d'une durée fixe (10 minutes). Pour obtenir un meilleur débit de traitement pour les données d'entrée, le flux de données d'entrée et la requête doivent être partitionnés. De même, « COUNT() » est inclus dans la requête pour mesurer le nombre d'événements d'entrée traités. Pour vous assurer qu'ASA n'attend pas simplement les événements d'entrée, chaque partition du concentrateur d'événements d'entrée a été préchargée avec suffisamment de données d'entrée (environ 300 Mo).
+Mesure de débit : dans ce contexte, le débit est la quantité de données d'entrée traitées par ASA au cours d'une durée fixe (10 minutes). Pour obtenir un meilleur débit de traitement pour les données d'entrée, le flux de données d'entrée et la requête doivent être partitionnés. De même, « COUNT() » est inclus dans la requête pour mesurer le nombre d'événements d'entrée traités. Pour vous assurer qu'ASA n'attend pas simplement les événements d'entrée, chaque partition du hub d'événements d'entrée a été préchargée avec suffisamment de données d'entrée (environ 300 Mo).
 
-Voici les résultats avec l'augmentation du nombre d'unités de diffusion en continu et le nombre de partitions correspondant dans les concentrateurs d'événements.
+Voici les résultats avec l'augmentation du nombre d'unités de diffusion en continu et le nombre de partitions correspondant dans les hubs d'événements.
 
 <table border="1">
 <tr><th>Partitions d'entrée</th><th>Partitions de sortie</th><th>Unités de diffusion en continu</th><th>Débit soutenu
@@ -265,4 +265,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -18,6 +18,10 @@
 
 # Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+
+
 ## Résumé :
 La détermination du ou des modèles d’application à utiliser pour vos applications SQL Server dans l’environnement Azure est une décision de conception importante. Elle exige une bonne compréhension de l’interopérabilité de SQL Server et de chaque composant d’infrastructure d’Azure. Avec SQL Server sur les services d’infrastructure Azure, vous pouvez aisément migrer, gérer et surveiller vos applications SQL Server existantes créées sur Windows Server sur des machines virtuelles dans Azure.
 
@@ -33,18 +37,18 @@ Pour chaque modèle d’application, vous trouverez un scénario local, la solut
 
 Vous pouvez développer de nombreux types d’applications multiniveaux en répartissant les composants des niveaux d’application sur différents ordinateurs ainsi que dans différents composants. Par exemple, vous pouvez placer l’application cliente et les composants de règles métier sur un ordinateur, les composants de niveau web frontal et d’accès aux données sur un deuxième ordinateur et un niveau de base de données principale sur un troisième ordinateur. Ce type de structure permet d’isoler les niveaux les uns des autres. Si vous modifiez la provenance des données, vous n’avez pas besoin de modifier l’application cliente ou web, mais seulement les composants de niveau d’accès aux données.
 
-Une application de type *multiniveau* inclut le niveau de présentation, le niveau métier et le niveau de données :
+Une application *multiniveau* type inclut la couche Présentation, la couche Métier et la couche Données :
 
 
 | Niveau | Description |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Présentation** | Le *niveau de présentation* (niveau web, niveau frontal) correspond à la couche dans laquelle les utilisateurs interagissent avec une application. |
-| **Métier** | Le *niveau métier* (niveau intermédiaire) correspond à la couche utilisée par le niveau de présentation et le niveau de données pour communiquer l’un avec l’autre. Il inclut la fonctionnalité principale du système. |
-| **Données** | Le *niveau de données* correspond au serveur stockant les données d’une application (par exemple, dans le cas d’un serveur exécutant SQL Server). |
+| **Présentation** | La *couche Présentation* (niveau web, niveau frontal) correspond à la couche dans laquelle les utilisateurs interagissent avec une application. |
+| **Métier** | La *couche Métier* (niveau intermédiaire) correspond à la couche utilisée par la couche Présentation et la couche Données pour communiquer l’une avec l’autre. Elle inclut la fonctionnalité principale du système. |
+| **Données** | La *couche Données* correspond au serveur stockant les données d’une application (par exemple, dans le cas d’un serveur exécutant SQL Server). |
 
-Les couches d’application décrivent les regroupements logiques des fonctionnalités et des composants d’une application, tandis que les niveaux décrivent la distribution physique des composants et fonctionnalités sur des serveurs physiques, des ordinateurs, des réseaux ou des emplacements distants distincts. Les couches d’une application peuvent résider sur le même ordinateur physique (même niveau) ou être réparties sur des ordinateurs distincts (multiniveau), tandis que les composants de chaque couche communiquent avec les composants des autres couches via des interfaces bien définies. Vous pouvez considérer que le terme « niveau » fait référence aux modèles de distribution physiques comme des structures à deux niveaux, trois niveaux et multiniveaux. Un **modèle d’application à deux niveaux** contient deux niveaux d’application : un serveur d’application et un serveur de base de données. La communication directe se produit entre le serveur d’application et le serveur de base de données. Le serveur d’application contient des composants de niveau web et de niveau métier. Dans un **modèle d’application à trois niveaux**, il existe trois niveaux d’application : un serveur web, un serveur d’application (qui contient le niveau de logique métier et/ou les composants d’accès aux données de niveau métier) et le serveur de base de données. La communication entre le serveur web et le serveur de base de données a lieu sur le serveur d’application. Pour plus d’informations sur les couches et les niveaux d’application, consultez la page [Guide d’architecture d’application Microsoft](https://msdn.microsoft.com/library/ff650706.aspx).
+Les couches d’application décrivent les regroupements logiques des fonctionnalités et des composants d’une application, tandis que les niveaux décrivent la distribution physique des composants et fonctionnalités sur des serveurs physiques, des ordinateurs, des réseaux ou des emplacements distants distincts. Les couches d’une application peuvent résider sur le même ordinateur physique (même niveau) ou être réparties sur des ordinateurs distincts (multiniveau), tandis que les composants de chaque couche communiquent avec les composants des autres couches via des interfaces bien définies. Vous pouvez considérer que le terme « niveau » fait référence aux modèles de distribution physiques comme des structures à deux niveaux, trois niveaux et multiniveaux. Un **modèle d’application à deux niveaux** contient deux couches Application : un serveur d’application et un serveur de base de données. La communication directe se produit entre le serveur d’application et le serveur de base de données. Le serveur d’application contient des composants de niveau web et de niveau métier. Dans un **modèle d’application à trois niveaux**, il existe trois couches Application : un serveur web, un serveur d’application (qui contient la couche Logique métier et/ou les composants d’accès aux données de la couche Métier) et le serveur de base de données. La communication entre le serveur web et le serveur de base de données a lieu sur le serveur d’application. Pour plus d’informations sur les couches Application, consultez la page [Guide d’architecture d’application Microsoft](https://msdn.microsoft.com/library/ff650706.aspx).
 
-Avant de lire cet article, vous devez connaître les concepts fondamentaux de SQL Server et Azure. Pour plus d’informations, consultez les pages [Documentation SQL Server en ligne](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md) et [Azure.com](http://azure.microsoft.com).
+Avant de lire cet article, vous devez connaître les concepts fondamentaux de SQL Server et Azure. Pour plus d’informations, consultez les pages [Documentation en ligne de SQL Server](https://msdn.microsoft.com/library/bb545450.aspx), [SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md) et [Azure.com](http://azure.microsoft.com).
 
 Cet article décrit plusieurs modèles d’application qui peuvent convenir à de simples applications, ainsi qu’à des applications métier très complexes. Avant de détailler chaque modèle, nous vous recommandons de vous familiariser avec les services de stockage de données disponibles dans Azure, tels que [Azure Storage](../storage/storage-introduction.md), [Base de données SQL Azure](../sql-database/sql-database-technical-overview.md) et [SQL Server dans une machine virtuelle Azure](virtual-machines-sql-server-infrastructure-services.md). Pour prendre les meilleures décisions de conception de vos applications, apprenez comment utiliser au mieux chaque service de stockage de données.
 
@@ -56,13 +60,13 @@ Cet article décrit plusieurs modèles d’application qui peuvent convenir à d
 
 - Vous souhaitez exploiter les fonctionnalités de l’environnement Azure mais la base de données SQL Azure ne prend pas en charge les fonctionnalités requises par votre application. Cela peut inclure les éléments suivants :
 
-	- **Taille de la base de données** : au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 500 Go de données. Si votre application nécessite plus de 500 Go de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour obtenir les dernières informations dans ce domaine, consultez les pages [Montée en puissance parallèle de bases de données SQL Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) et [Niveaux de service et de performance de Base de données SQL Azure](../sql-database/sql-database-service-tiers.md).
+	- **Taille de la base de données** : au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 500 Go de données. Si votre application nécessite plus de 500 Go de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour obtenir les toutes dernières informations dans ce domaine, consultez les pages [Montée en puissance parallèle de bases de données SQL Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) et [Niveaux de service et niveaux de performances de la base de données SQL Azure](../sql-database/sql-database-service-tiers.md).
 	- **Conformité HIPAA** : les clients du secteur de la santé et les fournisseurs de logiciels indépendants (ISV) peuvent choisir le service [SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md) au lieu du service [Base de données SQL Azure](../sql-database/sql-database-technical-overview.md), car le service SQL Server sur une machine virtuelle Azure est couvert par le contrat HIPAA Business Associate Agreement (BAA). Pour plus d’informations sur la conformité, consultez le [Centre de gestion de la confidentialité Microsoft Azure - Conformité](http://azure.microsoft.com/support/trust-center/compliance/).
-	- **Fonctionnalités au niveau de l’instance** : à ce stade, le service Base de données SQL ne prend pas en charge les fonctionnalités qui résident en dehors de la base de données (comme les serveurs liés, les travaux de l’Agent, FileStream, Service Broker, etc.). Pour plus d’informations, consultez [Instructions et limitations de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
+	- **Fonctionnalités au niveau de l’instance** : à ce stade, le service Base de données SQL ne prend pas en charge les fonctionnalités qui résident en dehors de la base de données (comme les serveurs liés, les travaux de l’Agent, FileStream, Service Broker, etc.). Pour plus d’informations, consultez la section [Instructions et limitations de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 
 ## 1 niveau (simple) : une seule machine virtuelle
 
-Dans ce modèle d’application, vous déployez votre application et votre base de données SQL Server sur une machine virtuelle autonome dans Azure. La même machine virtuelle contient votre application cliente/web, les composants métier, la couche d’accès aux données et le serveur de base de données. Les niveaux de présentation, de métier et de code d’accès aux données sont séparés de manière logique, mais situés physiquement sur un serveur unique. La plupart des clients démarrent avec ce modèle d’application, puis ils effectuent une montés en puissance en ajoutant plusieurs rôles web ou des machines virtuelles à leur système.
+Dans ce modèle d’application, vous déployez votre application et votre base de données SQL Server sur une machine virtuelle autonome dans Azure. La même machine virtuelle contient votre application cliente/web, les composants métier, la couche d’accès aux données et le serveur de base de données. Les niveaux de présentation, de métier et de code d’accès aux données sont séparés de manière logique, mais situés physiquement sur un serveur unique. La plupart des clients démarrent avec ce modèle d’application, puis ils effectuent une montée en puissance en ajoutant plusieurs rôles web ou des machines virtuelles à leur système.
 
 Ce modèle d’application est utile dans les cas suivants :
 
@@ -70,7 +74,7 @@ Ce modèle d’application est utile dans les cas suivants :
 
 - Vous souhaitez conserver tous les niveaux d’application hébergés dans la même machine virtuelle dans le même centre de données Azure pour réduire la latence entre les niveaux.
 
-- Vous voulez rapidement approvisionner des environnement de développement et de test pour de courtes périodes.
+- Vous voulez rapidement approvisionner des environnements de développement et de test pour de courtes périodes.
 
 - Vous souhaitez effectuer un test de contrainte sur différents niveaux de charge de travail, mais en même temps, vous ne souhaitez pas posséder et gérer plusieurs machines physiques tout le temps.
 
@@ -92,7 +96,7 @@ Ce modèle d’application est utile dans les cas suivants :
 
 - Vous souhaitez que différents niveaux d’application soient hébergés dans différentes régions. Par exemple, vous avez peut-être partagé des bases de données qui sont déployées sur plusieurs régions à des fins de création de rapports.
 
-- Vous souhaitez déplacer des applications métier à partir de plateformes virtualisées locales vers des machines virtuelles Azure. Pour obtenir une présentation détaillée des applications métier, consultez la page [Qu’est-ce qu’une application métier ?](https://msdn.microsoft.com/library/aa267045.aspx).
+- Vous souhaitez déplacer des applications métier à partir de plateformes virtualisées locales vers des machines virtuelles Azure. Pour obtenir une présentation détaillée des applications métier, consultez la section [Qu’est-ce qu’une application d’entreprise ?](https://msdn.microsoft.com/library/aa267045.aspx).
 
 - Vous voulez rapidement approvisionner des environnement de développement et de test pour de courtes périodes.
 
@@ -138,7 +142,7 @@ Nous vous recommandons de toujours vous assurer que toutes les connexions Intern
 
 Notez que l’équilibreur de charge dans Azure fonctionne de la même manière que les équilibreurs de charge dans un environnement local. Pour plus d’informations, consultez la page [Équilibrage de charge pour les services d’infrastructure Azure](virtual-machines-load-balance.md).
 
-De plus, nous vous recommandons de configurer un réseau privé pour vos machines virtuelles en utilisant Azure Virtual Network. Cela leur permet de communiquer entre elles via l’adresse IP privée. Pour plus d’informations, consultez la page [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
+De plus, nous vous recommandons de configurer un réseau privé pour vos machines virtuelles en utilisant Azure Virtual Network. Cela leur permet de communiquer entre elles via l’adresse IP privée. Pour plus d’informations, consultez [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 ## 2 et 3 niveaux avec montée en puissance de niveau métier
 
@@ -158,7 +162,7 @@ Ce modèle d’application est utile dans les cas suivants :
 
 - Vous voulez posséder un environnement d’infrastructure pouvant être mis à l’échelle à la demande.
 
-Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce scénario, vous placez les niveaux d’application dans plusieurs machines virtuelles dans Azure par montée en puissance parallèle du niveau métier, qui contient la couche de logique métier et les composants d’accès aux données. Comme indiqué dans le schéma, l’équilibreur de charge Azure est responsable de la distribution du trafic sur plusieurs machines virtuelles et de la détermination du serveur web auquel se connecter. La présence de plusieurs instances des serveurs d’application derrière un équilibreur de charge garantit la haute disponibilité du niveau métier. Pour plus d’informations, consultez la section [Meilleures pratiques pour les modèles d’application à 2 niveaux, 3 niveaux ou multiniveaux ayant plusieurs machines virtuelles dans un niveau](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier).
+Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce scénario, vous placez les niveaux d’application dans plusieurs machines virtuelles dans Azure par montée en puissance parallèle du niveau métier, qui contient la couche de logique métier et les composants d’accès aux données. Comme indiqué dans le schéma, l’équilibreur de charge Azure est responsable de la distribution du trafic sur plusieurs machines virtuelles et de la détermination du serveur web auquel se connecter. La présence de plusieurs instances des serveurs d’application derrière un équilibreur de charge garantit la haute disponibilité du niveau métier. Pour plus d’informations, consultez la section [Meilleures pratiques pour les modèles d’application à 2 niveaux, 3 niveaux ou multiniveau ayant plusieurs machines virtuelles dans un niveau](#best-practices-for-2-tier-3-tier-or-n-tier-patterns-that-have-multiple-vms-in-one-tier).
 
 ![Modèle d’application avec montée en charge d’un niveau métier](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728011.png)
 
@@ -190,11 +194,11 @@ Lorsque vous configurez des solutions de haute disponibilité et de récupérati
 
 La plupart des clients, qui exécutent un code de production sur Azure, conservent les réplicas principaux et secondaires dans Azure.
 
-Pour obtenir des informations complètes et des didacticiels sur les techniques de haute disponibilité et de récupération d’urgence, consultez la page [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+Pour obtenir des informations complètes et des didacticiels sur les techniques de haute disponibilité et de récupération d’urgence, consultez la page [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## 2 et 3 niveaux à l’aide de machines virtuelles Azure et de Cloud Services
 
-Dans ce modèle d’application, vous déployez des applications à 2 ou 3 niveaux vers Azure en utilisant [Azure Cloud Services](cloud-services-choose-me.md#tellmecs) (rôles web et de travail - plateforme en tant que Service (PaaS)) et [Azure Virtual Machines](virtual-machines/) (infrastructure en tant que service (IaaS)). L’utilisation d’[Azure Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/) pour le niveau de présentation et/ou métier et SQL Server dans [Azure Virtual Machines](virtual-machines-about.md) pour le niveau de données est bénéfique pour la plupart des applications s’exécutant sur Azure. En effet, le fait d’avoir une instance de calcul en cours d’exécution sur Cloud Services facilite la gestion, le déploiement, la surveillance et la montée en puissance.
+Dans ce modèle d’application, vous déployez des applications à 2 ou 3 niveaux vers Azure en utilisant [Azure Cloud Services](cloud-services-choose-me.md#tellmecs) (rôles web et de travail - plateforme en tant que Service (PaaS)) et [Azure Virtual Machines](virtual-machines/) (infrastructure en tant que service (IaaS)). L’utilisation d’[Azure Cloud Services](http://azure.microsoft.com/documentation/services/cloud-services/) pour la couche Présentation et/ou Métier et SQL Server dans [Azure Virtual Machines](virtual-machines-about.md) pour la couche Données est bénéfique pour la plupart des applications s’exécutant sur Azure. En effet, le fait d’avoir une instance de calcul en cours d’exécution sur Cloud Services facilite la gestion, le déploiement, la surveillance et la montée en puissance.
 
 Avec Cloud Services, Azure assure l’entretien de l’infrastructure : maintenance de routine, application des correctifs sur les systèmes d’exploitation et tentatives de récupération après échec matériel ou de service. Lorsque votre application a besoin d’une montée en puissance, des options de montée en puissance automatique et manuelle sont disponibles pour votre projet de service cloud en augmentant ou diminuant le nombre d’instances ou de machines virtuelles utilisées par votre application. De plus, vous pouvez utiliser une version locale de Visual Studio pour déployer votre application dans un projet de service cloud dans Azure.
 
@@ -212,7 +216,7 @@ Ce modèle d’application est utile dans les cas suivants :
 
 - Vous souhaitez effectuer un test de contrainte sur différents niveaux de charge de travail, mais en même temps, vous ne souhaitez pas posséder et gérer plusieurs machines physiques tout le temps.
 
-Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce scénario, vous placez le niveau de présentation dans des rôles web, le niveau métier dans des rôles de travail et le niveau de données dans des machines virtuelles dans Azure. L’exécution de plusieurs copies du niveau de présentation dans différents rôles web garantit le chargement des demandes d’équilibrage entre eux. Lorsque vous combinez Azure Cloud Services avec Azure Virtual Machines, nous vous recommandons de configurer également [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) permet d’obtenir des adresses IP privées stables et persistantes dans le même service cloud dans le cloud. Lorsque vous avez défini un réseau virtuel pour vos machines virtuelles et vos services cloud, ils peuvent commencer à communiquer entre eux via l’adresse IP privée. De plus, le fait d’avoir des machines virtuelles et des rôles web et/ou de travail Azure dans le même [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) fournit une latence faible et une connectivité plus sécurisée. Pour plus d’informations, consultez la page [Présentation d’un service cloud](../cloud-services/fundamentals-application-models.md).
+Le schéma suivant illustre un scénario local et sa solution cloud. Dans ce scénario, vous placez le niveau de présentation dans des rôles web, le niveau métier dans des rôles de travail et le niveau de données dans des machines virtuelles dans Azure. L’exécution de plusieurs copies du niveau de présentation dans différents rôles web garantit le chargement des demandes d’équilibrage entre eux. Lorsque vous combinez Azure Cloud Services avec Azure Virtual Machines, nous vous recommandons de configurer également [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) permet d’obtenir des adresses IP privées stables et persistantes dans le même service cloud dans le cloud. Lorsque vous avez défini un réseau virtuel pour vos machines virtuelles et vos services cloud, ils peuvent commencer à communiquer entre eux via l’adresse IP privée. De plus, le fait d’avoir des machines virtuelles et des rôles web et/ou de travail Azure dans le même service [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) fournit une latence faible et une connectivité plus sécurisée. Pour plus d’informations, consultez la section [Qu’est-ce qu’un service cloud ?](../cloud-services/fundamentals-application-models.md)
 
 Comme indiqué dans le schéma, l’équilibreur de charge Azure distribue le trafic sur plusieurs machines virtuelles et détermine le serveur web ou d’application auquel se connecter. La présence de plusieurs instances des serveurs web et d’application derrière un équilibreur de charge garantit la haute disponibilité des niveaux de présentation et métier. Pour plus d’informations, consultez la section [Meilleures pratiques pour les modèles d’application nécessitant des techniques de haute disponibilité et de récupération d’urgence (HADR) SQL](#best-practices-for-application-patterns-requiring-sql-hadr).
 
@@ -226,7 +230,7 @@ Une autre approche d’implémentation de ce modèle d’application consiste à
 
 Le principal objectif de ce modèle d’application consiste à vous montrer comment combiner des composants d’infrastructure en tant que service (IaaS) Azure avec des composants de plateforme en tant que service (PaaS) Azure dans votre solution. Ce modèle est axé sur le service Base de données SQL Azure pour le stockage des données relationnelles. Il n’inclut pas SQL Server dans une machine virtuelle Azure, qui fait partie de l’offre Infrastructure en tant que service (IaaS) Azure.
 
-Dans ce modèle d’application, vous déployez une application de base de données vers Azure en plaçant les niveaux métier et de présentation dans la même machine virtuelle et en accédant à une base de données dans des serveurs Base de données SQL Azure. Vous pouvez implémenter le niveau de présentation en utilisant les solutions web IIS classiques. Vous pouvez implémenter une combinaison des niveaux de présentation et métier en utilisant [Azure Web Apps](http://azure.microsoft.com/documentation/services/app-service/web/).
+Dans ce modèle d’application, vous déployez une application de base de données vers Azure en plaçant les niveaux métier et de présentation dans la même machine virtuelle et en accédant à une base de données dans des serveurs Base de données SQL Azure. Vous pouvez implémenter le niveau de présentation en utilisant les solutions web IIS classiques. Vous pouvez implémenter une combinaison des couches Présentation et Métier en utilisant [Azure Web Apps](http://azure.microsoft.com/documentation/services/app-service/web/).
 
 Ce modèle d’application est utile dans les cas suivants :
 
@@ -248,7 +252,7 @@ En outre, passez en revue les recommandations de la section [Comparaison des str
 
 ## Modèle d’application hybride multiniveau
 
-Dans le modèle d’application hybride multiniveau, vous implémentez votre application dans plusieurs niveaux distribués entre Azure et les emplacement locaux. Par conséquent, vous créez un système hybride réutilisable et flexible, que vous pouvez modifier ou doter d’un niveau spécifique sans changer les autres niveaux. Pour étendre votre réseau d’entreprise vers le cloud, utilisez le service [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
+Dans le modèle d’application hybride multiniveau, vous implémentez votre application dans plusieurs niveaux distribués entre Azure et les emplacements locaux. Par conséquent, vous créez un système hybride réutilisable et flexible, que vous pouvez modifier ou doter d’un niveau spécifique sans changer les autres niveaux. Pour étendre votre réseau d’entreprise vers le cloud, utilisez le service [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 Ce modèle d’application hybride est utile dans les cas suivants :
 
@@ -268,7 +272,7 @@ Le schéma suivant illustre un modèle d’application hybride multiniveau qui s
 
 ![Modèle d’application multiniveau](./media/virtual-machines-sql-server-application-patterns-and-development-strategies/IC728016.png)
 
-Dans Azure, vous pouvez utiliser Active Directory en tant qu’annuaire cloud autonome pour votre organisation, ou vous pouvez intégrer une version locale d’Active Directory existante avec [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/). Comme indiqué dans le schéma, les composants de niveau métier peuvent accéder à plusieurs sources de données, telles que [SQL Server dans Azure](virtual-machines-sql-server-infrastructure-services.md) (via une adresse IP privée interne), une version locale de SQL Server (via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)) ou le service [Base de données SQL](../sql-database/sql-database-technical-overview) (en utilisant les technologies du fournisseur de données .NET Framework). Dans ce schéma, le service Base de données SQL Azure est un service de stockage de données en option.
+Dans Azure, vous pouvez utiliser Active Directory en tant qu’annuaire cloud autonome pour votre organisation, ou vous pouvez intégrer une version locale d’Active Directory existante avec [Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/). Comme indiqué dans le schéma, les composants de la couche Métier peuvent accéder à plusieurs sources de données, telles que [SQL Server dans Azure](virtual-machines-sql-server-infrastructure-services.md) (via une adresse IP privée interne), une version locale de SQL Server (via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)) ou le service [Base de données SQL](../sql-database/sql-database-technical-overview) (en utilisant les technologies du fournisseur de données .NET Framework). Dans ce schéma, le service Base de données SQL Azure est un service de stockage de données en option.
 
 Dans le modèle d’application hybride multiniveau, vous pouvez implémenter le flux de travail suivant dans l’ordre spécifié :
 
@@ -276,7 +280,7 @@ Dans le modèle d’application hybride multiniveau, vous pouvez implémenter le
 
 1. Planifiez les ressources et la configuration requise dans la plateforme Azure, telles que les comptes de stockage et les machines virtuelles.
 
-1. Configurez la connectivité réseau entre les réseau d’entreprise locaux et [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Pour configurer la connexion entre le réseau d’entreprise local et une machine virtuelle dans Azure, utilisez une des deux méthodes suivantes :
+1. Configurez la connectivité réseau entre les réseaux d’entreprise locaux et [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Pour configurer la connexion entre le réseau d’entreprise local et une machine virtuelle dans Azure, utilisez une des deux méthodes suivantes :
 
 	1. Établissez une connexion entre l’environnement local et Azure via des points de terminaison publics sur une machine virtuelle dans Azure. Cette méthode simplifie la configuration et vous permet d’utiliser l’authentification SQL Server dans votre machine virtuelle. Configurez également la liste de contrôle d’accès réseau (ACL) sur les ports publics pour autoriser l’accès à certaines adresses IP. Pour plus d’informations, consultez la page [Gestion de l’ACL sur un point de terminaison](virtual-machines-set-up-endpoints.md/#manage-the-acl-on-an-endpoint).
 
@@ -288,7 +292,7 @@ Dans le modèle d’application hybride multiniveau, vous pouvez implémenter le
 
 	Pour plus d’informations sur la façon de se connecter à SQL Server dans Azure, consultez la page [Connexion à une machine virtuelle SQL Server sur Azure](virtual-machines-sql-server-connectivity.md).
 
-1. Configurez les tâches planifiées et les alertes visant à sauvegarder les données locales dans un disque de machine virtuelle dans Azure. Pour plus d’informations, consultez les pages [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Windows Azure](https://msdn.microsoft.com/library/jj919148.aspx) et [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-backup-and-restore.md).
+1. Configurez les tâches planifiées et les alertes visant à sauvegarder les données locales dans un disque de machine virtuelle dans Azure. Pour plus d’informations, consultez les pages [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) et [Sauvegarde et restauration de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-backup-and-restore.md).
 
 1. En fonction des besoins de votre application, vous pouvez implémenter l’un des trois scénarios courants suivants :
 
@@ -296,7 +300,7 @@ Dans le modèle d’application hybride multiniveau, vous pouvez implémenter le
 
 	1. Vous pouvez conserver votre serveur web et votre serveur d’applications en local, tout en conservant le serveur de base de données dans une machine virtuelle dans Azure.
 
-	1. Vous pouvez conserver votre serveur de base de données, votre serveur web et votre serveur d’applications en local, tout en conservant les réplicas de base de données dans des machines virtuelles dans Azure. Cette configuration permet aux applications de création de rapports et aux serveurs web locaux d’accéder aux réplicas de base de données dans Azure. Ceci permet de réduire la charge de travail d’une base de données locale. Nous vous recommandons d’implémenter ce scénario pour les charges de travail de lecture volumineuses et pour le développement. Pour plus d’informations sur la création de réplicas de base de données dans Azure, consultez Groupes de disponibilité AlwaysOn dans [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+	1. Vous pouvez conserver votre serveur de base de données, votre serveur web et votre serveur d’applications en local, tout en conservant les réplicas de base de données dans des machines virtuelles dans Azure. Cette configuration permet aux applications de création de rapports et aux serveurs web locaux d’accéder aux réplicas de base de données dans Azure. Ceci permet de réduire la charge de travail d’une base de données locale. Nous vous recommandons d’implémenter ce scénario pour les charges de travail de lecture volumineuses et pour le développement. Pour plus d’informations sur la création de réplicas de base de données dans Azure, consultez Groupes de disponibilité AlwaysOn dans [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Comparaison de stratégies de développement web dans Azure
 
@@ -321,6 +325,6 @@ Pour plus d’informations sur le choix entre ces méthodes, consultez la page [
 
 ## Étapes suivantes
 
-Pour plus d’informations sur l’exécution de SQL Server dans les machines virtuelles Azure, consultez la page [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Pour plus d’informations sur l’exécution de SQL Server dans les machines virtuelles Azure, consultez la page [SQL Server sur Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

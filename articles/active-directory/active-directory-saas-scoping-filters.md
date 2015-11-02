@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Approvisionnement d’applications basé sur les attributs avec filtres d’étendue"
+	pageTitle="Approvisionnement d’applications basé sur les attributs avec filtres d’étendue | Microsoft Azure"
 	description="Découvrez comment utiliser des filtres d’étendue pour empêcher les objets dans les applications qui prennent en charge l’approvisionnement automatisé des utilisateurs d’être aprovisionnés si un objet n’est pas conforme à vos besoins."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,4 +77,4 @@ D’après de ce filtre d’étendue, les utilisateurs doivent satisfaire aux cr
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

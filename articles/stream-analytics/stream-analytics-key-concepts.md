@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="En savoir plus sur les concepts clés de Stream Analytics | Microsoft Azure" 
 	description="Découvrez les principaux concepts de Stream Analytics : composants d’une tâche Stream Analytics, notamment les entrées et sorties prises en charge, la configuration de la tâche et les mesures associées." 
-	keywords="event processing,data stream,key concepts,serialization"	
+	keywords="traitement d’événements,flux de données,concepts clés,sérialisation"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -207,4 +207,4 @@ Maintenant que vous connaissez les concepts clés de Stream Analytics, consulte
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

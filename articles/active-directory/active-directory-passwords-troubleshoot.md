@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Résolution des problèmes de gestion des mots de passe
@@ -1483,6 +1483,4 @@ Si cela ne résout pas votre problème, nous vous recommandons de consulter la r
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

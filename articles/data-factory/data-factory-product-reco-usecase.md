@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Cas d’utilisation - Recommandations de produits 
@@ -60,4 +60,4 @@ Grâce à cette expérience d'achat personnalisée, le détaillant en ligne a cr
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

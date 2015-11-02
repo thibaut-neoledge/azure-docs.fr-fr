@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Caractéristiques de la version préliminaire des services de domaine Azure Active Directory : FAQ
 
 Cette page répond aux questions fréquemment posées sur la version préliminaire des services de domaine Azure Active Directory. N'hésitez pas à la consulter pour vous tenir au courant des mises à jour.
 
-### 1\. Configuration
+### Guide de résolution des problèmes
+Reportez-vous à notre [Guide de résolution des problèmes](active-directory-ds-troubleshooting.md) pour trouver les solutions aux problèmes couramment rencontrés pendant la configuration ou l’administration des services de domaine Azure Active Directory.
+
+
+### Configuration
 
 #### Puis-je créer plusieurs domaines pour un seul annuaire Azure AD ?
 Non. Vous ne pouvez créer qu’un seul domaine pris en charge par les services de domaine Azure AD par annuaire Azure AD.
@@ -35,7 +39,7 @@ Le déploiement à l’aide de PowerShell ou automatisé des services de domaine
 Non. Les services de domaine Azure AD ne peuvent être configurés que dans l’ancien portail de gestion Azure (c’est-à-dire https://manage.windowsazure.com). Nous envisageons d’étendre la prise en charge pour le nouveau portail de gestion Microsoft Azure (c’est-à-dire https://portal.azure.com).
 
 
-### 2\. Administration et opérations
+### Administration et opérations
 
 #### J’ai activé les services de domaine Azure AD. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
 Les comptes d’utilisateur que vous avez ajoutés au groupe d’administration (c’est-à-dire « AAD DC Administrators ») peuvent joindre des ordinateurs au domaine. En outre, les utilisateurs de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
@@ -47,7 +51,7 @@ Non. Dans la mesure où il s’agit d’un service géré, aucun privilège d’
 Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez toutefois modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Ces modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
 
 
-### 3\. Facturation et disponibilité
+### Facturation et disponibilité
 
 #### Ce service est-il payant ?
 Le service est disponible à un prix réduit spécial pour la durée de la période d’évaluation publique. Il sera facturé à taux plein une fois qu’il sera mis à la disposition générale. Pour plus d’informations, consultez la page relative aux prix appliqués.
@@ -64,4 +68,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

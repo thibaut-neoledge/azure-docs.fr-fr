@@ -14,13 +14,13 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="10/19/2015"
    ms.author="cherylmc"/>
 
 # Configurer un réseau virtuel pour ExpressRoute
 
-Cette procédure explique pas à pas comment configurer un réseau virtuel et une passerelle à utiliser avec ExpressRoute à l’aide du modèle de déploiement classique. Cette configuration n’est pas prise en charge pour les réseaux virtuels et les passerelles créés à l’aide du modèle Gestionnaire des ressources. Quand la documentation sera disponible, nous insérerons un lien dans cette page.
- 
+Cette procédure explique pas à pas comment configurer un réseau virtuel et une passerelle à utiliser avec ExpressRoute à l’aide du modèle de déploiement classique et de Service Management. Actuellement, nous n’avons pas de documentation indiquant comment configurer un réseau virtuel pour ExpressRoute à l’aide du modèle de déploiement de Resource Manager. Quand nous publierons un article, nous ajouterons un lien vers ce dernier.
+
 >[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, voir [Modèles de déploiement Azure](../azure-classic-rm.md).
 
 1. Connectez-vous au **portail Azure**.
@@ -60,14 +60,14 @@ Cette procédure explique pas à pas comment configurer un réseau virtuel et un
 
 10. Lorsque la création de la passerelle démarre, un message s'affiche pour vous indiquer le démarrage de la passerelle. La création de la passerelle peut durer jusqu'à 15 minutes.
 
-11. Liez votre réseau à un circuit. Suivez les instructions de l’article [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnets-classic.md).
+11. Liez votre réseau à un circuit. Suivez les instructions de l’article [Liaison de réseaux virtuels à des circuits ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 ## Étapes suivantes
 
-- Si vous souhaitez ajouter des machines virtuelles à votre réseau virtuel, consultez la rubrique [Création d’une machine virtuelle personnalisée](../virtual-machines-create-custom.md).
+- Si vous souhaitez ajouter des machines virtuelles à votre réseau virtuel, consultez [Parcours d’apprentissage de Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
 - Pour plus d'informations sur ExpressRoute, consultez la rubrique [ExpressRoute - Aperçu technique](expressroute-introduction.md).
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Chiffrement dynamique : configurer la stratégie d'autorisation de clé de contenu à l'aide de .NET" 
-	description="Apprenez à configurer une stratégie d’autorisation pour une clé de contenu." 
+	pageTitle="Configurer la stratégie d’autorisation de clé de contenu à l’aide du Kit de développement logiciel (SDK).NET Media Services" 
+	description="Apprenez à configurer une stratégie d’autorisation pour une clé de contenu avec le Kit de développement logiciel (SDK) .NET Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 
@@ -403,4 +403,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 La stratégie d'autorisation de la clé de contenu étant configurée, consultez la rubrique [Comment configurer une stratégie de remise de ressources](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

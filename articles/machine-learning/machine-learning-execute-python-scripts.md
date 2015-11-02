@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Exécution des scripts d’apprentissage automatique Python | Microsoft Azure" 
 	description="Décrit les principes de conception sous-jacents de la prise en charge des scripts Python dans Azure Machine Learning, les scénarios d’utilisation, les fonctionnalités et les restrictions de base." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
+	keywords="apprentissage automatique Python, pandas, pandas de python, scripts python, exécuter des scripts python"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -174,4 +174,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

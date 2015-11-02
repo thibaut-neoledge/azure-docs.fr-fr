@@ -20,6 +20,26 @@
 
 # Notes de publication pour les composants Hadoop sur Azure HDInsight
 
+## Notes pour la version du 20/10/2015 de HDInsight
+
+Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
+
+* HDInsight 2.1.10.716.1846990 (Windows) (HDP 1.3.12.0-01795 - inchangée)
+* HDInsight 3.0.6.716.1846990 (Windows) (HDP 2.0.13.0-2117 - inchangée)
+* HDInsight 3.1.4.716.1846990 (Windows) (HDP 2.1.16.0-2374)
+* HDInsight 3.2.7.716.1846990 (Windows) (HDP 2.2.7.1-0004)
+* HDInsight 3.2.1000.0.5930166 (Linux) (HDP 2.2.7.1-0004)
+* Kit de développement logiciel (SDK) 1.5.8
+
+Cette version contient les mises à jour suivantes.
+
+| Intitulé | Description | Zone concernée (par exemple, Service, composant ou Kit de développement logiciel) | Type de cluster (par exemple, Hadoop, HBase ou Storm) | JIRA (le cas échéant) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Version HDP par défaut passée à HDP 2.2 | La version par défaut pour les clusters HDInsight Windows passe à HDP 2.2. HDInsight version 3.2 (HDP 2.2) est disponible depuis février 2015. Cette modification permet uniquement de basculer vers la version de cluster par défaut quand aucune sélection explicite n'a été effectuée lors de l’approvisionnement du cluster à l'aide du portail Azure, des applets de commande PowerShell ou du Kit de développement logiciel (SDK). | de diffusion en continu | Tout| N/A |
+|Modifications apportées au format des noms de machines virtuelles pour le déploiement de plusieurs HDInsight sur des clusters Linux d’un même réseau virtuel | Cette version prend en charge le déploiement de plusieurs clusters Linux HDInsight sur un même réseau virtuel. Dans ce cas, le format de nom des machines virtuelles du cluster est passé de headnode*, workernode* et zookeepernode* à hn*, wn* et zk*, respectivement. Il est déconseillé d’établir une dépendance directe sur le format des noms de machines virtuelles car ces noms sont susceptibles d’être modifiés. Utilisez « hostname -f » sur l'ordinateur local ou des API Ambari pour déterminer la liste des hôtes et le mappage des composants aux hôtes. Pour plus d’informations, consultez [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/hosts.md) et [https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/host-components.md). | de diffusion en continu | Clusters HDInsight sur Linux | N/A |
+| Modifications de configuration | Pour les clusters HDInsight 3.1, les configurations suivantes sont maintenant activées : <ul><li>tez.yarn.ats.enabled et yarn.log.server.url. Cela permet à Application Timeline Server et à Log Server de générer des journaux.</li></ul>Pour les clusters HDInsight 3.2, les configurations suivantes ont été modifiées : <ul><li>mapreduce.fileoutputcommitter.algorithm.version a été défini sur 2. Cela permet d'utiliser la version V2 de FileOutputCommitter.</li></ul> | de diffusion en continu | Tout | N/A |
+
+
 ## Notes relatives à la version du 09/09/2015 de HDInsight
 
 Les numéros de version complets des clusters HDInsight déployés avec cette version sont les suivants :
@@ -1346,4 +1366,4 @@ Les notes de publication des plateformes de données Hortonworks (HDP) utilisée
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

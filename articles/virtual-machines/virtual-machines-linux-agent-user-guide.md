@@ -21,6 +21,8 @@
 
 #Guide d'utilisateur de l'agent Linux Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Introduction
 
 L’agent Linux Azure (/usr/sbin/waagent) gère l’interaction entre la machine virtuelle et le contrôleur de structure Microsoft Azure. Il effectue les opérations suivantes :
@@ -212,7 +214,7 @@ Type : Boolean Valeur par défaut : y
 
 L'utilisateur peut activer ou désactiver la fonctionnalité d'approvisionnement dans l'agent. Les valeurs valides sont « y » ou « n ». Si l'approvisionnement est désactivé, les clés d'utilisateur et d'hôte SSH dans l'image sont conservées et toute configuration spécifiée dans l'API d'approvisionnement Azure est ignorée.
 
-**Remarque** : La valeur par défaut de ce paramètre est « n » dans les images Cloud Ubuntu qui utilisent cloud-init pour l’approvisionnement.
+**Remarque** : la valeur par défaut de ce paramètre est « n » dans les images cloud Ubuntu qui utilisent cloud-init pour l’approvisionnement.
 
 **Provisioning.DeleteRootPassword :**
 
@@ -318,4 +320,4 @@ Notez que les images cloud Ubuntu utilisent [Cloud-init](https://launchpad.net/u
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

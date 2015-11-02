@@ -17,14 +17,18 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Exemples de configuration d'extension de machine virtuelle Windows Azure.
+# Exemples de configuration d’extension de machine virtuelle Microsoft Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+
+
 
 Cet article présente un exemple de configuration des extensions de machine virtuelle Azure pour les machines virtuelles Windows.
 
 
 Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
 
-Pour plus d’informations sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
+Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Windows.
 
@@ -281,7 +285,7 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
 
 ### Azure Diagnostics
 
-Cliquez ici pour une vue d’ensemble de l’[extension Azure Diagnostics](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Cliquez ici pour une vue d’ensemble de l’[extension diagnostics Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -304,4 +308,4 @@ Voici un exemple de modèle de machine virtuelle complet avec l’extension de s
 
 [Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

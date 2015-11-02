@@ -73,7 +73,7 @@ Pour mieux comprendre, examinons un exemple :
 
 Lorsque vous appelez **IoTHubClient\_SendEventAsync**, vous mettez en fait un événement en mémoire tampon. Le thread d’arrière-plan créé lorsque vous appelez **IoTHubClient\_CreateFromConnectionString** surveille en continu ce tampon et envoie toutes les données qu’il contient à IoT Hub. Cela se produit en arrière-plan, pendant que le thread principal exécute une autre tâche.
 
-De même, lorsque vous enregistrez une fonction de rappel pour les messages à l’aide de **IoTHubClient\_SetMessageCallback**, vous mettez en file d’attente le kit de développement logiciel lorsqu’un message est reçu indépendamment du thread principal.
+De même, quand vous enregistrez une fonction de rappel pour les messages à l’aide de **IoTHubClient\_SetMessageCallback**, vous indiquez au kit de développement logiciel (SDK) que le thread d’arrière-plan doit appeler la fonction de rappel quand un message est reçu, indépendamment du thread principal.
 
 Les API « LL » ne créent pas un thread d’arrière-plan. Au lieu de cela, une nouvelle API doit être appelée explicitement pour envoyer et recevoir des données de la part d’IoT Hub. Une fois encore, examinons un exemple...
 
@@ -237,7 +237,7 @@ En fait, les arguments de **IoTHubClient\_CreateFromConnectionString** correspon
 
 > HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 
-Il existe ici quatre éléments d’information : le nom IoT Hub, le suffixe IoT Hub, l’ID de périphérique et la clé d’accès partagé. Vous obtenez le nom de domaine complet (FQDN) d’un concentrateur IoT lorsque vous créez une instance de concentrateur IoT dans le portail de gestion Azure. Vous obtenez ainsi le nom IoT Hub (la première partie du nom de domaine complet) et le suffixe IoT Hub (le reste du nom de domaine complet). L’ID de périphérique et la clé d’accès partagé vous sont fournis lorsque vous inscrivez votre périphérique avec IoT Hub (comme décrit dans l’[article précédent](iot-hub-device-sdk-c-intro.md)).
+Il existe ici quatre éléments d’information : le nom IoT Hub, le suffixe IoT Hub, l’ID de périphérique et la clé d’accès partagé. Vous obtenez le nom de domaine complet (FQDN) d’un hub IoT lorsque vous créez une instance de hub IoT dans le portail de gestion Azure. Vous obtenez ainsi le nom IoT Hub (la première partie du nom de domaine complet) et le suffixe IoT Hub (le reste du nom de domaine complet). L’ID de périphérique et la clé d’accès partagé vous sont fournis lorsque vous inscrivez votre périphérique avec IoT Hub (comme décrit dans l’[article précédent](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** vous propose une façon d’initialiser la bibliothèque. Mais si vous préférez, vous pouvez créer un nouvel élément **IOTHUB\_CLIENT\_HANDLE** à l’aide de ces paramètres individuels plutôt que la chaîne de connexion. Remplacez-la par le code suivant :
 
@@ -276,4 +276,4 @@ Il est important de connaître l’option de traitement par lot. Par défaut, la
 
 Cet article détaille le comportement de la bibliothèque **IoTHubClient** se trouvant dans le **kit de développement logiciel d’appareil Azure IoT pour C **. Ces informations doivent vous permettre de bien comprendre les fonctionnalités de la bibliothèque **IoTHubClient**. Dans le [prochain article](iot-hub-device-sdk-c-serializer.md), nous allons fournir des détails similaires sur la bibliothèque **serializer**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

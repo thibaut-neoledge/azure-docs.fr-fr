@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Notes de publication pour Application Insights pour Java" 
-	description="Les dernières mises à jour." 
+	description="Les dernières mises à jour pour le Kit de développement logiciel (SDK) Java." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -68,4 +68,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

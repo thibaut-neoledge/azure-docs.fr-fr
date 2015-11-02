@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="10/19/2015"
    ms.author="tomfitz"/>
 
-# Prise en charge d’Azure Resource Manager pour les services et les régions
+# Prise en charge de Resource Manager pour les services, les régions et les versions API
 
 Azure Resource Manager vous offre un nouveau moyen de déployer et gérer les services qui composent vos applications. La plupart des services (mais pas tous) offrent une prise en charge complète ou partielle de Resource Manager. Microsoft prévoit d’activer Resource Manager pour les principaux services dans les solutions futures. En attendant que ce processus soit terminé, il est important pour vous de connaître l’état actuel de la prise en charge pour chaque service. Cette rubrique répertorie les fournisseurs de ressources pris en charge pour Azure Resource Manager.
 
-Quand vous déployez vos ressources, vous avez également besoin de connaître les régions qui prennent en charge ces ressources. La section [Régions prises en charge](#supported-regions) vous explique comment trouver les régions dans lesquelles vous pourrez utiliser votre abonnement et vos ressources.
+Quand vous déployez vos ressources, vous avez également besoin de connaître les régions qui prennent en charge ces ressources et quelles versions d'API sont disponibles pour les ressources. La section [Régions prises en charge](#supported-regions) vous explique comment trouver les régions dans lesquelles vous pourrez utiliser votre abonnement et vos ressources. La section [Versions d'API prises en charge](#supported-api-versions) vous explique comment déterminer les versions d'API que vous pouvez utiliser.
 
 Les tableaux suivants indiquent si les services répertoriés prennent en charge ou non le déploiement et la gestion via Resource Manager. La colonne intitulée **Déplacer des ressources** indique si les ressources du type en question peuvent être déplacées vers un nouveau groupe de ressources et un nouvel abonnement. La colonne intitulée **Portail en version préliminaire** indique si vous pouvez créer le service par le biais du portail en version préliminaire.
 
@@ -32,9 +32,9 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Virtual Machines | Oui | Oui | Non | [Créer une machine virtuelle](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Oui | Non | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Oui | Non | | | |
-| Virtual Machines (classic) | Limité | Non | Partiel (voir ci-dessous) | - | - | | Remote App | Non | - | - | - | - | | Service Fabric | Non | - | - | - | - |
+| Virtual Machines (classic) | Limité | Oui | Partiel (voir ci-dessous) | - | - | | Remote App | Non | - | - | - | - | | Service Fabric | Non | - | - | - | - |
 
-Virtual Machines (classic) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
+Virtual Machines (classic) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d'informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
 Les ressources Virtual Machines (classic) peuvent être déplacées vers un nouveau groupe de ressources, mais pas vers un nouvel abonnement.
 
@@ -86,7 +86,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Load Balancer | Oui | | | [Créer un équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Virtual Network | Oui | Oui | Non | [Créer un réseau virtuel](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
 | Traffic Manager | Oui | Non | | [Créer un profil Traffic Manager](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| Express Route | Non | Non | - | - | - |
+| ExpressRoute | Oui | Non | Non | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Média et CDN
 
@@ -135,11 +135,11 @@ Avant de déployer vos ressources, vérifiez quelles régions sont prises en cha
 
 ### API REST
 
-La meilleure façon de découvrir quelles régions sont disponibles pour un type de ressource particulier est d’utiliser l’opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx). Cette opération affiche uniquement les régions disponibles pour votre abonnement et votre type de ressource.
+Pour découvrir quelles régions sont disponibles pour un type de ressource particulier dans votre abonnement, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d’informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
+L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d'informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -165,7 +165,7 @@ L’exemple suivant affiche la liste de tous les emplacements pris en charge pou
 
     azure location list
 
-Vous pouvez également filtrer les emplacements répertoriés à l’aide d’un outil tel que **jq**. Pour en savoir plus sur les outils comme jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Vous pouvez également filtrer les emplacements répertoriés à l'aide d'un outil tel que **jq**. Pour en savoir plus sur les outils tels que jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -177,4 +177,44 @@ Résultat :
             North Europe,South Central US,West Europe,West US,Southeast Asia,Central US,East US 2"
     }
 
-<!---HONumber=Oct15_HO3-->
+## Versions d'API prises en charge
+
+Lorsque vous déployez un modèle, vous devez spécifier une version de l'API à utiliser pour créer chaque ressource. La version de l'API correspond à une version des opérations de l'API REST publiées par le fournisseur de ressources. Lorsqu'un fournisseur de ressources active de nouvelles fonctionnalités, une nouvelle version de l'API REST sera publiée. Par conséquent, la version de l'API que vous spécifiez dans votre modèle affecte les propriétés que vous pouvez définir dans le modèle. En général, vous devez sélectionner la version de l'API la plus récente lorsque vous créez de nouveaux modèles. Pour les modèles existants, vous pouvez choisir soit de continuer d’utiliser une version de l'API antérieure, soit de mettre à jour votre modèle à la dernière version afin de tirer parti des nouvelles fonctionnalités.
+
+### API REST
+
+Pour découvrir quelles versions de l'API sont disponibles pour les types de ressources, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+
+### PowerShell
+
+L'exemple suivant montre comment obtenir les versions de l'API disponibles pour un type de ressource spécifique à l'aide d'Azure PowerShell 1.0 en version préliminaire.
+
+    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+    
+La sortie doit ressembler à ceci :
+    
+    2015-08-01
+    2015-07-01
+    2015-06-01
+    2015-05-01
+    2015-04-01
+    2015-02-01
+    2014-11-01
+    2014-06-01
+    2014-04-01-preview
+    2014-04-01
+
+### Interface de ligne de commande Azure
+
+Vous pouvez enregistrer les informations (y compris les versions disponibles de l'API) pour un fournisseur de ressources dans un fichier avec la commande suivante.
+
+    azure provider show Microsoft.Web -vv --json > c:\temp.json
+
+Vous pouvez ouvrir le fichier et trouver l'élément **apiVersions**
+
+## Étapes suivantes
+
+- Pour en savoir plus sur la création de modèles Resource Manager, consultez la section [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour savoir comment déployer des ressources, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](./azure-portal/resource-group-template-deploy.md).
+
+<!---HONumber=Oct15_HO4-->

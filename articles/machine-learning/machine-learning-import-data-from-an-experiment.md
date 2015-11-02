@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Importer des données dans Machine Learning Studio à partir d’une autre expérience | Microsoft Azure"
 	description="Comment enregistrer des données d’apprentissage dans Azure Machine Learning Studio et les utiliser dans une autre expérience"
-	keywords="import data,data,data sources,training data"
+	keywords="importer des données,données,sources de données,données d’apprentissage"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -35,4 +35,4 @@ Il se peut que vous ayez parfois besoin d’obtenir un résultat intermédiaire 
 
 Lorsque l'enregistrement est terminé, le jeu de données sera disponible pour être utilisé dans n'importe quelle expérience dans votre espace de travail. Vous pouvez le trouver dans la liste **Jeux de données enregistrés** dans la palette des modules.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

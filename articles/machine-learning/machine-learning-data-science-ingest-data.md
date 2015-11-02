@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ingestion de données | Microsoft Azure" 
+	pageTitle="Charger des données dans des environnements de stockage à des fins d’analyse | Microsoft Azure" 
 	description="Déplacer des données vers et depuis un stockage Azure Blob" 
 	services="machine-learning,storage" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/19/2015" 
 	ms.author="bradsev" />
 
-# Réception de données
+# Charger des données dans des environnements de stockage à des fins d’analyse
 
 ## Introduction
 
@@ -28,4 +28,4 @@ Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les donné
 
 Les besoins techniques et ceux de l’entreprise, ainsi que l’emplacement initial, le format et la taille de vos données déterminent l’environnement cible dans lequel les données doivent être reçues pour atteindre les objectifs de votre analyse. Il n’est pas rare pour un scénario d’exiger le déplacement des données entre plusieurs environnements pour arriver à effectuer les différentes tâches nécessaires pour construire un modèle prédictif. Cette suite de tâches peut par exemple inclure l’exploration des données, leur prétraitement, leur nettoyage, l’échantillonnage et l’apprentissage du modèle.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

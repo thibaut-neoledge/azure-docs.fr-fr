@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Prévention des suppressions accidentelles
@@ -39,13 +39,13 @@ Si l'événement n'était pas prévu, examinez la situation et corrigez-la si n�
 
 Si vous souhaitez que tous les éléments soient supprimés, procédez comme suit :
 
-1. Pour désactiver temporairement cette protection et procéder à ces suppressions exécutez l'applet de commande PowerShell `Disable-ADSyncExportDeletionThreshold`
-2. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l'action **Exécuter**, puis **Exporter**.
-3. Pour réactiver la protection, exécutez l'applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold`
+1. Pour désactiver temporairement cette protection et procéder à ces suppressions exécutez l’applet de commande PowerShell `Disable-ADSyncExportDeletionThreshold`. En guise d’informations d’identification, indiquez un compte et un mot de passe d’administrateur général Azure AD. ![Informations d'identification](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
+2. Tout en maintenant le connecteur Azure Active Directory sélectionné, sélectionnez l’action **Exécuter**, puis **Exporter**.
+3. Pour réactiver la protection, exécutez l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold`.
 
 ## Étapes suivantes
 En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

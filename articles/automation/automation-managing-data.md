@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gestion des données Azure Automation"
+   pageTitle="Gestion des données Azure Automation | Microsoft Azure"
    description="Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation. Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d'urgence dans Azure Automation."
    services="automation"
    documentationCenter=""
@@ -62,14 +62,9 @@ Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez 
 
 ##Géo-réplication dans Azure Automation
 
-Azure Automation prend en charge la géo-réplication. Avec la géo-réplication, Azure Automation conserve désormais vos données durables dans deux régions. Lorsque vous créez un compte Automation dans le portail Azure, vous choisissez la région où ce compte doit être créé, c’est-à-dire la région primaire. La région où vos données sont géo-répliquées correspond à la région secondaire. Les régions primaires et secondaires communiquent entre elles pour géo-répliquer les mises à jour apportées au compte Automation. Comme la région secondaire conserve une copie des données, en cas de basculement d'un compte Automation à partir de la région primaire vers la région secondaire, toutes les informations de votre compte Automation resteront disponibles dans la région secondaire.
+La géo-réplication, fonction standard dans les comptes Azure Automation, sauvegarde les données de compte dans une région géographique différente à des fins de redondance. Vous pouvez choisir une région primaire quand vous configurez votre compte ; une région secondaire lui est ensuite automatiquement affectée. Les données secondaires, copiées à partir de la région primaire, sont mises à jour en permanence en cas de perte de données.
 
-La géo-réplication est intégrée aux comptes Automation et est fournie gratuitement. Vous n’avez pas la possibilité de choisir la région secondaire car elle est automatiquement déterminée en fonction de la région primaire sélectionnée.
-
- 
-###Emplacement des géo-réplicas
-
-Actuellement, des comptes Automation peuvent être créés dans les cinq régions ci-dessous, et d’autres régions seront prises en charge prochainement. Le tableau suivant montre les paires de régions primaires et secondaires.
+Le tableau suivant montre les paires de régions primaires et secondaires disponibles.
 
 |Primaire |Secondaire
 | ---------------   |----------------
@@ -79,9 +74,6 @@ Actuellement, des comptes Automation peuvent être créés dans les cinq région
 |Asie du Sud-Est |Asie de l'Est
 |Est du Japon |Ouest du Japon
 
+Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 
-###Récupération d'urgence dans Azure Automation
-
-Lorsqu'un incident majeur affecte la région primaire, l'équipe Automation tente tout d’abord de restaurer cette région primaire. Dans certains cas, lorsqu'il n'est pas possible de restaurer la région primaire, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuration de la stratégie d’autorisation de clé de contenu à l’aide de REST" 
-	description="Apprenez à configurer une stratégie d’autorisation pour une clé de contenu." 
+	pageTitle="Configurer la stratégie d’autorisation de clé de contenu à l’aide de l’API REST Media Services" 
+	description="Apprenez à configurer une stratégie d’autorisation pour une clé de contenu avec l’API REST Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@ La stratégie d'autorisation de la clé de contenu étant configurée, consultez
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

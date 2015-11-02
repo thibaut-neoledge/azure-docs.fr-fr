@@ -5,17 +5,23 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Connecter plusieurs sites locaux à un réseau virtuel
+
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+
+Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique (gestion des services).
 
 Vous pouvez connecter plusieurs sites locaux à un même réseau virtuel. Cela est particulièrement intéressant pour la création de solutions de cloud hybrides. La création d’une connexion sur plusieurs sites à votre passerelle de réseau virtuel Azure est très similaire à la création d’autres connexions de site à site. En fait, vous pouvez utiliser une passerelle VPN Azure existante, dans la mesure où vous disposez d’une passerelle VPN basée sur un itinéraire (ou routage dynamique) configurée pour votre réseau virtuel.
 
@@ -33,11 +39,11 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 - Un abonnement Azure. Si vous ne possédez pas déjà un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou vous inscrire à une [évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-- Matériel VPN compatible pour chaque emplacement local. Consultez [À propos des périphériques VPN pour la connectivité au réseau virtuel](http://go.microsoft.com/fwlink/p/?linkid=615099) pour vérifier si le périphérique que vous souhaitez utiliser est bien compatible.
+- Matériel VPN compatible pour chaque emplacement local. Consultez [À propos des périphériques VPN pour la connectivité au réseau virtuel](http://go.microsoft.com/fwlink/p/?linkid=615099) pour vérifier si l’appareil que vous souhaitez utiliser est bien compatible.
 
 - Une adresse IP IPv4 publique exposée en externe pour chaque périphérique VPN. L’adresse IP ne peut pas se trouver derrière un NAT. Cela est obligatoire.
 
--   La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la page [Téléchargement](http://azure.microsoft.com/downloads/).
+-   La version la plus récente des applets de commande Azure PowerShell. Vous pouvez télécharger et installer la dernière version à partir de la section Windows PowerShell de la page [Téléchargements](http://azure.microsoft.com/downloads/).
 
 - Un expert en matière de configuration du matériel VPN. Vous ne pourrez pas utiliser les scripts VPN générés automatiquement à partir du portail de gestion pour configurer vos périphériques VPN. Cela signifie que vous devez avoir une bonne maîtrise de la façon de configurer votre périphérique VPN ou collaborer avec quelqu’un disposant des connaissances nécessaires.
 
@@ -49,9 +55,9 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 1. **Créez un VPN de site à site avec une passerelle de routage dynamique.** Si vous en avez déjà un, très bien ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Puis, procédez ainsi :
 
-	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :****1.** Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, consultez[Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md).
+	**Si vous disposez déjà d’un réseau virtuel de site à site, mais qu’il est doté d’une passerelle de routage statique :** **1.** Modifiez le type de passerelle en routage dynamique. Un VPN multisite requiert une passerelle de routage dynamique. Pour modifier le type de passerelle, vous devez d’abord supprimer la passerelle existante, puis en créer une nouvelle. Pour obtenir des instructions, consultez [Modifier un type de routage de passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md/#how-to-change-your-vpn-gateway-type). **2.** Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md).
 	
-	**Si vous n’avez pas de réseau virtuel de site à site :****1.** Créez votre réseau virtuel de site à site en suivant cette procédure :[Créer un réseau virtuel avec une connexion VPN de site à site dans le portail de gestion](vpn-gateway-site-to-site-create.md). **2.** Configurez une passerelle de routage dynamique en suivant cette procédure :[Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
+	**Si vous n’avez pas de réseau virtuel de site à site :** **1.** Créez votre réseau virtuel de site à site en suivant cette procédure : [Créer un réseau virtuel avec une connexion VPN de site à site dans le portail de gestion](vpn-gateway-site-to-site-create.md). **2.** Configurez une passerelle de routage dynamique en suivant cette procédure : [Configurer une passerelle VPN dans le portail de gestion](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 
 
@@ -171,4 +177,4 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 Pour en savoir plus sur les passerelles VPN, consultez [À propos des passerelles VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

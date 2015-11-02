@@ -207,20 +207,24 @@ Jusqu’à présent, vous avez créé des services liés et des tables d’entr�
 
 21. Dans la page Configurer une fabrique de données, procédez comme suit :
 	1. Sélectionnez l'option **Créer une fabrique de données**.
-	2. Entrez **VSTutorialFactory** comme **Nom**.
-	3. Sélectionnez l'abonnement correct dans le champ **Abonnement**. 
+	2. Entrez **VSTutorialFactory** comme **Nom**.  
+	
+		> [AZURE.NOTE]Le nom de la fabrique de données Azure doit être un nom global unique. Si vous obtenez une erreur au sujet du nom de la fabrique de données pendant la publication, modifiez le nom de la fabrique de données (par exemple, votrenomVSTutorialFactory) et renouvelez la publication. Consultez la rubrique [Data Factory - Règles d'affectation des noms](data-factory-naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
+		> 
+		> Le nom de la fabrique de données pourra être enregistré en tant que nom DNS et devenir ainsi visible publiquement.
+	3. Sélectionnez l’abonnement correct dans le champ **Abonnement**. 
 	4. Sélectionnez le **groupe de ressources** pour la fabrique de données à créer. 
 	5. Sélectionnez la **région** pour la fabrique de données. 
 	6. Cliquez sur **Suivant** pour basculer vers la page **Publier des éléments**. 
 23. Dans la page **Publier des éléments**, vérifiez que toutes les entités de fabriques de données sont sélectionnées, puis cliquez sur **Suivant** pour basculer vers la page **Résumé**.     
-24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l'**état du déploiement**.
-25. Dans la page **État du déploiement**, vous devez voir l'état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
+24. Passez en revue le résumé, puis cliquez sur **Suivant** pour démarrer le processus de déploiement et afficher l’**état du déploiement**.
+25. Dans la page **État du déploiement**, vous devez voir l’état du processus de déploiement. Une fois le déploiement terminé, cliquez sur Terminer. 
 
 
 ## Utiliser l’Explorateur de serveurs pour passer en revue les entités Data Factory
 
 1. Dans **Visual Studio**, cliquez sur **Affichage** dans le menu, puis sur **Explorateur de serveurs**.
-2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L'état de cette opération s'affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
+2. Dans la fenêtre Explorateur de serveurs, développez **Azure** et **Data Factory**. Si la boîte de dialogue **Se connecter à Visual Studio** est affichée, entrez le **compte** associé à votre abonnement Azure, puis cliquez sur **Continuer**. Entrez le **mot de passe**, puis cliquez sur **Se connecter**. Visual Studio essaie d’obtenir des informations sur toutes les fabriques de données Azure contenues dans votre abonnement. L’état de cette opération s’affiche dans la fenêtre **Liste des tâches de Data Factory**. ![Explorateur de serveurs](./media/data-factory-get-started-using-vs/server-explorer.png)
 3. Vous pouvez cliquer avec le bouton droit sur une fabrique de données et sélectionner Exporter la fabrique de données vers le nouveau projet pour créer un projet Visual Studio basé sur une fabrique de données existante. ![Exporter la fabrique de données vers un projet Visual Studio](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Mettre à jour des outils Data Factory pour Visual Studio
@@ -236,4 +240,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-star
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

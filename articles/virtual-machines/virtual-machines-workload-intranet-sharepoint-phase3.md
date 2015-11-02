@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Phase 3 de la charge de travail de la batterie de serveurs SharePoint intranet : Configuration de l’infrastructure SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Modèle de déploiement Resource Manager.
 
 Au cours de la phase de déploiement d’une batterie de serveurs SharePoint 2013 intranet uniquement avec les groupes de disponibilité SQL Server AlwaysOn dans les services d’infrastructure Azure, vous créez et configurez les deux ordinateurs SQL Server et l’ordinateur du nœud majoritaire du cluster dans la gestion des services, puis vous les combinez dans un cluster Windows Server.
 
@@ -144,7 +143,7 @@ Utilisez la procédure suivante à deux reprises, une fois pour chaque machine S
 
 SQL Server nécessite un port permettant d’accéder au serveur de base de données. Il requiert également des ports pour la connexion à SQL Server Management Studio et la gestion du groupe à haute disponibilité. Exécutez ensuite la commande ci-après à partir d’une invite de commandes Windows PowerShell au niveau administrateur à deux reprises (une fois pour chaque machine SQL Server) afin d’ajouter une règle de pare-feu autorisant le trafic entrant vers la machine SQL Server.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 Pour chacune des machines virtuelles SQL Server, déconnectez-vous en tant qu’administrateur local.
 
@@ -164,7 +163,7 @@ Les groupes de disponibilité SQL Server AlwaysOn s’appuient sur la fonction
 - la machine SQL Server secondaire ;
 - le nœud majoritaire du cluster.
 
-Le cluster de basculement nécessite au moins trois machines virtuelles. Deux machines hébergent SQL Server. La deuxième machine virtuelle SQL Server est un réplica secondaire synchrone qui évite toute perte de données en cas de défaillance de la machine principale. La troisième machine n’a pas besoin d’héberger SQL Server. Le nœud majoritaire du cluster fonctionne comme un témoin du quorum dans le WSFC. Étant donné que le cluster WSFC s’appuie sur un quorum pour surveiller l’intégrité des données, une majorité doit toujours garantir la présence en ligne du cluster WSFC. Si seules deux machines se trouvent dans le cluster, et si l’une d’entre elles tombe en panne, il ne peut y avoir aucune majorité, car seule l’une des deux machines présente une défaillance. Pour plus d’informations, consultez [Modes de quorum WSFC et configuration de vote (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+Le cluster de basculement nécessite au moins trois machines virtuelles. Deux machines hébergent SQL Server. La deuxième machine virtuelle SQL Server est un réplica secondaire synchrone qui évite toute perte de données en cas de défaillance de la machine principale. La troisième machine n’a pas besoin d’héberger SQL Server. Le nœud majoritaire du cluster fournit un quorum dans le clustering de basculement Windows Server (WSFC). Étant donné que le cluster WSFC s’appuie sur un quorum pour surveiller l’intégrité des données, une majorité doit toujours garantir la présence en ligne du cluster WSFC. Si seules deux machines se trouvent dans le cluster, et si l’une d’entre elles tombe en panne, il ne peut y avoir aucune majorité, car seule l’une des deux machines présente une défaillance. Pour plus d’informations, consultez [Modes de quorum WSFC et configuration de vote (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 Pour les deux ordinateurs SQL Server et le nœud majoritaire du cluster, exécutez la commande suivante à partir de l’invite de commandes Windows PowerShell au niveau administrateur.
 
@@ -233,4 +232,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Prise en main : gestion des mots de passe Azure AD | Microsoft Azure"
-	description="Permettez à vos utilisateurs de réinitialiser eux-même leurs mots de passe, découvrez la configuration requise pour la réinitialisation du mot de passe et activez l’écriture différée pour gérer des mots de passe en local dans Active Directory."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Prise en main : gestion des mots de passe Azure AD | Microsoft Azure" 
+	description="Permettez à vos utilisateurs de réinitialiser eux-même leurs mots de passe, découvrez la configuration requise pour la réinitialisation du mot de passe et activez l’écriture différée pour gérer des mots de passe en local dans Active Directory." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Prise en main de la gestion de mot de passe
@@ -50,13 +50,13 @@ Avant de pouvoir activer et utiliser la réinitialisation du mot de passe libre-
 - Procédez à une mise à niveau vers Azure AD Premium ou Basic. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](http://azure.microsoft.com/pricing/details/active-directory/).
 
   >[AZURE.NOTE]Pour activer la réinitialisation du mot de passe libre-service, vous devez procéder à une mise à niveau vers Azure AD Premium ou Basic. Pour plus d’informations, consultez la page Éditions d’Azure Active Directory. Ces informations incluent des instructions détaillées sur l'inscription à Azure AD Premium ou Basic, l’activation d’un plan de licence et d’un accès Azure AD, mais aussi l’attribution d’accès aux comptes administrateur et utilisateur.
-
+  
 - Créez au moins un compte d’administrateur et un compte d’utilisateur dans votre annuaire AAD.
 - Attribuez une licence AAD Premium ou Basic aux comptes d’administrateur et d’utilisateur que vous avez créés.
 
 ### Étape 1 : configuration de la stratégie de réinitialisation du mot de passe
 Pour configurer la stratégie de réinitialisation du mot de passe utilisateur, procédez comme suit :
-
+ 
 1.	Ouvrez le navigateur de votre choix et accédez au [portail de gestion Azure](https://manage.windowsazure.com).
 2.	Dans la barre de navigation à gauche du [portail de gestion Azure](https://manage.windowsazure.com), recherchez l’**extension Active Directory**.
 
@@ -179,16 +179,16 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
 - Vous avez au moins un compte d’administrateur et un compte d’utilisateur de test avec une licence Azure AD Premium que vous pouvez utiliser pour tester cette fonctionnalité. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
   >[AZURE.NOTE]Assurez-vous que le compte d’administrateur que vous utilisez pour activer l’écriture différée de mot de passe est un compte d’administrateur cloud (créé dans Azure AD) et non pas un compte fédéré (créé dans un AD local et synchronisé dans Azure AD).
-
+  
 - Vous avez un déploiement local d’AD pour une forêt unique ou des forêts multiples exécutant Windows Server 2008, Windows Server 2008 R2, Windows Server 2012 ou Windows Server 2012 R2 dotés des derniers Service Packs.
 
   >[AZURE.NOTE]Si vous exécutez une version antérieure de Windows Server 2008 ou 2008 R2, vous pouvez toujours utiliser cette fonctionnalité, mais vous devez [télécharger et installer la mise à jour KB 2386717](https://support.microsoft.com/kb/2386717) avant de pouvoir appliquer votre stratégie de mot de passe AD locale dans le cloud.
-
+  
 - Vous avez installé l’outil Azure AD Connect et vous avez préparé votre environnement AD pour la synchronisation dans le cloud. Pour plus d’informations, consultez la page [Utilisation de votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md).
 - Si vous utilisez DirSync, vous devez vérifier que le pare-feu de votre organisation est configuré pour bloquer les connexions sortantes et débloquer **le port TCP 828 ou 818** afin d’activer et d’utiliser l’écriture différée de mot de passe. Si vous utilisez Azure AD Sync ou Azure AD Connect, cette étape est facultative, puisque seul le port sortant **TCP 443** (et dans certains cas les ports **TCP 9350 à 9354**) doit être ouvert.
 
   >[AZURE.NOTE]Nous recommandons fortement à tous les utilisateurs des outils Azure AD Sync ou DirSync de procéder à une mise à niveau vers la dernière version d’Azure AD Connect pour s’assurer de bénéficier des meilleures conditions d’utilisation possibles et des fonctionnalités les plus récentes dès leur publication.
-
+  
 
 ### Étape 1 : téléchargement de la dernière version d’Azure AD Connect
 L’écriture différée de mot de passe est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0419.0911**. L’écriture différée de mot de passe avec déverrouillage de compte automatique est intégrée à Azure AD Connect et à l’outil Azure AD Sync à partir de la version **1.0.0485.0222**. Si vous exécutez une version antérieure, veuillez procéder à la mise à niveau vers cette version ou une version ultérieure avant de continuer. [Cliquez ici pour télécharger la dernière version d’Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect).
@@ -242,13 +242,19 @@ Une fois que vous avez activé l’écriture différée de mot de passe dans l�
 
 1.	Une fois l’installation terminée, si vous bloquez les connexions sortantes inconnues dans votre environnement, vous devez également ajouter les règles suivantes à votre pare-feu. Assurez-vous de bien redémarrer votre ordinateur AAD Connect après avoir apporté ces modifications :
    - Autorisez les connexions sortantes sur le port TCP 443.
-   - Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/.
-   - Lorsque vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350 à 9534.
+   - Autorisez les connexions sortantes sur https://ssprsbprodncu-sb.accesscontrol.windows.net/. 
+   - Quand vous utilisez un proxy ou que vous rencontrez des problèmes de connectivités d’ordre général, autorisez les connexions sortantes sur les ports TCP 9350 à 9354.
 
 ### Étape 4 : définition des autorisations Active Directory adéquates
 Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent être réinitialisés, si X correspond au compte spécifié pour cette forêt dans l’Assistant Configuration (durant l’installation d’origine), X doit avoir les droits étendus **Réinitialiser le mot de passe**, **Modifier le mot de passe** et **Autorisations en écriture** sur `lockoutTime` et **Autorisations en écriture** sur `pwdLastSet` sur l’objet racine de chaque domaine dans cette forêt. Le droit doit être marqué comme hérité par tous les objets utilisateur.
 
-La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. Sans ces autorisations, même si l’écriture différée semblera configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud. Voici des instructions détaillées expliquant comment procéder en utilisant le composant logiciel enfichable de gestion **Utilisateurs et ordinateurs Active Directory** :
+Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option **Vérification de votre solution**. Le compte auquel vous devez ajouter des autorisations est souligné en rouge dans la capture d’écran ci-dessous.
+
+**<font color="red">Définissez cette autorisation pour chaque domaine dans chaque forêt dans votre système, afin que l’écriture différée du mot de passe fonctionne correctement.</font>**
+
+  ![][032]
+
+  La définition de ces autorisations permet au compte de service de l’agent de gestion de chaque forêt de gérer les mots de passe pour les comptes d’utilisateur de cette forêt. Sans ces autorisations, même si l’écriture différée semblera configurée correctement, les utilisateurs rencontreront des erreurs en essayant de gérer leurs mots de passe locaux à partir du cloud. Voici des instructions détaillées expliquant comment procéder en utilisant le composant logiciel enfichable de gestion **Utilisateurs et ordinateurs Active Directory** :
 
 >[AZURE.NOTE]La réplication de ces autorisations pour tous les objets peut durer jusqu’à une heure.
 
@@ -276,7 +282,7 @@ La définition de ces autorisations permet au compte de service de l’agent de 
 
 ### Étape 5 : réinitialisation de votre mot de passe AD en tant qu’utilisateur
 Maintenant que l’écriture différée de mot de passe a été activée, vous pouvez tester son fonctionnement en réinitialisant le mot de passe d’un utilisateur dont le compte a été synchronisé dans votre client cloud.
-
+ 
 #### Pour vérifier le bon fonctionnement de l’écriture différée de mot de passe
 1.	Accédez à [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com) ou dans n’importe quel écran de connexion d’ID d’organisation, cliquez sur le lien **Votre compte n’est pas accessible ?**.
 
@@ -292,7 +298,10 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
+
 
 **Ressources supplémentaires**
 
@@ -340,5 +349,6 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 [029]: ./media/active-directory-passwords-getting-started/029.jpg "Image_029.jpg"
 [030]: ./media/active-directory-passwords-getting-started/030.jpg "Image_030.jpg"
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
+[032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

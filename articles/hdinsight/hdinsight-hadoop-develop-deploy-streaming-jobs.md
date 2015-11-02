@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +34,7 @@ Ce didacticiel vous explique les procédures suivantes :
 - Exécution du même programme MapReduce sur Azure HDInsight
 - Extraction des résultats de la tâche MapReduce
 
-##<a name="prerequisites"></a>Configuration requise
+##Configuration requise
 
 Avant de commencer ce didacticiel, vous devez avoir effectué les tâches suivantes :
 
@@ -43,7 +43,7 @@ Avant de commencer ce didacticiel, vous devez avoir effectué les tâches suivan
 - Abonnement Azure actif. Pour obtenir des instructions, consultez les pages traitant des [options d'achat][azure-purchase-options], des [offres spéciales membres][azure-member-offers] ou de la [version d'évaluation gratuite][azure-free-trial].
 
 
-##<a name="develop"></a>Développement d’un programme de diffusion en continu Hadoop pour le comptage de mots dans C&#35;
+##Développement d’un programme de diffusion en continu Hadoop pour le comptage de mots en C&#35;
 
 La solution de comptage de mots contient deux projets d’application console : mappeur et raccord de réduction. L’application mappeur diffuse chaque mot dans la console et l’application raccord de réduction compte le nombre de mots diffusés depuis un document. Le mappeur et le raccord de réduction peuvent tous les deux lire les caractères à partir du flux d’entrée standard (stdin), puis écrire dans le flux de sortie standard (stdout).
 
@@ -156,7 +156,7 @@ Les exécutables mappeur et raccord de réduction sont situés sur :
 - C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
-##<a name="test"></a>Test du programme sur l’émulateur
+##Test du programme sur l'émulateur
 
 Effectuez les tâches suivantes pour tester le programme sur l’émulateur HDInsight :
 
@@ -288,7 +288,7 @@ Ce didacticiel utilise les fichiers .txt situés dans le répertoire %hadoop\_ho
 
 	Pour afficher la page, ajoutez « |more » à la fin de la commande.
 
-##<a id="upload"></a>Téléchargement de données vers le stockage d’objets blob Azure
+##Téléchargement de données vers le stockage d'objets blob Azure
 Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichiers par défaut. Vous pouvez configurer un cluster HDInsight pour utiliser un autre stockage d'objets blob pour les fichiers de données. Dans cette section, vous allez créer un compte de stockage Azure, puis télécharger les fichiers de données vers le stockage d’objets blob. Les fichiers de données sont des fichiers .txt dans le répertoire %hadoop\_home%\\share\\doc\\hadoop\\common.
 
 
@@ -377,7 +377,7 @@ Azure HDInsight utilise le stockage d'objets blob Azure comme système de fichie
 	Les deux fichiers d'application doivent être répertoriés ici.
 
 
-##<a name="run"></a>Exécution du programme MapReduce sur Azure HDInsight
+##Exécution du programme MapReduce sur Azure HDInsight
 
 Cette section fournit un script Azure PowerShell qui effectue toutes les tâches liées à l’exécution d’une tâche MapReduce. Liste des tâches incluses :
 
@@ -493,7 +493,7 @@ Cette section fournit un script Azure PowerShell qui effectue toutes les tâches
 Pour accéder à un exemple de Kit de développement logiciel (SDK) .NET HDInsight lors de l’envoi de tâches de diffusion en continu Hadoop, consultez la rubrique [Envoi de tâches Hadoop par programme][hdinsight-submit-jobs].
 
 
-##<a name="retrieve"></a>Extraction du résultat de la tâche MapReduce
+##Extraction du résultat de la tâche MapReduce
 Cette section montre comment télécharger et afficher le résultat. Pour obtenir des informations sur l’affichage des résultats dans Excel, consultez les rubriques [Connexion d’Excel à HDInsight avec le pilote ODBC Microsoft Hive][hdinsight-ODBC] et [Connexion d’Excel à HDInsight avec Power Query][hdinsight-power-query].
 
 
@@ -520,7 +520,7 @@ Cette section montre comment télécharger et afficher le résultat. Pour obteni
 
 
 
-##<a id="nextsteps"></a>Étapes suivantes
+##Étapes suivantes
 Dans ce didacticiel, vous avez appris à développer un travail MapReduce en Hadoop, à tester l’application sur l’émulateur HDInsight et à écrire un script Azure PowerShell pour approvisionner un cluster HDInsight et exécuter un travail MapReduce sur le cluster. Pour en savoir plus, consultez les articles suivants :
 
 - [Prise en main d’Azure HDInsight](../hdinsight-get-started.md)
@@ -555,4 +555,4 @@ Dans ce didacticiel, vous avez appris à développer un travail MapReduce en Had
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Flux de l’application de comptage de mots MapReduce"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

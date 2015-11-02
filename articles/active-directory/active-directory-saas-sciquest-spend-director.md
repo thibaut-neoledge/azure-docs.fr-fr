@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Didacticiel : Intégration d’Azure Active Directory avec SciQuest Spend Director"
+	pageTitle="Didacticiel : intégration d’Azure Active Directory à SciQuest Spend Director| Microsoft Azure"
 	description="Découvrez comment configurer l’authentification unique entre Azure Active Directory et SciQuest Spend Director."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -195,4 +195,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

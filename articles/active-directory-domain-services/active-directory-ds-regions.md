@@ -16,20 +16,8 @@
 	ms.date="10/12/2015"
 	ms.author="maheshu"/>
 
-# Services de domaine Azure AD *(version préliminaire)*
+# Services de domaine Azure AD *(version préliminaire)*
 
-## Régions Azure prises en charge
-Les services de domaine Azure Active Directory sont disponibles dans les régions Azure suivantes :
+Pour savoir où les services Azure sont disponibles, consultez [Services par région](https://azure.microsoft.com/fr-FR/regions/#services).
 
-- États-Unis
-  - Centre des États-Unis
-  - Est des États-Unis
-  - Est des États-Unis 2
-  - Sud du centre des États-Unis
-  - Ouest des États-Unis
-
-- Asie
-  - Asie de l'Est
-  - Asie du Sud-Est
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

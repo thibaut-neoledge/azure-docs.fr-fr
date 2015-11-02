@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/16/2015" 
 	ms.author="robb"/>
 
 #Architecture d’application sur Microsoft Azure
@@ -108,4 +108,4 @@ Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'archi
 
 ![Éléments d’infographie relatifs à l’architecture Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

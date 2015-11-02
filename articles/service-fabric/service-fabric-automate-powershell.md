@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # Déployer, mettre à niveau, tester et supprimer des applications Service Fabric à l’aide de PowerShell
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## TÂCHE : déployer une application Service Fabric
 
-Une fois l’application créée et le type d’application empaqueté, vous pouvez déployer l’application dans un cluster Service Fabric. Commencez par empaqueter l’application HelloWorldStateful dans Visual Studio en cliquant avec le bouton droit sur **HelloWorldStatefulApplication** dans l’Explorateur de solutions et en sélectionnant **Empaqueter**. Pour plus d’informations sur les fichiers manifestes du service et de l’application et sur la disposition du package, consultez [Modéliser une application dans Service Fabric](service-fabric-application-model.md). Le déploiement implique le téléchargement du package d’application, l’enregistrement du type d’application et la création de l’instance de l’application. Utilisez les instructions de cette section pour déployer une application vers un cluster.
+Une fois l’application créée et le type d’application empaqueté, vous pouvez déployer l’application dans un cluster Service Fabric local. Commencez par empaqueter l’application HelloWorldStateful dans Visual Studio en cliquant avec le bouton droit sur **HelloWorldStatefulApplication** dans l’Explorateur de solutions et en sélectionnant **Empaqueter**. Pour plus d’informations sur les fichiers manifestes du service et de l’application et sur la disposition du package, consultez [Modéliser une application dans Service Fabric](service-fabric-application-model.md). Le déploiement implique le téléchargement du package d’application, l’enregistrement du type d’application et la création de l’instance de l’application. Utilisez les instructions de cette section pour déployer une application vers un cluster.
 
 ### Étape 1 : Téléchargement du package d’application
 Le téléchargement du package d’application dans le magasin d’images s’effectue dans un emplacement accessible par les composants internes de Service Fabric. Le package d’application contient les manifestes d’application nécessaires, les manifestes de service et les packages de code/configuration/données pour créer les instances d’application et de service. La commande [Copy-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt125905.aspx) télécharge le package. Par exemple :
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### Étape 2 : Enregistrement du type d’application
@@ -107,7 +107,7 @@ L’application est désormais créée, empaquetée, et prête à être mise à 
 Copiez maintenant le package d’application mis à jour dans le magasin d’images de Service Fabric (où les packages d’application sont stockés par Service Fabric). Le paramètre *ApplicationPackagePathInImageStore* indique à Service Fabric où il peut trouver le package d'application. La commande suivante copie le package d’application de *HelloWorldStatefulV2* dans le magasin d’images :
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 L’étape suivante consiste à enregistrer la nouvelle version de l’application auprès de Service Fabric. Cette opération peut être effectuée à l’aide de l’applet de commande [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx) :
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 Une fois l’enregistrement du type d’application annulé, le package d’application peut être supprimé du magasin d’images à l’aide de l’applet de commande [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## Ressources supplémentaires
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Applets de commande de testabilité Azure Service Fabric](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

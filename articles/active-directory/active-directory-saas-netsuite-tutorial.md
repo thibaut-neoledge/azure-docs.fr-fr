@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="liviodlc"/>
 
 #Didacticiel : intégration de NetSuite avec Azure Active Directory
@@ -66,13 +66,13 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 	> [AZURE.NOTE]Pour en savoir plus sur les différentes options d’authentification unique, [cliquez ici](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
-3. Sur la page **Configurer les paramètres de l’application**, entrez votre URL de client NetSuite dans le champ **URL de connexion** en respectant l’un des formats suivants :
-	- `https://<tenant-name>.netsuite.com`
-	- `https://<tenant-name>.na1.netsuite.com`
-	- `https://<tenant-name>.na2.netsuite.com`
-	- `https://<tenant-name>.sandbox.netsuite.com`
-	- `https://<tenant-name>.na1.sandbox.netsuite.com`
-	- `https://<tenant-name>.na2.sandbox.netsuite.com`
+3. Dans la page **Configurer les paramètres de l’application**, entrez votre URL de client NetSuite dans le champ **URL de réponse** en respectant l’un des formats suivants :
+	- `https://<tenant-name>.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs`
+	- `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
 	![Entrer l’URL de votre client][8]
 
@@ -142,23 +142,23 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 	- Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
 
-	![Accéder au Gestionnaire de configuration][10]
+		![Accéder au Gestionnaire de configuration][10]
 
 	- Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les rôles**.
 
-	![Cliquer sur Gérer les rôles][22]
+		![Cliquer sur Gérer les rôles][22]
 
 	- Cliquez sur **Nouveau rôle**.
 
 	- Entrez un **Nom** pour le nouveau rôle, puis cochez la case **Authentification unique seulement**.
 
-	![Nommez le nouveau rôle.][23]
+		![Nommez le nouveau rôle.][23]
 
 	- Cliquez sur **Enregistrer**.
 
 	- Dans le menu situé en haut, cliquez sur **Autorisations**. Cliquez sur **Configuration**.
 
-	![Accéder aux autorisations][24]
+		![Accéder aux autorisations][24]
 
 	- Sélectionnez **Configurer l’authentification unique SAM**, puis cliquez sur **Ajouter**.
 
@@ -166,19 +166,19 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 	- Dans le menu de navigation principal, cliquez sur **Configuration**, puis sur **Gestionnaire de configuration**.
 
-	![Accéder au Gestionnaire de configuration][10]
+		![Accéder au Gestionnaire de configuration][10]
 
 	- Dans le menu de navigation situé à gauche, sélectionnez **Utilisateurs/Rôles**, puis cliquez sur **Gérer les utilisateurs**.
 
-	![Accéder à la gestion des utilisateurs][25]
+		![Accéder à la gestion des utilisateurs][25]
 
 	- Sélectionnez un utilisateur de test. Puis cliquez sur **Modifier**.
 
-	![Accéder à la gestion des utilisateurs][26]
+		![Accéder à la gestion des utilisateurs][26]
 
 	- Dans la boîte de dialogue Rôles, sélectionnez le rôle que vous avez créé et cliquez sur **Ajouter**.
 
-	![Accéder à la gestion des utilisateurs][27]
+		![Accéder à la gestion des utilisateurs][27]
 
 	- Cliquez sur **Enregistrer**.
 
@@ -186,7 +186,9 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 ##Étape 3 : activation de l’approvisionnement automatique des utilisateurs
 
-1. Dans Azure Active Directory, sur la page Démarrage rapide de NetSuite, cliquez sur **Configurer l’approvisionnement des utilisateurs**.
+> [AZURE.NOTE]Par défaut, vos utilisateurs approvisionnés sont ajoutés à la filiale racine de votre environnement NetSuite.
+
+1. Dans Azure Active Directory, dans la page Démarrage rapide de NetSuite, cliquez sur **Configurer l’approvisionnement des utilisateurs**.
 
 	![Configurer l’approvisionnement des utilisateurs][28]
 
@@ -204,7 +206,7 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 
 1. Pour tester votre configuration, commencez par créer un compte de test dans l’annuaire.
 
-2. Sur la page Démarrage rapide de NetSuite, cliquez sur le bouton **Affecter des utilisateurs**.
+2. Dans la page Démarrage rapide de NetSuite, cliquez sur le bouton **Affecter des utilisateurs**.
 
 	![Cliquer sur Affecter des utilisateurs][31]
 
@@ -254,4 +256,4 @@ Ce didacticiel explique comment connecter votre environnement NetSuite à Azure 
 [31]: ./media/active-directory-saas-netsuite-tutorial/assign-users.png
 [32]: ./media/active-directory-saas-netsuite-tutorial/assign-confirm.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

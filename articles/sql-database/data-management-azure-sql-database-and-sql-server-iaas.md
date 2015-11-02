@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure" 
+	pageTitle="Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure | Microsoft Azure" 
 	description="Présentation d'Azure SQL Database et de SQL Server dans les machines virtuelles Azure. Passez en revue les motivations métier courantes permettant de déterminer la technologie SQL qui convient le mieux à votre application." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/19/2015" 
 	ms.author="selcint"/>
 
-# Présentation d'Azure SQL Datatabase et de SQL Server dans les machines virtuelles Azure
+# Présentation d’Azure SQL Database et de SQL Server dans les machines virtuelles Azure
 
-Microsoft Azure vous offre deux options pour l’hébergement de SQL Server : **Azure SQL Database** et **SQL Server dans les machines virtuelles Azure**. Dans cet article, nous allons commencer par examiner comment chaque option s'adapte globalement dans la plateforme de données de Microsoft avant de passer à des discussions détaillées en fonction des besoins qui motivent votre choix. Que vous privilégiiez les économies ou une administration minimale, cet article peut vous aider à déterminer l'approche adaptée, en présentant les avantages de chaque option par rapport aux besoins essentiels de l'entreprise.
+Microsoft Azure vous offre deux options pour l’hébergement de SQL Server : [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) et [SQL Server dans les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Dans cet article, nous allons commencer par examiner comment chaque option s'adapte globalement dans la plateforme de données de Microsoft avant de passer à des discussions détaillées en fonction des besoins qui motivent votre choix. Que vous privilégiiez les économies ou une administration minimale, cet article peut vous aider à déterminer l'approche adaptée, en présentant les avantages de chaque option par rapport aux besoins essentiels de l'entreprise.
 
 - [Plateforme de données de Microsoft](#platform)
 - [Étude détaillée d'Azure SQL Database et de SQL Server dans les machines virtuelles Azure](#close)	
@@ -53,7 +53,7 @@ Les sections suivantes offrent de plus amples informations sur ces deux derniers
 
 ##<a name="close"></a>Étude détaillée d'Azure SQL Database et de SQL Server dans les machines virtuelles Azure
 
-**Microsoft Azure SQL Database** est une base de données relationnelle en tant que service, qui entre dans la catégorie de la *plateforme en tant que service (PaaS)*. Azure SQL Database repose sur du matériel et des logiciels standardisés, qui sont détenus, hébergés et gérés par Microsoft. Avec SQL Database, vous pouvez développer directement sur le service à l'aide de fonctionnalités intégrées. Lorsque vous utilisez SQL Database, vous payez à l'utilisation avec les options de mise à l'échelle pour plus de puissance.
+La **base de données SQL Microsoft Azure** est une base de données relationnelle en tant que service, qui entre dans la catégorie de la *plateforme en tant que service (PaaS)*. Azure SQL Database repose sur du matériel et des logiciels standardisés, qui sont détenus, hébergés et gérés par Microsoft. Avec SQL Database, vous pouvez développer directement sur le service à l'aide de fonctionnalités intégrées. Lorsque vous utilisez SQL Database, vous payez à l'utilisation avec les options de mise à l'échelle pour plus de puissance.
 
 **SQL Server dans les machines virtuelles Azure** entre dans la catégorie de l’*infrastructure en tant que service (IaaS)* et vous permet d’exécuter SQL Server sur une machine virtuelle dans le cloud. Comme pour Azure SQL Database, elle repose sur du matériel standardisé détenu, hébergé et géré par Microsoft. Lorsque vous utilisez SQL Server sur une machine virtuelle, vous pouvez appliquer votre propre licence SQL Server pour Azure ou utiliser l'une des images préconfigurées de SQL Server dans le portail Azure.
 
@@ -142,7 +142,7 @@ Actuellement, **Azure SQL Database** est disponible selon plusieurs niveaux de s
 
 Avec **Azure SQL Database**, le logiciel de base de données est automatiquement configuré, corrigé et mis à niveau par Microsoft Azure dans les centres de données du monde entier. Vous bénéficiez ainsi de coûts d'administration réduits. En outre, ses fonctionnalités de [sauvegarde intégrée](http://msdn.microsoft.com/library/azure/jj650016.aspx) vous permettent de réaliser des économies importantes, notamment lorsque vous avez un grand nombre de bases de données. Lorsque vous utilisez Azure SQL Database, vous n’êtes pas facturé pour des requêtes individuelles qui s’exécutent dans Azure SQL Database ni pour le trafic Internet entrant. Vous êtes facturé pour [le trafic internet sortant](http://azure.microsoft.com/pricing/details/data-transfers/). Si votre base de données présente un volume élevé de transactions et doit prendre en charge simultanément de nombreux utilisateurs, nous vous recommandons d'utiliser les niveaux de service Premium plutôt que De base ou Standard.
 
-Avec **SQL Server dans les machines virtuelles Azure**, vous utilisez la gestion de licences SQL Server traditionnelle. Vous pouvez utiliser l'image SQL Server fournie par la plateforme ou utiliser votre licence SQL Server dans Azure. Lorsque vous utilisez les images SQL Server fournies par la plateforme, les coûts dépendent de la taille de la machine virtuelle et de la version choisie de SQL Server. En fait, vous payez le coût de gestion de licence SQL Server par minute, la gestion de licence Windows Server par minute et le coût du stockage Azure. L'option de facturation par minute vous permet d'utiliser SQL Server aussi longtemps que vous en avez besoin sans acheter de licence SQL Server complète. Si vous utilisez votre propre licence SQL Server sur Azure, seuls les coûts de calcul et de stockage Azure vous sont facturés. Pour plus d’informations, voir [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/).
+Avec **SQL Server dans les machines virtuelles Azure**, vous utilisez la gestion de licences SQL Server traditionnelle. Vous pouvez utiliser l'image SQL Server fournie par la plateforme ou utiliser votre licence SQL Server dans Azure. Lorsque vous utilisez les images SQL Server fournies par la plateforme, les coûts dépendent de la taille de la machine virtuelle et de la version choisie de SQL Server. En fait, vous payez le coût de gestion de licence SQL Server par minute, la gestion de licence Windows Server par minute et le coût du stockage Azure. L'option de facturation par minute vous permet d'utiliser SQL Server aussi longtemps que vous en avez besoin sans acheter de licence SQL Server complète. Si vous utilisez votre propre licence SQL Server sur Azure, seuls les coûts de calcul et de stockage Azure vous sont facturés. Pour plus d’informations, consultez [License Mobility via Software Assurance sur Azure](http://azure.microsoft.com/pricing/license-mobility/).
 
 ####<a name="appcost"></a>Calcul du coût total de l’application
 
@@ -158,7 +158,7 @@ Voici le calcul de coûts détaillé pour votre application qui s'exécute dans 
 
 *Coût total de l’application = coûts réduits de modification/développement logiciel + coûts d’administration + coûts de licence SQL Server et Windows Server + coûts Azure Storage*
 
-**Remarque importante :** actuellement, Azure SQL Database ne prend pas en charge toutes les fonctionnalités de SQL Server. Pour obtenir des informations de comparaison détaillées, voir [Instructions et limitations d’Azure SQL Database](http://msdn.microsoft.com/library/azure/ff394102.aspx). Tenez-en compte si vous souhaitez déplacer une base de données existante vers Azure SQL Database, car il faut parfois compter un budget supplémentaire pour la nouvelle conception de la base de données. Azure SQL Database est l'offre Microsoft de plateforme en tant que service. Lorsque vous migrez une application SQL Server locale vers Azure SQL Database, nous vous recommandons de mettre à jour l'application pour bénéficier de tous les avantages de l'offre de plateforme en tant que service. Par exemple, démarrez à l’aide des [sites web Azure](http://azure.microsoft.com/documentation/services/websites/) ou des [services cloud Azure](http://azure.microsoft.com/services/cloud-services/) sur la couche Application pour une meilleure rentabilité. En outre, validez votre application dans différents niveaux de service d’Azure SQL Database et cherchez celui qui répond le mieux aux besoins de votre application. Ce processus vous permet d'obtenir de meilleurs résultats de performances et réduit les coûts. Pour plus d'informations, consultez [Niveaux de performances et de service d'Azure SQL Database](sql-database-service-tiers.md).
+> [AZURE.IMPORTANT]actuellement, Base de données SQL Azure ne prend pas en charge toutes les fonctionnalités de SQL Server. Pour obtenir des informations de comparaison détaillées, voir [Instructions et limitations d’Azure SQL Database](http://msdn.microsoft.com/library/azure/ff394102.aspx). Tenez-en compte si vous souhaitez déplacer une base de données existante vers Azure SQL Database, car il faut parfois compter un budget supplémentaire pour la nouvelle conception de la base de données. Azure SQL Database est l'offre Microsoft de plateforme en tant que service. Lorsque vous migrez une application SQL Server locale vers Azure SQL Database, nous vous recommandons de mettre à jour l'application pour bénéficier de tous les avantages de l'offre de plateforme en tant que service. Par exemple, démarrez à l’aide des [sites web Azure](http://azure.microsoft.com/documentation/services/websites/) ou des [services cloud Azure](http://azure.microsoft.com/services/cloud-services/) sur la couche Application pour une meilleure rentabilité. En outre, validez votre application dans différents niveaux de service d’Azure SQL Database et cherchez celui qui répond le mieux aux besoins de votre application. Ce processus vous permet d'obtenir de meilleurs résultats de performances et réduit les coûts. Pour plus d'informations, consultez [Niveaux de performances et de service d'Azure SQL Database](sql-database-service-tiers.md).
 
 Pour une estimation détaillée des coûts, utilisez la [calculatrice de tarification Azure](http://azure.microsoft.com/pricing/calculator/).
 
@@ -171,15 +171,15 @@ Pour plus d'informations sur la tarification, consultez les ressources suivantes
 
 ###<a name="admin"></a>Administration
 
-Si vous êtes déjà débordé, vous ne souhaitez sans doute pas vous charger en plus de l'administration du serveur et de la base de données. Pour de nombreuses entreprises, la décision d'adopter un service cloud repose sur la possibilité de se décharger des tâches d'administration complexes. Avec **Azure SQL Database**, Microsoft administre le matériel physique, comme les disques durs, les serveurs et le stockage, réplique automatiquement toutes les données pour assurer la haute disponibilité, configure et met à niveau le logiciel de base de données, gère l’équilibrage de charge et procède au basculement transparent en cas de défaillance du serveur. Vous pouvez continuer à administrer vos instances Azure SQL Database, mais sans contrôler les ressources physiques de l'instance SQL Server sous-jacente et de la plateforme Azure. Par exemple, vous pouvez administrer les bases de données et les connexions, paramétrer l'index et optimiser les requêtes, mais vous ne pouvez pas administrer les tables système et la gestion de groupe de fichiers. Pour plus d’informations, voir [Instructions et limitations d’Azure SQL Database](http://msdn.microsoft.com/library/ff394102.aspx).
+Si vous êtes déjà débordé, vous ne souhaitez sans doute pas vous charger en plus de l'administration du serveur et de la base de données. Pour de nombreuses entreprises, la décision d'adopter un service cloud repose sur la possibilité de se décharger des tâches d'administration complexes. Avec **Azure SQL Database**, Microsoft administre le matériel physique, comme les disques durs, les serveurs et le stockage, réplique automatiquement toutes les données pour assurer la haute disponibilité, configure et met à niveau le logiciel de base de données, gère l’équilibrage de charge et procède au basculement transparent en cas de défaillance du serveur. Vous pouvez continuer à administrer vos instances Azure SQL Database, mais sans contrôler les ressources physiques de l'instance SQL Server sous-jacente et de la plateforme Azure. Par exemple, vous pouvez administrer les bases de données et les connexions, paramétrer l'index et optimiser les requêtes, mais vous ne pouvez pas administrer les tables système et la gestion de groupe de fichiers. Pour plus d’informations, consultez [Instructions et limitations de la Base de données SQL Azure](http://msdn.microsoft.com/library/ff394102.aspx).
 
 En revanche, vous pouvez avoir du savoir-faire en interne et le souhait de conserver le contrôle de l'emplacement de la base de données jusqu'à la machine. Avec **SQL Server s’exécutant dans des machines virtuelles Azure**, vous avez le contrôle intégral du système d’exploitation et de la configuration de l’instance SQL Server. Avec une machine virtuelle, c'est à vous de décider quand mettre à jour/à niveau le système d'exploitation et les logiciels de base de données et installer d'autres logiciels tels que les outils de sauvegarde et de protection antivirus. En outre, vous pouvez contrôler la taille de la machine virtuelle, le nombre de disques et leurs configurations de stockage. Par exemple, Azure vous permet de modifier la taille d'une machine virtuelle en cours d'exécution en fonction des besoins. Pour plus d'informations, consultez [Tailles de machines virtuelles et de services cloud pour Azure](../virtual-machines/virtual-machines-size-specs.md).
 
-###<a name="sla"></a>Contrat de niveau de service (SLA)
+###<a name="sla"></a>Contrat de Niveau de Service (SLA)
 
 Pour certains d'entre nous, satisfaire aux obligations de temps d'exécution d'un contrat de niveau de service (SLA) est la priorité absolue. Dans cette section, nous allons examiner les implications du contrat SLA pour chaque option d'hébergement de base de données.
 
-Pour **Azure SQL Database**, avec les niveaux de service De base, Standard et Premium, Microsoft fournit un contrat SLA dont la disponibilité est de 99,99 %. Notez que le contrat SLA de disponibilité concerne la capacité à se connecter à la base de données. Autrement dit, il s'agit d'un contrat SLA de niveau base de données. Pour obtenir les dernières informations sur les contrats SLA, voir [Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/). Pour obtenir les dernières informations sur les niveaux de service d'Azure SQL Database (éditions) et les plans de continuité des activités d'entreprise pris en charge, voir [Niveaux de service d'Azure SQL Database](sql-database-service-tiers).
+Pour **Azure SQL Database**, avec les niveaux de service De base, Standard et Premium, Microsoft fournit un contrat SLA dont la disponibilité est de 99,99 %. Notez que le contrat SLA de disponibilité concerne la capacité à se connecter à la base de données. Autrement dit, il s'agit d'un contrat SLA de niveau base de données. Pour obtenir les dernières informations sur les contrats SLA, voir [Contrats de niveau de service](http://azure.microsoft.com/support/legal/sla/). Pour obtenir les dernières informations sur les niveaux de service d'Azure SQL Database (éditions) et les plans de continuité des activités d'entreprise pris en charge, voir [Niveaux de service d'Azure SQL Database](sql-database-service-tiers.md).
 
 Pour les **machines virtuelles hébergées dans Azure**, Microsoft fournit un contrat SLA dont la disponibilité est de 99,95 %. Cette disponibilité concerne la machine virtuelle et non le processus qui s’exécute dans la machine virtuelle (comme SQL Server). Le [contrat SLA de machine virtuelle](http://www.microsoft.com/download/details.aspx?id=38427) nécessite l’hébergement d’au moins deux machines virtuelles dans un groupe à haute disponibilité. Avec cette configuration, Azure garantit qu'au moins une des machines virtuelles sera disponible 99,95 % du temps. Pour la base de données haute disponibilité (HA) dans des machines virtuelles, vous devez configurer une des options de haute disponibilité prises en charge dans SQL Server, comme les groupes de disponibilité AlwaysOn. Notez que la configuration AlwaysOn dans Azure nécessite une configuration manuelle et une gestion, et que vous payez pour chaque groupe supplémentaire exploité.
 
@@ -202,13 +202,18 @@ Choisissez **Azure SQL Database** dans les cas suivants :
 
 - Vous souhaitez que Microsoft effectue des opérations de gestion courantes sur vos bases de données et vous avez besoin d'une plus grande disponibilité offerte par le biais des contrats SLA pour les bases de données. Cette approche permet de réduire les coûts d'administration tout en garantissant une disponibilité de la base de données.
 
+    [Créer votre première base de données SQL Azure](sql-database-get-started.md)
+
+
 Choisissez **SQL Server s’exécutant sur les machines virtuelles Azure** dans les cas suivants :
 
 - Vous disposez d'applications locales et vous ne souhaitez plus assurer la gestion de votre propre matériel ou vous envisagez des solutions hybrides. Cette approche vous permet d'accéder plus rapidement à une capacité élevée de la base de données et connecte également vos applications locales au cloud via un tunnel sécurisé.
 
 - Vous disposez de ressources informatiques, vous avez besoin de droits d'administration complets sur SQL Server et de la compatibilité complète avec SQL Server en local (par exemple, certaines fonctionnalités n'existent pas dans Azure SQL Database). Cette approche vous permet de réduire les coûts de développement ou de modifications des applications existantes avec la possibilité d'exécuter la plupart des applications. En outre, elle fournit le contrôle intégral de la machine virtuelle, du système d'exploitation et de la configuration de base de données.
 
-> [AZURE.NOTE]- Voulez-vous essayer SQL Server 2016 CTP2 ? Inscrivez-vous à Microsoft Azure, puis allez [ici](http://aka.ms/sql2016vm "ici") pour créer une machine virtuelle avec SQL Server 2016 CTP2 déjà installé.
+    [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md)
+
+> [AZURE.NOTE]Voulez-vous essayer SQL Server 2016 CTP2 ? Inscrivez-vous à Microsoft Azure, puis allez [ici](http://aka.ms/sql2016vm "ici") pour créer une machine virtuelle avec SQL Server 2016 CTP2 déjà installé.
 
 
 ##<a name="ack"></a>Remerciements
@@ -251,6 +256,5 @@ Merci à tous pour votre participation !
 
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=".net"
    authors="cawaMS"
-   manager="bscholl" 
+   manager="paulyuk" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="na"
-   ms.date="06/19/2015"
+   ms.date="10/14/2015"
    ms.author="cawa"/>
 
 # Utilisation d'une commande Azure PowerShell pour créer un conteneur de service cloud vide
@@ -41,4 +41,4 @@ Get-help New-AzureService
     - Pour publier votre projet de service cloud dans Azure, reportez-vous à l'exemple de code **PublishCloudService.ps1** disponible dans l'article [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

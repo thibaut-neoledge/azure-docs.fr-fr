@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/12/2015"
    ms.author="maroche"/>
 
 
@@ -52,7 +52,7 @@ Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l
 ## Métadonnée structurelle
 Lorsque vous inscrivez une source de données, l’outil d’inscription extrait des informations sur la structure des objets que vous sélectionnez. Il s'agit des métadonnées structurelles.
 
-Pour tous les objets, ces métadonnées structurelles incluent l'emplacement de l'objet, afin que les outils du client puissent détecter les données. Parmi les autres métadonnées structurelles, on peut citer le nom et le type d’objet, le nom d’attribut/colonne et le type de données.
+Pour tous les objets, ces métadonnées structurelles incluent l’emplacement de l’objet concerné ; les utilisateurs qui découvrent les données peuvent donc utiliser ces informations pour se connecter à l’objet dans les outils clients de leur choix. Parmi les autres métadonnées structurelles, on peut citer le nom et le type d’objet, le nom d’attribut/colonne et le type de données.
 
 ## Métadonnée descriptive
 En plus des métadonnées structurelles de base extraites de la source de données, l'outil d'inscription des sources de données extrait des métadonnées descriptives. Pour SQL Server Analysis Services et SQL Server Reporting Services, ces métadonnées sont extraites des propriétés de description exposées par ces services. Pour SQL Server, ce sont les valeurs fournies à l'aide de la propriété étendue ms\_description qui sont extraites. Pour la base de données Oracle, l'outil d’inscription des sources de données extrait la colonne COMMENTS de la vue ALL\_TAB\_COMMENTS.
@@ -94,4 +94,4 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
