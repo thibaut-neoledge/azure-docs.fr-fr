@@ -62,11 +62,11 @@ La Kit de développement logiciel (SDK) principal fournit simplement une API : 
 
     * Si vous avez installé uniquement le package d’API de base Microsoft.ApplicationInsights, vous devez définir la clé dans le code, par exemple dans main() : 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`* votre clé *`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`* votre clé *`";`
 
     * Si vous avez installé un des autres packages, vous pouvez définir la clé à l’aide de code ou la définir dans le fichier ApplicationInsights.config :
  
-     `<InstrumentationKey>`* votre clé *`</InstrumentationKey>`
+    `<InstrumentationKey>`* votre clé *`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ Le code du canal de persistance est sur [github](https://github.com/Microsoft/Ap
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

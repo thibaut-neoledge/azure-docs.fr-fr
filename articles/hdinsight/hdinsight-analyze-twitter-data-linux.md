@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Analyse des données Twitter avec Hadoop dans HDInsight | Microsoft Azure"
-	description="Découvrez comment utiliser Hive pour analyser des données Twitter sur Hadoop dans HDInsight afin de déterminer la fréquence d'utilisation d'un mot particulier."
+	pageTitle="Analyse des données Twitter avec Apache Hive dans HDInsight | Microsoft Azure"
+	description="Découvrez comment utiliser Python pour stocker des tweets qui contiennent des mots clés spécifiques, puis utiliser Hive et Hadoop dans HDInsight pour transformer les données TWitter brutes en une table Hive pouvant faire l’objet d’une recherche."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Analyse des données Twitter avec Hive dans HDInsight
@@ -319,4 +319,4 @@ Dans ce didacticiel, nous avons vu comment transformer le jeu de données JSON n
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

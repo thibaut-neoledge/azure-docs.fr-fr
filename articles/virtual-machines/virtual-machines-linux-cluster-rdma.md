@@ -146,7 +146,7 @@ Après le provisionnement de la machine virtuelle, utilisez SSH pour vous connec
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    Dans le répertoire ~/.ssh, modifiez ou créez le fichier ssh\_config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure (10.32.0.0/16 dans cet exemple) :
+    Dans le répertoire ~/.ssh, modifiez ou créez le fichier config. Fournissez la plage d'adresses IP du réseau privé que vous utiliserez dans Azure (10.32.0.0/16 dans cet exemple) :
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ Vous devez voir une sortie similaire à ce qui suit sur un cluster opérationnel
 
 * Consultez la [documentation de la bibliothèque Intel MPI](https://software.intel.com/fr-FR/articles/intel-mpi-library-documentation/) pour obtenir des conseils sur Intel MPI.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

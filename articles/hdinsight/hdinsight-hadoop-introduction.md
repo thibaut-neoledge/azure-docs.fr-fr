@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Description de Hadoop dans HDInsight : analyse des données volumineuses dans le cloud | Microsoft Azure"
 	description="Introduction aux composants Hadoop dans le cloud dans HDInsight. Découvrez comment HDInsight utilise des clusters Hadoop pour gérer les données volumineuses, les analyser et créer des rapports sur ces données."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	keywords="Big Data, analyse du Big Data, hadoop, introduction à hadoop, nouveautés hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -78,7 +78,7 @@ Voici des exemples de scripts fournis par l’équipe HDInsight :
 * [Hue](hdinsight-hadoop-hue-linux.md)
 
 	> [AZURE.NOTE]Le script Hue est disponible uniquement pour les clusters Linux.
-	
+
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
 * [R](hdinsight-hadoop-r-scripts-linux.md)
@@ -203,9 +203,9 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 
 * [Prise en main de HDInsight sur Linux](hdinsight-hadoop-linux-tutorial-get-started.md) : didacticiel de démarrage rapide pour l’approvisionnement de clusters HDInsight Hadoop sous Linux et l’exécution d’exemples de requêtes Hive.
 
-* [Prise en main de Storm Linux sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) : un didacticiel de démarrage rapide pour approvisionner Storm sur un cluster HDInsight et exécuter des exemples de topologies Storm.
+* [Prise en main de Storm Linux sur HDInsight](hdinsight-apache-storm-tutorial-get-started-linux.md) : didacticiel de démarrage rapide pour approvisionner un cluster Storm sur HDInsight et exécuter des exemples de topologies Storm.
 
-* [Approvisionnement de HDInsight sur Linux :](hdinsight-hadoop-provision-linux-clusters.md) apprenez à configurer un cluster Hadoop HDInsight sous Linux via le portail Azure, l’interface de ligne de commande Azure ou Azure PowerShell.
+* [Approvisionnement de HDInsight sur Linux :](hdinsight-hadoop-provision-linux-clusters.md) apprenez à configurer un cluster Hadoop HDInsight sous Linux par le biais du portail Azure, de l’interface de ligne de commande Azure ou d’Azure PowerShell.
 
 * [Utilisation de HDInsight sur Linux](hdinsight-hadoop-linux-information.md) : obtenez quelques conseils rapides sur l’utilisation de clusters Linux Hadoop approvisionnés sur Azure.
 
@@ -229,7 +229,7 @@ Créez sur cette présentation de Hadoop sur HDInsight et l'analyse de données 
 
 * <a target="_blank" href="http://hadoop.apache.org/">Apache Hadoop</a> : découvrez plus en détail la bibliothèque de logiciels Apache Hadoop, infrastructure autorisant le traitement distribué de jeux de données volumineux sur des clusters d’ordinateurs.
 
-* <a target="_blank" href="http://hadoop.apache.org/docs/r0.18.1/hdfs_design.html">HDFS</a> : découvrez plus en détail l’architecture et la conception du système HDFS (Hadoop Distributed File System), principal système de stockage utilisé par les applications Hadoop.
+* <a target="_blank" href="http://hadoop.apache.org/docs/r1.0.4/hdfs_design.html">HDFS</a> : découvrez plus en détail l’architecture et la conception du système HDFS (Hadoop Distributed File System), principal système de stockage utilisé par les applications Hadoop.
 
 * <a target="_blank" href="http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">MapReduce Tutorial</a> : découvrez plus en détail l’infrastructure de programmation pour écrire des applications Hadoop qui autorisent un traitement rapide et en parallèle de vastes quantités de données sur des clusters de nœuds de calcul volumineux.
 
@@ -272,6 +272,5 @@ Utilisez l’analyse de données volumineuses sur les données de votre organisa
 [marketing-page]: ../services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

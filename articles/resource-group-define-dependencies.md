@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/20/2015"
    ms.author="mmercuri"/>
 
 # Définition de dépendances dans les modèles Azure Resource Manager
@@ -43,13 +43,15 @@ Vous pouvez être tenté d’utiliser dependsOn pour mapper les dépendances ent
 
 Cet élément n’est pas nécessaire si la fonction de référence est utilisée pour obtenir la représentation d’une ressource, car un objet de référence implique une dépendance sur la ressource. En fait, s’il existe une possibilité d’utiliser une référence plutôt que dependsOn, le conseil est d’utiliser la fonction de référence et des références implicites. Le raisonnement ici concerne à nouveau les performances. Les références définissent des dépendances implicites dont on sait qu’elles sont obligatoires au moment où elles sont référencées au sein du modèle. Par leur présence, elles sont pertinentes, et évitent une nouvelle optimisation des performances, ainsi que le risque de nuire au moteur de déploiement pour éviter un parallélisme intule.
 
+Si vous devez définir une dépendance entre une ressource et les ressources qui sont créées via une boucle de copie, vous pouvez affecter l’élément dependsOn au nom de la boucle. Pour obtenir un exemple, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+
 ## les ressources
 
 La propriété de ressources vous permet de vous permet de spécifier les ressources enfants associées à la ressource en cours de définition. Les ressources enfants peuvent uniquement être définies sur 5 niveaux. Il est important de noter qu’aucune dépendance implicite n’est créée entre une ressources enfant et la ressource parent. Si vous avez besoin de déployer la ressource enfant après la ressource parent, vous devez déclarer explicitement cette dépendance avec la propriété dependsOn.
 
 ## fonction de référence
 
-La fonction de référence permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. La propriété représentée par **propertyPath** ci-dessous est facultative, s’il n’est pas spécifié, la référence est à la ressource.
+La fonction de référence permet à une expression de tirer sa valeur d’un autre nom JSON et de paires de valeurs ou de ressources runtime. Les expressions de référence déclarent implicitement qu’une ressource dépend d’une autre. La propriété représentée par **propertyPath** ci-dessous est facultative ; si elle n’est pas spécifiée, la référence est à la ressource.
 
     reference('resourceName').propertyPath
 
@@ -62,4 +64,4 @@ Pour plus d’informations, consultez la section [fonction de référence](../re
 - Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez la section [Création de modèles](resource-group-authoring-templates.md). 
 - Pour obtenir la liste des fonctions disponibles dans un modèle, consultez la section [Fonctions de modèle](resource-group-template-functions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -28,10 +28,37 @@ Dans la version 0.9.8, tous les paramètres de déploiement de modèle étaient
 
 De nombreuses applets de commande permettaient d’obtenir les journaux d’audit dans différentes étendues : par exemple, Get-AzureResourceProviderLog, Get-AzureResourceGroupLog, Get-AzureSubscriptionIdLog et Get-AzureResourceLog. Pour obtenir des journaux, vous deviez souvent exécuter une combinaison d’applets de commande de journal. Ce processus n’était pas optimal. Nous avons regroupé cette fonctionnalité dans une seule applet de commande, qui peut être appelée dans différentes étendues en définissant des paramètres. À présent, vous pouvez appeler Get-AzureRmLog avec le paramètre approprié pour spécifier l’étendue.
 
+Dans la version 0.9.8, pour obtenir les journaux d'un groupe de ressources particulier, vous exécutiez une procédure semblable à celle ci-dessous :
+
+    Get-AzureResourceGroupLog -ResourceGroup <resource-group-name>
+
+Pour obtenir les journaux pour une ressource particulière, vous procédiez ainsi :
+
+     Get-AzureResourceLog -ResourceId
+     /subscriptions/#######-####-####-####-############/resourcegroups/<resource-group-name>/providers/<provider-namespace>/
+     <resource-name>
+
+Dans la version 1.0 préliminaire, vous obtiendrez les mêmes informations en exécutant les applets de commande ci-dessous. Pour obtenir les journaux pour un groupe de ressources, vous allez exécuter :
+
+     Get-AzureRmLog -ResourceGroup <resource-group-name>
+     
+Pour obtenir les journaux pour une ressource particulière, vous allez exécuter :
+
+     Get-AzureRmLog -ResourceId /subscriptions/#######-####-####-####-############/resourcegroups/<resource-group-name>
+     /providers/<provider-namespace>/<resource-name>
+
 ##Modifications apportées à l’applet de commande Get pour les ressources et les groupes de ressources
 
 Nous avons modifié les applets de commande Get-AzureRmResource et Get-AzureRmResourceGroup pour qu’elles effectuent désormais directement les requêtes sur le fournisseur de ressources uniquement. Nous avons découplé la fonctionnalité de requête sur le cache dans de nouvelles applets de commande appelées Find-AzureRmResource*. Pour rechercher un groupe de ressources ayant une balise particulière, vous pouvez utiliser la nouvelle applet de commande Find-AzureRmResourceGroup. Avec cette modification, les paramètres de requête des balises ont été supprimés dans les applets de commande Get-AzureRmResource et Get-AzureRmResourceGroup.
 
+Dans la version 0.9.8, pour trouver tous les groupes de ressources qui contiennent une balise spécifique, vous allez exécuter :
+
+    Get-AzureResourceGroup -Tag <tag-object>
+
+Dans la version 1.0 préliminaire, vous exécuterez l'applet de commande ci-dessous pour obtenir le scénario précédent :
+
+    Find-AzureRmResourceGroup -Tag <tag-object>
+    
 ##Suppression de Test-AzureResource et de Test-AzureResourceGroup
 
 Ces applets de commande ne fonctionnaient pas correctement dans certains scénarios et pour certains types de ressources. Nous essayons actuellement d’améliorer cette fonctionnalité. En attendant, nous ne voulions pas continuer à vous proposer des applets de commande qui n’étaient pas suffisamment fiables. Nous avons donc supprimé ces applets de commande dans cette version, et nous les remplacerons par une solution fiable dans une version ultérieure.
@@ -40,8 +67,28 @@ Ces applets de commande ne fonctionnaient pas correctement dans certains scénar
 
 Vous pouvez maintenant utiliser l’applet de commande Get-AzureRmResourceProvider pour obtenir des informations sur l’emplacement des fournisseurs de ressources. Cette applet de commande répertorie les fournisseurs et les types de ressources disponibles dans une région donnée. Elle vous permet aussi d’obtenir la liste des emplacements disponibles pour un fournisseur particulier. Nous avons supprimé l’applet de commande Get-AzureLocation, car vous pouvez obtenir toutes les informations sur les emplacements à l’aide de l’applet de commande Get-AzureRmResourceProvider.
 
+Dans la version 0.9.8, pour obtenir la liste de tous les emplacements pris en charge, vous exécuterez :
+
+     Get-AzureLocation
+
+Et pour obtenir l'état d'enregistrement des fournisseurs, vous allez exécuter :
+
+     Get-AzureProvider -ListAvailable
+
+Dans la version 1.0 préliminaire, vous pouvez effectuer les opérations ci-dessus à l'aide d'une seule applet de commande, comme indiqué ci-dessous :
+
+     Get-AzureRmResourceProvider -Location <location>
+
+La procédure ci-dessus filtre les résultats afin d'afficher uniquement les fournisseurs et les types qui sont disponibles dans l'emplacement spécifié.
+
+Ou vous pouvez filtrer le résultat sur un fournisseur spécifique, comme indiqué ci-dessous :
+
+     Get-AzureRmResourceProvider -ProviderNamespace <provider-namespace>
+
+La procédure ci-dessus filtre les résultats pour afficher les emplacements pris en charge pour le fournisseur spécifié uniquement.
+
 ##Applets de commande de stratégie
 
-Nous avons ajouté la prise en charge des stratégies pour Azure Resource Manager. Les applets de commande PowerShell de gestion des stratégies ont été intégrées à cette version. Pour plus d’informations sur les stratégies, consultez [Utiliser une stratégie pour gérer les ressources et le contrôle d’accès](resource-manager-policy.md).
+Nous avons ajouté la prise en charge des stratégies pour Azure Resource Manager. Les applets de commande PowerShell de gestion des stratégies ont été intégrées à cette version. Pour plus d'informations sur les stratégies, consultez [Utiliser une stratégie pour gérer les ressources et le contrôle d'accès](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

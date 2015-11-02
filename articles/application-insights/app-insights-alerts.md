@@ -106,14 +106,22 @@ Dans la plupart des cas, il suffit de définir des alertes manuellement. En reva
 
 Si vous n’avez pas utilisé précédemment PowerShell avec votre abonnement Azure :
 
-1. Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts. 
+Installez le module Azure Powershell sur l’ordinateur sur lequel vous souhaitez exécuter les scripts.
+
  * Installez le programme [Microsoft Web Platform Installer (v5 ou version ultérieure)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Utilisez-le pour installer Microsoft Azure PowerShell.
-2. Démarrez Azure PowerShell et [connectez-vous à votre abonnement](powershell-install-configure.md) :
 
-    ```
+
+#### Connexion à Azure
+
+Démarrez Azure PowerShell et [connectez-vous à votre abonnement](powershell-install-configure.md) :
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### Obtention d’alertes
 
@@ -217,4 +225,4 @@ request,<br/>requestFailed|[Demande serveur](app-insights-configuration-with-app
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

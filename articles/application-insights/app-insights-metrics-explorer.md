@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Exploration des mesures dans Application Insights" 
-	description="Analysez l'utilisation, la disponibilité et les performances de votre application web locale ou Microsoft Azure avec Application Insights." 
+	description="Comment interpréter les graphiques dans Metric Explorer et comment personnaliser les panneaux de Metrics Explorer." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -212,4 +212,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

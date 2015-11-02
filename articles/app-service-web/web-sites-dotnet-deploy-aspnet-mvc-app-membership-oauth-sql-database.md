@@ -35,9 +35,9 @@ Vous apprendrez ce qui suit :
 * Stocker des données relationnelles dans le cloud à l’aide d’une base de données SQL Azure.
 * Déployer un projet web qui utilise une base de données associée à une [application web](http://go.microsoft.com/fwlink/?LinkId=529714) dans Azure App Service.
 
->[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md).
+>[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
 >
->Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configuration requise
 
@@ -55,7 +55,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 
 1. Dans la boîte de dialogue **Nouveau projet**, développez **C#**, puis sélectionnez **Web** sous **Modèles installés**, puis sélectionnez **Application Web ASP.NET**.
 
-1. Nommez l’application **GestionnaireContacts**, puis cliquez sur **OK**.
+1. Nommez l’application **ContactManager**, puis cliquez sur **OK**.
 
 	![Boîte de dialogue Nouveau projet](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -186,7 +186,7 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
 ## Activation du protocole SSL pour le projet ##
 
-1. Dans l’**Explorateur de solutions**, cliquez sur le projet **GestionnaireContacts**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
+1. Dans l’**Explorateur de solutions**, cliquez sur le projet **ContactManager**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
 
 3. Définissez **SSL activé** sur **True**.
 
@@ -390,6 +390,8 @@ L’étape suivante consiste à activer la fonctionnalité [Migrations Code Firs
 
 ## Ajout d'un fournisseur OAuth2
 
+>[AZURE.NOTE]Pour des instructions détaillées sur la façon d’utiliser les portails de développeurs Google et Facebook, ce didacticiel renvoie à des didacticiels sur le site ASP.NET. Toutefois, Google et Facebook modifient leurs sites plus fréquemment que ces didacticiels sont mis à jour, et ils sont désormais obsolètes. Si vous rencontrez un problème de suivi des instructions, consultez le commentaire Disqus proposé à la fin de ce didacticiel pour obtenir la liste de ce qui a changé.
+
 [OAuth](http://oauth.net/ "http://oauth.net/") est un protocole ouvert permettant de mettre en place une authentification sécurisée dans une méthode simple et standardisée à partir d’applications Web, mobiles ou de bureau. Le modèle Internet d'ASP.NET MVC utilise OAuth pour exposer Facebook, Twitter, Google et Microsoft comme fournisseurs d'authentification. Même si ce didacticiel utilise uniquement Google comme fournisseur d'authentification, vous pouvez facilement modifier le code pour utiliser n'importe quel autre fournisseur. La procédure à suivre pour implémenter d’autres fournisseurs ressemble assez à celle présentée dans ce didacticiel. Pour utiliser Facebook comme fournisseur d’authentification, consultez le didacticiel [Application MVC 5 avec Facebook, Twitter, LinkedIn et authentification Google OAuth2](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on) (en anglais).
 
 En plus de l’authentification, ce didacticiel utilise également des rôles pour l’implémentation d’autorisations. Seuls les utilisateurs ajoutés au rôle *canEdit* peuvent modifier les données (et donc créer, modifier ou supprimer des contacts).
@@ -402,7 +404,7 @@ En plus de l’authentification, ce didacticiel utilise également des rôles po
 
 ## Utilisation de l’API d’appartenance
 
-Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *peutSupprimerMembres*, plus parlant que le nom *superAdmin*.
+Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *canDeleteMembers*, plus parlant que le nom *superAdmin*.
 
 1. Ouvrez le fichier *migrations\\configuration.cs* et ajoutez les instructions `using` suivantes :
 
@@ -706,6 +708,16 @@ Dans cette section, vous allez appliquer l’attribut [Authorize](http://msdn.mi
  
 3. Vérifiez que les **UserId** sont ceux de **user1@contoso.com* et du compte Google de votre inscription.
 
+## Résolution de problèmes
+
+Si vous rencontrez des problèmes, voici quelques suggestions pour essayer de les résoudre.
+
+* Erreurs de configuration de base de données SQL : assurez-vous que le Kit de développement logiciel (SDK) actuel est installé. Les versions antérieures à la version 2.7.1 contiennent un bogue qui, dans certains scénarios, provoque des erreurs lorsque Visual Studio essaie de créer le serveur de base de données ou la base de données.
+* Message d’erreur « Opération non prise en charge pour votre type d’offre d’abonnement » lors de la création de ressources Azure : comme ci-dessus.
+* Erreurs lors du déploiement : pensez à consulter l’article [Déploiement ASP.NET de base](web-sites-dotnet-get-started.md). Ce scénario de déploiement est plus simple et, si vous avez le même problème, il sera certainement plus facile à isoler. Par exemple, dans certains environnements d’entreprise, un pare-feu d’entreprise peut empêcher Web Deploy d’établir les genres de connexions à Azure nécessaires.
+* Aucune option pour sélectionner la chaîne de connexion dans l’Assistant de publication Web lors du déploiement : si vous avez utilisé une autre méthode pour créer vos ressources Azure (par exemple, vous essayez de déployer vers une application web et une base de données SQL créée dans le portail), la base de données SQL peut ne pas être associée à l’application web. La solution la plus simple consiste à créer une application web et une base de données en utilisant Visual Studio comme indiqué dans le didacticiel. Vous n’êtes pas obligé de reprendre le didacticiel du début. Dans l’Assistant de publication web, vous pouvez choisir de créer une application web ; vous obtiendrez la même boîte de dialogue de création de ressources Azure que lorsque vous créez le projet.
+* Les indications pour les portails de développeurs Google ou Facebook sont obsolètes : consultez le commentaire Disqus proposé à la fin de ce didacticiel.
+
 ## Étapes suivantes
 
 Vous avez créé une application web MVC ASP.NET de base qui authentifie les utilisateurs. Pour plus d’informations sur les tâches d’authentification courantes et la manière de sécuriser les données sensibles, reportez-vous aux didacticiels suivants.
@@ -718,7 +730,7 @@ Vous avez créé une application web MVC ASP.NET de base qui authentifie les uti
 
 Pour un didacticiel plus avancé sur l’utilisation d’Entity Framework, consultez [Prise en main d’Entity Framework et de MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (en anglais).
 
-Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l’aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
+Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l’aide de Tom Dykstra et de Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
 ***N’hésitez pas à nous transmettre vos commentaires*** sur ce qui vous a plu et ce qui pourrait être amélioré… pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Vous pouvez aussi demander de nouvelles rubriques et noter les rubriques existantes sur [Leçons de code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
@@ -786,4 +798,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

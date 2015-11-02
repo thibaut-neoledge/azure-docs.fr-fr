@@ -13,12 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="09/14/2015"
+   ms.date="10/18/2015"
    ms.author="yuemlu"/>
 
 # SE invité d'Azure 
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité octobre
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-106 | [3096441] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.25, 3.32, 2.44 | 13 octobre 2015 |
+| MS15-108 | [3089659] | Mise à jour de sécurité pour JScript et VBScript pour résoudre l’exécution éventuelle de code à distance | 2\.44 | 13 octobre 2015 |
+| MS15-109 | [3096443] | Mise à jour de sécurité pour Windows Shell pour résoudre l’exécution de code à distance | 4\.25, 3.32, 2.44 | 13 octobre 2015 |
+| MS15-111 | [3096447] | Mise à jour de sécurité pour le noyau Windows pour résoudre une élévation de privilèges | 4\.25, 3.32, 2.44 | 13 octobre 2015 |
+| Avis de sécurité Microsoft | [3092627] | Mise à jour de septembre 2015 pour résoudre les blocages de Windows ou des applications après l’installation de la mise à jour de sécurité 3076895 | 4\.25, 3.32, 2.44 | 13 octobre 2015 |
+
 
 ## SE invité septembre
 
@@ -172,6 +183,12 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 
 
+[3096441]: http://support.microsoft.com/kb/3096441
+[3089659]: http://support.microsoft.com/kb/3089659
+[3096443]: http://support.microsoft.com/kb/3096443
+[3096447]: http://support.microsoft.com/kb/3096447
+[3092627]: http://support.microsoft.com/kb/3092627
+
 [3088903]: http://support.microsoft.com/kb/3088903
 [3089548]: http://support.microsoft.com/kb/3089548
 [3072595]: http://support.microsoft.com/kb/3072595
@@ -288,4 +305,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

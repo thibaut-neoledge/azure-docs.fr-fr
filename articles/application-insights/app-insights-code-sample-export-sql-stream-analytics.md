@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Procédure : exporter des données de télémétrie depuis Application Insights vers la base de données SQL" 
-	description="Codez votre propre analyse des données de télémétrie dans Application Insights à l’aide de la fonctionnalité d’exportation continue." 
+	description="Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -314,4 +314,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

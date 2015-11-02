@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Échantillonner des données dans des tables Hive Azure HDInsight | Microsoft Azure"
-	description="Sous-échantillonnage de données dans des tables Hive Azure HDInsight"
+	description="Sous-échantillonnage de données dans des tables Hive Azure HDInsight (Hadoop)"
 	services="machine-learning,hdinsight"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -14,12 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="10/20/2015"
 	ms.author="hangzh;bradsev" />
 
 # Échantillonner des données dans des tables Hive Azure HDInsight
 
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse avancé et technologie (ADAPT) d’Azure Machine Azure consiste à activer un prototypage rapide des fonctions de traitement des données et des modèles d'apprentissage automatique.
+Ce **menu** pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
+
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+
+## Introduction
+
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus d’analyse Cortana consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 Dans cet article, nous décrivons à présent la procédure de sous-échantillonnage des données dans des tables Hive Azure HDInsight à l’aide de requêtes Hive. Nous abordons trois méthodes d’échantillonnage communément utilisées :
 
@@ -27,7 +32,7 @@ Dans cet article, nous décrivons à présent la procédure de sous-échantillon
 * échantillonnage aléatoire par groupe 
 * échantillonnage stratifié
 
-Vous devez soumettre les requêtes Hive à partir de la console de ligne de commande Hadoop sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, consultez la page [Soumission de requêtes Hive](machine-learning-data-science-process-hive-tables.md#submit).
+Vous devez soumettre les requêtes Hive à partir de la console de ligne de commande Hadoop sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, consultez [Soumission de requêtes Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Échantillonnage aléatoire uniforme ##
 Le terme « échantillonnage aléatoire uniforme » signifie que chaque ligne du jeu de données a la même chance d’être échantillonnée que les autres. Vous pouvez implémenter cette méthode en ajoutant un champ supplémentaire rand() au jeu de données dans la requête « select » interne et dans la requête « select » externe conditionnant ce champ aléatoire.
@@ -77,7 +82,7 @@ Voici un exemple de requête effectuant un échantillonnage par groupe :
 		)c
 	on b.catfield=c.catfield
 
-## <a name="stratified"></a> Échantillonnage stratifié
+## <a name="stratified"></a>Échantillonnage stratifié
 
 L’échantillonnage aléatoire est stratifié par rapport à une variable catégorielle lorsque les échantillons obtenus comportent des valeurs de cette catégorie qui existent dans la même proportion que dans la population parente à partir de laquelle les échantillons ont été obtenus. En considérant le même exemple que ci-dessus, supposons que vos données comportent des sous-populations par État. Par exemple, NJ présente 100 observations, NY 60 observations et WA 300 observations. Si vous spécifiez un taux d’échantillonnage stratifié de 0,5, l’échantillon obtenu pour NJ, NY et WA sera respectivement d’environ 50, 30 et 150 observations.
 
@@ -100,4 +105,4 @@ Voici un exemple de requête :
 Pour plus d’informations sur les méthodes d’échantillonnage plus élaborées qui sont disponibles dans Hive, consultez la page consacrée aux [méthodes d’échantillonnage dans le manuel du langage](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

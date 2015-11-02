@@ -27,8 +27,8 @@
 >[AZURE.NOTE]La stratégie de rétention des métriques d’application varie en fonction de la granularité.
 
 - Les métriques de granularité **Minute** sont conservées **24 heures**
-- Les métriques de granularité **Hour** sont conservées **7 jours**
-- Les métriques de granularité **Day** sont conservées **30 jours**
+- Les métriques de granularité **Hour** sont conservées **7 jours**.
+- Les métriques de granularité **Day** sont conservées **30 jours**.
 
 ##<a name="websitemetrics"></a>Procédure : ajouter des métriques relatives à une application web
 
@@ -289,4 +289,4 @@ Pour en savoir plus sur la surveillance du point de terminaison d’une applicat
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

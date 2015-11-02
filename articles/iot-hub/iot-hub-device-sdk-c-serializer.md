@@ -570,6 +570,20 @@ Le paramètre **nArithmetic** concerne davantage le fonctionnement interne du la
 
 Si vous souhaitez modifier ces paramètres, modifiez les valeurs dans le fichier macro\_utils.tt, recompilez la solution macro\_utils\_h\_generator.sln, puis exécutez le programme compilé. Lorsque vous procédez ainsi, un nouveau fichier macro\_utils.h est généré et placé dans le répertoire .\\common\\inc.
 
+Pour utiliser la nouvelle version de macro\_utils.h, vous devrez supprimer le package NuGet **serializer** de votre solution et le remplacer par le projet Visual Studio **serializer**. Cela permet de compiler votre code par rapport au code source de la bibliothèque serializer, ce qui inclut la mise à jour macro\_utils.h. Supposons que vous vouliez effectuer cette opération pour **simplesample\_amqp**. Commencez par supprimer le package NuGet pour la bibliothèque serializer à partir de la solution :
+
+   ![](media/iot-hub-device-sdk-c-serializer/04-serializer-github-package.PNG)
+
+Puis ajoutez ce projet à votre solution Visual Studio :
+
+> .\\c\\serializer\\build\\windows\\serializer.vcxproj
+
+Lorsque vous avez terminé, votre solution doit ressembler à ceci :
+
+   ![](media/iot-hub-device-sdk-c-serializer/05-serializer-project.PNG)
+
+Désormais, lorsque vous compilez votre solution, la version macro\_utils.h mise à jour sera incluse dans votre fichier binaire.
+
 La principale chose à savoir, c’est qu’une trop forte augmentation de ces valeurs risque de dépasser les limites du compilateur. Sur ce point, le paramètre **nMacroParameters** est le principal paramètre concerné. La norme C99 indique qu’un minimum de 127 paramètres sont autorisés dans une définition de macro. Le compilateur Microsoft respecte exactement cette spécification (avec une limite de 127), vous ne pourrez donc pas augmenter **nMacroParameters** au-delà de la valeur par défaut. Mais d’autres compilateurs peuvent vous permettre de le faire (par exemple, le compilateur GNU prend en charge une limite plus élevée).
 
 Jusqu’à présent, nous avons abordé pratiquement tout ce que vous devez savoir sur l’écriture de code avec la bibliothèque **serializer**. Avant de conclure, nous allons revoir certaines rubriques d’articles précédents qui vous posent peut-être question.
@@ -642,4 +656,4 @@ Cet article détaille les aspects uniques de la bibliothèque **serializer** con
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit SDK d’appareils Azure IoT pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Si vous cherchez des informations supplémentaires, quelques exemples dans le SDK n’ont pas été abordés ci-dessus. Sinon, la [documentation du SDK](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

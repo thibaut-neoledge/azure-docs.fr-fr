@@ -36,7 +36,7 @@ Une fois le déploiement terminé, vous pouvez accéder à la Jumpbox en utilisa
 
 Avant de voir plus en détail Azure Resource Manager et le modèle utilisé pour ce déploiement, veuillez vérifier que vous disposez d'une version configurée et opérationnelle d'Azure PowerShell et de l’interface de ligne de commande Azure.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/powershell-preview-inline-include.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
@@ -694,4 +694,4 @@ En résumé, cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -21,7 +21,9 @@
 
 Microsoft Azure propose différents moyens de créer des machines virtuelles adaptées à tous les utilisateurs et toutes les applications. Pour cette raison, vous devez effectuer certains choix relatifs à la machine virtuelle et à sa création. Cet article vous propose un résumé de ces options et des liens pour obtenir des instructions.
 
-Les modèles Microsoft Azure Resource Manager ont été récemment introduits comme un moyen de créer et de gérer une machine virtuelle et ses différentes ressources en tant qu’unité logique unique de déploiement. Des instructions relatives à cette approche sont fournies ci-dessous, le cas échéant. Pour plus d'informations sur Microsoft Azure Resource Manager et sur la gestion des ressources en tant qu'unité unique, consultez la [vue d'ensemble][].
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+Les modèles Microsoft Azure Resource Manager ont été récemment introduits comme un moyen de créer et de gérer une machine virtuelle et ses différentes ressources en tant qu’unité logique unique de déploiement. Des instructions relatives à cette approche sont fournies ci-dessous, le cas échéant. Pour plus d’informations sur Microsoft Azure Resource Manager et sur la gestion des ressources en tant qu’unité unique, consultez la [vue d’ensemble][].
 
 ## Choix des outils
 
@@ -35,9 +37,9 @@ L’interface utilisateur graphique du portail Microsoft Azure constitue un moy
 
 Si vous préférez travailler dans une interface de commande, choisissez l’interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell, qui comporte des applets de commande Windows PowerShell pour Microsoft Azure et une console personnalisée.
 
-Pour l'interface de ligne de commande Azure, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows][]. Pour utiliser un modèle, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure][].
+Pour l’interface de ligne de commande Azure, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les tâches de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows][]. Pour utiliser un modèle, consultez la rubrique [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure][].
 
-Pour Azure PowerShell, consultez la rubrique [Créer et préconfigurer une machine virtuelle Windows avec Resource Manager et Azure PowerShell][]. Pour utiliser un modèle, consultez la rubrique [Déploiement et gestion de machines virtuelles à l'aide de modèles Azure Resource Manager et de PowerShell][]. Pour créer des machines virtuelles dans la pile de gestion des services, consultez la rubrique [Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows][].
+Pour Azure PowerShell, consultez la rubrique [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows][]. Pour utiliser un modèle, consultez la rubrique [Déploiement et gestion de machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell][]. Pour créer des machines virtuelles dans la pile de gestion des services, consultez la rubrique [Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows][].
 
 ### Environnement de développement : Visual Studio
 
@@ -55,7 +57,7 @@ Ces instructions vous expliquent comment utiliser une image Microsoft Azure po
 
 ### Utiliser votre propre image
 
-Utilisez une image basée sur une machine virtuelle Azure existante en *capturant* cette machine virtuelle ou en téléchargeant l'une de vos propres images stockées sur un disque dur virtuel :
+Utilisez une image basée sur une machine virtuelle Azure existante en *capturant* cette machine virtuelle, ou téléchargez l’une de vos propres images stockées sur un disque dur virtuel :
 
 - [Comment capturer une machine virtuelle Windows à utiliser comme image][]
 - [Créer et charger un disque dur virtuel Windows Server dans Azure][]
@@ -72,16 +74,15 @@ Utilisez une image basée sur une machine virtuelle Azure existante en *capturan
 [Environnements de test de cloud hybride Azure][]
 
 <!-- LINKS -->
-[vue d'ensemble]: ../resource-group-overview.md
+[vue d’ensemble]: ../resource-group-overview.md
 
 [Créer une machine virtuelle exécutant Windows]: virtual-machines-windows-tutorial.md
 
-[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l'interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
-[Déploiement et gestion de machines virtuelles à l'aide des modèles Azure Resource Manager et de l'interface de ligne de commande Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les tâches de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows]: xplat-cli-azure-manage-vm-asm-arm.md
+[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
 [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
-[Déploiement et gestion de machines virtuelles à l'aide de modèles Azure Resource Manager et de PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
-[Créer et préconfigurer une machine virtuelle Windows avec Resource Manager et Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-vms.md
-[Utilisation d'Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows]: virtual-machines-ps-create-preconfigure-windows-vms.md
+[Déploiement et gestion de machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
+[Utilisation d’Azure PowerShell pour créer et préconfigurer des machines virtuelles basées sur Windows]: virtual-machines-ps-create-preconfigure-windows-vms.md
 [Comment créer une machine virtuelle personnalisée exécutant Windows]: virtual-machines-windows-create-custom.md
 
 [Comment capturer une machine virtuelle Windows à utiliser comme image]: virtual-machines-capture-image-windows-server.md
@@ -100,4 +101,4 @@ Utilisez une image basée sur une machine virtuelle Azure existante en *capturan
 
 [Environnements de test de cloud hybride Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

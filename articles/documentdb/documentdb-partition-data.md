@@ -1,7 +1,7 @@
 <properties      
     pageTitle="Partitionnement et mise à l’échelle de données dans DocumentDB avec un partitionnement | Microsoft Azure"      
     description="Examinez comment mettre à l’échelle des données avec une technique appelée partitionnement. Découvrez les partitions, comment partitionner des données dans DocumentDB, et quand utiliser un partitionnement par hachage et par plage."         
-    keywords="Scale data, shard, sharding, documentdb, azure, Microsoft azure"
+    keywords="mettre des données à l’échelle, partition, partitionnement, documentdb, azure, Microsoft azure"
 	services="documentdb"      
     authors="arramac"      
     manager="jhubbard"      
@@ -38,7 +38,7 @@ Les collections diffèrent des tables dans les bases de données relationnelles.
 
 ## Partitionnement avec DocumentDB
 
-Deux approches peuvent être utilisées pour le partitionnement de données avec Azure DocumentDB (ou tout système distribué à cette fin), à savoir le *partitionnement par plages de valeurs*, et le *partitionnement de hachage*. Cela implique la sélection d’un seul nom de propriété JSON dans votre document en tant que *clé de partition*, généralement la propriété d’ID naturel, par exemple, « userID » pour le stockage de l’utilisateur, ou « deviceId » pour les scénarios IoT. Pour les données de série chronologique, l’« horodatage » est utilisé comme clé de partition dans la mesure où les données sont généralement insérées et recherchées par plages de temps. S’il est courant d’utiliser une propriété unique, celle-ci peut être différente pour différents types de documents, par exemple, utilisez « id » pour des documents utilisateur, et « ownerUserId » pour des commentaires. L’étape suivante consiste à acheminer toutes les opérations telles que les créations et requêtes vers les regroupements appropriés à l’aide de la clé de partition incluse dans une demande.
+Deux approches peuvent être utilisées pour le partitionnement de données avec Azure DocumentDB (ou tout système distribué à cette fin), à savoir le *partitionnement par plages de valeurs* et le *partitionnement de hachage*. Cela implique la sélection d’un seul nom de propriété JSON dans votre document en tant que *clé de partition*, généralement la propriété d’ID naturel, par exemple, « userID » pour le stockage de l’utilisateur, ou « deviceId » pour les scénarios IoT. Pour les données de série chronologique, l’« horodatage » est utilisé comme clé de partition dans la mesure où les données sont généralement insérées et recherchées par plages de temps. S’il est courant d’utiliser une propriété unique, celle-ci peut être différente pour différents types de documents, par exemple, utilisez « id » pour des documents utilisateur, et « ownerUserId » pour des commentaires. L’étape suivante consiste à acheminer toutes les opérations telles que les créations et requêtes vers les regroupements appropriés à l’aide de la clé de partition incluse dans une demande.
 
 Examinons ces techniques plus en détail.
 
@@ -112,4 +112,4 @@ Dans cet article, nous avons introduit certaines techniques courantes pour le pa
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

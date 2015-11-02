@@ -12,16 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/23/2015"
+   ms.date="10/13/2015"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
 
 ## Vue d’ensemble
 
-Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique.
-
-Ce didacticiel explique comment déballer, monter en rack et brancher le matériel de votre appareil StorSimple 8100 avant de configurer son logiciel.
+Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
 ## Déballage de votre appareil StorSimple 8100
 
@@ -31,19 +29,18 @@ La procédure suivante explique de façon claire et détaillée comment déballe
 
 Avant de déballer l’appareil, lisez les informations suivantes.
 
->[AZURE.WARNING]![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
->
-> 1. Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un appareil complet peut peser jusqu’à 32 kg.
->
-> 2. Placez le carton sur une surface plane et droite.
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
 
+1. Compte tenu du poids du boîtier, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
+1. Placez le carton sur une surface plane et droite.
+ 
 Ensuite, procédez comme suit pour déballer votre appareil.
 
 #### Pour déballer votre appareil
 
-1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le support technique Microsoft pour savoir si l’appareil est en état de marche. 
+1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. [Contactez le support technique Microsoft](storsimple-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche. 
 
-2. Déballez le carton. L’image suivante représente votre appareil Azure StorSimple déballé.
+2. Déballez le carton. L’image suivante représente votre appareil StorSimple déballé.
 
      ![Déballage de votre appareil de stockage](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
@@ -57,6 +54,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
      4 | Polystyrène de protection supérieur
      5 | Carton contenant les accessoires
 
+
 3. Une fois le carton déballé, vous devez disposer des éléments suivants :
 
    - 1 appareil dans son boîtier
@@ -65,11 +63,11 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    - 2 câbles de console série
    - 1 convertisseur de série USB pour l’accès en série
    - 1 tournevis T10 inaltérable
-   - 4 adaptateurs QSFP-SFP uniques
+   - 4 adaptateurs QSFP-SFP+ à utiliser avec les interfaces réseau 10 GbE
    - 1 kit de montage en rack (2 rails latéraux avec matériel de montage)
    - Documentation de mise en route
 
-    Si vous n’avez pas reçu l’un des éléments ci-dessus, contactez le support technique Microsoft.
+    Si vous n’avez pas reçu l’un des éléments ci-dessus, [contactez le support technique Microsoft](storsimple-contact-microsoft-support.md).
 
 L’étape suivante consiste à monter votre appareil en rack.
 
@@ -91,9 +89,9 @@ L’appareil doit être installé dans un rack standard de 19 pouces équipé d
 
 3. Assurez-vous qu’un emplacement de 2U est disponible sur le rack dans lequel vous avez l’intention de monter l’appareil.
 
->[AZURE.WARNING]![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)
-> 
-> Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
+![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
+ 
+Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 
 ### Configuration requise pour le rack
 
@@ -107,22 +105,22 @@ Le boîtier 8100 est conçu pour une installation dans une armoire à rack stan
 
 Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouces est fourni. Les rails ont été testés pour supporter le poids maximal d’un boîtier. Ces rails permettent également d’installer plusieurs boîtiers sans perte d’espace dans le rack.
 
+
 #### Pour installer l’appareil sur les rails
 
-1. Placez le boîtier sur la surface de travail et retirez les capuchons d’embase avant gauche et droit. Les capuchons sont simplement enfoncés sur les embases.
-
-2. En général, les rails sont installés en usine. S’ils ne le sont pas, installez les glissières du rail gauche et celles du rail droit sur les côtés du châssis du boîtier. Six vis métriques permettent de les fixer de chaque côté. Pour faciliter l’orientation, les mentions **LH – Front** (avant gauche) et **RH – Front** (avant droit) sont indiquées sur les glissières et l’extrémité qui est apposée à l’arrière du boîtier est effilée.<br/>
+2. Effectuez cette étape uniquement si les rails internes ne sont pas installés sur votre appareil. En général, les rails internes sont installés en usine. S’ils ne le sont pas, installez les glissières du rail gauche et celles du rail droit sur les côtés du châssis du boîtier. Six vis métriques permettent de les fixer de chaque côté. Pour faciliter l’orientation, les mentions **LH – Front** (avant gauche) et **RH – Front** (avant droit) sont indiquées sur les glissières et l’extrémité qui est apposée à l’arrière du boîtier est effilée.<br/>
 
     ![Fixation des glissières de rail sur le châssis du boîtier](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **Fixation des glissières de rail sur les côtés du boîtier**
+   **Fixation des glissières de rail interne sur les côtés du boîtier**
 
-    Label | Description
-    ----- | -----------
-    1     | M 3x4 button-head screws
-    2     | Chassis slides
+    	Label | Description
+    	----- | -----------
+    	1     | M 3x4 button-head screws
+   		2     | Chassis slides
 
-3. Fixez le rail gauche et le rail droit sur les éléments verticaux de l’armoire à rack. Les crochets sont marqués **LH** (gauche), **RH** (droite) et **This side up** (Ce côté vers le haut) afin de vous aider à orienter correctement les éléments.
+
+3. Fixez le rail gauche externe et le rail droit externe sur les éléments verticaux de l’armoire à rack. Les crochets sont marqués **LH** (gauche), **RH** (droite) et **This side up** (Ce côté vers le haut) afin de vous aider à orienter correctement les éléments. 
 
 4. Recherchez les ergots à l’avant et à l’arrière du rail. Développez le rail afin qu’il soit suffisamment long pour relier les poteaux du rack, puis insérez les ergots dans les trous des éléments verticaux du poteau arrière du rack. Vérifiez que le rail est de niveau.
 
@@ -132,15 +130,16 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
      ![Fixation des glissières de rail sur l’armoire à rack](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **Fixation des rails au rack**
+    **Fixation des rails externes au rack**
 
      Étiquette | Description
      ----- | -----------
      1 | Vis de serrage
      2 | Ouverture carrée pour vis du poteau avant du rack
-     3 | Ergots de positionnement du rail avant gauche
+     3 | Ergots de positionnement avant du rail gauche
      4 | Vis de serrage
-     5 | Ergots de positionnement du rail avant droit
+     5 | Ergots de positionnement arrière du rail gauche
+
 
 ### Montage de l’appareil dans le rack
 
@@ -156,7 +155,10 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
 
     **Montage de l’appareil dans le rack**
 
-3. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
+
+3. Retirez les capuchons d’embase avant gauche et droit. Les capuchons sont simplement enfoncés sur les embases.
+
+5. Sécurisez le boîtier dans le rack en installant une vis cruciforme fournie sur chaque embase, à gauche et à droite.
 
 4. Placez les capuchons sur les embases et appuyez dessus pour les mettre en place.<br/>
 
@@ -178,7 +180,7 @@ Les procédures suivantes expliquent comment brancher les câbles d’alimentati
 
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
-- Votre appareil de stockage, complètement déballé
+- Votre appareil de stockage, complètement déballé et monté en rack.
 
 - 2 câbles d’alimentation livrés avec votre appareil
 
@@ -190,7 +192,7 @@ Avant de commencer le câblage de votre appareil, vous devez disposer des élém
 
 - Convertisseur de série USB avec le pilote approprié installé sur votre ordinateur (si nécessaire)
 
-- Adaptateurs QSFP-SFP+ uniques fournis à utiliser avec les interfaces réseau 10 Gigabit Ethernet
+- 4 adaptateurs QSFP-SFP+ fournis à utiliser avec les interfaces réseau 10 GbE
 
 - [Matériel pris en charge pour les interfaces réseau 10 Gigabit Ethernet sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -223,30 +225,45 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
      2/3 | Interfaces réseau de 10 Gigabit Ethernet
      6 | Ports série
 
-2. Pour une haute disponibilité, l’appareil nécessite au moins deux connexions pour chaque contrôleur.
-    1. Le port de données DATA 0 est automatiquement activé et configuré via la console série de l’appareil. Hormis DATA 0, un autre port de données doit également être configuré via le portail de gestion. 
-    2. Identifiez les interfaces réseau identiques sur chaque contrôleur. Par exemple, si vous choisissez de connecter DATA 0 et DATA 3 pour l’un des contrôleurs, vous devez connecter les ports de données correspondants DATA 0 et DATA 3 sur l’autre contrôleur. 
+2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. La configuration supplémentaire requise pour une disponibilité et des performances élevées est représentée par des lignes en pointillés.)
 
-3. Pour une haute disponibilité, vérifiez que vous connectez les éléments suivants :
-    1. Interfaces identiques sur chaque contrôleur avec le réseau approprié pour garantir la disponibilité en cas de défaillance d’un contrôleur.
-    2. Interfaces de chaque contrôleur avec au moins deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur.
-    3. Port de données DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
-
-    Configurez au moins une interface réseau pour l’accès au cloud et une pour iSCSI. Pour une haute disponibilité et des performances, configurez deux paires d’interfaces réseau sur chaque contrôleur. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
-	
+		
     ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **Branchement des câbles réseau de votre appareil**
 
-    Étiquette | Description
-    ----- | -----------
-     Une | LAN avec accès à Internet
-     B | Contrôleur 0
-     C | PCM 0
-     D | Contrôleur 1
-     E | PCM 1
-     F, G | Hôtes
-     0-5 | Interfaces réseau
+   
+	|Étiquette | Description |
+    |----- | ----------- |
+    | Une | LAN avec accès à Internet |
+    | B | Contrôleur 0 |
+    | C | PCM 0 |
+    | D | Contrôleur 1 |
+    | E | PCM 1 |
+    | F, G | Hôtes |
+    | 0-5 | Interfaces réseau |
+
+
+	
+Lors du câblage de l’appareil, la configuration minimale requiert les éléments suivants :
+
+
+- Au moins deux interfaces réseau connectées sur chaque contrôleur : l’une pour l’accès au cloud et l’autre pour iSCSI. Le port de données DATA 0 est automatiquement activé et configuré via la console série de l’appareil. Hormis DATA 0, un autre port de données doit également être configuré via le portail de gestion. Dans ce cas, connectez le port DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
+
+- Interfaces identiques sur chaque contrôleur avec une connexion au même réseau pour garantir la disponibilité en cas de basculement d’un contrôleur. Par exemple, si vous choisissez de connecter DATA 0 et DATA 3 pour l’un des contrôleurs, vous devez connecter les ports de données correspondants DATA 0 et DATA 3 sur l’autre contrôleur.
+	
+Gardez à l’esprit la disponibilité et les performances élevées :
+
+
+- Dans la mesure du possible, configurez deux interfaces réseau pour l'accès au cloud (1 GbE) et deux autres pour iSCSI (10 GbE recommandé) sur chaque contrôleur. 
+
+- Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents.
+
+Pour plus d'informations, reportez-vous à la section **Interfaces réseau** sous [Configuration requise pour la haute disponibilité de votre appareil StorSimple](storsimple-system-requirements/#high-availability-requirements-for-storsimple.md).
+
+>[AZURE.NOTE]Si vous utilisez des transmetteurs SFP+ avec vos interfaces réseau de 10 GbE, utilisez les adaptateurs QSFP-SFP+ fournis. Pour plus d'informations, consultez [Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+    
+
    
 ### Branchement des câbles de port série
 
@@ -268,11 +285,10 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 
 >[AZURE.NOTE]**Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
 
-Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel de votre appareil.
+Votre appareil est désormais branché à l’alimentation, au réseau et au port série. L’étape suivante consiste à configurer le logiciel et à déployer votre appareil.
 
 ## Étapes suivantes
 
-Vous êtes maintenant prêt à procéder au [Déploiement de votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
- 
+Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

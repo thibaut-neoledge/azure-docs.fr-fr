@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Gestion d’un compte DocumentDB via le portail Azure en version préliminaire | Microsoft Azure" 
 	description="Apprenez à gérer un compte DocumentDB via le portail Azure en version préliminaire. Trouvez un guide vous expliquant comment utiliser le portail Azure en version préliminaire pour afficher, copier, supprimer et accéder aux comptes." 
-	keywords="Azure preview portal, documentdb, azure, Microsoft azure"
+	keywords="Portail Azure en version préliminaire, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Comment gérer un compte DocumentDB dans le portail Azure en version préliminaire
 
@@ -30,11 +30,11 @@ Dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.
 
 ### Affichage et copie d’une touche d’accès rapide dans le portail Azure en version préliminaire
 
-1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB. 
+1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB. 
 
-2.      Dans le filtre **Résumé**, cliquez sur **Clés**.
+2.      Dans le filtre **Résumé**, cliquez sur **Clés**.
 
-3.      Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
+3.      Dans le panneau **Clés**, cliquez sur le bouton **Copier** à droite de la clé que vous souhaitez copier.
 
   ![Affichage et copie d’une touche d’accès rapide dans le portail Azure en version préliminaire, panneau Clés](./media/documentdb-manage-account/image004.jpg)
 
@@ -46,17 +46,17 @@ Vous devez modifier périodiquement les clés d'accès à votre compte DocumentD
 
 Si certains de vos services cloud ou applications utilisent le compte DocumentDB, vous perdrez les connexions en régénérant les clés, sauf si vous remplacez vos clés. Les étapes suivantes décrivent le processus de remplacement de vos clés.
 
-1.      Mettez à jour la clé d'accès dans le code de votre application afin de référencer la clé d'accès secondaire du compte DocumentDB.
+1.      Mettez à jour la clé d'accès dans le code de votre application afin de référencer la clé d'accès secondaire du compte DocumentDB.
 
-2.      Régénérez la clé d’accès principale de votre compte de stockage. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB.
+2.      Régénérez la clé d’accès principale de votre compte de stockage. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB.
 
-3.      Dans le filtre Résumé, cliquez sur **Clés**.
+3.      Dans le filtre Résumé, cliquez sur **Clés**.
 
-4.      Dans le panneau **Clés**, cliquez sur la commande **Régénérer la clé primaire**, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
+4.      Dans le panneau **Clés**, cliquez sur la commande **Régénérer la clé primaire**, puis sur **OK** pour confirmer que vous souhaitez générer une nouvelle clé.
 
-5.      Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
+5.      Une fois que vous avez vérifié que la nouvelle clé peut être utilisée(environ 5 minutes après la régénération), mettez à jour la clé d'accès dans le code de votre application afin de référencer la nouvelle clé d'accès primaire.
 
-6.      Régénérez la clé d’accès secondaire.
+6.      Régénérez la clé d’accès secondaire.
 
 *Notez qu’il faut parfois attendre plusieurs minutes avant de pouvoir utiliser une clé qui vient d’être générée pour accéder à votre compte DocumentDB.*
 
@@ -75,19 +75,19 @@ DocumentDB prend en charge quatre niveaux de cohérence des données bien défin
 
 ### Pour spécifier le niveau de cohérence par défaut d’un compte DocumentDB
 
-1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB. 
+1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez à votre compte DocumentDB. 
 
-2.      Dans le filtre **Configuration**, cliquez sur **Cohérence par défaut**.
+2.      Dans le filtre **Configuration**, cliquez sur **Cohérence par défaut**.
 
-3.      Dans le panneau **Cohérence par défaut**, sélectionnez le niveau de cohérence par défaut souhaité pour votre compte DocumentDB.
+3.      Dans le panneau **Cohérence par défaut**, sélectionnez le niveau de cohérence par défaut souhaité pour votre compte DocumentDB.
 
 ![Cohérence par défaut Session](./media/documentdb-manage-account/image005.png)
 
 ![Cohérence par défaut En fonction de l’arborescence](./media/documentdb-manage-account/image006.png)
 
-4.      Cliquez sur **Save**.
+4.      Cliquez sur **Save**.
 
-5.      La progression de l'opération peut être contrôlée via le hub de notifications du portail Azure en version préliminaire.
+5.      La progression de l'opération peut être contrôlée via le hub de notifications du portail Azure en version préliminaire.
 
 *Notez que l’application d’une modification du paramètre de cohérence par défaut dans votre compte DocumentDB peut prendre plusieurs minutes.*
 
@@ -96,13 +96,13 @@ Pour supprimer un compte DocumentDB dont vous ne vous servez plus dans le portai
 
 ![Comment supprimer un compte DocumentDB dans le portail Azure en version préliminaire](./media/documentdb-manage-account/image009.png)
 
-1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez au compte DocumentDB à supprimer. 
+1.      Dans le [portail Azure en version préliminaire](https://portal.azure.com/), accédez au compte DocumentDB à supprimer. 
 
-2.      Dans le panneau **Compte DocumentDB**, cliquez sur la commande **Supprimer**.
+2.      Dans le panneau **Compte DocumentDB**, cliquez sur la commande **Supprimer**.
 
-3.      Dans le volet de confirmation qui s'affiche, entrez le nom du compte DocumentDB afin pour confirmer que vous souhaitez le supprimer.
+3.      Dans le volet de confirmation qui s'affiche, entrez le nom du compte DocumentDB afin pour confirmer que vous souhaitez le supprimer.
 
-4.      Dans le panneau de confirmation, cliquez sur le bouton **Supprimer**.
+4.      Dans le panneau de confirmation, cliquez sur le bouton **Supprimer**.
 
 ## <a id="next"></a>Étapes suivantes
 
@@ -113,4 +113,4 @@ Pour en savoir plus sur DocumentDB, consultez la documentation Azure DocumentDB 
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

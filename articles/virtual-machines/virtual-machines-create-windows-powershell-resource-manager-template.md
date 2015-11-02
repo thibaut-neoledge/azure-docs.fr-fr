@@ -25,9 +25,7 @@ Vous pouvez facilement créer une machine virtuelle basée sur Windows à l’ai
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Avant d’aller plus loin, veuillez vérifier qu’Azure PowerShell est configuré et opérationnel.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Création d'une machine virtuelle Windows avec un modèle du Gestionnaire de ressources à l'aide d'Azure PowerShell
 
@@ -290,4 +288,4 @@ Vous disposez maintenant d’une nouvelle machine virtuelle Windows nommée MyWi
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

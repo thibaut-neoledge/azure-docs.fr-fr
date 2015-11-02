@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="10/20/2015"
    ms.author="alkohli" />
 
 # Notes de publication de StorSimple série 8000 Update 1.2  
@@ -55,7 +55,7 @@ Ces fonctionnalités ont tout d'abord été publiées avec Update 1 qui a été
 
 - **Prise en charge d’autres fournisseurs de services cloud** - Les autres fournisseurs de services cloud pris en charge sont Amazon S3, Amazon S3 with RRS, HP et OpenStack (bêta).
 
-- **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant des versions logicielles antérieures à Update 1 (Release, 0.1, 0.2 et 0.3) utilisent des versions des API de service de Microsoft Azure Storage antérieures au 12 février 2012. Comme indiqué dans l’[annonce du retrait des versions de service de Microsoft Azure Storage](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/), ces API seront rendues obsolètes le 10 décembre 2015. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 9 décembre 2015. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
+- **Mise à jour vers les API de stockage les plus récentes** - Dans cette version, StorSimple a été mis à jour vers les API de service Microsoft Azure Storage les plus récentes. Les appareils StorSimple série 8000 exécutant des versions logicielles antérieures à Update 1 (Release, 0.1, 0.2 et 0.3) utilisent des versions des API de service de Microsoft Azure Storage antérieures au 17 juillet 2009. Comme indiqué dans l’[annonce mise à jour du retrait des versions de service de Microsoft Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), ces API seront déconseillées le 1er août 2016. Il est impératif que vous installiez la version StorSimple série 8000 Update 1 avant le 1er août 2016. Si vous ne procédez pas à cette mise à jour, vos appareils StorSimple ne fonctionneront plus correctement.
 
 - **Prise en charge du stockage redondant dans une zone** - Avec la mise à niveau vers la dernière version des API Microsoft Azure Storage, les appareils StorSimple série 8000 prendront en charge le stockage redondant dans une zone, en plus du stockage localement redondant et du stockage géo-redondant. Pour en savoir plus sur le stockage redondant dans une zone, consultez cet [article sur les options de redondance dans Microsoft Azure Storage](../storage/storage-redundancy.md).
 
@@ -124,4 +124,4 @@ Cette mise à jour ne peut pas être appliquée à l’appareil virtuel. De nouv
 - [Installer Update 1.2 sur votre appareil](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

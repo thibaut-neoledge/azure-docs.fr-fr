@@ -14,29 +14,36 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/15/2015"
 	ms.author="jgao"/>
 
-# Exemple Hadoop d’Estimateur de la valeur de Pi dans HDInsight
+# Exécuter le programme MapReduce d’estimation de Pi sur un cluster Hadoop dans HDInsight
 
-Cette rubrique explique comment exécuter un programme MapReduce Hadoop dans Azure HDInsight, qui estime la valeur de la constante mathématique Pi en utilisant Azure PowerShell. Vous y trouverez également le code Java utilisé dans le programme MapReduce qui sert à estimer la valeur de Pi, à des fins d’inspection.
+Les clusters HDInsight comportent un fichier jar qui contient plusieurs exemples MapReduce. Cet article vous montre comment exécuter l’exemple d’estimation de Pi à l’aide d’Azure PowerShell. Cet exemple estime la valeur de la constante mathématique Pi.
 
 > [AZURE.NOTE]Les étapes décrites dans ce document nécessitent un cluster HDInsight Windows. Pour plus d’informations sur l’exécution de cet exemple et des autres exemples avec des clusters Linux, consultez la page [Exécution des exemples de Hadoop dans HDInsight](hdinsight-hadoop-run-samples-linux.md)
 
 Le programme utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi. Des points placés aléatoirement à l’intérieur d’un carré unitaire se retrouvent également à l’intérieur d’un cercle inscrit dans ce carré avec une probabilité égale à l’aire du cercle, Pi/4. La valeur de Pi peut être estimée à partir de la valeur de 4R, où R est le rapport entre le nombre de points situés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré. Plus l'échantillon de points est grand, plus l'estimation est précise.
 
-Le code Java Pi Estimator contenant les fonctions de mappage et de réduction est disponible pour inspection, ci-dessous. Le programme de mappage génère un nombre spécifié de points placés aléatoirement à l'intérieur d'un carré unitaire, puis compte le nombre de ces points se trouvant à l'intérieur du cercle. Le programme de réduction cumule les points comptés par les mappeurs, puis estime la valeur de Pi à partir de la formule 4R, R étant le rapport entre le nombre de points comptés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré.
-
 Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et il est configuré pour fonctionner avec une valeur de 16 mappages qui sont tous requis pour le calcul de 10 millions de points d’échantillonnage par les valeurs de paramètre. Ces dernières peuvent être modifiées pour améliorer la valeur estimée de Pi. Pour référence, voici les 10 premières décimales de Pi : 3,1415926535.
-
-Le fichier .jar contenant les fichiers requis par Hadoop sur Azure pour déployer l'application est un fichier .zip disponible en téléchargement. Vous pouvez le décompresser grâce à différents utilitaires de compression, puis explorer les fichiers comme vous l’entendez.
 
 La liste des autres exemples disponibles pour vous aider à vous habituer à une utilisation rapide de HDInsight pour exécuter des tâches MapReduce se trouve sur la page [Exécution des exemples HDInsight][hdinsight-samples] où vous trouverez également des liens vers des instructions sur leur exécution.
 
-**Vous apprendrez à effectuer les opérations suivantes :**
 
-* utiliser Azure PowerShell pour exécuter le programme MapReduce de l’Estimateur de la valeur de Pi sur Azure HDInsight ;
-* identification d'un programme MapReduce écrit en Java.
+**Autres articles associés :**
+
+* [Prise en main d’Azure HDInsight][hdinsight-get-started]
+* [Développement de programmes MapReduce en Java pour Hadoop dans HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+* [Envoi de tâches Hadoop dans HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
+* [Exemple : GraySort de 10 Go][hdinsight-sample-10gb-graysort]
+* [Exemple : comptage de mots][hdinsight-sample-wordcount]
+* [Exemple : Diffusion en continu en C#][hdinsight-sample-cs-streaming]
+
+
+
+
+
+
 
 **Conditions préalables** :
 
@@ -46,7 +53,7 @@ La liste des autres exemples disponibles pour vous aider à vous habituer à une
 
 
 
-## <a id="run-sample"></a>Exécution de l’exemple avec Azure PowerShell
+## Exécution de l'exemple avec Azure PowerShell
 
 **Envoi des tâches MapReduce**
 
@@ -80,8 +87,9 @@ La liste des autres exemples disponibles pour vous aider à vous habituer à une
 	Pour comparaison, voici les 10 premières décimales de Pi : 3,1415926535.
 
 
-## <a id="java-code"></a>Code Java du programme MapReduce de l’Estimateur de la valeur de Pi
+## Code source Java MapReduce
 
+Le code Java Pi Estimator contenant les fonctions de mappage et de réduction est disponible pour inspection, ci-dessous. Le programme de mappage génère un nombre spécifié de points placés aléatoirement à l'intérieur d'un carré unitaire, puis compte le nombre de ces points se trouvant à l'intérieur du cercle. Le programme de réduction cumule les points comptés par les mappeurs, puis estime la valeur de Pi à partir de la formule 4R, R étant le rapport entre le nombre de points comptés à l’intérieur du cercle et le nombre total de points situés à l’intérieur du carré.
 
 
  	/**
@@ -474,5 +482,6 @@ Pour suivre des didacticiels qui expliquent l’exécution d’autres exemples e
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

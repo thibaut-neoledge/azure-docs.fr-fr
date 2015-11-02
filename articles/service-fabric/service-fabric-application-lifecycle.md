@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cycle de vie des applications Azure Service Fabric | Microsoft Azure"
-   description="Décrit le développement, le déploiement, le test, la mise à niveau, la maintenance et la suppression d'applications Service Fabric."
+   pageTitle="Cycle de vie des applications dans Service Fabric | Microsoft Azure"
+   description="Décrit le développement, le déploiement, le test, la mise à niveau, la maintenance et la suppression d’applications Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/17/2015"
+   ms.date="10/15/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
@@ -118,4 +118,4 @@ Pour plus d'informations sur le développement, le test et la gestion des servic
 - [Exemple de cycle de vie des applications basé sur REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

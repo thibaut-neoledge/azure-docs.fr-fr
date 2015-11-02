@@ -18,6 +18,8 @@
 
 # Utilisation des files d’attente Service Bus
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 Ce guide vous montre comment utiliser les files d’attente Service Bus. Les exemples sont écrits en PHP et utilisent le [Kit de développement logiciel (SDK) Azure pour PHP](../php-download-sdk.md). Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente**, **envoi et réception de messages** et **suppression de files d'attente**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
@@ -38,7 +40,7 @@ Dans ce guide, vous allez utiliser les fonctionnalités du service qui peuvent �
 
 Pour utiliser des API de file d’attente Azure Service Bus, procédez comme suit :
 
-1. référencer le fichier de chargeur automatique à l'aide de l'instruction [require\_once][require_once].
+1. référencer le fichier de chargeur automatique à l’aide de l’instruction [require\_once][require_once].
 2. référencer toute classe que vous êtes susceptible d'utiliser.
 
 L'exemple suivant montre comment inclure le fichier du chargeur automatique et référencer la classe **ServicesBuilder**.
@@ -48,7 +50,7 @@ L'exemple suivant montre comment inclure le fichier du chargeur automatique et r
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
-Dans les exemples ci-dessous, l'instruction `require_once` s'affichera toujours, mais seules les classes nécessaires aux besoins de l'exemple à exécuter sont référencées.
+Dans les exemples ci-dessous, l’instruction `require_once` s’affichera toujours, mais seules les classes nécessaires aux besoins de l’exemple à exécuter sont référencées.
 
 ## Configuration d’une connection Service Bus Azure
 
@@ -106,7 +108,7 @@ L’exemple suivant montre comment instancier un **ServiceBusRestProxy** et appe
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]vous pouvez utiliser la méthode `listQueues` sur les objets `ServiceBusRestProxy` pour vérifier s'il existe déjà une file d'attente d'un nom déterminé dans un espace de noms de service.
+> [AZURE.NOTE]vous pouvez utiliser la méthode `listQueues` sur les objets `ServiceBusRestProxy` pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
 
 ## Envoi de messages à une file d’attente
 
@@ -194,7 +196,7 @@ Service Bus intègre des fonctionnalités destinées à faciliter la récupérat
 
 De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l'application subit un incident après le traitement du message, mais avant l'émission de la demande **deleteMessage**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double,l'ajout d'une logique supplémentaire à vos applications pour traiter la remise de messages en double est recommandé. Ceci est souvent obtenu grâce à la propriété **getMessageId** du message, qui reste constante pendant les tentatives de remise.
+Si l'application subit un incident après le traitement du message, mais avant l'émission de la demande **deleteMessage**, le message est à nouveau remis à l'application lorsqu'elle redémarre. Dans ce type de traitement, souvent appelé **Au moins une fois**, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Si le scénario ne peut pas tolérer le traitement en double,l'ajout d'une logique supplémentaire à vos applications pour traiter la remise de messages en double est recommandé. Ceci est souvent obtenu grâce à la méthode **getMessageId** du message, qui reste constante pendant les tentatives de remise.
 
 ## Étapes suivantes
 
@@ -207,4 +209,4 @@ Pour plus d’informations, consultez aussi le [Centre pour développeurs PHP](/
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

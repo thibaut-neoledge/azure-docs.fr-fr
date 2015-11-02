@@ -1,8 +1,6 @@
 <properties
-	title="Getting started with elastic database query"
-	pageTitle="Prise en main des requêtes de base de données élastique"
-	description="comment utiliser la requête de base de données élastique"
-	metaKeywords="azure sql database elastic queries"
+	pageTitle="Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal) | Microsoft Azure"
+	description="comment utiliser des requêtes entre plusieurs bases de données"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -14,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="sidneyh" />
+	ms.date="10/15/2015"
+	ms.author="SilviaDoomra" />
 
-# Prise en main des requêtes de base de données élastique
+# Prise en main des requêtes de base de données élastiques pour le partitionnement (partitionnement horizontal)
 
 Les requêtes de bases de données élastiques (en version préliminaire) pour Base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Pour plus d’informations sur la fonctionnalité de requête de base de données flexible, veuillez consulter la [page de vue d’ensemble des fonctionnalités](sql-database-elastic-query-overview.md).
 
@@ -126,7 +124,7 @@ Vous remarquerez que la requête regroupe les résultats de toutes les partition
 Toutes les lignes de la table **Clients**, stockées dans des partitions différentes, remplissent la feuille Excel.
 
 ## Étapes suivantes
-Vous pouvez maintenant utiliser les fonctions de données puissantes d’Excel. Vous pouvez utiliser la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour vous connecter vos outils d’intégration BI et de données dans la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Vous pouvez vous traiter la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
+Vous pouvez maintenant utiliser les fonctions de visualisation de données puissantes d’Excel. Vous pouvez utiliser la chaîne de connexion avec votre nom de serveur, votre nom de base de données et les informations d’identification pour vous connecter vos outils d’intégration BI et de données dans la base de données de requête élastique. Assurez-vous que SQL Server est pris en charge comme source de données pour votre outil. Vous pouvez vous traiter la base de données de requête élastique et les tables externes comme n’importe quelles bases de données SQL Server et tables SQL Server auxquelles vous vous connectez avec votre outil.
 
 ### Coût
 La fonction de requête de base de données élastique n’entraîne aucuns frais supplémentaires. Toutefois, pour l’instant, cette fonctionnalité n’est disponible que sur les bases de données premium comme point de terminaison, mais les partitions peuvent provenir de n’importe quel niveau de service.
@@ -144,4 +142,4 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

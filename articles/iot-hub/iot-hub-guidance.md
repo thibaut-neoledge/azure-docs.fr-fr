@@ -32,9 +32,9 @@ La portée d’une passerelle de champ inclut la passerelle de champ elle-même 
 
 ### Passerelle de champ transparente ou opaque
 
-En ce qui concerne les identités d’appareils, les passerelles de champ sont *transparentes* si d’autres appareils à leur portée ont des entrées d’identité d’appareil dans le registre d’identités du concentrateur IoT. Elles sont qualifiées d’*opaque* lorsque la seule identité présente dans le registre d’identités d’IoT Hub est celle de la passerelle de champ.
+En ce qui concerne les identités d’appareils, les passerelles de champ sont *transparentes* si d’autres appareils à leur portée ont des entrées d’identité d’appareil dans le registre d’identités du hub IoT. Elles sont qualifiées d’*opaque* lorsque la seule identité présente dans le registre d’identités d’IoT Hub est celle de la passerelle de champ.
 
-Il est important de noter que l’utilisation d’une passerelle *opaque* empêche IoT Hub d’offrir le [dispositif anti-usurpation d’identité d’appareil][IoT Hub Developer Guide - Anti-spoofing]. En outre, comme tous les appareils de la portée de la passerelle de champ sont représentés comme un appareil unique dans le concentrateur IoT, ils sont soumis à des seuils et des quotas en tant qu’appareil unique.
+Il est important de noter que l’utilisation d’une passerelle *opaque* empêche IoT Hub d’offrir le [dispositif anti-usurpation d’identité d’appareil][IoT Hub Developer Guide - Anti-spoofing]. En outre, comme tous les appareils de la portée de la passerelle de champ sont représentés comme un appareil unique dans le hub IoT, ils sont soumis à des seuils et des quotas en tant qu’appareil unique.
 
 ### Autres considérations
 
@@ -52,14 +52,14 @@ Le service de jeton est un service cloud à déploiement automatique, qui utilis
 
 Voici les principales étapes du schéma de service de jeton.
 
-1. Créez une [stratégie d’accès partagé IoT Hub][IoT Hub Developer Guide - Security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Cette stratégie sera utilisée par le service de jetons pour signer les jetons.
-2. Lorsqu’un périphérique souhaite accéder au concentrateur IoT, il demande à votre service de jetons un jeton signé. Le périphérique peut utiliser votre schéma de registre d’identité/d’authentification personnalisé.
+1. Créez une [stratégie d’accès partagé IoT Hub][IoT Hub Developer Guide - Security] avec des autorisations **DeviceConnect** pour votre hub IoT. Cette stratégie sera utilisée par le service de jetons pour signer les jetons.
+2. Lorsqu’un périphérique souhaite accéder au hub IoT, il demande à votre service de jetons un jeton signé. Le périphérique peut utiliser votre schéma de registre d’identité/d’authentification personnalisé.
 3. Ce service de jetons renvoie un jeton créé conformément à la section [Guide du développeur IoT Hub - Sécurité][], en utilisant `/devices/{deviceId}` comme `resourceURI`, `deviceId` étant l’appareil en cours d’authentification.
-4. Le périphérique utilise le jeton directement avec le concentrateur IoT Hub.
+4. Le périphérique utilise le jeton directement avec le hub IoT.
 
-Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. À expiration, le concentrateur IoT interrompt la connexion et l’appareil doit demander un nouveau jeton au service de jetons. Il est clair qu’un délai d’expiration court accroît la charge de l’appareil et du service de jetons.
+Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. À expiration, le hub IoT interrompt la connexion et l’appareil doit demander un nouveau jeton au service de jetons. Il est clair qu’un délai d’expiration court accroît la charge de l’appareil et du service de jetons.
 
-Il faut préciser que l’identité de l’appareil doit être créée dans le concentrateur IoT pour que l’appareil puisse se connecter. Cela signifie également que ce contrôle d’accès par appareil (en désactivant les identités des appareils conformément au [Guide du développeur IoT Hub - Registre identité][]), est toujours en service, même si l’appareil s’authentifie avec un jeton. Cela réduit l’existence de jetons de longue durée.
+Il faut préciser que l’identité de l’appareil doit être créée dans le hub IoT pour que l’appareil puisse se connecter. Cela signifie également que ce contrôle d’accès par appareil (en désactivant les identités des appareils conformément au [Guide du développeur IoT Hub - Registre identité][]), est toujours en service, même si l’appareil s’authentifie avec un jeton. Cela réduit l’existence de jetons de longue durée.
 
 ### Comparaison avec une passerelle personnalisée
 
@@ -69,7 +69,7 @@ Le modèle de service de jetons est la méthode recommandée pour implémenter u
 
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
-- [Prise en main des IoT Hubs (didacticiel)][lnk-get-started].
+- [Prise en main d’IoT Hub (didacticiel)][lnk-get-started]
 - [Qu’est-ce qu’Azure IoT Hub ?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

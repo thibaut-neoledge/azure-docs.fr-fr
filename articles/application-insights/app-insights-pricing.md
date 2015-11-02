@@ -88,7 +88,7 @@ Il existe trois compartiments qui sont comptabilisés séparément :
 * [exceptions](app-insights-api-custom-events-metrics.md#track-exception), limitées à 50 points/s ;
 * toutes les autres données de télémétrie (pages consultées, sessions, demandes, dépendances, métriques, événements personnalisés et résultats des tests web).
 
-Si le volume de données envoyées par votre application dépasse cette limite, certaines de ces données sont supprimées. Si tel est le cas, vous en êtes informé par un avertissement.
+Si le volume de données envoyées par votre application dépasse cette limite pendant plusieurs minutes, certaines de ces données peuvent être supprimées. Si tel est le cas, vous en êtes informé par un avertissement.
 
 ### Conseils destinés à réduire votre débit de données
 
@@ -135,4 +135,4 @@ Les frais liés à Application Insights sont ajoutés à votre facture Azure. Le
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

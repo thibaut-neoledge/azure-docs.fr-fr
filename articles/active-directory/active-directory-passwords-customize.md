@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Personnalisation de la gestion des mots de passe en fonction des besoins de votre organisation
@@ -393,7 +393,56 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Question de sécurité</p>
+                <p>Questions de sécurité basées sur des informations</p>
+              </td>
+              <td>
+                <p>Définit les questions préconçues de sécurité que vos utilisateurs peuvent choisir au moment de l’inscription à la réinitialisation du mot de passe et au moment de la réinitialisation de leur mot de passe.</p>
+                <p>
+                  
+                </p>
+                <p>(Visible uniquement si la case à cocher <strong>Questions de sécurité</strong> est activée).</p>
+              </td>
+              <td>
+                <p>
+                  <strong>Remarque&#160;:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Toutes les questions basées sur des informations seront localisées dans l’ensemble des versions linguistiques d’Office&#160;365 en fonction des paramètres régionaux du navigateur de l’utilisateur.<br><br></li>
+                  <li class="unordered">
+												Jusqu’à&#160;20&#160;questions peuvent être définies (soit la somme de vos questions personnalisées et des questions basées sur des informations).<br><br></li>
+                 <li class="unordered">
+												La limite minimale du nombre de caractères par question est de 3&#160;caractères.<br><br></li>
+                  <li class="unordered">
+												La limite maximale du nombre de caractères par réponse est de 40&#160;caractères.<br><br></li>
+                  <li class="unordered">
+												L’utilisateur ne peut pas répondre deux fois à la même question.<br><br></li>
+                  <li class="unordered">
+												L’utilisateur ne peut pas fournir la même réponse à deux questions différentes.<br><br></li>
+                  <li class="unordered">
+												N’importe quel jeu de caractères peut être utilisé pour définir les réponses (y compris les caractères Unicode).<br><br></li>
+                  <li class="unordered">
+												Le nombre de questions définies doit être supérieur ou égal au nombre de questions requises pour l’inscription.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portail d’inscription&#160;:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Détermine les questions auxquelles l’utilisateur est en mesure de répondre lors de l’inscription pour la réinitialisation du mot de passe.<br><br></li>
+                </ul>
+                <p>
+                  <strong>Portail de réinitialisation du mot de passe&#160;:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Détermine les questions que l’utilisateur peut utiliser pour réinitialiser son mot de passe.<br><br></li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>Questions de sécurité personnalisées</p>
               </td>
               <td>
                 <p>Définit les questions de sécurité que vos utilisateurs peuvent choisir lors de l’inscription à la réinitialisation du mot de passe et lors de la réinitialisation de leur mot de passe.</p>
@@ -408,7 +457,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 </p>
                 <ul>
                   <li class="unordered">
-												Il est possible de définir jusqu’à 20&#160;questions.<br><br></li>
+												Jusqu’à&#160;20&#160;questions peuvent être définies (soit la somme de vos questions personnalisées et des questions basées sur des informations).<br><br></li>
                   <li class="unordered">
 												La limite maximale du nombre de caractères par question est de 200&#160;caractères.<br><br></li>
                   <li class="unordered">
@@ -424,7 +473,7 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                   <li class="unordered">
 												Le nombre de questions définies doit être supérieur ou égal au nombre de questions requises pour l’inscription.<br><br></li>
                   <li class="unordered">
-												Il n’est pas encore possible de définir différentes questions en fonction des paramètres régionaux, mais cela sera possible à l’avenir.<br><br></li>
+												Il n’est pas possible de définir différentes questions personnalisées en fonction des paramètres régionaux. Toutes les questions personnalisées s’affichent dans la langue dans laquelle vous les entrez dans l’interface utilisateur d’administration, même si les paramètres régionaux du navigateur de l’utilisateur sont différents. Si vous avez besoin que ces questions soient localisées, utilisez à place les questions «&#160;basées sur des informations&#160;».<br><br></li>
                 </ul>
                 <p>
                   <strong>Portail d’inscription&#160;:</strong>
@@ -727,6 +776,6 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
 * [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
 * [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
 * [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
+* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

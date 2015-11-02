@@ -2,7 +2,7 @@
 	pageTitle="Importation de données vers DocumentDB | Microsoft Azure" 
 	description="Découvrez comment utiliser l'outil de migration de données open source DocumentDB pour importer des données depuis différentes sources, y compris des fichiers JSON, des fichiers CSV, SQL, MongoDB, le stockage de tables Azure, Amazon DynamoDB et des collections DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="andrewhoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="anhoh"/>
 
 # Importation de données vers DocumentDB #
 
@@ -35,7 +35,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 Avant de suivre les instructions de cet article, vérifiez que les éléments suivants sont installés :
 
-- [Microsoft .NET Framework 4.51](http://www.microsoft.com/net/downloads) ou une version ultérieure.
+- [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou une version ultérieure.
 
 ##<a id="Overviewl"></a>Vue d'ensemble de l'outil de migration de données DocumentDB ##
 
@@ -57,8 +57,8 @@ L'outil d'importation inclut une interface utilisateur graphique (dtui.exe) et p
 
 Le code source de l'outil de migration est disponible sur GitHub dans [ce référentiel](https://github.com/azure/azure-documentdb-datamigrationtool) et une version compilée est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d). Vous pouvez compiler la solution ou simplement télécharger et extraire la version compilée dans un répertoire de votre choix. Exécutez ensuite l’un des fichiers suivants :
 
-- Dtui.exe : version de l'interface graphique de l'outil
-- DT.exe : version en ligne de commande de l'outil
+- **Dtui.exe** : version de l’interface graphique de l’outil
+- **Dt.exe** : version en ligne de commande de l’outil
 
 ##<a id="JSON"></a>Importation de fichiers JSON ##
 
@@ -477,4 +477,4 @@ Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journa
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

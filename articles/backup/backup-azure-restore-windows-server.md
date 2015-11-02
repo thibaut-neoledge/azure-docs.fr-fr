@@ -7,7 +7,7 @@
    manager="jwhit"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Restauration de fichiers sur un serveur Windows ou un ordinateur client Windows
 Cet article présente les étapes requises pour effectuer deux types d’opérations de restauration :
@@ -109,4 +109,4 @@ Les termes ci-après sont utilisés pour cette procédure :
 - [Sauvegarde des machines virtuelles Azure](backup-azure-vms-introduction.md)
 - [Sauvegarde des charges de travail Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

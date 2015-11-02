@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Services d'API Web Service Fabric avec auto-hébergement OWIN | Microsoft Azure"
-   description="Cet article Service Fabric explique comment implémenter une communication de service à l'aide de l'API Web ASP.NET avec auto-hébergement OWIN dans des services fiables."
+   pageTitle="Communication de service avec l’API web ASP.NET | Microsoft Azure"
+   description="Découvrez comment implémenter une communication de service étape par étape à l’aide de l’API web ASP.NET avec auto-hébergement OWIN dans l’API Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -614,4 +614,4 @@ Dans ASP.NET 5, le concept et le modèle de programmation liés à la séparatio
 
 [Débogage de votre application Service Fabric dans Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

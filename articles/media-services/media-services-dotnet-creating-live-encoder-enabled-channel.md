@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples" 
-	description="Ce didacticiel vous guide tout au long des étapes de création d'un canal qui reçoit un flux continu à vitesse de transmission unique et qui l'encode en flux à vitesses de transmission multiples." 
+	pageTitle="Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du Kit de développement logiciel (SDK) .NET" 
+	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du Kit de développement logiciel (SDK) .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015"
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Utiliser le Kit de développement logiciel (SDK) .NET pour créer des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples
+#Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du Kit de développement logiciel (SDK) .NET
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -517,4 +517,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

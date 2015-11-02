@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="cloud-services"
+   ms.service="multiple"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -52,4 +52,4 @@ Ce document présente un modèle de traitement par lots hors site utilisant des 
 
 [Niveau d’Azure Search](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) (en anglais)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

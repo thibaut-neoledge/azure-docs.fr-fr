@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Utiliser Active Directory pour l’authentification dans Azure App Service" 
 	description="Découvrez les différentes options d’authentification et d’autorisation pour les applications métier déployées dans Azure App Service Web Apps" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
@@ -53,4 +53,4 @@ Dans de nombreux scénarios, vous souhaitez personnaliser le comportement d’au
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l'ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

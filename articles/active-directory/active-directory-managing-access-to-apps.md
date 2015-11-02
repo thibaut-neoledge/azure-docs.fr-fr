@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="10/12/2015"
+  ms.date="10/16/2015"
   ms.author="stevenpo"/>
 
 
@@ -28,7 +28,10 @@ La gestion de l’accès, l’évaluation de l’utilisation et la création de 
  - [Ajout de nouvelles applications](active-directory-sso-newly-acquired-saas-apps.md)
  - [Ajout d’applications existantes](active-directory-sso-integrate-existing-apps)
 
- L’affectation d’applications Azure AD se concentre sur deux modes d’affectation principaux : - Affectation individuelle : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut sélectionner différents comptes d’utilisateurs et leur octroyer un accès à l’application. Affectation basée sur le groupe (version payante d’Azure AD uniquement) : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut affecter un groupe à l’application. L’accès dont bénéficie un utilisateur dépend de son appartenance éventuelle au groupe au moment où il tente d’accéder à l’application. Dans ce mode, un administrateur peut créer efficacement une règle d’affectation indiquant « tout membre actuel du groupe affecté a accès à l’application ». Avec cette option d’affectation, les administrateurs peuvent tirer parti des options de gestion de groupe Azure AD, notamment des groupes dynamiques basés sur l’attribut, des groupes de systèmes externes (par exemple, AD local ou jour ouvré) ou des groupes gérés par un administrateur ou en libre-service. Un même groupe peut être facilement affecté à plusieurs applications ; de la sorte, celles qui présentent une affinité d’affectation peuvent partager des règles d’affectation, réduisant ainsi la complexité globale de la gestion.
+ L’affectation d’applications Azure AD se concentre sur deux modes d’affectation principaux :
+
+- **Affectation individuelle** : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut sélectionner différents comptes d’utilisateurs et leur octroyer un accès à l’application.
+- **Affectation basée sur le groupe (version payante d’Azure AD uniquement)** : un administrateur informatique détenant des privilèges globaux, d’utilisateur ou AU peut affecter un groupe à l’application. L’accès dont bénéficie un utilisateur dépend de son appartenance éventuelle au groupe au moment où il tente d’accéder à l’application. Dans ce mode, un administrateur peut créer efficacement une règle d’affectation indiquant « tout membre actuel du groupe affecté a accès à l’application ». Avec cette option d’affectation, les administrateurs peuvent tirer parti des options de gestion de groupe Azure AD, notamment des groupes dynamiques basés sur l’attribut, des groupes de systèmes externes (par exemple, AD local ou jour ouvré) ou des groupes gérés par un administrateur ou en libre-service. Un même groupe peut être facilement affecté à plusieurs applications ; de la sorte, celles qui présentent une affinité d’affectation peuvent partager des règles d’affectation, réduisant ainsi la complexité globale de la gestion.
 
 Grâce à ces deux modes d’affectation, les administrateurs peuvent mettre en œuvre toute approche de gestion d’affectation souhaitable.
 
@@ -49,7 +52,6 @@ Dans ce cas, tous les utilisateurs affectés sont automatiquement approvisionné
 
  Les administrateurs peuvent utiliser l’[accès conditionnel Azure AD](active-directory-conditional-access.md) pour définir des stratégies d’accès pour des rôles spécifiques. Ces stratégies peuvent indiquer si l’accès est autorisé en dehors de l’environnement de l’entreprise, et même inclure des exigences Multi-Factor Authentication ou liées aux appareils déterminant l’octroi de l’accès dans divers cas.
 
-
 ## Comment faire pour démarrer ?
 
 Avant tout, si vous n’utilisez pas déjà Azure AD et que vous êtes administrateur informatique :
@@ -69,4 +71,4 @@ Les fonctionnalités Azure AD qui permettent le partage de compte sont les suiva
 - [Protection des applications avec accès conditionnel](active-directory-conditional-access.md)
 - [Gestion des groupes en libre service/accès aux applications en libre-service](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

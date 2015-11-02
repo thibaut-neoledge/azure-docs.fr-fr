@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Analyse de l’utilisation des applications web avec Application Insights" 
-	description="Présentation de l'analyse de l'utilisation avec Application Insights" 
+	description="Présentation de l’analyse de l’utilisation des applications web avec Application Insights" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -391,4 +391,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

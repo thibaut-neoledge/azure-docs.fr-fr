@@ -23,7 +23,9 @@
 - [Préparation d’une machine virtuelle Oracle Linux 6.4+ pour Azure](#oracle6)
 - [Préparation d’une machine virtuelle Oracle Linux 7.0+ pour Azure](#oracle7)
 
-##Composants requis##
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
+##Configuration requise##
 
 Cet article suppose que vous avez déjà installé un système d'exploitation Oracle Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
@@ -229,4 +231,4 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

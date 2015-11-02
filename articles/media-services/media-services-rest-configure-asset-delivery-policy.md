@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configuration de stratégies de remise de ressources à l’aide de REST" 
-	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources." 
+	pageTitle="Configuration de stratégies de remise de ressources à l’aide de l’API REST Media Services" 
+	description="Cette rubrique montre comment configurer différentes stratégies de remise de ressources à l’aide de l’API REST Media Services." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Procédure : configuration de stratégies de remise de ressources
@@ -436,4 +436,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

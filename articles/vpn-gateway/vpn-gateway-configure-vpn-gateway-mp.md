@@ -5,25 +5,31 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="" />
+   editor=""
+   tags="azure-service-management"/>
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/25/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configuration d'une passerelle VPN dans le portail Azure
+
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+
+Cet article a été écrit pour le modèle de déploiement classique et le portail Azure (pas le portail en version préliminaire). À ce stade, si vous souhaitez configurer une passerelle VPN pour le modèle de déploiement classique à l’aide d’un portail, vous devez utiliser le portail Azure.
 
 Si vous voulez créer une connexion intersite sécurisée entre Azure et votre emplacement local, vous devrez configurer une passerelle VPN. Il existe différents types de passerelles et le type de passerelle que vous allez créer dépend à la fois de votre plan de conception de réseau et du périphérique VPN local que vous souhaitez utiliser. Par exemple, certaines options de connectivité, telles qu'une connexion de point à site, nécessitent une passerelle de routage dynamique. Si vous souhaitez configurer votre passerelle pour prendre en charge les connexions de point à site (P2S) et une connexion de site à site (S2S), vous devrez configurer une passerelle de routage dynamique, même si le site à site peut être configuré avec un type de routage de passerelle. De plus, vous devrez vous assurer que le périphérique que vous souhaitez utiliser pour votre connexion de site à site prendra en charge le type de passerelle que vous souhaitez créer. Consultez la rubrique [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Présentation de la configuration
 
-La procédure suivante vous guidera dans la configuration de votre passerelle VPN dans le portail Azure. Ces étapes s'appliquent aux passerelles des réseaux virtuels créés à l'aide du mode de gestion des services et sont visibles dans le portail Azure. Elles ne s'appliquent pas à l'utilisation du portail en version préliminaire ou aux réseaux virtuels configurés à l'aide du mode Resource Manager. Des informations sur la création de passerelles de réseau virtuel pour les réseaux virtuels créés à l'aide du mode Resource Manager sont disponibles dans la section [Création d'un réseau virtuel avec une connexion de site à site à l'aide d'Azure Resource Manager et de PowerShell ](vpn-gateway-create-site-to-site-rm-powershell.md).
+La procédure suivante vous guidera dans la configuration de votre passerelle VPN dans le portail Azure. Ces étapes s'appliquent aux passerelles des réseaux virtuels créés à l'aide du mode de gestion des services et sont visibles dans le portail Azure. Elles ne s'appliquent pas à l'utilisation du portail en version préliminaire ou aux réseaux virtuels configurés à l'aide du mode Resource Manager. Des informations sur la création de passerelles de réseau virtuel pour les réseaux virtuels créés à l’aide du mode Resource Manager sont disponibles dans [Créer un réseau virtuel avec une connexion VPN site à site à l’aide d’Azure Resource Manager et de PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
-Avant de configurer votre passerelle, vous devrez tout d'abord créer votre réseau virtuel. Pour connaître la procédure de création d'un réseau virtuel pour la connectivité intersite, consultez la rubrique [Configuration d'un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md), ou [Configuration d'un réseau virtuel avec une connexion VPN de point à site](vpn-gateway-point-to-site-create.md). Suivez ensuite la procédure ci-dessous pour configurer la passerelle VPN et rassemblez les informations qui vous seront nécessaires pour configurer votre périphérique VPN.
+Avant de configurer votre passerelle, vous devrez tout d'abord créer votre réseau virtuel. Pour connaître la procédure de création d’un réseau virtuel pour les connexions entre locaux, consultez [Configuration d’un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md) ou [Configuration d’une connexion VPN de point à site à un réseau virtuel Azure](vpn-gateway-point-to-site-create.md). Suivez ensuite la procédure ci-dessous pour configurer la passerelle VPN et rassemblez les informations qui vous seront nécessaires pour configurer votre périphérique VPN.
 
 Si vous disposez déjà d'une passerelle VPN et que vous souhaitez modifier le type de routage, consultez la rubrique [Modification du type de passerelle VPN](#how-to-change-your-vpn-gateway-type).
 
@@ -37,7 +43,7 @@ Si vous disposez déjà d'une passerelle VPN et que vous souhaitez modifier le t
 
 ## Créer une passerelle VPN
 
-1. Dans le portail Azure, sur la page **Réseaux**, vérifiez que la colonne d'état de votre réseau virtuel est définie sur **Créé**.
+1. Dans le portail Azure, dans la page **Réseaux**, vérifiez que la colonne d’état de votre réseau virtuel a la valeur **Créé**.
 
 1. Dans la colonne **Nom**, cliquez sur le nom de votre réseau virtuel.
 
@@ -143,12 +149,12 @@ Avant de modifier votre passerelle, vérifiez que votre périphérique VPN prend
 
 ## Étapes suivantes
 
-Pour plus d'informations sur les connexions intersites de réseau virtuel, voir l'article [À propos des connexions intersites sécurisées pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
+Pour en savoir plus sur les connexions entre locaux de réseau virtuel, consultez l’article [À propos des connexions sécurisées entre locaux pour les réseaux virtuels](vpn-gateway-cross-premises-options.md).
 
-Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Pour plus d'informations, voir l'article [Création d'une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
+Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez [Création d’une machine virtuelle personnalisée](../virtual-machines/virtual-machines-create-custom.md).
 
-Si vous souhaitez configurer une connexion VPN de point à site, consultez l'article [Configuration d'une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
+Si vous souhaitez configurer une connexion VPN de point à site, consultez l’article [Configuration d’une connexion VPN de point à site](vpn-gateway-point-to-site-create.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

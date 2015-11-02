@@ -1,14 +1,20 @@
-<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN Microsoft Azure | Microsoft Azure" description="Si vous disposez d'un réseau virtuel avec une passerelle VPN entre sites, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
+<properties pageTitle="Configurer le tunneling forcé pour les passerelles VPN Microsoft Azure | Microsoft Azure" description="Si vous disposez d’un réseau virtuel avec une passerelle VPN entre locaux, vous pouvez rediriger ou « forcer » tout le trafic Internet vers votre emplacement local. " services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" tags="azure-service-management"/>
 <tags  
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/21/2015"
    ms.author="cherylmc" />
 
 # Configurer un tunneling forcé ?
+
+Cet article s’applique aux réseaux virtuels et passerelles VPN créés à l’aide du modèle de déploiement classique. Quand des instructions seront disponibles pour la configuration du tunneling forcé pour les réseaux virtuels et passerelles VPN créés à l’aide du modèle Resource Manager, nous ajouterons un lien en haut de cette page.
+
+>[AZURE.NOTE]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
+
+## À propos du tunneling forcé
 
 Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise. Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fera toujours à partir de l’infrastructure du réseau Azure directement vers Internet, sans vous laisser inspecter ou vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité.
 
@@ -26,9 +32,9 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 -  Chaque sous-réseau du réseau virtuel dispose d’une table de routage système intégrée. La table de routage système comporte les 3 groupes d’itinéraires suivants :
 
-	- **Itinéraire de réseau virtuel local :** directement vers la machine virtuelle de destination dans le même réseau virtuel.
+	- **Itinéraire de réseau virtuel local :** directement vers les machines virtuelles de destination dans le même réseau virtuel
 	
-	- **Sur les itinéraires locaux :** vers la passerelle VPN Azure.
+	- **Sur les itinéraires locaux :** vers la passerelle VPN Azure
 	
 	- **Itinéraire par défaut :** directement vers Internet. Les paquets destinés à des adresses IP privées non couvertes par les deux itinéraires précédents seront supprimés.
 
@@ -38,13 +44,13 @@ Le tunneling forcé dans Azure est configuré via les itinéraires de réseau vi
 
 - Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique). Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
 
-- Le tunneling forcé ExpressRoute n'est pas configuré via ce mécanisme, mais il est activé en publiant un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, voir [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
+- Le tunneling forcé ExpressRoute n'est pas configuré via ce mécanisme, mais il est activé en publiant un itinéraire par défaut via les sessions d'homologation BGP ExpressRoute. Pour plus d’informations, consultez [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## Présentation de la configuration
 
 La procédure ci-dessous vous permettra de spécifier le tunneling forcé dans un réseau virtuel. Les étapes de configuration correspondent à l'exemple de fichier netcfg de réseau virtuel ci-dessous.
 
-Dans l'exemple, le réseau virtuel multiniveau comporte 3 sous-réseaux : *frontal*, *intermédiaire* et *principal*, et 4 connexions intersite : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *intermédiaire* et *principal* de manière à utiliser le tunneling forcé.
+Dans l’exemple, le réseau virtuel multiniveau comporte 3 sous-réseaux : *frontal*, *intermédiaire* et *principal*, et 4 connexions entre locaux : *DefaultSiteHQ* et 3 *branches*. Les étapes de la procédure définissent *DefaultSiteHQ* en tant que connexion de site par défaut pour le tunneling forcé et configurent les sous-réseaux *intermédiaire* et *principal* de manière à utiliser le tunneling forcé.
 
 	<VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
@@ -88,7 +94,7 @@ Dans l'exemple, le réseau virtuel multiniveau comporte 3 sous-réseaux : *fro
 
 - Un réseau virtuel configuré.
 
-- Dernière version des applets de commande Azure PowerShell utilisant Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page Téléchargements](http://azure.microsoft.com/downloads/).
+- Dernière version des applets de commande Azure PowerShell utilisant Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page de téléchargement](http://azure.microsoft.com/downloads/).
 
 ## Configurer un tunneling forcé ?
 
@@ -149,6 +155,9 @@ Voici d'autres applets de commande PowerShell pouvant se révéler utiles lors d
 
 ## Étapes suivantes
 
-Pour plus d'informations sur la sécurisation de votre trafic réseau, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=Oct15_HO3-->
+Pour plus d’informations sur les itinéraires définis par l’utilisateur, consultez [Itinéraires définis par l’utilisateur et transfert IP](../virtual-network/virtual-networks-udr-overview.md).
+
+Pour plus d’informations sur la sécurisation de votre trafic réseau, consultez [Présentation du groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md). Notez que vous ne devez jamais appliquer un groupe de sécurité réseau à un sous-réseau de passerelle de réseau virtuel Azure.
+
+<!---HONumber=Oct15_HO4-->

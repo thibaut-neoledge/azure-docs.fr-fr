@@ -43,11 +43,7 @@ Ces tâches utilisent uniquement PowerShell :
 - [Redémarrage d’une machine virtuelle](#restart)
 - [Suppression d’une machine virtuelle](#delete)
 
-Avant de commencer, assurez-vous qu’Azure PowerShell est prêt à l’emploi.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Modèles Azure Resource Manager et groupes de ressources
 
@@ -380,4 +376,4 @@ Si vous souhaitez voir une vidéo de l’exécution de cette tâche, regardez ce
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

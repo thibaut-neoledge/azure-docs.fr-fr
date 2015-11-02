@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Journaux des opérations | Microsoft Azure" 
 	description="Journaux des opérations Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="analyse de données volumineuses,service cloud,internet des objets,service administré, traitement de flux,streaming analytics,données de diffusion"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -38,7 +38,7 @@ Un lien vers les journaux correspondants d'une tâche Stream Analytics s'affiche
 
 Pour accéder manuellement aux journaux des opérations pour Stream Analytics et d'autres services dans le portail Azure :
 
-1.	Cliquez sur **Services de gestion** dans le [portail Azure](https://manage.windowsazure.com).
+1.	Cliquez sur **Services de gestion** dans le [Portail Azure](https://manage.windowsazure.com).
 2.	Sélectionnez **Stream Analytics** pour **Type** et le nom de la tâche pour **Nom du service**.  
 
   ![Sélection de Stream Analytics](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)
@@ -83,7 +83,7 @@ Vous pouvez sélectionner l’une des erreurs et cliquer sur **Détails** pour o
 
   ![Détails de l'opération](./media/stream-analytics-operation-logs/05-stream-analytics-operation-logs.png)
 
-Si vous devez contacter le [Support](http://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**.
+Si vous devez contacter le [support technique](http://azure.microsoft.com/support/options/) ou fournir des informations à l’équipe par le biais du [forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics), notez les détails de l’opération, en particulier l’**ID de corrélation**.
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -96,4 +96,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

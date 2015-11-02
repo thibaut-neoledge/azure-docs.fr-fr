@@ -19,13 +19,15 @@
 
 # Utilisation des rubriques et abonnements Service Bus
 
-Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d'abonnements**, **création de filtres d'abonnement**, **envoi de messages à une rubrique**, **réception de messages en provenance d'un abonnement** et **suppression de rubriques et d'abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
+Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Node.js. Les scénarios couverts dans ce guide sont les suivants : **création de rubriques et d’abonnements**, **création de filtres d’abonnement**, **envoi de messages** à une rubrique, **réception de messages en provenance d’un abonnement** et **suppression de rubriques et d’abonnements**. Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## Création d'une application Node.js
 
-Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d'une application Node.js dans un site Web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou Site Web avec WebMatrix.
+Créez une application Node.js vide. Pour obtenir les instructions permettant de créer une application Node.js, consultez les pages [Création et déploiement d’une application Node.js sur un site web Azure], [Service cloud Node.js][Node.js Cloud Service] (avec Windows PowerShell) ou Site web avec WebMatrix.
 
 ## Configuration de votre application pour l'utilisation de Service Bus
 
@@ -67,7 +69,7 @@ Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE e
 
 Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][].
 
-Pour obtenir un exemple de configuration des variables d'environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][].
+Pour obtenir un exemple de configuration des variables d’environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][].
 
 ## Création d'une rubrique
 
@@ -150,9 +152,9 @@ Parmi les types de filtre pris en charge par les abonnements, **SqlFilter** est 
 
 Il est possible d'ajouter des filtres à un abonnement en utilisant la méthode **createRule** de l'objet **ServiceBusService**. Cette méthode vous permet d'ajouter de nouveaux filtres à un abonnement existant.
 
-> [AZURE.NOTE]Comme le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d'abord supprimer le filtre par défaut ou le filtre **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode **deleteRule** de l'objet **ServiceBusService**.
+> [AZURE.NOTE]Comme le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez d’abord supprimer le filtre par défaut ou le filtre **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode **deleteRule** de l'objet **ServiceBusService**.
 
-Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3.
+Dans l’exemple suivant, l’abonnement `HighMessages` est créé avec un objet **SqlFilter** qui sélectionne uniquement les messages dont la propriété personnalisée **messagenumber** a une valeur supérieure à 3 :
 
 ```
 serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
@@ -187,7 +189,7 @@ var rule={
 }
 ```
 
-De même, l’exemple suivant crée l’abonnement `LowMessages` avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété **messagenumber** a une valeur inférieure ou égale à 3 :
+De même, l’exemple suivant crée l’abonnement `LowMessages` avec un filtre **SqlFilter** qui sélectionne uniquement les messages dont la propriété **messagenumber** a une valeur inférieure ou égale à 3 :
 
 ```
 serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
@@ -259,7 +261,7 @@ Le comportement par défaut de lecture et de suppression du message dans le cadr
 
 Si le paramètre **isPeekLock** est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l'application a terminé le traitement du message (ou qu'elle l'a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage** et en fournissant le message à supprimer sous la forme d'un paramètre. La méthode **deleteMessage** marque le message comme étant consommé et le supprime de l'abonnement.
 
-L'exemple suivant montre comment les messages peuvent être reçus et traités à l'aide de **receiveSubscriptionMessage**. Dans l'exemple, le message est d'abord réceptionné, puis supprimé de l'abonnement « LowMessages ». Un message envoyé par l'abonnement « HighMessages » est ensuite réceptionné en définissant **isPeekLock** sur true. La suppression du message s'effectue ensuite à l'aide de **deleteMessage** :
+L’exemple suivant montre comment les messages peuvent être reçus et traités à l’aide de **receiveSubscriptionMessage**. Dans l'exemple, le message est d'abord réceptionné, puis supprimé de l'abonnement « LowMessages ». Un message envoyé par l'abonnement « HighMessages » est ensuite réceptionné en définissant **isPeekLock** sur true. La suppression du message s'effectue ensuite à l'aide de **deleteMessage** :
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -290,7 +292,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Suppression de rubriques et d'abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du portail de gestion Azure ou par programme. L'exemple suivant montre comment supprimer la rubrique `MyTopic` :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du portail de gestion Azure ou par programme. L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -320,9 +322,9 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Files d’attente, rubriques et abonnements]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Création et déploiement d'une application Node.js dans un site Web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Création et déploiement d’une application Node.js sur un site web Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Service cloud Node.js avec stockage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Application web Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

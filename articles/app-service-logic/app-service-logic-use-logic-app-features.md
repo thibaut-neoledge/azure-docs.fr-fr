@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Utiliser les fonctionnalités des applications logiques
@@ -29,7 +29,7 @@ Avant d’effectuer les étapes de cette rubrique, vous devez effectuer celles d
 
 ## Documents de référence
 
-Les documents suivants peuvent vous être utiles :
+Les documents suivants peuvent vous être utiles :
 
 - [API REST de gestion et d’exécution](https://msdn.microsoft.com/library/azure/dn948513.aspx) - notamment comment appeler directement des applications logiques
 - [Référence sur le langage](https://msdn.microsoft.com/library/azure/dn948512.aspx) - liste complète de toutes les fonctions/expressions prises en charge
@@ -143,4 +143,4 @@ Pour démarrer l’application logique à la demande, cliquez sur le bouton **Ex
 [Créer une application logique]: app-service-logic-create-a-logic-app.md
 [portail Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

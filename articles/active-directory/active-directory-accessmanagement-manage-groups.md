@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="10/21/2015" 
 	ms.author="femila"/>
 
 
@@ -25,7 +25,7 @@
 
 **Pour créer un groupe à partir du portail de gestion Azure**
 
-1. Dans le portail de gestion, cliquez sur Active Directory, puis sur le nom de l’annuaire de votre organisation.
+1. Dans le portail de gestion, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Cliquez sur l’onglet **Groupes**.
 3. Dans la page Groupes, cliquez sur **Ajouter un groupe**.
 4. Dans la fenêtre **Ajouter un groupe**, spécifiez le nom et la description d’un groupe.
@@ -55,7 +55,7 @@
 ##Comment utiliser une règle pour gérer dynamiquement les membres d’un groupe de sécurité
 **Pour activer l’appartenance dynamique à un groupe spécifique, procédez comme suit :**
 
-1. Dans le portail de gestion Azure, sous l’onglet **Groupes**, sélectionnez le groupe à modifier, puis sous l’onglet **Configurer** de ce groupe, définissez le commutateur **Activer les appartenances dynamiques** avec la valeur **Oui**.
+1. Dans le Portail de gestion Azure, sous l’onglet **Groupes**, sélectionnez le groupe à modifier, puis sous l’onglet **Configurer** de ce groupe, définissez le commutateur **Activer les appartenances dynamiques** avec la valeur **Oui**.
 2. Vous pouvez à présent définir une seule règle simple pour le groupe, qui contrôle la manière dont l’appartenance dynamique fonctionne pour ce groupe. Assurez-vous que la case d’option **Ajouter des utilisateurs où** est activée, puis sélectionnez une propriété d’utilisateur dans le menu déroulant (par exemple, department, jobTitle, etc.). 
 3. Ensuite, sélectionnez une condition (Non égal à, Égal à, Ne commence pas par, Commence par, Ne contient pas, Contient, Ne correspond pas, Correspond), puis spécifiez une valeur pour la propriété d’utilisateur sélectionnée.
 4. Par exemple, si un groupe est affecté à une application SaaS (pour plus d’informations, consultez Autorisation d’accès d’un groupe à une application SaaS dans Azure AD) et que vous activez l’appartenance dynamique à ce groupe en définissant une règle selon laquelle Ajouter des utilisateurs où a la valeur jobTitle qui est égale à (-eq) Sales Rep, tous les utilisateurs au sein de votre annuaire Azure AD dont la propriété jobTitle a la valeur Sales Rep ont accès à cette application SaaS.
@@ -68,4 +68,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

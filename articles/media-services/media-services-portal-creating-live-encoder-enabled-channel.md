@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple" 
-	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux dynamique à débit binaire unique et qui l’encode en flux à débit binaire multiple." 
+	pageTitle="Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure" 
+	description="Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
-#Utiliser le portail de gestion pour créer des canaux encodant en temps réel un flux à débit binaire unique en flux à débit binaire multiple 
+#Créez des canaux encodant en temps réel un flux à vitesse de transmission unique en flux à vitesses de transmission multiples à l’aide du portail Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -273,4 +273,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

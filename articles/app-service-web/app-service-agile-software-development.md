@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -264,7 +264,7 @@ Comme vous avez volontairement conçu vos environnements de développement et de
 
 ## Résumé ##
 
-Le développement logiciel agile est indispensable pour de nombreuses entreprises qui souhaitent adopter Azure comme plateforme d’application. Dans ce didacticiel, vous avez appris à créer et à détruire aisément des réplicas exacts ou proches de l’environnement de production, même pour les applications complexes. Vous avez également appris à exploiter la possibilité de créer un processus de développement capable de créer et de tester chaque validation dans Azure. Ce didacticiel vous a montré comment mieux utiliser conjointement Azure App Service et Azure Resource Manager pour créer une solution d’opérations de développement recourant aux méthodologies agiles.
+Le développement logiciel agile est indispensable pour de nombreuses entreprises qui souhaitent adopter Azure comme plateforme d’application. Dans ce didacticiel, vous avez appris à créer et à détruire aisément des réplicas exacts ou proches de l’environnement de production, même pour les applications complexes. Vous avez également appris à exploiter la possibilité de créer un processus de développement capable de créer et de tester chaque validation dans Azure. Ce didacticiel vous a montré comment mieux utiliser conjointement Azure App Service et Azure Resource Manager pour créer une solution d’opérations de développement recourant aux méthodologies agiles. À présent, vous pouvez tirer parti de ce scénario en recourant à des techniques DevOps avancées telles que le [test dans les environnements de production](app-service-web-test-in-production-get-start.md). Pour découvrir un scénario courant de test dans les environnements de production, consultez [Déploiement avec distribution d’une version d’évaluation (test bêta) dans Azure App Service](app-service-web-test-in-production-controlled-test-flight.md).
 
 ## Autres ressources ##
 
@@ -281,4 +281,4 @@ Le développement logiciel agile est indispensable pour de nombreuses entreprise
 -	[Création ou modification des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Projet Wiki Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

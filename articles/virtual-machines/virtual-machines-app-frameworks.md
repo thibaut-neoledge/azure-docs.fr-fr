@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Créer des infrastructures d’application en utilisant des modèles
 
-Ceci permet des créations efficaces, rapidement.
+Ceci permet des créations efficaces, rapidement. En plus de ces modèles, vous pouvez parcourir les modèles](https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
@@ -53,4 +53,4 @@ Découvrez tous les modèles à votre disposition sur [GitHub](https://github.co
 
 En savoir plus sur [Azure Resource Manager](../resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

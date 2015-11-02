@@ -201,7 +201,7 @@ Le `result` contient une collection `entries`, qui est un tableau d'objets décr
 
 Pour télécharger les données d'un objet blob, utilisez :
 
-* **getBlobToFile** : permet d'écrire le contenu de l'objet blob dans un fichier
+* **getBlobToLocalFile** : permet d’écrire le contenu de l’objet blob dans un fichier
 
 * **getBlobToStream** : permet d'écrire le contenu de l'objet blob dans un flux
 
@@ -378,4 +378,4 @@ Pour plus d'informations, consultez les ressources suivantes.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 [Kit de développement logiciel (SDK) Azure Storage pour la référence de l'API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

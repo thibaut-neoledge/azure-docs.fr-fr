@@ -29,7 +29,7 @@ Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure Po
 
 	Get-Module azure | format-table version
 
-Si ce n’est pas encore fait ou que vous devez mettre à jour la version d’Azure PowerShell installée, veuillez suivre les instructions de la rubrique [Installation et configuration d’Azure PowerShell](install-configure-powershell.md) pour installer Azure PowerShell sur votre ordinateur local. Ouvrez ensuite une invite de commande Azure PowerShell.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Tout d'abord, vous devez vous connecter à Azure avec cette commande.
 
@@ -137,4 +137,4 @@ Voici un exemple de résultat possible :
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -14,18 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
 # Instructions d’implémentation des services d’infrastructure Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure est une excellente plateforme d’implémentation de configurations de développement/test ou de validation technique, car elle ne nécessite qu’un investissement réduit pour tester une approche spécifique d’implémentation de vos solutions. Toutefois, vous devez être en mesure de distinguer les pratiques pour un environnement de développement/test faciles à mettre en place des pratiques plus difficiles et détaillées pour l’implémentation entièrement fonctionnelle et prête pour la production d’une charge de travail informatique.
 
 Ce guide identifie les nombreux domaines pour lesquels la planification est un élément essentiel au bon fonctionnement d'une charge de travail informatique dans Azure. Par ailleurs, la planification indique un ordre pour la création des ressources nécessaires. Même si une certaine flexibilité est possible, nous recommandons d'appliquer l'ordre indiqué dans cet article à la planification et la prise de décision.
 
-Cet article est une adaptation du contenu du billet de blog [Instructions pour la mise en œuvre d'Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
+Cet article est une adaptation du contenu du billet de blog [Instructions pour la mise en œuvre d’Azure](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx). Merci à Santiago Cánepa et Hugo Salcedo (responsables du développement d’applications chez Microsoft) pour leur documentation d’origine.
 
-> [AZURE.NOTE]Groupes d'affinités sont déconseillés. Leur utilisation n'est pas décrite ici. Pour en savoir plus, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+> [AZURE.NOTE]Groupes d'affinités sont déconseillés. Leur utilisation n'est pas décrite ici. Pour plus d’informations, consultez [À propos des réseaux virtuels régionaux et des groupes d’affinités](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 ## 1\. Conventions d'affectation de noms
 
@@ -90,11 +92,11 @@ Lorsque les administrateurs créent une machine virtuelle, ils doivent spécifie
 
 Si une machine virtuelle est créée à partir d'un fichier d'image .vhd qui contient déjà un système d'exploitation, le nom de la machine virtuelle dans Azure peut différer du nom d'ordinateur du système d'exploitation de la machine virtuelle. Dans ce cas, la gestion de la machine virtuelle devient plus difficile. C'est pourquoi nous le déconseillons. Affectez à la ressource de la machine virtuelle Azure le nom d'ordinateur attribué au système d'exploitation de cette machine virtuelle.
 
-Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d'ordinateur du système d'exploitation sous-jacent. Pour cette raison, suivez les règles d'affectation de noms NetBIOS, comme décrit dans les [Conventions d'affectation de noms d'ordinateur Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
+Nous recommandons que le nom de la machine virtuelle Azure soit le même que le nom d'ordinateur du système d'exploitation sous-jacent. Pour cette raison, suivez les règles d’affectation de noms NetBIOS, comme décrit dans les [Conventions d’affectation de noms d’ordinateur Microsoft NetBIOS](https://support.microsoft.com/kb/188997/).
 
 ### Noms des comptes de stockage
 
-Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d'informations, consultez [Création d'un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, en association avec core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
+Le nom des comptes de stockage sont régis par des règles spécifiques. Vous ne pouvez utiliser que des lettres minuscules et des chiffres. Pour plus d’informations, consultez [Création d’un compte de stockage](../storage/storage-create-storage-account.md#create-a-storage-account). En outre, le nom du compte de stockage, en association avec core.windows.net, doit être un nom DNS unique et globalement valide. Par exemple, si le compte de stockage est appelé mystorageaccount, les noms DNS suivants qui en résultent doivent être uniques :
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net
@@ -159,11 +161,11 @@ Le stockage Azure fait partie intégrante de nombreuses solutions Azure. Le stoc
 
 Il existe deux types de comptes de stockage disponibles dans Azure. Un compte de stockage standard vous donne accès au stockage d'objets blob (utilisé pour le stockage de disques de machines virtuelles Azure), de tables, de files d'attente et de fichiers de stockage. Le stockage Premium est conçu pour des applications hautes performances, telles que les serveurs SQL dans un cluster AlwaysOn, et prend actuellement en charge uniquement les disques de machine virtuelle Azure.
 
-Les comptes de stockage sont liés à des objectifs d'extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits). Consultez également [Objectifs de performance et évolutivité d'Azure Storage](../storage-scalability-targets.md).
+Les comptes de stockage sont liés à des objectifs d'extensibilité. Pour vous familiariser avec les limites de stockage Azure actuelles, consultez [Abonnement Microsoft Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#storage-limits). Consultez également [Objectifs de performance et évolutivité d’Azure Storage](../storage-scalability-targets.md).
 
 Azure crée des machines virtuelles avec un disque de système d'exploitation, et éventuellement plusieurs disques de données facultatifs. Le disque de système d'exploitation et les disques de données sont des objets blob de pages Azure, tandis que le disque temporaire est stocké localement sur le nœud comprenant l'emplacement de la machine. Le disque temporaire est alors inapproprié pour les données qui doivent être conservées au cours d’un recyclage de système, car la machine peut être migrée en mode silencieux d’un nœud à l’autre, ce qui implique la perte de toutes les données de ce disque. Ne stockez rien sur le disque temporaire.
 
-Les disques de système d'exploitation et les disques de données ont une taille maximale de 1 023 Go, étant donné que la taille maximale d'un objet blob est de 1 024 Go et qu'il doit contenir les métadonnées (pied de page) du fichier VHD (un Go compte 1 024<sup>3</sup> octets). Vous pouvez mettre en place un entrelacement de disques dans Windows pour dépasser cette limite.
+Les disques de système d’exploitation et les disques de données ont une taille maximale de 1 023 Go, étant donné que la taille maximale d’un objet blob est de 1 024 Go et qu’il doit contenir les métadonnées (pied de page) du fichier VHD (un Go compte 1 024<sup>3</sup> octets). Vous pouvez mettre en place un entrelacement de disques dans Windows pour dépasser cette limite.
 
 ### Disques agrégés par bandes
 Outre la possibilité de créer des disques d'une taille supérieure à 1 023 Go dans plusieurs instances, l'entrelacement de disques améliore les performances en permettant à plusieurs objets blob de sauvegarder le stockage d'un seul volume. Avec l'agrégation par bandes, l'E/S requise pour écrire et lire des données à partir d'un seul disque logique est exécutée en parallèle.
@@ -178,7 +180,7 @@ Si vous utilisez l'entrelacement pour les disques de données Azure, respectez l
 - Utilisez la configuration de l'entrelacement du stockage
 - Évitez d'utiliser des options de mise en cache des disques de données Azure (Stratégie de mise en cache = Aucune)
 
-Pour plus d'informations, consultez la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
+Pour plus d’informations, consultez la page [Espaces de stockage : une conception pour la performance](http://social.technet.microsoft.com/wiki/contents/articles/15200.storage-spaces-designing-for-performance.aspx).
 
 ### Comptes de stockage multiples
 
@@ -202,7 +204,7 @@ Décisions :
 
 Tâche :
 
-- Créer l'ensemble de comptes de stockage à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure en version préliminaire, le portail Azure ou l'applet de commande PowerShell **New-AzureStorageAccount**.
+- Créer l'ensemble de comptes de stockage à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure en version préliminaire, le portail Azure ou l’applet de commande PowerShell **New-AzureStorageAccount**.
 
 ## 4\. Services cloud
 
@@ -210,7 +212,7 @@ Les services cloud sont un bloc de construction fondamental de la gestion des se
 
 Dans le cas de l'IaaS, les services cloud offrent des fonctionnalités similaires, bien que, dans la plupart des cas, la fonctionnalité d'équilibrage de charge soit utilisée pour transférer le trafic vers des ports TCP ou UDP spécifiques à partir d'Internet vers les nombreuses machines virtuelles au sein de ce service cloud.
 
-> [AZURE.NOTE]Les services cloud n’existent pas dans Azure Resource Manager. Pour découvrir les avantages du Resource Manager, consultez la page [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+> [AZURE.NOTE]Les services cloud n’existent pas dans Azure Resource Manager. Pour découvrir les avantages de Resource Manager, consultez la page [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Les noms de service cloud sont particulièrement importants dans l'IaaS, car Azure les utilise en tant que partie intégrante de la convention d'affectation de noms pour les disques par défaut. Le nom de service cloud ne peut contenir que des lettres, des chiffres et des traits d'union. Le premier et le dernier caractère du champ doivent être une lettre ou un chiffre.
 
@@ -230,7 +232,7 @@ Décision :
 
 Tâche :
 
-- Créer l'ensemble de services cloud à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure ou l'applet de commande PowerShell **New-AzureService**.
+- Créer l'ensemble de services cloud à l'aide de votre convention d'affectation de noms. Vous pouvez utiliser le portail Azure ou l’applet de commande PowerShell **New-AzureService**.
 
 ## 5\. Réseaux virtuels
 
@@ -327,7 +329,7 @@ Décision :
 Tâches :
 
 - Définir chaque nom de machine virtuelle à l'aide de votre convention d'affectation de noms.
-- Créer vos machines virtuelles à l'aide du portail Azure en version préliminaire, du portail Azure, de l'applet de commande PowerShell **New-AzureVM**, de l'interface CLI Azure ou des modèles Resource Manager.
+- Créez vos machines virtuelles à l’aide du portail Azure en version préliminaire, du portail Azure, de l’applet de commande PowerShell **New-AzureVM**, de l’interface CLI Azure ou des modèles Resource Manager.
 
 ## Exemple d'une charge de travail informatique : le moteur d'analyse financière Contoso
 
@@ -368,7 +370,7 @@ Contoso utilise son abonnement d'entreprise, nommé Contoso Enterprise Subscript
 
 Contoso a déterminé que deux comptes de stockage sont nécessaires :
 
-- **contosoazfaeusesawebapp** pour le stockage standard de serveurs Web, de serveurs d'applications et de contrôleurs de domaine avec leurs disques de données supplémentaires ;
+- **contosoazfaeusesawebapp** pour le stockage standard de serveurs web, de serveurs d’applications et de contrôleurs de domaine avec leurs disques de données supplémentaires ;
 - **contosoazfaeusesasqlclust** pour le stockage premium de serveurs SQL Server en cluster et de leurs disques de données supplémentaires.
 
 ### Un réseau virtuel avec des sous-réseaux
@@ -392,7 +394,7 @@ Un réseau virtuel cloud est créé avec les paramètres suivants à l'aide du p
 Pour assurer une haute disponibilité sur les quatre niveaux de son moteur d'analyse financière, Contoso a adopté quatre groupes à haute disponibilité :
 
 - **azfae-use-as-dc** pour les contrôleurs de domaine ;
-- **azfae-use-as-web** pour les serveurs Web ;
+- **azfae-use-as-web** pour les serveurs web ;
 - **azfae-use-as-app** pour les serveurs d'applications ;
 - **azfae-use-as-sql** pour les serveurs du cluster SQL Server.
 
@@ -404,8 +406,8 @@ Contoso a donné les noms suivants à ses machines virtuelles :
 
 - **azfae-use-vm-dc01** pour le premier contrôleur de domaine ;
 - **azfae-use-vm-dc02** pour le second contrôleur de domaine ;
-- **azfae-use-vm-web01** pour le premier serveur Web ;
-- **azfae-use-vm-web02** pour le second serveur Web ;
+- **azfae-use-vm-web01** pour le premier serveur web ;
+- **azfae-use-vm-web02** pour le second serveur web ;
 - **azfae-use-vm-app01** pour le premier serveur d'applications ;
 - **azfae-use-vm-app02** pour le second serveur d'applications ;
 - **azfae-use-vm-sql01** pour le premier serveur SQL dans le cluster SQL Server ;
@@ -440,4 +442,4 @@ Cette configuration comprend :
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

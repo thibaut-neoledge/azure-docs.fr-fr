@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Création de filtres avec le Kit de développement logiciel (SDK) .NET de Media Services" 
+	pageTitle="Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services" 
 	description="Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Création de filtres avec le Kit de développement logiciel (SDK) .NET de Media Services
+#Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Vue d'ensemble des manifestes dynamiques](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

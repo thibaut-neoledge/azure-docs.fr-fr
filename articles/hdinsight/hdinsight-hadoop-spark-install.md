@@ -13,17 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="10/15/2015"
 	ms.author="nitinme"/>
 
-# Installation et utilisation de Spark sur des clusters HDInsight Hadoop
+# Installation et utilisation de Spark sur des clusters HDInsight Hadoop à l’aide d’une action de script
 
+> [AZURE.IMPORTANT]Cet article est désormais obsolète. HDInsight fournit désormais Spark comme type de cluster de première classe pour les clusters Windows, ce qui signifie que vous pouvez à présent créer directement un cluster Spark sans modifier de cluster Hadoop à l’aide d’une action de script. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour installer les différentes versions de Spark, vous pouvez utiliser une action de script. HDInsight fournit un exemple de script d'action de script.
 
 Découvrez comment installer Spark sur HDInsight basé sur Windows à l'aide d'une action de script, et comment exécuter des requêtes Spark sur des clusters HDInsight.
 
-HDInsight fournit Spark comme type de cluster de première classe pour les clusters Windows, ce qui signifie que vous pouvez désormais créer directement un cluster Spark sans modifier de cluster Hadoop. À l’aide du type de cluster Spark, vous obtenez un cluster HDInsight version 3.2 avec Spark version 1.3.1. Pour installer les différentes versions de Spark, vous pouvez utiliser une action de script. HDInsight fournit un exemple de script d'action de script.
 
-**Articles connexes** - [Installation de Spark sur des clusters HDInsight Linux](hdinsight-hadoop-spark-install-linux.md).- [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight. - [Prise en main d’Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) : créez un cluster de type Spark sous Windows. - [Personnalisation d’un cluster HDInsight à l’aide d’une d’action de script][hdinsight-cluster-customize]\: informations générales sur la personnalisation de clusters HDInsight à l'aide d’une action de script. - [Développement de scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md).
+**Articles connexes** - [Installer Spark sur des clusters HDInsight basés sur Linux](hdinsight-hadoop-spark-install-linux.md).
+
+- [Créer des clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : informations générales sur la création de clusters HDInsight.
+
+- [Prendre en main Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) : créer un cluster de type Spark sur le système d’exploitation Windows.
+
+- [Personnaliser un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : informations générales sur la personnalisation de clusters HDInsight à l’aide d’actions de script.
+
+- [Développer des scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## Qu'est-ce que Spark ?
 
@@ -37,17 +45,17 @@ Cette rubrique contient des instructions de personnalisation d'un cluster HDInsi
 
 Pour obtenir un exemple de script pour installer Spark sur un cluster HDInsight, téléchargez l’objet blob de stockage Azure en lecture seule à l’adresse [https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1](https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1). Ce script peut installer Spark 1.2.0 ou Spark 1.0.2 selon la version du cluster HDInsight que vous créez.
 
-- Si vous utilisez le script lors de la création d’un cluster **HDInsight 3.2**, il installe **Spark 1.2.0**.
-- Si vous utilisez le script lors de la création d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**.
+- Si vous utilisez le script pendant la création d’un cluster **HDInsight 3.2**, il installe **Spark 1.2.0**.
+- Si vous utilisez le script pendant la création d’un cluster **HDInsight 3.1**, il installe **Spark 1.0.2**.
 
 Vous pouvez modifier ce script ou créer votre propre script pour installer d’autres versions de Spark.
 
 > [AZURE.NOTE]L’exemple de script fonctionne uniquement avec des clusters HDInsight 3.1 et 3.2. Pour plus d’informations sur les versions des clusters HDInsight, consultez la page [Versions des clusters HDInsight](hdinsight-component-versioning.md).
 
-1. Démarrez la création d'un cluster à l'aide de l’option **Création personnalisée**, comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md#portal). Choisissez la version de cluster en fonction de ce qui suit :
+1. Démarrez la création d’un cluster à l’aide de l’option **CRÉATION PERSONNALISÉE**, comme décrit dans [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md#portal). Choisissez la version de cluster en fonction de ce qui suit :
 
-	- Si vous souhaitez installer **Spark 1.2.0**, créez un cluster HDInsight 3.2.
-	- Si vous souhaitez installer **Spark 1.0.2**, créez un cluster HDInsight 3.1.
+	- Si vous souhaitez installer **Spark 1.2.0**, créez un cluster HDInsight 3.2.
+	- Si vous souhaitez installer **Spark 1.0.2**, créez un cluster HDInsight 3.1.
 
 
 2. Sur la page **Actions de script** de l’Assistant, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
@@ -110,7 +118,7 @@ Procédez comme suit pour exécuter des requêtes Spark à partir d'un interpré
 
 Spark SQL vous permet d’utiliser Spark pour exécuter des requêtes relationnelles exprimées en langage SQL (Structured Query), HiveQL ou Scala. Dans cette section, nous allons examiner l’utilisation de Spark pour exécuter une requête Hive sur un exemple de table Hive. La table Hive utilisée dans cette section (appelée **hivesampletable**) est disponible par défaut quand vous créez un cluster.
 
->[AZURE.NOTE]L’exemple ci-dessous a été créé par rapport à **Spark 1.2.0**, qui est installé si vous exécutez l’action de script lors de création de cluster HDInsight 3.2.
+>[AZURE.NOTE]L’exemple ci-dessous a été créé par rapport à **Spark 1.2.0**, qui est installé si vous exécutez l’action de script pendant la création du cluster HDInsight 3.2.
 
 1. Dans le portail Azure, activez le Bureau à distance pour le cluster que vous avez créé avec Spark installé, puis connectez-vous à distance au cluster. Pour la marche à suivre, consultez la section <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connexion à des clusters HDInsight à l’aide de RDP</a>.
 
@@ -286,20 +294,20 @@ Lorsque vous y êtes invité, entrez les informations d'identification du cluste
 
 ## Installation de Spark à l’aide de PowerShell
 
-Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).
+Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell).
 
 ## Installation de Spark à l’aide du Kit de développement logiciel (SDK) .NET
 
-Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
+Consultez [Personnalisation de clusters HDInsight à l’aide d’une action de script](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell).
 
 
 ## Voir aussi
 
-- [Installation de Spark sur des clusters HDInsight Linux](hdinsight-hadoop-spark-install-linux.md) : installez Spark sur des clusters HDInsight Linux.
-- [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : créez des clusters HDInsight.
-- [Prise en main d’Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) : faites vos premiers pas avec Spark sur HDInsight.
-- [Personnalisation d’un cluster HDInsight à l'aide d'une action de script][hdinsight-cluster-customize] \: personnalisez des clusters HDInsight à l'aide d’une action de script.
-- [Développement de scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md) : développez des scripts d’action de script.
+- [Installation de Spark sur des clusters HDInsight Linux](hdinsight-hadoop-spark-install-linux.md) : installez Spark sur des clusters HDInsight Linux.
+- [Création de clusters Hadoop dans HDInsight](hdinsight-provision-clusters.md) : créez des clusters HDInsight.
+- [Prise en main d’Apache Spark sur HDInsight](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md) : faites vos premiers pas avec Spark sur HDInsight.
+- [Personnalisation d’un cluster HDInsight à l’aide d’une action de script][hdinsight-cluster-customize] : personnalisez des clusters HDInsight à l’aide d’une action de script.
+- [Développement de scripts d’action de script pour HDInsight](hdinsight-hadoop-script-actions.md) : développez des scripts d’action de script.
 - [Installation de R sur des clusters HDInsight][hdinsight-install-r] fournit des instructions sur l’utilisation de la personnalisation des clusters pour installer et utiliser R sur des clusters HDInsight Hadoop. R se compose d'un langage et d'un environnement open source destinés au calcul de statistiques. Il intègre des centaines de fonctions statistiques et possède son propre langage de programmation qui regroupe des aspects de la programmation fonctionnelle et de la programmation orientée objet. Il offre également des fonctionnalités graphiques étendues.
 - [Installation de Giraph sur des clusters HDInsight](hdinsight-hadoop-giraph-install.md). Utilisez la personnalisation de clusters pour installer Giraph sur des clusters HDInsight Hadoop. Giraph permet de traiter des graphiques à l’aide de Hadoop et peut être utilisé avec Azure HDInsight.
 - [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
@@ -309,4 +317,4 @@ Consultez [Personnalisation de clusters HDInsight à l'aide d'une action de scri
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

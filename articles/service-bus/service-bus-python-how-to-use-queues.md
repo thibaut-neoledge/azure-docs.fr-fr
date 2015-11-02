@@ -19,11 +19,13 @@
 
 # Utilisation des files d’attente Service Bus
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Python et utilisent le [package Azure Python][]. Les scénarios couverts dans ce guide sont les suivants : **création de files d'attente, envoi et réception de messages** et **suppression de files d'attente**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE]Pour installer Python ou le [package Azure Python][], veuillez consulter le [Guide d’installation de Python](../python-how-to-install.md).
+> [AZURE.NOTE]Pour installer Python ou le [package Azure Python][], consultez le [Guide d’installation de Python](../python-how-to-install.md).
 
 ## Création d’une file d’attente
 
@@ -33,7 +35,7 @@ L’objet **ServiceBusService** permet d’utiliser des files d’attente. Ajout
 from azure.servicebus import ServiceBusService, Message, Queue
 ```
 
-Le code suivant crée un objet **ServiceBusService**. Remplacez `mynamespace`, `sharedaccesskeyname` et `sharedaccesskey` par votre espace de noms, et le nom et la valeur de la clé de signature d’accès partagé (SAP).
+Le code suivant crée un objet **ServiceBusService**. Remplacez `mynamespace`, `sharedaccesskeyname` et `sharedaccesskey` par votre espace de noms, le nom et la valeur de clé de signature d’accès partagé (SAP).
 
 ```
 bus_service = ServiceBusService(
@@ -60,7 +62,7 @@ bus_service.create_queue('taskqueue', queue_options)
 
 ## Envoi de messages à une file d'attente
 
-Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **send\_queue\_message** de l’objet **ServiceBusService**.
+Pour envoyer un message à une file d’attente Service Bus, votre application appelle la méthode **send\_queue\_message** sur l’objet **ServiceBusService**.
 
 L'exemple suivant montre comment envoyer un message test à la file d'attente nommée *taskqueue* au moyen de **send\_queue\_message** :
 
@@ -113,4 +115,4 @@ Maintenant que vous avez appris les principes de base des files d'attente Servic
 [Files d’attente Azure et files d’attente Service Bus]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
