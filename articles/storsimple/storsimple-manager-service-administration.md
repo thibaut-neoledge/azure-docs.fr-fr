@@ -57,9 +57,11 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 |Page d’accueil|Pages de niveau de service|Pages de niveau appareil|Pages de niveau appareil|
 |---|---|---|---|
 |Service StorSimple Manager|Tableau de bord du service|Page du tableau de bord d’un appareil||
-||Appareils →|Surveillance| ||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| ||Configurer (Service)|Stratégies de sauvegarde|| ||Tâches|Configurer (Appareil)| ||Alertes|Maintenance|
-
-![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
+||Appareils →|Surveillance|| 
+||Catalogue de sauvegarde|Conteneur de volumes→|Volumes| 
+||Configurer (Service)|Stratégies de sauvegarde|| 
+||Tâches|Configurer (Appareil)|| 
+||Alertes|Maintenance||
 
 Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 

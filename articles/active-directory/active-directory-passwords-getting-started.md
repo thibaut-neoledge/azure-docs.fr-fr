@@ -298,7 +298,10 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/> <br/> <br/>
+<br/>
+<br/>
+<br/>
+
 
 **Ressources supplémentaires**
 

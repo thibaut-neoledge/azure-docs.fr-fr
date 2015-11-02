@@ -94,6 +94,7 @@ Pour les tailles de jeux de données supérieures à quelques gigaoctets, télé
 **Puis-je lire les données à partir d’Amazon S3 ?**
 
 Si vous avez une petite quantité de données et que vous souhaitez l’exposer via une URL http, vous pouvez utiliser le module [Reader][reader]. Transférez les grandes quantités de données vers Azure Storage, puis utilisez le module [Reader][reader] pour les importer dans votre expérience. <!--
+<!--
 <SEE CLOUD DS PROCESS>
 -->
 
