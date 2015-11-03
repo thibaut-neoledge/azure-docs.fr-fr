@@ -13,42 +13,75 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/13/2015" 
+	ms.date="10/26/2015" 
 	ms.author="ccompy"/>
 
 # Comment créer un environnement App Service #
 
-Les environnements App Service constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d'un environnement App Service][WhatisASE].
-
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Les environnements App Service constituent une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Présentation d'un environnement App Service][WhatisASE].
 
 ### Vue d'ensemble ###
 
-La fonctionnalité ASE déploie essentiellement Azure App Service sur le réseau virtuel du client. Pour ce faire, le client a besoin des éléments suivants :
+Pour créer un ASE, les clients doivent entrer les informations suivantes :
 
-- un réseau virtuel régional « v1 » classique avec au moins 512 (/23) adresses ;
-- un sous-réseau de ce réseau virtuel avec au moins 8 (/29) adresses ;
-- le sous-réseau **ne doit contenir aucune autre ressource de calcul**. Un seul environnement App Service peut être déployé dans un sous-réseau. La tentative de création échoue s'il existe d'autres ressources de calcul qui résident déjà dans le sous-réseau.
+- nom de l’ASE
+- abonnement à utiliser pour l’ASE  
+- resource group
+- sélection d’un réseau virtuel Azure et d’un sous-réseau
+- définition du pool de ressources ASE
 
-Si vous ne disposez pas encore d'un réseau virtuel à utiliser pour héberger votre environnement App Service, vous pouvez en créer un lors de la création de l'environnement App Service.
+Détails importants concernant chacun de ces éléments : - Le nom de l’ASE est utilisé dans le sous-domaine pour les applications créées dans cet ASE - Toutes les applications créées dans un ASE se trouvent dans le même abonnement que l’ASE lui-même. - Si vous n’avez pas accès à l’abonnement utilisé pour créer l’ASE, vous ne pouvez pas utiliser l’ASE pour créer des applications. - Les réseaux virtuels utilisés pour héberger un ASE doivent être des réseaux virtuels v1 classiques régionaux. - Le sous-réseau utilisé pour héberger l’ASE ne doit contenir aucune autre ressource de calcul. - Un seul ASE peut exister dans un sous-réseau.
 
 Chaque déploiement d'ASE est un service hébergé qu'Azure gère et tient à jour. Les ressources de calcul qui hébergent les rôles système d'ASE ne sont pas accessibles au client, mais le client gère la quantité d'instances et leur taille.
 
-## Création d'un environnement App Service ##
-
 Il existe deux façons d'accéder à l'interface utilisateur de création d'un ASE. Il est possible de la trouver en recherchant ***environnement App Service *** dans Azure Marketplace ou en accédant à Nouveau -> Web et mobilité.
 
+Si vous voulez associer un groupe de ressources distinct au réseau virtuel, vous devez d’abord créer un réseau virtuel séparément, puis le sélectionner lors de la création de l’ASE. Par ailleurs, si vous voulez créer un sous-réseau dans un réseau virtuel existant lors de la création de l’ASE, ce dernier doit se trouver dans le même groupe de ressources que le réseau virtuel.
+
 ### Création rapide ###
-Après avoir accédé à l'interface utilisateur de création, vous pouvez rapidement créer un ASE en entrant simplement un nom pour le déploiement. Cela crée ensuite un réseau virtuel comportant 512 adresses, un sous-réseau comportant 256 adresses sur ce réseau virtuel et un environnement ASE comportant 2 serveurs frontaux et 2 travaux dans le pool de travaux 1. Assurez-vous de créer un *plan App Service * ou sélectionnez-en un existant, ainsi que l’abonnement dans lequel vous souhaitez qu’il soit. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
+L’expérience de création d’un ASE comporte un ensemble de valeurs par défaut qui permettent d’accélérer le processus. Vous pouvez créer un ASE rapidement en entrant simplement un nom pour le déploiement. Un ASE est alors créé dans la région la plus proche avec les éléments suivants :
 
-Le nom spécifié pour l'ASE sera utilisé pour les applications web créées dans l'ASE. Si le nom de l’ASE est appsvcenvdemo, le nom de domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous avez créé une application web nommée mytestapp, elle serait adressable à l'adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d'espace blanc dans le nom. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+- réseau virtuel avec 512 adresses 
+- sous-réseau avec 256 adresses
+- pool frontal avec 2 ressources de calcul P2
+- pool de travail avec 2 ressources de calcul P1
+- adresse IP unique à utiliser pour IP SSL
 
+Il s’agit de la taille minimale pour un ASE. La taille P2 ou supérieure est requise pour les pools frontaux. Veillez à sélectionner l’abonnement dans lequel se trouvera l’ASE. Les seuls comptes qui peuvent utiliser l'ASE pour héberger le contenu doivent être dans l'abonnement utilisé pour le créer.
 
-![][1] ![][4]
+![][1]
+
+Le nom spécifié pour l’ASE sera utilisé pour les applications créées dans l’ASE. Si le nom de l’ASE est appsvcenvdemo, le nom de domaine est .*appsvcenvdemo.p.azurewebsites.net*. Par conséquent, si vous créez une application nommée *mytestapp*, elle est adressable à l’adresse *mytestapp.appsvcenvdemo.p.azurewebsites.net*. Vous ne pouvez pas utiliser d’espace blanc dans le nom de votre ASE. Si vous utilisez des caractères en majuscules dans le nom, le nom de domaine sera la version complète de ce nom en minuscules.
+
+Les valeurs par défaut sont très utiles dans un certain nombre de situations, mais vous devrez souvent modifier quelque chose. Les sections suivantes vous guident dans chacune des sections de configuration de l’ASE.
+
+### Réseau virtuel ###
+Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant (à l’heure actuelle, seuls les réseaux virtuels « v1 » classiques sont pris en charge) s’il est suffisamment grand pour prendre en charge le déploiement d’un environnement App Service. Le réseau virtuel doit avoir au moins 8 adresses.
+
+Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses et ne peut pas contenir d’autres ressources au préalable. La création d’un ASE échoue si vous utilisez un sous-réseau contenant déjà des machines virtuelles allouées.
+
+Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquer les éléments suivants :
+
+- Nom du réseau virtuel
+- Plage d'adresses du réseau virtuel en notation CIDR
+- Emplacement
+
+L’emplacement du réseau virtuel est celui de l’ASE, car celui-ci est déployé dans le réseau virtuel.
+
+Une fois votre réseau virtuel spécifié ou sélectionné, vous devez créer ou sélectionner un sous-réseau approprié. Vous devez ici fournir les informations suivantes : - Nom du sous-réseau - Plage du sous-réseau en notation CIDR
+
+La notation CIDR (Classless Inter-Domain Routing) se présente sous la forme d’une adresse IP séparée de la valeur CIDR par une barre oblique, comme ceci : *10.0.0.0/22*. La valeur CIDR représente le nombre de bits de début masqués sur l’adresse IP affichée. Pour faire simple, la valeur CIDR fournit une plage d’adresses IP. Dans cet exemple, 10.0.0.0/22 représente une plage de 1 024 adresses ou comprise entre 10.0.0.0 et 10.0.3.255. Un /23 signifie 512 adresses, et ainsi de suite.
+
+Par ailleurs, si vous voulez créer un sous-réseau dans un réseau virtuel existant, l’ASE doit se trouver dans le même groupe de ressources que le réseau virtuel. Pour conserver votre ASE dans un groupe de ressources distinct de votre réseau virtuel, créez votre réseau et votre sous-réseau séparément avant de créer votre ASE.
+
+![][2]
+
 
 ### Pools de ressources de calcul ###
 
-Les ressources de calcul utilisées pour l'environnement App Service sont gérées dans des pools de ressources de calcul qui permet de configurer la façon dont les instances de ressources de calcul dont vous disposez dans le pool, en plus de leur taille. Un environnement App Service se compose de serveurs frontaux et des travaux. Les serveurs frontaux gèrent la charge de connexion d'application et les travaux exécutent le code d'application. Les serveurs frontaux sont gérés dans un pool de ressources de calcul dédiées. Les travaux, quant à eux, sont gérés dans 3 pools de ressources de calcul distincts nommés
+Lors de la création de l’ASE, vous pouvez définir le nombre de ressources allouées à chaque pool de ressources, ainsi que la taille de ceux-ci. Vous pouvez définir la taille de vos pools de ressources au moment de la création de l’ASE, mais également les ajuster ultérieurement à l’aide des options de mise à l’échelle manuelle ou automatique.
+
+Comme indiqué précédemment, un environnement App Service se compose de serveurs frontaux et de travaux. Les serveurs frontaux gèrent la charge de connexion d'application et les travaux exécutent le code d'application. Les serveurs frontaux sont gérés dans un pool de ressources de calcul dédiées. Les travaux, quant à eux, sont gérés dans 3 pools de ressources de calcul distincts nommés
 
 - Pool de travaux 1
 - Pool de travaux 2
@@ -56,7 +89,9 @@ Les ressources de calcul utilisées pour l'environnement App Service sont géré
 
 Si vous avez un grand nombre de demandes pour des applications web simples, vous adapterez probablement la taille de vos serveurs frontaux et réduirez le nombre de travaux. Si vous avez des applications web utilisant beaucoup de mémoire ou le processeur avec un faible trafic, vous n'aurez pas besoin de nombreux serveurs frontaux, mais probablement de travaux plus nombreux ou plus volumineux.
 
-Quelle que soit la taille des ressources de calcul, l'encombrement minimal comprend 2 serveurs frontaux et 2 travaux. Il est possible de configurer un environnement App Service pour utiliser jusqu'à 55 ressources de calcul au total. De ces 55 ressources de calcul, seules 50 peuvent être utilisées pour héberger des charges de travail. Il y a deux raisons à cela. Il existe au minimum 2 ressources de calcul frontales, ce qui en laisse 53 au maximum pour prendre en charge d'allocation des pools de travaux. Cependant, pour fournir une tolérance de panne, une ressource de calcul supplémentaire doit être allouée en respectant les règles suivantes :
+![][3]
+
+Quelle que soit la taille des ressources de calcul, l'encombrement minimal comprend 2 serveurs frontaux et 2 travaux. Il est possible de configurer un environnement App Service pour utiliser jusqu’à 55 ressources de calcul au total. De ces 55 ressources de calcul, seules 50 peuvent être utilisées pour héberger des charges de travail. Il y a deux raisons à cela. Il existe au minimum 2 ressources de calcul frontales, ce qui en laisse 53 au maximum pour prendre en charge d'allocation des pools de travaux. Pour fournir une tolérance de panne, une ressource de calcul supplémentaire doit être allouée en respectant les règles suivantes :
 
 - Chaque pool de travaux nécessite au moins une ressource de calcul supplémentaire qui ne peut pas être affectée à la charge de travail.
 - Lorsque la quantité de ressources de calcul d'un pool dépasse une certaine valeur, une autre ressource de calcul est requise.
@@ -71,34 +106,6 @@ En plus de pouvoir gérer la quantité de ressources de calcul que vous pouvez a
 
 La tarification pour les environnements App Service est fonction des ressources de calcul affectées. Vous payez pour les ressources de calcul allouées à votre environnement App Service, qu'elles hébergent, ou non, des charges de travail.
 
-
-
-### Création d'un réseau virtuel ###
-Même s'il existe une fonction de création rapide qui crée automatiquement un réseau virtuel, la fonctionnalité prend également en charge la sélection d'un réseau virtuel existant et la création manuelle d'un réseau virtuel. Vous pouvez sélectionner un réseau virtuel existant (à l’heure actuelle, seuls les réseaux virtuels « v1 » classiques sont pris en charge) s’il est suffisamment grand pour prendre en charge le déploiement d’un environnement App Service. Le réseau virtuel doit avoir au moins 512 adresses. Si vous ne sélectionnez pas un réseau virtuel préexistant, vous devez également spécifier un sous-réseau à utiliser ou en créer un. Le sous-réseau doit avoir au moins 8 adresses.
-
-Si vous utilisez l'interface utilisateur de création de réseau virtuel, vous devez indiquer les éléments suivants :
-
-- Nom du réseau virtuel
-- Plage d'adresses du réseau virtuel en notation CIDR
-- Nom du sous-réseau
-- Plage de sous-réseau en notation CIDR
-
-Si vous n'êtes pas familiarisé avec la notation CIDR, elle se présente sous la forme 10.0.0.0/22, où le /22 spécifie la plage. Dans cet exemple, un /22 signifie une plage de 1 024 adresses ou comprise entre 10.0.0.0 et 10.0.3.255. Un /23 signifie 512 adresses, et ainsi de suite.
-
-![][2]
-
-### Définition de la taille de l'environnement App Service ###
-
-L'élément suivant à configurer est l'échelle du système. Par défaut, il existe 2 ressources de calcul Serveurs frontaux P2, 2 travaux P1 et 1 adresse IP. Il y a 2 serveurs frontaux de façon à fournir une haute disponibilité et de répartir la charge. La taille minimale pour les serveurs frontaux est P2 afin de garantir qu'ils disposent d'une capacité suffisante pour prendre en charge un système modeste. Si vous savez que le système doit prendre en charge un nombre élevé de demandes, vous pouvez ajuster la quantité de serveurs frontaux et la taille de serveur utilisée.
-
-Comme indiqué précédemment, un ASE comprend 3 pools de travaux qu'un client peut définir. La taille des ressources de calcul peut être comprise entre P1 et P4. Par défaut, seuls 2 travaux P1 sont configurés dans le pool de travaux 1. Cela est suffisant pour prendre en charge un seul plan App Service avec 1 instance.
-
-Les curseurs s'ajustent automatiquement afin de refléter la capacité de calcul totale disponible dans l'environnement App Service. Comme les curseurs sont ajustés dans un pool donné, les autres curseurs changent pour refléter la quantité de ressources de calcul disponibles restantes avant d'atteindre 55.
- 
-![][3]
-
-L'ajout de nouvelles instances à rendre disponibles ne se produit pas rapidement. Si vous savez que vous allez avoir besoin de ressources de calcul supplémentaires, vous devez les approvisionner à l'avance. L'approvisionnement peut prendre plusieurs heures en fonction du nombre de ressources ajoutées au système. N'oubliez pas que pour garantir que votre système peut répondre aux exigences de tolérance de panne, chaque ASE doit disposer d'une instance de réserve disponible dans chaque pool de travaux.
-
 Par défaut, un ASE est fourni avec 1 adresse IP disponible pour IP SSL. Si vous savez que vous en aurez besoin de plus, vous pouvez le spécifier ici ou la gérer une fois la création effectuée.
   
 ### Après la création d'un environnement App Service ###
@@ -107,7 +114,7 @@ Après la création d'un ASE, vous pouvez ajuster les éléments suivants :
 
 - Quantité de serveurs frontaux (minimum : 2)
 - Quantité de travaux (minimum : 2)
-- Quantité d'adresses IP
+- Quantité d’adresses IP disponibles pour IP SSL
 - Tailles de ressources de calcul utilisées par les serveurs frontaux ou les travaux (la taille minimale des serveurs frontaux est P2)
 
 Vous ne pouvez pas modifier les éléments suivants :
@@ -118,9 +125,11 @@ Vous ne pouvez pas modifier les éléments suivants :
 - Réseau virtuel utilisé
 - Sous-réseau utilisé
 
-Des détails supplémentaires sur la gestion et la surveillance des environnements App Service sont disponibles ici : [Comment configurer un environnement App Service][ASEConfig].
+Des détails supplémentaires sur la mise à l’échelle manuelle ainsi que la gestion et la surveillance des environnements App Service sont disponibles ici : [Configuration d’un environnement App Service][ASEConfig].
 
-D'autres dépendances, telles que la base de données et le stockage, ne peuvent pas être personnalisées. Celles-ci sont gérées par Azure et sont fournies avec le système. Le stockage système prend en charge jusqu'à 500 Go pour tout l'environnement App Service.
+Pour plus d’informations sur la mise à l’échelle automatique, un guide est disponible dans la rubrique [Configuration de la mise à l’échelle automatique pour un environnement App Service][ASEAutoscale]
+
+D'autres dépendances, telles que la base de données et le stockage, ne peuvent pas être personnalisées. Celles-ci sont gérées par Azure et sont fournies avec le système. Le stockage système prend en charge jusqu’à 500 Go pour l’ensemble de l’environnement App Service, et la base de données est ajustée par Azure en fonction de la mise à l’échelle du système.
 
 
 ## Prise en main
@@ -135,15 +144,15 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
  
 
 <!--Image references-->
-[1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
-[2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
-[3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
-[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
+[1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
+[2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
+[3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
+[ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

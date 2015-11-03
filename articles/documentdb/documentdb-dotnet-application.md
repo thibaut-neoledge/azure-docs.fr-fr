@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Développement d’une application web avec ASP.NET MVC et DocumentDB.
@@ -633,4 +633,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

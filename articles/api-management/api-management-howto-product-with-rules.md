@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/27/2015"
 	ms.author="sdanie"/>
 
 # Protéger votre API avec des limites de débit à l’aide de la gestion des API Azure
@@ -291,4 +291,4 @@ Lorsque la stratégie de limite de débit de 10 appels par minute est appliqué
 [Débit limite d'appel]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Définir le quota d'utilisation]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

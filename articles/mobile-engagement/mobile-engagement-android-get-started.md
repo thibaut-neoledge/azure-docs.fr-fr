@@ -135,9 +135,15 @@ Télécharger et intégrer la bibliothèque du SDK
 
 Pour commencer à envoyer des données et vous assurer que les utilisateurs sont actifs, vous devez envoyer au moins un écran (activité) au serveur principal Mobile Engagement.
 
-Accédez à **MainActivity.java** et ajoutez le code suivant pour remplacer la classe de base de **MainActivity** de **ActionBarActivity** en **EngagementActivity** :
+Accédez à **MainActivity.java** et ajoutez le code suivant pour remplacer la classe de base **MainActivity** par **EngagementActivity** :
 
 	public class MainActivity extends EngagementActivity {
+
+Vous devez commenter (exclure) la ligne suivante pour ce simple exemple de scénario :
+
+    // setSupportActionBar(toolbar);
+
+Si vous souhaitez conserver cette ligne, vous devez consulter le scénario « Rapport de base » sur la page relative à l’[intégration avancée d’Android].
 
 ##<a id="monitor"></a>Connexion d’application avec l’analyse en temps réel
 
@@ -210,13 +216,17 @@ Collez l’extrait de code XML suivant dans votre fichier Manifest.xml entre les
 
 Cela définit l’icône qui s’affiche à la fois dans le système et des notifications in-app. Facultative pour les notifications in-app, cette opération est toutefois obligatoire pour les notifications système. Android rejettera les notifications système avec des icônes non valides.
 
-Assurez-vous d’utiliser une icône qui existe dans l’un des dossiers **drawable** (comme ``engagement_close.png``). Le dossier **mipmap** n’est pas pris en charge.
+Assurez-vous d’utiliser une icône qui existe dans l’un des dossiers **modifiable** (comme ``engagement_close.png``). Le dossier **mipmap** n’est pas pris en charge.
 
 >[AZURE.NOTE]Vous ne devez pas utiliser l’icône du **Lanceur**. Elle a une résolution différente et se trouve généralement dans les dossiers mipmap, que nous ne prenons pas en charge.
 
 Pour les applications réelles, vous pouvez utiliser une icône adaptée aux notifications conformément aux [instructions sur la conception Android](http://developer.android.com/design/patterns/notifications.html).
 
->[AZURE.TIP]Pour veiller à utiliser des icônes de résolutions correctes, vous pouvez consulter [ces exemples](https://www.google.com/design/icons). Faites défiler jusqu’à la section **Notification**, cliquez sur une icône, puis sur `PNGS` pour télécharger le jeu dessinable de l’icône. Vous pouvez voir quels dossiers dessinables utiliser avec quelle résolution pour chaque version de l’icône.
+>[AZURE.TIP]Pour veiller à utiliser des icônes de résolutions correctes, vous pouvez consulter [ces exemples](https://www.google.com/design/icons). Faites défiler jusqu’à la section **Notification**, cliquez sur une icône, puis sur `PNGS` pour télécharger le jeu d’icônes. Vous pouvez voir quels dossiers dessinables utiliser avec quelle résolution pour chaque version de l’icône.
+
+##Créer un projet Google Cloud Messaging avec une clé API 
+
+[AZURE.INCLUDE [mobile-engagement-enable-Google-cloud-messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ###Activer votre application pour recevoir des notifications Push GCM
 
@@ -241,7 +251,7 @@ Pour les applications réelles, vous pouvez utiliser une icône adaptée aux not
 			</intent-filter>
 		</receiver>
 
-3. Ajoutez le dernier jeu d’autorisations mis en surbrillance ci-dessous avant la balise `<application>`. Remplacez `<Your package name>` par le nom réel du package de votre application.
+3. Ajoutez le dernier jeu d’autorisations mis en surbrillance avant la balise `<application>`. Remplacez `<Your package name>` par le nom réel du package de votre application.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
@@ -265,7 +275,7 @@ Pour permettre à Mobile Engagement d’envoyer des notifications Push en votre 
 	  
 	![][17]
 
-4. Dans la fenêtre contextuelle, collez la clé du serveur GCM obtenue dans la section [Activer Google Cloud Messaging](#register), puis cliquez sur **OK**.
+4. Dans la fenêtre contextuelle, collez la clé du serveur GCM obtenue précédemment, puis cliquez sur **OK**.
 
 	![][18]
 
@@ -307,6 +317,8 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
 [Kit SDK Mobile Engagement Android]: http://go.microsoft.com/?linkid=9863935
 [Kit de développement logiciel (SDK) Mobile Engagement pour Android]: http://go.microsoft.com/?linkid=9863935
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[intégration avancée d’Android]: https://azure.microsoft.com/fr-FR/documentation/articles/mobile-engagement-android-integrate-engagement/#basic-reporting
+
 <!-- Images. -->
 [1]: ./media/mobile-engagement-android-get-started/android-studio-new-project.png
 [2]: ./media/mobile-engagement-android-get-started/android-studio-project-props.png
@@ -328,4 +340,4 @@ Nous allons à présent créer une campagne simple qui envoie une notification P
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

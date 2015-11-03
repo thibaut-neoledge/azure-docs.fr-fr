@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/09/2015"
+	ms.date="10/26/2015"
 	ms.author="anhoh"/>
 
 # Afficher, modifier, créer et télécharger des documents JSON à l'aide de l'Explorateur de documents DocumentDB #
@@ -141,7 +141,8 @@ L'Explorateur de documents prend en charge l'ingestion en bloc d'un ou plusieurs
 ##<a name="NextSteps"></a>Étapes suivantes
 
 - Pour en savoir plus sur DocumentDB, cliquez [ici](http://azure.com/docdb).
+- Pour commencer à utiliser du code, cliquez [ici](documentdb-get-started.md).
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

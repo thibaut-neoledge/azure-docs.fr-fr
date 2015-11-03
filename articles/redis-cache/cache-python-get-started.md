@@ -13,10 +13,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Python
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 Cette rubrique montre comment utiliser le Cache Redis Azure avec Python.
 
@@ -28,7 +34,7 @@ Installez [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Créer un Cache Redis sur Azure
 
-Dans la [version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
+Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Données + stockage**, puis sélectionnez **Cache Redis**.
 
   ![][1]
 
@@ -59,4 +65,4 @@ Remplacez *&lt;name&gt;* par le nom de votre cache, et *&lt;key&gt;* par votre c
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

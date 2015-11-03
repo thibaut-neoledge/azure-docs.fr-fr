@@ -26,9 +26,9 @@ Commencez à travailler avec la bibliothèque .NET Azure Batch en créant une ap
 
 	- **Compte Azure** : vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-	- **Compte Batch** : voir la section **Compte Batch** de l’article [Vue d’ensemble technique d’Azure Batch](batch-technical-overview.md).
+	- **Compte Batch** : voir la page [Créer et gérer un compte Azure Batch](batch-account-create-portal.md).
 
-	- **Compte de stockage** : voir la section **Créez un compte de stockage** de l’article [À propos des comptes de stockage Azure](../storage-create-storage-account.md). Dans ce didacticiel, vous créez un conteneur dans ce compte nommé **testcon1**.
+	- **Compte de stockage** : voir la section **Créer un compte de stockage** de l’article [À propos des comptes de stockage Azure](../storage-create-storage-account.md). Dans ce didacticiel, vous créez un conteneur dans le compte nommé **testcon1**.
 
 - Projet d’application console Visual Studio :
 
@@ -78,7 +78,7 @@ Pour en savoir plus sur les chaînes de connexion Azure Storage, consultez [Conf
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
-2. Ajoutez *System.Configuration* sous **Références** dans l’**Explorateur de solutions** pour le projet GettingStarted
+2. Ajoutez *System.Configuration* à **Références** dans l’**Explorateur de solutions** pour le projet GettingStarted
 
 3. Ajoutez à la classe Program la méthode ci-dessous qui obtient la chaîne de connexion de stockage, crée le conteneur et définit les autorisations :
 
@@ -109,7 +109,7 @@ Pour en savoir plus sur les chaînes de connexion Azure Storage, consultez [Conf
 
 	> [AZURE.NOTE]Dans un environnement de production, il est recommandé d’utiliser une [signature d’accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx).
 
-Pour plus d’informations sur le stockage d’objets blob, voir l’article [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md).
+Pour plus d’informations sur le stockage d’objets blob, consultez l’article [Utilisation du stockage d’objets blob à partir de .NET](../storage/storage-dotnet-how-to-use-blobs.md).
 
 ### Créer le programme de traitement
 
@@ -210,9 +210,9 @@ Un pool de nœuds de calcul est le premier jeu de ressources que vous devez cré
 
 	Remplacez les valeurs entre crochets par celles associées à votre compte Batch, disponibles dans le [portail Azure en version préliminaire](https://portal.azure.com). Pour trouver ces valeurs, connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com) et :
 
-	- **[nom du compte]** - Cliquez sur **Comptes Batch**, sélectionnez le compte Batch que vous avez créé précédemment
-	- **[url de compte]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **URL**
-	- **[clé de compte]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **Clés** > **Clé d’accès primaire**
+	- **[account-name]** - Cliquez sur **Comptes Batch**, sélectionnez le compte Batch que vous avez créé précédemment
+	- **[account-url]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **URL**
+	- **[account-key]** - Dans le panneau Compte Batch, cliquez sur **Propriétés** > **Clés** > **Clé d’accès primaire**
 
 3.	Ajoutez à la classe Program la méthode ci-après qui crée le pool :
 
@@ -491,8 +491,8 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 ## Étapes suivantes
 
-1. À présent que vous connaissez les principes de base de l’exécution des tâches, vous pouvez découvrir la procédure de mise à l’échelle automatique des nœuds de calcul lorsque la demande concernant votre application évolue. Pour effectuer cette opération, voir l’article [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
+1. À présent que vous connaissez les principes de base de l’exécution des tâches, vous pouvez découvrir la procédure de mise à l’échelle automatique des nœuds de calcul lorsque la demande concernant votre application évolue. Pour effectuer cette opération, consultez l’article [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md).
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

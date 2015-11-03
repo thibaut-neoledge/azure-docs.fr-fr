@@ -38,7 +38,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 2. Cliquez sur **Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
 
-	![Créer un entrepôt de données](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Créer](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Entrez un nom pour votre base de données dans le panneau SQL Data Warehouse. Dans cet exemple, nous nommons la base de données AdventureWorksDW.
 
@@ -48,12 +48,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 ## Étape 2 : Configurer et créer un serveur
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
-  >
-  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*.
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
-  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 
@@ -128,4 +123,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

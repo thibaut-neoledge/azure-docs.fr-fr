@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -97,15 +97,19 @@ Pour plus d’informations sur les balises, voir [Organisation des ressources Az
 
 Resource Manager vous permet de déterminer les utilisateurs qui sont autorisés à exécuter des actions spécifiques pour votre organisation. Il intègre en mode natif à la plate-forme de gestion le protocole OAuth et le contrôle d’accès en fonction du rôle (RBAC), et applique ce contrôle d’accès à tous les services de votre groupe de ressources. Vous pouvez ajouter des utilisateurs à des rôles prédéfinis de plateforme ou propres aux ressources et appliquer ces rôles à un abonnement, un groupe de ressources ou une ressource pour limiter l’accès. Par exemple, vous pouvez tirer parti du rôle prédéfini Collaborateur de base de données SQL qui permet aux utilisateurs de gérer les bases de données, mais non les serveurs de base de données ni les stratégies de sécurité. Vous pouvez attribuer le rôle Collaborateur de base de données SQL aux utilisateurs de votre organisation qui ont besoin de ce type d’accès, puis appliquer ce rôle à l’abonnement, au groupe de ressources ou à la ressource.
 
-Resource Manager enregistre automatiquement les actions des utilisateurs à des fins d’audit.
+Resource Manager enregistre automatiquement les actions des utilisateurs à des fins d’audit. Pour plus d’informations sur l’utilisation des journaux d’audit, consultez [Opérations d’audit avec Resource Manager](resource-group-audit.md).
 
 Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure](role-based-access-control-configure.md). Cette rubrique contient une liste des rôles intégrés et les actions autorisées. Les rôles intégrés incluent les rôles généraux tels que ceux de Propriétaire, Lecteur et Collaborateur, ainsi que les rôles spécifiques pour le service, par exemple, collaborateur de machine virtuelle, collaborateur de réseau virtuel et Gestionnaire de sécurité SQL (pour ne nommer que quelques-uns des rôles disponibles).
 
-Pour découvrir des exemples de définition de stratégies d’accès, voir [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md).
+Pour obtenir des exemples d’affectation des rôles, consultez [Gestion de l’accès aux ressources](azure-portal/resource-group-rbac.md).
 
-Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour en savoir plus, consultez [Verrouiller les ressources avec Azure Resource Manager](resource-group-lock-resources.md).
+Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour en savoir plus, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
 Pour connaître les meilleures pratiques, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md)
+
+## Gérer les ressources à l’aide de stratégies personnalisées
+
+Resource Manager vous permet de créer des stratégies personnalisées pour gérer vos ressources. Les types de stratégies que vous créez peuvent comporter des scénarios très variés : application d’une convention de dénomination à des ressources, limitation des régions pouvant héberger un type de ressource, demande d’une valeur de balise sur des ressources pour trier la facturation par service. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](resource-manager-policy.md).
 
 ## Couche de gestion cohérente
 
@@ -131,4 +135,4 @@ Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

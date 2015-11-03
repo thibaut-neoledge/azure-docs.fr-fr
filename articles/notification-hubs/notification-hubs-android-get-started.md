@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs pour les applications Android
@@ -120,10 +120,7 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 	    private static Boolean isVisible = false;
 
 
-	Veillez à mettre à jour les trois espaces réservés:
-	* **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment du projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail de gestion Azure].
-	* **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
+	Veillez à mettre à jour les trois espaces réservés: * **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment depuis le projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail de gestion Azure]. * **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
 
 
 
@@ -156,7 +153,7 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
     	}
 
 
-7. Ajoutez la méthode **DialogNotify** à l’activité pour afficher la notification lorsque l’application est en cours d’exécution et visible. Substituez également **onStart** et **onStop** afin de déterminer si l’activité est visible pour afficher la boîte de dialogue.
+7. Ajoutez la méthode `DialogNotify` à l’activité pour afficher la notification lorsque l’application est en cours d’exécution et visible. Substituez également `onStart`, `onPause`, `onResume` et `onStop` afin de déterminer si l’activité est visible pour afficher la boîte de dialogue.
 
 	    @Override
 	    protected void onStart() {
@@ -165,11 +162,22 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 	    }
 	
 	    @Override
+	    protected void onPause() {
+	        super.onPause();
+	        isVisible = false;
+	    }
+	
+	    @Override
+	    protected void onResume() {
+	        super.onResume();
+	        isVisible = true;
+	    }
+	
+	    @Override
 	    protected void onStop() {
 	        super.onStop();
 	        isVisible = false;
 	    }
-
 
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
@@ -341,7 +349,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 3. Dans votre fichier **MainActivity.java**, ajoutez les membres suivants en haut de la classe `MainActivity`.
 
-	Actualisez `HubFullAccess` avec la chaîne de connexion **DefaultFullSharedAccessSignature** correspondant à votre concentrateur. Vous pouvez copier cette chaîne de connexion depuis le [portail Azure] en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub de notification.
+	Mettez à jour `HubFullAccess` avec la chaîne de connexion **DefaultFullSharedAccessSignature** correspondant à votre hub. Vous pouvez copier cette chaîne de connexion depuis le [portail Azure] en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub de notification.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -488,7 +496,7 @@ Vous pouvez tester la réception de notifications dans votre application en envo
 
 Si vous souhaitez effectuer les tests sur un émulateur, vérifiez que votre image d’émulateur prend en charge le niveau d’API Google que vous choisissez pour votre application. Si votre image ne prend pas en charge les API Google, l’exception **SERVICE\_NOT\_AVAILABLE** est levée.
 
-Assurez-vous également que vous avez ajouté votre compte Google à l’émulateur en cours d’exécution sous **Paramètres**->**Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION\_FAILED**.
+Assurez-vous également que vous avez ajouté votre compte Google à l’émulateur en cours d’exécution sous **Paramètres** > **Comptes**. Sinon, vos tentatives d'inscription auprès de GCM peuvent entraîner la levée de l'exception **AUTHENTICATION\_FAILED**.
 
 ####Test de l'application
 
@@ -510,7 +518,7 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 
 Pour segmenter vos utilisateurs par groupes d'intérêt, consultez la page [Utilisation des Notification Hubs pour diffuser les dernières nouvelles].
 
-Pour obtenir des informations générales sur Notification Hubs, consultez la section [Recommandations relatives à Notification Hubs].
+Pour obtenir des informations générales sur Notification Hubs, consultez la page [Recommandations relatives à Notification Hubs].
 
 
 
@@ -550,4 +558,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
