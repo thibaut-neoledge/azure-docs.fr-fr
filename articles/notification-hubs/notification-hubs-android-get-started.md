@@ -120,7 +120,10 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 	    private static Boolean isVisible = false;
 
 
-	Veillez à mettre à jour les trois espaces réservés: * **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment depuis le projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail de gestion Azure]. * **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
+	Veillez à mettre à jour les trois espaces réservés:
+	* **SENDER\_ID** : définissez `SENDER_ID` sur le numéro de projet obtenu précédemment du projet que vous avez créé dans [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString** : définissez `HubListenConnectionString` sur la chaîne de connexion **DefaultListenAccessSignature** pour votre hub. Vous pouvez copier cette chaîne de connexion en cliquant sur **Afficher la chaîne de connexion** sous l’onglet **Tableau de bord** de votre hub sur le [portail de gestion Azure].
+	* **HubName** : nom de votre hub de notification qui s’affiche en haut de la page dans Azure pour votre hub (**pas** l’URL complète). Par exemple, utilisez `"myhub"`.
 
 
 
