@@ -32,7 +32,6 @@ Ce didacticiel requiert les éléments suivants :
 
 + XCode 6 ou XCode 7 que vous pouvez installer depuis votre MAC App Store
 + Le [kit de développement logiciel (SDK) iOS Mobile Engagement]
-+ Le certificat de notification push (.p12) que vous pouvez obtenir dans votre Centre de développement Apple
 
 Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticiels Mobile Engagement pour applications iOS.
 
@@ -44,7 +43,7 @@ Vous devez suivre ce didacticiel pour avoir accès à tous les autres didacticie
 
 ##<a id="connecting-app"></a>Connexion de votre application au serveur principal Mobile Engagement
 
-Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push. Vous trouverez la documentation complète d’intégration dans [Intégration du Kit de développement logiciel (SDK) Mobile Engagement](../mobile-engagement-ios-sdk-overview/).
+Ce didacticiel aborde l'intégration de base qui correspond aux éléments nécessaires à la collection de données et à l'envoi de notifications push. Vous trouverez la documentation complète sur l’intégration dans [Intégration du Kit de développement logiciel (SDK) iOS Mobile Engagement](../mobile-engagement-ios-sdk-overview/).
 
 Nous allons créer une application de base à l’aide de XCode afin d’illustrer l’intégration :
 
@@ -54,7 +53,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 ###Connexion de votre application au serveur principal Mobile Engagement
 
-1. Téléchargez le [Kit de développement logiciel (SDK) iOS Mobile Engagement].
+1. Téléchargez le [kit de développement logiciel (SDK) iOS Mobile Engagement]
 2. Décompressez le fichier .tar.gz dans un dossier de votre ordinateur.
 3. Cliquez avec le bouton droit sur le projet, puis sélectionnez **Add files to**.
 
@@ -70,7 +69,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 6. Pour **XCode 7**, ajoutez `libxml2.tbd` au lieu de `libxml2.dylib`.
 
-7. Revenez au portail Azure, dans la page **Informations de connexion** de votre application, puis copiez la chaîne de connexion.
+7. De retour sur le portail Azure, dans la page **Informations de connexion** de votre application, copiez la chaîne de connexion.
 
 	![][4]
 
@@ -78,7 +77,7 @@ Nous allons créer une application de base à l’aide de XCode afin d’illustr
 
 		#import "EngagementAgent.h"
 
-9. Collez à présent la chaîne de connexion dans le délégué `didFinishLaunchingWithOptions`.
+9. Collez la chaîne de connexion dans le délégué `didFinishLaunchingWithOptions`
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 		{
@@ -107,7 +106,7 @@ Pour commencer à envoyer des données et vous assurer que les utilisateurs sont
 
 [AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
+##<a id="integrate-push"></a>Activation des notifications Push et de la messagerie in-app
 
 Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs et REACH à l’aide de notifications push et de la messagerie in-app, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
 
@@ -120,7 +119,7 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 1. Cliquez avec le bouton droit sur votre projet.
 2. Sélectionnez **Add file to**.
 3. Accédez au dossier dans lequel vous avez extrait le SDK.
-4. Sélectionnez le dossier `EngagementReach`
+4. Sélectionnez le dossier `EngagementReach`.
 5. Cliquez sur **Add**.
 
 ### Modifier votre délégué d'Application
@@ -186,4 +185,4 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs e
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,23 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/17/2015" 
+	ms.date="10/23/2015" 
 	ms.author="elizapo"/>
 
 # FAQ Azure RemoteApp
-Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteApp. Vous avez d'autres questions ? Visitez les [forums RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) et indiquez-nous ce que vous souhaitez savoir.
+Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteApp. Vous avez d'autres questions ? Visitez les [forums RemoteApp](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) et indiquez-nous ce que vous souhaitez savoir ou laissez-nous un commentaire ci-dessous.
 
 ## Présentation d'Azure RemoteApp ##
 
 
 - **Présentation d'Azure RemoteApp** RemoteApp est un service Azure qui vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur. En savoir plus sur [Azure RemoteApp](remoteapp-whatis.md).
-- **Quels sont les deux types d'options de déploiement ?** Il existe deux types de déploiements RemoteApp (ou collections) : cloud et hybride. Déterminez quelle [option de déploiement](remoteapp-whatis.md) convient le mieux à votre organisation.
+- **Quelles sont les options de déploiement ?** Il existe deux types de collection RemoteApp : cloud et hybride. Celui dont vous avez besoin dépend de plusieurs facteurs, tels que la nécessité d’une jonction de domaine. Nous parlons de toutes ces décisions [ici](remoteapp-collections.md).
 
+## Conseils rapides pour l’utilisation d’Azure RemoteApp ##
+- **Combien de temps peut-il s’écouler avant que je sois déconnecté ? Combien de temps puis-je être inactif avant d’être déconnecté ?** 4 heures. Si vous ou l’un de vos utilisateurs êtes inactif pendant 4 heures, vous êtes automatiquement déconnecté d’Azure RemoteApp. Consultez les autres paramètres par défaut dans [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md).
+- **Puis-je essayer ce service gratuitement ?** Oui. Une version d'évaluation gratuite est disponible pendant 30 jours. Après la fin de l'essai, vous pouvez passer à un compte payant (que vous pouvez utiliser en production) ou arrêter d'utiliser le service. Commencez votre évaluation gratuite en accédant à [manage.windowsazure.com](http://manage.windowsazure.com) et créez une instance de RemoteApp. Avec la version d'évaluation gratuite, vous pouvez créer deux instances de RemoteApp avec 10 utilisateurs par instance. N'oubliez pas que cette version d'évaluation n'est utilisable que pendant 30 jours.
 ## Détails de l’abonnement Azure RemoteApp ##
-- **Quelles sont les limites du service ?** Pour en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp, voir [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
+
+- **Quelles sont les limites du service ?** Pour en savoir plus sur les paramètres par défaut et les limites du service Azure RemoteApp, consultez [Abonnement Azure et limites, quotas et contraintes du service](azure-subscription-service-limits.md). N’hésitez pas à nous contacter si vous avez d'autres questions.
 - **Combien d'utilisateurs dois-je avoir ?** Il existe un minimum de 20 utilisateurs. Il s’agit bien de la valeur MINIMALE. Vous serez facturé pour 20 utilisateurs. 
 - **Combien coûte RemoteApp ?** Consultez les [tarifs détaillés d'Azure RemoteApp](../../../pricing/details/remoteapp/).
-- **Un type de collection coûte-t-il plus qu’un autre ?** Oui, il le peut, selon les besoins de votre collection. Une collection hybride nécessite une connexion d’Azure RemoteApp à votre réseau local. Si vous utilisez un itinéraire réseau virtuel/Express, il est sans coût supplémentaire. Mais si vous utilisez un nouveau réseau virtuel Azure et une passerelle ou ExpressRoute, vous êtes facturé pour la [passerelle VPN](../../../pricing/details/vpn-gateway) ou [ExpressRoute](../../../pricing/details/expressroute/). Ce coût (détaillé dans les liens) s’ajoute à votre coût mensuel Azure RemoteApp.
+- **Un type de collection coûte-t-il plus qu’un autre ?** Oui, il le peut, selon les besoins de votre collection. Une collection hybride nécessite une connexion d’Azure RemoteApp à votre réseau local. Si vous utilisez un itinéraire réseau virtuel/Express, il est sans coût supplémentaire. Toutefois, si vous utilisez un nouveau réseau virtuel Azure et une passerelle ou ExpressRoute, vous êtes facturé pour la [passerelle VPN](../../../pricing/details/vpn-gateway) ou [ExpressRoute](../../../pricing/details/expressroute/). Ce coût (détaillé dans les liens) s’ajoute à votre coût mensuel Azure RemoteApp.
 
 ## Collections : ce qui est pris en charge, laquelle utiliser, etc.
 - **Les applications métier personnalisées sont-elles prises en charge ?** Oui. Pour utiliser une application personnalisée dans Azure RemoteApp, créez une [image de modèle personnalisée](remoteapp-create-custom-image.md), puis téléchargez-la dans la collection RemoteApp.
@@ -44,8 +48,8 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 
 
 ## Options réseau
-- **La collection hybride requiert un réseau virtuel. Est-il possible d'utiliser notre réseau virtuel existant ?** Oui, si le réseau virtuel existant est un réseau virtuel Azure. Pour plus d’informations, voir la section « Étape 1 : configuration de votre réseau virtuel » dans les [instructions sur les collections hybrides](remoteapp-create-hybrid-deployment.md).
-- **Puis-je utiliser un réseau virtuel avec une collection cloud ?** Vous le pouvez en effet. Pour plus d’informations, voir [Création d'une collection cloud](remoteapp-create-cloud-deployment.md), en particulier l’étape 1.
+- **La collection hybride requiert un réseau virtuel. Est-il possible d'utiliser notre réseau virtuel existant ?** Oui, si le réseau virtuel existant est un réseau virtuel Azure. Pour plus d’informations, consultez la section « Étape 1 : configuration de votre réseau virtuel » dans les [instructions sur les collections hybrides](remoteapp-create-hybrid-deployment.md).
+- **Puis-je utiliser un réseau virtuel avec une collection cloud ?** Vous le pouvez en effet. Pour plus d’informations, consultez [Création d’une collection cloud](remoteapp-create-cloud-deployment.md), en particulier l’étape 1.
 
 ## Options d’authentification
 
@@ -58,7 +62,7 @@ Les questions suivantes sont celles qui nous ont été posées sur Azure RemoteA
 - **Pourquoi ne puis-je pas donner l'accès à mon compte Azure Active Directory ?** Les utilisateurs Azure Active Directory doivent provenir de l'annuaire associé à votre abonnement. Vous pouvez afficher ou modifier cet annuaire sous l'onglet Paramètres du portail. Consultez [Modifier le locataire Azure Active Directory utilisé par RemoteApp](remoteapp-changetenant.md) pour plus d'informations.)
 
 ## Clients : quel appareil utiliser pour accéder à Azure RemoteApp ?
-Pour des informations sur le client, notamment une procédure d’installation des différents clients, voir [Accès à vos applications dans Azure RemoteApp](remoteapp-clients.md).
+Pour des informations sur le client, notamment une procédure d’installation des différents clients, consultez [Accès à vos applications dans Azure RemoteApp](remoteapp-clients.md).
 
 - **Quels appareils et systèmes d'exploitation sont pris en charge par les applications clientes ?** Premièrement, les ordinateurs et tablettes : 
 	- Windows 10 (client en version préliminaire)
@@ -83,7 +87,7 @@ Pour des informations sur le client, notamment une procédure d’installation d
 
 ##Support et commentaires
 
-- **Puis-je essayer ce service gratuitement ?** Oui. Une version d'évaluation gratuite est disponible pendant 30 jours. Après la fin de l'essai, vous pouvez passer à un compte payant (que vous pouvez utiliser en production) ou arrêter d'utiliser le service. Commencez votre évaluation gratuite en accédant à [manage.windowsazure.com](http://manage.windowsazure.com) et créez une instance de RemoteApp. Avec la version d'évaluation gratuite, vous pouvez créer deux instances de RemoteApp avec 10 utilisateurs par instance. N'oubliez pas que cette version d'évaluation n'est utilisable que pendant 30 jours.
+
 - **Quel est le plan de prise en charge pour RemoteApp ?** La gestion de la facturation et des abonnements est fournie gratuitement. Le support technique est disponible via les [plans de service Azure](../../../support/plans/). Vous pouvez également bénéficier du support gratuit de la communauté via notre [forum de discussion Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp). 
 - **Comment envoyer des commentaires ?** Visitez le [forum prévu à cet effet](http://feedback.azure.com/forums/247748-azure-remoteapp).
 - **À qui puis-je m'adresser pour en savoir plus sur Azure RemoteApp ?** Outre notre [forum de discussion](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), qui est l'endroit idéal pour poser des questions, vous pouvez participer au webinaire hebdomadaire [Demandez aux experts](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), qui aborde tout ce qui concerne RemoteApp.
@@ -107,5 +111,7 @@ Pour des informations sur le client, notamment une procédure d’installation d
 	Vidéos Nous vous proposons également un certain nombre de vidéos sur RemoteApp. Certaines présentent le service ([Présentation d'Azure RemoteApp](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/)) et d'autres vous guident dans le déploiement ([Déploiement cloud](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be) et [Déploiement hybride](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Consultez-les !
 
  
+### Vos commentaires nous aideront à mieux vous servir 
+Saviez-vous qu'en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l'article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

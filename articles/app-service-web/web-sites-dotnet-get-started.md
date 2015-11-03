@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/10/2015"
+	ms.date="10/16/2015"
 	ms.author="tdykstra"/>
 
 # Création d’une application web ASP.NET dans Azure App Service
@@ -26,9 +26,9 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Ce didacticiel vous montre comment créer une application web ASP.NET et la déployer dans une [application web dans Azure App Service](app-service-web-overview.md) en utilisant Visual Studio 2015 ou Visual Studio 2013. Ce didacticiel part du principe que vous n’avez pas d’expérience en tant qu’utilisateur d’Azure ou d’ASP.NET. À la fin de ce didacticiel, vous disposerez d’une application web simple et fonctionnelle dans le cloud.
+Ce didacticiel montre comment déployer une application web ASP.NET dans une [application web dans Azure App Service](app-service-web-overview.md) en utilisant Visual Studio 2015 ou Visual Studio 2013. Ce didacticiel part du principe que vous êtes un développeur ASP.NET sans expérience préalable avec Azure. À la fin de ce didacticiel, vous disposerez d’une application web simple et fonctionnelle dans le cloud.
 
 L’illustration suivante présente l’application terminée :
 
@@ -39,9 +39,12 @@ Vous apprendrez ce qui suit :
 * Comment préparer votre ordinateur pour le développement Azure en installant le [Kit de développement logiciel (SDK) Azure pour .NET](../dotnet-sdk/).
 * Comment configurer Visual Studio pour créer une application web App Service pendant la création d’un projet web ASP.NET MVC 5.
 * Comment déployer un projet web sur une application web App Service à l’aide de Visual Studio.
-* Comment utiliser le [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
+* Utilisation de l’**Explorateur de serveurs** Visual Studio pour ouvrir des fichiers distants et démarrer une session de débogage à distance. 
+* Utilisation du [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
 
-Il s’agit d’un didacticiel rapide et simple qui ne montre pas comment personnaliser le projet web que vous créez. Pour une introduction au développement d’applications web ASP.NET MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sur le site [ASP.NET](http://asp.net/). Pour des liens vers d’autres articles plus détaillés sur les applications web dans Azure App Service, consultez la section [Étapes suivantes](#next-steps).
+> [AZURE.NOTE]Ce didacticiel porte sur l’utilisation d’ASP.NET avec Azure App Service. Il n’explique pas comment développer une application web ASP.NET. Pour une présentation d’ASP.NET MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sur le site [ASP.NET](http://asp.net/). Pour des liens vers d’autres articles plus détaillés sur l’utilisation d’Azure App Service, consultez la section [Étapes suivantes](#next-steps).
+> 
+> Aidez-nous à améliorer la portée et l’approche de ce didacticiel. Si vous aimeriez que d’autres thèmes soient traités dans un didacticiel de prise en main, n’hésitez pas à laisser un [commentaire](#comments) en bas de cette page.
 
 ##<a name="video"></a>Inscription à Microsoft Azure
 
@@ -50,9 +53,9 @@ Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez :
 * [Ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
 * [Activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
-> [AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
-Dans cette vidéo, Scott Hanselman montre combien il est facile de s’inscrire à une version d’évaluation gratuite de Microsoft Azure. (Durée : 1:58)
+Dans cette vidéo, Scott Hanselman montre combien il est facile de s’inscrire à un essai gratuit de Microsoft Azure. (Durée : 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -70,7 +73,7 @@ Le diagramme illustre ce que vous faites dans les étapes de création et de dé
 
 	Si vous utilisez Visual Studio 2013, les écrans seront légèrement différents des captures d'écran, mais les procédures sont essentiellement les mêmes.
 
-2. Dans le menu **Fichier**, cliquez sur **Nouveau > Projet**.
+2. Dans le menu **Fichier**, cliquez sur **Nouveau > Projet**.
 
 3. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **C# > Web > Application web ASP.NET**. Vous pouvez, si vous préférez, sélectionner **Visual Basic**.
 
@@ -164,7 +167,7 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 	![Choisir Publier](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	Au bout de quelques secondes, l’Assistant **Publier le site web** s’ouvre. L’Assistant s’ouvre sur un *profil de publication* indiquant des paramètres pour le déploiement du projet web sur la nouvelle application web. Si vous souhaitiez déployer sur une autre application web, cliquez sur l’onglet **Profil** pour créer un autre profil. Dans le cadre de ce didacticiel, vous allez accepter les paramètres de déploiement de l’application web que vous avez créée plus tôt.
+	Au bout de quelques secondes, l’Assistant **Publier le site web** s’ouvre. L’Assistant s’ouvre sur un *profil de publication* présentant des paramètres pour le déploiement du projet web sur la nouvelle application web. Si vous souhaitez déployer sur une autre application web, cliquez sur l’onglet **Profil** pour créer un autre profil. Dans le cadre de ce didacticiel, vous allez accepter les paramètres de déploiement de l’application web que vous avez créée plus tôt.
 
 8. Sous l’onglet **Connexion** de l’Assistant **Publier le site web**, cliquez sur **Suivant**.
 
@@ -174,7 +177,7 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 	Vous pouvez accepter les valeurs par défaut pour **Configuration** et **Options de publication des fichiers**.
 
-	Vous pouvez utiliser la liste déroulante **Configuration** pour déployer une version Debug pour le débogage à distance. La section [Étapes suivantes](#next-steps) renvoie vers un didacticiel qui explique comment exécuter Visual Studio en mode de débogage à distance.
+	Vous pouvez utiliser la liste déroulante **Configuration** pour déployer une version Debug pour le débogage à distance. La section [Étapes suivantes](#next-steps) renvoie vers un didacticiel qui explique comment exécuter Visual Studio en mode de débogage à distance.
 
 	![Onglet Paramètres](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
@@ -194,11 +197,39 @@ Dans cette section, vous déployez le projet web dans l’application web, comme
 
 	![Application web exécutée dans Azure](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
-13. Fermez le navigateur.
+13. Laissez cette fenêtre de navigateur ouverte en vue de l’utiliser dans la prochaine section.
 
-**Conseil :** vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil, cliquer sur un bouton pour la publication ou pour ouvrir l’Assistant **Publier le site web**.
+**Conseil :** vous pouvez activer la barre d’outils **Publication Web en un clic** pour accélérer le déploiement. Cliquez sur **Affichage > Barres d’outils**, puis sélectionnez **Publication Web en un clic**. Vous pouvez utiliser cette barre d’outils pour sélectionner un profil ou encore cliquer sur un bouton pour publier ou pour ouvrir l’Assistant **Publier le site web**.
 
-![Barre d’outils Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+![Barre d’outil Publication Web en un clic](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
+
+## Ouvrir des fichiers distants dans l’Explorateur de serveurs
+
+Lorsque vous testez et déboguez une application web, vous pouvez apporter des modifications rapides temporaires au site distant en ouvrant et en modifiant les fichiers dans l’**Explorateur de serveurs**.
+
+1.  Dans l’**Explorateur de serveurs**, accédez à **Azure > App Service > MonExempleGroupe**, puis développez le nœud pour votre application web.
+
+2. Développez **Fichiers > Affichages > Accueil**, puis double-cliquez sur le fichier *Index.cshtml*.
+
+	![](./media/web-sites-dotnet-get-started/indexfileinse.png)
+
+3. Remplacez `<h1>ASP.NET</h1>` par `<h1>Azure App Service</h1>`.
+
+4. Enregistrez le fichier.
+
+5. Actualisez la fenêtre du navigateur contenant le site exécuté dans Azure.
+
+	![](./media/web-sites-dotnet-get-started/afterindexedit.png)
+
+Cette modification est désormais présente sur le site déployé, mais pas dans le projet local. Si vous redéployez le projet, le site reviendra à sa version avant modification.
+
+Cette fonctionnalité est pratique pour [désactiver temporairement customErrors dans le fichier Web.config afin d’obtenir un message d’erreur détaillé](web-sites-dotnet-troubleshoot-visual-studio.md).
+
+Dans l’**Explorateur de serveurs**, vous pouvez également cliquer avec le bouton droit sur le nœud de l’application web et accéder aux paramètres de celle-ci dans une fenêtre Visual Studio, démarrer une session de débogage distant, et afficher les journaux d’application en temps réel pendant que l’application les enregistre.
+
+![](./media/web-sites-dotnet-get-started/sewebappmenu.png)
+
+Pour plus d’informations, consultez la page [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 ## Surveillance et gestion de l’application web dans le portail Azure
 
@@ -236,7 +267,7 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 * Ajout d’une fonctionnalité de base de données et d’autorisation
 
-	Pour suivre un didacticiel expliquant comment accéder aux bases de données et limiter certaines fonctions d’application aux utilisateurs autorisés, consultez la page [Déploiement d’une application ASP.NET MVC avec une fonctionnalité d’appartenance, OAuth et une base de données SQL Database vers une application web Azure](/develop/net/tutorials/web-site-with-sql-database/). L’utilisation de ce didacticiel implique des connaissances de MVC 5 ; si vous débutez avec MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
+	Pour suivre un didacticiel expliquant comment accéder aux bases de données et limiter certaines fonctions d’application aux utilisateurs autorisés, consultez la page [Déploiement d’une application ASP.NET MVC avec une fonctionnalité d’appartenance, OAuth et une base de données SQL Database vers une application web Azure](/develop/net/tutorials/web-site-with-sql-database/). L’utilisation de ce didacticiel implique des connaissances de MVC 5. Si vous ne connaissez pas MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started).
 
 * Autres méthodes de déploiement d’un projet web
 
@@ -271,4 +302,4 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide des différences entre le portail Azure et le portail Azure en version préliminaire, consultez [Informations de référence sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

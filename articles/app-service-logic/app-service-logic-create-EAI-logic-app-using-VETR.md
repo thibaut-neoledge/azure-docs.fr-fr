@@ -51,12 +51,12 @@ Ensuite, nous allons ajouter des déclencheurs et des actions.
 
 
 ## Ajouter un déclencheur HTTP
-
+1. Sélectionnez **Créer de toutes pièces**.
 1. Sélectionnez **Écouteur HTTP** dans la galerie pour créer un écouteur. Nommez-le **HTTP1**.
-2. Conservez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l'action du déclencheur en affectant la valeur _POST_ à _HTTP Method_ et la valeur _/OneWayPipeline_ à _Relative URL_ :  
+2. Conservez la valeur False pour le paramètre **Envoyer la réponse automatiquement**. Configurez l’action du déclencheur en affectant la valeur _POST_ à _Méthode HTTP_ et la valeur _/OneWayPipeline_ à _URL relative_ :  
 
 	![Déclencheur HTTP][2]
-
+3. Cliquez sur la coche verte.
 
 ## Ajouter une action de validation
 
@@ -74,9 +74,9 @@ En procédant de même, nous allons ajouter le reste des actions.
 ## Ajouter une action de transformation
 Nous allons maintenant configurer des transformations pour normaliser les données entrantes.
 
-1. Ajoutez **Transformation** à partir de la galerie.
-2. Pour configurer une transformation pour transformer les messages XML entrants, sélectionnez l'action **Transformer** comme action à exécuter quand cette API est appelée et sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. *Map* est un paramètre facultatif car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
-3. Pour finir, la transformation s'exécute uniquement si la validation réussit. Pour configurer cette condition, cliquez sur l'icône d'engrenage dans le coin supérieur droit et sélectionnez _Ajouter une condition à remplir_. Définissez la valeur suivante pour la condition ```equals(actions('xmlvalidator').status,'Succeeded')``` :  
+1. Sélectionnez **Service de transformation BizTalk** dans la galerie.
+2. Pour configurer une transformation pour transformer les messages XML entrants, sélectionnez l’action **Transformer** comme action à exécuter quand cette API est appelée et sélectionnez ```triggers(‘httplistener’).outputs.Content``` comme valeur pour _inputXml_. *Map* est un paramètre facultatif, car les données entrantes sont mises en correspondance avec toutes les transformations configurées et seules celles qui correspondent au schéma sont appliquées.
+3. Pour finir, la transformation s'exécute uniquement si la validation réussit. Pour configurer cette condition, cliquez sur l’icône d’engrenage dans le coin supérieur droit et sélectionnez _Ajouter une condition à remplir_. Définissez la valeur suivante pour la condition ```equals(actions('xmlvalidator').status,'Succeeded')``` :  
 
 ![Transformations BizTalk][4]
 
@@ -85,7 +85,8 @@ Nous allons maintenant configurer des transformations pour normaliser les donné
 Ensuite, nous allons ajouter la destination (une file d'attente Service Bus) où écrire les données.
 
 1. Ajoutez un **Connecteur Service Bus** à partir de la galerie. Affectez la valeur _Servicebus1_ à **Name**, affectez la chaîne de connexion à votre instance Service Bus comme valeur **Connection String**, affectez la valeur **Queue** à _Entity Name_ et ignorez **Subscription name**.
-2. Sélectionnez l'action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Message**.
+2. Sélectionnez l’action **Envoyer un message** et affectez la valeur _actions(’transformservice’).outputs.OutputXml_ au champ **Contenu**.
+3. Définissez **Type de contenu** sur application/xml
 
 ![Service Bus][5]
 
@@ -94,14 +95,17 @@ Ensuite, nous allons ajouter la destination (une file d'attente Service Bus) où
 Une fois le traitement du pipeline terminé, renvoyez une réponse HTTP pour la réussite et l'échec en procédant comme suit :
 
 1. Ajoutez un **Écouteur HTTP** à partir de la galerie et sélectionnez l’action **Envoyer une réponse HTTP**.
-2. Affectez la valeur *Traitement de pipeline terminé* à **Response Content**, la valeur *200* à **Response Status Code** pour indiquer HTTP 200 OK, et la **condition** sur l'expression suivante : ```@equals(actions('servicebusconnector').status,'Succeeded')``` <br/>
+2. Définissez **ID de réponse** sur *Envoyer un message*.
+2. Définissez **Contenu de la réponse** sur *Traitement du pipeline terminé*.
+3. **Code d’état de la réponse** sur *200* pour indiquer HTTP 200 OK.
+4. Cliquez sur la liste déroulante en haut à droite et sélectionnez **Ajouter une condition à remplir**. Définissez la condition sur l’expression suivante : ```@equals(actions('azureservicebusconnector').status,'Succeeded')``` <br/>
+5. Répétez ces étapes pour envoyer aussi une réponse HTTP en cas d'échec. Modifiez la **condition** sur l’expression suivante : ```@not(equals(actions('azureservicebusconnector').status,'Succeeded'))``` <br/>
+6. Cliquez sur **OK**, puis sur **Créer**
 
-
-Répétez ces étapes pour envoyer aussi une réponse HTTP en cas d'échec. Modifiez la **condition** sur l'expression suivante : ```@not(equals(actions('servicebusconnector').status,'Succeeded'))``` <br/>
 
 
 ## Achèvement
-Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'application est déclenchée et les actions que vous venez de créer sont exécutées. Pour gérer le genre d'application logique que vous créez, cliquez sur **Parcourir** dans le portail Azure et sélectionnez **Logic Apps**. Sélectionnez votre application pour afficher plus d'informations.
+Chaque fois que quelqu'un envoie un message au point de terminaison HTTP, l'application est déclenchée et les actions que vous venez de créer sont exécutées. Pour gérer ce genre d’application logique que vous créez, cliquez sur **Parcourir** dans le portail Azure et sélectionnez **Logic Apps**. Sélectionnez votre application pour afficher plus d'informations.
 
 Rubriques utiles :
 
@@ -114,4 +118,4 @@ Rubriques utiles :
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

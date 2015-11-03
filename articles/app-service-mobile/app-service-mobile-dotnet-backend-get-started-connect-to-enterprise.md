@@ -18,13 +18,13 @@
 
 # Connecter une application mobile aux API SaaS
 
-Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Authentification de votre application avec le service d’authentification unique de la bibliothèque d’authentification Azure Active Directory] pour créer un document Microsoft Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
+Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory] pour créer un document Microsoft Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
 
 Ce didacticiel requiert les éléments suivants :
 
 * Visual Studio 2013 s'exécutant sous Windows 8.1.
 * Un abonnement actif à [SharePoint Online]
-* Assimilation du didacticiel [Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
+* Assimilation du didacticiel [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory]. Vous devez utiliser le client fourni par votre abonnement SharePoint.
 
 [AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
@@ -41,7 +41,7 @@ Vous avez maintenant configuré Azure AD pour émettre un jeton d'accès SharePo
 
 ## <a name="store-credentials"></a>Ajout d’informations SharePoint à votre application mobile
 
-Pour appeler SharePoint, vous devez spécifier les points de terminaison avec lesquels l'application mobile a besoin de communiquer. Vous devez également être capable de prouver l'identité de votre service d'application avec une paire ID client/clé secrète. Vous avez déjà obtenu et stocké l'ID client pour le service d'application pendant la configuration de la connexion AAD. Comme il s'agit d'informations d'identification sensibles, vous ne devez pas les stocker en clair dans votre code. Définissez plutôt ces valeurs en tant que paramètres d'application pour votre site Code de l'application mobile.
+Pour appeler SharePoint, vous devez spécifier les points de terminaison avec lesquels l'application mobile a besoin de communiquer. Vous devez également être capable de prouver l'identité de votre service d'application avec une paire ID client/clé secrète. Vous avez déjà obtenu et stocké l'ID client pour le service d'application pendant la configuration de la connexion AAD. Comme il s’agit d’informations d’identification sensibles, vous ne devez pas les stocker en clair dans votre code. Définissez plutôt ces valeurs en tant que paramètres d'application pour votre site Code de l'application mobile.
 
 1. Revenez sous l'onglet Applications AAD de votre client et sélectionnez l'application web pour votre service d'application.
 
@@ -182,10 +182,9 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 
 <!-- URLs. -->
 
-[Preview Azure Management Portal]: https://portal.azure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/fr-FR/sharepoint/
-[Authentification de votre application avec le service d'authentification unique de la bibliothèque d'authentification Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

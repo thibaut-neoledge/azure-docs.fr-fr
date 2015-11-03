@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/27/2015"
 	ms.author="sdanie"/>
 
 # Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
@@ -160,4 +160,4 @@ Notez que la valeur de **sampleheader** dans la réponse est désormais **value2
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
