@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -21,7 +21,7 @@ Après avoir déployé votre application web, vous pouvez configurer des tests�
 
 ![Exemple de test web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Vous pouvez configurer des tests web pour n'importe quel point de terminaison HTTP accessible à partir du réseau Internet public.
+Vous pouvez configurer des tests web pour n'importe quel point de terminaison HTTP ou HTTPS accessible à partir du réseau Internet public.
 
 Il existe deux types de tests web :
 
@@ -246,4 +246,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

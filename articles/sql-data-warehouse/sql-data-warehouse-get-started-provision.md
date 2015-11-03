@@ -38,7 +38,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 2. Cliquez sur **Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
 
-	![Créer un entrepôt de données](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Créer](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Entrez un nom pour votre base de données dans le panneau SQL Data Warehouse. Dans cet exemple, nous nommons la base de données AdventureWorksDW.
 
@@ -128,4 +128,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

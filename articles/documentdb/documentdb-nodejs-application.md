@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Découverte de Node.js - Didacticiel Node.js DocumentDB | Microsoft Azure" 
 	description="Découvrez Node.js ! Ce didacticiel explique comment utiliser Microsoft Azure DocumentDB pour stocker des données et y accéder à partir d’une application web Node.js Express hébergée sur Sites Web Azure." 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="Développement d’applications, didacticiel de base de données, apprendre node.js, didacticiel node.js, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Création d'une application web Node.js avec DocumentDB
@@ -40,7 +40,7 @@ Dans ce didacticiel de base de données, vous allez concevoir une simple applica
 
 ![Capture d’écran de l’application My Todo List créée dans ce didacticiel Node.js](./media/documentdb-nodejs-application/image1.png)
 
-Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète ? Pas de problème, vous pouvez obtenir la solution complète de l’exemple sur [GitHub][].
+Vous n'avez pas le temps de terminer le didacticiel et vous souhaitez simplement obtenir la solution complète ? Vous pouvez obtenir facilement l’exemple de solution complet sur [GitHub][].
 
 ## <a name="_Toc395783176"></a>Configuration requise
 
@@ -562,11 +562,11 @@ Félicitations ! Vous venez de créer votre première application web Express N
 
 Vous pouvez télécharger le code source de l’application de référence complète sur [GitHub][].
 
-Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
+Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

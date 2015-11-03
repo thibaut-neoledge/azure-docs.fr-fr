@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Didacticiel HBase : prise en main de HBase dans Hadoop | Microsoft Azure"
 	description="Suivez ce didacticiel HBase pour apprendre à utiliser Apache HBase avec Hadoop dans HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,shell hbase,didacticiel hbase"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -29,7 +29,7 @@ Découvrez comment approvisionner un cluster HBase dans HDInsight, créer des ta
 
 Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments suivants :
 
-- **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Un abonnement Azure**. Consultez la rubrique [Obtenir une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - PuTTY et PuTTYGen pour les clients Windows. Ces utilitaires sont disponibles à l’adresse suivante : [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 - [curl](http://curl.haxx.se/download.html).
 
@@ -45,16 +45,16 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 3. Saisissez les valeurs suivantes :
 
 	- **Nom du cluster** : entrez un nom permettant d’identifier ce cluster.
-	- **Type de cluster** : sélectionnez **HBase**.
+	- **Type de cluster**: sélectionnez **HBase**.
 	- **Système d’exploitation de cluster** : sélectionnez **Ubuntu**.
 	- **Abonnement** : sélectionnez l’abonnement Azure utilisé pour approvisionner ce cluster.
-	- **Groupe de ressources** : ajoutez ou sélectionnez un groupe de ressources Azure. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](resource-group-overview.md).
-	- **Informations d’identification**. Entrez un mot de passe pour l’utilisateur du service web HTTP. Le nom d’utilisateur par défaut est **admin**. Vous devez également entrer un **Nom d’utilisateur SSH** et un **MOT DE PASSE** ou une **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l’utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
+	- **Groupe de ressources** : ajoutez ou sélectionnez un groupe de ressources Azure. Pour plus d’informations, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
+	- **Informations d'identification**. Entrez un mot de passe pour l’utilisateur du service web HTTP. Le nom d’utilisateur par défaut est **admin**. Vous devez également saisir un **nom d’utilisateur SSH** et un **MOT DE PASSE** ou une **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l’utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
 
 		- [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Cliquez sur **Sélectionner** pour enregistrer les modifications.
 	- **Source de données** : sélectionnez un compte de stockage Azure existant ou créez-en un à utiliser comme système de fichiers par défaut pour le cluster. L’emplacement du compte de stockage détermine l’emplacement du cluster. Un cluster HDInsight et le compte de stockage Azure qui en dépend doivent se situer dans le même centre de données. Le nom du **Conteneur par défaut** est le nom du cluster.  
-	- **Niveaux tarifaires de nœud** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
+	- **Niveaux de tarification de nœud** : sélectionnez le nombre de serveurs de région pour le cluster HBase.
 
 		> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez configurer un cluster qui contient au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
@@ -87,7 +87,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 4. Dans les options de base de l’écran de votre session PuTTY, entrez les valeurs suivantes :
 
 	- Host Name : adresse SSH de votre serveur HDInsight dans le champ Nom d’hôte (ou Adresse IP). L’adresse SSH est le nom de votre cluster, elle est ensuite suivie de **-ssh.azurehdinsight.net**. Par exemple : *moncluster-ssh.azurehdinsight.net*.
-	- Port : 22. Le port SSH sur le headnode0 est 22. Consultez [Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
+	- Port : 22. Le port SSH sur le nœud principal 0 est 22. Consultez [Informations sur l’utilisation de HDInsight sur Linux (version préliminaire)](hdinsight-hadoop-linux-information.md#remote-access-to-services).
 4. Cliquez sur **Ouvrir** pour vous connecter au cluster.
 5. Lorsque vous y êtes invité, entrez le nom d'utilisateur que vous avez entré lors la création du cluster. Si vous avez donné un mot de passe pour le compte d'utilisateur, il vous sera demandé d'entrer le mot de passe.
 6. Exécutez la commande suivante :
@@ -114,7 +114,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 	Comme il n’y a qu’une seule ligne, les résultats sont les mêmes que lors de l’utilisation de la commande d’analyse.
 
-	Pour plus d’informations sur le schéma de la table HBase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
+	Pour plus d'informations sur le schéma de la table Hbase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
 
 
 6. Quittez l’interpréteur de commandes.
@@ -232,12 +232,12 @@ Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles qu
 4. Dans les options de base de l’écran de votre session PuTTY, entrez les valeurs suivantes :
 
 	- **Host Name** : adresse SSH de votre serveur HDInsight dans le champ Nom d’hôte (ou Adresse IP). L’adresse SSH est le nom de votre cluster, elle est ensuite suivie de **-ssh.azurehdinsight.net**. Par exemple *mycluster-ssh.azurehdinsight.net*
-	- **Port** : 22. Le port SSH sur le headnode0 est 22.  
-5. Dans la section **Category** située à gauche dans la boîte de dialogue, développez **Connection** et **SSH**, puis cliquez sur **Tunnels**.
+	- **Port** : 22. Le port SSH sur le nœud principal 0 est 22.  
+5. Dans la section **Category** située à gauche de la boîte de dialogue, développez **Connection** et **SSH**, puis cliquez sur **Tunnels**.
 6. Indiquez les informations suivantes dans le formulaire des options de contrôle de transfert du port SSH.
 
-	- **Source port** : le port sur le client que vous souhaitez transférer. Par exemple, 9876.
-	- **Dynamic** : active le routage dynamique du proxy SOCKS.
+	- **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, 9876.
+	- **Dynamique** : active le routage dynamique du proxy SOCKS.
 7. Cliquez sur **Add** pour ajouter les paramètres.
 8. Cliquez sur **Open** en bas de la boîte de dialogue pour ouvrir une connexion SSH.
 9. Quand vous y êtes invité, connectez-vous au serveur à l’aide d’un compte SSH. Cela permettra d'établir une session SSH et d'activer le tunnel.
@@ -248,19 +248,19 @@ Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles qu
 2. Entrez deux fois les informations d’identification du compte d’utilisateur de votre cluster.
 3. Dans le menu de gauche, cliquez sur **Zookeeper**.
 4. Cliquez sur l’un des trois liens **ZooKeeper Server** dans la liste Summary.
-5. Copiez la valeur de **Hostname**. Par exemple, zookeepernode0.zookeepernode-0-xxxxxxxxxxxxxxxxxxxx.c7.internal.cloudapp.net.
+5. Copiez la valeur de **Hostname**. Par exemple, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
 
 **Pour configurer un programme client (Firefox) et vérifier l’état du cluster**
 
 1. Ouvrez Firefox.
-2. Cliquer sur le bouton **Ouvrir le menu**.
+2. Cliquez sur le bouton **Ouvrir le menu**.
 3. Cliquez sur **Options**.
 4. Cliquez sur **Avancé**, sur **Réseau**, puis sur **Paramètres**.
 5. Sélectionnez **Configuration manuelle du proxy**.
 6. Saisissez les valeurs suivantes :
 
 	- **Hôte SOCKS** : localhost
-	- **Port** : utilisez le même port que vous avez configuré pour le tunnel SSH Putty. Par exemple, 9876.
+	- **Port** : utilisez le même port que celui que vous avez configuré pour le tunnel SSH Putty. Par exemple, 9876.
 	- **SOCKS v5** : (sélectionné)
 	- **DNS distant** : (sélectionné)
 7. Cliquez sur **OK** pour enregistrer les modifications.
@@ -305,4 +305,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

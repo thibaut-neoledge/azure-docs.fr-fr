@@ -17,12 +17,15 @@
     ms.author="lodipalm"/>
 
 # Visualiser des données avec Power BI
+
+
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'une base de données SQL Data Warehouse préchargée avec l’exemple de base de données AdventureWorksDW. La section [Création d’une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) montre comment en créer une.
+> 
+> Si vous disposez déjà d’une base de données SQL Data Warehouse, mais n’avez pas d’exemple de données, vous pouvez [charger manuellement des exemples de données][].
+
 Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.
 
-> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'une base de données SQL Data Warehouse préchargée avec l’exemple de base de données AdventureWorksDW. La section [Création d’une base de données SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) vous montre comment en créer une.
-> 
-> Si vous disposez déjà d’une base de données SQL Data Warehouse, mais que vous ne disposez pas d’exemples de données, vous pouvez [charger manuellement des exemples de données][].
-
+> [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
 ## Se connecter à AdventureWorksDW
 
@@ -82,7 +85,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 Vous pouvez enregistrer votre progression à tout moment en cliquant sur **Fichier**, puis en sélectionnant **Enregistrer**.
 
 ## Étapes suivantes
-Après vous être familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][].
+Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -108,4 +111,4 @@ Après vous être familiarisé avec les exemples de données, vous pouvez décou
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -13,14 +13,20 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Utilisation du Cache Redis Azure avec Node.js
 
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
+
 Le Cache Redis Azure permet d'accéder à un cache Redis sécurisé et dédié, géré par Microsoft. Votre cache est accessible à partir de n'importe quelle application dans Microsoft Azure.
 
-Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. Pour obtenir un autre exemple d'utilisation du Cache Redis Azure avec Node.js, consultez la rubrique [Développement d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][].
+Cette rubrique montre comment utiliser le Cache Redis Azure avec Node.js. Pour obtenir un autre exemple d'utilisation du Cache Redis Azure avec Node.js, consultez la rubrique [Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][].
 
 
 ## Conditions préalables
@@ -33,7 +39,7 @@ Ce didacticiel utilise [node\_redis](https://github.com/mranney/node_redis), mai
 
 ## Créer un Cache Redis sur Azure
 
-Dans la [version préliminaire du portail Azure](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Stockage + Données**, puis sélectionnez **Cache Redis**.
+Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=398536), cliquez sur **Nouveau**, sur **Données + stockage**, puis sélectionnez **Cache Redis**.
 
   ![][1]
 
@@ -89,6 +95,6 @@ Output:
 [3]: ./media/cache-nodejs-get-started/cache03.png
 [4]: ./media/cache-nodejs-get-started/cache04.png
 
-[Développement d'une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
+[Créer une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
