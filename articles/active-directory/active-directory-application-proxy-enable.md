@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Activation du proxy d’application Azure AD
-> [AZURE.NOTE]Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
+> [AZURE.NOTE] Le proxy d’application est une fonctionnalité qui n’est disponible que si vous effectuez une mise à niveau vers l’édition Premium ou De base d’Azure Active Directory. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
 
 Le proxy d’application Microsoft Azure AD vous permet de publier des applications, telles que les sites SharePoint, Outlook Web Access et les applications IIS, à l’intérieur de votre réseau privé et offre un accès sécurisé aux utilisateurs en dehors de votre réseau. Les employés peuvent se connecter à vos applications depuis leur domicile, sur leurs propres appareils et s’authentifier via ce proxy cloud.
 
@@ -61,7 +61,8 @@ Si votre pare-feu régule le trafic en fonction des utilisateurs d’origine, ou
 - Si l’option Configuration de sécurité renforcée d’Internet Explorer a la valeur Activé sur le serveur sur lequel vous installez le connecteur Azure AD, l’écran d’inscription risque d’être bloqué. Si cela se produit, suivez les instructions du message d’erreur pour autoriser l’accès. Assurez-vous que la sécurité renforcée d’Internet Explorer est désactivée.
 - En cas d’échec de l’inscription du connecteur, consultez Résolution des problèmes du proxy d’application.
 
-4. À l’issue de l’installation, deux nouveaux services sont ajoutés à votre serveur, comme dans l’illustration ci-dessous. Il s’agit du service Connecteur, qui est chargé d’activer la connectivité, et d’un service de mise à jour automatisé, qui recherche périodiquement l’existence de nouvelles versions du connecteur et procède éventuellement à sa mise à jour. Cliquez sur Terminer dans la fenêtre d’installation pour terminer l’installation.![Service Connecteur Proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
+4. À l’issue de l’installation, deux nouveaux services sont ajoutés à votre serveur, comme dans l’illustration ci-dessous. Il s’agit du service Connecteur, qui est chargé d’activer la connectivité, et d’un service de mise à jour automatisé, qui recherche périodiquement l’existence de nouvelles versions du connecteur et procède éventuellement à sa mise à jour. Cliquez sur Terminer dans la fenêtre d’installation pour terminer l’installation.
+	![Service Connecteur Proxy d’application](./media/active-directory-application-proxy-enable/app_proxy_services.png) <p>
 5. Vous êtes maintenant prêt à publier des applications avec le proxy d’application.
 
 Si vous souhaitez désinstaller le connecteur, après avoir désinstallé le service Connecteur et le service Mise à jour, veillez à redémarrer votre ordinateur pour supprimer complètement le service. <p>Pour bénéficier d’une haute disponibilité, vous devez déployer au moins un connecteur supplémentaire. Pour déployer un connecteur supplémentaire, répétez les étapes 2 et 3 ci-dessus. Chaque connecteur doit être inscrit séparément.
@@ -89,4 +90,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 * [Identité Azure](fundamentals-identity.md)
 * [Publier des applications avec le proxy d’application](active-directory-application-proxy-publish.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
