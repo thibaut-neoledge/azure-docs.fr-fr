@@ -17,22 +17,23 @@
 
 	- Dans **Groupe de ressources**, sélectionnez ou créez un groupe de ressources pour votre compte DocumentDB. Par défaut, un nouveau groupe de ressources est créé. Cependant, vous pouvez choisir de sélectionner un groupe de ressources existant auquel ajouter votre compte DocumentDB. Pour plus d'informations, consultez la page [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](resource-group-portal.md).
  
-	- Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre compte DocumentDB.
+	- Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre compte DocumentDB.   
 
-4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**. La création du compte DocumentDB peut prendre plusieurs minutes. Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil. ![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne](media/documentdb-create-dbaccount/ca4.png)
+4.	Une fois les options du nouveau compte DocumentDB configurées, cliquez sur **Créer**.  La création du compte DocumentDB peut prendre plusieurs minutes. Pour vérifier l’état, vous pouvez suivre l’avancement sur le Tableau d’accueil.  
+	![Capture d’écran de la vignette Création dans le Tableau d’accueil - créateur de base de données en ligne](media/documentdb-create-dbaccount/ca4.png)  
   
-	Vous pouvez aussi surveiller l’avancement depuis le hub de notifications.
+	Vous pouvez aussi surveiller l’avancement depuis le hub de notifications.  
 
-	![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](media/documentdb-create-dbaccount/ca5.png)
+	![Création rapide de bases de données - capture d’écran du hub de notifications, indiquant que le compte DocumentDB est en cours de création](media/documentdb-create-dbaccount/ca5.png)  
 
 	![Capture d’écran du hub de notifications montrant le compte DocumentDB créé avec succès et déployé vers un groupe de ressources - notification du créateur de base de données en ligne](media/documentdb-create-dbaccount/ca6.png)
 
 5.	Une fois le compte DocumentDB créé, il est prêt à être utilisé avec les paramètres par défaut dans le portail en ligne. Notez que la cohérence par défaut du compte DocumentDB est définie sur **Par session**. Vous pouvez ajuster le paramètre de cohérence par défaut en cliquant sur la vignette **Cohérence par défaut** dans le panneau **Compte DocumentDB**.
 
-    ![Capture d’écran du panneau Groupe de ressources - commencer le développement d’applications](media/documentdb-create-dbaccount/ca7.png)
+    ![Capture d’écran du panneau Groupe de ressources - commencer le développement d’applications](media/documentdb-create-dbaccount/ca7.png)  
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
