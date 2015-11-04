@@ -63,6 +63,8 @@ La hiérarchie de navigation de l’interface utilisateur du service StorSimple 
 ||Tâches|Configurer (Appareil)|| 
 ||Alertes|Maintenance||
 
+![Vidéo disponible](./media/storsimple-manager-service-administration/Video_icon.png) **Vidéo disponible**
+
 Pour visionner une vidéo qui vous guide à travers l’interface utilisateur du service StorSimple Manager, cliquez [ici](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Gestion d’un appareil StorSimple via le service StorSimple Manager
@@ -114,4 +116,4 @@ Si vous ne parvenez pas à résoudre les problèmes et vous devez générer une 
 
 -  [Contacter le support technique Microsoft](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
