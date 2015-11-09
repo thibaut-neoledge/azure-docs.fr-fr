@@ -128,12 +128,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Attribut](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribut")
 
     1.  Dans la zone de texte **Object Identifier**, tapez ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-2.  Dans la zone de texte **Username**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-3.  Dans la zone de texte **Display Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-4.  Dans la zone de texte **First Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-5.  Dans la zone de texte **Last Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-6.  Dans la zone de texte **Email**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Cliquez sur **Enregistrer**.
+    2.  Dans la zone de texte **Username**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  Dans la zone de texte **Display Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  Dans la zone de texte **First Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  Dans la zone de texte **Last Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  Dans la zone de texte **Email**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Cliquez sur **Enregistrer**.
 
 14. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 

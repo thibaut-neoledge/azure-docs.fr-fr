@@ -32,7 +32,9 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Virtual Machines | Oui | Oui, de nombreuses options | Non | [Créer une machine virtuelle](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Batch | Oui | [Oui (classique uniquement)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Oui | Non | | | |
-| Machines virtuelles (classiques) | Limité | Oui, de nombreuses options | Partiel (voir ci-dessous) | - | - | | Remote App | Non | Non | - | - | - | | Service Fabric | Non | Non | - | - | - |
+| Virtual Machines (classic) | Limité | Oui | Partiel (voir ci-dessous) | - | - |
+| Remote App | Non | - | - | - | - |
+| Service Fabric | Non | - | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -65,7 +67,11 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Non | Non | - | - | - | | Cache géré | Non | Non | - | - | - |
+| StorSimple | Non | Non | - | - | - |
+| Backup | Non | Non | - | - | - |
+| Site Recovery | Non | Non | - | - | - |
+| Managed cache | Non | Non | - | - | - |
+| Data Catalog | Non | Non | - | - | - |
 
 ## Analyse
 
@@ -107,7 +113,9 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | Non | Non | - | - | - | | Azure Actice Directory B2C | Non | Non | - | - | - | | Multi-Factor Authentication | Non | Non | - | - | - |
+| Azure Active Directory | Non | Non | - | - | - |
+| Azure Actice Directory B2C | Non | Non | - | - | - |
+| Multi-Factor Authentication | Non | Non | - | - | - |
 
 ## Services de développement 
 

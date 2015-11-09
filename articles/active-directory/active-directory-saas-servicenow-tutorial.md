@@ -16,7 +16,8 @@
 
 #Didacticiel : Intégration d’Azure Active Directory à ServiceNow
   
-L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+L’objectif de ce didacticiel est de montrer comment intégrer Azure et ServiceNow.  
+Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire dans ServiceNow
