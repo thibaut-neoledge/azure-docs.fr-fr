@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/18/2015" 
+	ms.date="10/27/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
 # Processus d’analyse Cortana en action : utilisation de SQL Server
 
-Dans ce didacticiel, vous explorerez la création et le déploiement d'un modèle à l'aide d'un groupe de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit le guide Processus et technologie d'analyse avancée Azure (ADAPT).
+Dans ce didacticiel, vous explorerez la création et le déploiement d'un modèle à l'aide d'un groupe de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit le flux de travail du processus d’analyse Cortana (CAP).
 
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
@@ -714,4 +714,4 @@ Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

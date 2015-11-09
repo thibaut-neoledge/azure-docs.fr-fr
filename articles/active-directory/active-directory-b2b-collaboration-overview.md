@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Collaboration interentreprises (B2B) Azure Active Directory"
+   pageTitle="Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="La collaboration B2B Azure Active Directory permet aux partenaires professionnels d’accéder à vos applications d’entreprise. Chaque utilisateur est représenté par un compte Azure AD unique."
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
-# Collaboration B2B Azure Active Directory
+# Azure Active Directory (Azure AD) B2B Collaboration
 
-La collaboration B2B Azure Active Directory vous permet d’activer l’accès à vos applications d’entreprise à partir des identités gérées par les partenaires. Vous pouvez créer des relations intersociétés en invitant et en autorisant des utilisateurs de sociétés partenaires à accéder à vos ressources. La complexité est réduite car chaque entreprise se fédère une seule fois avec Azure Active Directory (Azure AD) et chaque utilisateur est représenté par un seul compte Azure AD. La sécurité est renforcée car l’accès est refusé lorsque des utilisateurs du partenaire sont résiliés de leurs organisations et que l’accès involontaire via l’appartenance dans les répertoires internes est empêché. Pour les partenaires professionnels qui ne disposent pas déjà d’Azure AD, la collaboration B2B offre une expérience d’inscription rationalisée afin de fournir des comptes Azure AD à vos partenaires professionnels.
+Azure AD B2B Collaboration vous permet d’activer l’accès à vos applications d’entreprise à partir des identités gérées par les partenaires. Vous pouvez créer des relations intersociétés en invitant et en autorisant des utilisateurs de sociétés partenaires à accéder à vos ressources. La complexité est réduite, car chaque entreprise se fédère une seule fois avec Azure Active Directory et chaque utilisateur est représenté par un seul compte Azure AD. La sécurité est renforcée car l’accès est refusé lorsque des utilisateurs du partenaire sont résiliés de leurs organisations et que l’accès involontaire via l’appartenance dans les répertoires internes est empêché. Pour les partenaires professionnels qui ne disposent pas déjà d’Azure AD, la collaboration B2B offre une expérience d’inscription rationalisée afin de fournir des comptes Azure AD à vos partenaires professionnels.
 
 -   Vos partenaires professionnels utilisent leurs propres informations de connexion, ce qui vous libère de la gestion d’un répertoire de partenaires externes et de la nécessité de supprimer l’accès lorsque des utilisateurs quittent l’organisation partenaire.
 
@@ -42,7 +42,7 @@ Le processus :
 
 4. Une fois connecté, l’utilisateur sera redirigé vers l’application qui a été partagée avec lui.
 
-Les invitations envoyées aux adresses e-mail grand public (par exemple, gmail ou [*comcast.net*](http://comcast.net/)) ne sont pas prises en charge pour le moment.
+Les invitations envoyées aux adresses électroniques grand public (par exemple, Gmail ou [*comcast.net*](http://comcast.net/)) ne sont pas prises en charge pour le moment.
 
 Pour plus d’informations sur le fonctionnement de la collaboration B2B, regardez [cette vidéo](http://aka.ms/aadshowb2b).
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## Étapes suivantes
+Consultez les autres articles sur Azure B2B Collaboration
 
-<!---HONumber=Oct15_HO3-->
+- [Qu’est-ce qu’Azure AD B2B Collaboration ?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Fonctionnement](active-directory-b2b-how-it-works.md)
+- [Procédure pas à pas](active-directory-b2b-detailed-walkthrough.md)
+- [Référence du format de fichier CSV](active-directory-b2b-references-csv-file-format.md)
+- [Format du jeton utilisateur externe](active-directory-b2b-references-external-user-token-format.md)
+- [Modifications de l’attribut d’objet utilisateur externe](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Limites actuelles de la version préliminaire](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

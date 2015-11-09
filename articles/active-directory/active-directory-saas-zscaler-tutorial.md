@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler | Microsoft Azure" description="Découvrez comment utiliser Zscaler avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler | Microsoft Azure" 
+    description="Découvrez comment utiliser Zscaler avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Zscaler
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=521842).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zscaler. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -60,7 +73,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Activer l’authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769229.png "Activer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Zscaler**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-tutorial/IC769230.png "Configurer l’authentification unique")
 
@@ -91,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Choisir les options d’authentification](./media/active-directory-saas-zscaler-tutorial/IC769488.png "Choisir les options d’authentification")
 
-    1.  Sélectionnez **Authenticate using SAML Single Sign-on**.
+    1.  Sélectionnez **Authenticate using SAML Single Sign-On**.
     2.  Cliquez sur **Configure SAML Single Sign-On Parameters**.
 
 9.  Dans la boîte de dialogue **Configure SAML Single Sign-On Parameters**, procédez comme suit, puis cliquez sur **Done** :
@@ -167,7 +180,7 @@ Pour pouvoir se connecter à Zscaler, les utilisateurs d’Azure AD doivent êtr
     ![Ajouter un utilisateur](./media/active-directory-saas-zscaler-tutorial/IC781038.png "Ajouter un utilisateur")
 
     1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte Azure AD valide que vous souhaitez approvisionner.
-    2.  Cliquez sur **Enregistrer**.
+    2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler pour approvisionner des comptes d’utilisateurs Azure AD.
 
@@ -187,6 +200,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-zscaler-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

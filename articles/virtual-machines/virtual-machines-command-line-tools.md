@@ -19,15 +19,15 @@
 
 # Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Cet article traite de la création et la gestion d'une ressource avec des commandes CLI dans le modèle de déploiement classique. Vous pouvez également créer et gérer une ressource avec des commandes CLI dans le [modèle de déploiement Resource Manager](azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
 
 Cet article décrit comment utiliser l'interface de ligne de commande (CLI) Azure dans le mode Service Management (asm) pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure. L'utilisation des services Azure avec le mode Service Management revient, dans les grandes lignes, à la création et la gestion des services et concepts isolés Azure tels que les sites Web, les machines virtuelles, les réseaux virtuels, le stockage, etc.
 
-> [AZURE.NOTE]Pour commencer, [installez l'interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous pour utiliser des ressources Azure associées à votre compte](../xplat-cli-connect.md).
+> [AZURE.NOTE]Pour commencer, [installez l’interface de ligne de commande Azure](../xplat-cli-install.md) et [connectez-vous pour utiliser des ressources Azure associées à votre compte](../xplat-cli-connect.md).
 
 ## Étendue de l'article
 
-Cet article fournit la syntaxe et les options des commandes de l'interface CLI Azure couramment utilisées pour le modèle de déploiement classique (Service Management). Il ne s'agit pas d'une référence complète, et votre version d'interface CLI peut présenter des commandes ou paramètres différents. Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Service Management, tapez `azure help` ou, pour afficher de l'aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d'interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
+Cet article fournit la syntaxe et les options des commandes de l'interface CLI Azure couramment utilisées pour le modèle de déploiement classique (Service Management). Il ne s'agit pas d'une référence complète, et votre version d'interface CLI peut présenter des commandes ou paramètres différents. Pour la syntaxe et les options de commande courantes dans la ligne de commande en mode Service Management, tapez `azure help` ou, pour afficher de l’aide concernant une commande particulière, `azure help [command]`. Vous trouverez également des exemples d'interface CLI dans la documentation pour la création et la gestion de services Azure spécifiques.
 
 Les paramètres facultatifs sont indiqués entre crochets (par exemple, [paramètres]). Tous les autres paramètres sont obligatoires.
 
@@ -2350,4 +2350,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

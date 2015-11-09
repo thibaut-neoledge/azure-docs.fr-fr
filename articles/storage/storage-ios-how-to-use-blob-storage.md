@@ -92,7 +92,7 @@ L’exemple suivant montre comment utiliser l’interface de ligne de commande A
 
 2. Ensuite, tapez la commande suivante dans l’interface de ligne de commande Azure pour obtenir la chaîne de connexion pour votre compte :
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Créez une variable d’environnement avec la chaîne de connexion que vous venez de générer :
 
@@ -358,4 +358,4 @@ Si vous avez des questions concernant cette bibliothèque, n’hésitez pas à l
 [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

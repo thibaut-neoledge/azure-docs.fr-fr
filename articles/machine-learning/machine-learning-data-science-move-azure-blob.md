@@ -22,7 +22,7 @@
 
 ## Introduction
 
-Cette rubrique décrit l’utilisation de trois technologies pour déplacer des données vers et depuis un stockage d’objets blob Azure :
+Des conseils sur les technologies utilisées pour déplacer des données vers et/ou depuis le stockage d’objets blob Azure sont disponibles ici :
 
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -44,4 +44,4 @@ Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

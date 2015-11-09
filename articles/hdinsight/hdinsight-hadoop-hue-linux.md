@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="nitinme"/>
 
 # Installation et utilisation de Hue sur des clusters HDInsight Hadoop
@@ -63,7 +63,15 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 
 1. Utilisez les informations de la section [Utilisation de SSH Tunneling pour accéder à l’interface web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces web](hdinsight-linux-ambari-ssh-tunnel.md) pour créer un tunnel SSH entre votre système client et le cluster HDInsight, puis configurer votre navigateur web pour utiliser le tunnel SSH en tant que proxy.
 
-2. Une fois que vous avez créé un tunnel SSH et configuré votre navigateur pour y diriger le trafic, utilisez le navigateur pour ouvrir le portail Hue sur http://headnode0:8888.
+2. Une fois que vous avez créé un tunnel SSH et configuré votre navigateur pour y rediriger le trafic par proxy, vous devez trouver le nom d’hôte du nœud principal. Procédez comme suit pour obtenir ces informations à partir d’Ambari :
+
+    1. Dans un navigateur, accédez à https://CLUSTERNAME.azurehdinsight.net. À l’invite, utilisez le nom d’utilisateur et le mot de passe Admin pour vous authentifier auprès du site.
+    
+    2. Dans le menu situé en haut de la page, sélectionnez __Hôtes__.
+    
+    3. Sélectionnez l’entrée qui commence par __hn0__. Quand la page s’ouvre, le nom d’hôte apparaît en haut. Le format du nom d’hôte est __hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Il s’agit du nom d’hôte que vous devez utiliser quand vous vous connectez à Hue.
+
+2. Une fois que vous avez créé un tunnel SSH et configuré votre navigateur pour y rediriger le trafic par proxy, utilisez le navigateur pour ouvrir le portail Hue à l’adresse http://HOSTNAME:8888. Remplacez HOSTNAME par le nom que vous avez obtenu auprès d’Ambari à l’étape précédente.
 
     > [AZURE.NOTE]Lorsque vous vous connectez pour la première fois, vous êtes invité à créer un compte pour vous connecter au portail Hue. Les informations d’identification que vous spécifiez ici seront limitées au portail et ne sont pas liées à l’administrateur ou aux informations d’identification de l’utilisateur SSH spécifié lors de la configuration du cluster.
 
@@ -75,7 +83,7 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 
 	![Utiliser Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Utiliser Hive")
 
-2. Sur l’onglet **Aide**, sous **base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Saisissez un exemple de requête dans le volet de droite et vérifiez la sortie sur l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
+2. Sous l’onglet **Aide**, sous **Base de données**, vous devez voir **hivesampletable**. Il s’agit d’une table d’échantillon qui est livrée avec tous les clusters Hadoop sur HDInsight. Entrez un exemple de requête dans le volet droit et vérifiez la sortie sous l’onglet **Résultats** dans le volet inférieur ci-dessous, comme illustré dans la capture d’écran.
 
 	![Exécuter une requête Hive](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Exécuter une requête Hive")
 
@@ -83,19 +91,19 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 
 ### Parcourir le stockage de cluster
 
-1. À partir du portail Hue, cliquez sur **Explorateur de fichier** dans l’angle supérieur droit de la barre de menus.
+1. À partir du portail Hue, cliquez sur **Explorateur de fichiers** dans l’angle supérieur droit de la barre de menus.
 
-2. Par défaut, l’explorateur de fichier s’ouvre sur le répertoire **/user/myuser**. Cliquez sur la barre oblique située avant le répertoire de l’utilisateur dans le chemin d’accès pour accéder à la racine du conteneur de stockage Azure associé au cluster.
+2. Par défaut, l’Explorateur de fichiers s’ouvre sur le répertoire **/user/myuser**. Cliquez sur la barre oblique située avant le répertoire de l’utilisateur dans le chemin d’accès pour accéder à la racine du conteneur de stockage Azure associé au cluster.
 
 	![Utiliser l’Explorateur de fichiers](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "Utiliser l’Explorateur de fichiers")
 
 3. Cliquez avec le bouton droit sur un fichier ou un dossier pour afficher les opérations disponibles. Utilisez le bouton **Télécharger** situé dans le coin droit pour télécharger des fichiers dans le répertoire actif. Utilisez le bouton **Nouveau** pour créer de nouveaux fichiers ou répertoires.
 
-> [AZURE.NOTE]L’Explorateur de fichiers Hue peut afficher uniquement le contenu du conteneur par défaut associé au cluster HDInsight. Les comptes/conteneurs de stockage supplémentaires que vous avez peut-être associés au cluster ne seront pas accessibles via l’Explorateur de fichiers. Toutefois, les autres conteneurs associés au cluster seront toujours accessibles pour les travaux Hive. Par exemple, si vous saisissez la commande `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` dans l’éditeur Hive, vous pouvez voir le contenu des conteneurs supplémentaires. Dans cette commande, **newcontainer** n’est pas le conteneur par défaut associé à un cluster.
+> [AZURE.NOTE]L’Explorateur de fichiers Hue peut afficher uniquement le contenu du conteneur par défaut associé au cluster HDInsight. Les comptes/conteneurs de stockage supplémentaires que vous avez peut-être associés au cluster ne seront pas accessibles via l’Explorateur de fichiers. Toutefois, les autres conteneurs associés au cluster seront toujours accessibles pour les travaux Hive. Par exemple, si vous entrez la commande `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` dans l’éditeur Hive, vous pouvez également voir le contenu des conteneurs supplémentaires. Dans cette commande, **newcontainer** n’est pas le conteneur par défaut associé à un cluster.
 
 ## Points importants à prendre en compte
 
-1. Le script utilisé pour installer Hue exécute l’opération uniquement sur le HEADNODE0 du cluster.
+1. Le script utilisé pour installer Hue exécute l’opération uniquement sur le nœud principal 0 du cluster.
 
 2. Pendant l’installation, plusieurs services Hadoop (HDFS, fils, RM2, Oozie) sont redémarrés pour mettre à jour la configuration. Une fois que le script a terminé l’installation de Hue, le démarrage d’autres services Hadoop peut prendre du temps. Cela peut affecter dans un premier temps les performances de Hue. Une fois que tous les services ont démarré, Hue est complètement fonctionnel.
 
@@ -103,11 +111,11 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 
 		set hive.execution.engine=mr;
 
-4.	Avec les clusters Linux, vous pouvez avoir un scénario dans lequel vos services fonctionnent sur HEADNODE0 alors que le Gestionnaire de ressources s’exécute sur HEADNODE1. Un tel scénario peut entraîner des erreurs (illustrées ci-dessous) lors de l’utilisation de Hue pour afficher les détails des travaux EN COURS sur le cluster. Toutefois, vous pouvez afficher les détails du travail lorsque la tâche est terminée.
+4.	Avec les clusters Linux, vous pouvez avoir un scénario dans lequel vos services fonctionnent sur le nœud principal 0 alors que le Gestionnaire de ressources s’exécute sur le nœud principal 1. Un tel scénario peut entraîner des erreurs (illustrées ci-dessous) lors de l’utilisation de Hue pour afficher les détails des travaux EN COURS sur le cluster. Toutefois, vous pouvez afficher les détails du travail lorsque la tâche est terminée.
 
 	![Erreur de portail Hue](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Error.png "Erreur de portail Hue")
 
-	Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur HEADNODE0.
+	Il s’agit d’un problème connu. Pour résoudre ce problème, modifiez Ambari afin que le Gestionnaire de ressources actif s’exécute également sur le nœud principal 0.
 
 5.	Hue connaît WebHDFS, tandis que les clusters HDInsight utilisent le stockage Azure à l’aide de `wasb://`. Par conséquent, le script personnalisé utilisé avec l’action de script installe WebWasb, qui est un service compatible WebHDFS permettant de communiquer avec WASB. Donc, bien que le portail Hue indique HDFS à certains endroits (comme lorsque vous déplacez votre souris sur l’**Explorateur de fichiers**), il doit être compris comme WASB.
 
@@ -127,4 +135,4 @@ Le tunneling SSH est le seul moyen d’accéder à Hue sur le cluster une fois q
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

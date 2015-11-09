@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ La définition du travail explique où trouver workflow.xml, ainsi que les autre
 
 	La commande retourne des informations similaires à ce qui suit :
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	Le port utilisé pour le JobTracker est 8050 ; l’adresse complète à utiliser pour le JobTracker est donc **headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:8050**.
+	Le port utilisé pour le JobTracker est 8050 ; l’adresse complète à utiliser pour le JobTracker est donc **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Utilisez la commande suivante pour créer la configuration de définition de travail Oozie :
 
@@ -390,13 +390,13 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 	Cette commande retourne une valeur semblable à la suivante :
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	La partie ****http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
+	La partie ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** est l’URL à utiliser avec la commande Oozie.
 
 2. Pour créer une variable d’environnement pour l’URL de manière à ne pas être obligé de la taper pour chaque commande :
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Remplacez l’URL par celle reçue précédemment.
 
@@ -721,4 +721,4 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

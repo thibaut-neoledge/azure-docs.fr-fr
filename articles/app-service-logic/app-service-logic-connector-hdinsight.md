@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
+   ms.date="10/22/2015"
    ms.author="sameerch"/>
 
 
 # Utilisation et ajout du connecteur HDInsight dans votre application logique
-Le connecteur HDInsight vous permet de créer un cluster Hadoop sur Azure et de soumettre plusieurs tâches Hadoop telles que Hive, Pig, MapReduce et Streaming MapReduce. Le service Azure HDInsight déploie et approvisionne des clusters Hadoop Apache dans le cloud, en apportant une infrastructure logicielle conçue pour gérer et analyser des données volumineuses, et générer des rapports à leur sujet. Hadoop Core fournit un mode de stockage de données fiable grâce au système HDFS (Hadoop Distributed File System), ainsi qu'un modèle de programmation simple MapReduce destiné à traiter et à analyser, en parallèle, les données stockées dans ce système distribué. Grâce au connecteur HDInsight, vous pouvez créer ou supprimer un cluster, soumettre un travail et attendre que ce travail soit terminé.
+Le connecteur HDInsight vous permet de créer un cluster Hadoop sur Azure et de soumettre différentes tâches Hadoop telles que Hive, Pig, MapReduce et Streaming MapReduce. Le service Azure HDInsight déploie et approvisionne des clusters Hadoop Apache dans le cloud, en apportant une infrastructure logicielle conçue pour gérer et analyser des données volumineuses, et générer des rapports à leur sujet. Hadoop Core fournit un mode de stockage de données fiable grâce au système HDFS (Hadoop Distributed File System), ainsi qu'un modèle de programmation simple MapReduce destiné à traiter et à analyser, en parallèle, les données stockées dans ce système distribué. Grâce au connecteur HDInsight, vous pouvez créer ou supprimer un cluster, soumettre un travail et attendre que ce travail soit terminé.
 
 Les connecteurs peuvent être utilisés dans les applications logiques pour extraire, traiter ou placer des données dans le cadre d’un flux. Vous pouvez ajouter le connecteur HDInsight à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
 
@@ -62,23 +62,23 @@ Une fois le certificat chargé, ces informations s’affichent : ![][3]
 
 ## Utilisation du connecteur dans une application logique ##
 
-Le connecteur HDInsight ne peut être utilisé que comme une action dans l’application logique. Prenons une application logique simple qui crée un cluster, exécute une tâche « Hive » et supprime le cluster à l'issue de cette tâche.
+Le connecteur HDInsight ne peut être utilisé que comme une action dans une application logique. Prenons une application logique simple qui crée un cluster, exécute une tâche « Hive » et supprime le cluster à l’issue de cette tâche.
 
 
 1. Dans la carte « Démarrer la logique », cliquez sur « Exécuter cette logique manuellement ».
-2. Sélectionnez l'application API du connecteur HDInsight créée à partir de la galerie. Les actions disponibles sont listées : ![][5]
+2. Sélectionnez l’application d’API de connecteur HDInsight que vous avez créée précédemment dans la galerie (vous trouverez le connecteur HDInsight que vous avez créé dans la liste des applications d’API à droite de votre écran). Sélectionnez la flèche noire vers la droite. Les actions disponibles sont listées : ![][12]
 
 3. Sélectionnez « Créer un cluster », entrez tous les paramètres requis du cluster et sélectionnez ✓ : ![][6]
 
-4. L’action s'affiche maintenant comme configurée dans l'application logique. La ou les sorties de l’action s’affichent et peuvent être utilisées comme des entrées dans les actions suivantes : ![][7]
+4. L’action s'affiche maintenant comme configurée dans l'application logique. La ou les sorties de l’action s’affichent et peuvent être utilisées comme entrées dans les actions suivantes : ![][7]
 
-5. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l'action « Attendre la création du cluster », entrez tous les paramètres requis et sélectionnez ✓ : ![][8]
+5. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l’action « Attendre la création du cluster », entrez tous les paramètres requis et sélectionnez ✓ : ![][8]
 
-6. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l'action « Soumettre un travail Hive », entrez tous les paramètres requis et sélectionnez ✓ : ![][9]
+6. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l’action « Soumettre un travail Hive », entrez tous les paramètres requis et sélectionnez ✓ : ![][9]
 
-7. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l'action « Attendre la fin du travail », entrez tous les paramètres requis et sélectionnez ✓ : ![][10]
+7. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l’action « Attendre la fin du travail », entrez tous les paramètres requis et sélectionnez ✓ : ![][10]
 
-8. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l'action « Supprimer un cluster », entrez tous les paramètres requis et sélectionnez ✓ : ![][11]
+8. Sélectionnez le même connecteur HDInsight dans la galerie comme action. Sélectionnez l’action « Supprimer un cluster », entrez tous les paramètres requis et sélectionnez ✓ : ![][11]
 
 9. Enregistrez l'application logique à l'aide de la commande de sauvegarde située en haut du concepteur.
 
@@ -105,5 +105,6 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-hdinsight/LogicApp8.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

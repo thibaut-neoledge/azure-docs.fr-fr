@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ressources de certificats dans Azure Automation | Microsoft Azure"
-   description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
+   description="Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par des Runbooks ou configurations DSC pour s’authentifier auprès des ressources Azure et tierces. Cet article présente les certificats et leur utilisation dans la création textuelle et graphique."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,18 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ressources de certificats dans Azure Automation
 
-Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’y accéder par Runbooks à l’aide de l’activité **Get-AutomationCertificate**. Cela vous permet de créer des Runbooks qui utilisent des certificats pour l’authentification ou les ajoute aux ressources Azure ou tierces que votre Runbook crée ou configure.
+Les certificats peuvent être stockés en toute sécurité dans Azure Automation afin d’être accessibles par les Runbooks ou configurations DSC à l’aide de l’activité **Get-AutomationCertificate**. Cette méthode vous permet de créer des Runbooks et des configurations DSC qui utilisent des certificats pour l’authentification ou les ajoute aux ressources Azure ou tierces.
 
->[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d’identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
+>[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé pour le compte Automation est déchiffrée à l’aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
 ## Applets de commande Windows PowerShell
 
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources de certificats Automation avec Windows PowerShell. Elles font partie du [module Azure PowerShell](../powershell-install-configure.md) qui est disponible dans les Runbooks Automation.
+Les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources de certificats Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), utilisable dans les Runbooks Automation et les configurations DSC.
 
 |Applets de commande|Description|
 |:---|:---|
@@ -32,19 +32,19 @@ Les applets de commande du tableau suivant sont utilisées pour créer et gérer
 |[Remove- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913773.aspx)|Supprime un certificat dans Azure Automation.|
 |[Set- AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913763.aspx)|Définit les propriétés d’un certificat existant, y compris le téléchargement du fichier de certificat et le mot de passe d’un fichier .pfx.|
 
-## Activités de Runbook
+## Activités pour accéder aux certificats
 
-Les activités dans le tableau suivant sont utilisées pour accéder aux certificats dans un Runbook.
+Les activités du tableau suivant sont utilisées pour accéder aux certificats dans un Runbook ou dans une configuration DSC.
 
 |Activités|Description|
 |:---|:---|
-|Get-AutomationCertificate|Obtient un certificat à utiliser dans un Runbook.|
+|Get-AutomationCertificate|Obtient un certificat à utiliser dans un Runbook ou dans une configuration DSC.|
 
->[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre – Name de GetAutomationCertificate, car cela complique la découverte des dépendances entre les Runbooks et les ressources de certificats au moment de la conception.
+>[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre –Name de GetAutomationCertificate, car cela complique la découverte des dépendances entre les Runbooks ou configurations DSC et les ressources de certificats au moment de la conception.
 
 ## Création d’un certificat
 
-Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook.
+Lorsque vous créez un certificat, vous téléchargez un fichier cer ou pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il peut uniquement être utilisé pour la signature dans le Runbook ou la configuration DSC.
 
 ### Pour créer un certificat avec le portail Azure
 
@@ -77,9 +77,9 @@ Les exemples de commandes suivants montrent comment créer un certificat Automat
 	
 	New-AzureAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certName -Path $certPath –Password $certPwd -Exportable
 
-## Utilisation d’un certificat dans un Runbook
+## Utilisation d’un certificat
 
-Vous devez utiliser l’activité **Get-AutomationCertificate** pour utiliser un certificat dans un Runbook. Vous ne pouvez pas utiliser l’applet de commande [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) dans la mesure où elle retourne des informations sur la ressource de certificat, mais pas le certificat lui-même.
+Vous devez utiliser l’activité **Get-AutomationCertificate** pour utiliser un certificat. Vous ne pouvez pas utiliser l’applet de commande [Get-AzureAutomationCertificate](http://msdn.microsoft.com/library/dn913765.aspx) dans la mesure où elle retourne des informations sur la ressource de certificat, mais pas le certificat lui-même.
 
 ### Exemple de Runbook textuel
 
@@ -107,4 +107,4 @@ Cet exemple utilise le paramètre **UseConnectionObject** défini pour l’activ
 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

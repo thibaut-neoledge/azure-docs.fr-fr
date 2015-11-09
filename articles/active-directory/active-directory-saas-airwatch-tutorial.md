@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à AirWatch | Microsoft Azure" description="Apprenez à utiliser AirWatch avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à AirWatch | Microsoft Azure" 
+    description="Apprenez à utiliser AirWatch avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à AirWatch
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529791).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et AirWatch. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement AirWatch pour lequel l’authentification unique est activée
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AirWatch pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AirWatch (connexion initiée par le fournisseur du service) ou en s’appuyant sur la [Présentation du volet d'accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AirWatch pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AirWatch (connexion initiée par le fournisseur du service) ou en s’appuyant sur la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -55,7 +68,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, dans la page d’intégration d’application **AirWatch**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **AirWatch**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-airwatch-tutorial/IC791916.png "Configurer l’authentification unique")
 
@@ -102,9 +115,9 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Demande](./media/active-directory-saas-airwatch-tutorial/IC791925.png "Demande")
 
     1.  Pour **Request Binding Type**, sélectionnez **POST**.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Airwatch**, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity Provider Single Sign On URL**.
+    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Airwatch** de la boîte de dialogue, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity Provider Single Sign On URL**.
     3.  Pour **NameID Format**, sélectionnez **Email Address**.
-    4.  Cliquez sur **Save**.
+    4.  Cliquez sur **Enregistrer**.
 
 12. Cliquez à nouveau sur l’onglet **User**.
 
@@ -114,13 +127,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Attribut](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Attribut")
 
-    1.  Dans la zone de texte **Object Identifier**, tapez **http://schemas.microsoft.com/identity/claims/objectidentifier**.
-    2.  Dans la zone de texte **Username**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    3.  Dans la zone de texte **Display Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    4.  Dans la zone de texte **First Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-    5.  Dans la zone de texte **Last Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-    6.  Dans la zone de texte **Email**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-    7.  Cliquez sur **Save**.
+    1.  Dans la zone de texte **Object Identifier**, tapez ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
+2.  Dans la zone de texte **Username**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+3.  Dans la zone de texte **Display Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+4.  Dans la zone de texte **First Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+5.  Dans la zone de texte **Last Name**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+6.  Dans la zone de texte **Email**, tapez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+7.  Cliquez sur **Enregistrer**.
 
 14. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -146,7 +159,7 @@ Pour se connecter à AirWatch, les utilisateurs d'Azure AD doivent être approvi
     ![Ajouter un utilisateur](./media/active-directory-saas-airwatch-tutorial/IC791931.png "Ajouter un utilisateur")
 
     1.  Tapez le nom d’utilisateur, le mot de passe, la confirmation du mot de passe, le prénom, le nom et l’adresse électronique du compte Azure Active Directory valide que vous souhaitez approvisionner dans les champs correspondants, à savoir, **Username**, **Password**, **Confirm Password**, **First Name**, **Last Name** et **Email Address**.
-    2.  Cliquez sur **Save**.
+    2.  Cliquez sur **Enregistrer**.
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel autre outil ou API de création de compte d’utilisateur AirWatch fourni par ce service pour approvisionner des comptes d’utilisateurs Azure Active Directory.
 
@@ -158,14 +171,14 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
 1.  Dans le portail Azure AD, créez un compte de test.
 
-2.  Dans la page d’intégration d’application \*\*AirWatch\*\*, cliquez sur **Affecter des utilisateurs**.
+2.  Dans la page d’intégration d’application **AirWatch**, cliquez sur **Affecter des utilisateurs**.
 
     ![Affecter des utilisateurs](./media/active-directory-saas-airwatch-tutorial/IC791932.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-airwatch-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

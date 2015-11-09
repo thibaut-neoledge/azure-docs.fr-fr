@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2015"
+	ms.date="10/26/2015"
 	ms.author="selcint"/>
 
 # Utilisation d'Azure PowerShell avec Azure Storage
@@ -237,8 +237,8 @@ Pour plus d’informations sur la configuration d’une chaîne de connexion de 
 
 Maintenant, vous avez configuré votre ordinateur et découvert comment gérer les abonnements et les comptes de stockage à l'aide d'Azure PowerShell. Allez à la section suivante pour découvrir comment gérer les objets blob Azure et les instantanés d'objet blob.
 
-## Gestion des objets blob Azure et des instantanés d'objet blob
-Le stockage d'objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n'importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, voir [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+## Gestion des objets blob Azure
+Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du service de stockage d'objets blob Azure. Pour obtenir des informations détaillées, voir [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) et [Concepts de service BLOB](http://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### Création d'un conteneur
 Chaque objet blob du stockage Azure doit se trouver dans un conteneur. Vous pouvez créer un conteneur privé à l'aide de l'applet de commande New-AzureStorageContainer :
@@ -736,4 +736,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

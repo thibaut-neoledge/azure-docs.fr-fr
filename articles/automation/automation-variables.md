@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ressources de variables dans Azure Automation | Microsoft Azure"
-   description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks d'Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
+   description="Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC d’Azure Automation. Cet article présente les variables de façon détaillée et comment les utiliser dans une création textuelle ou graphique."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,22 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ressources de variables dans Azure Automation
 
-Les ressources de variables sont des valeurs disponibles pour tous les Runbooks de votre compte Automation. Elles peuvent être créées, modifiées et récupérées à partir du portail Azure, de Windows PowerShell ou d'un Runbook. Les variables Automation sont utiles pour les scénarios suivants :
+Les ressources de variables sont des valeurs disponibles pour tous les Runbooks et configurations DSC de votre compte Automation. Elles peuvent être créées, modifiées et récupérées à partir du portail Azure, de Windows PowerShell ou bien d’un Runbook ou d’une configuration DSC. Les variables Automation sont utiles pour les scénarios suivants :
 
-- Partager une valeur entre plusieurs Runbooks.
+- Partager une valeur entre plusieurs Runbooks ou configurations DSC.
 
-- Partager une valeur entre plusieurs tâches du même Runbook.
+- Partager une valeur entre plusieurs tâches du même Runbook ou de la même configuration DSC.
 
-- Gérer une valeur à partir du portail ou de la ligne de commande Windows PowerShell utilisée par les Runbooks.
+- Gérer une valeur à partir du portail ou de la ligne de commande Windows PowerShell utilisée par les Runbooks ou les configurations DSC.
 
-Les variables Automation sont conservées afin de continuer à être disponibles même si le Runbook échoue. Cela permet aussi à une valeur d'être définie par un Runbook, qui est ensuite utilisé par un autre Runbook ou par le même Runbook lors de sa prochaine exécution.
+Les variables Automation sont conservées afin qu’elles demeurent disponibles même si le Runbook ou la configuration DSC échoue. Cela permet aussi à une valeur d’être définie par un Runbook ou une configuration DSC, puis utilisée par un autre Runbook ou configuration DSC, ou bien par le même Runbook ou configuration DSC à sa prochaine exécution.
 
-Quand une variable est créée, vous pouvez spécifier qu'elle doit être stockée de manière chiffrée. Quand une variable est chiffrée, elle est stockée de manière sécurisée dans Azure Automation. Sa valeur ne peut pas être récupérée à partir de l'applet de commande [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx), fournie dans le cadre du module Azure PowerShell. Une valeur chiffrée ne peut être récupérée que d'une seule façon, à partir de l'activité **Get-AutomationVariable** d'un Runbook.
+Quand une variable est créée, vous pouvez spécifier qu'elle doit être stockée de manière chiffrée. Quand une variable est chiffrée, elle est stockée de manière sécurisée dans Azure Automation. Sa valeur ne peut pas être récupérée à partir de l'applet de commande [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx), fournie dans le cadre du module Azure PowerShell. Une valeur chiffrée ne peut être récupérée que d’une seule façon, à partir de l’activité **Get-AutomationVariable** d’un Runbook ou d’une configuration DSC.
 
 >[AZURE.NOTE]Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l'aide d'une clé unique, générée pour chaque compte Automation. Cette clé est chiffrée par un certificat principal et stockée dans Azure Automation. Avant de stocker une ressource sécurisée, la clé du compte Automation est déchiffrée à l'aide du certificat principal, puis utilisée pour chiffrer la ressource.
 
@@ -39,7 +39,7 @@ Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tabl
 
 ## Applets de commande et activités de workflow
 
-Les applets de commande du tableau suivant permettent de créer et de gérer les variables Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), disponible pour être utilisé dans les Runbooks Automation.
+Les applets de commande du tableau suivant permettent de créer et de gérer les variables Automation avec Windows PowerShell. Elles sont fournies dans le cadre du [module Azure PowerShell](../powershell-install-configure.md), utilisable dans les Runbooks Automation et les configurations DSC.
 
 |Applets de commande|Description|
 |:---|:---|
@@ -48,14 +48,14 @@ Les applets de commande du tableau suivant permettent de créer et de gérer les
 |[Remove-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913775.aspx)|Supprime une variable existante.|
 |[Set-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913767.aspx)|Définit la valeur d'une variable existante.|
 
-Les activités de workflow du tableau suivant sont utilisées pour accéder aux variables Automation d'un Runbook. Elles sont uniquement disponibles pour être utilisées dans un Runbook et ne sont pas fournies dans le cadre du module Azure PowerShell.
+Les activités de workflow du tableau suivant sont utilisées pour accéder aux variables Automation d'un Runbook. Elles sont uniquement disponibles pour être utilisées dans un Runbook ou une configuration DSC et ne sont pas fournies dans le cadre du module Azure PowerShell.
 
 |Activités de workflow|Description|
 |:---|:---|
 |Get-AutomationVariable|Récupère la valeur d'une variable existante.|
 |Set-AutomationVariable|Définit la valeur d'une variable existante.|
 
->[AZURE.NOTE]Évitez d'utiliser des variables dans le paramètre – Name de **Get- AutomationVariable** dans un Runbook, car cela complique la découverte de dépendances entre les Runbooks et les variables Automation au moment de la conception.
+>[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre –Name de **Get-AutomationVariable** dans un Runbook ou dans une configuration DSC, car cela complique la découverte de dépendances entre les Runbooks ou configurations DSC et les variables Automation au moment de la conception.
 
 ## Création d'une variable Automation
 
@@ -96,9 +96,9 @@ Les exemples de commandes suivants montrent comment créer une variable de type 
 
 
 
-## Utilisation d'une variable dans un Runbook
+## Utilisation d’une variable dans un Runbook ou une configuration DSC
 
-Utilisez l'activité **Set-AutomationVariable** activité qui permet de définir la valeur d'une variable Automation dans un Runbook et l'activité **Get-AutomationVariable** pour la récupérer. Vous ne devez pas utiliser les applets de commande **Set-AzureAutomationVariable** ou **Get-AzureAutomationVariable** dans un Runbook, car elles sont moins efficaces que les activités de workflow. Vous ne pouvez pas non plus récupérer la valeur de variables sécurisées avec **Get-AzureAutomationVariable**. La seule façon de créer une variable à partir d'un Runbook consiste à utiliser l'applet de commande [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
+Utilisez l’activité **Set-AutomationVariable** qui permet de définir la valeur d’une variable Automation dans un Runbook ou dans une configuration DSC et l’activité **Get-AutomationVariable** pour la récupérer. Vous ne devez pas utiliser les applets de commande **Set-AzureAutomationVariable** ou **Get-AzureAutomationVariable** dans un Runbook ou dans une configuration DSC, car elles sont moins efficaces que les activités de workflow. Vous ne pouvez pas non plus récupérer la valeur de variables sécurisées avec **Get-AzureAutomationVariable**. La seule façon de créer une variable à partir d’un Runbook ou d’une configuration DSC consiste à utiliser l’applet de commande [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx).
 
 
 ### Exemple de Runbooks textuels
@@ -188,4 +188,4 @@ L'illustration suivante montre comment filtrer les objets qui sont stockés dans
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -26,9 +26,10 @@ Grâce à PolyBase, vous êtes en mesure d’interroger des données stockées d
 - Créez des objets PolyBase : source de données externe, format de fichier externe et table externe. 
 - Interrogez les données stockées dans des objets Blob Microsoft Azure Storage.
 - Chargez les données conservées dans des objets Blob Microsoft Azure Storage dans SQL Data Warehouse.
+- Exportez les données de SQL Data Warehouse vers le stockage d’objets blob Azure.
 
 
-## Composants requis
+## Configuration requise
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 - Compte Azure Storage
@@ -167,8 +168,6 @@ WITH
 ;
 ```
 
-> [AZURE.NOTE]Notez qu’à ce stade il est impossible de générer des statistiques sur une table externe.
-
 Rubrique de référence : [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
 Les objets que vous venez de créer sont stockés dans la base de données SQL Data Warehouse. Vous pouvez les consulter dans l’Explorateur d’objets SQL Server Data Tools (SSDT).
@@ -181,7 +180,7 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]Lors de la suppression d’une table externe, vous devez utiliser `DROP EXTERNAL TABLE`. Vous **ne pouvez pas** utiliser `DROP TABLE`.
+> [AZURE.NOTE]Quand vous supprimez une table externe, vous devez utiliser `DROP EXTERNAL TABLE`. Vous **ne pouvez pas** utiliser `DROP TABLE`.
 
 Rubrique de référence : [DROP EXTERNAL TABLE (Transact-SQL)][].
 
@@ -227,7 +226,7 @@ En stockant directement les données, vous éliminez l’intervalle de transfert
 
 Dans cet exemple, l’instruction CREATE TABLE AS SELECT est utilisée pour charger des données. La nouvelle table hérite des colonnes désignées dans la requête. Elle hérite des types de données de ces colonnes à partir de la définition de table externe.
 
-CREATE TABLE AS SELECT est une instruction Transact-SQL très performante qui remplace INSERT...SELECT. Initialement développée pour le moteur de traitement massivement parallèle d’Analytics Platform System, elle est désormais disponible dans SQL Data Warehouse.
+CREATE TABLE AS SELECT est une instruction Transact-SQL très performante qui charge les données en parallèle sur tous les nœuds de calcul de votre entrepôt SQL Data Warehouse. Initialement développée pour le moteur de traitement massivement parallèle d’Analytics Platform System, elle est désormais disponible dans SQL Data Warehouse.
 
 ```
 -- Load data from Azure blob storage to SQL Data Warehouse 
@@ -245,6 +244,33 @@ FROM   [ext].[CarSensor_Data]
 ```
 
 Voir [CREATE TABLE AS SELECT (Transact-SQL)][].
+
+
+## Exportation de données vers le stockage d’objets blob Azure
+Cette section montre comment exporter les données de SQL Data Warehouse vers le stockage d’objets blob Azure. Cet exemple utilise CREATE EXTERNAL TABLE AS SELECT, une instruction Transact-SQL très performante, pour exporter les données en parallèle à partir de tous les nœuds de calcul.
+
+L’exemple suivant crée une table externe Weblogs2014 à l’aide des définitions de colonne et des données de la table dbo.Weblogs. La définition de la table externe est stockée dans SQL Data Warehouse et les résultats de l’instruction SELECT sont exportés vers le répertoire « /archive/log2014 » sous le conteneur d’objets blob spécifié par la source de données. Les données sont exportées au format de fichier texte spécifié.
+
+```
+CREATE EXTERNAL TABLE Weblogs2014 WITH
+(
+    LOCATION='/archive/log2014/',
+    DATA_SOURCE=azure_storage,
+    FILE_FORMAT=text_file_format
+)
+AS
+SELECT
+    Uri,
+    DateRequested
+FROM
+    dbo.Weblogs
+WHERE
+    1=1
+    AND DateRequested > '12/31/2013'
+    AND DateRequested < '01/01/2015';
+```
+
+
 
 
 ## Contournement de la nécessité du codage UTF-8 de PolyBase
@@ -334,4 +360,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/fr-FR/library/ms189450.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

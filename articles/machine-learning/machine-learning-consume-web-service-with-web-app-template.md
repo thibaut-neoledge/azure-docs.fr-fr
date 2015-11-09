@@ -14,14 +14,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="garye;raymondl"/>
 
 # Utilisation d’un service Web Microsoft Azure Machine Learning à l’aide d’un modèle d’application Web
 
-Maintenant que vous avez créé et déployé un service Web prédictif à partir de votre expérience de Machine Learning Studio, vous pouvez accéder au modèle prédictif à l’aide d’une API REST. Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service Web. Vous pouvez par exemple écrire une application en C#, R ou Python à l’aide de l’exemple de code généré lors du déploiement du service Web (disponible dans Machine Learning Studio, sur la page d’aide de l’API dans le tableau de bord du service Web). Vous pouvez aussi utiliser l’exemple de classeur Microsoft Excel créé pour vous (également disponible dans le tableau de bord du service Web dans Studio).
+Une fois vous avez développé votre modèle de prévision et l’avez déployé en tant que service web Azure à l’aide de Machine Learning Studio ou à l’aide d’outils comme R ou Python, vous pouvez accéder au modèle opérationnalisé à l’aide d’une API REST.
 
-Mais le moyen le plus rapide et le plus simple d’accéder à votre service Web consiste à utiliser les modèles d’application Web disponibles dans [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
+Il existe plusieurs moyens d’utiliser l’API REST et d’accéder au service Web. Vous pouvez par exemple écrire une application en C#, R ou Python à l’aide de l’exemple de code généré lors du déploiement du service Web (disponible dans Machine Learning Studio, sur la page d’aide de l’API dans le tableau de bord du service Web). Vous pouvez aussi utiliser l’exemple de classeur Microsoft Excel créé pour vous (également disponible dans le tableau de bord du service Web dans Studio).
+
+Mais le moyen le plus rapide et le plus simple d’accéder à votre service web consiste à utiliser les modèles d’application web disponibles dans [Azure Web App Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -44,19 +46,19 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 ![Procédure d’utilisation du modèle Web RSS][image1]
 
-1. Dans Machine Learning Studio, ouvrez l’onglet **Services Web**, puis ouvrez le service Web auquel vous souhaitez accéder. Copiez la clé répertoriée sous **Clé de l’API** et enregistrez-la.
+1. Dans Machine Learning Studio, ouvrez l’onglet **Services Web**, puis ouvrez le service web auquel vous souhaitez accéder. Copiez la clé répertoriée sous **Clé de l’API** et enregistrez-la.
 
 	![Clé d’API][image3]
 
-2. Ouvrez la page d’aide de l’API **REQUEST/RESPONSE**. En haut de la page d’aide, sous **Request** (Requête), copiez et enregistrez la valeur **URI de requête**. Exemple de valeur :
+2. Ouvrez la page d’aide de l’API **REQUEST/RESPONSE**. En haut de la page d’aide, sous **Requête**, copiez et enregistrez la valeur **URI de requête**. Exemple de valeur :
 
 		https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
 
 	![URI de demande][image4]
 
-3. Dans [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/), cliquez sur **Créer une application Web**. Le modèle vous redirige vers le portail Microsoft Azure où est créée la nouvelle application Web.
+3. Dans [Azure ML Request-Response Service Web App](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/), cliquez sur **Créer une application web**. Le modèle vous redirige vers le portail Microsoft Azure où est créée la nouvelle application Web.
 
-	- Donnez un nom unique à votre application Web. L’URL de l’application Web sera ce nom suivi de `.azurewebsites.net.` (par exemple, `http://carprediction.azurewebsites.net.`).
+	- Donnez un nom unique à votre application Web. L’URL de l’application web sera ce nom suivi de `.azurewebsites.net.` (par exemple, `http://carprediction.azurewebsites.net.`).
 
 	- Sélectionnez l’abonnement Azure et les services sous lesquels est exécuté votre service Web.
 
@@ -64,25 +66,25 @@ Après avoir déployé votre service Web, vous pouvez suivre la procédure ci-de
 
 	![Créer une application web][image5]
 
-4. Une fois le déploiement de l’application Web terminé, cliquez sur l’**URL** sur la page des paramètres de l’application Web dans Azure, ou entrez l’URL dans un navigateur Web. Par exemple, `http://carprediction.azurewebsites.net.`
+4. Une fois le déploiement de l’application web terminé, cliquez sur l’**URL** sur la page des paramètres de l’application web dans Azure, ou entrez l’URL dans un navigateur web. Par exemple, `http://carprediction.azurewebsites.net.`
 
-5. À la première exécution de l’application Web, vous êtes invité à renseigner l’**URL de publication de l’API** et la **clé de l’API**. Entrez les valeurs que vous avez enregistrées précédemment :
+5. À la première exécution de l’application web, vous êtes invité à renseigner l’**URL de publication de l’API** et la **clé de l’API**. Entrez les valeurs que vous avez enregistrées précédemment :
 	- **URI de requête** de la page d’aide de l’API pour l’**URL de publication de l’API**
-	- **Clé de l’API** du tableau de bord de service Web pour la **clé de l’API**.
+	- **Clé de l’API** du tableau de bord de service web pour la **clé de l’API**.
 
 	Cliquez sur **Envoyer**.
 
 	![Entrer l’URI de publication et la clé de l’API][image6]
 
-6. L’application Web affiche la page **Configuration de l’application Web** avec les paramètres du service Web actif. Vous pouvez ici modifier les paramètres utilisés par l’application Web.
+6. L’application web affiche la page **Configuration de l’application web** avec les paramètres du service web actif. Vous pouvez ici modifier les paramètres utilisés par l’application Web.
 
-	> [AZURE.NOTE]Une modification des paramètres à ce stade n’affecte que l’application Web concernée. Les paramètres par défaut de votre service Web ne seront pas modifiés. Par exemple, si vous modifiez ici la **Description**, l’opération n’aura aucun effet sur la description affichée sur le tableau de bord du service Web dans Machine Learning Studio.
+	> [AZURE.NOTE]Une modification des paramètres à ce stade n’affecte que l’application Web concernée. Les paramètres par défaut de votre service Web ne seront pas modifiés. Par exemple, si vous modifiez ici la **Description**, l’opération n’aura aucun effet sur la description affichée sur le tableau de bord du service web dans Machine Learning Studio.
 
-	Lorsque vous avez terminé, cliquez sur **Enregistrer les modifications**, puis cliquez sur **Atteindre la page de démarrage**.
+	Quand vous avez terminé, cliquez sur **Enregistrer les modifications**, puis cliquez sur **Atteindre la page de démarrage**.
 
-7. Sur la page d’accueil, vous pouvez saisir les valeurs à envoyer à votre service Web et cliquer sur **Envoyer** pour obtenir le résultat.
+7. Dans la page d’accueil, vous pouvez saisir les valeurs à envoyer à votre service web et cliquer sur **Envoyer** pour obtenir le résultat.
 
-Si vous souhaitez revenir à la page **Configuration**, accédez à la page `setting.aspx` de l’application Web. Par exemple : `http://carprediction.azurewebsites.net/setting.aspx.`. Vous serez invité à saisir de nouveau la clé de l’API pour pouvoir accéder à la page et mettre à jour les paramètres.
+Si vous souhaitez revenir à la page **Configuration**, accédez à la page `setting.aspx` de l’application web. Par exemple : `http://carprediction.azurewebsites.net/setting.aspx.`. Vous serez invité à saisir de nouveau la clé de l’API pour pouvoir accéder à la page et mettre à jour les paramètres.
 
 Vous pouvez arrêter, redémarrer ou supprimer l’application Web dans le portail Azure comme n’importe quelle autre application Web. Tant qu’elle est en cours d’exécution, vous pouvez accéder à l’adresse Web de base et saisir les nouvelles valeurs.
 
@@ -95,8 +97,8 @@ Les résultats d’un service Web d’exécution par lot sont stockés dans un c
 ![Procédure d’utilisation du modèle Web BES][image2]
 
 1. Pour créer l’application Web BES, suivez la même procédure que celle utilisée pour le modèle RRS, à l’exception de ce qui suit :
-	- Récupérez l’**URI de requête** sur la page d’aide de l’API **EXÉCUTION PAR LOTS** correspondant au service Web.
-	- Accédez à [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) pour ouvrir le modèle BES sur Azure Marketplace et cliquez sur **Créer une application Web**.
+	- Récupérez l’**URI de requête** dans la page d’aide de l’API **EXÉCUTION PAR LOTS** correspondant au service web.
+	- Accédez à [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) pour ouvrir le modèle BES sur Azure Marketplace et cliquez sur **Créer une application web**.
 
 2. Pour spécifier l’emplacement de stockage des résultats, indiquez les informations du conteneur de destination sur la page d’accueil de l’application Web. Indiquez également l’emplacement d’où l’application Web pourra extraire ses valeurs d’entrée, à savoir dans un fichier local ou dans un conteneur de stockage Azure. Cliquez sur **Envoyer**.
 
@@ -108,11 +110,11 @@ L’application Web affiche une page avec l’état de la tâche. Une fois la t�
 
 Pour en savoir plus sur...
 
-- la création d’une expérience d’apprentissage automatique avec Machine Learning Studio, consultez l’article [Didacticiel sur l’apprentissage automatique : création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md).
+- la création d’une expérience d’apprentissage automatique avec Machine Learning Studio, consultez [Création de votre première expérience dans Azure Machine Learning Studio](machine-learning-create-experiment.md).
 
-- le déploiement de votre expérience d’apprentissage automatique sous la forme d’un service Web, consultez l’article [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md)
+- le déploiement de votre expérience d’apprentissage automatique sous la forme d’un service web, consultez [Déploiement d’un service web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
-- d’autres manières d’accéder à votre service Web, consultez l’article [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
+- d’autres manières d’accéder à votre service web, consultez [Utilisation d’un service web Azure Machine Learning](machine-learning-consume-web-services.md).
 
 
 [image1]: media\machine-learning-consume-web-service-with-web-app-template\rrs-web-template-flow.png
@@ -123,4 +125,4 @@ Pour en savoir plus sur...
 [image6]: media\machine-learning-consume-web-service-with-web-app-template\web-service-info.png
 [image7]: media\machine-learning-consume-web-service-with-web-app-template\storage.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

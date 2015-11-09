@@ -1,14 +1,26 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure" description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à TOPdesk - Secure | Microsoft Azure" description="Découvrez comment utiliser TOPdesk - Secure avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à TOPdesk - Secure
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529789).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et TOPdesk - Secure. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement TOPdesk - Secure pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TOPdesk - Secure pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TOPdesk - Secure (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TOPdesk - Secure pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TOPdesk - Secure (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -75,13 +87,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Technical Settings](./media/active-directory-saas-topdesk-secure-tutorial/IC790855.png "Technical Settings")
 
-    1.  Cliquez sur **Télécharger** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
+    1.  Cliquez sur **Download** pour télécharger le fichier de métadonnées public et enregistrez-le en local sur votre ordinateur.
     2.  Ouvrez le fichier de métadonnées et recherchez le nœud **AssertionConsumerService**.![Assertion Consumer Service](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "Assertion Consumer Service")
     3.  Copiez la valeur de **AssertionConsumerService**.  
 
         >[AZURE.NOTE]Vous en aurez besoin dans la section **Configurer l’URL de l’application** plus loin dans ce didacticiel.
 
-6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail **Azure AD** en tant qu’administrateur.
+6.  Dans une autre fenêtre de navigateur web, connectez-vous à votre portail **Azure Active Directory** en tant qu’administrateur.
 
 7.  Dans la page d’intégration d’applications **TOPdesk - Secure**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -95,8 +107,8 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte e**URL d’authentification de TOPdesk - Secure**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Secure (par exemple : « **https://qssolutions.topdesk.net*").
-2.  Dans la zone de texte **URL de réponse TOPdesk - Secure**, collez l’**URL d’AssertionConsumerService TOPdesk - Secure** (par exemple : « **https://qssolutions.topdesk.net/tas/public/login/saml*").
+    1.  Dans la zone de texte **URL d’authentification de TOPdesk - Secure**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application TOPdesk - Secure (par exemple : "**https://qssolutions.topdesk.net*").
+2.  Dans la zone de texte **URL de réponse TOPdesk - Secure**, collez l’**URL d’AssertionConsumerService TOPdesk - Secure** (par exemple : "**https://qssolutions.topdesk.net/tas/public/login/saml*").
 3.  Cliquez sur **Next**.
 
 10. Dans la page **Configurer l’authentification unique sur TOPdesk - Secure**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier en local sur votre ordinateur.
@@ -160,7 +172,7 @@ Pour se connecter à TOPdesk - Secure, les utilisateurs d’Azure AD doivent êt
     ![New Operator](./media/active-directory-saas-topdesk-secure-tutorial/IC790611.png "New Operator")
 
     1.  Cliquez sur l’onglet General.
-    2.  Dans la zone de texte **Surname** de la section **General**, indiquez le nom du compte Azure AD valide que vous souhaitez approvisionner.
+    2.  Dans la zone de texte **Surname** de la section **General**, indiquez le nom du compte Azure Active Directory valide que vous souhaitez approvisionner.
     3.  Sélectionnez un **Site** pour le compte dans la section **Emplacement**.
     4.  Dans la zone de texte **Login Name** de la section **TOPdesk Login**, indiquez le nom de connexion de votre utilisateur.
     5.  Cliquez sur **Enregistrer**.
@@ -183,6 +195,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="10/23/2015"
 	ms.author="markusvi"/>
 
 
@@ -63,8 +63,7 @@ Pour configurer l’intégration de 23 Video avec Azure AD, vous devez ajouter
 4. Cliquez sur **Ajouter** en bas de la page.<br><br> ![Applications][3]<br>
 5. Dans la boîte de dialogue **Que voulez-vous faire ?**, cliquez sur **Ajouter une application à partir de la galerie**.<br><br> ![Applications][4]<br>
 6. Dans la zone de recherche, entrez **23 Video**.<br><br> ![Applications][5]<br>
-7. Dans le volet de résultats, sélectionnez **23 Video**, puis cliquez sur **Terminer** pour ajouter l’application.
-
+7. Dans le volet de résultats, sélectionnez **23 Video**, puis cliquez sur **Terminer** pour ajouter l’application. <br><br>![Applications][25]<br>
 
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec 23 Video avec un utilisateur de test appelé « Britta Simon ».
@@ -85,11 +84,11 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 **Pour configurer l’authentification unique Azure AD avec 23 Video, procédez comme suit :**
 
-1. Dans le portail Azure AD, puis sur la page d’intégration d’applications **23 Video**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
+1. Dans le portail Azure AD, puis dans la page d’intégration d’applications **23 Video**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**. <br><br> ![Configurer l’authentification unique][6] <br>
 
-2. Sur la page **Comment voulez-vous que les utilisateurs se connectent à 23 Video**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Authentification unique Azure AD][7] <br>
+2. Dans la page **Comment voulez-vous que les utilisateurs se connectent à 23 Video**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**. <br><br> ![Authentification unique Azure AD][7] <br>
 
-3. Sur la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Authentification unique Azure AD][8] <br>
+3. Dans la page **Configurer les paramètres d’application** de la boîte de dialogue, procédez comme suit : <br><br>![Authentification unique Azure AD][8] <br>
  
      a. Dans la zone de texte **URL de réponse**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site 23 Video (par ex. : **https://britta-simon.23Video.com/saml/login*).
 
@@ -97,7 +96,7 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
      b. Cliquez sur **Next**.
  
-4. Sur la page **Configurer l’authentification unique sur 23 Video**, procédez comme suit : <br><br>![Authentification unique Azure AD][9] <br>
+4. Dans la page **Configurer l’authentification unique sur 23 Video**, procédez comme suit : <br><br>![Authentification unique Azure AD][9] <br>
 
     a. Cliquez sur Télécharger le certificat, puis enregistrez le fichier sur votre ordinateur.
 
@@ -108,17 +107,17 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Authentification unique Azure AD][10]<br>
 
-7. Sur la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
+7. Dans la page **Confirmation de l’authentification unique**, cliquez sur **Terminer**. <br><br>![Authentification unique Azure AD][11]
 
 
 
 
 ### Création d’un utilisateur de test Azure AD
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste Utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.<br> Dans la liste des utilisateurs, sélectionnez **Britta Simon**.<br><br>![Créer un utilisateur Azure AD][20]<br>
 
 **Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
+1. Dans le volet de navigation gauche du **Portail de gestion Azure**, cliquez sur **Active Directory**. <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_09.png) <br> 
 
 2. Dans la liste **Annuaire**, sélectionnez l'annuaire pour lequel vous voulez activer l'intégration d'annuaire.
 
@@ -126,7 +125,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 4. Pour ouvrir la boîte de dialogue **Ajouter un utilisateur**, cliquez sur **Ajouter un utilisateur** dans la barre d’outils située en bas. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) <br>
 
-5. Sur la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
+5. Dans la page **Dites-nous en plus sur cet utilisateur**, procédez comme suit : <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_05.png) <br>
 
     a. Dans Type d’utilisateur, sélectionnez Nouvel utilisateur dans votre organisation.
 
@@ -134,19 +133,19 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     c. Cliquez sur **Next**.
 
-6.  Sur la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
+6.  Dans la page **Profil utilisateur**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_06.png) <br>
  
     a. Dans la zone de texte **Prénom**, tapez **Britta**.
 
     b. Dans la zone de texte **Nom**, tapez **Simon**.
 
-    c. Dans la zone de texte **Nom d’affichage**, tapez **Britta Simon**.
+    c. Dans la zone de texte **Nom complet**, saisissez **Britta Simon**.
 
     d. Dans la liste **Rôle**, sélectionnez **Utilisateur**. e. Cliquez sur **Next**.
 
-7. Sur la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
+7. Dans la page **Obtenir un mot de passe temporaire**, cliquez sur **Créer**. <br><br> ![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_07.png) <br>
  
-8. Sur la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
+8. Dans la page **Obtenir un mot de passe temporaire**, procédez comme suit : <br><br>![Création d’un utilisateur de test Azure AD](./media/active-directory-saas-23video-tutorial/create_aaduser_08.png) <br>
   
     a. Notez la valeur de **Nouveau mot de passe**.
 
@@ -162,18 +161,18 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
 1. Connectez-vous à votre site d’entreprise 23 Video en tant qu’administrateur.
 
-1. Accédez à **Paramètres**.
+1. Accédez à **Settings**.
 
 
-2. Dans la section **Utilisateurs**, cliquez sur **Configurer**. <br><br>![Affecter des utilisateurs][400]<br>
+2. Dans la section **Users**, cliquez sur **Configure**. <br><br>![Affecter des utilisateurs][400]<br>
 
-3. Cliquez sur **Ajouter un nouvel utilisateur**. <br><br>![Affecter des utilisateurs][401]<br>
+3. Cliquez sur **Add a new user**. <br><br>![Affecter des utilisateurs][401]<br>
 
-4. Dans la section **Inviter quelqu’un à rejoindre ce site**, procédez comme suit : <br><br>![Affecter des utilisateurs][402]<br>
+4. Dans la section **Invite someone to join this site**, procédez comme suit : <br><br>![Affecter des utilisateurs][402]<br>
 
-    a. Dans la zone de texte **Adresses e-mail**, tapez l’adresse e-mail de Britta Simon dans Azure AD.
+    a. Dans la zone de texte **E-mail addresses**, tapez l’adresse e-mail de Britta Simon dans Azure AD.
 
-    b. Cliquez sur **Ajouter l’utilisateur**.
+    b. Cliquez sur **Add the user**.
 
 
 ### Affectation de l’utilisateur de test Azure AD
@@ -184,7 +183,7 @@ L’objectif de cette section est de permettre à Britta Simon d’utiliser l’
 
 1. Dans la vue répertoire du portail Azure, pour ouvrir la vue des applications, cliquez sur **Applications** dans le menu du haut. <br><br>![Affecter des utilisateurs][201] <br>
 2. Dans la liste des applications, sélectionnez **23 Video**. <br><br>![Affecter des utilisateurs][202] <br>
-1. Dans le menu situé en haut, cliquez sur **Utilisateurs**. <br><br>![Affecter des utilisateurs][203] <br>
+1. Dans le menu situé en haut, cliquez sur **Utilisateurs**.<br> <br>![Affecter des utilisateurs][203]<br>
 1. Dans la liste Utilisateurs, sélectionnez **Britta Simon**.
 
 2. Dans la barre d’outils située en bas, cliquez sur **Affecter**. <br><br>![Affecter des utilisateurs][205]
@@ -208,6 +207,7 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [3]: ./media/active-directory-saas-23video-tutorial/tutorial_general_03.png
 [4]: ./media/active-directory-saas-23video-tutorial/tutorial_general_04.png
 [5]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_01.png
+[25]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_02.png
 
 [6]: ./media/active-directory-saas-23video-tutorial/tutorial_general_05.png
 [7]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_03.png
@@ -228,4 +228,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_11.png
 [402]: ./media/active-directory-saas-23video-tutorial/tutorial_23video_12.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # Présentation du déploiement de Resource Manager et du déploiement classique
@@ -155,6 +155,8 @@ Plusieurs points importants sont à prendre en compte lors de l’utilisation de
 - Les machines virtuelles déployées avec le modèle de déploiement de Resource Manager doivent être incluses dans un réseau virtuel.
 - Les machines virtuelles déployées avec le modèle de déploiement classique ne doivent pas être incluses dans un réseau virtuel.
 
+Si les temps d’arrêt ne pénalisent pas vos machines virtuelles, vous pouvez les faire passer du déploiement classique à Resource Manager à l’aide de [scripts PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
+
 Pour obtenir une liste des commandes de l’interface de ligne de commande Azure équivalentes lors de la transition d’un déploiement classique vers Resource Manager, consultez [Commandes équivalentes du Gestionnaire de ressources et de la gestion des services pour les opérations de machine virtuelle avec l’interface de ligne de commande Azure pour Mac, Linux et Windows](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
 Pour plus d’informations sur la transition des ressources de calcul, de réseau et de stockage, consultez [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
@@ -166,4 +168,4 @@ Pour en savoir plus sur la connexion de réseaux virtuels à partir de modèles 
 - Pour en savoir plus sur la création de modèles de déploiement déclaratifs, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour connaître les commandes permettant de déployer un modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

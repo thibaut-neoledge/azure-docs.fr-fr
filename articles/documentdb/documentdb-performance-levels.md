@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/16/2015" 
 	ms.author="johnmac"/>
 
 #Niveaux de performances dans DocumentDB
@@ -29,7 +29,7 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 
 ##Introduction aux niveaux de performances
 
-Chaque collection DocumentDB créée sous un compte d'utilisateur Standard est configurée avec un niveau de performances associé. Les niveaux de performances sont désignés comme suit : S1, S2 ou S3 (du niveau le plus faible au plus élevé). Le niveau de performances de la collection détermine la quantité de ressources de service réservée pour votre application. Chaque collection dans une base de données peut avoir un niveau de performances différent, ce qui vous permet de désigner davantage de débit pour les collections fréquemment sollicitées et moins de débit pour les collections rarement sollicitées.
+Chaque collection DocumentDB créée sous un compte d'utilisateur Standard est configurée avec un niveau de performances associé. Les niveaux de performances sont désignés comme suit : S1, S2 ou S3 (du niveau le plus faible au plus élevé). Le niveau de performances de la collection détermine la quantité de ressources de traitement de requête réservée pour votre application. Chaque collection dans une base de données peut avoir un niveau de performances différent, ce qui vous permet de désigner davantage de débit pour les collections fréquemment sollicitées et moins de débit pour les collections rarement sollicitées. Le niveau de performances minimal pour toute collection est S1.
 
 À chaque niveau de performances est associé un taux limite d'unités de demande. Il s'agit du débit qui sera réservé pour une collection en fonction de son niveau de performances et qui sera disponible exclusivement pour cette collection. Des collections peuvent être créées via le [portail Azure](http://portal.azure.com) ou l’un des [Kits de développement logiciel (SDK) DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Les API DocumentDB vous permettent de spécifier le niveau de performances d'une collection.
 
@@ -122,4 +122,4 @@ Pour en savoir plus sur DocumentDB, consultez la [documentation](http://azure.mi
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

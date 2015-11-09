@@ -18,6 +18,8 @@
 
 # Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide de Python
 
+Des conseils sur les technologies utilisées pour déplacer des données vers et/ou depuis le stockage d’objets blob Azure sont disponibles ici :
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introduction
@@ -30,7 +32,7 @@ Avec l’API Python fournie dans le SDK Azure, vous pouvez :
 - Création d'une liste d'objets blob dans un conteneur
 - Supprimer un blob.
 
-Cette section décrit comment répertorier, charger et télécharger des blobs. Pour plus d'informations sur l'utilisation de l’API Python [Utilisation du service de stockage d'objets blob de Python](../storage-python-how-to-use-blob-storage.md).
+Cette section décrit comment répertorier, charger et télécharger des blobs. Pour plus d’informations sur l’utilisation de l’API Python, consultez [Utilisation du service de stockage d’objets blob à partir de Python](../storage-python-how-to-use-blob-storage.md).
 
 > [AZURE.NOTE]Si vous utilisez une machine virtuelle qui a été configurée avec les scripts fournis par les [machines virtuelles de science des données dans Azure](machine-learning-data-science-virtual-machines.md), cela signifie qu’AzCopy est déjà installé sur la machine virtuelle.
 
@@ -40,8 +42,8 @@ Cette section décrit comment répertorier, charger et télécharger des blobs. 
 
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
-- Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
-- Pour obtenir des instructions sur la création d'un compte de stockage et pour obtenir des informations de compte et de clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+- Pour configurer un abonnement Azure, consultez la page [Évaluation d’un mois gratuite](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- Pour obtenir des instructions sur la création d’un compte de stockage, ainsi que des informations sur le compte et la clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 ## Charger les données dans le blob
 
@@ -121,4 +123,4 @@ L’exemple de code suivant télécharge tous les blobs d’un conteneur. Il uti
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

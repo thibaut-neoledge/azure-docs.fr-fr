@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilisation des rapports d’intégrité du système pour la résolution des problèmes"
-   description="Décrit les rapports d’intégrité du système et explique comment les utiliser pour résoudre les problèmes liés au cluster et aux applications."
+   pageTitle="Utilisation des rapports d’intégrité du système pour la résolution des problèmes | Microsoft Azure"
+   description="Décrit les rapports d’intégrité envoyés par les composants Azure Service Fabric et leur utilisation pour la résolution des problèmes de cluster ou d’application."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Utilisation des rapports d’intégrité du système pour la résolution des problèmes
@@ -530,4 +530,4 @@ System.Hosting consigne la valeur Error si la validation de la mise à niveau é
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

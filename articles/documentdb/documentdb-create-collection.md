@@ -40,7 +40,7 @@ Pour utiliser Microsoft Azure DocumentDB, vous devez posséder un [compte Docume
 
 	- **Par défaut**. Cette stratégie est préférable si vous exécutez des requêtes d’efficacité sur des chaînes et des requêtes ORDER BY, de plage et d’efficacité sur des nombres. Cette stratégie dispose d'une surcharge de stockage d'index inférieure à **Plage**.
 	- **Hachage**. Cette stratégie est préférable si vous exécutez des requêtes d'efficacité sur des nombres et des chaînes. Cette stratégie dispose de la plus faible surcharge de stockage d'index.
-	- **Plage**. Cette stratégie est préférable si vous exécutez des requêtes ORDER BY, de plage et d'efficacité sur des nombres et des chaînes. Cette stratégie dispose d'une surcharge de stockage d'index supérieure à **Par défaut** ou **Hachage**.
+	- **Plage**. Cette stratégie est préférable lorsque vous exécutez des requêtes ORDER BY, de plage et d’égalité sur des nombres et des chaînes. Cette stratégie dispose d'une surcharge de stockage d'index supérieure à **Par défaut** ou **Hachage**.
 
 	Pour plus d'informations sur les stratégies d'indexation, consultez la rubrique [Stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
@@ -65,4 +65,4 @@ Maintenant que vous avez une collection, l'étape suivante consiste à ajouter o
 
 Une fois que chaque collection contient des documents, vous pouvez utiliser [DocumentDB SQL](documentdb-sql-query.md) pour [exécuter des requêtes](documentdb-sql-query.md#executing-queries) sur vos documents à l’aide de l’[Explorateur de requête](documentdb-query-collections-query-explorer.md) dans la version préliminaire du portail, de l’[API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) ou de l’un des [kits de développement logiciel](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

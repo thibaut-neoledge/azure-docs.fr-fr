@@ -185,7 +185,10 @@ Avant de pouvoir activer et utiliser l’écriture différée de mot de passe, v
   >[AZURE.NOTE]Si vous exécutez une version antérieure de Windows Server 2008 ou 2008 R2, vous pouvez toujours utiliser cette fonctionnalité, mais vous devez [télécharger et installer la mise à jour KB 2386717](https://support.microsoft.com/kb/2386717) avant de pouvoir appliquer votre stratégie de mot de passe AD locale dans le cloud.
   
 - Vous avez installé l’outil Azure AD Connect et vous avez préparé votre environnement AD pour la synchronisation dans le cloud. Pour plus d’informations, consultez la page [Utilisation de votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md).
-- Si vous utilisez DirSync, vous devez vérifier que le pare-feu de votre organisation est configuré pour bloquer les connexions sortantes et débloquer **le port TCP 828 ou 818** afin d’activer et d’utiliser l’écriture différée de mot de passe. Si vous utilisez Azure AD Sync ou Azure AD Connect, cette étape est facultative, puisque seul le port sortant **TCP 443** (et dans certains cas les ports **TCP 9350 à 9354**) doit être ouvert.
+
+  >[AZURE.NOTE]Avant de tester l’écriture différée de mot de passe, assurez-vous d’effectuer une importation complète et une synchronisation complète à partir d’Active Directory et Azure AD dans
+
+- Si vous utilisez Azure AD Sync ou Azure AD Connect, le port sortant **TCP 443** (et dans certains cas les ports**TCP 9350-9354**) doit être ouvert. Pour plus d’informations, consultez [Étape 3 : configuration de votre pare-feu](#step-3-configure-your-firewall). L’utilisation de DirSync dans ce scénario n’est plus prise en charge. Si vous utilisez encore DirSync, veuillez procéder à une mise à niveau vers la dernière version d’Azure AD Connect avant de déployer l’écriture différée du mot de passe.
 
   >[AZURE.NOTE]Nous recommandons fortement à tous les utilisateurs des outils Azure AD Sync ou DirSync de procéder à une mise à niveau vers la dernière version d’Azure AD Connect pour s’assurer de bénéficier des meilleures conditions d’utilisation possibles et des fonctionnalités les plus récentes dès leur publication.
   
@@ -250,7 +253,7 @@ Pour chaque forêt contenant des utilisateurs dont les mots de passe doivent êt
 
 Si vous ignorez de quel compte il s’agit exactement, ouvrez l’interface utilisateur de configuration d’Azure Active Directory Connect, puis cliquez sur l’option **Vérification de votre solution**. Le compte auquel vous devez ajouter des autorisations est souligné en rouge dans la capture d’écran ci-dessous.
 
-**<font color="red">Définissez cette autorisation pour chaque domaine dans chaque forêt dans votre système, afin que l’écriture différée du mot de passe fonctionne correctement.</font>**
+**<font color="red">Définissez cette autorisation pour chaque domaine dans chaque forêt dans votre système afin que l’écriture différée du mot de passe fonctionne correctement.</font>**
 
   ![][032]
 
@@ -298,10 +301,7 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
     ![][031]
 
 
-<br/>
-<br/>
-<br/>
-
+<br/> <br/> <br/>
 
 **Ressources supplémentaires**
 
@@ -351,4 +351,4 @@ Maintenant que l’écriture différée de mot de passe a été activée, vous p
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

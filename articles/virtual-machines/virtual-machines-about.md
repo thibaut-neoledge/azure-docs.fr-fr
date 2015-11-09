@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="10/23/2015"
 	ms.author="cynthn"/>
 
 #À propos des machines virtuelles Azure 
@@ -22,9 +22,9 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Azure Virtual Machines est l’un des nombreux types de ressources informatiques évolutives, à la demande proposées par Azure. En règle générale, vous préférez une machine virtuelle à une autre option si vous avez besoin de mieux contrôler l’environnement informatique que ne le font les autres choix.
+Azure Virtual Machines est l’un des nombreux types de ressources informatiques évolutives, à la demande proposées par Azure. En règle générale, une machine virtuelle sera mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique.
 
-Une autre approche consiste à utiliser une machine virtuelle sur votre propre matériel. Par rapport à cette approche, une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du système d’exploitation et de tout autre logiciel qui s’exécute sur la machine virtuelle.
+Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans devoir acheter le matériel physique qui exécute la machine virtuelle ni en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle : configuration, mise à jour corrective et maintenance du système d’exploitation et de tout autre logiciel qui s’exécute sur la machine virtuelle.
 
 Ce tableau vous permet de comparer les choix proposés par Azure.
 
@@ -52,4 +52,4 @@ Si vous découvrez tout juste les machines virtuelles Azure, veillez à consulte
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

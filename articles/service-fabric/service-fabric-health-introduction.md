@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Présentation du contrôle d'intégrité de Service Fabric"
-   description="Cet article décrit le modèle de contrôle d'intégrité d'Azure Service Fabric, y compris les entités, la création de rapports et l'évaluation de l'intégrité."
+   pageTitle="Contrôle d’intégrité de Service Fabric | Microsoft Azure"
+   description="Présentation du modèle de contrôle d’intégrité d’Azure Service Fabric, qui permet d’analyser le cluster, ses applications et ses services."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Présentation du contrôle d'intégrité de Service Fabric
@@ -336,4 +336,4 @@ Le modèle d'intégrité est très utilisé pour la surveillance et le diagnosti
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Kintone | Microsoft Azure" description="Apprenez à utiliser Kintone avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Kintone | Microsoft Azure" 
+    description="Apprenez à utiliser Kintone avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/20/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Kintone
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=526796).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Kintone. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Kintone pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Kintone pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Kintone (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Kintone pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Kintone (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -59,11 +72,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785872.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Kintone**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Kintone**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785873.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Kintone**, tapez votre URL selon le modèle suivant « **https://company.kintone.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Kintone**, tapez votre URL selon le modèle suivant « **https://company.kintone.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-kintone-tutorial/IC785875.png "Configurer l’URL de l’application")
 
@@ -81,7 +94,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Administration système et utilisateurs](./media/active-directory-saas-kintone-tutorial/IC785880.png "Administration système et utilisateurs")
 
-8.  Sous **System Administration > Security**, cliquez sur **Login**.
+8.  Sous **System Administration > Security**, cliquez sur **Login**.
 
     ![Connexion](./media/active-directory-saas-kintone-tutorial/IC785881.png "Connexion")
 
@@ -93,12 +106,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification SAML](./media/active-directory-saas-kintone-tutorial/IC785883.png "Authentification SAML")
 
-    1.  Dans la page **Configurer l’authentification unique sur Kintone** du portail Azure, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
+    1.  Dans la page **Configurer l’authentification unique sur Kintone** du portail Azure, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Login URL**.
     2.  Dans la page **Configurer l’authentification unique sur Kintone** du portail Azure, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Logout URL**.
     3.  Cliquez sur **Parcourir** pour charger votre certificat téléchargé.
     4.  Cliquez sur **Enregistrer**.
 
-11. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+11. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-kintone-tutorial/IC785884.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -150,6 +163,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-kintone-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

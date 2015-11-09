@@ -44,10 +44,14 @@ Pour connaître l’adresse IP ainsi que les noms **awverify** et **.azurewebsi
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE] Si **Gérer les domaines** n’est pas activé, vous utilisez une application web **Gratuite**. Vous ne pouvez pas utiliser de noms de domaines personnalisés avec une application web **Gratuite**. Vous devez donc mettre à niveau le plan App Service vers le mode **Partagé**, **De base** ou **Standard**. Pour plus d’informations sur les modes de plan App Service, notamment sur la modification du mode de votre application web, voir [Mise à l’échelle des applications web](../articles/web-sites-scale.md).
+3. Dans le panneau **Domaines personnalisés et SSL**, cliquez sur **Apporter des domaines externes**.
 
-6. Dans la boîte de dialogue **MANAGE CUSTOM DOMAINS** sont affichés le nom de domaine **.azurewebsites.net**, les informations **awverify** et l'adresse IP virtuelle. Enregistrez ces informations, car elles serviront lors de la création d'enregistrements DNS.
+	![](./media/custom-dns-web-site/dncmntask-cname-7.png)
 
-	![](./media/custom-dns-web-site/managecustomdomains.png)
+	> [AZURE.NOTE]Vous ne pouvez pas utiliser de noms de domaines personnalisés avec une application web **Gratuite**. Vous devez donc mettre à niveau l’offre App Service vers le niveau **Partagé**, **De base**, **Standard** ou **Premium**. Pour plus d’informations sur les niveaux tarifaires de l’offre App Service, notamment sur la modification du niveau tarifaire de votre application web, consultez [Mise à l’échelle des applications web](../articles/web-sites-scale.md).
 
-<!---HONumber=Oct15_HO3-->
+6. La boîte de dialogue **Apporter des domaines externes** contient les informations **awverify**, le nom de domaine **.azurewebsites.net** .azurewebsites.net et l’adresse IP virtuelle. Enregistrez ces informations, car elles serviront lors de la création d'enregistrements DNS.
+
+	![](./media/custom-dns-web-site/dncmntask-cname-8.png)
+
+<!---HONumber=Nov15_HO1-->

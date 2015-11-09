@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Beta | Microsoft Azure" description="Découvrez comment utiliser Zscaler Beta avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Zscaler Beta | Microsoft Azure" 
+    description="Découvrez comment utiliser Zscaler Beta avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Zscaler Beta
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=614877).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Zscaler Beta. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Zscaler Beta pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Zscaler Beta pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Zscaler Beta (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Zscaler Beta pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Zscaler Beta (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -54,7 +67,7 @@ Cette section décrit l’activation de l’intégration d’applications pour Z
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zscaler Beta avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat codé en base 64 vers votre client Zscaler Beta. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Zscaler Beta avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez charger un certificat codé en base 64 vers votre locataire Zscaler Beta. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -97,7 +110,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800209.png "Authentification unique")
 
-    1.  Dans la page **Configurer l’authentification unique sur Zscaler Beta** du portail Azure, copiez la valeur **URL de la demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
+    1.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Zscaler Beta**, copiez la valeur **URL de la demande d’authentification**, puis collez-la dans la zone de texte **URL of the SAML Portal to which users are sent for authentication**.
     2.  Dans la zone de texte **Attribute containing Login Name**, tapez **NameID**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Zscaler pem**.
     4.  Sélectionnez **Enable SAML Auto-Provisioning**.
@@ -109,7 +122,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Enregistrer**.
     2.  Cliquez sur **Activate Now**.
 
-11. Dans la boîte de dialogue **Configurer l’authentification unique sur Zscaler Beta** du portail Azure, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
+11. Dans le portail Azure, dans la page **Configurer l’authentification unique sur Zscaler Beta**, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-zscaler-beta-tutorial/IC800229.png "Configurer l’authentification unique")
 
@@ -147,7 +160,7 @@ Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doiven
 
 ###Pour configurer l'approvisionnement des utilisateurs, procédez comme suit :
 
-1.  Connectez-vous au client **Zscaler**.
+1.  Connectez-vous au locataire **Zscaler**.
 
 2.  Cliquez sur **Administration**.
 
@@ -157,7 +170,7 @@ Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doiven
 
     ![Ajouter](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Ajouter")
 
-4.  Dans l’onglet **Users**, cliquez sur **Add**.
+4.  Sous l’onglet **Users**, cliquez sur **Add**.
 
     ![Ajouter](./media/active-directory-saas-zscaler-beta-tutorial/IC781037.png "Ajouter")
 
@@ -165,8 +178,8 @@ Pour pouvoir se connecter à Zscaler Beta, les utilisateurs d’Azure AD doiven
 
     ![Ajouter un utilisateur](./media/active-directory-saas-zscaler-beta-tutorial/IC781038.png "Ajouter un utilisateur")
 
-    1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte Azure AD valide que vous souhaitez approvisionner.
-    2.  Cliquez sur **Enregistrer**.
+    1.  Renseignez les zones de texte **UserID**, **User Display Name**, **Password** et **Confirm Password**, puis sélectionnez **Groups** ainsi que l’attribut **Department** du compte AAD valide que vous souhaitez approvisionner.
+    2.  Cliquez sur **Save**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Zscaler Beta pour approvisionner des comptes d’utilisateurs Azure AD.
 
@@ -182,10 +195,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-zscaler-beta-tutorial/IC800230.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-zscaler-beta-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

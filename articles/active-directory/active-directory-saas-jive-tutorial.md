@@ -1,7 +1,21 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Jive | Microsoft Azure" description="Apprenez à utiliser Jive avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Jive | Microsoft Azure" 
+    description="Apprenez à utiliser Jive avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory avec Jive
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=330042). Pour plus d’informations à ce sujet, consultez la page [Meilleures pratiques de gestion des améliorations d’accès à l’application pour Azure Active Directory](http://go.microsoft.com/fwlink/?LinkId=329963).
+
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Jive. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -52,17 +66,17 @@ La capture d’écran suivante présente un exemple de la boîte de dialogue ass
 
 1.  Dans le portail de gestion Azure, dans la page d’intégration d’application **Jive**, cliquez sur **Configurer l’approvisionnement des utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement des utilisateurs**.
 
-2.  Dans la page **Enter your Jive credentials to enable automatic user provisioning**, indiquez les paramètres de configuration suivants :
+2.  Dans la page **Entrez vos informations d’identification Jive pour activer la configuration automatique d’un utilisateur**, indiquez les paramètres de configuration suivants :
 
-    1.  Dans la zone de texte **Jive Admin User Name**, tapez le nom d’un compte Jive auquel le profil **System Administrator** est attribué dans Jive.com.
+    1.  Dans la zone de texte **Nom d’utilisateur admin Jive**, tapez le nom d’un compte Jive auquel le profil **System Administrator** est attribué dans Jive.com.
 
-    2.  Dans la zone de texte **Jive Admin Password**, tapez le mot de passe de ce compte.
+    2.  Dans la zone de texte **Mot de passe de l’admin Jive**, tapez le mot de passe de ce compte.
 
-    3.  Dans la zone de texte **Jive Tenant URL**, tapez l’URL de locataire Jive.
+    3.  Dans la zone de texte **URL de locataire Jive**, tapez l’URL de locataire Jive.
 
         >[AZURE.NOTE]L’URL de locataire Jive est celle utilisée par votre organisation pour se connecter à Jive. En règle générale, l’URL a le format suivant :**www.<organisation>.jive.com**.
 
-    4.  Cliquez sur **validate** pour vérifier votre configuration.
+    4.  Cliquez sur **Valider** pour vérifier votre configuration.
 
     5.  Cliquez sur le bouton **Suivant** pour ouvrir la page **Confirmation**.
 
@@ -70,4 +84,4 @@ La capture d’écran suivante présente un exemple de la boîte de dialogue ass
   
 Vous pouvez maintenant créer un compte de test, attendre 10 minutes, puis vérifier la synchronisation du compte à Jive.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

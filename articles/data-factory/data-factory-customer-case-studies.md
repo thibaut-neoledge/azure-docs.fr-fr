@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Études de cas client
@@ -48,4 +48,4 @@ Data Factory est un service de gestion des informations dans le cloud qui automa
 
 [Recherche d'une meilleure relation avec les clients par le biais du service Cloud Machine Learning](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

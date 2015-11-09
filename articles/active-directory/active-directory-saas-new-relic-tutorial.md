@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à New Relic | Microsoft Azure" description="Apprenez à utiliser New Relic avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à New Relic | Microsoft Azure" 
+    description="Apprenez à utiliser New Relic avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à New Relic
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=536553).
   
 L’objectif de ce didacticiel est de montrer comment configurer l’authentification unique entre Azure Active Directory et New Relic.
   
@@ -55,15 +68,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **New Relic**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC769534.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à New Relic**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à New Relic**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC797033.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à New Relic** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application New Relic, puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de New Relic** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application New Relic, puis cliquez sur **Suivant**.
 
     L’URL de l’application est votre locataire New Relic (par exemple, **https://rpm.newrelic.com*) :
 
@@ -92,7 +105,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     3.  Dans la page **Configurer l’authentification unique sur New Relic** du portail Microsoft Azure, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Logout landing URL**.
     4.  Cliquez sur **Save my changes**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-new-relic-tutorial/IC797039.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -115,7 +128,7 @@ Pour se connecter à New Relic, les utilisateurs d’Azure AD doivent être appr
 
     ![Utilisateurs actifs](./media/active-directory-saas-new-relic-tutorial/IC797042.png "Utilisateurs actifs")
 
-    1.  Dans la zone de texte **Email**, tapez l’adresse de messagerie d’un utilsateur Azure Active Directory valide à approvisionner.
+    1.  Dans la zone de texte **Email**, tapez l’adresse de messagerie d’un utilisateur Azure Active Directory valide à approvisionner.
     2.  Pour **Role**, sélectionnez **User**.
     3.  Cliquez sur **Add this user**.
 
@@ -133,10 +146,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-new-relic-tutorial/IC797043.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-new-relic-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

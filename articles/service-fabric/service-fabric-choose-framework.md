@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="coreysa"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -36,4 +36,4 @@ N'oubliez pas qu'il est parfaitement raisonnable d'utiliser des infrastructures 
 - [En savoir plus sur les API avec acteurs fiables](service-fabric-reliable-actors-introduction.md)
 - [En savoir plus sur les API avec services fiables](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

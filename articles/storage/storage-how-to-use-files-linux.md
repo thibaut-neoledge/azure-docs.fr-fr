@@ -12,7 +12,7 @@
       ms.tgt_pltfrm="na"
       ms.devlang="na"
       ms.topic="article"
-      ms.date="10/06/2015"
+      ms.date="10/26/2015"
       ms.author="jutang;tamram" />
 
 
@@ -27,6 +27,12 @@ Vous pouvez créer des partages de fichiers Azure à l’aide du portail Azure e
 Les applications exécutées dans Azure permettent de monter facilement des partages de fichiers à partir de machines virtuelles Azure. Et avec la dernière version du stockage de fichiers, vous pouvez également monter un partage de fichiers à partir d’une application locale prenant en charge SMB 3.0.
 
 Notez que dans la mesure où le client SMB Linux ne prend pas encore en charge le chiffrement, le montage d’un partage de fichiers à partir de Linux requiert toujours que le client soit situé dans la même région Azure que le partage de fichiers. Toutefois, la prise en charge du chiffrement pour Linux est prévu par les développeurs Linux responsables de la fonctionnalité SMB. Les distributions Linux qui prendront en charge le chiffrement à l’avenir seront en mesure de monter un partage de fichiers Azure à partir de n’importe quel endroit.
+
+## Vidéo : Utilisation du stockage de fichiers Azure avec Linux
+
+Voici une vidéo montrant comment créer et utiliser des partages de fichiers Azure sous Linux.
+
+> [AZURE.VIDEO azure-file-storage-with-linux]
 
 ## Sélection d'une distribution Linux à utiliser ##
 
@@ -90,13 +96,13 @@ Désormais, le [portail Azure en version préliminaire](https://portal.azure.com
 - Charger et télécharger des fichiers vers et à partir de votre partage de fichiers.
 - Surveiller l'utilisation réelle de chaque partage de fichiers.
 - Ajuster le quota de la taille de partage.
-- Copier la commande `net use` à utiliser pour monter le partage de fichiers à partir d'un client Windows. 
+- Copier la commande `net use` à utiliser pour monter le partage de fichiers à partir d’un client Windows. 
 
 Vous pouvez également utiliser l'interface de ligne de commande Azure (Azure CLI) interplateforme à partir de Linux pour gérer le partage de fichiers. L'interface de ligne de commande Azure offre un ensemble de commandes open source, interplateforme, vous permettant d'utiliser le stockage Azure, y compris le stockage de fichiers. Elle offre des fonctionnalités similaires à celles du portail Azure, ainsi que des fonctions étendues d'accès aux données. Pour obtenir des exemples, consultez [Utilisation de la CLI Azure avec Azure Storage](storage-azure-cli.md).
 
 ## Développement avec le stockage de fichiers ##
 
-En tant que développeur, vous pouvez créer une application avec le stockage de fichiers à l'aide de la [bibliothèque cliente Azure Storage pour Java](https://github.com/azure/azure-storage-java). Pour obtenir des exemples de code, consultez [Utilisation du stockage de fichiers à partir de Java](storage-java-how-to-use-file-storage.md).
+En tant que développeur, vous pouvez créer une application avec le stockage de fichiers à l’aide de la [bibliothèque cliente Azure Storage pour Java](https://github.com/azure/azure-storage-java). Pour obtenir des exemples de code, consultez [Utilisation du stockage de fichiers à partir de Java](storage-java-how-to-use-file-storage.md).
 
 Vous pouvez également utiliser la [bibliothèque cliente Azure Storage pour Node.js](https://github.com/Azure/azure-storage-node) pour développer sur le stockage de fichiers.
 
@@ -104,14 +110,15 @@ Vous pouvez également utiliser la [bibliothèque cliente Azure Storage pour Nod
 
 Utilisateurs de Linux, nous attendons votre avis !
 
-Le stockage de fichiers Azure pour le groupe d'utilisateurs Linux propose un forum vous permettant de partager vos commentaires lorsque vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un courrier électronique aux [utilisateurs Linux du stockage de fichiers Azure](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d'utilisateurs.
+Le stockage de fichiers Azure pour le groupe d'utilisateurs Linux propose un forum vous permettant de partager vos commentaires lorsque vous évaluez et adoptez le stockage de fichiers sur Linux. Envoyez un courrier électronique aux [utilisateurs Linux du stockage de fichiers Azure](mailto:azurefileslinuxusers@microsoft.com) pour rejoindre le groupe d’utilisateurs.
 
 ## Étapes suivantes
 
 Pour plus d’informations sur le stockage de fichiers Azure, consultez ces liens.
 
-### Articles conceptuels
+### Vidéos et articles conceptuels
 
+- [Stockage de fichiers Azure : un système de fichiers SMB dans le cloud sans friction pour Windows et Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md)
 
 ### Outils pris en charge pour le stockage de fichiers
@@ -130,4 +137,4 @@ Pour plus d’informations sur le stockage de fichiers Azure, consultez ces lien
 - [Présentation de Microsoft Azure File Service](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Conservation des connexions vers les fichiers Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
