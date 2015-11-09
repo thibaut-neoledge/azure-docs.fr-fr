@@ -4,7 +4,7 @@
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
-   manager="anuragg"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -85,4 +85,4 @@ La valeur MaxRecordSizeInKB définit la taille maximale d'un enregistrement que 
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble et permettent à un service d'utiliser un journal partagé distinct du journal partagé par défaut pour le nœud. Pour plus d'efficacité, vous devriez spécifier autant de services que possible dans le même journal partagé. Les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention des mouvements de la tête de lecture. Cette valeur ne devrait être modifiée qu'en de rares occasions.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

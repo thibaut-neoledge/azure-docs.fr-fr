@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Samanage | Microsoft Azure" description="Apprenez à utiliser Samanage avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Samanage | Microsoft Azure" 
+    description="Apprenez à utiliser Samanage avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Samanage
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522516).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Samanage. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Samanage
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Samanage pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Samanage (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Samanage pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Samanage (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -61,11 +74,11 @@ Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment con
 
     ![Configurer l’authentification unique](./media/active-directory-saas-samanage-tutorial/IC771709.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Samanage**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Samanage**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-samanage-tutorial/IC771710.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.samanage.com* », puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Samanage** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom-locataire>.samanage.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-samanage-tutorial/IC771711.png "Configurer l’URL de l’application")
 
@@ -111,7 +124,7 @@ Pour se connecter à Samanage, les utilisateurs d’Azure AD doivent être appro
 
 1.  Connectez-vous à votre locataire **Samanage**.
 
-2.  Accédez à **Dashboard > Setup**.
+2.  Accédez à **Dashboard > Setup**.
 
     ![Paramétrage](./media/active-directory-saas-samanage-tutorial/IC771724.png "Paramétrage")
 
@@ -147,6 +160,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-samanage-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

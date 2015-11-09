@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/14/2015"
+   ms.date="10/28/2015"
    ms.author="patshea" />
 
 # Débogage d'un service cloud ou d'une machine virtuelle Azure dans Visual Studio
@@ -88,11 +88,11 @@ Pour détacher le débogueur de tous les processus dans votre instance ou rôle,
 
 ## Limitations du débogage distant dans Azure
 
-Pour le Kit de développement logiciel (SDK) Azure 4.3, le débogage distant présente les limitations ci-dessous.
+À partir de la version 2.3 du Kit de développement logiciel (SDK), le débogage à distance présente les limitations ci-dessous.
 
 - Quand le débogage distant est activé, vous ne pouvez pas publier un service cloud dans lequel un rôle comporte plus de 25 instances.
 
-- Le débogueur utilise les ports 30400 à 30424 et 31400 à 31424. Si vous essayez d’utiliser ces ports, vous ne pourrez pas publier votre service, et l’un des messages d’erreur suivants s’affichera dans le journal des activités Azure :
+- Le débogueur utilise les ports 30400 à 30424, 31400 à 31424 et 32400 à 32424. Si vous essayez d’utiliser ces ports, vous ne pourrez pas publier votre service, et l’un des messages d’erreur suivants s’affichera dans le journal des activités Azure :
 
     - Erreur lors de la validation du fichier .cscfg par rapport au fichier .csdef. La plage de ports réservée ('range') pour le point de terminaison Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector du rôle ('role') chevauche une plage ou un port déjà défini.
     - L’allocation a échoué. Réessayez ultérieurement, essayez de réduire la taille de la machine virtuelle ou le nombre d’instances de rôle, ou essayez de déployer dans une autre région.
@@ -190,4 +190,4 @@ Les projets Visual Studio ASP.NET permettent de créer une machine virtuelle que
 - Utilisez **IntelliTrace** pour collecter un journal des appels et des événements d’un serveur de publication. Consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Utilisez les **Diagnostics Azure** pour collecter des informations détaillées du code actuellement exécuté dans des rôles qui sont eux-mêmes exécutés dans l’environnement de développement ou dans Azure. Consultez [Collecter des données de journalisation avec les diagnostics Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

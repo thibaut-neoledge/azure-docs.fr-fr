@@ -151,7 +151,7 @@ Vous pouvez ajouter l’authentification à votre projet de serveur en étendant
 
 3. Ajoutez l’attribut `[Authorize]` à tous les contrôleurs ou méthodes nécessitant l’authentification. Les utilisateurs doivent maintenant s’authentifier pour accéder à ce point de terminaison ou à ceux d’API spécifiques.
 
-Pour découvrir comment authentifier les clients auprès de votre serveur principal Mobile Apps, consultez la page [Ajout de l’authentification à votre application](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
+Pour découvrir comment authentifier les clients auprès de votre serveur principal Mobile Apps, consultez la page [Ajout de l’authentification à votre application](app-service-mobile-dotnet-backend-ios-get-started-users.md).
 
 ## Ajouter des notifications Push à un projet de serveur
 
@@ -191,13 +191,13 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d'informations, consultez [Ajout de notifications push à votre application](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Pour plus d’informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d’ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
+À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d’informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d’ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
 
 ## Publier le projet de serveur
 
 Pour publier votre projet de serveur vers Azure, procédez comme suit :
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 [NuGet.org]: http://www.nuget.org/
@@ -205,4 +205,4 @@ Pour publier votre projet de serveur vers Azure, procédez comme suit :
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

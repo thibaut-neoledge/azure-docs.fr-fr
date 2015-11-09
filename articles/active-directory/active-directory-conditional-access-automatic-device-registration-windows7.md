@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="10/26/2015"
 	ms.author="femila"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7
@@ -22,7 +22,7 @@ En tant qu’administrateur, vous pouvez configurer vos appareils joints à un d
 
 ##Installation du package logiciel d’inscription des appareils sur des appareils joints à un domaine Windows 7
 
-L’inscription des appareils pour Windows 7 est disponible sous forme d’un package MSI téléchargeable. Le package doit être installé sur les ordinateurs Windows 7 joints à un domaine Active Directory. Vous devez déployer le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package MSI prend en charge les options d’installation en mode silencieux standard avec le paramètre /quiet. Le package logiciel est disponible en téléchargement sur le site web Microsoft Connect. Vous pouvez sélectionner puis téléchargez ici Jonction d’espace de travail pour Windows 7.
+L’inscription des appareils pour Windows 7 est disponible sous la forme d’un [package MSI téléchargeable](https://connect.microsoft.com/site1164). Le package doit être installé sur les ordinateurs Windows 7 joints à un domaine Active Directory. Vous devez déployer le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package MSI prend en charge les options d’installation en mode silencieux standard avec le paramètre /quiet. Le package logiciel est disponible en téléchargement sur le [site web Microsoft Connect](https://connect.microsoft.com/site1164). Vous pouvez sélectionner puis téléchargez ici Jonction d’espace de travail pour Windows 7.
 
 ![](./media/active-directory-conditional-access/device-registration-process-windows7.gif)
 
@@ -52,4 +52,4 @@ Ouvrez ensuite une invite de commandes sur l’ordinateur Windows 7 et exécute
 
 Le journal des événements Windows sur l’ordinateur Windows 7 affiche des messages liés à la jonction d’espace de travail. Vous pouvez y trouver des messages pour les événements de jonction d’espace de travail qui ont réussi et pour ceux qui ont échoué. Le journal des événements se trouve dans l’Observateur d’événements, sous Journaux des services et Applications > Microsoft > Jonction d’espace de travail.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

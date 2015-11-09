@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Application Insights pour les applications web qui sont déjà actives
@@ -139,4 +139,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

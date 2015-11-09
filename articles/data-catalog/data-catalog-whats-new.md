@@ -13,19 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/16/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
 
+## Nouveautés de la version de la semaine du 23 octobre 2015
+
+À compter de la semaine du 23 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge des sources de données Teradata. Les utilisateurs peuvent désormais inscrire et découvrir des tables et vues Teradata.
+
+> [AZURE.NOTE]Pour la version actuelle, seule l’authentification Teradata TD2 est pris en charge. D’autres mécanismes d’authentification seront pris en charge dans les futures versions.
+
 ## Nouveautés de la version de la semaine du 16 octobre 2015
 
 À compter de la semaine du 16 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de sources de données Hive locales. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données locales.
-- Prise en charge des recherches enregistrées dans le portail **Azure Data Catalog**. Les utilisateurs peuvent enregistrer des termes de recherche et filtrer les sélections pour répéter facilement des recherches précédentes et définir des vues utiles du contenu du catalogue. L’utilisateur peut également définir une recherche enregistrée comme recherche par défaut. Lorsqu'un utilisateur clique sur l'icône de recherche en forme de loupe sur la page d’accueil du portail **Azure Data Catalog** ou sur la page de démarrage, il accède directement à la recherche enregistrée définie comme recherche par défaut.
+- Prise en charge des recherches enregistrées dans le portail **Azure Data Catalog**. Les utilisateurs peuvent enregistrer des termes de recherche et filtrer les sélections pour répéter facilement des recherches précédentes et définir des vues utiles du contenu du catalogue. L’utilisateur peut également définir une recherche enregistrée comme recherche par défaut. Quand un utilisateur clique sur l’icône de recherche en forme de loupe dans la page d’accueil du portail **Azure Data Catalog** ou dans la page de démarrage, il accède directement à la recherche enregistrée définie comme recherche par défaut.
 
 
 ## Nouveautés de la version de la semaine du 9 octobre 2015
@@ -38,9 +46,9 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 
 À compter de la semaine du 2 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Prise en charge de l'enregistrement manuel de types de sources de données connus. Les utilisateurs peuvent saisir manuellement les informations d’une source de données à l'aide du portail **Azure Data Catalog** pour tous les types de source de données pris en charge par **Azure Data Catalog**.
-- Prise en charge de l’autorisation des groupes de sécurité Azure Active Directory. Les administrateurs du catalogue peuvent autoriser l’accès au catalogue à des groupes de sécurité et à des comptes d'utilisateurs, facilitant la gestion de l'accès à **Azure Data Catalog**.
-- Prise en charge de l'ouverture de sources de données Hive dans Excel à partir du portail **Azure Data Catalog**.
+- Prise en charge de l'enregistrement manuel de types de sources de données connus. Les utilisateurs peuvent saisir manuellement les informations d’une source de données à l’aide du portail **Azure Data Catalog** pour tous les types de source de données pris en charge par **Azure Data Catalog**.
+- Prise en charge de l’autorisation des groupes de sécurité Azure Active Directory. Les administrateurs du catalogue peuvent autoriser l’accès au catalogue à des groupes de sécurité et à des comptes d’utilisateurs, facilitant ainsi la gestion de l’accès à **Azure Data Catalog**.
+- Prise en charge de l’ouverture de sources de données Hive dans Excel à partir du portail **Azure Data Catalog**.
 
 > [AZURE.NOTE]Pour pouvoir utiliser la fonctionnalité « Ouvrir dans Excel » avec des sources de données Hive, les utilisateurs doivent avoir installé le pilote ODBC pour Hive.
 
@@ -98,4 +106,4 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

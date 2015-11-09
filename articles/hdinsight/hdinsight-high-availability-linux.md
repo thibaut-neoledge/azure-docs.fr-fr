@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/19/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -37,7 +37,7 @@ Les nœuds [ZooKeeper](http://zookeeper.apache.org/) (ZKs) sont utilisés pour l
 
 En général, tous les accès au cluster via les passerelles publiques (Ambari web et API REST) ne sont pas affectées par les nœuds principaux. La demande est acheminée vers le nœud principal actif et traitée comme il convient.
 
-Lors de l'accès au cluster à l'aide de SSH, qui se connecte via le port 22 (valeur par défaut SSH) se connecte à headnode0 ; une connexion via le port 23 se connecte à headnode1.
+Lors de l’accès au cluster à l’aide de SSH, la connexion via le port 22 (valeur par défaut pour SSH) entraîne la connexion au nœud principal 0. Une connexion via le port 23 entraîne une connexion au nœud principal 1.
 
 ### Noms de domaine pleinement qualifiés internes (FQDN)
 
@@ -49,7 +49,7 @@ Par exemple, le service Oozie peut s'exécuter uniquement sur un nœud principal
 
 elle renverra une valeur semblable à celle qui suit, qui contient l'URL interne à utiliser avec la commande `oozie` :
 
-	"oozie.base.url": "http://headnode0.CLUSTERNAME-ssh.d9.internal.cloudapp.net:11000/oozie"
+	"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
 ## Comment contrôler l'état d'un service
 
@@ -74,7 +74,7 @@ Par exemple, pour vérifier l'état du service **HDFS** dans un cluster nommé *
 La réponse ressemblera à ce qui suit :
 
 	{
-	  "href" : "http://headnode0.mycluster-ssh.j7.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+	  "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
 	  "ServiceInfo" : {
 	    "cluster_name" : "mycluster",
 	    "service_name" : "HDFS",
@@ -82,7 +82,7 @@ La réponse ressemblera à ce qui suit :
 	  }
 	}
 
-L'URL indique que le service est en cours d'exécution sur **headnode0**.
+L’URL indique que le service est en cours d’exécution sur **nœud principal 0**.
 
 L'URL indique que le service est en cours d'exécution ou **démarré**.
 
@@ -166,4 +166,4 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

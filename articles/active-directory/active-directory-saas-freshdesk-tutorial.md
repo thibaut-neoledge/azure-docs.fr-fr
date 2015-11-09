@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Freshdesk | Microsoft Azure" description="Apprenez à utiliser Freshdesk avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Freshdesk | Microsoft Azure" 
+    description="Apprenez à utiliser Freshdesk avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Freshdesk
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=524323).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Freshdesk. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Freshdesk
   
-À l’issue de ce didacticiel, les utilisateurs d'Azure AD que vous avez affectés à Freshdesk pourront s’authentifier de manière unique dans l'application sur votre site d'entreprise Freshdesk (connexion initiée par le fournisseur du service) ou à l'aide de la [Présentation du panneau d'accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Freshdesk pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Freshdesk (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,7 +64,7 @@ Cette section décrit l’activation de l’intégration d’application pour Fr
     ![Freshdesk](./media/active-directory-saas-freshdesk-tutorial/IC776763.png "Freshdesk")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Freshdesk avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l'authentification unique pour Freshdesk oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Freshdesk avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l'authentification unique pour Freshdesk oblige à récupérer une valeur d’empreinte numérique dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -63,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-freshdesk-tutorial/IC776765.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configuration l’URL de l'application**, dans la zone de texte **URL de connexion à Freshdesk**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Freshdesk.com* », puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Freshdesk**, tapez votre URL selon le modèle suivant « *https://\<nom\_locataire>.Freshdesk.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-freshdesk-tutorial/IC776766.png "Configurer l’URL de l’application")
 
@@ -95,7 +108,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     6.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-freshdesk-tutorial/IC776771.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -125,7 +138,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Freshdesk, vous deve
     1.  Dans la zone de texte **Full Name**, tapez le nom du compte Azure AD que vous souhaitez approvisionner.
     2.  Dans la zone de texte **Email**, tapez l’adresse de messagerie Azure AD du compte Azure AD que vous souhaitez approvisionner.
     3.  Dans la zone de texte **Title**, tapez le titre du compte Azure AD que vous souhaitez approvisionner.
-    4.  Sélectonnez **Agents role**, puis cliquez sur **Assign**.
+    4.  Sélectionnez **Agents role**, puis cliquez sur **Assign**.
     5.  Cliquez sur **Enregistrer**.
     
         >[AZURE.NOTE]Le titulaire du compte Azure AD reçoit alors un message électronique qui contient un lien pour confirmer le compte avant qu’il soit activé.
@@ -148,6 +161,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-freshdesk-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,7 +1,9 @@
-You can use a load balancer to provide high availability for your workloads in Azure. An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
+Un équilibreur de charge permet d’assurer une haute disponibilité pour vos charges de travail dans Azure. Un équilibreur de charge Azure est un équilibreur de charge de type Layer-4 (TCP, UDP) qui distribue le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles définis dans un jeu d’équilibrage de la charge.
  
-You can configure a load balancer to.
+Vous pouvez configurer un équilibreur de charge pour :
 
-- Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet facing load balancer](load-balancer-internet-overview.md).
-- Load balance traffic between VMs in a virtual network (VNet), VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](load-balancer-internal-overview.md).
-- 	Forward external traffic to a specific VM instance.
+- équilibrer la charge du trafic Internet entrant sur les machines virtuelles. L’équilibreur de charge auquel nous faisons référence dans ce scénario est un [équilibreur de charge accessible sur Internet](load-balancer-internet-overview.md) ;
+- équilibrer le trafic entre des machines virtuelles dans un réseau virtuel (VNet), entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. L’équilibreur de charge auquel nous faisons référence dans ce scénario est un [Équilibreur de charge interne (ILB)](load-balancer-internal-overview.md) ;
+- 	transférer du trafic externe vers une instance spécifique de machine virtuelle.
+
+<!---HONumber=Nov15_HO1-->

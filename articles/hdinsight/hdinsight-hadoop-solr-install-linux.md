@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Installation et utilisation de Solr sur des clusters HDInsight Hadoop
@@ -158,19 +158,29 @@ Le tableau de bord Solr est une interface utilisateur web qui permet de travaill
 
 Une fois que vous avez établi un tunnel SSH, procédez comme suit pour utiliser le tableau de bord Solr :
 
-1. Dans votre navigateur, connectez-vous à \_\___http://headnode0:8983/solr/#/__. Ce trafic doit être acheminé via le tunnel SSH vers headnode0 pour votre cluster HDInsight. Une page similaire à celle ci-dessous doit s'afficher :
+1. Déterminez le nom d’hôte du nœud principal :
+
+    1. Dans un navigateur, accédez à https://CLUSTERNAME.azurehdinsight.net. À l’invite, utilisez le nom d’utilisateur et le mot de passe Admin pour vous authentifier auprès du site.
+    
+    2. Dans le menu situé en haut de la page, sélectionnez __Hôtes__.
+    
+    3. Sélectionnez l’entrée qui commence par __hn0__. Quand la page s’ouvre, le nom d’hôte apparaît en haut. Le format du nom d’hôte est __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. Il s’agit du nom d’hôte que vous devez utiliser quand vous vous connectez au tableau de bord Solr.
+    
+1. Dans votre navigateur, connectez-vous à \_\___http://HOSTNAME:8983/solr/#/__, où __HOSTNAME__ correspond au nom que vous avez déterminé pendant les étapes précédentes.
+
+    La requête doit être routée via le tunnel SSH vers le nœud principal de votre cluster HDInsight. Une page similaire à celle ci-dessous doit s'afficher :
 
 	![Image du tableau de bord Solr.](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
 2. Dans le volet de gauche, utilisez la liste déroulante **Sélecteur de base** pour sélectionner **collection1**. Plusieurs entrées doivent apparaître sous __collection1__.
 
-3. Dans les entrées ci-dessous __collection1__, sélectionnez __Requête__. Utilisez les valeurs suivantes pour remplir la page de recherche :
+3. Dans les entrées sous __collection1__, sélectionnez __Requête__. Utilisez les valeurs suivantes pour remplir la page de recherche :
 
 	* Dans la zone de texte **q**, entrez ***:***. Tous les documents indexés dans Solr sont alors renvoyés. Si vous souhaitez rechercher une chaîne spécifique dans les documents, vous pouvez la saisir à cet emplacement.
 
 	* Sélectionnez le format de sortie dans la zone de texte **wt**. La valeur par défaut est **json**.
 
-	Enfin, sélectionnez le bouton **Exécuter la requête** bouton au bas de la page de recherche.
+	Enfin, sélectionnez le bouton **Exécuter la requête** au bas de la page de recherche.
 
 	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
@@ -240,9 +250,13 @@ Si vous souhaitez arrêter ou démarrer Solar manuellement, utilisez les command
 
 Il est conseillé de sauvegarder les données indexées à partir de nœuds de cluster Solr sur un stockage d’objets blob Azure. Pour ce faire, procédez comme suit :
 
-1. Se connecter au cluster à l’aide de SSH, puis utiliser la commande suivante pour créer un instantané des données indexées :
+1. Connectez-vous au cluster à l’aide de SSH, puis utilisez la commande suivante pour obtenir le nom d’hôte du nœud principal :
 
-		curl http://headnode0:8983/solr/replication?command=backup
+        hostname -f
+        
+2. Utilisez ce qui suit pour créer un instantané des données indexées. Remplacez __HOSTNAME__ par le nom retourné par la commande précédente :
+
+		curl http://HOSTNAME:8983/solr/replication?command=backup
 
 	La réponse doit ressembler à ceci :
 
@@ -255,15 +269,15 @@ Il est conseillé de sauvegarder les données indexées à partir de nœuds de c
 		  <str name="status">OK</str>
 		</response>
 
-2. Ensuite, accédez au répertoire __/usr/hdp/current/solr/example/solr__. Il y aura ici un sous-répertoire pour chaque collection. Chaque répertoire de la collection contient un répertoire de __données__ où l’instantané de cette collection est situé.
+2. Ensuite, accédez au répertoire __/usr/hdp/current/solr/example/solr__. Il y aura ici un sous-répertoire pour chaque collection. Chaque répertoire de la collection contient un répertoire __data__ où l’instantané de cette collection se trouve.
 
-	Par exemple, si vous avez utilisé les étapes précédentes pour indexer les exemples de documents, le répertoire __/usr/hdp/current/solr/example/solr/collection1/data__ doit contenir un répertoire nommé __snapshot.###########__ où les caractère # correspondent à la date et l’heure de l’instantané.
+	Par exemple, si vous avez utilisé les étapes précédentes pour indexer les exemples de documents, le répertoire __/usr/hdp/current/solr/example/solr/collection1/data__ doit maintenant contenir un répertoire nommé __snapshot.###########__ où les caractères # correspondent à la date et à l’heure de l’instantané.
 
 3. Créer une archive compressée du dossier d’instantanés à l’aide d’une commande semblable à ce qui suit :
 
 		tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
 
-	Cela créera une nouvelle archive nommée __snapshot.20150806185338855.tgz__, qui contient le contenu du répertoire __snapshot.20150806185338855__.
+	Une archive nommée __snapshot.20150806185338855.tgz__, comprenant le contenu du répertoire __snapshot.20150806185338855__ est ainsi créée.
 
 3. Vous pouvez ensuite stocker l’archive vers le stockage principal du cluster à l’aide de la commande suivante :
 
@@ -271,7 +285,7 @@ Il est conseillé de sauvegarder les données indexées à partir de nœuds de c
 
 	> [AZURE.NOTE]Voulez-vous créer un répertoire dédié pour stocker les instantanés Solr. Par exemple, `hadoop fs -mkdir /solrbackup`.
 
-Pour plus d’informations sur l’utilisation de sauvegardes et de restauration Solr, consultez [Création et restauration de sauvegardes de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
+Pour plus d’informations sur l’utilisation de sauvegardes et de restaurations Solr, consultez [Création et restauration de sauvegardes de SolrCores](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores).
 
 
 ## Voir aussi
@@ -294,4 +308,4 @@ Pour plus d’informations sur l’utilisation de sauvegardes et de restauration
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

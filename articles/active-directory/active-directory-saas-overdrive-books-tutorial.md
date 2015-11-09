@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Overdrive Books | Microsoft Azure" description="Apprenez à utiliser Overdrive Books avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Overdrive Books | Microsoft Azure" 
+    description="Apprenez à utiliser Overdrive Books avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory avec Overdrive Books
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=527956).
   
 L'objectif de ce didacticiel est de montrer comment intégrer Azure et OverDrive. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement OverDrive pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à OverDrive pourront s’authentifier de manière unique dans l'application sur votre site d'entreprise OverDrive (connexion initiée par le fournisseur du service) ou à l'aide de la [Présentation du volet d'accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à OverDrive pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise OverDrive (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -59,15 +72,15 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Activer l'authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784465.png "Activer l'authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à OverDrive**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à OverDrive**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784466.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l'application**, dans la zone de texte **URL de connexion à OverDrive**, tapez votre URL selon le modèle suivant « **http://mslibrarytest.libraryreserve.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de OverDrive**, tapez votre URL selon le modèle suivant « **http://mslibrarytest.libraryreserve.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-overdrive-books-tutorial/IC784467.png "Configurer l’URL de l’application")
 
-4.  Sur la page **Configurer l'authentification unique sur OverDrive**, téléchargez le fichier de métadonnées, puis l'envoyer à l'équipe du support technique OverDrive.
+4.  Sur la page **Configurer l’authentification unique sur OverDrive**, téléchargez le fichier de métadonnées, puis envoyez-le à l’équipe du support technique OverDrive.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-overdrive-books-tutorial/IC784468.png "Configurer l’authentification unique")
 
@@ -98,6 +111,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple série 8000 : une solution de stockage de cloud hybride 
@@ -46,7 +46,7 @@ Le tableau suivant décrit certains des principaux avantages offerts par Microso
 |Disponibilité sur le portail Azure Government | StorSimple est désormais disponible sur le portail Azure Government. Pour plus d’informations, consultez [Déploiement de votre appareil StorSimple local sur le portail Microsoft Azure Government](storsimple-deployment-walkthrough-gov.md).|
 |Stockage redondant dans une zone | Avec la mise à niveau vers la dernière version des API Microsoft Azure Storage, les appareils StorSimple série 8000 prendront en charge le stockage redondant dans une zone (ZRS), en plus du stockage localement redondant (LRS) et du stockage géo-redondant (GRS). Pour en savoir plus sur le stockage redondant dans une zone, consultez [cet article sur les options de redondance](https://azure.microsoft.com/documentation/articles/storage-redundancy/) dans Microsoft Azure Storage.
 
-![icône de vidéo](./media/storsimple-overview/video_icon.png) Regardez [cette vidéo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) pour obtenir une vue d’ensemble des fonctionnalités de StorSimple série 8000 et de ses avantages.
+![icône de vidéo](./media/storsimple-overview/video_icon.png) Pour plus d’informations, regardez [cette vidéo](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015) de présentation des fonctionnalités de StorSimple série 8000 et de ses avantages.
 
 ## Composants de StorSimple
 
@@ -65,6 +65,8 @@ Le diagramme ci-dessous offre une vue d’ensemble de l’architecture et des co
 ![Architecture de StorSimple](./media/storsimple-overview/overview-big-picture.png)
 
 Les sections suivantes décrivent chacun de ces composants plus en détail, et expliquent comment la solution organise les données, alloue le stockage et facilite la gestion du stockage et la protection des données. La dernière section fournit les définitions de quelques termes et concepts importants liés aux composants de StorSimple et à leur gestion.
+
+![icône de vidéo](./media/storsimple-overview/video_icon.png) Pour plus d’informations, regardez [cette vidéo](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) de présentation de l’appareil StorSimple, de l’appareil virtuel StorSimple et du service StorSimple Manager.
 
 ## Appareil StorSimple
 
@@ -207,7 +209,7 @@ Avant de déployer votre solution Microsoft Azure StorSimple, nous vous recomman
 | ------------------------------ | ---------------- |
 | enregistrement de contrôle d’accès (ACR) | Enregistrement associé à un volume sur votre appareil Microsoft Azure StorSimple et qui détermine quels sont les hôtes qui peuvent s’y connecter. Ce choix est basé sur le nom complet iSCSI (IQN) des hôtes (dans l’enregistrement de contrôle d’accès) qui se connectent à votre appareil StorSimple.|
 | AES-256 | Algorithme AES (Advanced Encryption Standard) 256 bits de chiffrement des données en provenance et à destination du cloud. |
-| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d’unité d’allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car cette taille est adaptée pour les algorithmes de déduplication.|
+| taille d’unité d’allocation | Plus petite quantité d’espace disque pouvant être allouée pour la conservation d’un fichier sur les systèmes de fichiers Windows. Si la taille d’un fichier n’est pas un multiple pair de la taille du cluster, l’espace supplémentaire doit être utilisé pour la conservation du fichier (jusqu’au prochain multiple de la taille du cluster), ce qui entraîne une perte d’espace et la fragmentation du disque dur. <br>La taille d’unité d’allocation recommandée pour les volumes Azure StorSimple est de 64 Ko, car cela convient aux algorithmes de déduplication.|
 | hiérarchisation du stockage automatisé | Déplacement automatique des données moins actives de disques SSD vers des disques durs puis vers un certain niveau du cloud, puis activation de la gestion de l’ensemble du stockage à partir d’une interface utilisateur centrale.|
 | catalogue de sauvegarde | Ensemble de sauvegardes habituellement liées par le type d’application utilisé. Cet ensemble est affiché dans la page Catalogue de sauvegarde de l’interface utilisateur du service StorSimple Manager.|
 | fichier de catalogue de sauvegarde | Fichier contenant une liste des instantanés disponibles actuellement stockés dans la base de données de sauvegarde de StorSimple Snapshot Manager. |
@@ -269,4 +271,4 @@ En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,15 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Work.com | Microsoft Azure" description="Découvrez comment utiliser Work.com avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Work.com | Microsoft Azure" 
+    description="Découvrez comment utiliser Work.com avec Azure AD pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Work.com
-  
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529836).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Work.com. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Work.com pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD auxquels vous avez affecté un accès à Work.com pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Work.com (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’AAD auxquels vous avez affecté un accès à Work.com pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Work.com (connexion initiée par le fournisseur de services) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -60,7 +72,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Connectez-vous à votre client Work.com en tant qu’administrateur.
+1.  Connectez-vous à votre locataire Work.com en tant qu’administrateur.
 
 2.  Accédez à **Setup**.
 
@@ -84,7 +96,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794110.png "Configurer l’authentification unique")
 
-8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. **http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
+8.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Work.com**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Work.com (par ex. "**http://company.my.salesforce.com*”)), puis cliquez sur **Suivant** :
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-work-com-tutorial/IC794111.png "Configurer l’URL de l’application")
 
@@ -92,7 +104,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-work-com-tutorial/IC794112.png "Configurer l’authentification unique")
 
-10. Connectez-vous à votre client Work.com.
+10. Connectez-vous à votre locataire Work.com.
 
 11. Accédez à **Setup**.
 
@@ -106,7 +118,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![SAML activé](./media/active-directory-saas-work-com-tutorial/IC781026.png "SAML activé")
 
-    1.  Sélectionnez **SAML enabled**.
+    1.  Sélectionnez **SAML Enabled**.
     2.  Cliquez sur **Nouveau**.
 
 14. Dans la section **SAML Single Sign-On Settings**, procédez comme suit :
@@ -117,14 +129,14 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
         >[AZURE.NOTE]Le fait d’entrer une valeur pour **Name** renseigne automatiquement la zone de texte **API Name**.
 
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
+    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com** de la boîte de dialogue, copiez la valeur **URL de l’émetteur**, puis collez-la dans la zone de texte **Issuer**.
     3.  Pour charger le certificat téléchargé, cliquez sur **Parcourir**.
-    4.  Dans la zone de texte **ID d’entité**, tapez ****https://salesforce-work.com**.
-5.  Comme **Type d’identité SAML**, sélectionnez **L’assertion contient l’ID de fédération de l’objet utilisateur**.
-    6.  Comme **Emplacement de l’identité SAML**, sélectionnez **L’identité est dans l’élément NameIdentifier de l’instruction Subject**.
+    4.  Dans la zone de texte **Entity Id**, tapez ****https://salesforce-work.com**.
+5.  Pour **SAML Identity Type**, sélectionnez **Assertion contains the Federation ID from the User object**.
+    6.  Pour **SAML Identity Location**, sélectionnez **Identity is in the NameIdentfier element of the Subject statement**.
     7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **Identity Provider Login URL**.
     8.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Work.com**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **Identity Provider Logout URL**.
-    9.  Comme **Liaison de demande initiée par le fournisseur de services**, sélectionnez **HTTP Post**.
+    9.  Pour **Service Provider Initiated Request Binding**, sélectionnez **HTTP POST**.
     10. Cliquez sur **Enregistrer**.
 
 15. Dans le volet de navigation gauche du portail Work.com, cliquez sur **Domain Management** pour développer la section associée, puis sur **My Domain** pour ouvrir la page **My Domain**.
@@ -155,7 +167,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
 
     ![Paramétrage](./media/active-directory-saas-work-com-tutorial/IC794108.png "Paramétrage")
 
-3.  Sélectionnez **Manage Users > Users**.
+3.  Accédez à **Manage Users > Users**.
 
     ![Gérer les utilisateurs](./media/active-directory-saas-work-com-tutorial/IC784369.png "Gérer les utilisateurs")
 
@@ -167,7 +179,7 @@ Pour que les utilisateurs d’Azure AD puissent se connecter, leur accès doit �
 
     ![Modification de l’utilisateur](./media/active-directory-saas-work-com-tutorial/IC794118.png "Modification de l’utilisateur")
 
-    1.  Dans les zones de texte **Last Name**, **Alias**, **Email**, **Username** et **Nickname**, tapez les attributs d’un compte Azure AD valide que vous souhaitez approvisionner.
+    1.  Dans les zones de texte **Last Name**, **Alias**, **Email**, **Username** et **Nickname**, tapez les attributs d’un compte Azure Active Directory valide que vous souhaitez approvisionner.
     2.  Sélectionnez **Role**, **User License** et **Profile**.
     3.  Cliquez sur **Enregistrer**.  
 
@@ -187,12 +199,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-work-com-tutorial/IC794119.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-work-com-tutorial/IC767830.png "Oui")
   
 À présent, vous devez patienter 10 minutes et vérifier que le compte a été synchronisé avec Work.com.
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le panneau d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -14,16 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/27/2015"
 	ms.author="garye;bradsev" />
 
 
 # Importation de vos données d’apprentissage Azure Machine Learning Studio depuis différentes sources de données
-
-Ce **menu** pointe vers des rubriques qui décrivent comment recevoir les données dans les environnements cibles où les données peuvent être stockées et traitées pendant le processus d’analyse Cortana (CAPS).
-
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
 
 ## Introduction
 
@@ -83,7 +78,7 @@ Voici les **types de données** reconnus par Machine Learning Studio :
 - DateTime
 - TimeSpan
 
-Machine Learning Studio utilise un type de données interne appelé ***Table de données*** pour passer des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
+Machine Learning Studio utilise un type de données interne appelé ***Table de données*** pour transmettre des données entre les modules. Vous pouvez convertir de manière explicite vos données dans un format de table de données à l’aide du module [Convertir en jeu de données][convert-to-dataset].
 
 Tout module qui accepte d'autres formats que la table de données convertira silencieusement les données de la table de données avant de les passer au module suivant.
 
@@ -96,4 +91,4 @@ Au besoin, vous pouvez convertir à nouveau le format de la table de données au
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

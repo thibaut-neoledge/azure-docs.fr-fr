@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services" 
-	description="Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Au moment de l'écriture, le format MP4 fragmenté pré-encodé est le seul mécanisme d'ingestion pour la diffusion en direct dans Microsoft Azure Media Services. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes." 
+	description="Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="cenkdin,juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/21/2015" 
 	ms.author="juliako"/>
 
 #Spécification d'ingestion en direct au format MP4 fragmenté Azure Media Services
 
-Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Au moment de l'écriture, le format MP4 fragmenté pré-encodé est le seul mécanisme d'ingestion pour la diffusion en direct dans Microsoft Azure Media Services. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes.
+Cette spécification décrit le protocole et le format requis pour l'ingestion de diffusion en continu en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Microsoft Azure Media Services fournit le service de diffusion en continu en direct qui permet aux clients de diffuser en continu des événements en direct et de diffuser du contenu en temps réel en utilisant Microsoft Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées en matière de création de mécanismes d'ingestion en direct extrêmement redondants et robustes.
 
-##Notation de conformité
+
+##1\. Notation de conformité
 
 Les mots clés « MUST », « MUST NOT », « REQUIRED », « SHALL », « SHALL NOT », « SHOULD », « SHOULD NOT », « RECOMMENDED », « MAY » et « OPTIONAL » figurant dans ce document doivent être interprétés comme indiqué dans le document RFC 2119.
 
-##Diagramme du service 
+##2\. Diagramme du service 
 
 Le diagramme ci-dessous illustre l'architecture de haut niveau du service de diffusion en continu en direct dans Microsoft Azure Media Services :
 
@@ -36,9 +37,11 @@ Le diagramme ci-dessous illustre l'architecture de haut niveau du service de dif
 ![image1][image1]
 
 
-##Format de flux binaire – MP4 fragmenté ISO 14496-12
+##3\. Format de flux binaire – MP4 fragmenté ISO 14496-12
 
-Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
+Le format câble utilisé pour l’ingestion de la diffusion en continu en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Reportez-vous à [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx) pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d'ingestion de diffusion en continu en direct.
+
+###Définitions de format de réception en temps réel 
 
 Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquent à l'ingestion en direct dans Microsoft Azure Media Services :
 
@@ -46,16 +49,18 @@ Ci-dessous figure la liste des définitions de formats spéciaux qui s'appliquen
 2. La section 3.3.2 dans [1] définit une zone facultative appelée StreamManifestBox pour l’ingestion en direct. En raison de la logique de routage du programme d'équilibrage de la charge de Microsoft Azure, l'utilisation de cette zone est déconseillée et NE DOIT PAS être présente lors de l'ingestion dans Microsoft Azure Media Services. Si cette zone est présente, Azure Media Services l'ignore en mode silencieux.
 3. La zone TrackFragmentExtendedHeaderBox définie à la section 3.2.3.2 dans [1] doit être présente pour chaque fragment.
 4. La version 2 de la zone TrackFragmentExtendedHeaderBox DOIT être utilisée pour générer des segments de médias avec des URL identiques dans plusieurs centres de données. Le champ d'index de fragment est OBLIGATOIRE pour le basculement entre centres de données des formats de diffusion en continu basée sur les index comme Apple HTTP Live Streaming (HLS) et MPEG-DASH basée sur les index. Pour permettre un basculement entre centres de données, l'index de fragment DOIT être synchronisé entre plusieurs encodeurs et augmenté de 1 pour chaque fragment multimédia successif, même entre les redémarrages ou échecs de l'encodeur.
-5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de l’ingestion en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
+5. La section 3.3.6 dans [1] définit la zone appelée MovieFragmentRandomAccessBox (’mfra’) qui PEUT être envoyée à la fin de la réception en direct pour indiquer la fin du flux (EOS, End-of-Stream) au canal. En raison de la logique d'ingestion d'Azure Media Services, l'utilisation de la fin du flux (EOS) est déconseillée et la zone 'mfra' pour l'ingestion en direct ne DOIT PAS être envoyée. Si elle l'est, Azure Media Services l'ignore en mode silencieux. Il est recommandé d'utiliser la [réinitialisation du canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) pour réinitialiser l'état du point d'ingestion et également d'utiliser l'[arrêt du programme](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) pour mettre fin à une présentation et à un flux.
 6. La durée du fragment MP4 DOIT être une constante, afin de réduire la taille des manifestes du client et d'améliorer les heuristiques de téléchargement client via l'utilisation de balises de répétition. La durée PEUT varier pour compenser les fréquences d'images non entières.
 7. La durée du fragment MP4 DOIT être comprise entre environ 2 et 6 secondes.
-8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time et fragment\_index) DOIVENT normalement arriver dans l'ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
+8. Les horodatages et index du fragment MP4 (TrackFragmentExtendedHeaderBox fragment\_absolute\_time et fragment\_index) DOIVENT normalement arriver dans l’ordre croissant. Bien qu'Azure Media Services ne duplique pas les fragments, il est capable, de façon très limitée, de réorganiser les fragments en fonction de la chronologie du média.
 
-##Format de protocole – HTTP
+##4\. Format de protocole – HTTP
 
-L'ingestion en direct basée sur le format MP4 fragmenté ISO pour Microsoft Azure Media Services utilise une longue requête HTTP POST standard pour transmettre des données multimédias encodées empaquetées au format MP4 fragmenté au service. Chaque requête HTTP POST envoie un flux binaire (« Stream ») MP4 fragmenté en commençant par les zones d'en-tête (zone « ftyp », « Live Server Manifest Box » et « moov ») et en continuant avec une séquence de fragments (zones « moof » et « mdat »). Reportez-vous à la section 9.2 dans [1] pour connaître la syntaxe d’URL de la requête HTTP POST. Voici un exemple d'URL POST :
+L'ingestion en direct basée sur le format MP4 fragmenté ISO pour Microsoft Azure Media Services utilise une longue requête HTTP POST standard pour transmettre des données multimédias encodées empaquetées au format MP4 fragmenté au service. Chaque requête HTTP POST envoie un flux binaire (« Stream ») MP4 fragmenté en commençant par les zones d’en-tête (zones « ftyp », « Live Server Manifest Box » et « moov ») et en continuant avec une séquence de fragments (zones « moof » et « mdat »). Reportez-vous à la section 9.2 dans [1] pour connaître la syntaxe d’URL de la requête HTTP POST. Voici un exemple d'URL POST :
 
 	http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+
+###Configuration requise
 
 Voici les spécifications détaillées :
 
@@ -67,11 +72,11 @@ Voici les spécifications détaillées :
 6. L’encodeur NE DOIT PAS utiliser le nom Events() comme décrit à la section 9.2 dans [1] pour l’ingestion en direct dans Microsoft Azure Media Services.
 7. Si la requête HTTP POST se termine ou arrive à expiration avant la fin du flux avec une erreur TCP, l'encodeur DOIT émettre une nouvelle requête POST à l'aide d'une nouvelle connexion et suivre les spécifications ci-dessus en plus de respecter l'exigence supplémentaire stipulant que l'encodeur DOIT renvoyer les deux fragments MP4 précédents pour chaque piste dans le flux, puis reprendre sans introduire de discontinuités dans la chronologie du média. Le renvoi des deux derniers fragments MP4 pour chaque piste garantit l'absence de perte de données. En d'autres termes, si un flux contient à la fois une piste audio et vidéo, et si la requête POST en cours échoue, l'encodeur doit se reconnecter et renvoyer les deux derniers fragments de la piste audio, lesquels ont déjà été envoyés correctement, ainsi que les deux derniers fragments de la piste vidéo, lesquels ont déjà été envoyés correctement, pour garantir l'absence de perte de données. L'encodeur DOIT conserver un tampon « de transfert » des fragments multimédias, qu'il renvoie lors de la reconnexion.
 
-##Échelle de temps 
+##5\. Échelle de temps 
 
 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) décrit l'utilisation de l'échelle de temps pour SmoothStreamingMedia (Section 2.2.2.1), StreamElement (Section 2.2.2.3), StreamFragmentElement (Section 2.2.2.6) et LiveSMIL (Section 2.2.7.3.1). Si la valeur de l'échelle de temps n'est pas présente, la valeur par défaut utilisée est 10 000 000 (10 MHz). Bien que la spécification du format Smooth Streaming ne bloque pas l'utilisation d'autres valeurs d'échelle de temps, la plupart des implémentations de l'encodeur utilise cette valeur par défaut (10 MHz) pour générer les données d'ingestion Smooth Streaming. En raison de la fonctionnalité [Azure Media Dynamic Packaging](media-services-dynamic-packaging-overview.md), il est recommandé d'utiliser l'échelle de temps de 90 kHz pour les flux vidéos et de 44,1 ou de 48,1 kHz pour les flux audio. Si des valeurs d'échelle de temps différentes sont utilisées pour des flux différents, l'échelle de temps au niveau du flux DOIT être envoyée. Reportez-vous à [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
-##Définition de « Stream »  
+##6\. Définition de « Stream »  
 
 « Stream » est l'unité de base de l'opération dans l'ingestion en direct pour rédiger la présentation en direct, gérer le basculement de la diffusion en continu et les scénarios de redondance. « Stream » se définit comme un seul flux binaire MP4 fragmenté pouvant contenir une piste unique ou plusieurs pistes. Une présentation en direct complète peut contenir un ou plusieurs flux selon la configuration des encodeurs en direct. Les exemples suivants illustrent les différentes options d'utilisation des flux pour rédiger une présentation en direct.
 
@@ -107,7 +112,7 @@ Dans cette option, le client choisit de regrouper la piste audio avec la piste v
 
 Ce qui précède ne constitue PAS la liste exhaustive de toutes les options d'ingestion possibles pour cet exemple. En fait, tous les regroupements de pistes dans des flux sont pris en charge par l'ingestion en direct. Les clients et fournisseurs d'encodeurs peuvent choisir leurs propres implémentations selon la complexité d'ingénierie, la capacité de l'encodeur et les questions de redondance et de basculement. Toutefois, il convient de noter que dans la plupart des cas, il existe uniquement une piste audio pour toute la présentation en direct. Donc il est important de garantir l'intégrité du flux d'ingestion qui contient la piste audio. Cette remarque entraîne souvent le placement de la piste audio dans son propre flux (comme dans l'option 2) ou son regroupement avec la piste vidéo au débit binaire le plus bas (comme dans l'option 3). De plus, pour une meilleure redondance et une meilleure tolérance de panne, l'envoi de la même piste audio dans deux flux différents (option 2 avec pistes audio redondantes) ou le regroupement de la piste audio avec au moins deux des pistes vidéo au débit binaire le plus faible (option 3 avec audio regroupé avec au moins deux flux vidéo) sont fortement recommandés pour l'ingestion en direct dans Microsoft Azure Media Services.
 
-##Basculement du service 
+##7\. Basculement du service 
 
 Étant donné la nature de la diffusion en continu en direct, une bonne prise en charge du basculement s'avère essentielle pour garantir la disponibilité du service. Microsoft Azure Media Services est conçu pour gérer divers types de défaillances, notamment les erreurs de réseau, les erreurs de serveur, les problèmes de stockage, etc. Utilisé conjointement avec la logique de basculement appropriée du côté de l'encodeur en direct, le client peut obtenir un service de diffusion en continu en direct très fiable à partir du cloud.
 
@@ -125,7 +130,7 @@ Dans cette section, nous aborderons les scénarios de basculement du service. Le
 	4. Les deux derniers fragments envoyés pour chaque piste DOIVENT être renvoyés et la diffusion en continu reprise sans introduire de discontinuités dans la chronologie du média. Les horodatages des fragments MP4 doivent s'incrémenter en permanence, même dans les requêtes HTTP POST.
 6. L'encodeur DOIT mettre fin à la requête HTTP POST si les données ne sont pas envoyées à un débit proportionné par rapport à la durée du fragment MP4. Une requête HTTP POST qui n'envoie pas de données peut empêcher Azure Media Services de se déconnecter rapidement de l'encodeur en cas de mise à jour du service. C'est pourquoi la requête HTTP POST des pistes partiellement allouées (signal d'annonce) DOIT avoir une durée de vie courte et se terminer dès que le fragment partiellement alloué est envoyé.
 
-##Basculement de l'encodeur
+##8\. Basculement de l'encodeur
 
 Le basculement de l'encodeur est le deuxième type de scénario de basculement qui doit être traité pour la diffusion en continu en direct de bout en bout. Dans ce scénario, la condition d'erreur s'est produite côté encodeur.
 
@@ -141,7 +146,7 @@ Voici les attentes du point de terminaison d'ingestion en direct en cas de bascu
 5. Le nouveau flux DOIT être sémantiquement équivalent au flux précédent et interchangeables au niveau de l'en-tête et du fragment.
 6. Le nouvel encodeur DOIT tenter de minimiser les pertes de données. Les valeurs fragment\_absolute\_time et fragment\_index des fragments multimédias DOIVENT augmenter à partir du point où l'encodeur s'est arrêté la dernière fois. Les valeurs fragment\_absolute\_time et fragment\_index DOIVENT augmenter de façon continue, mais il est possible d'introduire une discontinuité si besoin. Azure Media Services ignore les fragments déjà reçus et traités. Une erreur du côté du renvoi des fragments est donc préférable à l'introduction de discontinuités dans la chronologie du média. 
 
-##Redondance de l'encodeur 
+##9\. Redondance de l'encodeur 
 
 Pour certains événements en direct critiques qui exigent une disponibilité et une qualité d'expérience encore plus élevées, il est recommandé d'utiliser des encodeurs redondants en mode actif-actif pour obtenir un basculement transparent sans perte de données.
 
@@ -151,19 +156,19 @@ Comme illustré dans le diagramme ci-dessus, il existe deux groupes d'encodeurs 
 
 La configuration requise pour ce scénario est presque identique à celle requise en cas de basculement de l'encodeur, à l'exception près que le deuxième ensemble d'encodeurs s'exécute en même temps que les encodeurs principaux.
 
-##Redondance du service  
+##10\. Redondance du service  
 
 Pour une distribution globale hautement redondante, il est parfois nécessaire de disposer d'une sauvegarde inter-régions pour traiter les urgences régionales. En développant la topologie « Redondance de l'encodeur », les clients peuvent choisir d'avoir un déploiement de services redondant dans une région différente qui est connectée au deuxième ensemble d'encodeurs. Les clients peuvent également avoir recours à un fournisseur CDN pour déployer un GTM (Global Traffic Manager) devant les deux déploiements de services afin d'acheminer le trafic du client en toute transparence. La configuration requise pour les encodeurs est la même que celle de l'exemple « Redondance de l'encodeur », à la seule exception près que le deuxième ensemble d'encodeurs a besoin de pointer vers un autre point de terminaison d'ingestion en direct. Le diagramme ci-dessous illustre cette configuration :
 
 ![image7][image7]
 
-##Types spéciaux de formats d'ingestion 
+##11\. Types spéciaux de formats d'ingestion 
 
 Cette section présente les types spéciaux de formats d'ingestion en direct, conçus pour gérer certains scénarios spécifiques.
 
 ###Piste partiellement allouée
 
-Pendant une présentation de diffusion en continu en direct avec une expérience client riche, il est souvent nécessaire de transmettre des événements synchronisés ou des signaux intrabande avec les principales données multimédias. L'insertion de publicités dynamiques en direct en est un exemple. Ce type de signalisation d'événement diffère de la diffusion audio/vidéo en continu standard en raison de sa nature partiellement allouée. Autrement dit, les données de signalisation ne se produisent généralement pas de manière continue et l'intervalle peut être difficile à prédire. Le concept de piste partiellement allouée a été spécialement conçu pour ingérer et diffuser des données de signalisation intrabande.
+Pendant une présentation de diffusion en continu en direct avec une expérience client riche, il est souvent nécessaire de transmettre des événements synchronisés ou des signaux intrabande avec les principales données multimédias. L'insertion de publicités dynamiques en direct en est un exemple. Ce type de signalisation d'événement diffère de la diffusion audio/vidéo en continu standard en raison de sa nature partiellement allouée. Autrement dit, les données de signalisation ne se produisent généralement pas de manière continue et l’intervalle peut être difficile à prédire. Le concept de piste partiellement allouée a été spécialement conçu pour ingérer et diffuser des données de signalisation intrabande.
 
 Voici une implémentation recommandée pour l'ingestion d'une piste partiellement allouée :
 
@@ -195,7 +200,6 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 2. Utilisez des flux distincts pour envoyer les deux débits binaires vidéo les plus bas. Chacun de ces flux DOIT également contenir une copie de chaque piste audio unique. Par exemple, quand plusieurs langues sont prises en charge, ces flux DOIVENT contenir des pistes audio pour chaque langue.
 3. Utilisez des instances de serveur (encodeur) distinctes pour encoder et envoyer les flux redondants mentionnés dans (1) et (2). 
 
-
 ##Parcours d’apprentissage de Media Services
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
@@ -215,4 +219,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation d'un client HTML | Microsoft Azure"
+	pageTitle="Utilisation d’un client HTML avec Azure Mobile Services | Microsoft Azure"
 	description="Découvrez comment utiliser un client HTML pour Azure Mobile Services."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # Utilisation d'un client HTML/JavaScript pour Azure Mobile Services
@@ -504,10 +504,9 @@ L'exemple suivant montre comment utiliser le SDK Live avec des API WinJS pour of
 	// Start the sign-in process.
 	authenticate();
 
-Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L'application ne démarre pas tant que l'authentification n’a pas abouti.
-
-###Mise en cache du jeton d’authentification
-Dans certains cas, l'appel à la méthode de connexion peut être évité après la première authentification de l'utilisateur. Vous pouvez utiliser [sessionStorage] ou [localStorage] pour mettre en cache l'identité de l'utilisateur actif lors de sa première connexion et, par la suite, à chaque fois que vous vérifiez si son identité est présente dans le cache. Si le cache est vide ou échoue (c'est-à-dire que la session de connexion en cours a expiré), l'utilisateur doit toujours effectuer le processus de connexion.
+Cela permet d'initialiser le client Live Connect, d'envoyer une nouvelle demande de connexion à Live Connect, d'envoyer le jeton d'authentification renvoyé à Mobile Services, puis d'afficher des informations sur l'utilisateur connecté. L’application ne démarre pas tant que l’authentification n’a pas abouti. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+###Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
     // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -522,6 +521,7 @@ Dans certains cas, l'appel à la méthode de connexion peut être évité après
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>Procédure : inscription aux notifications Push
 
@@ -665,4 +665,4 @@ Pour contrôler les sites web autorisés à interagir avec les requêtes et à e
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Référence des options de requête système OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

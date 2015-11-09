@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Installation de Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
@@ -99,9 +99,13 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-4. Exécutez l’exemple SimpleShortestPathsComputation en utilisant la commande suivante :
+3. Pour obtenir le nom de domaine complet (FQDN) du nœud principal du cluster, utilisez les éléments suivants :
 
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnode0:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+        hostname -f
+        
+4. Exécutez l’exemple SimpleShortestPathsComputation en utilisant la commande suivante : Remplacez __HEADNODE__ par le nom de domaine complet renvoyé à l’étape précédente :
+
+		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	Les paramètres utilisés avec cette commande sont décrits dans le tableau suivant.
 
@@ -110,7 +114,7 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | Fichier jar contenant des exemples. |
 	| `org.apache.giraph.GiraphRunner` | Classe utilisée pour démarrer les exemples. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | L’exemple sera exécuté. Dans ce cas, il calcule le chemin le plus court entre l’ID 1 et tous les autres identifiants dans le graphique. |
-	| `-ca mapred.job.tracker=headnode0:9010` | Nœud principal du cluster. |
+	| `-ca mapred.job.tracker=HEADNODE:9010` | Nœud principal du cluster. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | Format d’entrée à utiliser pour les données d’entrée. |
 	| `-vip /example/data/tiny_graph.txt` | Fichier de données d’entrée. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | Format de sortie. Dans ce cas, l’ID et la valeur sous forme de texte brut. |
@@ -140,7 +144,7 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 ## Étapes suivantes
 
-- [Installation et utilisation de Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md) Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
+- [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md). Hue est une interface utilisateur web qui permet de facilement créer, exécuter et enregistrer des tâches Pig et Hive, ainsi que de parcourir le stockage par défaut pour votre cluster HDInsight.
 
 - [Installation et utilisation de Spark sur des clusters HDInsight](hdinsight-hadoop-spark-install-linux.md) : instructions sur l’utilisation de la personnalisation de cluster pour installer et utiliser Spark sur des clusters Hadoop HDInsight. Spark est une infrastructure de traitement parallèle open source qui prend en charge le traitement en mémoire pour améliorer les performances des applications d'analyse de « big data ».
 
@@ -148,4 +152,4 @@ Une fois le cluster créé, effectuez la procédure ci-après pour exécuter l�
 
 - [Installation de Solr sur des clusters HDInsight](hdinsight-hadoop-solr-install-linux.md). Utilisez la personnalisation de clusters pour installer Solr sur des clusters HDInsight Hadoop. Solr vous permet d'effectuer de puissantes opérations de recherche sur des données stockées.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

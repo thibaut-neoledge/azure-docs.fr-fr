@@ -30,22 +30,32 @@ La fonction d’échantillonnage, actuellement disponible en version bêta, est 
 L’échantillonnage est actuellement disponible pour le kit de développement logiciel (SDK) ASP.NET ou pour [n’importe quelle page Web](#other-web-pages).
 
 ### Serveur ASP.NET
-Pour configurer l’échantillonnage dans votre application, insérez l’extrait de code suivant dans la méthode `Application_Start()` dans le fichier Global.asax.cs :
 
-```C#
+1. Mettez à jour les packages NuGet de votre projet vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Ajoutez cet extrait de code à ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. Exemples de valeurs valides : 50 (= 1/2), 33,33 (= 1/3), 25 (= 1/4), 20 (= 1/5) et ainsi de suite. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
+> [AZURE.NOTE]Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
 
+<a name="other-web-pages"></a>
 ### Pages Web avec JavaScript
 
 Vous pouvez configurer des pages Web pour l’échantillonnage à partir de n’importe quel serveur. Pour les serveurs ASP.NET, configurez vos pages Web côté client et côté serveur.
 
-Lorsque vous [configurer les pages Web pour Application Insights](app-insights-javascript.md), modifiez l’extrait de code que vous obtenez à partir du portail Application Insights (dans ASP.NET, cet extrait de code se trouve dans \_Layout.cshtml). Insérez une ligne du type `samplingPercentage: 10,` avant la clé d’instrumentation :
+Lorsque vous [configurez les pages web pour Application Insights](app-insights-javascript.md), modifiez l’extrait de code que vous obtenez à partir du portail Application Insights. (dans ASP.NET, cet extrait de code se trouve dans \_Layout.cshtml). Insérez une ligne de type `samplingPercentage: 10,` avant la clé d’instrumentation :
 
     <script>
 	var appInsights= ... 
@@ -65,6 +75,26 @@ Veillez à fournir le même pourcentage d’échantillonnage dans JavaScript que
 [En savoir plus sur l’API](app-insights-api-custom-events-metrics.md)
 
 
+### Autre solution : définir l’échantillonnage dans le code serveur
+
+
+Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, vous pouvez utiliser le code. Cette méthode vous permet d’activer et de désactiver l’échantillonnage.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
+
+
 ## Quand utiliser l’échantillonnage ?
 
 L’échantillonnage n’est pas utile pour la plupart des applications de taille petite à moyenne. Pour obtenir les informations de diagnostic les plus utiles et les statistiques les plus précises, le mieux est de collecter les données sur toutes vos activités utilisateur.
@@ -74,7 +104,7 @@ L’échantillonnage est essentiellement utilisé pour les raisons suivantes :
 
 
 * Si le service Application Insights supprime (« limite ») des points de données lorsque votre application envoie un taux de télémétrie très élevé dans un court laps de temps. 
-* Si vous souhaitez respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
+* Vous souhaitez respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
 * Pour réduire le trafic réseau généré par la collecte de données de télémétrie. 
 
 ## Comment fonctionne l’échantillonnage ?
@@ -132,4 +162,4 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 * Non, l’échantillonnage pour les applications d’appareils mobiles ou de bureau n’est pas pris en charge actuellement. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

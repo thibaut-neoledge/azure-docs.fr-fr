@@ -16,7 +16,8 @@
    ms.author="joaoma" />
 
 
-# Présentation de l’équilibrage de charge 
+# Qu’est-ce que l’équilibreur de charge Azure ?
+ 
 L’équilibrage de charge Azure offre une haute disponibilité et des performances réseau élevées pour vos applications. Il s’agit d’un équilibrage de charge de type Layer-4 (TCP, UDP) qui distribue le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles définis dans un jeu d’équilibrage de la charge.
  
 Il peut être configuré pour :
@@ -87,7 +88,7 @@ La configuration de l’équilibrage de charge Azure prend en charge le NAT « 
 
 Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge attribuées à un jeu de machines virtuelles. Cela vous permet d’héberger plusieurs sites Web SSL et/ou plusieurs écouteurs de groupe de disponibilité SQL Always On sur le même jeu de machines virtuelles. Pour plus d’informations, consultez [Plusieurs adresses IP virtuelles par service cloud](load-balancer-multivip.md)
 
-**Déploiements basés sur des modèles à l’aide d’Azure Resource Manager** Azure Resource Manager (ARM) est la nouvelle infrastructure de gestion des services dans Azure. L’équilibrage de charge Azure peut maintenant être géré à l’aide des outils et API d’Azure Resource Manager. Pour en savoir plus sur Azure Resource Manager, consultez [Iaas just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+****Déploiements basés sur des modèles à l’aide d’Azure Resource Manager** Azure Resource Manager (ARM) est la nouvelle infrastructure de gestion des services dans Azure. L’équilibrage de charge Azure peut maintenant être géré à l’aide des outils et API d’Azure Resource Manager. Pour en savoir plus sur Azure Resource Manager, consultez [Iaas just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
 
 
 ## Étapes suivantes
@@ -99,4 +100,4 @@ Vous pouvez obtenir plusieurs adresses IP publiques à équilibrage de charge at
 [Prise en main de l’équilibrage de charge accessible sur Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

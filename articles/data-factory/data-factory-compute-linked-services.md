@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Services liés de calcul
@@ -234,9 +234,43 @@ mlEndpoint | L'URL de la notation par lot. | Oui
 apiKey | L'API du modèle d'espace de travail publié. | Oui
 
 
+## Service lié Analytique Azure Data Lake
+Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure avant d’utiliser l’[activité U-SQL Analytique Data Lake](data-factory-usql-activity.md) dans un pipeline.
+
+L’exemple suivant présente la définition JSON pour le service lié Analytique Azure Data Lake.
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+Le tableau suivant décrit les propriétés JSON utilisées dans la définition JSON :
+
+Propriété | Description | Requis
+-------- | ----------- | --------
+Type | La propriété de type doit être définie sur **AzureDataLakeAnalytics**. | Oui
+accountName | Nom du compte du service Analytique Azure Data Lake. | Oui
+dataLakeAnalyticsUri | URI du service Analytique Azure Data Lake. | Non 
+autorisation | Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. | Oui 
+subscriptionId | ID d’abonnement Azure | Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). 
+nom\_groupe\_ressources | Nom du groupe de ressources Azure | Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé).
+sessionId | ID de session issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement dans l’éditeur de la fabrique de données. | Oui
+
+
 ## Service lié Azure SQL
 
-Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, voir l’article [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité de procédure stockée](data-factory-stored-proc-activity.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 
   
@@ -247,4 +281,4 @@ Vous créez un service lié Azure SQL et vous l’utilisez avec l’[activité 
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

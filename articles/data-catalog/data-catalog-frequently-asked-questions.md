@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 # Forum Aux Questions Azure Data Catalog
@@ -71,12 +71,15 @@ Lors de l’aperçu, **Azure Data Catalog** prend en charge l’inscription et l
 - Répertoire de stockage Azure
 - Fichier HDFS
 - Répertoire HDFS
+- Table Teradata
+- Vue Teradata
 
 Outre les ressources répertoriées ci-dessus, **Azure Data Catalog** prend en charge la détection des conteneurs de ressources de données suivants :
 
 - Base de données SQL Server
 - Oracle Database
 - Cluster HDFS
+- Base de données Teradata 
 
 
 ## Q : Comment demander la prise en charge d’une autre source de données ?
@@ -106,11 +109,11 @@ Les propriétés spécifiques diffèrent selon la source de données, mais en g�
 
 <br/>
 
-> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d’informations, voir la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Pour les sources de données telles que SQL Server Analysis Services qui ont une propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait cette valeur de propriété. Pour les bases de données relationnelles SQL Server qui ne possèdent pas de propriété **Description** de première classe, l’application de publication **Azure Data Catalog** extrait la valeur de la propriété étendue ms\_description pour les objets et les colonnes. Pour plus d’informations, consultez la page TechNet [Utilisation de propriétés étendues sur les objets de base de données](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## Q : Combien de temps faut-il pour que les ressources nouvellement inscrites apparaissent dans Azure Data Catalog ?
 
-Après avoir inscrit des ressources avec **Azure Data Catalog**, il peut s’écouler un délai de 5 à 10 secondes avant qu’elles n’apparaissent dans le portail **Azure Data Catalog**.
+Après avoir inscrit des ressources auprès d’**Azure Data Catalog**, il peut s’écouler un délai de 5 à 10 secondes avant qu’elles n’apparaissent dans le portail **Azure Data Catalog**.
 
 ## Q : Comment annoter et enrichir les métadonnées pour mes ressources de données inscrites ?
 
@@ -169,4 +172,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

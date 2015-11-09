@@ -20,6 +20,10 @@
 
 Microsoft propose un large éventail de fonctionnalités avec les services Azure IoT. Ces services offrent des capacités de niveau entreprise pour collecter les données des appareils, analyser les flux de données en mouvement, stocker et interroger de grands ensembles de données, visualiser des données à la fois en temps réel et sous forme d’historique, et s’intégrer à d’importants systèmes d’arrière-guichet. La suite Azure IoT regroupe un ensemble de services couramment exploités et des capacités étendues permettant aux clients d’optimiser le retour sur investissement. Ces extensions incluent des solutions préconfigurées qui offrent une implémentation basique des modèles de solutions les plus courants. En les combinant aux kits de développement logiciel (SDK) IoT, les clients peuvent facilement personnaliser des solutions préconfigurées ou les utiliser comme exemples pour le développement de nouvelles solutions.
 
+La vidéo suivante offre une présentation d’Azure IoT Suite :
+
+> [AZURE.VIDEO azurecon-2015-introducing-the-microsoft-azure-iot-suite]
+
 ## Services Azure IoT de la suite Azure IoT
 
 La suite IoT Azure se situe au cœur du service IoT Hub. Ce service traite les messages de l’appareil vers le cloud et du cloud vers le service. Il agit comme la passerelle vers le cloud et les autres services clés IoT Suite.
@@ -30,7 +34,7 @@ Les capacités de stockage de données sont assurées par une combinaison Azure 
 
 La visualisation des données est assurée par une combinaison de sites web Azure et Microsoft Power BI. La flexibilité de Power BI permet aux clients de créer rapidement leurs propres tableaux de bord interactifs à partir des données de la suite IoT.
 
-Vous trouverez plus de détails sur l'architecture et la façon dont ces services sont utilisés dans l'article [Microsoft Azure et l’Internet des objets (IoT)](iot-suite-what-is-azure-iot.md).
+Vous trouverez plus de détails sur l’architecture et la façon dont ces services sont utilisés dans l’article [Microsoft Azure et l’Internet des objets (IoT)](iot-suite-what-is-azure-iot.md).
 
 ## Solutions préconfigurées
 
@@ -38,4 +42,4 @@ Des solutions préconfigurées sont incluses dans la suite Azure IoT pour permet
 
 La première solution préconfigurée disponible est la [surveillance à distance](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

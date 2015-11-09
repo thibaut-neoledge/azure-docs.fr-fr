@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Suivre les demandes HTTP dans une application web Java
@@ -36,7 +36,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
       <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-web</artifactId>
-        <version>[0.9,)</version>
+        <version>[1.0,)</version>
       </dependency>
     </dependencies>
 
@@ -47,7 +47,7 @@ Si votre projet est déjà configuré pour être assemblé avec Gradle, fusionne
 Actualisez ensuite les dépendances du projet pour télécharger les fichiers binaires.
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '1.0.+'
     }
 
 ## Ajouter le filtre HTTP Application Insights à votre projet
@@ -139,4 +139,4 @@ Lorsque vous affichez les propriétés d’une demande, vous voyez les événeme
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

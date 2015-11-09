@@ -74,7 +74,35 @@ Les types de fichier suivants sont acceptés :
 	
 > Pour que les tâches Web continues s'exécutent de façon fiable sur toutes les instances, activez le paramètre de configuration Toujours actif* de l'application Web. Sinon, elles risquent de s’arrêter si le site de l'hôte SCM reste inactif pendant trop longtemps.
 
-## <a name="CreateScheduled"></a>Création d’une tâche Web planifiée
+## <a name="CreateScheduledCRON"></a>Créer une tâche web planifiée à l’aide d’une expression CRON
+
+Cette technique est disponible dans Web Apps s’exécutant en mode Standard ou Premium et suppose que le paramètre **Toujours actif** est activé sur l’application.
+
+Pour transformer une tâche web à la demande en une tâche web planifiée, il vous suffit d’inclure un fichier `settings.job` à la racine du fichier compressé de la tâche web. Ce fichier JSON doit inclure une propriété `schedule` avec une [expression CRON](https://en.wikipedia.org/wiki/Cron), comme ci-dessous.
+
+L’expression CRON est composée de 6 champs : `{second} {minute} {hour} {day} {month} {day of the week}`.
+
+Par exemple, pour déclencher la tâche web toutes les 15 minutes, le `settings.job` se présente comme suit :
+
+```json
+{
+    "schedule": "0 */15 * * * *"
+}
+``` 
+
+Autres exemples de planification CRON :
+
+- Toutes les heures (autrement dit, chaque fois que le nombre de minutes est 0) : `* 0 * * * *` 
+- Toutes les heures entre 9h et 17h : `* 0 9-17 * * *` 
+- À 9h30 tous les jours : `* 30 9 * * *`
+- À 9h30 tous les jours de la semaine : `* 30 9 * * 1-5`
+
+**Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
+
+
+## <a name="CreateScheduled"></a>Créer une tâche web planifiée à l’aide d’Azure Scheduler
+
+L’autre technique ci-après fait appel à Azure Scheduler. Dans ce cas, votre tâche web n’a aucune connaissance directe de la planification. Au lieu de cela, Azure Scheduler est configuré pour déclencher votre tâche web selon une planification.
 
 Le portail de gestion Azure ne permet pas encore de créer une tâche Web planifiée. Pour le moment, vous pouvez utiliser l’[ancien portail](http://manage.windowsazure.com).
 
@@ -211,4 +239,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

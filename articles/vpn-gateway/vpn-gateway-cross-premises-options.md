@@ -66,8 +66,6 @@ Un réseau privé virtuel (VPN) site à site vous permet de créer une connexion
 
 Pour plus d’informations sur la configuration d’une connexion de passerelle VPN site à site, voir l’article [Créer un réseau virtuel avec une connexion VPN site à site](vpn-gateway-site-to-site-create.md).
 
-Si vous voulez créer une connexion de passerelle VPN site à site en utilisant le service de routage et d’accès à distance (RRAS), voir l’article [Configurer un VPN de site à site à l’aide du service de routage et d’accès à distance (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
-
 
 ## Connectivité de point à site
 
@@ -87,7 +85,7 @@ Les configurations point à site et site à site peuvent coexister, mais contrai
 
 - Vous ne disposez pas d’une adresse IP IPv4 d’accès à Internet pour votre périphérique VPN.
 
-Pour plus d’informations sur la configuration d’une connexion point à site, voir l’article [Configuration d’une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
+Pour plus d’informations sur la configuration d’une connexion point à site, consultez [Configuration d’une connexion VPN de point à site à un réseau virtuel](vpn-gateway-point-to-site-create.md).
 
 ## Connexions ExpressRoute
 
@@ -95,11 +93,11 @@ Azure ExpressRoute vous permet de créer des connexions privées entre les cent
 
 Dans certains cas, l’utilisation de connexions ExpressRoute pour le transfert de données entre l’infrastructure locale et Azure peut également générer des économies substantielles. Grâce à ExpressRoute, vous pouvez établir des connexions à Azure dans un emplacement ExpressRoute (installation d’un fournisseur Exchange) ou vous connecter directement à Azure à partir de votre réseau étendu existant (tel qu’un VPN MPLS) proposé par un fournisseur de services réseau.
 
-Pour plus d’informations sur ExpressRoute, voir l’article [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
+Pour plus d’informations sur ExpressRoute, consultez [Présentation technique d’ExpressRoute](../expressroute/expressroute-introduction.md).
 
 
 ## Étapes suivantes
 
-Pour plus d’informations, voir les articles [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
+Pour plus d’informations, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md) et [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

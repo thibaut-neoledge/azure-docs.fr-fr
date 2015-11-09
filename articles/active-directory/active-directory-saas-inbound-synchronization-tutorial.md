@@ -1,11 +1,21 @@
-<properties pageTitle="Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Azure" description="Apprenez à utiliser la synchronisation entrante avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Configuration de Workday pour la synchronisation entrante | Microsoft Azure" 
+    description="Apprenez à utiliser la synchronisation entrante avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Configuration de Workday pour la synchronisation entrante
 >[AZURE.NOTE]Les clients vivant en Chine peuvent accéder à Azure Active Directory Premium à l’aide de l’instance mondiale d’Azure AD. Actuellement, Azure AD Premium n’est pas pris en charge dans le service Microsoft Azure fonctionnant avec 21Vianet en Chine.
-
-&nbsp;
-
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=330042).
 
 L’objectif de ce didacticiel consiste à vous présenter les opérations à effectuer dans Workday et Microsoft Azure AD pour importer des utilisateurs de Workday à Microsoft Azure AD. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -74,7 +84,7 @@ Pour le scénario de ce didacticiel, vous devez créer un groupe de sécurité s
 
 ##Affectation de l’utilisateur système d’intégration au groupe de sécurité
 
-1.  Entrez edit security group dans la zone de recherche, puis cliquez sur le lien, **Edit Security Group**.     
+1.  Entrez edit security group dans la zone de recherche, puis cliquez sur le lien **Edit Security Group**.     
 
 	![Modifier un groupe de sécurité](./media/active-directory-saas-inbound-synchronization-tutorial/IC750983.png "Modifier un groupe de sécurité")
 
@@ -147,21 +157,21 @@ Cette section décrit la configuration de Microsoft Azure AD pour importer des u
 
 ###Pour configurer l’importation d’utilisateurs dans Microsoft Azure AD, procédez comme suit :
 
-1.  Dans la page d’intégration d’application **Workday**, cliquez sur **Configurer l’importation d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement**.    
+1.  Sur la page d’intégration d’application **Workday**, cliquez sur **Configurer l’importation d’utilisateurs** pour ouvrir la boîte de dialogue **Configurer l’approvisionnement**.    
 
-2.  Dans la page **Paramètres et informations d’identification administrateur**, procédez comme suit, puis cliquez sur Suivant :
+2.  Sur la page **Paramètres et informations d’identification administrateur**, procédez comme suit, puis cliquez sur Suivant :
 
 	![Paramètres et informations d’identification d’administrateur](./media/active-directory-saas-inbound-synchronization-tutorial/IC750995.png "Paramètres et informations d’identification d’administrateur")
 
-	1.  Dans la zone de texte **Workday admin user name**, entrez le nom de l’utilisateur que vous avez créé dans la section [Création d’un utilisateur système d’intégration](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
-    2.  Dans la zone de texte **Workday admin password**, entrez le mot de passe de l’utilisateur que vous avez créé dans la section [Création d’un utilisateur système d’intégration](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
-    3.  Dans la zone de texte **Workday tenant URL**, entrez l’URL de votre locataire Workday.    
+	1.  Dans la zone de texte **Nom d’utilisateur admin Workday**, entrez le nom de l’utilisateur que vous avez créé dans la section [Création d’un utilisateur de système d’intégration](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
+    2.  Dans la zone de texte **Mot de passe de l’admin Workday**, entrez le mot de passe de l’utilisateur que vous avez créé dans la section [Création d’un utilisateur de système d’intégration](https://msdn.microsoft.com/library/azure/Dn762434.aspx#BKMK_CreateUser).    
+    3.  Dans la zone de texte **URL de locataire Workday**, entrez l’URL de votre locataire Workday.    
 
-3.  Dans la page **Tester la connexion**, cliquez sur **Démarrer le test** pour vérifier la connectivité, puis cliquez sur **Suivant**.
+3.  Sur la page **Tester la connexion**, cliquez sur **Démarrer le test** pour vérifier la connectivité, puis cliquez sur **Suivant**.
 
 	![Tester la connexion](./media/active-directory-saas-inbound-synchronization-tutorial/IC750996.png "Tester la connexion")
 
-4.  Dans la page **Options d’approvisionnement**, cliquez sur **Suivant**.
+4.  Sur la page **Options d’approvisionnement**, cliquez sur **Suivant**.
 
 	![Options d’approvisionnement](./media/active-directory-saas-inbound-synchronization-tutorial/IC750997.png "Options d’approvisionnement")
 
@@ -169,6 +179,6 @@ Cette section décrit la configuration de Microsoft Azure AD pour importer des u
 
 	![Démarrer l’approvisionnement](./media/active-directory-saas-inbound-synchronization-tutorial/IC750998.png "Démarrer l’approvisionnement")
 
-Vous pouvez maintenant accéder à la section **Utilisateurs**et vérifier si votre utilisateur Workday a été importé.
+Vous pouvez maintenant accéder à la section **Utilisateurs** et vérifier si votre utilisateur Workday a été importé.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

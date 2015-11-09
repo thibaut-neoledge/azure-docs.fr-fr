@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à 15Five | Microsoft Azure" description="Apprenez à utiliser 15Five avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à 15Five | Microsoft Azure" 
+    description="Apprenez à utiliser 15Five avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatisé et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à 15Five
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528017).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et 15Five. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement 15Five pour lequel l’authentification unique est activée
 
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à 15Five pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise 15Five (connexion initiée par le fournisseur du service) ou en s’appuyant sur la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à 15Five pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise 15Five (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -63,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-15five-tutorial/IC784671.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l'application**, dans la zone de texte **URL de connexion de 15Five**, tapez votre URL selon le modèle "**https://company.15Five.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de 15Five**, tapez votre URL selon le modèle « **https://company.15Five.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-15five-tutorial/IC784672.png "Configurer l’URL de l’application")
 
@@ -96,7 +109,7 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
     ![Add New Person](./media/active-directory-saas-15five-tutorial/IC784677.png "Add New Person")
 
-    1.  Tapez le prénom, le nom, la fonction et l’adresse de messagerie du compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondante, à savoir, **First Name**, **Last Name**, **Title** et **Email address**.
+    1.  Tapez le prénom, le nom, la fonction et l’adresse de messagerie du compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **First Name**, **Last Name**, **Title** et **Email address**.
     2.  Cliquez sur **Done**.
 
     >[AZURE.NOTE]Le titulaire du compte Azure AD reçoit alors un message électronique contenant un lien pour confirmer le compte avant qu’il ne soit activé.
@@ -119,6 +132,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-15five-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez la page [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

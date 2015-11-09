@@ -1,14 +1,26 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à ScreenSteps | Microsoft Azure" description="Découvrez comment utiliser ScreenSteps avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à ScreenSteps | Microsoft Azure" 
+    description="Découvrez comment utiliser ScreenSteps avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à ScreenSteps
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=525874).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et ScreenSteps. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire ScreenSteps
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à ScreenSteps pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise ScreenSteps (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à ScreenSteps pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise ScreenSteps (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -63,7 +75,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-screensteps-tutorial/IC778520.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ScreenSteps** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.ScreenSteps.com* », puis cliquez sur**Suivant**.
+3.  Dans la zone de texte **URL de connexion à ScreenSteps** de la page **Configurer l’URL de l’application**, tapez votre URL au format « *https://\<nom\_locataire>.ScreenSteps.com* », puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-screensteps-tutorial/IC778521.png "Configurer l’URL de l’application")
 
@@ -85,7 +97,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Remote authentication](./media/active-directory-saas-screensteps-tutorial/IC778525.png "Remote authentication")
 
-9.  Dans la section **Create an Authentication Endpoint**, procédez comme suit :
+9.  Dans la section **Create an Authentication Endpoint**, procédez comme suit :
 
     ![Create an authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778526.png "Create an authentication endpoint")
 
@@ -97,10 +109,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Remote authentication endpoint](./media/active-directory-saas-screensteps-tutorial/IC778527.png "Remote authentication endpoint")
 
-    1.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion distante**.
-    2.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion**.
-    3.  Cliquez sur **Choisir un fichier**, puis chargez le certificat téléchargé.
-    4.  Cliquez sur **Mettre à jour**.
+    1.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
+    2.  Dans la page **Configurer l’authentification unique sur ScreenSteps** du portail Azure AD, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Log out URL**.
+    3.  Cliquez sur **Choose a file**, puis chargez le certificat téléchargé.
+    4.  Cliquez sur **Update**.
 
 11. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -117,7 +129,7 @@ Pour se connecter à **ScreenSteps**, les utilisateurs d’Azure AD doivent êtr
 
     ![Account management](./media/active-directory-saas-screensteps-tutorial/IC778523.png "Account management")
 
-3.  Cliquez sur **Users**.
+3.  Cliquez sur **Utilisateurs**.
 
     ![Utilisateurs](./media/active-directory-saas-screensteps-tutorial/IC778544.png "Utilisateurs")
 
@@ -131,7 +143,7 @@ Pour se connecter à **ScreenSteps**, les utilisateurs d’Azure AD doivent êtr
 
     ![Nouvel utilisateur](./media/active-directory-saas-screensteps-tutorial/IC778546.png "Nouvel utilisateur")
 
-7.  Dans la section Groups, sélectionnez **Authentication Group (SAML)**, puis cliquez sur**Create user**.
+7.  Dans la section Groups, sélectionnez **Authentication Group (SAML)**, puis cliquez sur **Create user**.
 
     ![Groupes](./media/active-directory-saas-screensteps-tutorial/IC778547.png "Groupes")
 
@@ -153,6 +165,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-screensteps-tutorial/IC778548.png "Affecter des utilisateurs")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

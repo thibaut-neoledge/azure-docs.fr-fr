@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="LuisCa"/>
 
 #Documentation sur les API Azure Machine Learning Recommendations
@@ -1312,7 +1312,8 @@ Récupère les métadonnées de tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 |	forModelId |	Identificateur unique du modèle |
 |	apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1378,7 +1379,8 @@ Obtient les statistiques d'utilisation.
 | endDate |	Date de fin. Format : aaaa/MM/jjTHH:mm:ss |
 | eventTypes |	Chaîne de types d'événements séparés par des virgules ou valeur null pour obtenir tous les événements |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1460,7 +1462,8 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 | modelId |	Identificateur unique du modèle |
 | fileId |	Identificateur unique du fichier d'utilisation du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1482,7 +1485,8 @@ Récupère le contenu intégral du fichier d'utilisation.
 | fid |	Identificateur unique du fichier d'utilisation du modèle |
 | télécharger | 1 |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1502,7 +1506,8 @@ Supprime le fichier d'utilisation du modèle spécifié.
 | modelId |	Identificateur unique du modèle |
 | fileId | Identificateur unique du fichier à supprimer |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1520,7 +1525,8 @@ Supprime tous les fichiers d'utilisation du modèle.
 |:--------			|:--------								|
 | modelId |	Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -1541,7 +1547,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 | modelId |	Identificateur unique du modèle |
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue. <br/>Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 
 **Réponse** :
@@ -1623,7 +1630,8 @@ Récupère des informations sur les caractéristiques, y compris le classement, 
 |samplingSize| Nombre de valeurs à inclure pour chaque caractéristique en fonction des données présentes dans le catalogue.<br/> Les valeurs possibles sont les suivantes :<br> -1 : tous les échantillons. <br>0 : aucun échantillonnage. <br>N : retourne N échantillons pour chaque nom de caractéristique.|
 |rankBuildId| Identificateur unique de la build de classement ou -1 pour la dernière build de classement|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 
 **Réponse** :
@@ -1765,14 +1773,15 @@ Le tableau ci-dessous décrit les paramètres de build pour une build de recomma
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la demande)|
+|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la requête)|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | modelId |	Identificateur unique du modèle |
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| Corps de la demande | S'il est laissé vide, la build s'exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez les paramètres au format XML dans le corps, comme dans l'exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication des paramètres).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Réponse** :
 
@@ -1839,7 +1848,7 @@ OData XML
 | Méthode HTTP | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Exemple :<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
-|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la demande)|
+|HEADER |`"Content-Type", "text/xml"` (en cas d’envoi du corps de la requête)|
 
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
@@ -1847,7 +1856,8 @@ OData XML
 | userDescription | Identificateur textuel du catalogue. Notez que si vous utilisez des espaces, vous devez plutôt l'encoder avec %20. Consultez l'exemple ci-dessus.<br>Longueur maximale : 50 |
 | buildType | Type de la build à appeler : <br/> : « Recommendation » pour une build de recommandation <br> : « Ranking » pour une build de classement <br/> : « Fbt » pour une build FBT
 | apiVersion | 1\.0 |
-||| | Corps de la demande | S’il est laissé vide, la build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi qu’une liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| 
+| Corps de la demande | S’il est laissé vide, la build s’exécute avec les paramètres de build par défaut.<br><br>Si vous souhaitez définir les paramètres de build, envoyez-les au format XML dans le corps, comme dans l’exemple suivant. (Consultez la section « Paramètres de build » pour obtenir une explication, ainsi qu’une liste complète des paramètres).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Réponse** :
 
@@ -2811,7 +2821,8 @@ Récupère toutes les notifications pour tous les modèles ou pour un seul modè
 |:--------			|:--------								|
 | modelId | Paramètre facultatif. Si vous l'omettez, vous obtenez toutes les notifications pour tous les modèles. <br>Valeur valide : identificateur unique du modèle.|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -2862,7 +2873,8 @@ Supprime toutes les notifications lues pour un modèle.
 |:--------			|:--------								|
 | modelId | Identificateur unique du modèle |
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -2879,7 +2891,8 @@ Supprime toutes les notifications pour tous les modèles.
 |	Nom du paramètre |	Valeurs valides |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| | Corps de la demande | AUCUNE |
+||| 
+| Corps de la demande | AUCUNE |
 
 **Réponse** :
 
@@ -2892,4 +2905,4 @@ Code d'état HTTP : 200
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

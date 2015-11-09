@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec LogicMonitor | Microsoft Azure" description="Apprenez à utiliser LogicMonitor avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec LogicMonitor | Microsoft Azure" 
+    description="Apprenez à utiliser LogicMonitor avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à LogicMonitor
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528728).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et LogicMonitor. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -57,11 +70,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790048.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à LogicMonitor**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à LogicMonitor**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à LogicMonitor**, tapez l’URL utilisée par vos utilisateurs pour se connecter à LogicMonitor (par ex. « **http://company.logicmonitor.com*")), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à LogicMonitor (par ex. « **http://company.logicmonitor.com*")), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Configurer l’URL de l’application")
 
@@ -83,12 +96,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Paramètres d’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Paramètres d’authentification unique")
 
-    1.  Sélectionnez **Enable Single Sign-on**.
+    1.  Sélectionnez **Enable Single Sign-On**.
     2.  Pour **Default Role Assignment**, sélectionnez **readonly**.
     3.  Ouvrez le fichier de métadonnées téléchargé dans le Bloc-notes, puis collez le contenu dans la zone de texte **Identity Provider Metadata**.
     4.  Cliquez sur **Save Changes**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-logicmonitor-tutorial/IC790055.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -109,7 +122,7 @@ Pour AAD les utilisateurs puissent se connecter, ils doivent être approvisionn�
 
     ![Ajouter un compte](./media/active-directory-saas-logicmonitor-tutorial/IC790057.png "Ajouter un compte")
 
-    1.  Tapez le nom d’utilisateur, l’adresse de messagerie, le mot de passe et sa confirmatopn pour l’utilisateur Azure Active Directory que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Username**, **Email**, **Password** et **Retype Password**.
+    1.  Tapez le nom d’utilisateur, l’adresse de messagerie, le mot de passe et sa confirmation pour l’utilisateur Azure Active Directory que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Username**, **Email**, **Password** et **Retype Password**.
     2.  Sélectionnez **Roles**, **View Permissions** et **Status**.
     3.  Cliquez sur **Envoyer**.
 
@@ -127,10 +140,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-logicmonitor-tutorial/IC790058.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

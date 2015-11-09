@@ -27,26 +27,14 @@ Ces étapes utilisent une méthode de cases à remplir pour créer des jeux de c
 
 ## Étape 1 : installer Azure PowerShell
 
-Vous devez également disposer d'Azure PowerShell version 1.0.0 ou ultérieure. Si vous n’avez pas installé et configuré Azure PowerShell, cliquez [ici](../powershell-install-configure.md) pour obtenir les instructions.
-
-Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée en entrant cette commande à l’invite de commandes d’Azure PowerShell.
-
-	Get-Module azure | format-table version
-
-Voici un exemple.
-
-	Version
-	-------
-	1.0.0
-
-Si vous n'avez pas la version 1.0.0 ou ultérieure, vous devez supprimer Azure PowerShell à l'aide de Programmes et fonctionnalités du Panneau de configuration, puis installer la version la plus récente. Pour plus d’informations, consultez la rubrique [Comment installer et configurer Azure PowerShell](../powershell-install-configure.md).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Étape 2 : Définir votre abonnement
 
 Démarrez d'abord une invite de commandes Azure PowerShell.
 
 Connectez-vous à votre compte.
-	
+
 	Login-AzureRmAccount
 
 Obtenez votre nom d'abonnement à l'aide de la commande suivante.
@@ -130,11 +118,11 @@ Utilisez cette commande pour répertorier les groupes à haute disponibilité ex
 
 	Get-AzureRmAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-### Règles NAT	
-	
+### Règles NAT
+
 Les machines virtuelles basées sur Resource Manager peuvent être configurées avec des règles NAT de trafic entrant pour autoriser le trafic entrant provenant d’Internet et pour être placées dans un ensemble à charge équilibrée. Dans les deux cas, vous devez spécifier une instance d’équilibreur de charge et d’autres paramètres. Pour plus d’informations, consultez [Création d’un équilibreur de charge à l’aide d’Azure Resource Manager](../load-balancer/load-balancer-arm-powershell.md)
 
-Les machines virtuelles créées avec le modèle de déploiement Resource Manager requièrent un réseau virtuel Resource Manager. Si nécessaire, créez un réseau virtuel basé sur Resource Manager avec au moins un sous-réseau pour la nouvelle machine virtuelle. Voici un exemple d'un nouveau réseau virtuel nommé **TestNet** avec deux sous-réseaux nommés **frontendSubnet** et **backendSubnet**.
+Les machines virtuelles créées avec le modèle de déploiement Resource Manager requièrent un réseau virtuel Resource Manager. Si nécessaire, créez un réseau virtuel basé sur Resource Manager avec au moins un sous-réseau pour la nouvelle machine virtuelle. Voici un exemple d’un nouveau réseau virtuel nommé **TestNet** avec deux sous-réseaux nommés **frontendSubnet** et **backendSubnet**.
 
 	$rgName="LOBServers"
 	$locName="West US"
@@ -396,4 +384,4 @@ Voici le jeu de commandes Azure PowerShell qui permet de créer cette machine vi
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

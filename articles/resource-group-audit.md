@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="tomfitz"/>
 
 # Opérations d’audit avec Resource Manager
@@ -21,6 +21,11 @@
 Lorsque vous rencontrez un problème lors du déploiement ou pendant la durée de vie de votre solution, vous devez découvrir ce qui s’est produit. Resource Manager fournit deux méthodes vous permettant de découvrir ce qui s’est passé et pourquoi. Vous pouvez utiliser les commandes de déploiement pour récupérer des informations concernant des déploiements et des opérations spécifiques. Vous pouvez également utiliser les journaux d’audit pour récupérer des informations concernant des déploiements et d’autres actions effectuées pendant la durée de vie de la solution. Cette rubrique se concentre sur les journaux d’audit.
 
 Le journal d’audit contient toutes les actions effectuées sur vos ressources. Par conséquent, si un utilisateur de votre organisation modifie une ressource, vous serez en mesure d’identifier l’action, le temps et l’utilisateur.
+
+Il existe deux limitations importantes à prendre en compte lorsque vous travaillez avec des journaux d’audit :
+
+1. Les journaux d’audit sont conservés pendant 90 jours seulement.
+2. Vous pouvez demander une plage de 15 jours maximum.
 
 Vous pouvez récupérer des informations à partir des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande Azure, de l’API REST ou du portail Azure en version préliminaire.
 
@@ -30,13 +35,17 @@ Vous pouvez récupérer des informations à partir des journaux d’audit par le
 
 Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** (ou **Get-AzureResourceGroupLog** pour les versions de PowerShell antérieures à la version préliminaire 1.0). Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées.
 
-L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée.
+L’exemple suivant montre comment utiliser le journal d’audit pour rechercher les actions effectuées pendant le cycle de vie de la solution. Vous pouvez voir le moment où l’action s’est produite et l’utilisateur qui l’a demandée. Les dates de début et de fin sont indiquées dans un format de date.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
-En fonction de l’heure de début que vous spécifiez, la commande précédente peut renvoyer une longue liste des actions pour ce groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous tentez de rechercher la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante et voir qu’une action d’arrêt a été effectuée par someone@example.com.
+Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple les 15 derniers jours.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+
+En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent renvoyer une longue liste des actions pour ce groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous tentez de rechercher la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante et voir qu’une action d’arrêt a été effectuée par someone@example.com.
+
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -56,7 +65,7 @@ En fonction de l’heure de début que vous spécifiez, la commande précédente
 
 Dans l’exemple suivant, nous allons rechercher uniquement les actions qui ont échoué après l’heure de début spécifiée. Nous allons également inclure le paramètre **DetailedOutput** pour voir les messages d’erreur.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
     
 Si cette commande renvoie trop d’entrées et de propriétés, vous pouvez cibler vos efforts d’audit en récupérant la propriété **properties**.
 
@@ -153,4 +162,4 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 - Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

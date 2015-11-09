@@ -135,7 +135,6 @@ Si vous spécifiez une instance, elle est collectée en tant que propriété «�
 Si vous préférez, vous pouvez écrire le code suivant, pour obtenir le même effet :
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

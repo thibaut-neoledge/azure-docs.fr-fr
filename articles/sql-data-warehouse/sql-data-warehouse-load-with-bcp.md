@@ -18,6 +18,12 @@
 
 
 # Charger des données avec bcp
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 **[bcp][]** est un utilitaire de ligne de commande de chargement par lots qui vous permet de charger des données entre SQL Server, des fichiers de données et SQL Data Warehouse. Utilisez bcp pour importer un nombre important de lignes dans les tables SQL Data Warehouse ou pour exporter des données des tables SQL Server dans les fichiers de données. L’utilitaire bcp, sauf lorsqu’il est utilisé avec l’option queryout, ne nécessite aucune connaissance de Transact-SQL.
 
 bcp permet d’importer et d’exporter rapidement et simplement des ensembles de données plus petits de la base de données SQL Data Warehouse. La quantité exacte de données qu’il est recommandé de charger/extraire via bcp dépend de la connexion de votre réseau au centre de données Microsoft Azure. Généralement, des tables de dimension peuvent être chargées et extraites, mais les tables de faits légèrement plus grandes nécessitent des intervalles de chargement ou d’extraction légèrement plus importants.
@@ -32,7 +38,10 @@ Ce didacticiel vous explique comment :
 - Importer des données dans une table à l’aide de la commande bcp in
 - Exporter des données d’une table à l’aide de la commande bcp out
 
+>[AZURE.VIDEO loading-data-into-azure-sql-data-warehouse-with-bcp]
+
 ## Configuration requise
+
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 - Base de données SQL Data Warehouse
@@ -41,10 +50,12 @@ Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 >[AZURE.NOTE]Pour télécharger les utilitaires bcp et sqlcmd, accédez au [Centre de téléchargement Microsoft][].
 
-##Importer des données dans SQL Data Warehouse
+## Importer des données dans SQL Data Warehouse
+
 Dans ce didacticiel, vous allez créer une table dans Azure SQL Data Warehouse et importer des données dans la table.
 
 ### Étape 1 : Créer une table dans Azure SQL Data Warehouse
+
 À partir d’une invite de commande, connectez-vous à votre instance à l’aide de la commande suivante, qui remplace les valeurs de manière appropriée :
 
 ```
@@ -162,4 +173,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

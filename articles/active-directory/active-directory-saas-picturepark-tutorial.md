@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Picturepark | Microsoft Azure" description="Apprenez à utiliser Picturepark avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Picturepark | Microsoft Azure" 
+    description="Apprenez à utiliser Picturepark avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Picturepark
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=524466).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Picturepark. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Picturepark
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Picturepark pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Picturepark (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Picturepark pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Picturepark (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,19 +64,19 @@ Cette section décrit l’activation de l’intégration d’application pour Pi
     ![Picturepark](./media/active-directory-saas-picturepark-tutorial/IC795057.png "Picturepark")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Picturepark avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Picturepark vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Picturepark avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Picturepark vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **Picturepark**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **Picturepark**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-picturepark-tutorial/IC795058.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Picturepark**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Picturepark**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-picturepark-tutorial/IC795059.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Picturepark**, tapez votre URL selon le modèle suivant « **http://company.picturepark.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Picturepark**, tapez votre URL selon le modèle suivant « **http://company.picturepark.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-picturepark-tutorial/IC795060.png "Configurer l’URL de l’application")
 
@@ -88,7 +101,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     1.  Cliquez sur **Add**.
     2.  Entrez un nom pour votre configuration.
     3.  Sélectionnez **Set as default**.
-    4.  Dans la page **Configurer l’authentification unique sur Picturepark** du portail Azure, copiez la valeur **URL d’authentification unique SAML**, puis collez-la dans la zone de texte **Issuer URI**.
+    4.  Dans la page **Configurer l’authentification unique sur Picturepark** du portail Azure, copiez la valeur **URL SSO SAML**, puis collez-la dans la zone de texte **Issuer URI**.
     5.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Trusted Issuer Thumb Print**.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
@@ -97,7 +110,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     7.  Pour définir l’attribut **Emailaddress** dans la zone de texte **Claim**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. ![Configuration](./media/active-directory-saas-picturepark-tutorial/IC795065.png "Configuration")
 8.  Cliquez sur **Enregistrer**.
 
-9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-picturepark-tutorial/IC795066.png "Configurer l’authentification unique")
 
@@ -143,6 +156,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-picturepark-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

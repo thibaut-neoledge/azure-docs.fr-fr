@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Azure" description="Apprenez à utiliser Directions on Microsoft avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Azure" 
+    description="Apprenez à utiliser Directions on Microsoft avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=533728).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure Active Directory et Directions on Microsoft. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Directions on Microsoft
 
-Si vous ne disposez pas d’un abonnement fédéré à Directions on Microsoft, envoyez une demande par e-mail à l’adresse “*service@DirectionsOnMicrosoft.com*”.
+Si vous ne disposez pas d’un abonnement fédéré à Directions on Microsoft, envoyez une demande par courrier électronique à l’adresse « *service@DirectionsOnMicrosoft.com*”.
 
 À l’issue de ce didacticiel, les utilisateurs Azure Active Directory que vous avez affectés à Directions on Microsoft pourront s’authentifier dans l’application à l’aide de l’authentification unique.
 
@@ -69,7 +82,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-directions-microsoft-tutorial/IC786881.png "Configurer l’URL de l’application")
 
-4.  Dans la page **Configurer l’authentification unique à Directions on Microsoft**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur.
+4.  Dans la page **Configurer l’authentification unique sur Directions on Microsoft**, cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-directions-microsoft-tutorial/IC786882.png "Configurer l’authentification unique")
 
@@ -77,7 +90,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     >[AZURE.NOTE]L’authentification unique pour Directions on Microsoft doit être activée par l’équipe du support technique Directions on Microsoft. Vous recevrez une notification une fois l’authentification unique activée.
 
-6.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+6.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-directions-microsoft-tutorial/IC786883.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -99,4 +112,4 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Oui")
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

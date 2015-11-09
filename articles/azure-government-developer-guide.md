@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Azure Government offre les services suivants dans les régions des états améri
 - Scheduler
 - Réseau virtuel
 - Base de données SQL
+- Azure Files
+- Media Services
+- Traffic Manager
+- Service Bus
+- StorSimple
+- Cache Redis
+- Azure Backup
+- Automation
+- ExpressRoute
+- etc.
 
 D'autres services sont disponibles. Par ailleurs, des services seront ajoutés de façon continue. Pour obtenir la liste actualisée des services, consultez la [page des régions](http://azure.microsoft.com/regions/#services) qui indique les régions disponibles et leurs services.
 
@@ -78,18 +88,31 @@ Aidez-vous du tableau suivant quand vous mappez des points de terminaison public
 
 Type de service|Azure (public)|Azure Government
 ---|---|---
-Accueil d'Azure Government|windowsazure.com|microsoftazure.us
 Portail de gestion|manage.windowsazure.com|manage.windowsazure.us
 Généralités|*.windows.net|*.usgovcloudapi.net
 Principal|*.core.windows.net|*.core.usgovcloudapi.net
 Calcul|*.cloudapp.net|*.usgovcloudapp.net
-Stockage d’objets blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Stockage d’objets blob|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Stockage de files d’attente|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Stockage de tables|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Gestion des services|management.core.windows.net|management.core.usgovcloudapi.net
 Base de données SQL|*.database.windows.net|*.database.usgovcloudapi.net
+Point de terminaison à charge équilibrée ARM|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* Pour plus d’informations sur l’authentification ARM par l’intermédiaire d’Azure AD, consultez [Authentification des demandes d’Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Étapes suivantes
-Pour plus d’informations sur Azure Government et sur la façon dont votre organisation peut en bénéficier, accédez à <A href="http://azure.com/gov">http://www.azure.com/gov</a>.
+
+Si vous souhaitez en savoir plus sur Azure Governement, consultez certains des liens ci-dessous.
+
+- **[S’inscrire pour un essai](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[Achat et utilisation d’Azure Government](http://azure.com/gov)**
+
+- **[Vue d’ensemble d’Azure Government](/azure-government-overview)**
+
+- **[Blog d’Azure Government](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Conformité Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ Pour plus d’informations sur Azure Government et sur la façon dont votre org
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

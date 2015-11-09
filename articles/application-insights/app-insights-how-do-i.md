@@ -195,10 +195,29 @@ Si vous voulez une liste des utilisateurs avec des données telles que les pages
 
 ## Réduire le trafic de mon application vers Application Insights
 
-* Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme les compteurs de performances.
+* Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme le collecteur de compteurs de performances.
+* Utilisez [Échantillonnage et filtrage](app-insights-api-filtering-sampling.md) dans le Kit de développement logiciel (SDK).
 * Si vous utilisez [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calculez l’agrégat des lots de valeurs de métriques avant d’envoyer le résultat. Il existe une surcharge de TrackMetric() qui se charge de cette tâche.
 
+
 En savoir plus sur la [tarification et les quotas](app-insights-pricing.md).
+
+## Désactiver la télémétrie
+
+Pour **arrêter et démarrer dynamiquement** la collecte et la transmission de la télémétrie à partir du serveur :
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+Pour **désactiver les collecteurs standard sélectionnés**, par exemple, les compteurs de performances, les requêtes HTTP ou les dépendances, supprimez ou commentez les lignes appropriées dans [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Par exemple, vous pouvez faire cela si vous souhaitez envoyer vos propres données TrackRequest.
+
+
 
 ## Afficher les compteurs de performances système
 
@@ -208,14 +227,14 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 
 ### Si aucune donnée de compteur de performances ne s’affiche
 
-* **Serveur IIS** sur votre propre ordinateur ou sur une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
+* **Serveur IIS** sur votre ordinateur ou une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
 * **Site web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
 * **Serveur Unix** : [Installer collectd](app-insights-java-collectd.md)
 
 ### Pour afficher davantage de compteurs de performances
 
 * Tout d’abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
-* Dans le cas contraire, [ajoutez le compteur à l’ensemble collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
+* Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
 
 
  
@@ -224,4 +243,4 @@ Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe u
 
 Nous ne surveillons pas actuellement les compteurs de performance sur
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

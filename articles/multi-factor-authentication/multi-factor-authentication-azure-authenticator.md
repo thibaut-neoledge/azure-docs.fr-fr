@@ -127,7 +127,9 @@ Si vous souhaitez ajouter un compte manuellement, vous pouvez le faire en procé
 Si vous souhaitez ajouter un compte non Azure manuellement, par exemple, votre compte Microsoft, vous pouvez le faire en procédant comme suit :
 
 
-- Tout d'abord, vous devez obtenir la clé secrète à partir du site auquel le compte est associé. Par exemple, dans Outlook.com, vous accédez à vos paramètres de compte, vos paramètres de sécurité et vous sélectionnez Configurer une application d'authentification. Vous devez sélectionner Je ne parviens pas à scanner le code-barres pour obtenir la clé secrète.
+- Un compte non-Azure peut être ajouté manuellement en analysant le code QR ou en entrant la clé secrète.
+- Si vous voulez entrer manuellement la clé secrète, vous pouvez l’obtenir sur le site auquel le compte est associé. Par exemple, dans Outlook.com, vous accédez à vos paramètres de compte, vos paramètres de sécurité et vous sélectionnez Configurer une application d'authentification. Vous devez sélectionner Je ne parviens pas à scanner le code-barres pour obtenir la clé secrète.
+- 
 
 ![Ajouter un compte](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
 
@@ -135,11 +137,11 @@ Si vous souhaitez ajouter un compte non Azure manuellement, par exemple, votre c
 
 ![Ajouter un compte](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
 
-- Cliquez sur le bouton Entrer manuellement en bas.
+- Analysez le code QR ou cliquez sur le bouton Entrer manuellement en bas. Si vous analysez le code QR, ignorez l’étape suivante, car l’activation sera immédiate.
 
 ![Ajouter un compte](./media/multi-factor-authentication-azure-authenticator/scan.png)
 
-- Entrez le nom du compte et la clé secrète fournis sur la même page que celle illustrant le code-barres. Ces données sont destinées aux zones de code et d'URL de l'application mobile. Ceci lance l'activation.
+- Si vous entrez la clé secrète manuellement, entrez le nom du compte et la clé secrète fournis sur la même page que celle illustrant le code-barres. Ces données sont destinées aux zones de code et d'URL de l'application mobile. Ceci lance l'activation.
 
 ![Ajouter un compte](./media/multi-factor-authentication-azure-authenticator/manual.png)
 
@@ -162,4 +164,4 @@ La configuration de Touch ID avec Azure Authenticator est très simple. Vous eff
 
 ![Touch ID](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

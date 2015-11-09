@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à TimeOffManager | Microsoft Azure" description="Découvrez comment utiliser TimeOffManager avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à TimeOffManager | Microsoft Azure" 
+    description="Découvrez comment utiliser TimeOffManager avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à TimeOffManager
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=534748).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et TimeOffManager.  
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
@@ -9,7 +22,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 -   Un abonnement Azure valide
 -   Un abonnement TimeOffManager pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TimeOffManager pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TimeOffManager (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à TimeOffManager pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise TimeOffManager (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -68,7 +81,7 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795913.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par ex., « Exemple : https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de réponse de TimeOffManager** de la page **Configurer l’URL de l’application**, indiquez l’URL de votre service ACS TimeOffManager (par exemple, "https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company\_id=IC34216*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-timeoffmanager-tutorial/IC795914.png "Configurer l’URL de l’application")
 
@@ -94,19 +107,19 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    2.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat X.509**.
-    3.  Dans la boîte de dialogue **Configurer l’authentification unique sur TimeOffManager** du portail Azure, copiez la valeur de **URL de l’émetteur**, puis collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
-    4.  Dans la boîte de dialogue **Configurer l’authentification unique sur TimeOffManager** du portail Azure, copiez la valeur de **URL de connexion distante**, puis collez-la dans la zone de texte **URL du point de terminaison du fournisseur d’identité**.
-    5.  Dans **Appliquer SAML**, sélectionnez **Non**.
-    6.  Dans **Créer automatiquement les utilisateurs**, sélectionnez **Oui**.
-    7.  Dans la boîte de dialogue **Configurer l’authentification unique sur TimeOffManager** du portail Azure, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion**.
-    8.  Cliquez sur **Enregistrer les modifications**.
+    2.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
+    3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur TimeOffManager** de la boîte de dialogue, copiez la valeur de **URL de l’émetteur**, puis collez-la dans la zone de texte **Idp Issuer**.
+    4.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur TimeOffManager**, copiez la valeur de **URL de connexion distante**, puis collez-la dans la zone de texte **IdP Endpoint URL**.
+    5.  Dans **Enforce SAML**, sélectionnez **No**.
+    6.  Dans **Auto-Create Users**, sélectionnez **Yes**.
+    7.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur TimeOffManager**, copiez la valeur de **URL de déconnexion distante** et collez-la dans la zone de texte **Logout URL**.
+    8.  Cliquez sur **Save Changes**.
 
-8.  Dans la boîte de dialogue **Configurer l’authentification unique sur TimeOffManager** du portail Azure, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
+8.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur TimeOffManager**, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configurer l’authentification unique")
 
-9.  Dans le menu en haut, cliquez sur **Attributs** pour ouvrir la boîte de dialogue **Attributs du jeton SAML**.
+9.  Dans le menu situé en haut, cliquez sur **Attributs** pour ouvrir la boîte de dialogue **Attributs du jeton SAML**.
 
     ![Attributs](./media/active-directory-saas-timeoffmanager-tutorial/IC795920.png "Attributs")
 
@@ -120,8 +133,8 @@ Si cette procédure ne vous est pas familière, consultez [Comment convertir un 
 	|Lastname|User.Surname|
 
     1.  Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **Ajouter un attribut utilisateur**.
-    2.  Dans la zone de texte **Nom de l’attribut**, indiquez le nom d’attribut pour cette ligne.
-    3.  Dans la zone de texte **Valeur de l’attribut**, indiquez la valeur d’attribut pour cette ligne.
+    2.  Dans la zone de texte **Nom de l’attribut**, tapez le nom d’attribut indiqué pour cette ligne.
+    3.  Dans la zone de texte **Valeur de l’attribut**, sélectionnez la valeur d’attribut indiquée pour cette ligne.
     4.  Cliquez sur **Terminé**.
 
 11. Cliquez sur **Appliquer les modifications**.
@@ -146,10 +159,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-timeoffmanager-tutorial/IC795922.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-timeoffmanager-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

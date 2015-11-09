@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à AppDynamics | Microsoft Azure" description="Apprenez à utiliser AppDynamics avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à AppDynamics | Microsoft Azure" 
+    description="Apprenez à utiliser AppDynamics avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à AppDynamics
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529078).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et AppDynamics. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement AppDynamics pour lequel l’authentification unique est activée
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AppDynamics pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AppDynamics (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à AppDynamics pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise AppDynamics (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,11 +64,11 @@ Cette section décrit l’activation de l’intégration d’applications pour A
     ![AppDynamics](./media/active-directory-saas-appdynamics-tutorial/IC790211.png "AppDynamics")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur AppDynamics avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur AppDynamics avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **AppDynamics**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **AppDynamics**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790212.png "Configurer l’authentification unique")
 
@@ -63,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790213.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à AppDynamics ("**https://companyname.saas.appdynamics.com*"), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez l’URL utilisée par vos utilisateurs pour se connecter à AppDynamics (« **https://companyname.saas.appdynamics.com*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-appdynamics-tutorial/IC790214.png "Configurer l’URL de l’application")
 
@@ -73,29 +86,29 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AppDynamics en tant qu’administrateur.
 
-6.  Dans la barre d’outils située en haut, cliquez sur **Paramètres**, puis sur **Administration**.
+6.  Dans la barre d’outils située en haut, cliquez sur **Settings**, puis sur **Administration**.
 
     ![Administration](./media/active-directory-saas-appdynamics-tutorial/IC790216.png "Administration")
 
-7.  Cliquez sur l’onglet **Fournisseur d’authentification**.
+7.  Cliquez sur l’onglet **Authentication Provider**.
 
     ![Fournisseur d’authentification](./media/active-directory-saas-appdynamics-tutorial/IC790224.png "Fournisseur d’authentification")
 
-8.  Dans la section **Fournisseur d’authentification**, procédez comme suit :
+8.  Dans la section **Authentication Provider**, procédez comme suit :
 
     ![Configuration SAML](./media/active-directory-saas-appdynamics-tutorial/IC790225.png "Configuration SAML")
 
-    1.  En tant que **fournisseur d’authentification**, sélectionnez **SAML**.
+    1.  Dans **Authentication Provider**, sélectionnez **SAML**.
     2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur AppDynamics**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion**.
-    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur AppDynamics**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **URL de déconnexion**.
+    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur AppDynamics**, copiez la valeur **URL de déconnexion distante** et collez-la dans la zone de texte **Logout URL**.
     4.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+        >[AZURE.TIP]Pour plus d’informations, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat**.
-    6.  Cliquez sur**Enregistrer**.![Enregistrer](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Enregistrer")
+    5.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificate**.
+    6.  Cliquez sur **Save**. ![Enregistrer](./media/active-directory-saas-appdynamics-tutorial/IC777673.png "Enregistrer")
 
-9.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-appdynamics-tutorial/IC790226.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -106,11 +119,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à AppDynamics, vous de
 
 1.  Connectez-vous à votre site d’entreprise AppDynamics en tant qu’administrateur.
 
-2.  Accédez à **Utilisateurs**, puis cliquez sur **+** pour ouvrir la boîte de dialogue **Créer un utilisateur**.
+2.  Accédez à **Users**, puis cliquez sur **+** pour ouvrir la boîte de dialogue **Create User**.
 
     ![Utilisateurs](./media/active-directory-saas-appdynamics-tutorial/IC790229.png "Utilisateurs")
 
-3.  Dans la section **Créer un utilisateur**, procédez comme suit :
+3.  Dans la section **Create User**, procédez comme suit :
 
     ![Créer un utilisateur](./media/active-directory-saas-appdynamics-tutorial/IC790230.png "Créer un utilisateur")
 
@@ -131,10 +144,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-appdynamics-tutorial/IC790231.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-appdynamics-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

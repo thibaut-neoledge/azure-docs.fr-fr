@@ -1,14 +1,26 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Lucidchart | Microsoft Azure" description="Apprenez à utiliser Lucidchart avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Lucidchart | Microsoft Azure" 
+    description="Apprenez à utiliser Lucidchart avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Lucidchart
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=532346).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Lucidchart. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Lucidchart pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Lucidchart pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Lucidchart (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Lucidchart pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Lucidchart (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -55,15 +67,15 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’application **Lucidchart**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, dans la page d’intégration d’application **Lucidchart**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-lucidchart-tutorial/IC791186.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Lucidchart**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Lucidchart**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-lucidchart-tutorial/IC791187.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Lucidchart**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Lucidchart (par exemple, « **https://chart2.office.lucidchart.com/saml/sso/azure*"), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Lucidchart**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Lucidchart (par exemple, « **https://chart2.office.lucidchart.com/saml/sso/azure*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-lucidchart-tutorial/IC791188.png "Configurer l’URL de l’application")
 
@@ -77,7 +89,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Équipe](./media/active-directory-saas-lucidchart-tutorial/IC791190.png "Équipe")
 
-7.  Cliquez sur **Application > Manage SAML**.
+7.  Cliquez sur **Application > Manage SAML**.
 
     ![Gérer SAML](./media/active-directory-saas-lucidchart-tutorial/IC791191.png "Gérer SAML")
 
@@ -110,6 +122,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-lucidchart-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,8 +1,21 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Concur | Microsoft Azure" description="Apprenez à utiliser Concur avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Concur | Microsoft Azure" 
+    description="Apprenez à utiliser Concur avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Concur  
 
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=522413).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Concur. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -97,19 +110,19 @@ Cette action ne doit pas être exécutée avec le profil utilisé pour l’admin
 
 1.  Connectez-vous à votre client **Concur**.
 
-2.  Dans le menu **Administration**, sélectionnez **Services Web**.
+2.  Dans le menu **Administration**, sélectionnez **Web Services**.
 
     ![Client Concur](./media/active-directory-saas-concur-tutorial/IC721729.png "Client Concur")
 
-3.  Sur le côté gauche, dans le volet **Services Web**, sélectionnez **Activer l’application de partenaire**.
+3.  Sur le côté gauche, dans le volet **Web Services**, sélectionnez **Enable Partner Application**.
 
     ![Activer l’application de partenaire](./media/active-directory-saas-concur-tutorial/IC721730.png "Activer l’application de partenaire")
 
-4.  Dans la liste **Activer l’application**, sélectionnez **Azure Active Directory**, puis cliquez sur **Activer**.
+4.  Dans la liste **Enable Application**, sélectionnez **Azure Active Directory**, puis cliquez sur **Enable**.
 
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-tutorial/IC721731.png "Microsoft Azure Active Directory")
 
-5.  Cliquez sur **Oui** pour fermer la boîte de dialogue **Confirmer l’action**.
+5.  Cliquez sur **Yes** pour fermer la boîte de dialogue **Confirm Action**.
 
     ![Confirmer l’action](./media/active-directory-saas-concur-tutorial/IC721732.png "Confirmer l’action")
 
@@ -134,12 +147,12 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-concur-tutorial/IC769771.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-concur-tutorial/IC767830.png "Oui")
 
 À présent, patientez 10 minutes et vérifiez que le compte est bien synchronisé avec Concur.
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

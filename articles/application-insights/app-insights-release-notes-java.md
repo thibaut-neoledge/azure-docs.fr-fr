@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/21/2015" 
 	ms.author="awills"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Java
@@ -36,6 +36,11 @@ Une fois la mise à jour effectuée, vous devrez fusionner toutes les personnali
 * Téléchargez la dernière version des [bibliothèques Azure pour Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) et remplacez les anciennes. 
  
 Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plupart des modifications que vous apercevez sont dues aux ajouts et suppressions de modules. Rétablissez toutes les personnalisations que vous avez apportées.
+
+## Version 1.0.2
+
+- Compatibilité avec Docker
+- Résolution des bogues - interception de toutes les exceptions, gestion de tous les codes d’état de réussite
 
 ## Version 1.0.1
 - L’[agent Java](app-insights-java-agent.md) collecte les informations de dépendance sur les éléments suivants :
@@ -68,4 +73,4 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

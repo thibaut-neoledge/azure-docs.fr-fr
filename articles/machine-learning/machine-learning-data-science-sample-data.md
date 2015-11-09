@@ -20,7 +20,7 @@
 
 Ce **menu** pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage. Cette tâche est une étape du processus d’analyse Cortana (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Introduction
 
@@ -32,4 +32,4 @@ Ce document explique comment échantillonner des données qui sont stockées à 
 - Les **données SQL Server** sont échantillonnées à l’aide de SQL et du langage de programmation Python. 
 - Les données des **tables Hive** sont échantillonnées à l’aide de requêtes Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -14,11 +14,11 @@
   
 3. Choisissez le fournisseur d’identité à utiliser et suivez les étapes de l’article correspondant pour configurer votre application API avec ce fournisseur. Ces articles ont été écrits pour des applications mobiles, mais les procédures sont les mêmes pour les applications API. Certaines des procédures vous demandent d’utiliser le [portail Azure].
 
- - [Compte Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Connexion Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Connexion Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Connexion Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Compte Microsoft](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Connexion Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Connexion Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Connexion Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 À titre d’exemple, les captures d’écran suivantes montrent ce que vous devriez voir dans les pages du [portail Azure] et les panneaux du [portail Azure en version préliminaire] une fois que vous avez configuré l’authentification Azure Active Directory.
 
@@ -38,4 +38,4 @@ Dans le portail Azure, l’onglet **Configurer** de l’application créée sous
 
 (L’URL de réponse dans l’image montre deux fois la même URL, une fois avec `http:` et une fois avec `https:`.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

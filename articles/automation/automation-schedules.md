@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Planifications dans Azure Automation
 
 Les planifications Automation permettent de planifier les Runbooks pour qu'ils s'exécutent automatiquement. Il peut s'agir d'une seule date et heure pour que le Runbook s'exécute une seule fois. Ou il peut s'agir d'une planification récurrente pour démarrer le Runbook plusieurs fois. Les planifications ne sont généralement pas accessibles à partir des Runbooks.
+
+>[AZURE.NOTE]Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
 
 ## Applets de commande Windows PowerShell
 
@@ -66,4 +68,4 @@ L'applet de commande [New-AzureAutomationSchedule](http://msdn.microsoft.com/lib
 - [Planification d'un Runbook dans Azure Automation](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

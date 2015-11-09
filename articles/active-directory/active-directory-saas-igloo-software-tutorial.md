@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Azure" description="Apprenez à utiliser Igloo Software avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Igloo Software | Microsoft Azure" 
+    description="Apprenez à utiliser Igloo Software avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory avec Igloo Software
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=526509).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Igloo Software. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement [Igloo Software](http://www.igloosoftware.com/) pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Igloo Software pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Igloo Software (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Igloo Software pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Igloo Software (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -63,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Authentification unique Microsoft Azure AD](./media/active-directory-saas-igloo-software-tutorial/IC783965.png "Authentification unique avec Microsoft Azure AD")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Igloo Software**, tapez votre URL selon le modèle suivant « **https://company.igloocommunities.com/?signin*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Igloo Software**, tapez votre URL selon le modèle suivant "**https://company.igloocommunities.com/?signin*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-igloo-software-tutorial/IC773625.png "Configurer l’URL de l’application")
 
@@ -73,11 +86,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Igloo Software en tant qu’administrateur.
 
-6.  Accédez à **Control Panel**.
+6.  Accédez à **Control panel**.
 
     ![Panneau de configuration](./media/active-directory-saas-igloo-software-tutorial/IC799949.png "Panneau de configuration")
 
-7.  Dans l’onglet **Membership**, cliquez sur **Sign In Settings**.
+7.  Sous l’onglet **Membership**, cliquez sur **Sign In Settings**.
 
     ![Paramètres de connexion](./media/active-directory-saas-igloo-software-tutorial/IC783968.png "Paramètres de connexion")
 
@@ -90,7 +103,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configuration générale](./media/active-directory-saas-igloo-software-tutorial/IC783970.png "Configuration générale")
 
     1.  Dans la zone de texte **Connection Name**, entrez un nom personnalisé pour votre configuration.
-    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Igloo Software**, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **IdP Login URL**.
+    2.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Igloo Software** de la boîte de dialogue, copiez la valeur **URL de connexion distante**, puis collez-la dans la zone de texte **IdP Login URL**.
     3.  Dans le portail Azure, dans la page **Configurer l’authentification unique sur Igloo Software**, copiez la valeur **URL de déconnexion distante**, puis collez-la dans la zone de texte **IdP Logout URL**.
     4.  Pour **Logout Response and Request HTTP Type**, sélectionnez **POST**.
     5.  Créez un fichier texte à partir du certificat téléchargé.
@@ -117,7 +130,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     2.  Pour **Sign in Settings**, sélectionnez **Use SAML button on “Sign in” screen**.
     3.  Cliquez sur **Enregistrer**.
 
-12. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+12. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-igloo-software-tutorial/IC783973.png "Configurer l’authentification unique")
 ##Configuration de l'approvisionnement des utilisateurs
@@ -135,10 +148,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-igloo-software-tutorial/IC783974.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-igloo-software-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

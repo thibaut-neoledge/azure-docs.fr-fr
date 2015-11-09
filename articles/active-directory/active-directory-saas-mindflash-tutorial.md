@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Mindflash | Microsoft Azure" description="Apprenez à utiliser Mindflash avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Mindflash | Microsoft Azure" 
+    description="Apprenez à utiliser Mindflash avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory avec Mindflash
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528416).
   
 L'objectif de ce didacticiel est de montrer comment intégrer Azure et Mindflash. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Mindflash pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Mindflash pourront s’authentifier de manière unique dans l'application sur votre site d'entreprise Mindflash (connexion initiée par le fournisseur du service) ou à l'aide de la [Présentation du volet d'accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Mindflash pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Mindflash (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -59,11 +72,11 @@ Cette section explique comment permettre aux utilisateurs de s'authentifier sur 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-mindflash-tutorial/IC787135.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Mindflash**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Mindflash**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-mindflash-tutorial/IC787136.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Mindflash**, tapez votre URL selon le modèle suivant « **http://company.mindflash.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion**, tapez votre URL selon le modèle suivant « **http://company.mindflash.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-mindflash-tutorial/IC787137.png "Configurer l’URL de l’application")
 
@@ -86,7 +99,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous deve
 
 1.  Connectez-vous au site d’entreprise **Mindflash** en tant qu’administrateur.
 
-2.  Accédez à **Manage Users**.
+2.  Accédez à **Gérer les utilisateurs**.
 
     ![Gérer les utilisateurs](./media/active-directory-saas-mindflash-tutorial/IC787140.png "Gérer les utilisateurs")
 
@@ -96,7 +109,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Mindflash, vous deve
 
     ![Ajouter de nouveaux utilisateurs](./media/active-directory-saas-mindflash-tutorial/IC787141.png "Ajouter de nouveaux utilisateurs")
 
-    1.  Indiquez le prénom, le nom et l’adresse e-mail d'un compte AAD valide que vous souhaitez approvisionner dans les zones de texte **First Name**, **Last Name** et **Email**.
+    1.  Indiquez le prénom, le nom et l’adresse de messagerie du compte AAD valide que vous souhaitez approvisionner dans les zones de texte **First Name**, **Last Name** et **Email**.
     2.  Cliquez sur **Add**.
 
 >[AZURE.NOTE]Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur, fourni par Mindflash, pour approvisionner des comptes d’utilisateur AAD.
@@ -113,10 +126,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-mindflash-tutorial/IC787142.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-mindflash-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d'accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

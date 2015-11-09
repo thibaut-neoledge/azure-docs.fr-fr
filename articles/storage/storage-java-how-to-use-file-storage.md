@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/26/2015" 
 	ms.author="v-dedomi"/>
 
 # Utilisation du stockage de fichiers à partir de Java
@@ -222,4 +222,4 @@ Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

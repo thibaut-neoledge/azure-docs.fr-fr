@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Panorama9 | Microsoft Azure" description="Apprenez à utiliser Panorama9 avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec Panorama9 | Microsoft Azure" 
+    description="Apprenez à utiliser Panorama9 avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Panorama9
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528724).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Panorama9. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Panorama9 pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Panorama9 pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Panorama9 (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Panorama9 pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Panorama9 (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,19 +64,19 @@ Cette section décrit l’activation de l’intégration d’application pour Pa
     ![Panorama9](./media/active-directory-saas-panorama9-tutorial/IC790018.png "Panorama9")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Panorama9 avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Panorama9 vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Panorama9 avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Panorama9 vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **Panorama9**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Active Directory, dans la page d’intégration d’application **Panorama9**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-panorama9-tutorial/IC790019.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Panorama9**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Panorama9**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-panorama9-tutorial/IC790020.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à Panorama9**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Panorama9 (par exemple, « *https://dashboard.panorama9.com/saml/access/3262*")), puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de Panorama9**, tapez l’URL utilisée par vos utilisateurs pour se connecter à Panorama9 (par exemple, “*https://dashboard.panorama9.com/saml/access/3262*")), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-panorama9-tutorial/IC790021.png "Configurer l’URL de l’application")
 
@@ -86,7 +99,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Paramètres](./media/active-directory-saas-panorama9-tutorial/IC790025.png "Paramètres")
 
     1.  Dans la page **Configurer l’authentification unique sur Panorama9** du portail Azure, copiez la valeur **URL du service d’authentification unique**, puis collez-la dans la zone de texte **Identity provider URL**.
-    2.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Certificate fingerprint**.  
+    2.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
@@ -113,7 +126,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Panorama9, vous deve
 
     ![Utilisateurs](./media/active-directory-saas-panorama9-tutorial/IC790028.png "Utilisateurs")
 
-    1.  Dans la zone de texte **Email**, tapez l’adresse de messagerie d’un utilsateur Azure Active Directory valide à approvisionner.
+    1.  Dans la zone de texte **Email**, tapez l’adresse de messagerie d’un utilisateur Azure Active Directory valide à approvisionner.
     2.  Cliquez sur **Enregistrer**.
 
 >[AZURE.NOTE]Vous pouvez utiliser n’importe quel outil ou API de création de compte utilisateur, fourni par Panorama9, pour approvisionner des comptes utilisateur AAD.
@@ -130,10 +143,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-panorama9-tutorial/IC790029.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-panorama9-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

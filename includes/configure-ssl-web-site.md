@@ -1,31 +1,34 @@
 
-Vous pouvez sécuriser les communications entre l’application web et le navigateur avec le protocole HTTPS, qui utilise le chiffrement SSL (Secure Socket Layer). Il s’agit de la méthode la plus courante en matière de sécurisation des données envoyées via Internet. Elle permet de garantir aux visiteurs que les transactions qu’ils réalisent avec votre application sont sécurisées. Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. Cet article ne couvre pas l’authentification du certificat client. Pour plus d’informations à ce sujet, consultez [Comment configurer l’authentification mutuelle TLS pour les applications web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
+Cet article décrit comment configurer le protocole HTTPS pour une application web dans Azure App Service. Il ne couvre pas l’authentification du certificat client. Pour plus d’informations à ce sujet, consultez [Comment configurer l’authentification mutuelle TLS pour les applications web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-> [AZURE.NOTE]Soyez opérationnel plus rapidement ! Utilisez la nouvelle [procédure pas à pas](http://support.microsoft.com/kb/2990804) d’Azure ! L’association d’un nom de domaine personnalisé ET la sécurisation des communications (SSL) avec Azure Cloud Services ou [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) deviennent un jeu d’enfant.
-
-##<a name="bkmk_azurewebsites"></a>HTTPS pour le domaine *.azurewebsites.net
-
-Si vous n’envisagez pas d’utiliser un nom de domaine personnalisé, mais le domaine *.azurewebsites.net attribué à votre application web par Azure (par exemple, contoso.azurewebsites.net), le protocole HTTPS est alors déjà activé sur votre site, avec un certificat fourni par Microsoft. Vous pouvez utiliser ****https://mywebsite.azurewebsites.net** pour accéder à votre application. Cependant, *.azurewebsites.net est un domaine générique. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n’est pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat.
+Par défaut, Azure active déjà le protocole HTTP pour votre application grâce à un certificat générique pour le domaine *.azurewebsites.net. Si vous ne souhaitez pas configurer de domaine personnalisé, vous pouvez utiliser le certificat HTTPS par défaut. Comme [tous les domaines génériques](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), il n’est cependant pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat.
 
 Le reste de ce document fournit des détails sur l’activation du protocole HTTPS pour les domaines personnalisés, par exemple **contoso.com**, **www.contoso.com** ou ***.contoso.com**
 
-##<a name="bkmk_domainname"></a>Activation de SSL pour votre domaine personnalisé
+<a name="bkmk_domainname"></a>
+## Activer le chiffrement SSL pour votre domaine personnalisé
 
-Pour activer le protocole HTTPS pour un domaine personnalisé comme **contoso.com**, vous devez d’abord l’inscrire auprès d’un bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la configuration du nom de domaine d’une application web, consultez la page [Configuration d’un nom de domaine personnalisé pour un site web Azure](/fr-FR/develop/net/common-tasks/custom-dns-web-site/). Une fois que vous avez inscrit un nom de domaine personnalisé et configuré votre application web de manière à ce qu’elle réponde au nom personnalisé, vous devez demander un certificat SSL pour ce domaine.
+Pour activer le protocole HTTPS pour un domaine personnalisé comme **contoso.com**, vous devez d’abord [configurer un nom de domaine personnalisé dans Azure App Service](../articles/app-service-web/web-sites-custom-domain-name.md). Exécutez ensuite les étapes suivantes :
 
-> [AZURE.NOTE]Pour activer le protocole HTTPS pour les noms de domaine personnalisés, vous devez configurer votre application web avec le mode **standard**. Des frais supplémentaires peuvent s’appliquer si vous utilisez actuellement le mode gratuit ou partagé. Pour plus d’informations sur la tarification des modes partagé et **standard**, consultez la page [Tarification][pricing].
+1. [Obtention d'un certificat SSL](#bkmk_getcert)
+2. [Configuration du niveau de tarification Standard](#bkmk_standardmode)
+2. [Configuration de SSL dans votre application](#bkmk_configuressl)
+3. [Exécution de SSL sur votre application](#bkmk_enforce) (facultatif)
 
-##<a name="bkmk_getcert"></a>Obtention d’un certificat SSL
+Si vous avez besoin d’une aide supplémentaire au sujet d’un point quelconque de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**.
+
+<a name="bkmk_getcert"></a>
+## 1\. Obtention d'un certificat SSL
 
 Avant de demander un certificat SSL, vous devez déterminer les noms de domaine qui seront sécurisés par celui-ci, et par conséquent le type de certificat à demander. Si vous devez sécuriser un seul nom de domaine comme **contoso.com** ou **www.contoso.com**, un certificat de base suffit. Si vous devez en sécuriser plusieurs, par exemple **contoso.com**, **www.contoso.com** et **mail.contoso.com**, vous pouvez obtenir un [certificat générique](http://en.wikipedia.org/wiki/Wildcard_certificate) ou un certificat avec [autre nom d’objet](http://en.wikipedia.org/wiki/SubjectAltName) (subjectAltName).
 
-Les certificats SSL utilisés avec Web Apps doivent être signés par une [autorité de certification](http://en.wikipedia.org/wiki/Certificate_authority). Si vous n’en possédez pas, vous devez en obtenir un auprès d’une société qui émet des certificats SSL. Pour obtenir la liste des autorités de certification, consultez la page [Programme de certificats racine SSL Windows et Windows Phone 8 (autorités de certification membres)][cas] dans la section Wiki de Microsoft TechNet.
+Les certificats SSL utilisés avec App Service doivent être signés par une [autorité de certification](http://en.wikipedia.org/wiki/Certificate_authority). Si vous n’en possédez pas, vous devez en obtenir un auprès d’une société qui émet des certificats SSL. Pour obtenir la liste des autorités de certification, consultez la page [Programme de certificats racine SSL Windows et Windows Phone 8 (autorités de certification membres)][cas] dans la section Wiki de Microsoft TechNet.
 
 Le certificat SSL doit répondre aux prérequis suivants dans Azure :
 
 * Le certificat doit contenir une clé privée.
 * Le certificat doit être créé pour l’échange de clés et pouvoir faire l’objet d’un export au format Personal Information Exchange (.pfx).
-* Le nom d’objet du certificat doit correspondre au domaine utilisé pour accéder à l’application web. Si vous voulez gérer plusieurs domaines avec ce certificat, vous devez utiliser un caractère générique ou spécifier un autre nom de l’objet, comme indiqué précédemment.
+* Le nom d’objet du certificat doit correspondre au domaine utilisé pour accéder à l’application. Si vous voulez gérer plusieurs domaines avec ce certificat, vous devez utiliser un caractère générique ou spécifier un autre nom de l’objet, comme indiqué précédemment.
 * Le certificat doit utiliser au minimum un chiffrement à 2 048 bits.
 * Les certificats émis à partir de serveurs d’autorité de certification privés ne sont pas pris en charge par Azure App Service.
 
@@ -35,20 +38,20 @@ Pour obtenir un certificat SSL à utiliser avec Azure App Service, vous soumett
 - [Obtention d’un certificat à l’aide du Gestionnaire des services Internet](#bkmk_iismgr)
 - [Obtention d’un certificat à l’aide d’OpenSSL](#bkmk_openssl)
 - [Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL](#bkmk_subjectaltname)
-- [Génération de certificats auto-signés (à des fins de test uniquement)](#bkmk_selfsigned) 
+- [Génération de certificats auto-signés (à des fins de test uniquement)](#bkmk_selfsigned)
 
 > [AZURE.NOTE]Lors de ces étapes, vous devez entrer un **nom commun**, comme `www.contoso.com`. Pour les certificats génériques, cette valeur doit être *.nomdedomaine (par exemple, *.contoso.com). Pour prendre en charge un nom générique comme *.contoso.com et un nom de domaine racine tel que contoso.com, vous pouvez utiliser un certificat générique subjectAltName.
 >
 > Les certificats ECC (chiffrement à courbe elliptique) sont pris en charge par Azure App Service. Cependant, ils sont relativement nouveaux, et la procédure précise à suivre pour créer la demande de signature de certificat doit être déterminée avec votre autorité de certification.
 
-Vous devrez peut-être obtenir des **[certificats intermédiaires](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (également appelés certificats de chaîne), si ceux-ci sont utilisés par l’autorité de certification. Les certificats intermédiaires étant plus sécurisés que les certificats sans chaîne, les autorités de certification les utilisent fréquemment. Ils sont souvent fournis sous forme de téléchargement par le site web de l’autorité de certification. Les étapes décrites dans cet article permettent de s’assurer que les certificats intermédiaires sont fusionnés avec ceux qui sont chargés vers vos applications web.
+Vous devrez peut-être obtenir des **[certificats intermédiaires](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** (également appelés certificats de chaîne), si ceux-ci sont utilisés par l’autorité de certification. Les certificats intermédiaires étant plus sécurisés que les certificats sans chaîne, les autorités de certification les utilisent fréquemment. Ils sont souvent fournis sous forme de téléchargement par le site web de l’autorité de certification. Les étapes décrites dans cet article permettent de s’assurer que les certificats intermédiaires sont fusionnés avec ceux qui sont chargés vers vos applications.
 
 <a name="bkmk_certreq"></a>
-###Obtention d’un certificat à l’aide de Certreq.exe (Windows uniquement)
+### Obtention d’un certificat à l’aide de Certreq.exe (Windows uniquement)
 
 Certreq.exe est un utilitaire Windows pour la création de demandes de certificat. Il fait partie de l’installation Windows de base depuis Windows XP/Windows Server 2000 et doit être disponible sur les systèmes Windows récents. Suivez les étapes ci-dessous pour obtenir un certificat SSL à l’aide de certreq.exe.
 
-1. Ouvrez le **Bloc-notes** et créez un document contenant les éléments suivants. Dans la ligne d’objet, remplacez **mysite.com** par le nom de domaine personnalisé de votre application web. Par exemple, Objet = "CN=www.contoso.com".
+1. Ouvrez le **Bloc-notes** et créez un document contenant les éléments suivants. Dans la ligne d’objet, remplacez **mysite.com** par le nom de domaine personnalisé de votre application. Par exemple, Objet = "CN=www.contoso.com".
 
 		[NewRequest]
 		Subject = "CN=mysite.com"
@@ -109,10 +112,10 @@ Certreq.exe est un utilitaire Windows pour la création de demandes de certifica
 
 	![indiquer le chemin d’accès au fichier][certwiz4]
 
-Vous pouvez maintenant charger le fichier PFX exporté vers votre application web Azure.
+Vous pouvez maintenant charger le fichier PFX exporté vers votre application dans Azure App Service.
 
 <a name="bkmk_openssl"></a>
-###Obtention d’un certificat à l’aide d’OpenSSL
+### Obtention d’un certificat à l’aide d’OpenSSL
 
 1. Générez une clé privée et une demande de signature de certificat en utilisant la commande suivante dans une ligne de commande, un interpréteur de commandes ou une session terminal :
 
@@ -120,7 +123,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 
 2. Lorsque vous y êtes invité, entrez les informations appropriées. Par exemple :
 
- 		Country Name (2 letter code) 
+ 		Country Name (2 letter code)
         State or Province Name (full name) []: Washington
         Locality Name (eg, city) []: Redmond
         Organization Name (eg, company) []: Microsoft
@@ -130,7 +133,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 
 		Please enter the following 'extra' attributes to be sent with your certificate request
 
-       	A challenge password []: 
+       	A challenge password []:
 
 	Une fois le processus terminé, vous devez disposer de deux fichiers : **myserver.key** et **server.csr**. Le fichier **server.csr** contient la demande de signature de certificat.
 
@@ -167,7 +170,7 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
 	> [AZURE.NOTE]Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
-	> 
+	>
 	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
 	>
@@ -177,7 +180,8 @@ Vous pouvez maintenant charger le fichier PFX exporté vers votre application w
 
 	Une fois cette commande exécutée, vous devez disposer d’un fichier **myserver.pfx** utilisable avec Azure App Service.
 
-###<a name="bkmk_iismgr"></a>Obtention d’un certificat à l’aide du Gestionnaire des services Internet
+<a name="bkmk_iismgr"></a>
+### Obtention d'un certificat à l'aide du Gestionnaire des services Internet
 
 Si vous maîtrisez le Gestionnaire des services Internet, vous pouvez l’utiliser pour générer un certificat pouvant être utilisé avec Azure App Service.
 
@@ -191,19 +195,19 @@ Si vous maîtrisez le Gestionnaire des services Internet, vous pouvez l’utilis
 
 	Une fois le certificat téléchargé, cliquez dessus avec le bouton droit dans l’explorateur, puis sélectionnez **Installer le certificat**. Utilisez les valeurs par défaut de l’**Assistant Importation de certificat**, puis sélectionnez **Suivant** jusqu’à ce que l’importation soit terminée.
 
-4. Exportez le certificat à partir du gestionnaire des services Internet. Pour plus d’informations sur l’exportation du certificat, consultez la page [Exporter un certificat de serveur (IIS 7)][exportcertiis]. Le fichier exporté sera chargé ultérieurement vers Azure pour être utilisé avec votre application web.
+4. Exportez le certificat à partir du gestionnaire des services Internet. Pour plus d’informations sur l’exportation du certificat, consultez la page [Exporter un certificat de serveur (IIS 7)][exportcertiis]. Le fichier exporté sera chargé ultérieurement vers Azure pour être utilisé avec votre application.
 
 	> [AZURE.NOTE]Au cours de l’exportation, veillez à sélectionner l’option <strong>Oui, exporter la clé privée</strong>, qui permet d’inclure la clé privée dans le certificat exporté.
 
 	> [AZURE.NOTE]Lors de l’exportation, veillez à sélectionner les options **Inclure tous les certificats dans le chemin d’accès de certification** et **Exporter toutes les propriétés étendues**. Ainsi, les certificats intermédiaires seront inclus dans le certificat exporté.
 
-
-###<a name="bkmk_subjectaltname"></a>Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL
+<a name="bkmk_subjectaltname"></a>
+### Obtention d’un certificat SubjectAltName à l’aide d’OpenSSL
 
 OpenSSL permet de créer une demande de certificat qui utilise l’extension SubjectAltName pour prendre en charge plusieurs noms de domaine avec un seul certificat mais, pour cela, nécessite un fichier de configuration. Les étapes suivantes permettent de créer un fichier de configuration, puis de l’utiliser pour demander un certificat.
 
 1. Créez un fichier nommé __sancert.cnf__ et utilisez le contenu suivant :
- 
+
 		# -------------- BEGIN custom sancert.cnf -----
 		HOME = .
 		oid_section = new_oids
@@ -216,13 +220,13 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 		req_extensions = v3_req # Extensions to add to certificate request
 		[ req_distinguished_name ]
 		countryName = Country Name (2 letter code)
-		countryName_default = 
+		countryName_default =
 		stateOrProvinceName = State or Province Name (full name)
-		stateOrProvinceName_default = 
+		stateOrProvinceName_default =
 		localityName = Locality Name (eg, city)
-		localityName_default = 
+		localityName_default =
 		organizationalUnitName  = Organizational Unit Name (eg, section)
-		organizationalUnitName_default  = 
+		organizationalUnitName_default  =
 		commonName              = Your common name (eg, domain name)
 		commonName_default      = www.mydomain.com
 		commonName_max = 64
@@ -249,7 +253,7 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
         Locality Name (eg, city) []: Redmond
         Organizational Unit Name (eg, section) []: Azure
         Your common name (eg, domain name) []: www.microsoft.com
- 
+
 
 	Une fois le processus terminé, vous devez disposer de deux fichiers : **myserver.key** et **server.csr**. Le fichier **server.csr** contient la demande de signature de certificat.
 
@@ -286,20 +290,20 @@ OpenSSL permet de créer une demande de certificat qui utilise l’extension Sub
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
 	> [AZURE.NOTE]Si l’autorité de certification utilise des certificats intermédiaires, vous devez les installer avant d’exporter le certificat à l'étape suivante. Ces certificats sont généralement fournis sous forme de téléchargement distinct par l’autorité de certification, dans plusieurs formats adaptés à différents types de serveurs. Sélectionnez la version fournie au format PEM (extension de fichier .pem).
-	> 
+	>
 	> La commande suivante montre comment créer un fichier .pfx incluant des certificats intermédiaires, qui sont contenus dans le fichier **intermediate-cets.pem** :
 	>
-	> 
+	>
 	`````
 	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Une fois cette commande exécutée, vous devez disposer d’un fichier **myserver.pfx** utilisable avec Azure App Service.
 
+<a name="bkmk_selfsigned"></a>
+### Génération d'un certificat auto-signé (à des fins de test uniquement)
 
-###<a name="bkmk_selfsigned"></a>Génération d’un certificat auto-signé (à des fins de test uniquement)
-
-Dans certains cas, vous pouvez obtenir un certificat à des fins de test et retarder l’achat auprès d’une autorité de certification jusqu’à ce que vous arriviez à la phase de production. Les certificats auto-signés conviennent dans ce cas. Il s’agit de certificats que vous créez et signez comme si vous étiez une autorité de certification. Même si ce certificat permet de sécuriser une application web, la plupart des navigateurs renvoient une erreur lors de l’accès au site, car le certificat n’a pas été signé par une autorité de certification approuvée. Il se peut même que certains navigateurs refusent d’afficher le site.
+Dans certains cas, vous pouvez obtenir un certificat à des fins de test et retarder l’achat auprès d’une autorité de certification jusqu’à ce que vous arriviez à la phase de production. Les certificats auto-signés conviennent dans ce cas. Il s’agit de certificats que vous créez et signez comme si vous étiez une autorité de certification. Même si ce certificat permet de sécuriser une application, la plupart des navigateurs renvoient une erreur lors de l’accès à l’application, car le certificat n’a pas été signé par une autorité de certification approuvée. Il se peut même que certains navigateurs refusent d’afficher l’application.
 
 - [Génération d’un certificat auto-signé à l’aide de makecert](#bkmk_ssmakecert)
 - [Génération d’un certificat auto-signé à l’aide d’OpenSSL](#bkmk_ssopenssl)
@@ -313,7 +317,7 @@ Pour créer un certificat de test à partir du système Windows sur lequel Visua
 
 	Si la boîte de dialogue du contrôle de compte d’utilisateur s’ouvre, sélectionnez **Oui** pour continuer.
 
-2. Dans l’invite de commandes développeur, utilisez la commande suivante pour créer un certificat auto-signé. Vous devez remplacer **serverdnsname** par le DNS de votre application web.
+2. Dans l’invite de commandes développeur, utilisez la commande suivante pour créer un certificat auto-signé. Vous devez remplacer **serverdnsname** par le DNS de votre application.
 
 		makecert -r -pe -b 01/01/2013 -e 01/01/2014 -eku 1.3.6.1.5.5.7.3.1 -ss My -n CN=serverdnsname -sky exchange -sp "Microsoft RSA SChannel Cryptographic Provider" -sy 12 -len 2048
 
@@ -373,47 +377,48 @@ Pour créer un certificat de test à partir du système Windows sur lequel Visua
 
 	Ceci permet de créer un certificat à l’aide des paramètres de configuration spécifiés dans le fichier **serverauth.cnf**.
 
-3. Pour exporter le certificat dans un fichier .PFX pouvant être chargé vers une application web, utilisez la commande suivante :
+3. Pour exporter le certificat dans un fichier .PFX pouvant être téléchargé sur une application dans Azure App Service, utilisez la commande suivante :
 
 		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Lorsque vous y êtes invité, entrez un mot de passe pour sécuriser le fichier .pfx.
 
-	Le fichier **myserver.pfx** généré par cette commande permet de sécuriser votre application web à des fins de test.
+	Le fichier **myserver.pfx** généré par cette commande permet de sécuriser votre application à des fins de test.
 
-<a name="bkmk_standardmode"></a><h2>Configuration du mode Standard</h2>
+<a name="bkmk_standardmode"></a>
+## 2\. Configuration du niveau de tarification Standard
 
-L’activation du protocole HTTPS pour un domaine personnalisé est disponible uniquement avec le mode **Standard** des applications web. Pour passer au mode **Standard**, procédez comme suit :
+L’activation du protocole HTTPS pour un domaine personnalisé est disponible uniquement avec le niveau **Standard** dans Azure App Service. Procédez comme suit pour basculer votre plan App Service vers le niveau de tarification **Standard**.
 
-> [AZURE.NOTE]Avant de basculer une application web du mode **Gratuit** au mode **Standard**, vous devez supprimer les limites de dépense mises en place pour l’abonnement de votre application web, sans quoi votre site risque d’être indisponible si vous atteignez la limite avant la fin de la période de facturation. Pour plus d’informations sur la tarification des modes **Standard** et Partagé, consultez la page [Tarification][pricing].
+> [AZURE.NOTE]Avant de basculer une application du niveau **Gratuit** au niveau **Standard**, vous devez supprimer les limites de dépense mises en place pour l’abonnement de votre application, sans quoi cette dernière risque d’être indisponible si vous atteignez la limite avant la fin de la période de facturation. Pour plus d’informations sur les niveaux de tarification Partagé et **Standard**, consultez la page [Tarification][pricing].
 
 1.	Dans votre navigateur, ouvrez le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
 3.	Cliquez sur le panneau **Web Apps**.
-4.	Cliquez sur le nom de votre application web.
+4.	Cliquez sur le nom de votre application.
 5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
 6.	Cliquez sur **Mettre à l’échelle**.![L’onglet Mettre à l’échelle][scale]
 7.	Dans la section **Mettre à l’échelle**, définissez le mode de plan App Service en cliquant sur **Sélectionner**. ![Le niveau de tarification][sslreserved]
 
 	> [AZURE.NOTE]Si un message indiquant une erreur de mise à l’échelle pour l’application web &lt;nom de l’application&gt; s’affiche, vous pouvez cliquer sur le bouton de détails pour obtenir plus d’informations. Une erreur indiquant que le nombre de serveurs d’instances disponibles est insuffisant pour répondre à la demande peut s’afficher. Dans ce cas, contactez le [support technique Azure](/support/options/).
 
+<a name="bkmk_configuressl"></a>
+## 3\. Configuration de SSL dans votre application
 
-##<a name="bkmk_configuressl"></a>Configuration du chiffrement SSL
-
-Avant de suivre les étapes de cette section, vous devez avoir associé un nom de domaine personnalisé à votre application web. Pour plus d’informations, consultez la page [Configuration d’un nom de domaine personnalisé pour une application web][customdomain].
+Avant de suivre les étapes de cette section, vous devez avoir associé un nom de domaine personnalisé à votre application. Pour plus d’informations, consultez la page [Configuration d’un nom de domaine personnalisé pour une application web][customdomain].
 
 1.	Dans votre navigateur, ouvrez le [portail de gestion Azure](https://portal.azure.com).
 2.	Cliquez sur l’option **Parcourir** sur le côté gauche de la page.
 3.	Cliquez sur le panneau **Web Apps**.
-4.	Cliquez sur le nom de votre application web.
-5.	Dans la page **Essentials**, cliquez sur **Paramètres**.	
+4.	Cliquez sur le nom de votre application.
+5.	Dans la page **Essentials**, cliquez sur **Paramètres**.
 6.	Cliquez sur **Personnalisation des domaines et SSL**. ![L’onglet de configuration] [sslconfig]
 7.	Dans la section **Certificats**, cliquez sur **Charger**.
 8.	Dans la boîte de dialogue **Upload a certificate**, sélectionnez le fichier de certificat .pfx créé plus tôt à l’aide du gestionnaire des services Internet ou d’OpenSSL. Spécifiez le mot de passe utilisé pour sécuriser le fichier .pfx, le cas échéant. Pour finir, cliquez sur **Enregistrer** pour télécharger le certificat. [téléchargement ssl][ssluploadcert]
 9. Dans la section **Liaisons SSL** de l’onglet **Paramètres SSL**, utilisez les listes déroulantes pour sélectionner le nom de domaine à sécuriser avec le chiffrement SSL, et le certificat à utiliser. Vous pouvez également indiquer si vous utilisez l’extension [SNI (Indication du nom du serveur)][sni] ou le protocole SSL basé sur IP.
 
 	![liaisons SSL][sslbindings]
-	
+
 	* Le protocole SSL basé sur IP associe un certificat à un nom de domaine en mappant l’adresse IP publique dédiée du serveur au nom de domaine. Chaque nom de domaine (contoso.com, fabricam.com, etc.) associé à votre service doit donc posséder une adresse IP dédiée. Il s’agit de la méthode classique permettant d’associer des certificats SSL à un serveur Web.
 
 	* Le protocole SSL basé sur SNI une extension des protocoles SSL et [TLS (Transport Layer Security)][tls] qui permet à plusieurs domaines de partager la même adresse IP, avec des certificats de sécurité distincts pour chaque domaine. La plupart des navigateurs modernes (dont Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI. Il se peut toutefois que les navigateurs plus anciens ne proposent pas cette prise en charge. Pour plus d’informations sur l’extension SNI, consultez l’[article Wikipédia associé][sni].
@@ -422,7 +427,7 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 
 > [AZURE.NOTE]Si vous avez sélectionné **SSL basé sur IP** et que votre domaine personnalisé est configuré à l’aide d’un enregistrement A, vous devez effectuer les étapes supplémentaires suivantes :
 >
-> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application web. Celle-ci figure dans la page **Tableau de bord** de votre application web, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
+> 1. Une fois la liaison SSL basée sur IP configurée, une adresse IP dédiée est attribuée à votre application. Celle-ci figure dans la page **Tableau de bord** de votre application, dans la section **Aperçu rapide**. Elle est répertoriée avec la mention **Adresse IP virtuelle** :
 >    
 >     ![Adresse IP virtuelle](./media/configure-ssl-web-site/staticip.png)
 >    
@@ -431,14 +436,15 @@ Avant de suivre les étapes de cette section, vous devez avoir associé un nom d
 > 2. À l’aide des outils fournis par votre bureau d’enregistrement, modifiez l’enregistrement A de votre nom de domaine personnalisé de manière à ce qu’il pointe vers l’adresse IP spécifiée lors de l’étape précédente.
 
 
-À ce stade, vous devez être en mesure de visiter votre application web en utilisant `HTTPS://` à la place de `HTTP://` pour vérifier que le certificat a été configuré correctement.
+À ce stade, vous devez être en mesure de visiter votre application en utilisant `HTTPS://` à la place de `HTTP://` pour vérifier que le certificat a été configuré correctement.
 
-##<a name="bkmk_enforce"></a>Application du protocole HTTPS dans votre application web
+<a name="bkmk_enforce"></a>
+## 4\. Exécution de SSL sur votre application
 
-Azure App Service n’applique *pas* le protocole HTTPS. Les visiteurs peuvent toujours accéder à votre application web en utilisant le protocole HTTP, ce qui peut compromettre la sécurité de votre application web. Si vous souhaitez appliquer le protocole HTTPS pour votre application web, vous pouvez utiliser le **module de réécriture d’URL**. Ce module est inclus à Azure App Service et vous permet de définir des règles qui sont appliquées aux requêtes entrantes avant qu’elles ne soient transmises à votre application. **Il peut être utilisé pour les applications écrites dans n’importe quel langage de programmation pris en charge par Azure.**
+Azure App Service n’applique *pas* le protocole HTTPS. Les visiteurs peuvent toujours accéder à votre application en utilisant le protocole HTTP, ce qui peut compromettre la sécurité de votre application. Si vous souhaitez appliquer le protocole HTTPS pour votre application, vous pouvez utiliser le **module de réécriture d’URL**. Ce module est inclus à Azure App Service et vous permet de définir des règles qui sont appliquées aux requêtes entrantes avant qu’elles ne soient transmises à votre application. **Il peut être utilisé pour les applications écrites dans n’importe quel langage de programmation pris en charge par Azure.**
 
-> [AZURE.NOTE]Les applications .NET MVC doivent utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) plutôt que le module de réécriture d’URL. Pour plus d’informations sur l’utilisation du filtre RequireHttps, consultez la page [Déployer une application ASP.NET MVC 5 vers une application web](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
-> 
+> [AZURE.NOTE]Les applications .NET MVC doivent utiliser le filtre [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) plutôt que le module de réécriture d’URL. Pour plus d’informations sur l’utilisation du filtre RequireHttps, consultez la page [Déployer une application ASP.NET MVC 5 vers une application web](../articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>
 > Pour plus d’informations sur la redirection par programme des requêtes utilisant d’autres langages et infrastructures de programmation, consultez la documentation de ces technologies.
 
 Les règles de réécriture d'URL sont définies dans un fichier **web.config** stocké à la racine de votre application. L’exemple suivant contient une règle de réécriture d’URL basique qui force tout le trafic entrant à utiliser HTTPS.
@@ -474,13 +480,13 @@ Si votre fichier web.config contient déjà une section **&lt;rewrite>**, ajoute
 
 ###PHP
 
-Pour les applications PHP, enregistrez simplement l’[exemple](#example) comme fichier web.config à la racine de votre application, puis redéployez l’application vers votre application web.
+Pour les applications PHP, enregistrez simplement l’[exemple](#example) comme fichier web.config à la racine de votre application, puis redéployez l’application vers votre application.
 
 ###Node.js, Python Django et Java
 
 Un fichier web.config est automatiquement créé pour les applications Node.js, Python Django et Java s'ils n'en fournissent pas déjà un, mais il existe uniquement sur le serveur puisqu'il est créé pendant le déploiement. Le fichier généré automatiquement contient des paramètres qui disent à Azure comment héberger votre application.
 
-Pour récupérer et modifier le fichier auto-généré à partir de l’application web, procédez comme suit :
+Pour récupérer et modifier le fichier auto-généré à partir de l’application, procédez comme suit :
 
 1. Téléchargez le fichier via FTP (consultez la page [Chargement/téléchargement de fichiers sur FTP et collecte de journaux de diagnostic](http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx)).
 
@@ -490,10 +496,10 @@ Pour récupérer et modifier le fichier auto-généré à partir de l’applicat
 
 	* **Node.js et Python Django**
 
-		Le fichier web.config généré pour les applications Node.js et Python Django contient déjà une section **&lt;rewrite>**, contenant les entrées **&lt;rule>** requises pour le bon fonctionnement du site. Pour forcer le site à utiliser HTTPS, ajoutez la règle **&lt;rule>** de l’exemple comme première entrée de la section **&lt;rules>**. Cette opération forcera HTTPS, tout en laissant les autres règles intactes.
+		Le fichier web.config généré pour les applications Node.js et Python Django contient déjà une section **&lt;rewrite>**, contenant les entrées **&lt;rule>** requises pour le bon fonctionnement de l’application. Pour forcer l’application à utiliser HTTPS, ajoutez la règle **&lt;rule>** de l’exemple comme première entrée de la section **&lt;rules>**. Cette opération forcera HTTPS, tout en laissant les autres règles intactes.
 
 	* **Java**
-	
+
 		Comme le fichier web.config des applications Java utilisant Apache Tomcat ne contient pas de section **&lt;rewrite>**, vous devez ajouter la section **&lt;rewrite>** de l’exemple à la section **&lt;system.webServer>**.
 
 4. Redéployez le projet (en incluant le fichier web.config mis à jour) vers Azure
@@ -504,12 +510,12 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 
 ## Autres ressources ##
 - [Centre de gestion de la confidentialité Microsoft Azure](/support/trust-center/security/)
-- [Options de configuration déverrouillées dans Sites Web Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Activer la journalisation des diagnostics](../article/app-service-web/web-sites-enable-diagnostic-log.md)
-- [Configuration dans Azure App Service](../article/app-service-web/web-sites-configure.md)
+- [Options de configuration déverrouillées dans Sites Web Azure](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+- [Activer la journalisation des diagnostics](../articles/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Configurer des applications web dans Azure App Service](../articles/app-service-web/web-sites-configure.md)
 - [Portail de gestion Azure](https://manage.windowsazure.com)
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -539,4 +545,4 @@ Pour plus d'informations sur le module Réécriture d'URL d'IIS, consultez la do
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

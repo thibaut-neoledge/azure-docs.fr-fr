@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="10/23/2015" 
 	ms.author="spelluru"/>
 
 # Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données
@@ -134,11 +134,11 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 
 	Vous pouvez également télécharger et installer manuellement la passerelle en utilisant les liens de ce panneau et l’enregistrer à l’aide de la clé indiquée dans la zone de texte **ENREGISTRER AVEC LA CLÉ**.
 	
-	Pour en savoir plus sur la passerelle, y compris les meilleures pratiques et des remarques importantes, consultez la section [Passerelle de gestion des données](#DMG).
+	Pour en savoir plus sur la passerelle, y compris les meilleures pratiques et des remarques importantes, reportez-vous au sections du début de cet article.
 
 	>[AZURE.NOTE]Vous devez être administrateur sur l’ordinateur local pour pouvoir installer et configurer la passerelle de gestion des données avec succès. Vous pouvez ajouter des utilisateurs supplémentaires au groupe Windows local d’utilisateurs de la passerelle de gestion des données. Les membres de ce groupe sont en mesure d’utiliser l’outil Gestionnaire de configuration de la passerelle de gestion de données pour configurer la passerelle.
 
-5. Patientez deux minutes, puis lancez l’application **Gestionnaire de configuration de la passerelle de gestion de données** sur votre ordinateur. Dans la fenêtre **Recherche**, tapez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
+5. Patientez deux minutes, puis lancez l’application **Gestionnaire de configuration de la passerelle de gestion de données** sur votre ordinateur. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire. Vous pouvez également trouver l’exécutable **ConfigManager.exe** dans le dossier suivant : **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	![Gestionnaire de configuration de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
@@ -149,28 +149,28 @@ Dans cette étape, vous utilisez le portail de gestion Microsoft Azure pour cr�
 	4. **Inscription** est défini sur **Inscrit**.
 	5. La barre d’état située au bas de l’écran affiche le message **Connecté au service de cloud de la passerelle de gestion de données** accompagné d’une **coche verte**.
 
-8. Basculez vers **Certificats**. Le certificat spécifié dans cet onglet sert à chiffrer/déchiffrer les informations d'identification pour le magasin de données local que vous spécifiez dans le portail. Cliquez sur **Modifier** pour utiliser votre propre certificat à la place. Par défaut, la passerelle utilise le certificat généré automatiquement par le service Data Factory.
+8. Basculez sur **Certificats**. Le certificat spécifié dans cet onglet sert à chiffrer/déchiffrer les informations d'identification pour le magasin de données local que vous spécifiez dans le portail. Cliquez sur **Modifier** pour utiliser votre propre certificat à la place. Par défaut, la passerelle utilise le certificat généré automatiquement par le service Data Factory.
 
 	![Configuration de certificat de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 9. Dans le portail Azure, cliquez sur **OK** dans le panneau **Configurer**, puis dans le panneau **Nouvelle passerelle de données**.
-6. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence sur la gauche. Si vous cliquez dessus, vous devez voir le code JSON associé. 
+6. Vous devez voir **adftutorialgateway** sous **Passerelles de données** dans l’arborescence de gauche. Si vous cliquez dessus, vous devez voir le code JSON associé. 
 	
 
-### Étape 2 : Créer des services liés 
-Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** lie une base de données SQL Server locale, et le service lié **StorageLinkedService** lie un magasin d’objets blob Azure à la Fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
+### Étape 3 : créer des services liés 
+Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **SqlServerLinkedService**. Le service **SqlServerLinkedService** associe une base de données SQL Server locale, et le service lié **StorageLinkedService** associe un magasin d’objets blob Azure à la fabrique de données. Plus loin dans cette procédure pas à pas, vous allez créer un pipeline qui copie les données de la base de données SQL Server locale vers le magasin d’objets blob Azure.
 
 #### Ajout d’un service lié à une base de données SQL Server locale
-1.	Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**. 
+1.	Dans **Data Factory Editor**, cliquez sur **Nouvelle banque de données** sur la barre d’outils, puis sélectionnez **SQL Server**. 
 
 	![Nouveau service lié SQL Server](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
 3.	Dans l’**éditeur JSON**, procédez comme suit : 
 	1. Pour **gatewayName**, spécifiez **adftutorialgateway**.	
 	2. Si vous utilisez l’authentification Windows, procédez comme suit :
 		1. Pour **connectionString** : 
-			1. Définissez le paramètre **Integrated Security** sur **true**.
+			1. Définissez le paramètre **Sécurité intégrée** sur **true**.
 			2. Spécifiez le **nom du serveur** et le **nom de la base de données**. 
-			2. Supprimez **User ID** et **Password**. 
-		3. Spécifiez le nom d’utilisateur et le mot de passe pour **userName** et **password**.
+			2. Supprimez l’**ID utilisateur** et **Mot de passe**. 
+		3. Spécifiez le nom d’utilisateur et le mot de passe des propriétés **userName** et **password**.
 		
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
@@ -180,9 +180,9 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
         		}
 
 	4. Si vous utilisez l’authentification SQL, procédez comme suit :
-		1. Spécifiez le **nom du serveur**, le **nom de la base de données**, ainsi que les paramètres **User ID** et **Password**, dans **connectionString** pour la base de données.       
+		1. Spécifiez le **nom du serveur**, le **nom de la base de données**, ainsi que les paramètres **User ID** et **Password** de la base de données dans **connectionString**.       
 		2. Supprimez les deux dernières propriétés JSON (**userName** et **password**) du code JSON.
-		3. Supprimez la dernière **virgule (,)** à la fin de la ligne qui spécifie la valeur de la propriété **gatewayName**. 
+		3. Supprimez le caractère de fin **, (virgule)** à la fin de la ligne qui spécifie la valeur de la propriété **gatewayName**. 
 
 				"typeProperties": {
             		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
@@ -199,11 +199,11 @@ Dans cette étape, vous allez créer deux services liés : **StorageLinkedServi
 4. Cliquez sur l’option **Déployer** pour déployer le service lié **StorageLinkedService**.
    
  
-### Étape 3 : Créer des jeux de données d’entrée et de sortie
+### Étape 4 : créer des jeux de données d’entrée et sortie
 Dans cette étape, vous allez créer des jeux de données d’entrée et de sortie qui représentent les données d’entrée et de sortie pour l’opération de copie (base de données SQL Server locale = > stockage d’objets blob Azure). Avant de créer des jeux de données ou des tables (jeux de données rectangulaires), vous devez effectuer les opérations suivantes (les étapes sont détaillées après la liste) :
 
 - Créez une table nommée **emp** dans la base de données SQL Server que vous avez ajoutée en tant que service lié à la fabrique de données et insérez quelques exemples d’entrées dans la table.
-- Créez un conteneur d’objets blob nommé **adftutorial** dans le compte de stockage d’objets blob Azure que vous avez ajouté comme service lié à la fabrique de données.
+- Créez un conteneur d’objets blobs nommé **adftutorial** dans le compte de stockage d’objets blobs Azure que vous avez ajouté comme service lié à la fabrique de données.
 
 ### Préparation du serveur SQL Server local pour le didacticiel
 
@@ -261,7 +261,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **SqlServerTable**.
 	- Le paramètre **tablename** est défini sur **emp**.
 	- Le paramètre **linkedServiceName** est défini sur **SqlServerLinkedService** (vous avez créé ce service lié à l’étape 2).
-	- Pour une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **policy**.    
+	- Dans le cas d’une table d’entrée qui n’est pas générée par un autre pipeline dans Azure Data Factory, vous devez définir **external** sur **true**. Cela signifie que les données d’entrée sont produites à l’extérieur du service Azure Data Factory. Vous pouvez éventuellement spécifier des stratégies de données externes à l’aide de l’élément **externalData** dans la section **Policy**.    
 
 	Pour plus d'informations sur les propriétés JSON, consultez la rubrique [Référence de script JSON][json-script-reference].
 
@@ -297,9 +297,9 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 	- Le **type** est défini sur **AzureBlob**.
 	- Le paramètre **linkedServiceName** est défini sur **StorageLinkedService** (vous avez créé ce service lié à l’étape 2).
 	- Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. Vous devez simplement créer le conteneur **adftutorial**.
-	- **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
+	- **availability** est défini sur **hourly** (**frequency** a pour valeur **hour** et **interval** est défini sur **1**). Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Microsoft Azure. 
 
-	Si vous ne spécifiez pas de nom (**fileName**) pour une **table d’entrée**, tous les fichiers/objets blob du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Pour en savoir plus, consultez les fichiers d'exemple du [didacticiel][adf-tutorial].
+	Si vous ne spécifiez pas de nom **fileName** pour une **table d’entrée**, tous les fichiers/blobs du dossier d’entrée (**folderPath**) sont considérés comme des entrées. Si vous spécifiez un fileName dans le JSON, seul le fichier/objet blob spécifié est considéré comme une entrée. Pour en savoir plus, consultez les fichiers d'exemple du [didacticiel][adf-tutorial].
  
 	Si vous ne spécifiez pas de **fileName** pour une **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt).
 
@@ -322,7 +322,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
 2.	Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le jeu de données (la table est un jeu de données rectangulaire). Vérifiez que le message **TABLE DÉPLOYÉE AVEC SUCCÈS** s’affiche dans la barre de titre.
   
 
-### Étape 4 : Créer et exécuter un pipeline
+### Étape 5 : créer et exécuter un pipeline
 Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’activité** qui utilise **EmpOnPremSQLTable** en tant qu’entrée et **OutputBlobTable** en tant que sortie.
 
 1.	Dans le panneau **DATA FACTORY**, cliquez sur la vignette **Créer et déployer** pour lancer l’**éditeur** de la fabrique de données.
@@ -377,7 +377,7 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	Notez les points suivants :
  
-	- Dans la section des activités, toutes les activités ont le **type** **Copy**.
+	- Dans la section des activités, toutes les activités sont de **type** **Copy**.
 	- L’**entrée** de l’activité est définie sur **EmpOnPremSQLTable** et la **sortie** de l’activité, sur **OutputBlobTable**.
 	- Dans la section **Transformation**, le paramètre **SqlSource** est spécifié comme **type de source**, et **BlobSink** comme **type sink**.
 - La requête SQL **select * from emp** est spécifiée pour la propriété **sqlReaderQuery** de **SqlSource**.
@@ -405,9 +405,9 @@ Dans cette étape, vous créez un **pipeline** avec une **activité Copier l’a
 
 	![Vue schématique](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
-	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d’entrée/de sortie) pour afficher les propriétés associées.
+	Vous pouvez faire un zoom avant, un zoom arrière, un zoom à 100 %, un zoom pour ajuster, positionner automatiquement les pipelines et les tables, et afficher les informations de lignage (mise en surbrillance des éléments en amont et en aval des éléments sélectionnés). Vous pouvez double-cliquer sur un objet (table ou pipeline d'entrée/de sortie) pour afficher les propriétés associées.
 
-### Étape 5 : surveiller les jeux de données et les pipelines
+### Étape 6 : surveiller les jeux de données et les pipelines
 Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus de détails sur la surveillance, consultez [Surveillance et gestion des pipelines](monitor-manage-pipelines.md).
 
 1. Ouvrez la **version préliminaire du portail Azure** (si vous l’avez fermée).
@@ -454,6 +454,38 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 
 	![Azure Storage Explorer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
+## Déplacement d’une passerelle d’une machine vers une autre
+Cette section décrit les opérations pour déplacer une passerelle client d’une machine vers une autre.
+
+2. Dans le portail, accédez à la **page d’accueil de Data Factory**, puis cliquez sur la vignette **Services liés**. 
+
+	![Lien de passerelles de données](./media/data-factory-move-data-between-onprem-and-cloud/DataGatewaysLink.png) 
+3. Sélectionnez votre passerelle dans la section **PASSERELLES DONNÉES** du panneau **Services liés**.
+	
+	![Panneau Services liés avec passerelle sélectionnée](./media/data-factory-move-data-between-onprem-and-cloud/LinkedServiceBladeWithGateway.png)
+4. Dans le panneau **Passerelle de données**, cliquez sur **Télécharger et installer la passerelle de données**.
+	
+	![Télécharger le lien de passerelle](./media/data-factory-move-data-between-onprem-and-cloud/DownloadGatewayLink.png) 
+5. Dans le panneau **Configurer**, cliquez sur **Télécharger et installer la passerelle de données**, puis suivez les instructions pour installer la passerelle de données sur la machine. 
+
+	![Panneau Configurer](./media/data-factory-move-data-between-onprem-and-cloud/ConfigureBlade.png)
+6. Laissez le **Gestionnaire de configuration de la passerelle de gestion des données** ouvert. 
+ 
+	![Gestionnaire de configuration](./media/data-factory-move-data-between-onprem-and-cloud/ConfigurationManager.png)	
+7. Dans le panneau **Configurer** du portail, cliquez sur **Recréer une clé** dans la barre de commandes, puis, au message d’avertissement, cliquez sur **Oui**. Cliquez sur le **bouton de copie** en regard du texte de la clé pour copier la clé dans le presse-papiers. Notez que la passerelle de l’ancienne machine cesse de fonctionner dès que vous recréez la clé.  
+	
+	![Recréer la clé](./media/data-factory-move-data-between-onprem-and-cloud/RecreateKey.png)
+	 
+8. Collez la **clé** dans la zone de texte de la page **Register Gateway** du **Gestionnaire de configuration de la passerelle de gestion de données** sur votre ordinateur. (Facultatif) Cochez la case **Afficher la clé de passerelle** pour afficher le texte de la clé.
+ 
+	![Copier la clé et s’inscrire](./media/data-factory-move-data-between-onprem-and-cloud/CopyKeyAndRegister.png)
+9. Cliquez sur **S’inscrire** pour enregistrer la passerelle auprès du service cloud.
+10. Dans la page **Spécifier le certificat** cliquez sur **Parcourir** pour sélectionner le certificat utilisé avec l’ancienne passerelle, saisissez le **mot de passe**, puis cliquez sur **Terminer**. 
+ 
+	![Spécifier le certificat](./media/data-factory-move-data-between-onprem-and-cloud/SpecifyCertificate.png)
+
+	Vous pouvez exporter un certificat à partir de l’ancienne passerelle en procédant comme suit : lancez le Gestionnaire de configuration de passerelle de gestion des données sur l’ancien panneau, basculez vers l’onglet **certificat** cliquez sur le bouton **Exporter** et suivez les instructions. 
+10. Une fois l’inscription de la passerelle terminée, vous devez voir **Inscription** définie sur **Inscrit** et **État** sur la valeur **Démarré** de la page d’accueil du Gestionnaire de configuration de passerelle. 
 
 ## Configuration des informations d'identification et de la sécurité
 
@@ -549,7 +581,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
 Vous pouvez supprimer une passerelle à l’aide de l’applet de commande **Remove-AzureDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les applets de commande **Set-AzureDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces cmdlets, consultez la rubrique Référence des cmdlets Azure Data Factory.
 
 
-## Flux de données pour la copie à l’aide de la passerelle de gestion s données
+## Flux de données pour la copie à l’aide de la passerelle de gestion des données
 Lorsque vous utilisez une activité de copie dans un pipeline de données pour recevoir des données locales vers le cloud en vue d’un traitement ultérieur, ou exportez les données de résultat du cloud vers un magasin de données local, l'activité de copie utilise en interne une passerelle pour transférer les données de la source de données locale vers le cloud et vice versa.
 
 Voici un flux de données global et un résumé des étapes pour la copie à l’aide de la passerelle de données : ![Flux de données à l'aide de la passerelle](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
@@ -565,8 +597,8 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 1. Comme mentionné ci-dessus dans la procédure étape par étape, il existe plusieurs façons de configurer les informations d’identification de magasins de données locaux à l’aide de Data Factory. Les considérations liées aux ports varient selon ces options.	
 
-	- Utilisation de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows local pour l’ordinateur de passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
-	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
+	- Utilisation de l’application **Configuration des informations d’identification** : le programme d’installation de la passerelle de gestion des données ouvre par défaut les ports **8050** et **8051** sur le pare-feu Windows local de la machine contenant la passerelle. Ces ports sont utilisés par l'application Configuration des informations d’identification pour transmettre ces informations d'identification à la passerelle. Ces ports sont ouverts uniquement pour l'ordinateur sur le pare-feu Windows local. Ils ne sont pas accessibles depuis Internet et il n’est pas nécessaire de les ouvrir dans le pare-feu d’entreprise.
+	2.	Utilisation de l’applet de commande PowerShell [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) : a. si vous utilisez une commande PowerShell pour chiffrer les informations d'identification et par conséquent ne souhaitez pas que l'installation de la passerelle ouvre les ports entrants sur l'ordinateur de passerelle dans le pare-feu Windows, vous pouvez le faire en utilisant la commande suivante lors de l’installation :
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	Si vous utilisez l’application **Configuration des informations d’identification**, vous devez la lancer sur un ordinateur en mesure de se connecter à la passerelle de gestion des données pour pouvoir définir les informations d’identification de la source de données et tester la connexion à cette dernière.
@@ -578,4 +610,4 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

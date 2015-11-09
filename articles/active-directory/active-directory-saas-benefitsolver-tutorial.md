@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Azure" description="Apprenez à utiliser Benefitsolver avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Azure"
+    description="Apprenez à utiliser Benefitsolver avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=615070).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Benefitsolver. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Benefitsolver pour lequel l’authentification unique est activée
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Benefitsolver pourront s’authentifier de manière unique dans l’application à l’aide de la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Benefitsolver pourront s’authentifier de manière unique dans l’application à l’aide de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -57,7 +70,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure AD, puis dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure AD, dans la page d’intégration d’applications **Benefitsolver**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configurer l’authentification unique")
 
@@ -103,7 +116,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     |LogoutURL|L’équipe de support technique Benefitsolver doit vous fournir cette valeur.|
     |EmployeeID|L’équipe de support technique Benefitsolver doit vous fournir cette valeur.|
 
-    1.  Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **ajouter un attribut utilisateur**.
+    1.  Pour chaque ligne de données dans le tableau ci-dessus, cliquez sur **Ajouter un attribut utilisateur**.
     2.  Dans la zone de texte **Nom de l’attribut**, tapez le nom d’attribut indiqué pour cette ligne.
     3.  Dans la zone de texte **Valeur de l’attribut**, sélectionnez la valeur d’attribut indiquée pour cette ligne.
     4.  Cliquez sur **Terminé**.
@@ -127,10 +140,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

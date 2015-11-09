@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/20/2015"
+   ms.date="10/26/2015"
    ms.author="cherylmc" />
 
 # FAQ sur la passerelle VPN
@@ -70,6 +70,10 @@ Nous avons validé un ensemble de périphériques VPN de site à site standard e
 ### Que faire si je dispose d'un périphérique VPN qui ne figure pas dans la liste de périphériques compatibles connus ?
 
 Si votre périphérique n’est pas répertorié comme un périphérique VPN compatible connu et que vous souhaitez l'utiliser pour votre connexion VPN, vous devez vérifier qu'il offre les paramètres et les options de configuration IPsec/IKE pris en charge [ici](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list). Les périphériques qui répondent à la configuration requise minimale sont censés fonctionner avec les passerelles VPN. Contactez le fabricant de votre périphérique pour obtenir une prise en charge et des instructions de configuration supplémentaires.
+
+### Pourquoi mon tunnel VPN basé sur une stratégie tombe-t-il en panne lorsque le trafic est inactif ?
+
+Il s’agit du comportement attendu pour les passerelles VPN basées sur une stratégie (également appelé routage statique). Lorsque le trafic via le tunnel est inactif pendant plus de 5 minutes, le tunnel est détruit. Mais dès que le trafic recommence à circuler dans les deux sens, le tunnel est immédiatement rétabli. Si vous avez une passerelle VPN basée sur l’itinéraire (également appelée passerelle dynamique »), vous ne rencontrerez pas ce comportement.
 
 ### Puis-je utiliser le logiciel des VPN logiciels pour me connecter à Azure ?
 
@@ -173,7 +177,7 @@ Oui, vous pouvez déployer vos propres serveurs ou passerelles VPN dans Azure de
 
 ### Plus d'informations sur les types de passerelle, la configuration requise et le débit
 
-Pour plus d'informations, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
+Pour plus d’informations, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Connectivité multisite et de réseau virtuel à réseau virtuel
 
@@ -228,7 +232,7 @@ Pour le trafic entre différents réseaux virtuels Azure, seul le trafic passant
 
 ### Puis-je me connecter à un réseau virtuel avec les VPN IPsec sur mon circuit ExpressRoute ?
 
-Oui, cette méthode est prise en charge. Pour plus d'informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](../expressroute/expressroute-coexist.md).
+Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](../expressroute/expressroute-coexist.md).
 
 ## Connectivité et machines virtuelles
 
@@ -252,4 +256,4 @@ Afficher plus de FAQ relatifs à la mise en réseau pour plus de détails :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

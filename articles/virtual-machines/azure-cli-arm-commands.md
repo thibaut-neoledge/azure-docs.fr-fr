@@ -37,7 +37,7 @@ Outre les paramètres facultatifs propres aux commandes qui vous sont présenté
 
 Comme avec le [mode Azure Service Management](../virtual-machines-command-line-tools.md), le mode Resource Manager de l’interface CLI Azure fournit des commandes qui créent des ressources de manière impérative sur la ligne de commande. Par exemple, si vous tapez `azure group create <groupname> <location>`, vous demandez à Azure de créer un groupe de ressources et si vous tapez `azure group deployment create <resourcegroup> <deploymentname>`, vous indiquez à Azure de créer un déploiement d'un nombre quelconque d'éléments et de les placer dans un groupe. Chaque type de ressource étant associé à des commandes impératives, vous pouvez les chaîner pour créer des déploiements assez complexes.
 
-Toutefois, l'utilisation de _modèles_ de groupe de ressources, qui décrivent un groupe de ressources, est une approche déclarative beaucoup plus puissante, car elle vous permet d'automatiser des déploiements complexes de (presque) n'importe quel nombre de ressources à (presque) toutes les fins. Quand vous utilisez des modèles, la seule commande impérative est d'en déployer un. Pour obtenir une vue d'ensemble des modèles, ressources et groupes de ressources, consultez [Vue d'ensemble des groupes de ressources Azure](resource-groups-overview).
+Toutefois, l'utilisation de _modèles_ de groupe de ressources, qui décrivent un groupe de ressources, est une approche déclarative beaucoup plus puissante, car elle vous permet d'automatiser des déploiements complexes de (presque) n'importe quel nombre de ressources à (presque) toutes les fins. Quand vous utilisez des modèles, la seule commande impérative est d'en déployer un. Pour obtenir une vue d'ensemble des modèles, ressources et groupes de ressources, consultez [Vue d'ensemble des groupes de ressources Azure](../resource-group-overview.md).
 
 ##Conditions d'utilisation :
 
@@ -1742,4 +1742,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

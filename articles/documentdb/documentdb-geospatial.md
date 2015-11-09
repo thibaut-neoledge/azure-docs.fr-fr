@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/11/2015" 
+    ms.date="10/27/2015" 
     ms.author="arramac"/>
     
 # Utilisation de données géospatiales dans Azure DocumentDB
@@ -31,7 +31,7 @@ Consultez ce [projet Github](https://github.com/Azure/azure-documentdb-net/tree
 Les données spatiales décrivent la position et la forme des objets dans l'espace. Dans la plupart des applications, ils correspondent aux objets sur terre, c'est-à-dire aux données géographiques. Les données spatiales peuvent servir à représenter l'emplacement d'une personne, d'un point d'intérêt ou de la limite d'une ville ou un lac. Les scénarios d'utilisation courants impliquent souvent des requêtes de proximité, comme « rechercher tous les cafés près de mon emplacement actuel ».
 
 ### GeoJSON
-DocumentDB prend en charge l'indexation et l’interrogation des données géographique représentées à l'aide de la [spécification GeoJSON](http://geojson.org/geojson-spec.html). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l'aide de DocumentDB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) DocumentDB fournissent des classes d'assistance et des méthodes qui facilitent la manipulation des données spatiales.
+DocumentDB prend en charge l’indexation et l’interrogation des données de point géospatiales représentées à l’aide de la [spécification GeoJSON](http://geojson.org/geojson-spec.html). Les structures de données GeoJSON sont toujours des objets JSON valides, afin de pouvoir les stocker et les interroger à l'aide de DocumentDB, sans bibliothèques ou outils spécialisés. Les kits de développement logiciel (SDK) DocumentDB fournissent des classes d'assistance et des méthodes qui facilitent la manipulation des données spatiales.
 
 ### Points, chaînes de ligne et polygones
 Un **point** désigne une position unique dans l'espace. Dans les données géographiques, un point représente l'emplacement exact, qui peut être une adresse postale d'une épicerie, un kiosque, une voiture ou une ville. Un point est représenté dans GeoJSON (et DocumentDB) à l'aide de sa paire de coordonnées ou de longitude et latitude. Voici un exemple JSON pour un point.
@@ -81,7 +81,7 @@ En plus des points, GeoJSON prend en charge les polygones et LineStrings. Les **
 >
 >Les points dans un polygone doivent être spécifiés dans le sens antihoraire. Un polygone spécifié dans le sens horaire représente l'inverse de la région qu'il contient.
 
-En plus des points, des LineStrings et des polygones, GeoJSON spécifie également la représentation pour le regroupement de plusieurs emplacements géographiques, ainsi que l’association de propriétés arbitraires avec la géolocalisation comme **fonctionnalité**. Étant donné que ces objets sont des JSON valides, ils peuvent tous être stockés et traités dans DocumentDB.
+En plus des points, des LineStrings et des polygones, GeoJSON spécifie également la représentation pour le regroupement de plusieurs emplacements géographiques, ainsi que l’association de propriétés arbitraires avec la géolocalisation comme **fonctionnalité**. Étant donné que ces objets sont des JSON valides, ils peuvent tous être stockés et traités dans DocumentDB. Cependant, DocumentDB prend uniquement en charge l’indexation automatique des points.
 
 ### Coordination des systèmes de référence
 
@@ -355,4 +355,4 @@ Maintenant que vous avez appris à utiliser la prise en charge géographique dan
 - En savoir plus sur les [requêtes DocumentDB](documentdb-sql-query.md)
 - En savoir plus sur les [stratégies d'indexation DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
