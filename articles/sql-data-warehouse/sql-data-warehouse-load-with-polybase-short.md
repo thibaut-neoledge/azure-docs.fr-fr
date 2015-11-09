@@ -18,6 +18,12 @@
 
 
 # Charger des données avec PolyBase
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 Ce didacticiel vous explique comment charger des données dans votre base de données Azure SQL Data Warehouse avec PolyBase.
 
 
@@ -65,8 +71,8 @@ Pour en savoir plus sur AzCopy, consultez l’article [Prise en main de l’util
 Vous devez ensuite créer des tables externes dans la base de données SQL Data Warehouse pour faire référence aux données dans le stockage d’objets blob Azure. Pour créer une table externe, procédez comme suit :
 
 - [Créer une clé principale][] : pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
-- [Créer des informations d’identification de niveau base de données] : pour spécifier les informations d'authentification de votre compte de stockage Azure.
-- [Créer une source de données externe] : pour spécifier l'emplacement de votre stockage d'objets blob Azure.
+- [Créer des informations d’identification de niveau base de données] : pour spécifier les informations d’authentification de votre compte de stockage Azure.
+- [Créer une source de données externe] : pour spécifier l’emplacement de votre stockage d’objets blob Azure.
 - [Créer un format de fichier externe] : pour spécifier la disposition de vos données.
 - [Créer une table externe] : pour référencer les données de stockage Azure.
 
@@ -166,4 +172,4 @@ Pour en savoir plus sur PolyBase, consultez [Didacticiel PolyBase dans SQL Data 
 [Créer des informations d’identification de niveau base de données]: https://msdn.microsoft.com/fr-FR/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

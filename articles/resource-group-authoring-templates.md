@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="10/27/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -174,6 +174,15 @@ L’exemple suivant vous indique comment définir les paramètres :
 
 Dans la section des variables, vous construisez des valeurs qui peuvent être utilisées pour simplifier les expressions du langage du modèle. En règle générale, ces variables se basent sur des valeurs fournies à partir des paramètres.
 
+Vous définissez des variables avec la structure suivante :
+
+    "variables": {
+       "<variable-name>": "<variable-value>",
+       "<variable-name>": { 
+           <variable-complex-type-value> 
+       }
+    }
+
 L'exemple suivant vous indique comment définir une variable qui est construite à partir de deux valeurs de paramètre :
 
     "parameters": {
@@ -228,6 +237,7 @@ Vous définissez des ressources avec la structure suivante :
          "name": "<name-of-the-resource>",
          "location": "<location-of-resource>",
          "tags": "<name-value-pairs-for-resource-tagging>",
+         "comments": "<your-reference-notes>",
          "dependsOn": [
            "<array-of-related-resource-names>"
          ],
@@ -245,13 +255,14 @@ Vous définissez des ressources avec la structure suivante :
 | name | Oui | Nom de la ressource. Le nom doit respecter les restrictions de composant d'URI définies dans le document RFC3986.
 | location | Non | Emplacements géographiques de la ressource fournie pris en charge.
 | tags | Non | Balises associées à la ressource.
+| commentaires | Non | Vos commentaires pour documenter les ressources dans votre modèle
 | dependsOn | Non | Ressources desquelles dépend la ressource qui est définie. Les dépendances entre les ressources sont évaluées et les ressources sont déployées dans leur ordre dépendant. Quand les ressources ne dépendent les unes des autres, leur déploiement en parallèle est tenté. La valeur peut être une liste séparée par des virgules de noms de ressource ou d'identificateurs de ressource uniques.
 | properties | Non | Paramètres de configuration spécifiques aux ressources.
 | les ressources | Non | Ressources enfants qui dépendent de la ressource qui est définie.
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs pour l’élément **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
+Les valeurs pour l’élément **properties** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
 
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
@@ -337,7 +348,7 @@ Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario p
 
 Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
-Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Pour effectuer une itération un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -429,4 +440,4 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

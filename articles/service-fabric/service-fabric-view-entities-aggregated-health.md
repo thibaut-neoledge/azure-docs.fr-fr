@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Comment afficher l’état agrégé d’intégrité d’entités Microsoft Azure Service Fabric"
+   pageTitle="Comment afficher l’état agrégé d’intégrité d’entités Microsoft Azure Service Fabric | Microsoft Azure"
    description="Décrit comment interroger, afficher et évaluer l’état agrégé d’intégrité d’entités Microsoft Azure Service Fabric, via des requêtes d’intégrité et des requêtes générales."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Comment afficher les rapports d'intégrité de Service Fabric
@@ -836,4 +836,4 @@ Chaque fois qu’un problème est identifié dans le cluster ou dans une applica
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="10/21/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration d'un équilibreur de charge interne à l'aide d'Azure Resource Manager
@@ -30,6 +30,7 @@ Dans cette page, nous allons aborder la séquence de tâches individuelles qui d
 
 ## Ce qui est nécessaire pour créer un équilibrage de charge interne
 
+
 Les éléments suivants doivent être configurés avant la création d’un équilibrage de charge interne :
 
 - Configuration d’adresses IP frontales : configure l'adresse IP privée pour le trafic réseau entrant 
@@ -44,10 +45,10 @@ Les éléments suivants doivent être configurés avant la création d’un équ
 
 Pour obtenir plus d’informations sur les composants de l’équilibrage de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
 
-Les étapes suivantes montrent comment configurer un équilibrage de charge à charge équilibrée entre 2 ordinateurs virtuels.
+Les étapes suivantes montrent comment configurer un équilibreur de charge entre 2 machines virtuelles.
 
 
-## Étape par étape à l’aide de powershell
+## Étape par étape à l’aide de PowerShell
 
 
 ### Création d’un groupe de ressources pour l’équilibrage de charge
@@ -88,10 +89,10 @@ Azure Resource Manager requiert que tous les groupes de ressources spécifient u
 
 Dans l'exemple ci-dessus, nous avons créé un groupe de ressources appelé « NRP-RG » et l’emplacement « West US ».
 
-## Créez un réseau virtuel et une adresse IP publique pour le pool IP frontal
+## Créer un réseau virtuel et une adresse IP privée pour le pool d’adresses IP frontal
 
 
-### Étape 1
+### Étape 1 :
 
 Crée un sous-réseau pour le réseau virtuel et définit une affectation à la variable $backendSubnet
 
@@ -235,7 +236,39 @@ PS C:\> $backendnic1
 
 Utilisez la commande Add-AzureVMNetworkInterface pour affecter la carte réseau à un ordinateur virtuel.
 
-Pour la procédure détaillée à suivre pour créer une machine virtuelle et définir une affectation à une carte réseau, consultez la documentation [Création et préconfiguration d’un ordinateur virtuel Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Pour la procédure détaillée à suivre afin de créer une machine virtuelle et de définir une affectation à une carte réseau, consultez la documentation [Création et préconfiguration d’un ordinateur virtuel Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), option 4 ou 5.
+
+
+## Mettre à jour un équilibreur de charge existant
+
+
+### Étape 1 :
+
+À l’aide de l’équilibreur de charge de l’exemple ci-dessus, attribuez un objet d’équilibreur de charge à la variable $slb à l’aide de Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### Étape 2 :
+
+Dans l’exemple suivant, vous allez ajouter une nouvelle règle NAT entrante en utilisant le port 81 dans le serveur frontal et le port 8181 pour le pool principal, à un équilibreur de charge existant.
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Étape 3
+
+Enregistrez la nouvelle configuration à l’aide de Set-AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Supprimer un équilibreur de charge
+
+Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de charge créé précédemment appelé « NRP-LB » dans un groupe de ressources appelé « NRP-RG ».
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]Vous pouvez utiliser le commutateur facultatif -Force pour éviter l’invite relative à la suppression.
+
 
 
 ## Voir aussi
@@ -245,4 +278,4 @@ Pour la procédure détaillée à suivre pour créer une machine virtuelle et d�
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,10 +1,10 @@
 
 | Ressource | Limite par défaut 
 --- | ---
-| Zones par abonnement | 50
-| Jeux d’enregistrements par zone| 1 000
+| Zones par abonnement | 50 <sup>1</sup>
+| Jeux d’enregistrements par zone| 1000 <sup>1</sup>
 | Enregistrements par jeu d’enregistrements| 20
 
-Vous pouvez contacter le support technique pour augmenter la limite par défaut.
+<sup>1</sup> Pour accroître ces limites, contactez le support technique. Le service Azure DNS est actuellement disponible en version préliminaire. Ces limites seront réexaminées lors de la mise en disponibilité générale du service.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

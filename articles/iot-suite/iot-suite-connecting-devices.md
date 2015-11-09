@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -234,10 +234,10 @@ Pour savoir comment exécuter la commande et le contrôle, accédez à la sectio
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  Remplacez « [Device Id] », « [Device Key] » par les données de votre appareil.
@@ -248,10 +248,10 @@ Pour savoir comment exécuter la commande et le contrôle, accédez à la sectio
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 
@@ -309,4 +309,4 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 
 Il existe plusieurs façons d’étendre la fonctionnalité de cet exemple : connecter un capteur réel à votre appareil pour envoyer une vraie date d’envoi, mettre en œuvre des fonctionnalités de contrôle de commande, etc. Utilisez notre [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) pour savoir comment étendre la solution de surveillance à distance pour en savoir plus à ce sujet.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

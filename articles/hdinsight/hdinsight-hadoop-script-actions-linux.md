@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
+    ms.date="10/29/2015"
     ms.author="larryfr"/>
 
 # Développement d'actions de script avec HDInsight
@@ -43,7 +43,7 @@ Quand vous développez un script personnalisé pour un cluster HDInsight, tenez 
 - [Écrire des informations sur STDOUT et STDERR](#bPS7)
 - [Enregistrer des fichiers au format ASCII avec les fins de ligne LF](#bps8)
 
-> [AZURE.IMPORTANT]Les actions de script doivent se terminer dans les 15 minutes, ou elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
+> [AZURE.IMPORTANT]Les actions de script doivent se terminer dans les 60 minutes, faute de quoi elles expirent. Lors de l’approvisionnement du nœud, le script est exécuté en même temps que les autres processus d'installation et de configuration. En raison de cette concurrence pour les ressources, par exemple au niveau du temps processeur ou de la bande passante, l’exécution du script risque de prendre plus de temps que dans votre environnement de développement.
 
 ### <a name="bPS1"></a>Cible de la version Hadoop
 
@@ -71,7 +71,7 @@ Par exemple, si un script personnalisé a installé une application à l’empla
 
 ### <a name="bPS5"></a>Garantir la haute disponibilité de l'architecture de cluster
 
-Les clusters HDInsight basés sur Linux proposent deux fichiers principaux actifs au sein du cluster, et les actions de script sont exécutées depuis les deux nœuds. Si les composants que vous installez n’attendent qu’un seul nœud principal, vous devez créer un script qui installe uniquement le composant sur un des deux nœuds principaux du cluster. Les nœuds principaux sont nommés **headnode0** et **headnode1**
+Les clusters HDInsight basés sur Linux proposent deux fichiers principaux actifs au sein du cluster, et les actions de script sont exécutées depuis les deux nœuds. Si les composants que vous installez n’attendent qu’un seul nœud principal, vous devez créer un script qui installe uniquement le composant sur un des deux nœuds principaux du cluster.
 
 > [AZURE.IMPORTANT]Les services par défaut installés dans le cadre de HDInsight sont conçus pour basculer d’un nœud principal à l’autre comme nécessaire, cependant, cette fonctionnalité n’est pas étendue aux composants personnalisés installés à l’aide des actions de script. Si vous avez besoin de composants installés via une action de script hautement disponibles, vous devez mettre en œuvre votre propre mécanisme de basculement qui utilise les deux nœuds principaux disponibles.
 
@@ -87,7 +87,7 @@ Par exemple, le texte suivant copie le fichier giraph-examples.jar du système d
 
 Les informations écrites dans STDOUT et STDERR sont consignées et peuvent être affichées une fois le cluster configuré à l’aide de l’interface utilisateur web Ambari.
 
-La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à utiliser STDOUT `echo`. Par exemple :
+La plupart des utilitaires et des packages d’installation ont déjà écrit des informations dans STDOUT et STDERR. Toutefois, vous pouvez ajouter un enregistrement supplémentaire. Pour envoyer du texte à STDOUT, utilisez `echo`. Par exemple :
 
         echo "Getting ready to install Foo"
 
@@ -97,7 +97,7 @@ Par défaut, `echo` envoie la chaîne à STDOUT. Pour la diriger vers STDERR, aj
 
 Les informations sont redirigées vers STDOUT (1, par défaut et donc, non répertoriées ici) vers STDERR (2). Pour plus d’informations sur la redirection des E/S, consultez [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-Pour plus d’informations sur l’affichage des informations consignées par les actions de script, voir [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+Pour plus d’informations sur l’affichage des informations consignées par les actions de script, consultez [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
 ###<a name="bps8"></a> Enregistrer des fichiers au format ASCII avec les fins de ligne LF
 
@@ -108,7 +108,7 @@ Les scripts d’interpréteur de commandes doivent être stockés au format ASCI
 
 ## <a name="helpermethods"></a>Méthodes d'assistance pour les scripts personnalisés
 
-L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ceux-ci sont définis dans [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), et peuvent être inclus dans vos scripts à l’aide des éléments suivants :
+L’action de script fournit des méthodes d’assistance que vous pouvez utiliser lors de l’écriture de scripts personnalisés. Ceux-ci sont définis dans [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) et peuvent être inclus dans vos scripts à l’aide des éléments suivants :
 
     # Import the helper method module.
     wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh && source /tmp/HDInsightUtilities-v01.sh && rm -f /tmp/HDInsightUtilities-v01.sh
@@ -131,7 +131,7 @@ Cette section fournit des conseils sur l'implémentation de certains des modèle
 
 Dans certains cas, votre script peut nécessiter des paramètres. Par exemple, il se peut que vous ayez besoin du mot de passe administrateur afin de récupérer des informations à partir de l’API REST Ambari.
 
-Les paramètres transmis au script sont appelés _paramètres positionnels_, et sont affectés à `$1` pour ce qui concerne le premier paramètre, `$2` pour le deuxième et donc ainsi de suite. `$0` contient le nom du script lui-même.
+Les paramètres transmis au script sont appelés _paramètres positionnels_ et sont affectés à `$1` pour ce qui concerne le premier paramètre, `$2` pour le deuxième et ainsi de suite. `$0` contient le nom du script lui-même.
 
 Les valeurs transmises au script en tant que paramètres doivent être mis entre guillemets simples (’) afin que la valeur transmise soit traitée comme un littéral, et aucun traitement spécial n’est transmis à des caractères inclus tels que « ! ».
 
@@ -145,15 +145,15 @@ Où VARIABLENAME est le nom de la variable. Pour accéder à la variable par la 
 
     PASSWORD=$1
 
-Au cours des accès aux informations suivants, on peut utiliser `$PASSWORD`.
+Lors des accès ultérieurs aux informations, il est possible d’utiliser `$PASSWORD`.
 
-Les variables d’environnement définies dans le script existent uniquement dans le cadre du script. Dans certains cas, vous devrez peut-être ajouter des variables d’environnement de niveau système qui persisteront une fois le script terminé. En général, c’est ainsi pour que les utilisateurs qui se connectent au cluster via SSH utilisent les composants installés par votre script. Vous pouvez accomplir cette action en ajoutant la variable d’environnement à `/etc/environment`. Par exemple, la suivante ajoute __HADOOP\_CONF\_DIR__ :
+Les variables d’environnement définies dans le script existent uniquement dans le cadre du script. Dans certains cas, vous devrez peut-être ajouter des variables d’environnement de niveau système qui persisteront une fois le script terminé. En général, c’est ainsi pour que les utilisateurs qui se connectent au cluster via SSH utilisent les composants installés par votre script. Vous pouvez accomplir cette action en ajoutant la variable d’environnement à `/etc/environment`. Par exemple, ce qui suit ajoute __HADOOP\_CONF\_DIR__ :
 
     echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 ### Accès aux emplacements où sont stockés les scripts personnalisés
 
-Les scripts utilisés pour personnaliser un cluster doivent se trouver dans le compte de stockage du cluster par défaut, ou, s’il est dans un autre compte de stockage, dans un conteneur public en lecture seule. Si votre script accède à des ressources situées ailleurs, celles-ci doivent également se trouver dans un conteneur accessible publiquement (au moins public en lecture seule). Vous pouvez par exemple souhaiter télécharger un fichier sur le cluster à l’aide de `download_file`.
+Les scripts utilisés pour personnaliser un cluster doivent se trouver dans le compte de stockage du cluster par défaut, ou, s’il est dans un autre compte de stockage, dans un conteneur public en lecture seule. Si votre script accède à des ressources situées ailleurs, celles-ci doivent également se trouver dans un conteneur accessible publiquement (au moins public en lecture seule). Vous pouvez par exemple télécharger un fichier sur le cluster à l’aide de `download_file`.
 
 Stockez le fichier dans un compte de stockage Azure accessible au cluster (par exemple le compte de stockage par défaut), fournissent un accès rapide, ce stockage étant au sein du réseau Azure.
 
@@ -220,4 +220,4 @@ Pour la commande ci-dessus, remplacez __INFILE__ par le fichier contenant la mar
 
 [Personnaliser des clusters HDInsight à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

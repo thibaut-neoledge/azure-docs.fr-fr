@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/05/2015"
+   ms.date="10/26/2015"
    ms.author="larryfr"/>
 
 #Utilisation de Hive avec Hadoop dans HDInsight via Beeline
@@ -55,19 +55,25 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 ##<a id="beeline"></a>Utilisez la commande Beeline
 
-2. Une fois connecté, démarrez l'interface de ligne de commande Hive à l'aide de la commande suivante :
+1. Une fois connecté, utilisez les éléments suivants pour obtenir le nom d’hôte du nœud principal :
+
+        hostname -f
+    
+    Enregistrez le nom d’hôte renvoyé. Il sera utilisé ultérieurement lors de la connexion à HiveServer2 à partir de Beeline.
+    
+2. Démarrez l’interface de ligne de commande Hive à l’aide de la commande suivante :
 
         beeline
 
-2. À partir de l’invite `beeline>`, utilisez les éléments suivants pour vous connecter au service HiveServer2 :
+2. À partir de l’invite `beeline>`, utilisez les éléments suivants pour vous connecter au service HiveServer2 : Remplacez __HOSTNAME__ par le nom d’hôte renvoyé précédemment pour le nœud principal :
 
-        !connect jdbc:hive2://headnode0:10001/;transportMode=http admin
+        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
 
     Lorsque vous y êtes invité, saisissez le mot de passe du compte administrateur admin de votre cluster HDInsight. Une fois la connexion établie, l’invite se transforme en l’écran suivant :
     
-        jdbc:hive2://headnode0:10001/>
+        jdbc:hive2://HOSTNAME:10001/>
 
-3. Les commandes Beeline commencent généralement par un caractère `!`, par exemple `!help` affiche l’aide. Toutefois, le `!` peut souvent être omis. Par exemple, le `help` fonctionne également.
+3. Les commandes Beeline commencent généralement par un caractère `!`. Par exemple, `!help` affiche l’aide. Toutefois, le `!` peut souvent être omis. Par exemple, `help` fonctionne également.
 
     Si vous affichez l’aide, vous remarquerez `!sql`, qui est utilisé pour exécuter des instructions HiveQL. Cependant, HiveQL est si souvent utilisé que vous pouvez omettre le `!sql` qui précède. Les deux instructions suivantes donnent exactement les mêmes résultats, et affichent les tables actuellement disponibles via Hive :
     
@@ -100,7 +106,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
     Elle affiche les colonnes de la table. Nous pourrions exécuter des requêtes sur ces données, mais nous allons créer à la place une toute nouvelle table pour montrer comment charger des données dans Hive et appliquer un schéma.
     
-5. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournies avec le cluster HDInsight :
+5. Saisissez les instructions suivantes pour créer une table nommée **log4jLogs** avec les exemples de données fournis avec le cluster HDInsight :
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -114,7 +120,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
     * **CREATE EXTERNAL TABLE** : crée une table « externe » dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l'emplacement d'origine.
     * **ROW FORMAT** : indique à Hive le mode de formatage des données. Dans ce cas, les champs de chaque journal sont séparés par un espace.
     * **STORED AS TEXTFILE LOCATION** : indique à Hive où sont stockées les données (répertoire example/data) et qu'elles sont stockées sous forme de texte.
-    * **SELECT** : sélectionner toutes les lignes dans lesquelles la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
+    * **SELECT** : sélectionne toutes les lignes dont la colonne **t4** contient la valeur **[ERROR]**. Cette commande doit retourner la valeur **3**, car trois lignes contiennent cette valeur.
     * **INPUT\_\_FILE\_\_NAME LIKE ’%.log’** : indique à Hive de renvoyer uniquement des données provenant de fichiers se terminant par .log. Normalement, vous devriez obtenir uniquement les données avec le même schéma dans le même dossier lors de l’interrogation avec hive, toutefois, cet exemple de fichier journal est stocké avec d’autres formats de données.
 
     > [AZURE.NOTE]Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, ou par une autre opération MapReduce, mais souhaitez toujours que les requêtes Hive utilisent les données les plus récentes.
@@ -147,7 +153,7 @@ Pour plus d’informations sur l’utilisation de PuTTY, consultez la rubrique [
 
 4. Pour quitter Beeline, utilisez `!quit`.
 
-##<a id="file"></a>Exécutez un fichier HiveQL
+##<a id="file"></a>Exécuter un fichier HiveQL
 
 Beeline peut également être utilisé pour exécuter un fichier contenant les instructions HiveQL. Utilisez les étapes suivantes pour créer un fichier, puis exécutez-le à l’aide de Beeline.
 
@@ -170,9 +176,9 @@ Beeline peut également être utilisé pour exécuter un fichier contenant les i
     
 3. Pour enregistrer le fichier, utilisez __Ctrl__+___\_X__, saisissez ensuite __Y__, puis appuyez sur __Entrée__.
 
-4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants :
+4. Pour exécuter le fichier à l’aide de Beeline, utilisez les éléments suivants. Remplacez __HOSTNAME__ par le nom obtenu précédemment pour le nœud principal, et __PASSWORD__ par le mot de passe du compte d’administration :
 
-        beeline -u 'jdbc:hive2://headnode0:10001/;transportMode=http' -n admin -p GiantR0b0! -f query.hql
+        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
 
 5. Pour vérifier que la table **errorLogs** a été créée, démarrez Beeline et connectez-vous à HiveServer2, puis utilisez l’instruction suivante pour renvoyer toutes les lignes à partir d’**errorLogs** :
 
@@ -237,4 +243,4 @@ Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur H
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

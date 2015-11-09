@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Ressources de connexion dans Azure Automation | Microsoft Azure"
-   description="Les ressources de connexion dans Azure Automation contiennent les informations requises pour se connecter à une application ou un service externe à partir d’un Runbook. Cet article présente de façon détaillée les connexions et leur utilisation dans la création textuelle et graphique."
+   description="Les ressources de connexion dans Azure Automation contiennent les informations nécessaires pour se connecter à une application ou un service externe à partir d’un Runbook ou d’une configuration DSC. Cet article présente de façon détaillée les connexions et leur utilisation dans la création textuelle et graphique."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Ressources de connexion dans Azure Automation
 
-Une ressource de connexion Automation contient les informations requises pour se connecter à une application ou un service externe à partir d’un Runbook. Cela peut inclure des informations requises pour l’authentification comme un nom d’utilisateur et un mot de passe en plus des informations de connexion telles qu’une URL ou un port. La valeur d’une connexion consiste à conserver toutes les propriétés de connexion à une application spécifique dans une seule ressource plutôt que de créer plusieurs variables. L’utilisateur peut modifier les valeurs pour une connexion à un seul endroit et vous pouvez transmettre le nom d’une connexion à un Runbook dans un seul paramètre. Les propriétés d’une connexion sont accessibles dans le Runbook avec l’activité **Get-AutomationConnection**.
+Une ressource de connexion Automation contient les informations nécessaires pour se connecter à une application ou un service externe à partir d’un Runbook ou d’une configuration DSC. Cela peut inclure des informations requises pour l’authentification comme un nom d’utilisateur et un mot de passe en plus des informations de connexion telles qu’une URL ou un port. La valeur d’une connexion consiste à conserver toutes les propriétés de connexion à une application spécifique dans une seule ressource plutôt que de créer plusieurs variables. L’utilisateur peut modifier les valeurs pour une connexion à un seul endroit et vous pouvez transmettre le nom d’une connexion à un Runbook ou à une configuration DSC dans un seul paramètre. Les propriétés d’une connexion sont accessibles dans le Runbook ou la configuration DSC avec l’activité **Get-AutomationConnection**.
 
 Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*. Le type de connexion est un modèle qui définit un ensemble de propriétés. La connexion définit des valeurs pour chaque propriété définie dans son type de connexion. Des types de connexion sont ajoutés à Azure Automation dans les modules d’intégration ou créés avec l’[API Azure Automation](http://msdn.microsoft.com/library/azure/mt163818.aspx). Les seuls types de connexion disponibles lorsque vous créez une connexion sont ceux installés dans votre compte Automation.
 
@@ -25,7 +25,7 @@ Lorsque vous créez une connexion, vous devez spécifier un *type de connexion*.
 
 ## Applets de commande Windows PowerShell
 
-Les applets de commande du tableau suivant sont utilisées pour créer et gérer des connexions Automation avec Windows PowerShell. Elles font partie du [module Azure PowerShell](../powershell-install-configure.md) qui est disponible dans les Runbooks Automation.
+Les applets de commande du tableau suivant sont utilisées pour créer et gérer des connexions Automation avec Windows PowerShell. Elles font partie du [module Azure PowerShell](../powershell-install-configure.md) qui est disponible dans les Runbooks Automation et dans les configurations DSC.
 
 |Applet de commande|Description|
 |:---|:---|
@@ -34,15 +34,15 @@ Les applets de commande du tableau suivant sont utilisées pour créer et gérer
 |[Remove-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921827.aspx)|Supprime une connexion existante.|
 |[Set-AzureAutomationConnectionFieldValue](http://msdn.microsoft.com/library/dn921826.aspx)|Définit la valeur d’un champ particulier d’une connexion existante.|
 
-## Activités de Runbook
+## Activités
 
-Les activités du tableau suivant sont utilisées pour accéder aux connexions dans un Runbook.
+Les activités du tableau suivant sont utilisées pour accéder aux connexions dans un Runbook ou dans une configuration DSC.
 
 |Activités|Description|
 |---|---|
-|Get-AutomationConnection|Obtient une connexion à utiliser dans un Runbook. Retourne une table de hachage avec les propriétés de la connexion.|
+|Get-AutomationConnection|Obtient une connexion à utiliser. Retourne une table de hachage avec les propriétés de la connexion.|
 
->[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre – Name de **Get- AutomationConnection**, car cela complique la découverte des dépendances entre les Runbooks et les ressources de connexion au moment de la conception.
+>[AZURE.NOTE]Évitez d’utiliser des variables dans le paramètre –Name de **Get- AutomationConnection**, car cela complique la découverte des dépendances entre les Runbooks ou les configurations DSC et les ressources de connexion au moment de la conception.
 
 ## Création d’une connexion
 
@@ -79,9 +79,9 @@ Les exemples de commandes suivants créent une nouvelle connexion pour [Twilio](
 	New-AzureAutomationConnection -AutomationAccountName "MyAutomationAccount" -Name "TwilioConnection" -ConnectionTypeName "Twilio" -ConnectionFieldValues $FieldValues
 
 
-## Utilisation d’une connexion dans un Runbook
+## Utilisation d’une connexion dans un Runbook ou une configuration DSC
 
-Vous récupérez une connexion dans un Runbook avec l’applet de commande **Get-AutomationConnection**. Cette activité récupère les valeurs des différents champs dans la connexion et les retourne sous forme de [table de hachage](http://go.microsoft.com/fwlink/?LinkID=324844), qui peut ensuite être utilisée avec les commandes appropriées dans le Runbook.
+Vous récupérez une connexion dans un Runbook ou une configuration DSC avec l’applet de commande **Get-AutomationConnection**. Cette activité récupère les valeurs des différents champs dans la connexion et les retourne sous forme de [table de hachage](http://go.microsoft.com/fwlink/?LinkID=324844), qui peut ensuite être utilisée avec les commandes appropriées dans le Runbook ou la configuration DSC.
 
 ### Exemple de Runbook textuel
 Les exemples de commandes suivants montrent comment utiliser la connexion Twilio de l’exemple précédent pour envoyer un message texte à partir d’un Runbook. L’activité Send-TwilioSMS utilisée ici comporte deux jeux de paramètres, chacun utilisant une méthode d’authentification différente auprès du service Twilio. L’une utilise un objet de connexion et l’autre des paramètres individuels pour le SID de compte et le jeton d’autorisation. Les deux méthodes sont illustrées dans cet exemple.
@@ -120,4 +120,4 @@ L’image ci-dessous montre le même exemple que plus haut, mais utilise le jeu 
 - [Liens de création graphique](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

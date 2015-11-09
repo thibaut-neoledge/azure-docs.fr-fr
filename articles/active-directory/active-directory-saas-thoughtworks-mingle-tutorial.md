@@ -1,7 +1,19 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle | Microsoft Azure" description="Découvrez comment utiliser Thoughtworks Mingle avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle | Microsoft Azure" 
+    description="Découvrez comment utiliser Thoughtworks Mingle avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Thoughtworks Mingle
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528082).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Thoughtworks Mingle. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -41,7 +53,7 @@ Cette section décrit l’activation de l’intégration de l’application pour
 
     ![Ajouter une application à partir de la galerie](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC749322.png "Ajouter une application à partir de la galerie")
 
-6.  Dans le**zone de recherche**, entrez **Thoughtworks Mingle**.
+6.  Dans la **zone de recherche**, entrez **Thoughtworks Mingle**.
 
     ![Galerie d’applications](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785151.png "Galerie d’applications")
 
@@ -59,7 +71,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785153.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Thoughtworks Mingle**, sélectionnez **Authentification unique Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Thoughtworks Mingle**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785154.png "Configurer l’authentification unique")
 
@@ -82,7 +94,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![SSO Config](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785158.png "SSO Config")
 
     1.  Pour charger le fichier de métadonnées, cliquez sur **Choose file**.
-    2.  Cliquez sur **Enregistrer les modifications**.
+    2.  Cliquez sur **Save Changes**.
 
 8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -130,10 +142,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC785164.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-thoughtworks-mingle-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

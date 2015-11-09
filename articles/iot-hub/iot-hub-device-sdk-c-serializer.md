@@ -12,7 +12,7 @@
      ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="nana"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="michelb"/>
 
@@ -656,4 +656,4 @@ Cet article détaille les aspects uniques de la bibliothèque **serializer** con
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit SDK d’appareils Azure IoT pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Si vous cherchez des informations supplémentaires, quelques exemples dans le SDK n’ont pas été abordés ci-dessus. Sinon, la [documentation du SDK](https://github.com/Azure/azure-iot-sdks) est une ressource précieuse pour obtenir des informations complémentaires.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

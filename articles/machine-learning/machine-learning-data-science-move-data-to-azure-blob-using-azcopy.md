@@ -18,13 +18,15 @@
 
 # Déplacer des données vers et depuis le stockage d’objets blob Azure à l’aide d’AzCopy
 
+Des conseils sur les technologies utilisées pour déplacer des données vers et/ou depuis le stockage d’objets blob Azure sont disponibles ici :
+
 [AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 ## Introduction
 
 AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger et copier des données avec efficacité vers et à partir d'un stockage de fichiers, d'objets blob et de tables Microsoft Azure.
 
-Pour obtenir des instructions sur l'installation d’AzCopy et des informations supplémentaires sur son utilisation avec la plateforme Azure, consultez [Prise en maint de l'utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md).
+Pour obtenir des instructions sur l’installation d’AzCopy et des informations supplémentaires sur son utilisation avec la plateforme Azure, consultez [Prise en maint de l’utilitaire de ligne de commande AzCopy](../storage-use-azcopy.md).
 
 > [AZURE.NOTE]Si vous utilisez une machine virtuelle qui a été configurée avec les scripts fournis par les [machines virtuelles de science des données dans Azure](machine-learning-data-science-virtual-machines.md), cela signifie qu’AzCopy est déjà installé sur la machine virtuelle.
 
@@ -34,8 +36,8 @@ Pour obtenir des instructions sur l'installation d’AzCopy et des informations 
 
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage.
 
-- Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
-- Pour obtenir des instructions sur la création d'un compte de stockage et pour obtenir des informations de compte et de clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
+- Pour configurer un abonnement Azure, consultez la page [Évaluation d’un mois gratuite](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+- Pour obtenir des instructions sur la création d’un compte de stockage, ainsi que des informations sur le compte et la clé, consultez [À propos des comptes de stockage Azure](../storage-create-storage-account.md).
 
 ## Téléchargement de fichiers vers un objet blob Azure
 
@@ -69,4 +71,4 @@ Pour transférer des objets blob entre des conteneurs Azure, utilisez la command
 
 > [AZURE.TIP]1. Lors du chargement de fichiers, le paramètre /S charge les fichiers de manière récursive. Sans ce paramètre, les fichiers situés dans le sous-répertoire ne sont pas chargés. 2. Lors du téléchargement du fichier, /S recherche le conteneur de manière récursive jusqu’à ce que tous les fichiers du répertoire spécifié et de ses sous-répertoires ou que tous les fichiers répondant au critère spécifié dans le répertoire concerné et ses sous-répertoires soient téléchargés. 3. Vous ne pouvez pas spécifier un fichier de blob à télécharger, à l’aide du paramètre /Source. Pour télécharger un fichier spécifique, spécifiez le nom du fichier à télécharger à l’aide du paramètre /Pattern. Le paramètre /S peut être utilisé pour qu’AzCopy recherche un modèle de nom de fichier de manière récursive. Sans le paramètre /Pattern, AzCopy télécharge tous les fichiers de ce répertoire.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

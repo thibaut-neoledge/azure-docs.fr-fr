@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/23/2015"
 	ms.author="erikre"/>
 
 # Configurer un nom de domaine personnalisé dans Azure App Service (acheté directement sur GoDaddy)
@@ -23,8 +23,6 @@
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 Si vous avez acheté un domaine via Azure App Service Web Apps, reportez-vous à l’étape finale de l’article <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Acheter un domaine pour Web Apps</a>.
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Cet article explique comment utiliser un nom de domaine personnalisé acheté directement auprès de [GoDaddy](https://godaddy.com) avec [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -64,14 +62,12 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 
 	* Durant l’ajout d’un enregistrement (hôte A) (**A (host) record**) , vous devez attribuer au champ **Host** la valeur **@** (correspondant au nom de domaine racine, par exemple **contoso.com**), la valeur * (caractère générique correspondant à plusieurs sous-domaines) ou le sous-domaine à utiliser (par exemple, **www**.) Dans le champ **Points to**, indiquez l’adresse IP de votre application web Azure.
 
-		> [AZURE.NOTE]Quand vous utilisez des enregistrements A (hôte), vous devez également ajouter un enregistrement CNAME avec la configuration suivante :
-		>
-		> * champ **Host** contenant la valeur **awverify** dont le champ **Points to** contient **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
-		>
-		> Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l'enregistrement A.
-
 	* Quand vous ajoutez un **CNAME (alias) record**, vous devez définir le champ **Host** en fonction du sous-domaine à utiliser. Par exemple, **www**. Dans le **Points to**, indiquez le nom de domaine **.azurewebsites.net** de votre application web Azure. Par exemple, **contoso.azurwebsites.net**.
 
+5. Cliquez sur **Ajouter**.
+6. Sélectionnez **CNAME** comme type d’enregistrement, puis spécifiez une valeur **Host** de **awverify** et une valeur **Pointe vers** de **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+
+	> [AZURE.NOTE]Cet enregistrement CNAME permet à Azure de confirmer que vous possédez le domaine décrit par l’enregistrement A ou le premier enregistrement CNAME. Une fois que le domaine a été mappé à l’application web dans le portail Azure en version préliminaire, l’entrée **awverify** peut être supprimée.
 
 5. Une fois que vous avez fini d'ajouter ou de modifier des enregistrements, cliquez sur **Finish** pour enregistrer les changements.
 
@@ -85,6 +81,5 @@ Pour associer votre domaine personnalisé à une application web dans App Servi
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

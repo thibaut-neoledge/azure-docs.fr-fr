@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/12/2015"
+   ms.date="10/23/2015"
    ms.author="maroche"/>
 
 
@@ -39,8 +39,9 @@ Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l
 * Objets blob et répertoires d’Azure Storage
 * Fichiers et répertoires HDFS
 * Tables HDInsight Hive
+* Vues et tables Teradata
 
-> [AZURE.NOTE]La prise en charge de SQL Server inclut également la base de données SQL Microsoft Azure
+> [AZURE.NOTE]La prise en charge de SQL Server inclut également la base de données SQL Microsoft Azure et Microsoft Azure SQL Data Warehouse
 
 <br/>
 
@@ -57,13 +58,13 @@ Pour tous les objets, ces métadonnées structurelles incluent l’emplacement d
 ## Métadonnée descriptive
 En plus des métadonnées structurelles de base extraites de la source de données, l'outil d'inscription des sources de données extrait des métadonnées descriptives. Pour SQL Server Analysis Services et SQL Server Reporting Services, ces métadonnées sont extraites des propriétés de description exposées par ces services. Pour SQL Server, ce sont les valeurs fournies à l'aide de la propriété étendue ms\_description qui sont extraites. Pour la base de données Oracle, l'outil d’inscription des sources de données extrait la colonne COMMENTS de la vue ALL\_TAB\_COMMENTS.
 
-En plus des métadonnées descriptives extraites de la source de données, les utilisateurs peuvent saisir des métadonnées descriptives à l’aide de l’outil d’inscription des sources de données. Les utilisateurs peuvent ajouter des balises et peuvent identifier des experts pour les objets en cours d'inscription. Toutes ces métadonnées descriptives sont copiées vers le service **Azure Data Catalog** ainsi que les métadonnées structurelles.
+En plus des métadonnées descriptives extraites de la source de données, les utilisateurs peuvent saisir des métadonnées descriptives à l’aide de l’outil d’inscription des sources de données. Les utilisateurs peuvent ajouter des balises et peuvent identifier des experts pour les objets en cours d'inscription. Toutes ces métadonnées descriptives ainsi que les métadonnées structurelles sont copiées vers le service **Azure Data Catalog**.
 
 ## Avec les aperçus instantanés
 
 Par défaut, seules les métadonnées sont extraites des sources de données et copiées dans le service **Azure Data Catalog**. Toutefois, pour comprendre plus facilement une source de données, il suffit généralement de voir un exemple des données qu’elle contient.
 
-L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données de chaque table et vue enregistrée. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
+L’outil d’inscription des sources de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un aperçu instantané des données de chacune des tables et vues inscrites. Si l’utilisateur choisit d’inclure les versions préliminaires lors de l’inscription, l’outil d’inscription inclut jusqu’à 20 enregistrements de chaque table et vue. Cet instantané est ensuite copié dans le catalogue avec les métadonnées structurelles et descriptives.
 
 
 > [AZURE.NOTE]Les tableaux volumineux comportant un grand nombre de colonnes peuvent contenir moins de 20 enregistrements inclus dans leur aperçu.
@@ -71,7 +72,7 @@ L’outil d’inscription des sources de données d’**Azure Data Catalog** per
 
 ## Inclusion de profils de données
 
-Tout comme l’inclusion de versions préliminaires peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut faciliter la compréhension des sources de données détectées.
+Tout comme l’inclusion d’aperçus peut fournir un contexte précieux aux utilisateurs recherchant des sources de données dans **Azure Data Catalog**, l’inclusion d’un profil de données peut faciliter la compréhension des sources de données détectées.
 
 L’outil d’inscription de source de données d’**Azure Data Catalog** permet aux utilisateurs d’inclure un profil de données pour chacune des tables et vues inscrites. Si l’utilisateur choisit d’inclure un profil de données pendant l’inscription, l’outil d’inscription inclut des statistiques agrégées sur les données de chaque table et vue, à savoir :
 
@@ -94,4 +95,4 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

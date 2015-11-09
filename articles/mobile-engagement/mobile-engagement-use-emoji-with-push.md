@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Utiliser l’émoticône Emoji dans les notifications push" 
-	description="Comment utiliser des émoticônes Emoji dans vos notifications push"					
+	pageTitle="Utiliser des émoticônes Emoji dans Azure Mobile Engagement" 
+	description="Comment utiliser des émoticônes Emoji dans vos notifications push"		
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
@@ -11,41 +11,45 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="10/22/2015" 
 	ms.author="piyushjo" />
 
 #Utiliser l’émoticône Emoji dans les notifications push
 
-Vous pouvez inclure des émoticônes Emoji dans votre notification push. Actuellement, Azure Mobile Engagement ne prend en charge que les émoticônes 3 octets Emoji pour les notifications texte dans et en dehors de l'application. Procédez comme suit :
+Vous pouvez inclure des émoticônes Emoji dans votre notification Push en quelques étapes simples :
 
-1.  Vous devez commencer par rechercher une bibliothèque d'émoticônes Emoji 3 octets. Vous trouverez toutes les émoticônes Emoji utilisables en cliquant sur le [lien](http://stackoverflow.com/questions/10153529/emoji-on-mysql-and-php-why-some-symbol-yes-other-not) suivant.
+1. Recherchez d’abord l’Emoji à insérer dans le message. Veillez à ce qu’elle soit prise en charge par l’appareil cible. En effet, l’ajout d’émoticônes Emoji nouvellement approuvées aux plateformes d’appareils peut prendre un certain temps. 
+
+2. Sur **Windows** : vous pouvez accéder à ce [lien](http://apps.timwhitlock.info/emoji/tables/unicode) et copier l’icône « Native ».
+
+	![][7]
+
+3. Sur **Mac** : les émoticônes Emoji se trouvent dans l’application Dictionnaire sous Modifier -> Emoji et symboles.
+
+	![][6]
+
+4. Accédez à l’onglet **Reach** du portail Azure Mobile Engagement. Sélectionnez le type de votre notification push (annonce, interrogation, etc.). Pour cet exemple, nous choisissons une annonce push.
+
+5. Spécifiez les différents champs de la notification jusqu'à ce que vous atteigniez le texte de la notification. C’est là que vous allez ajouter votre émoticône Emoji. Vous pouvez la placer dans le titre, dans le message ou les deux. Faites glisser-déplacer ou copiez les émoticônes Emoji figurant dans les emplacements ci-dessus.
 
 	![][1]
-
-2. Accédez à l'onglet Reach du portail Azure Mobile Engagement.
-
-3. Sélectionnez le type de votre notification push (annonce, interrogation, etc.). Pour cet exemple, nous choisissons une annonce push.
-
-4. Spécifiez les différents champs de la notification jusqu'à ce que vous atteigniez le texte de la notification. C’est là que vous allez ajouter votre émoticône Emoji. Vous pouvez la placer dans le titre, dans le message ou les deux.
-
-	![][2]
-
-5. Coupez l'émoticône Emoji que vous souhaitez utiliser à partir du lien précédent. Collez-la directement dans le titre et/ou le message, à l'emplacement de votre choix.
 
 6. Renseignez les autres champs de la notification et enregistrez-la.
 
 7. Lorsque vous exécutez un test ou activez l'annonce, une notification s’affiche avec l'émoticône spécifiée.
 
 	![][3] 
-	![][4]
+	![][4] 
+	![][5]
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
-[2]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
-[3]: ./media/mobile-engagement-use-emoji-with-push/notification_android.png
-[4]: ./media/mobile-engagement-use-emoji-with-push/notification_ios.png
- 
+[1]: ./media/mobile-engagement-use-emoji-with-push/notification_input.png
+[3]: ./media/mobile-engagement-use-emoji-with-push/iOS_Emoji.png
+[4]: ./media/mobile-engagement-use-emoji-with-push/Android_Emoji.png
+[5]: ./media/mobile-engagement-use-emoji-with-push/WindowsPhone_Emoji.png
+[6]: ./media/mobile-engagement-use-emoji-with-push/Mac_SelectEmoji.png
+[7]: ./media/mobile-engagement-use-emoji-with-push/Windows_SelectEmoji.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

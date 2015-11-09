@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Bibliothèques de connexions de la base de données SQL et de SQL Server"
-	description="Répertorie le numéro de version minimal pour chaque pilote que les programmes clients peuvent utiliser lors de la connexion à la base de données SQL Microsoft Azure ou à Microsoft SQL Server. Un lien est fourni pour les informations sur les versions des pilotes publiés par la communauté, et non par Microsoft."
+	pageTitle="Bibliothèques de connexions pour SQL Database et SQL Server"
+	description="Répertorie le numéro de version minimal pour chaque pilote que les programmes clients peuvent utiliser lors de la connexion à Azure SQL Database ou à Microsoft SQL Server. Un lien est fourni pour les informations sur les versions des pilotes publiés par la communauté, et non par Microsoft."
 	services="sql-database"
 	documentationCenter=""
 	authors="pehteh"
@@ -14,30 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="08/04/2015"
 	ms.author="pehteh"/>
 
 
-# Bibliothèques de connexions de la base de données SQL et de SQL Server
+# Bibliothèques de connexions pour SQL Database et SQL Server
 
 
-Cette rubrique répertorie le numéro de version minimal pour chaque bibliothèque/pilote que les programmes clients peuvent utiliser lors de la connexion à la base de données SQL Microsoft Azure ou à Microsoft SQL Server.
-
-
-Cette rubrique est divisée en deux sections :
-
-
-- *Table des bibliothèques de pilotes publiées par Microsoft* : porte sur les bibliothèques que Microsoft a publiées. Microsoft gère les informations figurant dans cette section.
-- *Bibliothèques tierces* : répertorie les bibliothèques qui sont publiées et gérées par des tiers, et non par Microsoft. **Seule la communauté des développeurs gère cette section. Microsoft ne participe pas à sa gestion.**
-
+Cette rubrique répertorie le numéro de version minimal pour chaque bibliothèque/pilote que les programmes clients peuvent utiliser lors de la connexion à Azure SQL Database ou à Microsoft SQL Server.
 
 ## Tableau des bibliothèques de pilotes publiées par Microsoft
 
 
-Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonne **Bibliothèques** fournit des liens vous permettant de télécharger chaque bibliothèque. La colonne **Version** répertorie la version minimale recommandée pour interagir avec la base de données SQL Microsoft Azure et Microsoft SQL Server.
+Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonne **Bibliothèques** fournit des liens vous permettant de télécharger chaque bibliothèque. La colonne **Version** répertorie la version minimale recommandée pour interagir avec Azure SQL Database et Microsoft SQL Server.
 
 
-| Plateforme | Syst. d’exploitation | Bibliothèques<br/> à télécharger | Version<br/> du pilote | Description <br/>du pilote | Plus<br/> d’informations |
+| Plateforme | Syst. d’exploitation | Bibliothèques<br/>à télécharger | Version<br/>du pilote | Description<br/>du pilote | Autres<br/>informations |
 | :--- | :--- | :--- | :--- | :--- | :-- |
 | .NET | Multiplateforme (.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Fournisseur SQL Server pour .NET Framework | . |
 | PHP | Windows | [PHP pour SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0 + | Pilote PHP pour SQL Server | [Lien](http://msdn.microsoft.com/library/dn865013.aspx) |
@@ -45,6 +37,14 @@ Le tableau suivant affiche les bibliothèques publiées par Microsoft. La colonn
 | ODBC | Windows | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | [Lien](http://msdn.microsoft.com/library/jj730308.aspx) |
 | ODBC | Suse Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
 | ODBC | Redhat Linux | [ODBC pour SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0 + | Pilote ODBC Microsoft pour SQL Server | . |
+
+### Prise en charge ODBC
+
+Quand vous utilisez l’Assistant Nom de source de données (DSN) pour définir une source de données pour Azure SQL Database, cliquez sur l’option **Avec l’authentification SQL Server utilisant un identificateur de connexion entré par l’utilisateur** et sélectionnez **Se connecter à SQL Server pour obtenir les paramètres par défaut pour les options de configuration supplémentaires**. Entrez votre nom d’utilisateur et votre mot de passe pour vous connecter à votre serveur Azure SQL Database dans **ID de connexion** et **Mot de passe**. Décochez la case **Se connecter à SQL Server pour obtenir les paramètres par défaut...**. Cliquez sur **Changer la base de données par défaut par** et entrez le nom de votre base de données SQL Azure même si elle n’apparaît pas dans la liste. Notez que l’Assistant répertorie plusieurs langues dans la liste **Modifier la langue des messages systèmes de SQL Server**.
+
+Dans cette version, Microsoft Azure SQL Database prend en charge uniquement l’anglais, donc sélectionnez Anglais comme langue. Microsoft Azure SQL Database ne prend pas en charge les éléments **Serveur miroir** et **Attacher la base de données**, donc ne les renseignez pas. Cliquez sur **Tester la connexion**.
+
+Quand vous utilisez le pilote ODBC SQL Server 2008 Native Client, le bouton **Tester la connexion** peut provoquer une erreur qui indique que **master.dbo.syscharsets** n’est pas pris en charge. Ignorez cette erreur, enregistrez le nom de source de données (DSN) et utilisez-le.
 
 
 ### OLE DB pour DB2 et SQL Server, pour la conception DRDA
@@ -82,4 +82,4 @@ Le tableau suivant affiche les bibliothèques publiées par des tiers, tels que 
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Bonus.ly | Microsoft Azure" description="Apprenez à utiliser Bonus.ly avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Bonus.ly | Microsoft Azure" 
+    description="Apprenez à utiliser Bonus.ly avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Bonus.ly
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=523806).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Bonus.ly. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -49,7 +62,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
     ![Bonus.ly](./media/active-directory-saas-bonus-tutorial/IC773682.png "Bonus.ly")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Bonus.ly avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Bonus.ly vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Bonus.ly avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Bonus.ly vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -71,24 +84,24 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur, connectez-vous à votre locataire **Bonus.ly**.
 
-6.  Dans la barre d’outils située en haut, cliquez sur **Paramètres**, puis sélectionnez **Intégrations et applications**.
+6.  Dans la barre d’outils située en haut, cliquez sur **Settings**, puis sélectionnez **Integrations and apps**.
 
     ![Bonus.ly](./media/active-directory-saas-bonus-tutorial/IC773686.png "Bonus.ly")
 
-7.  Sous **Authentification unique**, sélectionnez **SAML**.
+7.  Sous **Single Sign-On**, sélectionnez **SAML**.
 
 8.  Dans la page de boîte de dialogue **SAML**, procédez comme suit :
 
     ![Bonus.ly](./media/active-directory-saas-bonus-tutorial/IC773687.png "Bonus.ly")
 
     1.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL cible de l’authentification unique IdP**.
-    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **ID de l’émetteur** et collez-la dans la zone de texte **Émetteur IdP**.
-    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion IdP**.
-    4.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Empreinte numérique du certificat**.
+    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **ID de l’émetteur** et collez-la dans la zone de texte **IdP Issuer**.
+    3.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bonus.ly**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **IdP Login URL**.
+    4.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Cert Fingerprint**.
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
-9.  Cliquez sur **Enregistrer**.
+9.  Cliquez sur **save**.
 
 10. Dans le portail Microsoft Azure AD, sélectionnez la confirmation de configuration, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
@@ -101,23 +114,23 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bonus.ly, vous devez
 
 1.  Dans une fenêtre de navigateur web, connectez-vous à votre locataire Bonus.ly.
 
-2.  Cliquez sur **Paramètres**
+2.  Cliquez sur **Settings**.
 
     ![Paramètres](./media/active-directory-saas-bonus-tutorial/IC781041.png "Paramètres")
 
-3.  Cliquez sur l’onglet **Utilisateurs et bonus**.
+3.  Cliquez sur l’onglet **Users and bonuses**.
 
     ![Utilisateurs et bonus](./media/active-directory-saas-bonus-tutorial/IC781042.png "Utilisateurs et bonus")
 
-4.  Cliquez sur **Gérer les utilisateurs**.
+4.  Cliquez sur **Manage Users**.
 
     ![Gérer les utilisateurs](./media/active-directory-saas-bonus-tutorial/IC781043.png "Gérer les utilisateurs")
 
-5.  Cliquez sur **Ajouter un utilisateur**.
+5.  Cliquez sur **Add User**.
 
     ![Ajouter un utilisateur](./media/active-directory-saas-bonus-tutorial/IC781044.png "Ajouter un utilisateur")
 
-6.  Dans la boîte de dialogue **Ajouter un utilisateur**, procédez comme suit :
+6.  Dans la boîte de dialogue **Add User**, procédez comme suit :
 
     ![Ajouter un utilisateur](./media/active-directory-saas-bonus-tutorial/IC781045.png "Ajouter un utilisateur")
 
@@ -144,6 +157,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-bonus-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

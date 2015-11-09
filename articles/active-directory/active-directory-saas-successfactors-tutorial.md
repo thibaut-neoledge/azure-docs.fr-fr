@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à SuccessFactors | Microsoft Azure" description="Découvrez comment utiliser SuccessFactors avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à SuccessFactors | Microsoft Azure"
+    description="Découvrez comment utiliser SuccessFactors avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à SuccessFactors
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529792).
   
 L’objectif de ce didacticiel est d’illustrer l’intégration d’Azure et de SuccessFactors en **mode d’authentification unique initiée par le fournisseur du service**. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement SuccessFactors avec authentification unique activée en mode initié par le fournisseur du service
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SuccessFactors pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise SuccessFactors (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SuccessFactors pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise SuccessFactors (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -63,15 +76,15 @@ Pour configurer l’authentification unique, vous devez contacter votre équipe 
 
     ![Configurer l’authentification unique](./media/active-directory-saas-successfactors-tutorial/IC791138.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à SuccessFactors**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à SuccessFactors**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-successfactors-tutorial/IC791139.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant** :
+3.  Dans la page **Configurer l’URL de l’application**, procédez comme suit, puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-successfactors-tutorial/IC791140.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : **https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
+    1.  Dans la zone de texte **URL de connexion à SuccessFactors**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SuccessFactors (ex. : « **https://performancemanager4.successfactors.com/sf/home?company=CompanyName&loginMethod=SSO*").
 2.  Dans la zone de texte **URL de réponse SuccessFactors**, entrez ****https://performancemanager4.successfactors.com/saml2/SAMLAssertionConsumer?company=CompanyName**.
 
         >[AZURE.NOTE]Cette valeur n’est qu’un espace réservé temporaire. La valeur réelle vous est fournie par votre équipe de support SuccessFactors. Plus loin dans ce didacticiel, vous trouverez des instructions pour contacter votre équipe de support SuccessFactors. Dans le cadre de cet échange, vous recevez votre URL de réponse SuccessFactors.
@@ -112,10 +125,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-successfactors-tutorial/IC791143.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-successfactors-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

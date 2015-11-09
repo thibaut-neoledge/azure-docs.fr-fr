@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # Guide de dépannage et questions-réponses concernant Application Insights pour Java
@@ -24,7 +24,7 @@ Vous avez des questions concernant [Visual Studio Application Insights dans Java
 
 *Dans Eclipse, quand j’ajoute le kit de développement logiciel (SDK) Application Insights via Maven ou Gradle, j’obtiens des erreurs de validation de build ou de somme de contrôle.*
 
-* Si l’élément <version>de dépendance utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[0.9,)</version>` or (Gradle) `version:'0.9.+'`), essayez de spécifier une version spécifique, comme par exemple `0.9.3`.
+* Si l’élément <version>de dépendance utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[1.0,)</version>` or (Gradle) `version:'1.0.+'`), essayez de spécifier une version spécifique, comme par exemple `1.0.2`. Consultez les [notes de publication](app-insights-release-notes-java.md) relatives à la version la plus récente.
 
 ## Absence de données 
 
@@ -138,4 +138,4 @@ Consultez [Rétention de données et confidentialité][data].
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

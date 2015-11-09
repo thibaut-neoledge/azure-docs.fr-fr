@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/26/2015"
+   ms.date="10/27/2015"
    ms.author="alkohli" />
 
 # Caractéristiques techniques et conformité de l’appareil StorSimple
@@ -20,8 +20,6 @@
 ## Vue d'ensemble
 
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
-
-> [AZURE.NOTE]Pour plus d’informations sur l’appareil StorSimple, téléchargez la [feuille de données sur les appareils StorSimple de la série 8000](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx).
 
 ## Caractéristiques du module d’alimentation et de refroidissement  
 
@@ -170,6 +168,8 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 
 Pour les interfaces réseau 10 GbE, DATA 2 et DATA 3, consultez la [liste des modules et des câbles réseau pris en charge](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
- 
+## Étapes suivantes
 
-<!---HONumber=Oct15_HO3-->
+Pour plus d’informations sur les caractéristiques techniques de l’appareil StorSimple, téléchargez la [fiche de caractéristiques techniques des appareils StorSimple de la série 8000](http://storsimple.seagate.com/Specifications-8000).
+
+<!---HONumber=Nov15_HO1-->

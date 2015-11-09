@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Sugar CRM | Microsoft Azure" description="Découvrez comment utiliser Sugar CRM avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Sugar CRM | Microsoft Azure" 
+    description="Découvrez comment utiliser Sugar CRM avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Sugar CRM
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=534768).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Sugar CRM. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Sugar CRM pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Sugar CRM pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Sugar CRM (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à Sugar CRM pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Sugar CRM (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -53,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’applications pour S
 
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sugar CRM avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire Sugar CRM. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Sugar CRM avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire Sugar CRM. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -61,11 +74,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sugarcrm-tutorial/IC795884.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Sugar CRM**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Sugar CRM**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sugarcrm-tutorial/IC795885.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à Sugar CRM** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Sugar CRM (ex. : **http://company.sugarondemand.com*"), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à Sugar CRM** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application Sugar CRM (ex. : « **http://company.sugarondemand.com*"), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-sugarcrm-tutorial/IC795886.png "Configurer l’URL de l’application")
 
@@ -83,11 +96,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795889.png "Administration")
 
-8.  Sélectionnez **Enable SAML Authentication**.
+8.  Sélectionnez **Enable SAML Authentication**.
 
     ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795890.png "Administration")
 
-9.  Dans la section **SAML Authentication Settings**, procédez comme suit :
+9.  Dans la section **SAML Authentication**, procédez comme suit :
 
     ![Authentification SAML](./media/active-directory-saas-sugarcrm-tutorial/IC795891.png "Authentification SAML")
 
@@ -97,10 +110,10 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    4.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **Certificat X.509**.
+    4.  Ouvrez votre certificat codé en base 64 dans le bloc-notes, copiez son contenu dans le Presse-papiers et collez-le dans la zone de texte **X.509 Certificate**.
     5.  Cliquez sur **Enregistrer**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans la boîte de dialogue **Configurer l’authentification unique sur Sugar CRM** du portail Azure, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sugarcrm-tutorial/IC796919.png "Configurer l’authentification unique")
 
@@ -120,7 +133,7 @@ Pour se connecter à Sugar CRM, les utilisateurs d’Azure AD doivent être appr
 
     ![Administration](./media/active-directory-saas-sugarcrm-tutorial/IC795893.png "Administration")
 
-4.  Accédez à **Users > Create New User**.
+4.  Accédez à **Users > Create New User**.
 
     ![Create New User](./media/active-directory-saas-sugarcrm-tutorial/IC795894.png "Create New User")
 
@@ -157,6 +170,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-sugarcrm-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -147,4 +147,4 @@ Votre stratégie de récupération d’urgence spécifique peut combiner ou éte
 | Déploiement actif / actif pour l’équilibrage de charge d’applications | Accès en lecture-écriture < 5 s | Temps de détection de défaillance + appel des API de basculement + modification des chaînes de connexion SQL + test de vérification des applications
 | Déploiement actif / passif pour la conservation des données | Accès en lecture seule < 5 s Accès en lecture-écriture = zéro | Accès en lecture seule = temps de détection de défaillance de connectivité + test de vérification des applications <br>Accès en lecture-écriture = temps pour atténuer la panne 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/23/2015" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -191,4 +191,33 @@ Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis
 
 Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=Oct15_HO3-->
+
+## Quelle est l'offre Azure Cache qui me convient ?
+
+>[AZURE.IMPORTANT]Microsoft recommande d’utiliser le Cache Redis Azure pour tous les nouveaux développements.
+
+Le Cache Azure propose actuellement trois offres :
+
+-	Cache Redis Azure
+-	Service de cache géré Azure
+-	In-Role Cache Azure
+
+
+### Cache Redis Azure
+Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau premium](cache-premium-tier.md) est en version préliminaire ; il propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, le réseau virtuel et la persistance.
+
+Le Cache Redis Azure permet aux clients d’utiliser un cache Redis sécurisé et dédié, géré par Microsoft. Avec cette offre, vous pouvez exploiter toutes les fonctionnalités et l’écosystème fournis par Redis, ainsi que la fiabilité des services d’hébergement et de surveillance Microsoft.
+
+À la différence des caches classiques qui traitent uniquement des paires clé-valeur, Redis est réputé pour ses types de données hautement performants. Redis prend également en charge l’exécution d’opérations atomiques sur ces types, comme : l’ajout à une chaîne, l’incrémentation de la valeur d’un hachage, la transmission de type push vers une liste, le calcul d’une intersection, union et différence ensemblistes ou l’obtention du membre dont le classement est le plus élevé dans un ensemble trié. Parmi les autres fonctionnalités, citons notamment la prise en charge des transactions, pub/sub, la création de scripts Lua, les clés d’une durée de vie limitée et les paramètres de configuration permettant à Redis de se comporter davantage comme un cache classique.
+
+Un autre aspect clé du succès de Redis est son écosystème open source intègre et vif construit tout autour. Ce succès se reflète dans la diversité des clients Redis disponibles dans plusieurs langues. Cet avantage permet une utilisation par presque toutes les charges de travail qui peuvent être développées dans Azure.
+
+Pour plus d’informations sur la prise en main du Cache Redis Azure, consultez [Comment utiliser le Cache Redis Azure](cache-dotnet-how-to-use-azure-redis-cache.md) et la [documentation du Cache Redis Azure](https://azure.microsoft.com/documentation/services/redis-cache/).
+
+### Service de cache géré
+Si vous êtes un client existant du service de cache géré Azure, vous pouvez continuer d’utiliser le service existant ou choisir de migrer vers le Cache Redis Azure pour tirer parti de son ensemble de fonctionnalités enrichies. Le service de cache géré Azure est également mis à la disposition générale et offre aussi un contrat SLA garantissant une disponibilité de 99,9 %.
+
+### In-Role Cache
+Si vous auto-hébergez le cache à l’aide d’In-Role Cache, vous pouvez également continuer ainsi. In-Role Cache étant un composant logiciel auto-hébergé et non un service hébergé de Microsoft, aucun contrat SLA n’est proposé. Les utilisateurs d’In-Role Cache peuvent choisir de migrer vers le Cache Redis Azure pour tirer parti de son ensemble de fonctionnalités enrichies et obtenir un contrat SLA.
+
+<!---HONumber=Nov15_HO1-->

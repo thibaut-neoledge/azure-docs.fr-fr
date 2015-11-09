@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="sdanie"/>
 
 # Référence sur les stratégies Gestion des API Azure
@@ -32,6 +32,8 @@ Les expressions de stratégie peuvent être utilisées comme valeurs d’attribu
 	-	[Validate JWT][] : applique l’existence et la validité d’un JWT extrait d’un en-tête HTTP ou d’un paramètre de requête spécifié.
 -	[Stratégies avancées][]
 	-	[Control flow][] : applique de manière conditionnelle les instructions de stratégie en fonction des résultats de l’évaluation des [expressions][] booléennes.
+	-	[Forward request][] : transfère la demande vers le service principal.
+	-	[Log to Event Hub][] : envoie des messages au format spécifié à une cible de message définie par une entité [Enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
 	-	[Set variable][] : conserve une valeur dans une variable de [contexte][] nommée pour y accéder ultérieurement.
 -	[Stratégies d’authentification][]
 	-	[Authenticate with Basic][] : authentification avec un service principal à l’aide de l’authentification de base.
@@ -74,6 +76,8 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 [Définir la variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
 [expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 [contexte]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+[Forward request]: https://msdn.microsoft.com/library/azure/dn894085.aspx#ForwardRequest
+[Log to Event Hub]: https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub
 
 [Stratégies d’authentification]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [Authenticate with Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
@@ -107,4 +111,4 @@ Pour plus d’informations sur les expressions de stratégie, regardez la vidéo
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

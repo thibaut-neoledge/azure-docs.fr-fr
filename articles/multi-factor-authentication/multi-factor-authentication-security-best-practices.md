@@ -78,20 +78,12 @@ Le serveur d’authentification multifacteur Azure permet de sécuriser les ress
 - Le serveur Azure Multi-Factor Authentication ne doit pas nécessairement être installé sur votre serveur de fédération AD FS, toutefois, l'adaptateur d'authentification multifacteur pour AD FS doit être installé sur un serveur Windows Server 2012 R2 exécutant AD FS. Vous pouvez installer le serveur sur un autre ordinateur, tant qu'il s'agit d'une version prise en charge et installer l'adaptateur AD FS séparément sur votre serveur de fédération AD FS. Consultez la procédure ci-dessous pour obtenir des instructions sur l'installation séparée de l’adaptateur.
 - L'assistant d’installation de l'adaptateur d’authentification multifacteur AD FS crée un groupe de sécurité appelé PhoneFactor Admins dans Active Directory, puis ajoute le compte de service AD FS de votre service de fédération à ce groupe. Il est recommandé de vérifier sur votre contrôleur de domaine que le groupe PhoneFactor Admins a bien créé et que le compte de service AD FS est membre de ce groupe. Si nécessaire, ajoutez manuellement le compte de service AD FS au groupe PhoneFactor Admins sur votre contrôleur de domaine.
 
-### Portail des utilisateurs
+### Portail de l'utilisateur
 Ce portail s’exécute sur un site web Internet Information Server (IIS), qui autorise les fonctionnalités en libre-service et fournit un ensemble complet de fonctionnalités d’administration des utilisateurs. Utilisez les instructions ci-dessous pour configurer ce composant :
 
 - IIS 6 ou version ultérieure est requis
 - V2.0.507207 ASP.NET doit être installé et inscrit
 - Ce serveur peut être déployé dans un réseau de périmètre.
-- S’il existe un pare-feu de filtrage de la communication entre ce serveur et Azure, le port TCP 443 sortant est requis pour permettre les communications avec les URL suivantes :
-	- https://pfd.phonefactor.net 
-	- https://pfd2.phonefactor.net 
-	- https://css.phonefactor.net
-- Si les pare-feu sortants sont limités au niveau du port 443, les plages d’adresses IP suivantes devront être ouvertes :
-	- 134\.170.116.0/25
-	- 134\.170.165.0/25
-	- 70\.37.154.128/25
 
 
 
@@ -129,4 +121,4 @@ Bien que cet article mette en évidence quelques-unes des meilleures pratiques d
 - [Configuration de l’expérience Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

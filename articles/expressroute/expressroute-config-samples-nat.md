@@ -17,9 +17,9 @@
 
 # Exemples de configuration de routeur pour configurer et gérer des NAT
 
-Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations appropriées à votre réseau.
+Cette page fournit des exemples de configuration NAT pour les routeurs des séries Cisco ASA et Juniper MX. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau.
 
->[AZURE.IMPORTANT]Les exemples de cette page sont fournis à titre purement indicatif. Vous devez contacter l’équipe commerciale/technique de votre fournisseur et votre équipe de mise en réseau pour définir les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
+>[AZURE.IMPORTANT]Les exemples de cette page sont fournis à titre purement indicatif. Vous devez vous adresser à l’équipe commerciale/technique de votre fournisseur et à votre équipe de mise en réseau pour rechercher les configurations adaptées à vos besoins. Microsoft ne prend pas en charge les problèmes liés aux configurations répertoriées dans cette page. Vous devez contacter le fournisseur de votre périphérique pour la prise en charge des problèmes.
 
 Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Consultez [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md) pour plus d'informations.
 
@@ -37,10 +37,10 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
       network-object <IP> <Subnet_Mask>
     
     object-group network on-prem-range-1
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem-range-2
-      network-object <IP> <Subnet_Mask>
+      network-object <IP> <Subnet-Mask>
     
     object-group network on-prem
       network-object object on-prem-range-1
@@ -48,6 +48,34 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
     
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
+### Configuration PAT pour le trafic de Microsoft au réseau client
+
+#### Interfaces et sens :
+	Source Interface (where the traffic enters the ASA): inside
+	Destination Interface (where the traffic exits the ASA): outside
+
+#### Configuration :
+Pool NAT :
+
+	object network outbound-PAT
+		host <NAT-IP>
+
+Serveur cible :
+
+	object network Customer-Network
+		network-object <IP> <Subnet-Mask>
+
+Groupe d’objets pour les adresses IP de clients
+
+	object-group network MSFT-Network-1
+		network-object <MSFT-IP> <Subnet-Mask>
+	
+	object-group network MSFT-PAT-Networks
+		network-object object MSFT-Network-1
+
+Commandes NAT :
+
+	nat (inside,outside) source dynamic MSFT-PAT-Networks pat-pool outbound-PAT destination static Customer-Network Customer-Network
 
 
 ## Routeurs de la série Juniper MX 
@@ -64,7 +92,7 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
 	        unit 100 {
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -78,7 +106,7 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
 	            description "To Microsoft via Edge Router";
 	            vlan-id 100;
 	            family inet {
-	                address <IP_Address/Subnet_mask>;
+	                address <IP-Address/Subnet-mask>;
 	            }
 	        }
 	    }
@@ -134,49 +162,49 @@ Les exemples de configuration de routeur ci-dessous s'appliquent aux homologatio
 		security {
 		    nat {
 		        source {
-		            pool SNAT_To_ExpressRoute {
+		            pool SNAT-To-ExpressRoute {
 		                routing-instance {
-		                    External_ExpressRoute;
+		                    External-ExpressRoute;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
-		            pool SNAT_From_ExpressRoute {
+		            pool SNAT-From-ExpressRoute {
 		                routing-instance {
 		                    Internal;
 		                }
 		                address {
-		                    <NAT_IP_address/Subnet_mask>;
+		                    <NAT-IP-address/Subnet-mask>;
 		                }
 		            }
 		            rule-set Outbound_NAT {
 		                from routing-instance Internal;
-		                to routing-instance External_ExpressRoute;
-		                rule SNAT_Out {
+		                to routing-instance External-ExpressRoute;
+		                rule SNAT-Out {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_To_ExpressRoute;
+		                                SNAT-To-ExpressRoute;
 		                            }
 		                        }
 		                    }
 		                }
 		            }
-		            rule-set Inbound_NAT {
-		                from routing-instance External_ExpressRoute;
+		            rule-set Inbound-NAT {
+		                from routing-instance External-ExpressRoute;
 		                to routing-instance Internal;
-		                rule SNAT_In {
+		                rule SNAT-In {
 		                    match {
 		                        source-address 0.0.0.0/0;
 		                    }
 		                    then {
 		                        source-nat {
 		                            pool {
-		                                SNAT_From_ExpressRoute;
+		                                SNAT-From-ExpressRoute;
 		                            }
 		                        }
 		                    }
@@ -194,12 +222,12 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 ### 6\. Création des stratégies
 
 	routing-options {
-	    	      autonomous-system <Customer_ASN>;
+	    	      autonomous-system <Customer-ASN>;
 	}
 	policy-options {
-	    prefix-list Microsoft_Prefixes {
-	        <IP_Address/Subnet_Mask;
-	        <IP_Address/Subnet_Mask;
+	    prefix-list Microsoft-Prefixes {
+	        <IP-Address/Subnet-Mask;
+	        <IP-Address/Subnet-Mask;
 	    }
 	    prefix-list private-ranges {
 	        10.0.0.0/8;
@@ -207,18 +235,18 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 	        192.168.0.0/16;
 	        100.64.0.0/10;
 	    }
-	    policy-statement Advertise_NAT_Pools {
+	    policy-statement Advertise-NAT-Pools {
 	        from {
 	            protocol static;
-	            route-filter <NAT_Pool_Address/Subnet_mask> prefix-length-range /32-/32;
+	            route-filter <NAT-Pool-Address/Subnet-mask> prefix-length-range /32-/32;
 	        }
 	        then accept;
 	    }
-	    policy-statement Accept_from_Microsoft {
+	    policy-statement Accept-from-Microsoft {
 	        term 1 {
 	            from {
-	                instance External_ExpressRoute;
-	                prefix-list-filter Microsoft_Prefixes orlonger;
+	                instance External-ExpressRoute;
+	                prefix-list-filter Microsoft-Prefixes orlonger;
 	            }
 	            then accept;
 	        }
@@ -226,7 +254,7 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 	            then reject;
 	        }
 	    }
-	    policy-statement Accept_from_Internal {
+	    policy-statement Accept-from-Internal {
 	        term no-private {
 	            from {
 	                instance Internal;
@@ -252,35 +280,35 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 	        interface reth0.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Microsoft;
+	            instance-import Accept-from-Microsoft;
 	        }
 	        protocols {
 	            bgp {
 	                group customer {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_ASN_1>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-ASN-1>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
 	    }
-	    External_ExpressRoute {
+	    External-ExpressRoute {
 	        instance-type virtual-router;
 	        interface reth1.100;
 	        routing-options {
 	            static {
-	                route <NAT_Pool_IP_Address/Subnet_mask> discard;
+	                route <NAT-Pool-IP-Address/Subnet-mask> discard;
 	            }
-	            instance-import Accept_from_Internal;
+	            instance-import Accept-from-Internal;
 	        }
 	        protocols {
 	            bgp {
-	                group edge_router {
-	                    export <Advertise_NAT_Pools>;
-	                    peer-as <Customer_Public_ASN>;
-	                    neighbor <BGP_Neighbor_IP_Address>;
+	                group edge-router {
+	                    export <Advertise-NAT-Pools>;
+	                    peer-as <Customer-Public-ASN>;
+	                    neighbor <BGP-Neighbor-IP-Address>;
 	                }
 	            }
 	        }
@@ -291,4 +319,4 @@ Consultez les exemples de la page [Exemples de configuration de routage](express
 
 Pour plus d’informations, consultez le [Forum Aux Questions sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

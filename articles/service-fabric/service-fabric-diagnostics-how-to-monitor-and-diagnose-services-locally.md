@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -79,4 +79,4 @@ Le même code de suivi que vous avez ajouté à votre application ci-dessus pour
 * [Diagnostics et surveillance des performances pour Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

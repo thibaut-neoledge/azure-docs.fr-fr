@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Ajout de rapports d'intégrité Service Fabric personnalisés"
+   pageTitle="Ajout de rapports d’intégrité Service Fabric personnalisés | Microsoft Azure"
    description="Explique comment envoyer des rapports d'intégrité personnalisés à des entités d'intégrité Azure Service Fabric. Fournit des recommandations pour la conception et la mise en œuvre de rapports d'intégrité de qualité."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Ajout de rapports d'intégrité Service Fabric personnalisés
@@ -274,4 +274,4 @@ Grâce aux données d'intégrité, les enregistreurs de service et les administr
 [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

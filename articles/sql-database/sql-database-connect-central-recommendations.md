@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/26/2015" 
 	ms.author="genemi"/>
 
 
@@ -24,17 +24,21 @@
 Cette rubrique est idéale pour commencer une connectivité client avec Azure SQL Database. Elle fournit des liens vers des exemples de code pour diverses technologies que vous pouvez utiliser pour vous connecter à et interagir avec SQL Database. Les technologies incluent Enterprise Library, JDBC, PHP et de nombreuses autres. Les informations fournies s’appliquent indépendamment de la technologie spécifique utilisée pour la connexion à la base de données SQL.
 
 
+<a id="a-tech-independent-recommend" name="a-tech-independent-recommend"></a>
+
 ## Recommandations indépendantes des technologies
 
 
-- [Instructions pour se connecter à Azure SQL Database par programmation](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Les éléments abordés sont les suivants :
+- [Instructions pour la connexion à la base de données SQL Azure par programme](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Les éléments abordés sont les suivants :
  - [Ports et pare-feu](sql-database-configure-firewall-settings.md/)
  - Chaînes de connexion
-- [Gestion des ressources d’Azure SQL Database](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Les éléments abordés sont les suivants :
+- [Gestion des ressources de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Les éléments abordés sont les suivants :
  - Gouvernance des ressources
  - Application de limites
  - Limitation
 
+
+<a id="b-authentication-recommend" name="b-authentication-recommend"></a>
 
 ## Recommandations relatives à l’authentification
 
@@ -63,8 +67,10 @@ L’approche de l’utilisateur contenu présente des avantages et des inconvén
  - Une personne qui est un utilisateur contenu dans plusieurs bases de données peut avoir davantage de mots de passe à mémoriser ou à mettre à jour.
 
 
-Pour plus d’informations, consultez [Bases de données contenues](http://msdn.microsoft.com/library/ff929071.aspx).
+D’autres informations sont disponibles dans la rubrique [Utilisateurs de base de données à relation contenant-contenu - Rendre votre base de données portable](http://msdn.microsoft.com/library/ff929188.aspx).
 
+
+<a id="c-connection-recommend" name="c-connection-recommend"></a>
 
 ## Recommandations relatives à la connexion
 
@@ -73,20 +79,19 @@ Pour plus d’informations, consultez [Bases de données contenues](http://msdn.
  - La valeur par défaut de 15 secondes est trop courte pour les connexions qui reposent sur Internet.
 
 
-- Vérifiez que votre [pare-feu Azure SQL Database](sql-database-firewall-configure.md) autorise les communications TCP sortantes sur le port 1433.
- - Vous pouvez configurer les paramètres du pare-feu sur un serveur de base de données SQL ou pour une base de données individuelle.
+- Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.
 
 
 - Si votre programme client se connecte à SQL Database V12 pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir les plages de ports 11999-11000 et 14000-14999 sur la machine virtuelle. Pour plus d’informations, cliquez [ici](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-- Pour gérer les *erreurs temporaires*, ajoutez une logique de [*nouvelle tentative*](#TransientFaultsAndRetryLogicGm) à vos programmes clients qui interagissent avec Azure SQL Database.
+- Pour gérer les *erreurs temporaires*, ajoutez une logique de [*nouvelle tentative*](#TransientFaultsAndRetryLogicGm) à vos programmes clients qui interagissent avec Base de données SQL Azure.
 
 
 ### Pool de connexions
 
 
-Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), fermez la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à la réutiliser.
+Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), fermez la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
 
 Sauf si votre programme doit réutiliser immédiatement la connexion pour une autre opération et sans marquer de pause, nous vous recommandons de procéder comme suit :
 
@@ -134,7 +139,7 @@ Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentati
 ### Numéros d’erreur pour les erreurs temporaires
 
 
-Quand une erreur se produit avec SQL Database, une exception [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) est levée. L’exception **SqlException** contient un code d’erreur numérique dans sa propriété **Number**. Si le code d’erreur correspond à une erreur temporaire, votre programme doit renouveler l’appel.
+Quand une erreur se produit avec Base de données SQL, une exception [SqlException](http://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) est levée. L’exception **SqlException** contient un code d’erreur numérique dans sa propriété **Number**. Si le code d’erreur correspond à une erreur temporaire, votre programme doit renouveler l’appel.
 
 
 - [Messages d'erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md#bkmk_connection_errors)
@@ -142,8 +147,10 @@ Quand une erreur se produit avec SQL Database, une exception [SqlException](http
  - Par exemple, faites une nouvelle tentative si vous obtenez le numéro d’erreur 40613, qui correspond à peu près à <br/>*La base de données « ma\_base\_de\_données » sur le serveur « serveur » n’est pas disponible actuellement.*
 
 
-Pour plus d’informations, consultez [Développement Azure SQL Database : rubriques de procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx) – [Résoudre les problèmes de connexion à Azure SQL Database](http://support.microsoft.com/kb/2980233/).
+Pour plus d’informations, consultez [Développement de base de données SQL Azure : Rubriques de](http://msdn.microsoft.com/library/azure/ee621787.aspx) – [Résolution des problèmes de connexion à la base de données Azure SQL](http://support.microsoft.com/kb/2980233/).
 
+
+<a id="e-technologies" name="e-technologies"></a>
 
 ## Technologies
 
@@ -167,4 +174,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

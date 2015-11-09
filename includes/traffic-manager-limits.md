@@ -1,8 +1,8 @@
 Ressource| Limite par défaut
 ---|---
-Profils par abonnement | 100
+Profils par abonnement | 100 <sup>1</sup>
 Points de terminaison par profil| 200
 
-Vous pouvez contacter le support technique pour augmenter la limite par défaut.
+<sup>1</sup>Pour accroître ces limites, contactez le support technique.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

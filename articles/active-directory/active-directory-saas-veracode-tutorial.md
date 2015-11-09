@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à Veracode | Microsoft Azure" description="Découvrez comment utiliser Veracode avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à Veracode | Microsoft Azure" 
+    description="Découvrez comment utiliser Veracode avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à Veracode
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=615291).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Veracode. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un abonnement Veracode pour lequel l’authentification unique est activée
   
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Veracode pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Veracode (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586)
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Veracode pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Veracode (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md)
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -63,7 +76,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802907.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Veracode**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à Veracode**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802908.png "Configurer l’authentification unique")
 
@@ -87,17 +100,17 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Administration](./media/active-directory-saas-veracode-tutorial/IC802912.png "Administration")
 
-    1.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur Veracode** du portail Azure, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur**.
-    2.  Pour charger votre certificat téléchargé, cliquez sur**Choisir un fichier**.
-    3.  Sélectionnez **Activer l’enregistrement automatique**.
+    1.  Dans la page de la boîte de dialogue **Configurer l’authentification unique sur Veracode** du portail Azure, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
+    2.  Pour charger votre certificat téléchargé, cliquez sur**Choose File**.
+    3.  Sélectionnez **Enable Self Registration**.
 
-9.  Dans la section **Paramètres d’enregistrement automatique**, procédez comme suit, puis cliquez sur **Enregistrer** :
+9.  Dans la section **Self Registration Settings**, procédez comme suit, puis cliquez sur **Save** :
 
     ![Administration](./media/active-directory-saas-veracode-tutorial/IC802913.png "Administration")
 
-    1.  Dans **Activation de nouvel utilisateur**, sélectionnez **Aucune activation requise**.
-    2.  Dans **Mises à jour des données utilisateur**, sélectionnez **Privilégier les données utilisateur Veracode**.
-    3.  Dans **Détails d’attribut SAML**, sélectionnez les éléments suivants :
+    1.  Dans **New User Activation**, sélectionnez **No Activation Required**.
+    2.  Dans **User Data Updates**, sélectionnez **Preference Veracode User Data**.
+    3.  Dans **SAML Attribute Details**, sélectionnez les éléments suivants :
         -   **Rôles d’utilisateur**
         -   **Administrateur de la stratégie**
         -   **Réviseur**
@@ -109,7 +122,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
         -   **Appartenance aux équipes**
         -   **Équipe par défaut**
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-veracode-tutorial/IC802914.png "Configurer l’authentification unique")
 
@@ -157,10 +170,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-veracode-tutorial/IC802915.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-veracode-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d'informations sur le panneau d'accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

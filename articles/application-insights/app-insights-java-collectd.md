@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/21/2015" 
 	ms.author="awills"/>
  
 # collectd : métriques de performances Unix dans Application Insights
@@ -143,4 +143,4 @@ Séparez les directives par un saut de ligne.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform | Microsoft Azure" description="Apprenez à utiliser SAP HANA Cloud Platform avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform | Microsoft Azure" 
+    description="Apprenez à utiliser SAP HANA Cloud Platform avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory avec SAP HANA Cloud Platform
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529793).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et SAP HANA Cloud Platform. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un compte SAP HANA Cloud Platform
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SAP HANA Cloud Platform pourront s’authentifier de manière unique dans l’application (connexion initiée par le fournisseur du service) à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à SAP HANA Cloud Platform pourront s’authentifier de manière unique dans l’application (connexion initiée par le fournisseur du service) à l’aide de la [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
 >[AZURE.IMPORTANT]Vous devez déployer votre propre application ou vous abonner à une application sur votre compte SAP HANA Cloud Platform pour tester l’authentification unique. Dans ce didacticiel, une application est déployée dans le compte.
   
@@ -53,7 +66,7 @@ Cette section décrit l’activation de l’intégration d’application pour SA
     ![SAP Hana](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793929.png "SAP Hana")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur SAP HANA Cloud Platform avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire SAP HANA Cloud Platform. Si vous n’êtes pas familiarisé avec cette procédure, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur SAP HANA Cloud Platform avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64 sur votre locataire SAP HANA Cloud Platform. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -65,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790797.png "Configurer l’authentification unique")
 
-3.  Dans une autre fenêtre de navigateur web, connectez-vous à SAP HANA Cloud Platform Cockpit à l’adresse https://account.\<hôte landscape>.ondemand.com/cockpit (par exemple : **https://account.hanatrial.ondemand.com/cockpit*).
+3.  Dans une autre fenêtre de navigateur web, connectez-vous à SAP HANA Cloud Platform Cockpit à l’adresse https://account.\<landscape host>.ondemand.com/cockpit (par exemple : **https://account.hanatrial.ondemand.com/cockpit*).
 
 4.  Cliquez sur l’onglet **Trust**.
 
@@ -82,7 +95,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790798.png "Configurer l’URL de l’application")
 
-    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application **SAP HANA Cloud Platform**. Il s’agit de l’URL spécifique au compte d’une ressource protégée de votre application SAP HANA Cloud Platform. L’URL est basée sur le modèle suivant :*https://\<nomApplication><nomCompte>.< hôte paysage>.ondemand.com/<chemin\_vers\_ressource\_protégée>*(par exemple : **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
+    1.  Dans la zone de texte **URL d’authentification**, entrez l’URL utilisée par vos utilisateurs pour se connecter à votre application **SAP HANA Cloud Platform**. Il s’agit de l’URL spécifique au compte d’une ressource protégée de votre application SAP HANA Cloud Platform. L’URL est basée sur le modèle suivant :*https://\<nomApplication><nomCompte>.<landscape host>.ondemand.com/<chemin\_vers\_ressource\_protégée>*(par exemple : **https://xleavep1941203872trial.hanatrial.ondemand.com/xleave*)
 
 		>[AZURE.NOTE]Il s’agit de l’URL de votre application SAP HANA Cloud Platform sur laquelle l’utilisateur doit s’authentifier.
 
@@ -115,11 +128,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Gestion des approbations](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC793932.png "Gestion des approbations")
 
-    >[AZURE.NOTE]Après avoir téléchargé le fichier de métadonnées, les valeurs de **Single Sign-on URL**, **Single Logout URL** et de **Signing Certificate** sont remplies automatiquement.
+    >[AZURE.NOTE]Après avoir téléchargé le fichier de métadonnées, les valeurs de **Single Sign-on URL**, **Single Logout URL** et **Signing Certificate** sont remplies automatiquement.
 
 11. Cliquez sur onglet **Attributes**.
 
-12. Dans l’onglet **Attributes**, procédez comme suit :
+12. Sous l’onglet **Attributes**, procédez comme suit :
 
     ![Attributs](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790804.png "Attributs")
 
@@ -161,7 +174,7 @@ Pour permettre aux utilisateurs d’Azure AD de se connecter à SAP HANA Cloud P
     2.  Cliquez sur l’onglet **Users**.
     3.  Dans la zone de texte **User**, tapez l’adresse de messagerie de l’utilisateur.
     4.  Cliquez sur **Assign** pour attribuer l’utilisateur à un rôle.
-    5.  Cliquez sur **Enregistrer**.
+    5.  Cliquez sur **Save**.
 
 ##Affectation d’utilisateurs
   
@@ -175,10 +188,10 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Affecter des utilisateurs](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC790806.png "Affecter des utilisateurs")
 
-3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter** puis sur **Oui** pour confirmer votre affectation.
+3.  Sélectionnez votre utilisateur de test, cliquez sur **Affecter**, puis sur **Oui** pour confirmer votre affectation.
 
     ![Oui](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

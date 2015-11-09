@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/27/2015"
 	ms.author="jhubbard"/>
 
 
@@ -23,6 +23,7 @@ Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’
 
 Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de la base de données SQL Azure. Au cours de ce didacticiel, vous allez créer un groupe de synchronisation hybride (instances SQL Server et base de données SQL) entièrement configuré et synchronisé avec la planification que vous avez définie.
 
+**Remarque :** La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf téléchargeable [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Étape 1 : se connecter à la base de données SQL Azure
 
@@ -63,7 +64,7 @@ Veillez à installer les composants suivants sur l’ordinateur sur lequel vous 
 <a id="InstallClient"></a>
 ### Étape 2b : installer un nouvel agent client
 
-Pour installer l’agent, suivez les instructions de la page[Installer un Agent client pour l’Aperçu de synchronisation des données SQL](http://msdn.microsoft.com/library/jj823137.aspx).
+Pour installer l’agent, suivez les instructions de la page [Installer un Agent client (Synchronisation des données SQL)]((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -80,7 +81,7 @@ Pour installer l’agent, suivez les instructions de la page[Installer un Agent 
 
 ## Étape 3 : inscrire une base de données SQL Server auprès d’un agent client
 
-Une fois l’agent client installé, inscrivez chaque base de données SQL Server locale que vous souhaitez inclure dans un groupe de synchronisation auprès de l’agent. Pour ce faire, suivez les instructions de la page [Inscrire une base de données SQL Server auprès d’un agent client](http://msdn.microsoft.com/library/jj823138.aspx).
+Une fois l’agent client installé, inscrivez chaque base de données SQL Server locale que vous souhaitez inclure dans un groupe de synchronisation auprès de l’agent. Pour ce faire, suivez les instructions de la page [Inscrire une base de données SQL Server auprès d’un agent client](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -195,11 +196,11 @@ Félicitations ! Vous avez créé un groupe de synchronisation incluant une ins
 ## Étapes suivantes
 Pour plus d’informations sur la base de données SQL et la synchronisation des données SQL, consultez les pages suivantes :
 
-* [Télécharger la documentation technique sur la synchronisation des données SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
+* [Télécharger la documentation technique complète sur la synchronisation des données SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Vue d’ensemble des bases de données SQL](sql-database-technical-overview.md)
 * [Gestion du cycle de vie des bases de données](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

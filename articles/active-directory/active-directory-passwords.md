@@ -17,6 +17,9 @@
 	ms.author="asteen"/>
 
 # Gestion de vos mots de passe en tout lieu
+
+  >[AZURE.IMPORTANT]Êtes-vous ici parce que vous souhaitez réinitialiser votre mot de passe Azure ou O365 ? Si c’est le cas, veuillez [suivre les instructions disponibles ici](https://support.microsoft.com/kb/2606983).
+  
 Le libre-service a toujours été l’objectif principal des services informatiques du monde entier dans le but de réduire les coûts et de faciliter le travail. En effet, le marché est inondé de produits qui vous permettent de gérer vos groupes locaux, mots de passe ou profils utilisateur dans le cloud ou localement. Azure AD se différencie de ces offres en fournissant des fonctionnalités libre-service performantes et faciles à utiliser.
 
 La **gestion des mots de passe Azure AD** est un ensemble de fonctionnalités qui permettent à vos utilisateurs de gérer les mots de passe à partir de n'importe quel appareil, à tout moment, en tout lieu, tout en respectant les stratégies de sécurité que vous définissez.
@@ -53,31 +56,31 @@ Voici quelques raisons pour lesquelles vous devez utiliser les fonctionnalités 
 
 ## Mises à jour de service récentes
 
-**Mises à jour de la facilitation d’utilisation de la page d'inscription** - Octobre 2015
+**Mises à jour de la convivialité de la page d’inscription** - octobre 2015
 
 - Désormais, lorsqu'un utilisateur dispose déjà de données inscrites, il lui suffit de cliquer sur « looks good » pour mettre à jour les données sans avoir à renvoyer l’e-mail ou à passer un nouveau coup de fil.
 
-**Fiabilité améliorée de l'écriture différée du mot de passe** - septembre 2015
+**Fiabilité améliorée de l’écriture différée du mot de passe** - septembre 2015
 
 - Depuis la version de septembre d’Azure AD Connect, l'agent d'écriture différée du mot de passe tente d’établir de façon plus agressive de nouvelles connexions et propose des fonctionnalités de basculement supplémentaires plus robustes.
 
-**API pour la récupération des mots de passe et réinitialisation des données de rapport** - Août 2015
+**API pour la récupération des données des rapports sur la réinitialisation des mots de passe** - août 2015
 
-- Désormais, les données des rapports de réinitialisation de mot de passe peuvent être récupérées directement à partir des [rapports Azure AD et des API d'événements](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+- Désormais, les données des rapports de réinitialisation de mot de passe peuvent être récupérées directement à partir des [rapports Azure AD et des API d’événements](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
 
-**Prise en charge de la réinitialisation de mot de passe Azure AD pendant la jonction de domaine de cloud** - Août 2015
+**Prise en charge de la réinitialisation de mot de passe Azure AD pendant la jonction de domaine de cloud** - août 2015
 
 - À présent, chaque utilisateur de cloud peut réinitialiser son mot de passe directement depuis l’écran de connexion de Windows 10 lors de l’étape de jonction de domaine. Notez que cette fonctionnalité n’a pas encore été intégrée à l'écran de connexion Windows 10.
 
-**Forcer l'inscription de réinitialisation de mot de passe lors de la connexion à Azure et à des applications fédérées** - Juillet 2015
+**Forcer l’inscription de réinitialisation de mot de passe lors de la connexion à Azure et à des applications fédérées** - juillet 2015
 
 - En plus de forcer l'inscription lors de la connexion à myapps.microsoft.com, nous prenons maintenant en charge l'inscription lors des connexions au portail de gestion Azure et à n’importe laquelle de vos applications fédérées à authentification unique
 
-**Prise en charge de la localisation de la question de sécurité** - Mai 2015
+**Prise en charge de la localisation de la question de sécurité** - mai 2015
 
 - À présent, vous avez la possibilité de sélectionner des questions de sécurité prédéfinies localisées en langage O365 intégral lors de la configuration des questions de sécurité pour la réinitialisation de mot de passe.
 
-**Prise en charge du déverrouillage de compte lors de la réinitialisation de mot de passe** - Juin 2015
+**Prise en charge du déverrouillage de compte lors de la réinitialisation de mot de passe** - juin 2015
 
 - Si vous utilisez l'écriture différée du mot de passe et que vous réinitialisez votre mot de passe lorsque votre compte est verrouillé, nous déverrouillerons automatiquement votre compte Active Directory !
 
@@ -97,7 +100,7 @@ Voici quelques raisons pour lesquelles vous devez utiliser les fonctionnalités 
 
 Vous trouverez ci-dessous certaines des remarquables fonctionnalités que nous développons actuellement.
 
-**Prise en charge du déverrouillage des comptes Active Directory sans réinitialisation du mot de passe** - Bientôt disponible !
+**Prise en charge du déverrouillage des comptes Active Directory sans réinitialisation du mot de passe** - Bientôt disponible !
 
 - Beaucoup d’utilisateurs nous ont demandé la possibilité de déverrouiller des comptes Active Directory indépendamment de la réinitialisation du mot de passe. Nous sommes heureux d'annoncer que nous mettons actuellement la touche finale à cette fonctionnalité qui sera bientôt disponible à toute personne utilisant l'écriture différée de mot de passe !
 
@@ -105,7 +108,7 @@ Vous trouverez ci-dessous certaines des remarquables fonctionnalités que nous d
 
 - Nous pouvons aujourd’hui rappeler aux utilisateurs de mettre à jour leurs données enregistrées lors de l'accès à myapps.microsoft.com, et nous prévoyons d’étendre cette fonctionnalité à toutes les authentifications.
 
-**Application de l'inscription de réinitialisation de mot de passe lors de la connexion aux applications Office 365** - En cours
+**Application de l’inscription de réinitialisation de mot de passe lors de la connexion aux applications Office 365** - En cours
 
 - De plus en plus d’applications Office adoptent les fantastiques avantages de la dernière version de l’authentification Azure AD. Et dans ce cas, elles prennent automatiquement en charge l’inscription forcée SSPR !
 
@@ -124,4 +127,4 @@ Vous trouverez ci-dessous certaines des remarquables fonctionnalités que nous d
 * [En savoir plus](active-directory-passwords-learn-more.md)
 * [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

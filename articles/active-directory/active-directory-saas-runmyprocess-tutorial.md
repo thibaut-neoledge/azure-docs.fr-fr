@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à RunMyProcess | Microsoft Azure" description="Apprenez à utiliser RunMyProcess avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à RunMyProcess | Microsoft Azure" 
+    description="Apprenez à utiliser RunMyProcess avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à RunMyProcess
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=528571).
   
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et RunMyProcess. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire RunMyProcess
   
-À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à RunMyProcess pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise RunMyProcess (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs d’Azure AD que vous avez affectés à RunMyProcess pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise RunMyProcess (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
   
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,19 +64,19 @@ Cette section décrit l’activation de l’intégration d’application pour Ru
     ![RunMyProcess](./media/active-directory-saas-runmyprocess-tutorial/IC789616.png "RunMyProcess")
 ##Configuration de l'authentification unique
   
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur RunMyProcess avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur RunMyProcess avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. Dans le cadre de cette procédure, vous devez créer un fichier de certificat codé en base 64. Si cette procédure ne vous est pas familière, consultez [Conversion d’un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
-1.  Dans le portail Azure Active Directory, puis dans la page d’intégration d’application **RunMyProcess**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
+1.  Dans le portail Azure Active Directory, dans la page d’intégration d’application **RunMyProcess**, cliquez sur **Configurer l’authentification unique** pour ouvrir la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789617.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à RunMyProcess**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à RunMyProcess**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789622.png "Configurer l’authentification unique")
 
-3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion à RunMyProcess**, tapez votre URL selon le modèle suivant « **http://company.runmyprocess.com*", puis cliquez sur **Suivant**.
+3.  Dans la page **Configurer l’URL de l’application**, dans la zone de texte **URL de connexion de RunMyProcess**, tapez votre URL selon le modèle suivant « **http://company.runmyprocess.com*", puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-runmyprocess-tutorial/IC789623.png "Configurer l’URL de l’application")
 
@@ -73,7 +86,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise RunMyProcess en tant qu’administrateur.
 
-6.  Accédez à **Account > Configuration**.
+6.  Accédez à **Account > Configuration**.
 
     ![Compte](./media/active-directory-saas-runmyprocess-tutorial/IC789625.png "Compte")
 
@@ -84,14 +97,14 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Authentification unique](./media/active-directory-saas-runmyprocess-tutorial/IC789626.png "Authentification unique")
 
     1.  Pour **Method**, sélectionnez **SSO with Samlv2**.
-    2.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL d’authentification unique** et collez-la dans la zone de texte **SSO redirect**.
-    3.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL du serveur d’authentification unique** et collez-la dans la zone de texte **Logout redirect**.
+    2.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL SSO SAML** et collez-la dans la zone de texte **SSO redirect**.
+    3.  Dans la page **Configurer l’authentification unique sur RunMyProcess** du portail Azure, copiez la valeur **URL du service d’authentification unique** et collez-la dans la zone de texte **Logout redirect**.
     4.  Dans la zone de texte **Name id Format**, entrez **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
     5.  Créez un fichier **codé en base 64** à partir du certificat téléchargé.  
 
         >[AZURE.TIP]Pour plus d’informations, consultez [Comment convertir un certificat binaire en fichier texte](http://youtu.be/PlgrzUZ-Y1o).
 
-    6.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat**.
+    6.  Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificate**.
     7.  Cliquez sur **Enregistrer**.
 
 9.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
@@ -105,7 +118,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à RunMyProcess, vous d
 
 1.  Connectez-vous au site d’entreprise **RunMyProcess** en tant qu’administrateur.
 
-2.  Accédez à **Account > Users**, puis cliquez sur **New User**.
+2.  Accédez à **Account > Users**, puis cliquez sur **New User**.
 
     ![Nouvel utilisateur](./media/active-directory-saas-runmyprocess-tutorial/IC789631.png "Nouvel utilisateur")
 
@@ -113,7 +126,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à RunMyProcess, vous d
 
     ![Profil](./media/active-directory-saas-runmyprocess-tutorial/IC789632.png "Profil")
 
-    1.  Tapez le nom et l’adresse électronique d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Name** et **Email Address**.
+    1.  Tapez le nom et l’adresse électronique d’un compte Azure Active Directory valide que vous souhaitez approvisionner dans les zones de texte correspondantes, à savoir, **Name** et **E-mail**.
     2.  Sélectionnez des options pour **IDE language**, **Language** et **Profile**.
     3.  Sélectionnez **Send account creation e-mail to me**.
     4.  Cliquez sur **Enregistrer**.
@@ -136,6 +149,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-runmyprocess-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

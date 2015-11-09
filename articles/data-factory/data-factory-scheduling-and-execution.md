@@ -58,7 +58,7 @@ L’intervalle de temps associé à la tranche actuelle en cours de production e
 
 Pour plus d’informations sur les différentes propriétés disponibles dans la section Disponibilité, reportez-vous à l’article [Création de jeux de données](data-factory-create-datasets.md).
 
-## Exemple : activité de copie déplaçant des données de SQL Azure vers un objet Blob Azure
+## Exemple : activité de copie déplaçant des données de SQL Azure vers un objet blob Azure
 
 Réunissons les informations et réexaminons le modèle d’activité de copie affiché dans l’article [Création de Pipelines](data-factory-create-pipelines.md) qui copie les données d’une table SQL Azure vers un objet blob Azure toutes les heures.
 
@@ -511,14 +511,16 @@ L’activité Hive accepte les 2 entrées et génère une tranche de sortie tous
 	}
 
 
+## Chaînage des activités
+Vous pouvez chaîner deux activités en utilisant le jeu de données de sortie d’une activité en tant que jeu de données d’entrée de l’autre activité. Les activités peuvent être dans le même pipeline ou dans des pipelines différents. La seconde activité s’exécute uniquement quand la première se termine correctement. Ce chaînage se produit au niveau de la tranche horaire (une unité discrète au sein d’un jeu de données).
 
 ## Variables système Data Factory
 
 Nom de la variable | Description | Portée de l’objet | Étendue JSON et cas d’utilisation
 ------------- | ----------- | ------------ | ------------------------
-WindowStart | Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours | activité | <ol><li>Spécifier des requêtes de sélection de données. Consulter les articles de connecteur référencés dans l’article [activités de déplacement des données](data-factory-data-movement-activities.md). </li><li>Passer des paramètres des scripts de Hive (exemple ci-dessus).</li>
+WindowStart | Début de l’intervalle de temps pour l’intervalle d’exécution d’activité en cours | activité | <ol><li>Spécifier des requêtes de sélection de données. Consultez les articles connexes référencés dans l’article [Activités de déplacement des données](data-factory-data-movement-activities.md).</li><li>Passer des paramètres à un script Hive (exemple ci-dessus).</li>
 WindowEnd | Fin de l’intervalle de temps de l’intervalle d’exécution d’activité en cours | activité | Identique à ce qui précède.
-SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | <ol><li>Spécifier les chemins d’accès dynamiques en cas de travail avec [objets Blob Azure](data-factory-azure-blob-connector.md) et [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collecte d’entrées de données.</li></ol>
+SliceStart | Début de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | <ol><li>Spécifier les chemins de dossier et noms de fichier dynamiques en cas d’utilisation d’un [objet blob Azure](data-factory-azure-blob-connector.md) et de [jeux de données de système de fichiers](data-factory-onprem-file-system-connector.md).</li><li>Spécifier les dépendances d’entrée avec les fonctions Data Factory dans une collection d’entrées d’activité.</li></ol>
 SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours de génération | activité<br/>jeu de données | identique à ce qui précède. 
 
 > [AZURE.NOTE]Actuellement Data Factory exige que le calendrier spécifié dans l’activité corresponde exactement à la planification spécifiée dans la disponibilité du jeu de données de sortie. Cela signifie que WindowStart, WindowEnd et SliceStart et SliceEnd font toujours correspondre la même période de temps et une tranche de sortie unique.
@@ -527,7 +529,7 @@ SliceEnd | Fin de l’intervalle de temps pour une tranche de données en cours 
 
 Vous pouvez utiliser des fonctions dans Data Factory avec les variables système mentionnées aux fins suivantes :
 
-1.	La spécification de requêtes de sélection de données (voir les articles de connecteur référencés par l’article [activités de déplacement des données](data-factory-data-movement-activities.md).
+1.	Spécification de requêtes de sélection de données (consultez les articles connexes référencés par l’article [Activités de déplacement des données](data-factory-data-movement-activities.md)).
 
 	La syntaxe pour appeler une fonction Data Factory est :**$$<function>** pour les requêtes de sélection de données et d’autres propriétés de l’activité et des jeux de données.  
 2. Spécification de dépendances d’entrée avec les fonctions Data Factory dans la collecte d’activité (voir exemple ci-dessus).
@@ -549,19 +551,19 @@ Catégorie | Fonction | Paramètres | Description
 -------- | -------- | ---------- | ----------- 
 Time | AddHours(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y heures à l’heure donnée X.<p>Exemple : 9/5/2013 12:00:00 PM + 2 heures = 9/5/2013 2:00:00 PM</p>
 Time | AddMinutes(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y minutes à X.<p>Exemple : 9/15/2013 12:00:00 PM+ 15 minutes = 9/15/2013 12:15:00 PM</p>
-Time | StartOfHour(X) | X: Datetime | Obtient l’heure de début de l’heure représentée par le composant heure de X.<p>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM</p>
-Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y jours à X.<p>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM</p>
-Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM </p> 
-Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
-Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute les Y * 7 jours x<p>exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
-Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y années à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM</p>
-Date | Day(X) | X: DateTime | Obtient le composant « jour » de X.<p>Exemple : le jour du 9/15/2013, 12:00:00 PM est 9.</p>
-Date | DayOfWeek(X) | X: DateTime | Obtient le composant « semaine » de X.<p>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche.</p>
-Date | DayOfYear(X) | X: DateTime | Permet d’obtenir le jour de l’année représenté par le composant année de X.<p>Exemples :<br/>12/1/2015: jour 335 de 2015<br/>12/31/2015 : jour 365 de 2015<br/>12/31/2016 : jour 366 de 2016 (année bissextile)</p>
-Date | DaysInMonth(X) | X: DateTime | Permet d’obtenir les jours du mois représentés par le composant mois du paramètre x.<p>Exemple : DaysInMonth du 9/15/2013 sont 30 puisqu’il y a 30 jours dans le mois de septembre.</p>
-Date | EndOfDay(X) | X: DateTime | Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<p>Exemple : EndOfDay du 9/15/2013 05:10:23 PM est 9/15/2013 11:59:59 PM.</p>
-Date | EndOfMonth(X) | X: DateTime | Permet d’obtenir la fin du mois représentée par le composant mois du paramètre x.<p>Exemple : EndOfMonth 9/15/2013 05:10:23 PM est 9/30/2013 11:59:59 PM (heure date qui représente la fin du mois de septembre)</p>
-Date | StartOfDay(X) | X: DateTime | Permet d’obtenir le début de la journée représenté par le composant jour du paramètre x.<p>Exemple : le StartOfDay de 9/15/2013 05:10:23 PM est 9/15/2013 12:00:00 AM.</p>
+Time | StartOfHour(X) | X: Datetime | Obtient l’heure de début de l’heure représentée par le composant heure de X.<p>Exemple : StartOfHour 9/15/2013 05:10:23 PM est 9/15/2013 05:00:00 PM</p>
+Date | AddDays(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y jours à X.<p>Exemple : 9/15/2013 12:00:00 PM + 2 jours = 9/17/2013 12:00:00 PM</p>
+Date | AddMonths(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 mois = 10/15/2013 12:00:00 PM </p> 
+Date | AddQuarters(X,Y) | X: DateTime <p>Y: int</p> | Ajoute Y* 3 mois à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 trimestre = 12/15/2013 12:00:00 PM</p>
+Date | AddWeeks(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y * 7 jours à X<p>Exemple : 15/9/2013 12:00:00 PM + 1 semaine = 22/9/2013 12:00:00 PM</p>
+Date | AddYears(X,Y) | X: DateTime<p>Y: int</p> | Ajoute Y années à X.<p>Exemple : 9/15/2013 12:00:00 PM + 1 an = 9/15/2014 12:00:00 PM</p>
+Date | Day(X) | X: DateTime | Obtient le composant jour de X.<p>Exemple : le jour du 9/15/2013, 12:00:00 PM est 15.</p>
+Date | DayOfWeek(X) | X: DateTime | Obtient le composant semaine de X.<p>Exemple : DayOfWeek du 9/15/2013, 12:00:00 PM est dimanche.</p>
+Date | DayOfYear(X) | X: DateTime | Permet d’obtenir le jour de l’année représenté par le composant année de X.<p>Exemples :<br/>12/1/2015 : jour 335 de 2015<br/>12/31/2015 : jour 365 de 2015<br/>12/31/2016 : jour 366 de 2016 (année bissextile)</p>
+Date | DaysInMonth(X) | X: DateTime | Permet d’obtenir les jours du mois représentés par le composant mois du paramètre X.<p>Exemple : DaysInMonth du 9/15/2013 s’élève à 30 puisqu’il y a 30 jours dans le mois de septembre.</p>
+Date | EndOfDay(X) | X: DateTime | Obtient la valeur date-heure qui représente la fin de la journée (composant jour) de X.<p>Exemple : EndOfDay du 9/15/2013 05:10:23 PM est 9/15/2013 11:59:59 PM.</p>
+Date | EndOfMonth(X) | X: DateTime | Permet d’obtenir la fin du mois représentée par le composant mois du paramètre X.<p>Exemple : EndOfMonth 9/15/2013 05:10:23 PM est 9/30/2013 11:59:59 PM (date-heure qui représente la fin du mois de septembre)</p>
+Date | StartOfDay(X) | X: DateTime | Permet d’obtenir le début de la journée représenté par le composant jour du paramètre X.<p>Exemple : la valeur StartOfDay de 9/15/2013 05:10:23 PM est 9/15/2013 12:00:00 AM.</p>
 DateTime | From(X) | X: String | Analyser la chaîne X à une heure de date.
 DateTime | Ticks(X) | X: DateTime | Permet d’obtenir la propriété de graduation du paramètre X. Un cycle est égal à 100 nanosecondes. La valeur de cette propriété représente le nombre de graduations écoulées depuis 12:00:00 minuit, le 1er janvier 0001. 
 Texte | Format(X) | X : variable de chaîne | Met en forme le texte.
@@ -575,16 +577,16 @@ Texte | Format(X) | X : variable de chaîne | Met en forme le texte.
 	    "Hour" : "$$Text.Format('{0:hh}',WindowStart)"
 	}
 
-> [AZURE.NOTE]Lorsque vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** de la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$**préfixe n’est pas utilisé pour la fonction **Time.AddHours**.
+> [AZURE.NOTE]Quand vous utilisez une fonction au sein d’une autre fonction, vous n’avez pas besoin d’utiliser le préfixe **$$** pour la fonction interne. Par exemple : $$Text.Format(’PartitionKey eq \\’my\_pkey\_filter\_value\\’ et RowKey ge \\’{0:yyyy-MM-dd HH:mm:ss}\\’’, Time.AddHours(SliceStart, -6)).. Dans cet exemple, notez que le préfixe **$$** n’est pas utilisé pour la fonction **Time.AddHours**.
   
 
 ## Examen approfondi de la dépendance de données
 
-Pour générer une tranche de jeu de données en exécutant une activité, Data Factory utilise le **modèle de dépendance** pour déterminer les relations entre le jeu de données consommées par une activité et le jeu de données généré par une activité.
+Pour générer une tranche de jeu de données en exécutant une activité, Data Factory utilise le **modèle de dépendance** pour déterminer les relations entre les jeux de données consommés par une activité et les jeux de données générés par une activité.
 
-La plage de temps des jeux de données d’entrée requis pour générer la tranche de jeu de données appelée **période de dépendance**.
+L’intervalle de temps des jeux de données d’entrée requis pour générer la tranche de jeu de données de sortie s’appelle la **période de dépendance**.
 
-Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. Cela signifie que toutes les tranches d’entrée comprenant la période de dépendance doivent être à l’état **prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
+Une exécution d’activité génère une tranche de jeu de données seulement après que les tranches de données dans les jeux de données d’entrée au sein de la période de dépendance sont disponibles. Cela signifie que toutes les tranches d’entrée constituant la période de dépendance doivent être à l’état **prêt** pour que la tranche de jeu de données de sortie puisse être générée par l’exécution de l’activité.
 
 Pour générer la tranche de jeu de données [début, fin], une fonction mettant en adéquation la tranche de jeu de données avec la période de dépendance doit exister. Cette fonction est essentiellement une formule qui convertit le début et la fin de la tranche de jeu de données au début et à la fin de la période de dépendance. Plus formellement,
 	
@@ -601,17 +603,17 @@ Vous pouvez également fournir votre propre correspondance pour la période de d
    
 ## Dépendance et validation de données
 
-Un jeu de données peut éventuellement avoir une stratégie de validation définie qui spécifie comment les données générées par l’exécution d’une tranche peuvent être validées avant qu’il soit prêt à la consommation. Consultez l’article [Création de jeux de données](data-factory-create-datasets.md) pour plus de détails.
+Un jeu de données peut éventuellement avoir une stratégie de validation définie qui spécifie comment les données générées par l’exécution d’une tranche peuvent être validées avant qu’il soit prêt à la consommation. Consultez l’article [Création de jeux de données](data-factory-create-datasets.md) pour plus d’informations.
 
-Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de tranche de sortie passe à l’état **Attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**.
+Dans ce cas, une fois que la tranche a terminé l’exécution, l’état de la tranche de sortie devient **Attente** avec un sous-état **Validation**. Une fois les tranches validées, l’état de la tranche passe à **prêt**.
    
 Si une tranche de données a été générée mais n’a pas réussi la validation, l’activité s’exécute pour les tranches en aval en fonction de la tranche dont la validation a échoué et n’est pas traitée.
 
-Les différents états de tranches de données dans Data Factory sont couverts dans l’article [analyse et gestion des pipelines](data-factory-monitor-manage-pipelines.md).
+Les différents états des tranches de données dans Data Factory sont couverts dans l’article [Surveiller et gérer les pipelines](data-factory-monitor-manage-pipelines.md).
 
 ## Données externe
 
-Un jeu de données peut être marqué en tant qu’externe (comme indiqué dans JSON ci-dessous), l’implication na pas été généré avec Azure Data Factory. Dans ce cas, la stratégie de jeu de données peut avoir un ensemble de paramètres décrivant la stratégie de validation et de réexécution du jeu de données. Veuillez consulter [Création de Pipelines](data-factory-create-pipelines.md) pour obtenir une description de toutes les propriétés.
+Un jeu de données peut être marqué en tant qu’externe (comme indiqué dans JSON ci-dessous), l’implication na pas été généré avec Azure Data Factory. Dans ce cas, la stratégie de jeu de données peut avoir un ensemble de paramètres décrivant la stratégie de validation et de réexécution du jeu de données. Consultez [Création de pipelines](data-factory-create-pipelines.md) pour obtenir la description de toutes les propriétés.
 
 Similaires aux jeux de données produits par Data Factory, les tranches de données pour les données externes doivent être prêtes avant que les tranches dépendantes puissent être traitées.
 
@@ -676,4 +678,4 @@ Similaires aux jeux de données produits par Data Factory, les tranches de donn�
 
   
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

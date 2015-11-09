@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="10/23/2015" 
 	ms.author="stefsch"/>
 
 # Détails de la configuration réseau pour les environnements App Service avec ExpressRoute 
@@ -26,40 +26,52 @@ Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à l
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Connectivité réseau requise ##
-Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute.
-
-Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
+Il existe des exigences de connectivité réseau pour les environnements App Service qui peuvent ne pas être initialement satisfaites dans un réseau virtuel connecté à ExpressRoute. Les environnements App Service requièrent tous les éléments suivants pour fonctionner correctement :
 
 
--  Une connectivité réseau sortante vers Azure Storage à l’échelon mondial et une connectivité vers des ressources de base de données SQL situées dans la même région que l'environnement App Service. Ce chemin d'accès réseau ne peut pas transiter par des proxys d'entreprise internes, car cela est susceptible de changer l'adresse NAT réelle du trafic réseau sortant. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service dirigé vers des points de terminaison de stockage Azure et de base de données SQL entraîne des échecs de connectivité.
--  La configuration DNS du réseau virtuel doit être capable de résoudre les systèmes d’extrémité dans les domaines contrôlés par Azure suivants : **.file.core.windows.net*, **.blob.core.windows.net*, **.database.windows.net*.
--  La configuration DNS du réseau virtuel doit rester stable pendant la création des environnements App Service, ainsi que pendant les reconfigurations et les modifications de mise à l'échelle des environnements App Service.   
--  S’il existe un serveur DNS personnalisé à l’autre extrémité d’une passerelle VPN, le serveur DNS doit être accessible et disponible. 
--  L’accès réseau entrant vers les ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
+-  Connectivité réseau sortante à des points de terminaison Azure Storage dans le monde entier. Cela inclut les points de terminaison situés dans la même région que l'environnement App Service, ainsi que les points de terminaison de stockage situés dans d'**autres** régions Azure. Les points de terminaison Azure Storage se résolvent dans les domaines DNS suivants : *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net* et *file.core.windows.net*.  
+-  Connectivité réseau sortante à des points de terminaison BD SQL situés dans la même région que l'environnement App Service. Les points de terminaison BD SQL se résolvent dans le domaine suivant : *database.windows.net*.
+-  Connectivité réseau sortante vers des points de terminaison du plan gestion Azure (points de terminaison ASM et ARM). Cela inclut la connexion sortante à *management.core.windows.net* et *management.azure.com*. 
+-  Connectivité réseau sortante à *mscrl.microsoft.com* et *crl.microsoft.com*. Cela est nécessaire pour prendre en charge la fonctionnalité SSL.
+-  La configuration DNS pour le réseau virtuel doit être capable de résoudre tous les points de terminaison et les domaines mentionnés dans les points précédents. Si ces points de terminaison ne peuvent pas être résolus, les tentatives de création d'environnement App Service échoueront et les environnements App Service existants seront marqués comme non intègres.
+-  S'il existe un serveur DNS personnalisé à l'autre extrémité d'une passerelle VPN, le serveur DNS doit être accessible depuis le sous-réseau contenant l'environnement App Service. 
+-  Le chemin d'accès réseau sortant ne peut pas traverser des proxys d'entreprise internes et il ne peut pas non plus être tunnelé de force en local. Ceci modifie l'adresse NAT réelle du trafic réseau sortant à partir de l'environnement App Service. La modification de l'adresse NAT du trafic réseau sortant d'un environnement App Service entraînera des échecs de connectivité vers plusieurs des points de terminaison répertoriés ci-dessus. Cela entraîne des échecs de création d'environnement App Service, ainsi que la désignation comme non intègres des environnements App Service précédemment considérés comme intègres.  
+-  L'accès réseau entrant vers les ports requis pour les environnements App Service doit être autorisé, comme décrit dans cet [article][requiredports].
 
-Les exigences DNS peuvent être satisfaites par le biais d'une configuration DNS valide pour le réseau virtuel.
+La configuration DNS requise peut être satisfaite en garantissant qu'une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si, pour une raison quelconque, la configuration DNS est modifiée après la création d'un environnement App Service, les développeurs peuvent forcer un environnement App Service à récupérer la nouvelle configuration DNS. Le déclenchement d'un redémarrage d'environnement propagé à l'aide de l'icône « Redémarrer » située en haut du panneau de gestion de l'environnement App Service du [nouveau portail de gestion][NewPortal] force l'environnement à récupérer la nouvelle configuration DNS.
 
-Les exigences d’accès réseau entrant peuvent être satisfaites en configurant un [groupe de sécurité réseau][NetworkSecurityGroups] sur le sous-réseau de l’environnement App Service, afin d’autoriser l’accès requis, comme décrit dans cet [article][requiredports].
+Les exigences d'accès au réseau entrant peuvent être satisfaites en configurant un [groupe de sécurité réseau][NetworkSecurityGroups] sur le sous-réseau de l'environnement App Service, afin d'autoriser l'accès requis, comme décrit dans cet [article][requiredports].
 
 ## Activation de la connectivité réseau sortante pour un environnement App Service##
 Par défaut, un circuit ExpressRoute nouvellement créé publie un itinéraire par défaut qui autorise la connectivité Internet sortante. Avec cette configuration, un environnement App Service sera en mesure de se connecter à d'autres points de terminaison Azure.
 
-Toutefois, une configuration client courante consiste à définir un itinéraire par défaut, ce qui force le trafic Internet sortant à évoluer sur site par le biais de l'infrastructure de pare-feu/proxy d'un client. Ce flux de trafic décompose invariablement les environnements App Service, car le trafic sortant est soit bloqué sur site, soit fait l'objet d'une opération NAT sur un jeu d'adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure.
+Toutefois, une configuration client courante consiste à définir un itinéraire par défaut (0.0.0.0/0), ce qui force le trafic Internet sortant à évoluer sur site. Ce flux de trafic décompose invariablement les environnements App Service, car le trafic sortant est soit bloqué sur site, soit fait l'objet d'une opération NAT sur un jeu d'adresses non reconnaissable qui ne fonctionne plus avec différents points de terminaison Azure.
 
 La solution consiste à définir un (ou plusieurs) itinéraires définis par l'utilisateur (UDR) sur le sous-réseau qui contient l'environnement App Service. Un itinéraire défini par l'utilisateur définit des itinéraires spécifiques au sous-réseau qui seront respectés au lieu de l'itinéraire par défaut.
 
-Vous trouverez des informations générales sur les itinéraires définis par l’utilisateur dans cette [présentation][UDROverview].
+Si possible, il est recommandé d'utiliser la configuration suivante :
 
-Pour plus d’informations sur la création et la configuration d’itinéraires définis par l’utilisateur, consultez ce [guide][UDRHowTo].
+- La configuration ExpressRoute annonce 0.0.0.0/0 et par défaut, tunnelise de force tout le trafic sortant sur site.
+- L'UDR (itinéraire défini par l'utilisateur) appliqué au sous-réseau contenant l'environnement App Service définit 0.0.0.0/0 avec Internet de type saut suivant (un exemple de ceci est présenté plus bas dans cet article).
+
+L'effet combiné de ces étapes est que l'UDR de niveau sous-réseau a la priorité sur le tunneling forcé ExpressRoute, garantissant ainsi un accès Internet sortant à partir de l'environnement App Service.
+
+**IMPORTANT :** les itinéraires définis dans un UDR **doivent** être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L'exemple ci-dessous utilise la plage d'adresses 0.0.0.0/0 étendue qui peut potentiellement être remplacée accidentellement par les annonces de routage à l'aide de plages d'adresses plus spécifiques.
+
+**TRÈS IMPORTANT :** les environnements App Service ne sont pas pris en charge avec les configurations ExpressRoute qui **publient incorrectement de façon croisée des itinéraires à partir du chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée**. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les annonces de routage depuis Microsoft pour un grand ensemble de plages d'adresses IP Microsoft Azure. Si ces plages d'adresses sont incorrectement publiées de façon croisée sur le chemin d'accès d'homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l'environnement App Service seront incorrectement acheminés de force vers l'infrastructure réseau sur site d'un client. Ce flux réseau interrompt les environnements App Service. La solution à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d'accès d'homologation publique vers le chemin d'accès d'homologation privée.
+
+Vous trouverez des informations générales sur les itinéraires définis par l'utilisateur dans cette [présentation][UDROverview].
+
+Pour plus d'informations sur la création et la configuration d'itinéraires définis par l'utilisateur, consultez ce [guide][UDRHowTo].
 
 ## Exemple de configuration d'itinéraire défini par l'utilisateur pour un environnement App Service ##
 
 **Conditions préalables**
 
-1. Installez la toute dernière version d’Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] (datant de juin 2015 ou version ultérieure). Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
+1. Installez la toute dernière version d'Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads] (datant de juin 2015 ou version ultérieure). Sous « Outils de ligne de commande », un lien « Installer » sous « Windows Powershell » permet d'installer les dernières applets de commande Powershell.
 
 2. Nous vous recommandons de créer un sous-réseau unique pour un usage exclusif par un environnement App Service. Ceci garantit que les itinéraires définis par l'utilisateur appliqués au sous-réseau ouvriront uniquement le trafic sortant pour l'environnement App Service.
-3. **Important** : ne déployez pas l’environnement App Service **avant** d’avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
+3. **Important** : ne déployez pas l'environnement App Service **avant** d'avoir exécuté les étapes de configuration suivantes. Ceci garantit que la connectivité réseau sortante est disponible avant la tentative de déploiement d'un environnement App Service.
 
 **Étape 1 : Créer une table d'itinéraires nommée**
 
@@ -69,22 +81,18 @@ L'extrait de code suivant crée une table d'itinéraires appelée « DirectInte
 
 **Étape 2 : Créer un ou plusieurs itinéraires dans la table**
 
-Vous devrez ajouter un ou plusieurs itinéraires à la table afin d'activer l'accès Internet sortant. L'exemple suivant ajoute suffisamment d'itinéraires pour couvrir toutes les adresses Azure possibles utilisées dans la région Ouest des États-Unis.
+Vous devrez ajouter un ou plusieurs itinéraires à la table afin d'activer l'accès Internet sortant.
 
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 1' -AddressPrefix 23.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 2' -AddressPrefix 40.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 3' -AddressPrefix 65.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 4' -AddressPrefix 104.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 5' -AddressPrefix 137.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 6' -AddressPrefix 138.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 7' -AddressPrefix 157.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 8' -AddressPrefix 168.0.0.0/8 -NextHopType Internet
-    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
+L'approche recommandée pour la configuration d'un accès sortant à Internet consiste à définir un itinéraire pour 0.0.0.0/0 comme indiqué ci-dessous.
+  
+    Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
+N'oubliez pas que 0.0.0.0/0 est une plage d'adresses étendue et, par conséquent, elle sera remplacée par les plages d'adresses plus spécifiques publiées par ExpressRoute. Pour réitérer la recommandation antérieure, un UDR avec un itinéraire 0.0.0.0/0 doit être utilisé conjointement avec une configuration ExressRoute qui publie uniquement 0.0.0.0/0 également.
 
-Pour obtenir la liste complète et mise à jour des plages CIDR utilisées par Azure, vous pouvez télécharger un fichier XML contenant toutes les plages à partir du [Centre de téléchargement Microsoft][DownloadCenterAddressRanges]
+Comme alternative, vous pouvez télécharger une liste complète et mise à jour des plages CIDR utilisées par Azure. Le fichier XML qui contient toutes les plages d'adresses IP Azure est disponible dans le [Centre de téléchargement Microsoft][DownloadCenterAddressRanges].
 
-**Remarque :** à un moment donné, une abréviation CIDR de 0.0.0.0/0 sera disponible pour une utilisation dans le paramètre *AddressPrefix*. Cette abréviation équivaut à « toutes les adresses Internet ». Pour le moment, les développeurs devront utiliser à la place un large éventail de plages CIDR suffisant pour couvrir toutes les plages d’adresses Azure possibles.
+Notez toutefois que ces plages changent au fil du temps, d'où la nécessité d'effectuer des mises à jour manuelles périodiques pour maintenir la synchronisation d'un UDR. En outre, étant donné la limite maximale de 100 itinéraires dans un seul UDR, vous devrez « résumer » les plages d'adresses IP Azure pour respecter la limite de 100 itinéraires. N'oubliez pas que les itinéraires définis par UDR doivent être plus spécifiques que les itinéraires publiés par votre ExpressRoute.
+
 
 **Étape 3 : Associer la table d'itinéraires au sous-réseau contenant l'environnement App Service**
 
@@ -98,10 +106,12 @@ La dernière étape de configuration consiste à associer la table d'itinéraire
 Une fois que la table d'itinéraires est liée au sous-réseau, nous vous recommandons de tester et confirmer le résultat souhaité. Par exemple, déployez une machine virtuelle sur le sous-réseau et vérifiez que :
 
 
-- Le trafic sortant vers les points de terminaison Azure n'est pas transmis vers le circuit ExpressRoute.
-- Les recherches DNS des points de terminaison Azure sont résolues correctement. 
+- Le trafic sortant vers des points de terminaison Azure et non Azure mentionné précédemment dans cet article n'est **pas** transmis vers le circuit ExpressRoute. Il est très important de vérifier ce comportement, car si le trafic sortant à partir du sous-réseau est toujours tunnelisé de force sur site, la création d'un environnement App Service échouera toujours. 
+- Les recherches DNS de points de terminaison mentionnées plus haut se résolvent toutes correctement. 
 
-Une fois les étapes ci-dessus confirmées, vous pouvez supprimer la machine virtuelle et procéder ensuite à la création d’un environnement App Service.
+Une fois les étapes ci-dessus confirmées, vous devrez supprimer la machine virtuelle car le sous-réseau doit être « vide » au moment de la création de l'environnement App Service.
+ 
+Puis, passez à la création d'un environnement App Service !
 
 ## Prise en main
 
@@ -122,8 +132,9 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez la rub
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[NewPortal]: https://portal.azure.com
  
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

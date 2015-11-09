@@ -1,7 +1,20 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à SpringCM | Microsoft Azure" description="Découvrez comment utiliser SpringCM avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à SpringCM | Microsoft Azure" 
+    description="Découvrez comment utiliser SpringCM avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à SpringCM
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=536554).
   
 L’objectif de ce didacticiel est de montrer comment configurer l’authentification unique entre Azure AD et SpringCM.
   
@@ -61,11 +74,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configurer l’authentification unique")
 
-2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à SpringCM**, sélectionnez **Authentification unique Microsoft Azure AD**, puis cliquez sur **Suivant**.
+2.  Dans la page **Comment voulez-vous que les utilisateurs se connectent à SpringCM**, sélectionnez **Authentification unique avec Microsoft Azure AD**, puis cliquez sur **Suivant**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-spring-cm-tutorial/IC797048.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SpringCM, puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion de SpringCM** de la page **Configurer l’URL de l’application**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre application SpringCM, puis cliquez sur **Suivant**.
 
     L’URL de l’application est votre locataire SpringCM (par exemple, **https://na11.springcm.com/atlas/SSO/SSOEndpoint.ashx?aid=16826*) :
 
@@ -86,12 +99,12 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Identity Provider Configuration](./media/active-directory-saas-spring-cm-tutorial/IC797052.png "Identity Provider Configuration")
 
     1.  Pour charger votre certificat Azure AD téléchargé, cliquez sur **Select Issuer Certificate** ou **Change Issuer Certificate**.
-    2.  Dans la page **Configurer l’authentification unique sur SpringCM** du portail Microsoft Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur**.
-    3.  Dans la page **Configurer l’authentification unique sur SpringCM** du portail Microsoft Azure, copiez la valeur **URL du service d’authentification unique** et collez-la dans la zone de texte **Point de terminaison initié par le fournisseur du service**.
+    2.  Dans la page **Configurer l’authentification unique sur SpringCM** du portail Microsoft Azure, copiez la valeur **URL de l’émetteur** et collez-la dans la zone de texte **Issuer**.
+    3.  Dans la page **Configurer l’authentification unique sur SpringCM** du portail Microsoft Azure, copiez la valeur **URL du service d’authentification unique** et collez-la dans la zone de texte **Point de terminaison initié du fournisseur de services**.
     4.  Dans **SAML activé**, sélectionnez **Activer**.
     5.  Cliquez sur **Enregistrer**.
 
-8.  Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+8.  Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configure Single SignOn](./media/active-directory-saas-spring-cm-tutorial/IC797053.png "Configure Single SignOn")
 
@@ -139,6 +152,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-spring-cm-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

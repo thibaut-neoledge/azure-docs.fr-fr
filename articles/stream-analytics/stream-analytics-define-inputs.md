@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Présentation des entrées Stream Analytics
@@ -137,7 +137,7 @@ Le tableau ci-dessous explique chaque propriété de l’onglet des entrées de 
 </tr>
 <tr>
 <td>Séquence d’octets préfixe du chemin d’accès [facultatif]</td>
-<td>Chemin d’accès de fichier utilisé pour localiser vos objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 3 variables suivantes&#160;:<BR>{date}, {time},<BR>{partition}<BR>Exemple&#160;1&#160;: cluster1/logs/{date}/{time}/{partition}<BR>Exemple&#160;2&#160;: cluster1/logs/{date}</td>
+<td>Chemin d’accès de fichier utilisé pour localiser vos objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 3 variables suivantes&#160;:<BR>{date}, {time},<BR>{partition}<BR>Exemple&#160;1&#160;: cluster1/logs/{date}/{time}/{partition}<BR>Exemple&#160;2&#160;: cluster1/logs/{date}<P>Notez que «&#160;*&#160;» n’est pas une valeur autorisée pour pathprefix. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés.</td>
 </tr>
 <tr>
 <td>Format de la date [facultatif]</td>
@@ -201,4 +201,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

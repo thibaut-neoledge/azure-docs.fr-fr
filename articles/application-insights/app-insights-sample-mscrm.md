@@ -40,10 +40,10 @@ Pour analyser votre application, vous devez y ajouter un Kit de développement l
 
 **Laissez la page de code ouverte** pendant que vous effectuez l’étape suivante dans une autre fenêtre de navigateur. Vous aurez bientôt besoin du code.
 
-### Créer une ressource web JavaScript dans Microsoft CRM
+### Créer une ressource web JavaScript dans Microsoft Dynamics CRM
 
 1. Ouvrez votre instance de CRM Online et connectez-vous avec des privilèges d’administrateur.
-2. Ouvrez Microsoft Dynamics CRM, Paramètres, Personnalisations, Système.
+2. Ouvrez les paramètres Microsoft Dynamics CRM, Personnalisations, Personnaliser le système
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -60,7 +60,7 @@ Pour analyser votre application, vous devez y ajouter un Kit de développement l
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Copiez le code à partir d’Application Insights. Lors de la copie, veillez à ignorer les balises <script>. Reportez-vous à la capture d’écran ci-dessous :
+4. Copiez le code à partir d’Application Insights. Lors de la copie, veillez à ignorer les balises de script. Reportez-vous à la capture d’écran ci-dessous :
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -147,11 +147,11 @@ Cliquez sur le graphique pour obtenir plus de détails :
 
 ## Power BI
 
-Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les données vers Microsoft Power BI](app-insights-export-power-bi.md).
+Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les données vers Microsoft Power BI](app-insights-export-power-bi.md).
 
-## Exemple de solution Dynamics CRM
+## Exemple de solution Microsoft Dynamics CRM
 
-[Voici l’exemple de solution implémenté dans Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
+[Voici l’exemple de solution implémenté dans Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## En savoir plus
 
@@ -161,4 +161,4 @@ Vous pouvez effectuer une analyse encore plus approfondie si vous [exportez les 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Gestion et audit d’accès aux ressources"
+   pageTitle="Gestion de l’accès aux ressources"
    description="Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations utilisateur pour les ressources déployées dans Azure."
    services="azure-resource-manager"
    documentationCenter="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/28/2015"
    ms.author="tomfitz"/>
 
-# Gestion de l'accès aux ressources
+# Gestion de l’accès aux ressources
 
 Avec Azure Resource Manager, vous pouvez vous assurer que les utilisateurs de votre organisation disposent des autorisations appropriées pour gérer les ressources ou y accéder. Azure Resource Manager tire parti du contrôle d’accès en fonction du rôle (RBAC) de telle sorte que vous puissiez facilement appliquer les stratégies de sécurité aux ressources individuelles ou aux groupes de ressources. Par exemple, vous pouvez accorder l’accès utilisateur à une machine virtuelle spécifique dans un abonnement ou offrir à un utilisateur la possibilité de gérer tous les sites web dans un abonnement, mais aucune autre ressource.
 
@@ -265,7 +265,8 @@ Créez l’affectation du rôle.
 - Pour en savoir plus sur le contrôle d'accès basé sur les rôles, consultez [Contrôle d'accès basé sur les rôles dans le portail Microsoft Azure](../role-based-access-control-configure.md).
 - Pour en savoir plus sur l'utilisation des principaux de service pour la gestion de l'accès pour les applications comprises dans votre abonnement, consultez [Authentification d'un principal du service via Azure Resource Manager](../resource-group-authenticate-service-principal.md) et [Création d’un principal du service Azure à l'aide du portail Azure classique](../resource-group-create-service-principal-portal.md).
 - Pour en savoir plus sur les opérations d’audit dans votre entreprise, consultez [Opérations d’audit avec Resource Manager](../resource-group-audit.md).
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d’informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l’accès](../resource-manager-policy.md).
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,7 +1,7 @@
 
-Go back to Visual Studio and select the Shared Code Client App project (it is named like `<your app name>.Shared`)
+Revenez à Visual Studio et sélectionnez le projet d’application cliente de code partagé (nommé ainsi « `<your app name>.Shared` »)
 
-1. Expand the **App.xaml** file and then open the **App.xaml.cs** file. Locate the declaration of the `MobileService` member which is initialized with a localhost URL. Comment out this declaration (with `CTRL+K,CTRL+C`) and uncomment the declaration (`CTRL+K,CTRL+U`) that connects to your hosted service:
+1. Développez le fichier **App.xaml**, puis ouvrez le fichier **App.xaml.cs**. Recherchez la déclaration du membre `MobileService`, qui est initialisé avec une URL d’hôte local. Placez cette déclaration en commentaire (en appuyant sur `CTRL+K,CTRL+C`) et supprimez les marques de commentaire de la déclaration (`CTRL+K,CTRL+U`) qui est connectée à votre service hébergé :
 
         // This MobileServiceClient has been configured to communicate with your local
         // test project for debugging purposes.
@@ -17,17 +17,18 @@ Go back to Visual Studio and select the Shared Code Client App project (it is na
             "XXXX-APPLICATION-KEY-XXXXX"
         );
 
-2. Press the F5 key to rebuild the project and start the Windows Store app, which should be your default start up project.
+2. Appuyez sur la touche F5 pour régénérer le projet et démarrer l’application du Windows Store, qui doit correspondre à votre projet de démarrage par défaut.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** textbox, and then click **Save**.
+2. Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans la zone de texte **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile app backend hosted in Azure.
+	Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the `<your app name>.WindowsPhone` project and click **Set as StartUp Project**) and press F5 again.
+3. Arrêtez le débogage, changez le projet de démarrage par défaut de la solution Windows universelle en application du Windows Phone Store (cliquez avec le bouton droit sur le projet `<your app name>.WindowsPhone` et cliquez sur **Définir comme projet de démarrage**), puis appuyez de nouveau sur F5.
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 
-	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
+	Notez que les données enregistrées à l’étape précédente sont chargées à partir de l’application mobile après le démarrage de l’application Windows.
 
+<!---HONumber=Nov15_HO1-->

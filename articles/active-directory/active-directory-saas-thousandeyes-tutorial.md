@@ -1,9 +1,22 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure AD à ThousandEyes | Microsoft Azure" description="Découvrez comment utiliser ThousandEyes avec Azure AD pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure AD à ThousandEyes | Microsoft Azure" 
+    description="Découvrez comment utiliser ThousandEyes avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore !" 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure AD à ThousandEyes
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=529081).
   
-L’objectif de ce didacticiel est de montrer comment configurer l’authentification unique entre Azure AD (AAD) et ThousandEyes.
+L’objectif de ce didacticiel est de montrer comment configurer l’authentification unique entre Azure Active Directory (Azure AD) et ThousandEyes.
   
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -13,7 +26,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 À l’issue de ce didacticiel, les utilisateurs d’AAD auxquels vous avez affecté un accès à ThousandEyes pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise ThousandEyes (connexion initiée par le fournisseur du service) ou à l’aide de la Présentation du panneau d’accès.
 
 1.  Activation de l’intégration d’applications pour ThousandEyes
-2.  [Configuration de l’authentification unique](https://msdn.microsoft.com/library/eae8a61c-8e48-4f15-974d-867adbaf40ca#configuresso)
+2.  Configuration de l’authentification unique
 3.  Configuration de l'approvisionnement des utilisateurs
 4.  Affectation d’utilisateurs
 
@@ -65,7 +78,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790063.png "Configurer l’authentification unique")
 
-3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent saisir pour se connecter à votre application ThousandEyes (par ex., « **https://app.thousandeyes.com/login/sso*")), puis cliquez sur **Suivant**.
+3.  Dans la zone de texte **URL de connexion à ThousandEyes** de la page **Configurer l’URL de l’application**, entrez l’URL que les utilisateurs doivent taper pour se connecter à votre application ThousandEyes (par ex., "**https://app.thousandeyes.com/login/sso*")), puis cliquez sur **Suivant**.
 
     ![Configurer l’URL de l’application](./media/active-directory-saas-thousandeyes-tutorial/IC790064.png "Configurer l’URL de l’application")
 
@@ -73,13 +86,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790065.png "Configurer l’authentification unique")
 
-5.  Dans une autre fenêtre de navigateur web, connectez-vous au site de votre entreprise **ThousandEyes** en tant qu’administrateur.
+5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise **ThousandEyes** en tant qu’administrateur.
 
 6.  Dans le menu situé en haut, cliquez sur **Settings**.
 
     ![Paramètres](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Paramètres")
 
-7.  Cliquez sur**Account**.
+7.  Cliquez sur **Account**.
 
     ![Compte](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Compte")
 
@@ -92,13 +105,13 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
     ![Configuration de l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790069.png "Configuration de l’authentification unique")
 
     1.  Sélectionnez **Enable Single Sign-On**.
-    2.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **ID de connexion distante** et collez-la dans la zone de texte **URL de la page de connexion**.
-    3.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **ID de déconnexion distante** et collez-la dans la zone de texte **URL de la page de déconnexion**.
-    4.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Émetteur du fournisseur d’identité**.
-    5.  Dans **Certificat du fournisseur d’identité**, cliquez sur **Choisir un fichier** puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure.
+    2.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **URL de connexion distante** et collez-la dans la zone de texte **Login Page URL**.
+    3.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **Remote Logout URL** et collez-la dans la zone de texte **Logout Page URL**.
+    4.  Dans la page **Configurer l’authentification unique sur ThousandEyes** du portail Microsoft Azure, copiez la valeur de **URL de l’émetteur** et collez-la dans la zone de texte **Identity Provider Issuer**.
+    5.  Dans **Identity Provider Certificate**, cliquez sur **Choose file**, puis chargez le certificat que vous avez téléchargé à partir du portail Microsoft Azure.
     6.  Cliquez sur **Enregistrer**.
 
-10. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
+10. Dans le portail Azure Active Directory, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Terminer** pour fermer la boîte de dialogue **Configurer l’authentification unique**.
 
     ![Configurer l’authentification unique](./media/active-directory-saas-thousandeyes-tutorial/IC790070.png "Configurer l’authentification unique")
 
@@ -126,7 +139,7 @@ Pour se connecter à ThousandEyes, les utilisateurs d’Azure AD doivent être a
 
     ![Add User Accounts](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")
 
-    1.  Indiquez le **nom**, l’**adresse de messagerie** et d’autres détails du compte Azure AD valide que vous souhaitez approvisionner, dans les zones de texte correspondantes.
+    1.  Indiquez le **nom**, l’**adresse de messagerie** et d’autres détails du compte Azure Active Directory valide que vous souhaitez approvisionner, dans les zones de texte correspondantes.
     2.  Cliquez sur le bouton **Add New User to Account**.
 
         >[AZURE.NOTE]Le détenteur du compte AAD reçoit un message électronique contenant un lien pour confirmer et activer le compte.
@@ -149,6 +162,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-thousandeyes-tutorial/IC767830.png "Oui")
   
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

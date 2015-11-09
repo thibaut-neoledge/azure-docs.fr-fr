@@ -1,14 +1,27 @@
-<properties pageTitle="Didacticiel : Intégration d’Azure Active Directory à Bime | Microsoft Azure" description="Apprenez à utiliser Bime avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Didacticiel : Intégration d’Azure Active Directory à Bime | Microsoft Azure" 
+    description="Apprenez à utiliser Bime avec Azure Active Directory pour activer l’authentification unique, l’approvisionnement automatique et bien plus encore." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Didacticiel : Intégration d’Azure Active Directory à Bime
->[AZURE.TIP]Pour envoyer des commentaires, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=524328).
 
 L’objectif de ce didacticiel est de montrer comment intégrer Azure et Bime. Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
 -   Un abonnement Azure valide
 -   Un locataire Bime
 
-À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Bime pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Bime (connexion initiée par le fournisseur du service) ou à l’aide de la [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+À l’issue de ce didacticiel, les utilisateurs Azure AD que vous avez affectés à Bime pourront s’authentifier de manière unique dans l’application sur votre site d’entreprise Bime (connexion initiée par le fournisseur du service) ou en s’aidant de la [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
 Le scénario décrit dans ce didacticiel se compose des blocs de construction suivants :
 
@@ -51,7 +64,7 @@ Cette section décrit l’activation de l’intégration d’applications pour B
     ![Bime](./media/active-directory-saas-bime-tutorial/IC775554.png "Bime")
 ##Configuration de l'authentification unique
 
-Cette section explique comment permettre aux utilisateurs de s’authentifier sur Bime avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Bime vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+Cette section explique comment permettre aux utilisateurs de s’authentifier sur Bime avec leur compte Azure AD en utilisant la fédération basée sur le protocole SAML. La configuration de l’authentification unique pour Bime vous oblige à récupérer une valeur d’empreinte dans un certificat. Si cette procédure ne vous est pas familière, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
 ###Pour configurer l’authentification unique, procédez comme suit :
 
@@ -73,7 +86,7 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
 5.  Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Bime en tant qu’administrateur.
 
-6.  Dans la barre d’outils, cliquez sur **Admin**, puis sur **Compte**.
+6.  Dans la barre d’outils, cliquez sur **Admin**, puis sur **Account**.
 
     ![Administrateur](./media/active-directory-saas-bime-tutorial/IC775558.png "Administrateur")
 
@@ -81,11 +94,11 @@ Cette section explique comment permettre aux utilisateurs de s’authentifier su
 
     ![Configurer l’authentification unique](./media/active-directory-saas-bime-tutorial/IC775559.png "Configurer l’authentification unique")
 
-    1.  Sélectionnez **Activer l’authentification SAML**.
-    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bime**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **URL de connexion distante**.
-    3.  Copiez la valeur **Empreinte numérique** du certificat exporté, puis collez-la dans la zone de texte **Empreinte numérique du certificat**.  
+    1.  Sélectionnez **Enable SAML authentication**.
+    2.  Dans le portail Azure, dans la page de boîte de dialogue **Configurer l’authentification unique sur Bime**, copiez la valeur **URL de connexion distante** et collez-la dans la zone de texte **Remote Login URL**.
+    3.  Copiez la valeur **Empreinte** du certificat exporté, puis collez-la dans la zone de texte **Certificate Fingerprint**.  
 
-        >[AZURE.TIP]Pour plus d’informations, consultez [Comment récupérer la valeur d’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]Pour plus d’informations, consultez [Récupération de la valeur de l’empreinte numérique d’un certificat](http://youtu.be/YKQF266SAxI).
 
     4.  Cliquez sur **Enregistrer**.
 
@@ -100,15 +113,15 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Bime, vous devez les
 
 1.  Connectez-vous à votre locataire **Bime**.
 
-2.  Dans la barre d’outils, cliquez sur **Admin**, puis sur **Utilisateurs**.
+2.  Dans la barre d’outils, cliquez sur **Admin**, puis sur **Users**.
 
     ![Administrateur](./media/active-directory-saas-bime-tutorial/IC775561.png "Administrateur")
 
-3.  Dans la **Liste des utilisateurs**, cliquez sur **Ajouter un nouvel utilisateur** (« + »).
+3.  Dans la **Users List**, cliquez sur **Add New User** (« + »).
 
     ![Utilisateurs](./media/active-directory-saas-bime-tutorial/IC775562.png "Utilisateurs")
 
-4.  Dans la page de boîte de dialogue **Détails de l’utilisateur**, procédez comme suit :
+4.  Dans la page de boîte de dialogue **User Details**, procédez comme suit :
 
     ![Détails de l’utilisateur](./media/active-directory-saas-bime-tutorial/IC775563.png "Détails de l’utilisateur")
 
@@ -133,6 +146,6 @@ Pour tester votre configuration, vous devez autoriser les utilisateurs d’Azure
 
     ![Oui](./media/active-directory-saas-bime-tutorial/IC767830.png "Oui")
 
-Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](https://msdn.microsoft.com/library/dn308586).
+Si vous souhaitez tester vos paramètres d’authentification unique, ouvrez le volet d’accès. Pour plus d’informations sur le volet d’accès, consultez [Présentation du volet d’accès](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
