@@ -44,7 +44,7 @@ Dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/), 
 Si vous voyez un message indiquant un pool recommandé pour un serveur, cliquez dessus pour l'examiner et créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d'informations, consultez [Pools de base de données élastiques recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
    
   
-![Créer un pool élastique][1]
+   ![Créer un pool élastique][1]
 
 
 Le volet **Pool de bases de données élastiques** fournit des options pour choisir le niveau de tarification, ajouter des bases de données et configurer les caractéristiques de performances du pool.
