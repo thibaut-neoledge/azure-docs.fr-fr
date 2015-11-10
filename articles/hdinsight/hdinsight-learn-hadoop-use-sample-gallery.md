@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="07/09/2015"
+   ms.date="10/29/2015"
    ms.author="jgao"/>
 
 # Découverte de Hadoop à l’aide de la galerie de prise en main d’Azure HDInsight
@@ -45,7 +45,7 @@ Le tableau de bord est accessible si l'on accède à http://<YourHDInsightCluste
 **Exécution d’un exemple depuis la galerie de prise en main**
 
 1. Connectez-vous à la [version préliminaire du portail Azure][azure.portal].
-2. Cliquez sur **Parcourir tout** dans le menu de gauche, sur **Clusters HDInsight**, puis sur votre nom de cluster.
+2. Cliquez sur **Parcourir** dans le menu de gauche, sur **Clusters HDInsight**, puis sur votre nom de cluster.
 3. Cliquez sur **Tableau de bord** dans le menu du haut.
 4. Saisissez le nom d'utilisateur et le mot de passe HTTP (également appelé utilisateur de cluster).
 6. Cliquez sur **Galerie de prise en main** en haut de la page.
@@ -68,4 +68,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

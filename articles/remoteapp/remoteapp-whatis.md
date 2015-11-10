@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Présentation d'Azure RemoteApp
 
-Azure RemoteApp offre les fonctionnalités du programme Microsoft RemoteApp local dans Azure, grâce aux services Bureau à distance. Azure RemoteApp vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur.
+Azure RemoteApp offre les fonctionnalités du programme Microsoft RemoteApp local dans Azure, grâce aux services Bureau à distance. Azure RemoteApp vous permet de proposer un accès à distance sécurisé aux applications sur de nombreux appareils utilisateur. Azure RemoteApp héberge essentiellement des sessions Terminal Server non persistantes dans le cloud pour vous permettre de les utiliser et de les partager avec vos utilisateurs.
 
 Azure RemoteApp vous permet de partager des applications et des ressources avec des utilisateurs sur presque n’importe quel appareil. Nous hébergeons vos applications dans le cloud, ce qui signifie que nous nous occupons du matériel et d'évolutivité pour répondre aux demandes des utilisateurs. Il ne vous reste qu’à télécharger les applications que vous souhaitez partager, puis à inviter vos utilisateurs à s’en servir. [Les utilisateurs conservent leurs propres appareils](remoteapp-clients.md), tandis que vous gérez toute l’infrastructure via le portail Azure. Vous pouvez même utiliser vos informations d'identification d'entreprise et ainsi garantir la sécurité des applications et des données.
 
@@ -78,6 +78,6 @@ OK Faites un essai. Ces articles vous aident à prendre en main Azure RemoteApp�
  
 
 ### Vos commentaires nous aideront à mieux vous servir 
-Saviez-vous qu'en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l'article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
+Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

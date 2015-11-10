@@ -21,9 +21,9 @@
 # Prise en main de In-Memory (version préliminaire)
 
 
-Les technologies SQL In-Memory améliorent considérablement les performances des charges de travail transactionnelles et analytiques. In-Memory OLTP peut augmenter de débit des transactions jusqu’à 30 fois et In-Memory Analytics peut accélérer jusqu’à 100 fois les performances de requête, selon la charge de travail.
+Les technologies SQL In-Memory améliorent considérablement les performances des charges de travail transactionnelles et analytiques. In-Memory OLTP peut augmenter de débit des transactions jusqu’à 30 fois et In-Memory Analytics peut accélérer jusqu’à 100 fois les performances de requête, selon la charge de travail. Real-Time Analytics vous permet de combiner ces technologies afin d’obtenir une vue globale de l’entreprise en temps réel en fonction des données opérationnelles.
 
-In-Memory Analytics est à la disposition générale. In-Memory OLTP est disponible en version préliminaire pour les bases de données SQL Azure Premium.
+In-Memory Analytics est à la disposition générale dans Azure DB. In-Memory OLTP et Real-Time Operational Analytics sont disponibles en version préliminaire pour les bases de données SQL Azure Premium.
 
 
 ## Prise en main
@@ -31,18 +31,18 @@ In-Memory Analytics est à la disposition générale. In-Memory OLTP est disponi
 Essayez In-Memory OLTP pour les charges de travail transactionnelles :
 
 
-- [Enrichir une base de données AdventureWorksLT avec des exemples d’In-Memory OLTP](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Installer l’exemple In-Memory OLTP](#install-the-in-memory-oltp-sample).
 - [Utiliser In-Memory OLTP dans une application SQL Azure existante.](sql-database-in-memory-oltp-migration.md)
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md).
 
 
-Essayez In-Memory Analytics pour les charges de travail transactionnelles :
+Tester In-Memory Analytics pour les charges de travail analytiques :
 
-- [Installer In-Memory Analytics](#Install-the-In-Memory-Analytics-sample).
+- [Installer l’exemple In-Memory Analytics](#install-the-in-memory-analytics-sample).
 - En savoir plus sur les [index Columnstore](https://msdn.microsoft.com/library/gg492088.aspx) (MSDN).
 
 
-## Enrichir une base de données AdventureWorksLT avec des exemples d’In-Memory OLTP.
+## Installer l’exemple In-Memory OLTP
 
 Vous pouvez créer l’exemple de base de données AdventureWorksLT [V12] en quelques clics sur le portail Azure en version préliminaire. Ensuite, les étapes ci-après expliquent comment enrichir votre base de données AdventureWorksLT avec des tables et des procédures stockées compilées en mode natif pour illustrer les objets In-Memory OLTP.
 
@@ -241,11 +241,13 @@ Certaines fonctionnalités de Transact-SQL ne sont pas prises en charge avec In-
 
 ## Ressources supplémentaires
 
-En savoir plus sur In-Memory OLTP et In-Memory Analytics : [In-Memory OLTP (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx).
+[En savoir plus sur In-Memory OLTP sur MSDN](https://msdn.microsoft.com/library/dn133186.aspx)
 
-[Description des index columnstore](https://msdn.microsoft.com/library/gg492088.aspx) sur MSDN.
+[En savoir plus sur In-Memory Analytics (Columnstore) sur MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
 
-Le [Livre blanc sur les modèles de charge de travail courants et autres considérations relatives à la migration](https://msdn.microsoft.com/library/dn673538.aspx) (en anglais) décrit des modèles de charge de travail où In-Memory OLTP apporte généralement des gains de performances significatifs.
+[En savoir plus sur Real-Time Operational Analytics sur MSDN](https://msdn.microsoft.com/library/dn817827.aspx)
+
+Le [livre blanc sur les modèles de charge de travail courants et autres considérations relatives à la migration](https://msdn.microsoft.com/library/dn673538.aspx) (en anglais) décrit des modèles de charge de travail où In-Memory OLTP apporte généralement des gains de performances significatifs.
 
 ## Étapes suivantes
 
@@ -253,4 +255,4 @@ Essayer d’[utiliser In-Memory OLTP dans une application SQL Azure existante.](
 
 [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

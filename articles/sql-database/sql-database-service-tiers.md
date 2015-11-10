@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Niveaux du service relatifs aux bases de données SQL"
-   description="Comparez les performances et les fonctionnalités de continuité d’activité des différents niveaux de service des bases de données SQL Microsoft Azure, afin de trouver le juste équilibre entre les coûts et les capacités en matière d’évolutivité à la demande sans coupure de service."
-   services="sql-database"
-   documentationCenter=""
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"/>
+	pageTitle="Niveaux du service relatifs aux bases de données SQL"
+	description="Comparez les performances et les fonctionnalités de continuité d’activité des différents niveaux de service des bases de données SQL Microsoft Azure, afin de trouver le juste équilibre entre les coûts et les capacités en matière d’évolutivité à la demande sans coupure de service."
+	services="sql-database"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="10/29/2015"
-   ms.author="jroth"/>
+	ms.service="sql-database"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-management"
+	ms.date="11/03/2015"
+	ms.author="jroth"/>
 
 # Niveaux du service relatifs aux bases de données SQL
  
@@ -45,7 +45,7 @@ Pour une meilleure compréhension des DTU, consultez la [section DTU](#understan
 >[AZURE.NOTE]Pour une explication détaillée du contenu de toutes les autres lignes de ce tableau de niveaux de service, consultez [Capacités et limites des niveaux de service](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ### Niveaux de service pour les pools de bases de données élastiques
-Outre la création et la mise à l’échelle d’une base de données unique, vous avez également la possibilité de gérer plusieurs bases de données dans un [pool de base de données élastique](sql-database-elastic-pool.md). Toutes les bases de données dans un pool de base de données élastique partagent un ensemble commun de ressources. Les caractéristiques de performances sont mesurées par les *unités de transaction de base de données élastique* (eDTU). Comme avec les bases de données uniques, les pools de bases de données élastiques sont fournis en trois niveaux de performances : **De base**, **Standard** et **Premium**. Pour les bases de données élastiques, ces trois niveaux de service définissent toujours les limites de performances globales et les fonctionnalités proposées.
+Outre la création et la mise à l’échelle d’une base de données unique, vous avez également la possibilité de gérer plusieurs bases de données dans un [pool de base de données élastique](sql-database-elastic-pool.md). Toutes les bases de données dans un pool de base de données élastique partagent un ensemble commun de ressources. Les caractéristiques de performances sont mesurées par les *unités de transaction de base de données élastique* (eDTU). Comme avec les bases de données uniques, les pools de bases de données élastiques sont fournis en trois niveaux de service : **De base**, **Standard** et **Premium**. Pour les bases de données élastiques, ces trois niveaux de service définissent toujours les limites de performances globales et les fonctionnalités proposées.
 
 Les pools de base de données élastiques permettent à ces bases de données de partager et de consommer des ressources DTU sans avoir à affecter un niveau de performances spécifique aux bases de données dans le pool. Par exemple, une base de données unique dans un pool standard peut être offerte avec de 0 eDTU au nombre d'eDTU maximum de la base de données (100 eDTU définis par le niveau de service ou un nombre personnalisé que vous configurez). Cela permet à plusieurs bases de données avec différentes charges de travail d'utiliser efficacement les ressources eDTU disponibles pour l'ensemble du pool.
 
@@ -95,4 +95,4 @@ Si vous êtes intéressé par la gestion de plusieurs bases de données en tant 
 Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre version [d’essai gratuit](http://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md) !
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

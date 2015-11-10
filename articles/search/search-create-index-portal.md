@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création d’un index Azure Search dans le portail | Microsoft Azure"
-	description="Ajout d’un index au service Azure Search en renseignant les définitions de champ du portail Azure"
+	description="Ajout d’un index au service de recherche hébergé dans le cloud Azure Search en renseignant les définitions de champ du portail Azure"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Création d’un index Azure Search dans le portail Azure
@@ -100,4 +100,4 @@ Une fois que vous êtes familiarisé avec l'index de base, vous pouvez ajouter u
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

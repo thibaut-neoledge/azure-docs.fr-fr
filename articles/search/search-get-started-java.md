@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main d’Azure Search dans Java | Microsoft Azure"
-	description="Comment créer une application Azure Search personnalisée, avec Java comme langage de programmation."
+	description="Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search dans Java
@@ -231,4 +231,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

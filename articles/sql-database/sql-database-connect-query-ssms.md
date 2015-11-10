@@ -45,7 +45,7 @@ Quand vous travaillez avec SQL Database, vous devez utiliser la version la plus 
 
 Les échecs de connexion les plus courants sont dus à des erreurs dans le nom du serveur, dans le nom d’utilisateur ou dans le mot de passe, ou quand le serveur n’autorise pas les connexions pour des raisons de sécurité. Assurez-vous que les paramètres de pare-feu du serveur autorisent les connexions à partir de l’adresse IP de votre ordinateur local et de l’adresse IP utilisée par le client SSMS. Elle sont parfois différentes.
 
-Si la connexion échoue en raison d’une règle de pare-feu, l’adresse IP est signalée dans le message d’erreur. Ajoutez cette adresse IP à la règle de pare-feu du serveur. Pour plus d’informations, consultez la rubrique [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
+Si la connexion échoue en raison des paramètres du pare-feu, la dernière version de SSMS créera la règle de pare-feu après une invite. Pour l’obtenir, consultez [Téléchargement de SSMS](https://msdn.microsoft.com/library/mt238290.aspx). Si vous utilisez une version antérieure, l’adresse IP est signalée dans un message d’erreur ; vous devrez ajouter cette adresse IP à la règle de pare-feu du serveur. Pour plus d’informations, consultez la rubrique [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md).
 
 ## Exécuter les exemples de requêtes
 
@@ -76,4 +76,4 @@ Vous pouvez utiliser des instructions Transact-SQL pour créer et gérer des bas
 
 Si vous débutez avec Transact-SQL, consultez [Didacticiel : Écriture d’instructions Transact-SQL](https://msdn.microsoft.com/library/ms365303.aspx) et [Informations de référence sur Transact-SQL (moteur de base de données)](https://msdn.microsoft.com/library/bb510741.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

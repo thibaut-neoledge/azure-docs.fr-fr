@@ -21,12 +21,7 @@ Utilisez App Service Mobile Apps pour créer des applications natives et interpl
 
 Pour commencer, suivez ces didacticiels pour créer une application de liste des tâches qui se connecte à un service mobile principal sur App Service. Choisissez votre plateforme cliente :
 
-  * [iOS](../app-service-mobile-ios-get-started.md)
-  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
-  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
-  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
-  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
-  * [HTML](../app-service-mobile-html-get-started.md)
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ##Vidéos
 
@@ -34,4 +29,4 @@ Pour commencer, suivez ces didacticiels pour créer une application de liste des
 
 App Service Mobile Apps avec Kirill Gavrylyuk
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
