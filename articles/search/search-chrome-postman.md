@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Utilisation de Chrome Postman avec Azure Search | Microsoft Azure"
-	description="Utilisation de Chrome Postman avec Azure Search Installez et configurez Postman. Création d'un index Azure Search Validez des documents et l’index de requête avec Postman."
+	description="Utilisez Postman Chrome avec le service de recherche hébergé dans le cloud Azure Search. Installez et configurez Postman. Création d'un index Azure Search Validez des documents et l’index de requête avec Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Chrome Postman avec Azure Search #
@@ -118,4 +118,4 @@ Vous pouvez également obtenir d'autres exemples grâce aux [vidéos et didactic
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

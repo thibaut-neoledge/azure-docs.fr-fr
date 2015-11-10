@@ -106,7 +106,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
 
 Ajouter manuellement le Kit de développement logiciel :
 
-1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Décompressez les fichiers binaires du fichier zip et ajoutez-les à votre projet.
 
 ### Questions...
@@ -396,4 +396,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

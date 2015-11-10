@@ -120,26 +120,34 @@ Microsoft marquera les préfixes publiés via l'homologation publique et l’hom
 
 | **Région géopolitique** | **Région Microsoft Azure (s'applique également à Office 365)** | **Valeur de communauté BGP** |
 |---|---|---|
-| **États-Unis** |	Est des États-Unis | 12076:3004 |
-| | Est des États-Unis 2 | 12076:3005 |
-| | Ouest des États-Unis | 12076:3006 |
-| | Centre des États-Unis | 12076:3009 |
-| | Nord du centre des États-Unis | 12076:3007 |
-| | Sud du centre des États-Unis | 12076:3008 |
-| **Amérique du Sud** | Sud du Brésil | 12076:3014 |
-| **Europe** | Europe du Nord | 12076:3003 |
-| | Europe de l'Ouest | 12076:3002 |
-| **Asie-Pacifique** | Asie de l'Est | 12076:3010 |
-| | Asie du Sud-Est | 12076:3011 |
-| **Japon** | Est du Japon | 12076:3012 |
-| | Ouest du Japon | 12076:3013 |
-| **Australie** | Est de l’Australie | 12076:3015 |
-| | Sud-est de l’Australie | 12076:3016 |
-| **Inde** | Sud de l'Inde | 12076:3019 |
-| | Inde-Ouest | 12076:3018 |
-| | Inde-Centre | 12076:3017 |
+| **Amérique du Nord** | | 12076:51201 |
+| | Est des États-Unis | 12076:51004 |
+| | Est des États-Unis 2 | 12076:51005 |
+| | Ouest des États-Unis | 12076:51006 |
+| | Nord du centre des États-Unis | 12076:51007 |
+| | Sud du centre des États-Unis | 12076:51008 |
+| | Centre des États-Unis | 12076:51009 |
+| **Amérique du Sud** | | 12076:51202 |
+| | Sud du Brésil | 12076:51014 |
+| **Europe** | | 12076:51203 |
+| | Europe du Nord | 12076:51003 |
+| | Europe de l'Ouest | 12076:51002 |
+| **Asie-Pacifique** | | 12076:51204 |
+| | Asie de l'Est | 12076:51010 |
+| | Asie du Sud-Est | 12076:51011 |
+| **Japon** | Est du Japon | 12076:51012 |
+| | Ouest du Japon | 12076:51013 |
+| **Australie** | Est de l’Australie | 12076:51015 |
+| | Sud-est de l’Australie | 12076:51016 |
+| **Inde** | Sud de l'Inde | 12076:51019 |
+| | Inde-Ouest | 12076:51018 |
+| | Inde-Centre | 12076:51017 |
+| **Globale** | **Uniquement pris en charge et publié lorsqu’un module complémentaire Premium est activé.** | 12076:51000 |
+| **Diffusion aléatoire** | | 12076:51250 |
 
 Tous les routages publiés par Microsoft seront marqués avec la valeur de communauté appropriée.
+
+>[AZURE.IMPORTANT]Les préfixes globaux seront marqués avec une valeur de communauté appropriée et seront publiés uniquement lorsque le module complémentaire Premium ExpressRoute est activé.
 
 
 Par ailleurs, Microsoft marquera également des préfixes basés sur le service auquel ils appartiennent. Cela s'applique uniquement à l'homologation Microsoft. Le tableau ci-dessous fournit un mappage d’un service à la valeur de communauté BGP.
@@ -151,7 +159,6 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | **Skype Entreprise** | 12076:5030 |
 | **CRM Online** | 12076:5040 |
 | **Autres services Office 365** | 12076:5100 |
-| **Préfixes globaux / Anycast** | 12076:5200 |
 
 
 ### Manipulation des préférences de routage
@@ -166,4 +173,4 @@ Microsoft ignore les valeurs de communauté BGP que vous définissez. Vous devez
 	- [Configuration du routage](expressroute-howto-routing-classic.md)
 	- [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

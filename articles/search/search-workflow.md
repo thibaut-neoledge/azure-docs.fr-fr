@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Flux de travail typique pour le développement de Azure Search | Microsoft Azure"
-	description="Un flux de travail ou une feuille de route destinés à créer un prototype et des applications de production intégrant Azure Search"
+	description="Un flux de travail ou une feuille de route destiné à créer un prototype et des applications de production intégrant le service de recherche hébergé dans le cloud Azure Search."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Flux de travail typique de développement Azure Search
 
-Cet article propose une feuille de route pour inclure Azure Search en tant que composant de recherche dans votre application personnalisée Qu’il s’agisse de tests ou d’une installation définitive, ces recommandations sont destinées à vous aider dans l’intégration d’Azure Search dans votre projet de développement personnalisé.
+Cet article propose une feuille de route pour inclure le service de recherche hébergé dans le cloud Azure Search en tant que composant de recherche dans votre application personnalisée Qu’il s’agisse de tests ou d’une installation définitive, ces recommandations sont destinées à vous aider dans l’intégration d’Azure Search dans votre projet de développement personnalisé.
 
 Les sections suivantes décrivent un flux de travail typique pour la création d’un prototype initial qui vous aidera à évaluer dans quelle mesure Azure Search répond aux prérequis de votre application en termes d’outil de recherche. La seconde partie de cet article couvre les décisions de conception importantes dans le cadre d’une initiative de développement d’application plus poussée.
 
@@ -190,4 +190,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
