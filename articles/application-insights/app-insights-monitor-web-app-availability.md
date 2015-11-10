@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/21/2015"
+	ms.date="11/04/2015"
 	ms.author="awills"/>
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
@@ -217,14 +217,17 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 
 ## Des questions ? Des problèmes ?
 
-
-* *Quelle est la différence entre « tests Web » et « disponibilité » ?*
-
-    Nous utilisons ces deux termes indifféremment.
-
 * *Puis-je appeler du code à partir de mon test web ?*
 
     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
+
+* *Le protocole HTTPS est-il pris en charge ?*
+
+    Nous prenons actuellement en charge SSL 3.0 et TLS 1.0.
+
+* *Quelle est la différence entre les « tests Web » et les « tests de disponibilité » ?*
+
+    Nous utilisons ces deux termes indifféremment.
 
 ## <a name="video"></a>Vidéo
 
@@ -246,4 +249,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

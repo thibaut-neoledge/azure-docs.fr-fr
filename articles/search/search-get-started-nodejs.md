@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Prise en main d’Azure Search dans NodeJS | Microsoft Azure"
-	description="Guide de création d'une application Azure Search personnalisée, avec NodeJS comme langage de programmation."
+	description="Guide de création d’une application de recherche sur un service de recherche Azure hébergée dans le cloud en utilisant le langage de programmation NodeJS."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search dans NodeJS
@@ -147,4 +147,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

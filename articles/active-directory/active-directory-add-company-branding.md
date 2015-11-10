@@ -3,9 +3,9 @@
 	description="Rubrique qui explique comment une entreprise peut appliquer une même apparence à tous les sites web et à tous les services qu’elle gère pour que les utilisateurs ne soient pas trop déroutés chaque fois qu’ils doivent utiliser ces différents sites."
 	services="active-directory"
 	documentationCenter=""
-	authors="MarkusVi"
+	authors="markusvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015" 
+	ms.date="10/30/2015" 
 	ms.author="MarkVi"/>
 
 # Ajout d’une marque de société aux pages de connexion et du volet d’accès
@@ -185,4 +185,4 @@ Couleur d’arrière-plan de la page de connexion | La couleur d’arrière-plan
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

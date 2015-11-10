@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer un service Azure Search dans le portail | Microsoft Azure"
-	description="Ajouter un service Azure Search gratuit ou standard à un abonnement existant à l’aide du portail Azure"
+	description="Ajouter un service Azure Search gratuit ou standard à un abonnement existant à l’aide du portail Azure. Azure Search est un service de recherche hébergé dans le cloud dédié aux applications personnalisées."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Créer un service Azure Search dans le portail Azure
@@ -120,4 +120,4 @@ Les informations suivantes vous expliquent comment créer et gérer des applicat
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

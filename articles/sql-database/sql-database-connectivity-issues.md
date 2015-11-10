@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/02/2015"
 	ms.author="genemi"/>
 
 
@@ -81,17 +81,10 @@ Lorsque votre programme communique avec la base de données SQL Azure via un log
 ### Augmentation de l’intervalle entre les tentatives
 
 
-Votre programme doit toujours attendre au moins 6 à 10 secondes avant la première nouvelle tentative. Dans le cas contraire, le service cloud peut subitement être submergé de demandes qu’il n’est pas encore prêt à traiter.
 
+Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
 
-Si plusieurs nouvelles tentatives sont nécessaires, l’intervalle doit augmenter avant chaque nouvelle tentative, jusqu’au maximum. Voici deux stratégies alternatives :
-
-
-- Augmentation régulière de l’intervalle. Par exemple, vous pouvez ajouter encore 5 secondes à chaque intervalle successif.
-
-
-- Augmentation exponentielle de l’intervalle. Vous pouvez par exemple multiplier chaque intervalle successif par 1,5.
-
+Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez la page [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt automatique du programme.
 
@@ -168,7 +161,7 @@ Si vous oubliez de configurer l’adresse IP, votre programme échouera en envoy
 [AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
 
-Pour plus d’informations, voir [Configuration des paramètres du pare-feu sur une base de données SQL](sql-database-configure-firewall-settings.md).
+Pour plus d’informations, consultez [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
 
 
 <a id="c-connection-ports" name="c-connection-ports"></a>
@@ -284,7 +277,7 @@ Voici certaines instructions Transact-SQL SELECT qui permettent d’interroger l
 
 | Interrogation de journaux | Description |
 | :-- | :-- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment des problèmes de connectivité liés à la reconfiguration, à la limitation et à l’accumulation excessive des ressources.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start\_time** ou **end\_time** et les données relatives au moment où votre programme a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` | La vue [sys.event\_log](http://msdn.microsoft.com/library/dn270018.aspx) affiche des informations sur des événements individuels, notamment sur les événements à l’origine de défaillances transitoires ou de problèmes de connectivité.<br/><br/>Dans l’idéal, vous pouvez établir une corrélation entre les valeurs **start\_time** ou **end\_time** et les données relatives au moment où votre programme a rencontré des problèmes.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
 | `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` | L’écran [sys.database\_connection\_stats](http://msdn.microsoft.com/library/dn269986.aspx) agrège des nombres de différents types d’événements, pour permettre des diagnostics supplémentaires.<br/><br/>**CONSEIL :** vous devez vous connecter à la base de données **MASTER** pour exécuter cet exemple. |
 
 
@@ -485,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

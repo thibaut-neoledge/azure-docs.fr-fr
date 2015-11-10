@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Concevez votre premier pipeline Azure Data Factory en utilisant Azure PowerShell
@@ -33,13 +33,17 @@ Dans cet article, vous apprendrez à utiliser Azure PowerShell pour créer votr
 Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
 > [AZURE.IMPORTANT]Passez en revue l’article [Vue d’ensemble du didacticiel](data-factory-build-your-first-pipeline.md) et effectuez les étapes préalables avant de suivre ce didacticiel.
+>   
+> cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
+>    
+> Si vous utilisez la version préliminaire d’Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
 
 ## Étape 1 : création de la fabrique de données
 
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée ADFTutorialDataFactoryPSH.
 
 1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous le fermez puis le rouvrez, vous devez réexécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount**, puis entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Azure en version préliminaire.  
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
 	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail en version préliminaire.
 2. Passez en mode AzureResourceManager, car les cmdlets Azure Data Factory sont disponibles uniquement dans ce mode.
@@ -80,7 +84,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 	Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2.	Dans Azure PowerShell, basculez vers le dossier ADFGetStartedPSH.
-3.	Vous pouvez utiliser l’applet de commande **New-AzureDataFactoryLinkedService** pour créer un service lié. Cette applet de commande et d’autres applets de commande Data Factory que vous utilisez dans ce didacticiel vous obligent à transmettre des valeurs aux paramètres *ResourceGroupName* et *DataFactoryName*. Vous pouvez également utiliser **Get-AzureDataFactory** pour obtenir un objet **DataFactory** et transmettre l’objet sans avoir à taper *ResourceGroupName* et *DataFactoryName* chaque fois que vous exécutez une applet de commande. Exécutez la commande suivante pour affecter le résultat de l’applet de commande **Get-AzureDataFactory** à une variable **$df**.
+3.	Vous pouvez utiliser l’applet de commande **New-AzureDataFactoryLinkedService** pour créer un service lié. Cette applet de commande et d’autres applets de commande Data Factory que vous utilisez dans ce didacticiel vous obligent à transmettre des valeurs aux paramètres *ResourceGroupName* et *DataFactoryName*. Vous pouvez également utiliser **Get-AzureDataFactory** pour obtenir un objet **DataFactory** et transmettre l’objet sans avoir à saisir *ResourceGroupName* et *DataFactoryName* chaque fois que vous exécutez une applet de commande. Exécutez la commande suivante pour affecter le résultat de l’applet de commande **Get-AzureDataFactory** à une variable **$df**.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -270,4 +274,6 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->

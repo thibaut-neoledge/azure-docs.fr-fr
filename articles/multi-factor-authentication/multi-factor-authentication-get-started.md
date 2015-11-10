@@ -30,7 +30,6 @@ Les sections suivantes fournissent des conseils sur la détermination de ces él
 Afin de déterminer la solution d'authentification multifacteur appropriée, nous devons tout d'abord connaître les éléments à protéger avec une seconde méthode d'authentification. S’agit-il d’une application dans Azure ? Ou un système d'accès à distance par exemple ? En déterminant les éléments à protéger, nous allons répondre à la question de savoir où l'authentification multifacteur doit être activée.
 
 
-
 Les éléments que vous souhaitez protéger| Multi-Factor Authentication dans le cloud|Serveur Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
 Applications Microsoft internes|* |* |
@@ -82,9 +81,4 @@ Maintenant que nous avons déterminé s'il faut utiliser l'authentification mult
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-**Ressources supplémentaires**
-
-* [Pour les utilisateurs](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication sur MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

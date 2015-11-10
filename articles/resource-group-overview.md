@@ -79,7 +79,7 @@ Pour plus d’informations sur la définition du modèle, voir [Création de mod
 
 Pour obtenir les schémas de modèle, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-Pour plus d’informations sur l’utilisation d’un modèle pour le déploiement, voir [Déployer une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+Pour plus d’informations sur l’utilisation d’un modèle pour le déploiement, voir [Déployer une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
 Pour obtenir des instructions sur la façon de structurer vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
@@ -101,7 +101,7 @@ Resource Manager enregistre automatiquement les actions des utilisateurs à des 
 
 Pour plus d’informations sur le contrôle d’accès en fonction du rôle, voir [Contrôle d’accès en fonction du rôle dans la version préliminaire du portail Azure](role-based-access-control-configure.md). Cette rubrique contient une liste des rôles intégrés et les actions autorisées. Les rôles intégrés incluent les rôles généraux tels que ceux de Propriétaire, Lecteur et Collaborateur, ainsi que les rôles spécifiques pour le service, par exemple, collaborateur de machine virtuelle, collaborateur de réseau virtuel et Gestionnaire de sécurité SQL (pour ne nommer que quelques-uns des rôles disponibles).
 
-Pour obtenir des exemples d’affectation des rôles, consultez [Gestion de l’accès aux ressources](azure-portal/resource-group-rbac.md).
+Pour obtenir des exemples d’affectation des rôles, consultez [Gestion de l’accès aux ressources](resource-group-rbac.md).
 
 Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour en savoir plus, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
@@ -127,7 +127,7 @@ Pour plus d’informations sur l’utilisation du portail en version préliminai
 ## Étapes suivantes
 
 - Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md).
-- Pour déployer le modèle créé, consultez [Déploiement de modèles](azure-portal/resource-group-template-deploy.md).
+- Pour déployer le modèle créé, consultez [Déploiement de modèles](resource-group-template-deploy.md).
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md).
 - Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
@@ -135,4 +135,4 @@ Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

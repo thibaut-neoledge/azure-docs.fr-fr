@@ -18,6 +18,11 @@
 
 # Téléchargement de données avec Azure Data Factory
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  L’exécution de ce didacticiel vous montrera comment créer un pipeline dans Azure Data Factory, qui déplacera les données des objets blobs Microsoft Azure Storage vers un entrepôt SQL Data Warehouse. Lors des opérations qui suivent, vous allez :
 
 + Données d’exemple de configuration dans un objet blob Azure Storage.
@@ -201,4 +206,4 @@ Dans la section « Créer et déployer », cliquez sur « Autres commandes �
 	}
 	
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

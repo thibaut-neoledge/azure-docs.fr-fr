@@ -99,7 +99,7 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ## Affichage des données de télémétrie relatives aux performances
 
-Connectez-vous au [portail Azure en version préliminaire](http://portal.azure.com), accédez à Application Insights et ouvrez la ressource que vous avez créée.
+Connectez-vous au [portail Azure](http://portal.azure.com), accédez à Application Insights et ouvrez la ressource que vous avez créée.
 
 ![Sélectionnez Parcourir, Application Insights, puis votre application.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

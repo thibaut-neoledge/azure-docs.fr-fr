@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="11/04/2015"
 	ms.author="andkjell;billmath"/>
 
 # Intégration de vos identités locales avec Azure Active Directory
@@ -64,7 +64,7 @@ Vous pouvez trouver le téléchargement d’Azure AD Connect sur le [Centre de t
 | Téléchargez Azure AD Connect | [Téléchargez Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) |
 | Installation à l’aide des paramètres Express | [Installation rapide pour Azure AD Connect](active-directory-aadconnect-get-started-express.md) |
 | Installation à l’aide des paramètres personnalisés | [Installation personnalisée d’Azure AD Connect](active-directory-aadconnect-get-started-custom.md) |
-| Mise à niveau à partir de DirSync | [Mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
+| Effectuer une mise à niveau à partir de DirSync | [Mise à niveau à partir de l’outil de synchronisation Azure AD (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md) |
 | Après l’installation | [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md) |
 
 ### En savoir plus sur l’installation d’Azure AD Connect
@@ -104,7 +104,7 @@ La fonctionnalité de [prévention des suppressions accidentelles](active-direct
 ## Personnaliser Azure AD Connect Sync
 Azure Connect AD Sync est doté d’une configuration par défaut qui est destinée à fonctionner pour la plupart des clients et des topologies. Toutefois, il existe toujours des situations dans lesquelles la configuration par défaut ne fonctionne pas et doit être ajustée. Il est possible d’apporter les modifications documentées dans cette section, ainsi que dans les rubriques connexes.
 
-Si vous n’avez jamais travaillé avec une topologie de synchronisation auparavant, vous souhaiterez commencer par comprendre les notions de base et les termes utilisés décrits dans les [concepts techniques](active-directory-aadconnect-technical-concepts.md). Azure AD Connect est l’évolution de MIIS2003, ILM2007 et FIM2010. Bien que certains éléments soient identiques, beaucoup de choses ont changé.
+Si vous n’avez jamais travaillé avec une topologie de synchronisation auparavant, vous devriez commencer par assimiler les notions de base et les termes utilisés décrits dans les [concepts techniques](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect est l’évolution de MIIS2003, ILM2007 et FIM2010. Bien que certains éléments soient identiques, beaucoup de choses ont changé.
 
 La configuration suppose que plusieurs forêts peuvent être contenues. Dans ces topologies, un objet utilisateur peut être représenté comme un contact dans une autre forêt. L’utilisateur peut également disposer d’une boîte aux lettres liée dans une autre forêt de ressources. Le comportement de la configuration par défaut est décrit dans [Utilisateurs et contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
@@ -114,7 +114,7 @@ Le modèle de configuration dans la synchronisation est appelé [Approvisionneme
 
 | Rubrique | |
 | --------- | --------- |
-| Concepts techniques | [Azure AD Connect Sync : Concepts techniques](active-directory-aadconnect-technical-concepts.md) |
+| Concepts techniques | [Azure AD Connect Sync : Concepts techniques](active-directory-aadconnectsync-technical-concepts.md) |
 | Présentation des utilisateurs et des contacts | [Azure AD Connect Sync : Présentation des utilisateurs et des contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Approvisionnement déclaratif | [Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Référence aux fonctions de l’approvisionnement déclaratif | [Azure AD Connect Sync : Référence aux fonctions](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +138,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

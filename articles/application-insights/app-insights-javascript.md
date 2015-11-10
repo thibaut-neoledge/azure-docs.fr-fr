@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/10/2015"
+	ms.date="11/03/2015"
 	ms.author="awills"/>
 
 # Application Insights pour les applications Web JavaScript
@@ -53,12 +53,14 @@ Insérez-le juste avant la balise &lt;/head&gt; de chaque page que vous souhaite
 
 Le script contient la clé d’instrumentation qui dirige les données vers votre ressource Application Insights.
 
+([Explication approfondie du script.](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+
 *(Si vous utilisez une infrastructure de page web connue, cherchez des adaptateurs Application Insights. Par exemple, il existe [un module AngularJS](http://ngmodules.org/modules/angular-appinsights).)*
 
 
 ## <a name="run"></a>Exécution de votre application
 
-Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur la touche **F5** sur votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
+Exécutez votre application web, utilisez-la un certain temps pour générer de la télémétrie et attendez quelques secondes. Vous pouvez l’exécuter en appuyant sur la touche **F5** de votre machine de développement, ou la publier et laisser les utilisateurs s’en servir.
 
 Si vous souhaitez vérifier la télémétrie qu’une application web envoie à Application Insights, utilisez les outils de débogage de votre navigateur (**F12** sur de nombreux navigateurs). Les données sont envoyées à dc.services.visualstudio.com.
 
@@ -184,4 +186,4 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

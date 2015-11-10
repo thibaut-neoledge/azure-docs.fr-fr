@@ -12,8 +12,8 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.topic="get-started-article" 
+	ms.date="11/02/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : Créer et surveiller une fabrique de données à l’aide de Visual Studio
@@ -240,4 +240,4 @@ Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-star
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
