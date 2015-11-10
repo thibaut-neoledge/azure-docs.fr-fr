@@ -644,7 +644,8 @@ Le code complet de cette section se trouve dans le fichier zip que vous avez té
 
 Comme nous l'avons déjà vu, une série chronologique est une série de valeurs de données indexées par le temps. Les objets de série chronologique R servent à créer et gérer l'index chronologique. Il y a plusieurs avantages à utiliser des objets de série chronologique. Les objets de série chronologique vous affranchissent de nombreuses tâches de gestion qu’imposent les valeurs d’index chronologique qui sont encapsulées dans les objets. De plus, ils vous permettent d'utiliser les diverses méthodes associées aux séries chronologiques, comme le traçage, l'impression, la modélisation, etc.
 
-La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+La classe de série chronologique POSIXct est couramment utilisée et relativement simple. Cette classe de série chronologique mesure le temps à partir du début de l'époque, soit le 1er janvier 1970. Nous utiliserons dans cet exemple des objets de série chronologique POSIXct. Parmi les autres classes d’objet de série chronologique R souvent utilisées, citons zoo et xts, qui concernent les séries chronologiques extensibles.
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Exemple d’objet de série chronologique
 
@@ -1346,4 +1347,4 @@ Quelques ressources Internet particulièrement utiles :
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
