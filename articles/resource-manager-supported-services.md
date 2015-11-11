@@ -68,10 +68,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | Non | Non | - | - | - |
-| Backup | Non | Non | - | - | - |
-| Site Recovery | Non | Non | - | - | - |
 | Managed cache | Non | Non | - | - | - |
-| Data Catalog | Non | Non | - | - | - |
 
 ## Analyse
 
@@ -81,7 +78,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Stream Analytics | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DataFactory) | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | Non | Non | - | - | - | | Catalogue de données | Non | Non | - | - | - |
+| Machine Learning | Non | Non | - | - | - |
+| Catalogue de données | Non | Non | - | - | - |
 
 ## Mise en réseau
 
@@ -107,7 +105,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk Services | Oui | Non | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Oui | Non | | [REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Sauvegarde | Non | Non | - | - | - | | Récupération de sites | Non | Non | - | - | - |
+| Sauvegarde | Non | Non | - | - | - |
+| Récupération de sites | Non | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 
@@ -234,4 +233,4 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](./azure-portal/resource-group-template-deploy.md).
 
-<!----HONumber=Nov15_HO1-->
+<!-----HONumber=Nov15_HO1-->
