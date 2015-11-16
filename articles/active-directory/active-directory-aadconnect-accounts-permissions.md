@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 
@@ -77,6 +77,14 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 | Écriture différée des appareils | Autorisations accordées avec un script PowerShell comme décrit dans [Écriture différée des appareils](active-directory-aadconnect-get-started-custom-device-writeback.md).|
 | Écriture différée de groupe | Lire, créer, mettre à jour et supprimer des objets de groupe dans l’unité d’organisation où les groupes de distributions doivent se trouver.|
 
+## Mise à niveau
+Lors de la mise à niveau vers une nouvelle version d'Azure AD Connect, vous devez disposer des autorisations suivantes :
+
+| Principal | Autorisations requises | Utilisé pour |
+| ---- | ---- | ---- |
+| Utilisateur exécutant l’Assistant d’installation | Administrateur du serveur local | Mettre à jour des fichiers binaires. |
+| Utilisateur exécutant l’Assistant d’installation | Membre d'ADSyncAdmins | Modifier les règles de synchronisation et d'autre configurations. |
+| Utilisateur exécutant l’Assistant d’installation | Si vous utilisez un serveur SQL complet : propriétaire (DBO, ou rôle similaire) de la base de données du moteur de synchronisation | Apporter des modifications au niveau de la base de données, telles que la mise à jour des tables avec de nouvelles colonnes. |
 
 ## Plus d’informations sur les comptes créés
 
@@ -86,12 +94,14 @@ Si vous utilisez la configuration rapide, un compte à utiliser pour la synchron
 
 ![Compte AD](./media/active-directory-aadconnect-accounts-permissions/adsyncserviceaccount.png)
 
-### Compte de service de synchronisation d’Azure AD Connect
-Un compte de service local est créé par l’Assistant d’installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte se voit attribuer le préfixe **AAD\_** et est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, le compte est créé dans le domaine. Si vous utilisez un serveur SQL sur un serveur distant, le compte doit se trouver dans le domaine.
+### Comptes de service de synchronisation d'Azure AD Connect
+Deux comptes de service locaux sont créés par l'Assistant d'installation (sauf si vous spécifiez le compte à utiliser dans les paramètres personnalisés). Le compte avec le préfixe **AAD\_** est associé au service de synchronisation à utiliser. Si vous installez Azure AD Connect sur un contrôleur de domaine, les comptes sont créés dans le domaine. Si vous utilisez un serveur SQL sur un serveur distant, le compte de service **AAD\_** doit se trouver dans le domaine. Le compte avec le préfixe **AADSyncSched\_** est utilisé pour la tâche planifiée qui exécute le moteur de synchronisation.
 
 ![Compte de service de synchronisation](./media/active-directory-aadconnect-accounts-permissions/syncserviceaccount.png)
 
-Le compte est créé avec un mot de passe long et complexe qui n’expire pas. Ce compte étant utilisé par Windows pour stocker les clés de chiffrement, le mot de passe de ce compte ne doit pas être réinitialisé ou modifié.
+Les comptes sont créés avec un mot de passe long et complexe qui n'expire pas.
+
+Pour le compte de service du moteur de synchronisation, ce compte est utilisé par Windows pour stocker les clés de chiffrement. Le mot de passe de ce compte ne doit donc pas être réinitialisé ou modifié.
 
 Si vous utilisez un serveur SQL Server complet, le compte de service est le propriétaire de la base de données créée pour le moteur de synchronisation. Le service ne fonctionne pas comme prévu avec d’autres autorisations. Une connexion SQL est également créée.
 
@@ -104,12 +114,12 @@ Un compte dans Azure AD est créé en vue de son utilisation par le service de s
 
 Le nom du serveur sur lequel le compte est utilisé peut être identifié dans la deuxième partie du nom d’utilisateur. Dans l’image ci-dessus, le nom du serveur est FABRIKAMCON. Si vous disposez de serveurs intermédiaires, chaque serveur a son propre compte. Il existe une limite de 10 comptes de service de synchronisation dans Azure AD.
 
-Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **compte de synchronisation d’annuaire** ; à ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation d’annuaire. Ce rôle intégré spécial ne peut pas être accordé en dehors de l’Assistant Azure AD Connect, et le portail Azure n’affiche ce compte qu’avec le rôle **Utilisateur**.
+Le compte de service est créé avec un mot de passe long et complexe qui n’expire pas. Il se voit octroyer le rôle de **Compte de synchronisation de répertoires**. À ce titre, il est uniquement autorisé à effectuer des tâches de synchronisation de répertoires. Ce rôle intégré spécial ne peut pas être accordé en dehors de l'Assistant Azure AD Connect, et le portail Azure n'affiche ce compte qu'avec le rôle **Utilisateur**.
 
 ![Rôle de compte AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccountrole.png)
 
 ## Étapes suivantes
 
-En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

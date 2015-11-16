@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="10/28/2015" 
 	ms.author="bradsev" />
 
 # Déplacer des données vers ou depuis le stockage d’objets blobs Azure à l’aide de connecteurs SSIS
@@ -45,16 +45,16 @@ Pour exécuter les tâches décrites dans cet article, vous devez disposer d’u
 Pour utiliser les **connecteurs SSIS** vous devez télécharger :
 
 - **SQL Server 2014 ou 2016 Standard (ou version ultérieure)** : l’installation inclut SQL Server Integration Services.
-- **Feature Pack Integration Services SQL Server pour Azure Microsoft SQL Server 2016** : vous pouvez le télécharger à partir de la page [SQL Server Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+- **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** peuvent être téléchargés respectivement depuis les pages [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
-> [AZURE.NOTE]SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d’informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](http://www.microsoft.com/fr-FR/server-cloud/products/sql-server-editions/)
+> [AZURE.NOTE]SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](http://www.microsoft.com/fr-FR/server-cloud/products/sql-server-editions/)
 
-Pour les supports de formation sur SSIS, consultez [Formation pratique SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
+Pour les supports de formation sur SSIS, consultez la [formation pratique SSIS](http://www.microsoft.com/download/details.aspx?id=20766)
 
-Pour plus d’informations sur la mise en service à l’aide de SISS pour la création des packages d’extraction, de transformation et de chargement (ETL), consultez [Didacticiel SSIS : création d’un Package ETL Simple](https://msdn.microsoft.com/library/ms169917.aspx).
+Pour plus d'informations sur la mise en service à l'aide de SISS pour la création des packages d'extraction, de transformation et de chargement (ETL), consultez [Didacticiel SSIS : création d'un Package ETL Simple](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## Télécharger l’ensemble de données Taxi NYC  
-L’exemple décrit ici utilise un groupe de données disponible au public, l’ensemble de données [Courses taxi NYC](http://www.andresmh.com/nyctaxitrips/). Le groupe de données se compose d’environ 173 millions de courses en taxi à New York dans l’année 2013. Il existe deux types de données : les données détaillées relatives aux voyages et celles relatives aux tarifs des courses. Comme il existe un fichier par élément pour chaque mois, nous avons 24 fichiers, chacun d’eux d’un volume de 2 Go avant compression. Le jeu de données peut être facilement téléchargé depuis [Github](https://github.com/andresmh/nyctaxitrips)
+L'exemple décrit ici utilise un groupe de données disponible au public (l'ensemble de données [Courses taxi NYC](http://www.andresmh.com/nyctaxitrips/)). Le groupe de données se compose d’environ 173 millions de courses en taxi à New York dans l’année 2013. Il existe deux types de données : les données détaillées relatives aux voyages et celles relatives aux tarifs des courses. Comme il existe un fichier par élément pour chaque mois, nous avons 24 fichiers, chacun d’eux d’un volume de 2 Go avant compression.
 
 
 ## Téléchargement de données vers le stockage d’objets blob Azure
@@ -88,4 +88,4 @@ Nous remarquons ici que le pack de fonctionnalités SSIS permet de gérer des fl
 - Pour exécuter un script Hive sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Hive](https://msdn.microsoft.com/library/mt146771.aspx).
 - Pour exécuter un script Pig sur un cluster Azure HDInsight avec SSIS, utilisez la [tâche Azure HDInsight Pig](https://msdn.microsoft.com/library/mt146781.aspx).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

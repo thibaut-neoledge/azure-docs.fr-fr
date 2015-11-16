@@ -9,7 +9,7 @@ Travaux par compte AMS ||50 000<sup>2</sup>
 Localisateurs uniques associés à un actif à un moment donné||5<sup>4</sup>
 Canaux en direct par compte AMS </p></td>|5</p></td>|N/A<sup>1</sup>
 Programmes dans un état Arrêté par canal </p></td>|50</p></td>|N/A<sup>1</sup>
-Programmes en cours d'exécution par canal </p></td>|3</p></td>|N/A<sup>1</sup>
+Programmes en cours d'exécution par canal </p></td>|3</p></td>|3
 Points de terminaison de diffusion en continu en cours d'exécution par compte AMS</p></td>|2</p></td>|N/A<sup>1</sup>
 Unités de diffusion en continu par point de terminaison de diffusion en continu </p></td>|10 </p></td>|N/A<sup>1</sup>
 Unités d'encodage par compte AMS </p></td>|25</p></td>|N/A<sup>1</sup>
@@ -25,4 +25,4 @@ des comptes de stockage ; | |1 000<sup>5</sup>
 
 <sup>5</sup> Les comptes de stockage doivent provenir du même abonnement Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

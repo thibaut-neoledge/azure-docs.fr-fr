@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Description du cluster de l'équilibreur de ressources"
-   description="Spécification d'une description du cluster pour l'équilibreur de ressources"
+   pageTitle="Description du cluster de l'équilibreur de ressources | Microsoft Azure"
+   description="Description d'un cluster Service Fabric en spécifiant les domaines d'erreur, domaines de mise à niveau, propriétés du nœud et capacités du nœud à l'équilibreur de ressources."
    services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
@@ -16,7 +16,7 @@
    ms.date="09/03/2015"
    ms.author="masnider"/>
 
-# Description du cluster
+# Description d'un cluster Service Fabric
 
 L'équilibreur de ressources de Service Fabric fournit plusieurs mécanismes pour décrire un cluster. Pendant l'exécution, l'équilibreur de ressources utilise ces informations pour s'assurer qu'il place les services de manière à garantir une haute disponibilité des services en cours d'exécution dans le cluster tout en garantissant également une utilisation maximale des ressources du cluster. Les fonctionnalités de l'équilibreur de ressources qui décrivent un cluster sont les domaines d'erreur, les domaines de mise à niveau, les propriétés du nœud et les capacités du nœud. En outre, l'équilibreur de ressources dispose d'options de configuration qui peuvent ajuster ses performances.
 
@@ -192,4 +192,4 @@ Pour plus d'informations : [Architecture de l'équilibreur de ressources](servi
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

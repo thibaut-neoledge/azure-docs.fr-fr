@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle de calcul distribué Acteurs fiables"
-   description="Les Acteurs fiables Service Fabric constituent une solution parfaitement adaptée grâce à la messagerie asynchrone parallèle, l'état distribué facile à gérer et le calcul parallèle."
+   pageTitle="Modèle de calcul distribué | Microsoft Azure"
+   description="Service Fabric Reliable Actors constituent une solution parfaitement adaptée pour la messagerie asynchrone parallèle, l'état distribué facile à gérer et le calcul parallèle."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -206,4 +206,4 @@ Nous n'affirmons aucunement qu'Azure Service Fabric est la solution de remplacem
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

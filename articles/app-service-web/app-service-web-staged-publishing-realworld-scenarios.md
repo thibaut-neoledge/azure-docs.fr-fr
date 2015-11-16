@@ -312,13 +312,13 @@ Dans cette section, vous allez apprendre comment un serveur de gestion de conten
 N’oubliez pas de supprimer le dossier `install` sous votre application et ne le téléchargez jamais sur les applications web intermédiaires ou de production. Pour ce didacticiel, c’est WebMatrix qui est utilisé
 
 #### Configuration d’un environnement intermédiaire
-Comme indiqué plus haut, créez un emplacement de déploiement pour l’application web Umbraco CMS, en supposant que vous disposez déjà d’une application web Umbraco CMS fonctionnelle. Dans le cas contraire, vous pouvez en créer une dans marketplace. Cliquez [ici](web-sites-gallery-umbraco) pour en savoir plus.
+Comme indiqué plus haut, créez un emplacement de déploiement pour l’application web Umbraco CMS, en supposant que vous disposez déjà d’une application web Umbraco CMS fonctionnelle. Dans le cas contraire, vous pouvez en créer une dans marketplace.
 
-Mettez à jour les chaînes de connexion de votre emplacement de déploiement intermédiaire pour qu’elles pointent vers la base de données **umbraco-stage-db** récemment créée. Votre application web de production (umbraositecms-1) et l’application web intermédiaire (umbracositecms-1-étape) **doivent** référencer des bases de données différentes.
+Mettez à jour les chaînes de connexion de votre emplacement de déploiement intermédiaire de manière à ce qu'elles pointent vers la base de données **umbraco-stage-db** récemment créée. Votre application web de production (umbraositecms-1) et l'application web intermédiaire (umbracositecms-1-étape) **DOIVENT** référencer des bases de données différentes.
 
 ![Mettre à jour la chaîne de connexion pour l’application web intermédiaire vers une nouvelle base de données intermédiaire](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-Cliquez sur **Accéder aux paramètres de publication** pour l’emplacement de déploiement **intermédiaire**. Cette opération permet de télécharger un fichier de paramètres de publication qui stocke toutes les informations nécessaires à Visual Studio ou Web Matrix pour publier votre application à partir de l’application web de développement local sur l’application Web Azure.
+Cliquez sur **Accéder aux paramètres de publication** pour l'emplacement de déploiement **intermédiaire**. Cette opération permet de télécharger un fichier de paramètres de publication qui stocke toutes les informations nécessaires à Visual Studio ou Web Matrix pour publier votre application à partir de l’application web de développement local sur l’application Web Azure.
 
  ![Obtenir le paramètre de publication de l’application web intermédiaire de publication](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
@@ -326,18 +326,18 @@ Cliquez sur **Accéder aux paramètres de publication** pour l’emplacement de 
 
 ![Importer les paramètres de publication d’Umbraco à l’aide de Web Matrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Passez en revue les modifications de la boîte de dialogue et déployez votre application web locale sur votre application web Azure, *umbracositecms-1-étape*. Au moment de déployer des fichiers directement sur votre application web intermédiaire, vous allez omettre tous les fichiers dans le dossier `~/app_data/TEMP/` tels qu’ils seront régénérés lors de l’application intermédiaire lors du premier démarrage. Vous devez également omettre le fichier `~/app_data/umbraco.config`, car lui aussi sera régénéré.
+- Vérifiez les modifications de la boîte de dialogue et déployez votre application web locale dans votre application web Azure, *umbracositecms-1-stage*. Lors du déploiement des fichiers directement dans votre application web intermédiaire, omettez tous les fichiers dans le dossier `~/app_data/TEMP/`, car ils seront régénérés lors du premier démarrage de l'application intermédiaire. Vous devez également omettre le fichier `~/app_data/umbraco.config`, car lui aussi sera régénéré.
 
 ![Passer en revue les modifications de publication dans une matrice web](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
 - Après la publication de l’application web locale Umbraco sur l’application web intermédiaire, parcourez votre application web et effectuez quelques tests pour éliminer les éventuels problèmes.
 
 #### Configuration de module de déploiement Courier2
-Avec le module [Courier2](http://umbraco.com/products/more-add-ons/courier-2), vous pouvez transmettre le contenu, les feuilles de style, les modules de développement et plus sur un simple clic droit à partir d’une application web intermédiaire vers l’application web, pour des déploiements moins problématiques et la limitation des risques d’interruption de votre application web de production au moment du déploiement et de la mise à jour. Achetez une licence Courier2 pour le domaine `*.azurewebsites.net` et votre domaine personnalisé (par exemple http://abc.com). Une fois que vous avez acheté la licence, placez la licence téléchargée (Fichier .LIC) dans le dossier `bin`.
+Avec le module [Courier2](http://umbraco.com/products/more-add-ons/courier-2), vous pouvez transmettre des contenus, des feuilles de style, des modules de développement etc. d'un simple clic droit à partir d'une application web intermédiaire vers l’application web, pour des déploiements moins problématiques et une limitation des risques d'interruption de votre application web de production au moment du déploiement et de la mise à jour. Achetez une licence Courier2 pour le domaine `*.azurewebsites.net` et votre domaine personnalisé (par exemple http://abc.com). Une fois que vous avez acheté la licence, placez la licence téléchargée (fichier .LIC) dans le dossier `bin`.
 
 ![Placer un fichier de licence sous un dossier bin](./media/app-service-web-staged-publishing-realworld-scenarios/13droplic.png)
 
-Téléchargez le package Courier2 à partir d’[ici](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Connectez-vous à votre application web intermédiaire, par exemple, http://umbracocms-site-stage.azurewebsites.net/umbraco, puis cliquez sur le menu **Developer** et sélectionnez **Packages**. Cliquez sur **Installer** le package local
+Téléchargez le package Courier2 [ici](https://our.umbraco.org/projects/umbraco-pro/umbraco-courier-2/) . Connectez-vous à votre application web intermédiaire, par exemple, http://umbracocms-site-stage.azurewebsites.net/umbraco, puis cliquez sur le menu **Developer** et sélectionnez **Packages**. Cliquez sur **Installer** le package local
 
 ![Programme d’installation de Umbraco Package](./media/app-service-web-staged-publishing-realworld-scenarios/14umbpkg.png)
 
@@ -345,7 +345,7 @@ Téléchargez le package courier2 en utilisant l’installateur.
 
 ![Téléchargement du package du module courier](./media/app-service-web-staged-publishing-realworld-scenarios/15umbloadpkg.png)
 
-Pour assurer la configuration, vous devez mettre à jour le fichier courier.config sous le dossier **Config** de votre application web.
+Pour réaliser la configuration, vous devez mettre à jour le fichier courier.config dans le dossier **Config** de votre application web.
 
 ```xml
 <!-- Repository connection settings -->
@@ -362,31 +362,24 @@ Pour assurer la configuration, vous devez mettre à jour le fichier courier.conf
   </repositories>
  ```
 
-Sous `<repositories>`, entrez l'URL du site de production et les informations utilisateur. Si vous utilisez le fournisseur d'appartenances Umbraco par défaut, ajoutez l'ID de l'utilisateur Administration dans la section <user> . Si vous utilisez un fournisseur d'appartenances Umbraco personnalisé, utilisez les éléments `<login>`,`<password>` pour que le module Courier2 sache comment se connecter au site de production. Pour plus d'informations, consultez la [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) du module Courier. 
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-De même, installez le module Courier sur votre site de production et configurez-le de manière à ce qu'il pointe vers l'application web intermédiaire dans le fichier courier.config concerné, comme indiqué ici
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
-Cliquez sur l’onglet Courier2 dans le tableau de bord de l’application web Umbraco CMS et sélectionnez des emplacements. Vous devez voir le nom du référentiel comme indiqué dans `courier.config`. Exécutez l’opération à la fois sur votre application de production et votre application intermédiaire.
+Cliquez sur l’onglet Courier2 dans le tableau de bord de l’application web Umbraco CMS et sélectionnez des emplacements. Vous devez voir le nom du référentiel comme indiqué dans `courier.config`. Exécutez l'opération à la fois sur votre application de production et votre application intermédiaire.
 
 ![Affichage du référentiel de l’application web](./media/app-service-web-staged-publishing-realworld-scenarios/16courierloc.png)
 
-Nous allons maintenant déployer un contenu du site intermédiaire sur le site de production. Accédez à du contenu, sélectionnez une page existante ou créez une nouvelle page. Sélectionnez une page existante à partir de l’application web (son titre a été changé en **Prise en main – nouveau**, puis cliquez sur **Enregistrer et publier**.
+Nous allons maintenant déployer un contenu du site intermédiaire sur le site de production. Accédez à du contenu, sélectionnez une page existante ou créez une nouvelle page. Sélectionnez une page existante à partir de l'application web (son titre a été changé en **Prise en main – nouveau**), puis cliquez sur **Enregistrer et publier**.
 
 ![Modification du titre de page et publication](./media/app-service-web-staged-publishing-realworld-scenarios/17changepg.png)
 
-Sélectionnez maintenant la page modifiée et *effectuez un clic droit* pour afficher toutes les options. Cliquez sur **Courier** et afficher la boîte de dialogue Déploiement. Cliquez sur **Déployer** pour lancer le déploiement
+Sélectionnez maintenant la page modifiée et *cliquez avec le bouton droit* pour afficher toutes les options. Cliquez sur **Courier** et afficher la boîte de dialogue Déploiement. Cliquez sur **Déployer** pour lancer le déploiement
 
 ![Boîte de dialogue déploiement de module Courrier](./media/app-service-web-staged-publishing-realworld-scenarios/18dialog1.png)
 
@@ -408,17 +401,17 @@ Pour en savoir plus sur la façon d’utiliser Courier, consultez la documentati
 
 Courier ne déploiera pas l’aide pendant la mise à niveau d’une version de CMS Umbraco vers une autre. Lors de la mise à niveau de la version Umbraco CMS, vous devez vérifier les incompatibilités avec vos modules personnalisés ou des modules tiers et les bibliothèques principales Umbraco. En tant que meilleure pratique
 
-1. Sauvegardez TOUJOURS votre application web et votre base de données avant de procéder une mise à niveau. Sur Azure Web App, vous pouvez configurer des sauvegardes automatiques de vos sites web grâce à la fonction de sauvegarde, et restaurer votre site si nécessaire à l’aide de la fonctionnalité de restauration. Pour plus d’informations, consultez [Sauvegarder votre application web](web-sites-backup) et [Restaurer votre application web](web-sites-restore).
+1. Sauvegardez TOUJOURS votre application web et votre base de données avant de procéder une mise à niveau. Sur Azure Web App, vous pouvez configurer des sauvegardes automatiques de vos sites web grâce à la fonction de sauvegarde, et restaurer votre site si nécessaire à l’aide de la fonctionnalité de restauration. Pour plus d'informations, consultez [Sauvegarde de votre application web](web-sites-backup) et [Restauration de votre application web](web-sites-restore).
 
 2. Vérifiez si les packages tiers que vous utilisez sont compatibles avec la version vers laquelle vous effectuez la mise à niveau. Sur la page de téléchargement du package, vérifiez la compatibilité du projet avec la version d’Umbraco CMS.
 
-Pour plus de détails sur la mise à niveau de votre application Web localement, suivez les instructions mentionnées [ici](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
+Pour plus de détails sur la mise à niveau de votre application Web locale, suivez les instructions mentionnées [ici](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-Une fois la mise à niveau de votre site de développement local terminée, publiez les modifications dans l’application web intermédiaire. Testez votre application et si tout vous semble correct, utilisez le bouton **Échange** pour **basculer** votre site intermédiaire sur l’application web de production. Lorsque vous effectuez l’opération d’**échange**, vous pouvez afficher les modifications qui seront prises en compte dans la configuration de votre application web. Grâce à cette opération d’**échange**, nous basculons les applications web et les bases de données. Cela signifie que, après l’ÉCHANGE, que l’application pointera vers la base de données umbraco-stage-db et l’application web intermédiaire qui pointera sur la base de données umbraco-prod-db.
+Une fois la mise à niveau de votre site de développement local terminée, publiez les modifications dans l’application web intermédiaire. Testez votre application et, si tout vous semble correct, utilisez le bouton **Échange** pour **faire basculer** votre site intermédiaire vers l'application web de production. Lorsque vous effectuez l'opération d'**échange**, vous pouvez afficher les modifications qui seront prises en compte dans la configuration de votre application web. Grâce à cette opération d'**échange**, vous faites basculer les applications web et les bases de données. Cela signifie que, après l’ÉCHANGE, que l’application pointera vers la base de données umbraco-stage-db et l’application web intermédiaire qui pointera sur la base de données umbraco-prod-db.
 
 ![Vue d’ensemble de l’échange pour le déploiement de CMS Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Avantage de l’échange de l’application Web et de base de données : 1. Vous donne la possibilité de revenir à la version précédente de votre application web avec un autre **échange** en cas de problème d’application. 2. En cas de mise à niveau, vous devez déployer des fichiers et une base de données d’application web intermédiaire vers l’application web de production et la base de données. De nombreuses choses peuvent mal se passer lors du déploiement de fichiers et d’une base de données. Grâce à la fonction **échange** d’emplacements, il est possible de réduire les temps d’arrêt de la mise à niveau et les risques de pannes susceptibles de se produire lors du déploiement de modifications. 3. Vous donne la possibilité d’exécuter un **test A/B** à l’aide de la fonction [test en production](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+Avantage de l’échange de l’application Web et de base de données : 1. Vous avez la possibilité de revenir à la version précédente de votre application web grâce à un autre **échange** en cas de problème d'application. 2. En cas de mise à niveau, vous devez déployer des fichiers et une base de données d’application web intermédiaire vers l’application web de production et la base de données. De nombreuses choses peuvent mal se passer lors du déploiement de fichiers et d’une base de données. Grâce à la fonction d'**échange** d'emplacements, il est possible de réduire les temps d'arrêt pendant une mise à niveau et les risques de pannes susceptibles de se produire lors du déploiement de modifications. 3. Vous avez la possibilité d'exécuter un **test A/B** à l'aide de la fonction [Test en production](http://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
 Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez élaborer des modules personnalisés similaires au module Umbraco Courier pour gérer le déploiement sur les environnements.
 
@@ -429,4 +422,4 @@ Cet exemple montre la flexibilité de la plateforme sur laquelle vous pouvez él
 
 [Comment limiter l’accès web aux emplacements de déploiement hors production](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!-----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

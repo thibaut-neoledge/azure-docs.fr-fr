@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Scénarios et conception d'applications avec Service Fabric" 
-   description="Catégories d'applications. Conception d'applications à l'aide de services avec ou sans état" 
+   pageTitle="Scénarios et conception d'applications | Microsoft Azure" 
+   description="Vue d'ensemble des catégories d'applications cloud dans Service Fabric. Traite de la conception d'applications à l'aide de services avec ou sans état"
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -34,12 +34,12 @@ La plateforme Service Fabric dans Azure est idéale pour les catégories d'appli
  
 - **Flux de travail et analyse des données** : les opérations de lecture/écriture rapides de Service Fabric sont particulièrement adaptées pour les applications qui doivent traiter des événements ou des flux de données de manière fiable. Service Fabric convient également pour les applications qui décrivent un pipeline de traitement, où les résultats ne peuvent être transmis sans perte d'une étape de traitement à l'autre que s'ils sont fiables, notamment les systèmes transactionnels et financiers, où les garanties en termes de calcul et de cohérence des données sont essentielles.
 
-## Conception d'applications composées de microservices avec et sans état ##
+## Conception d'applications composées de microservices avec et sans état
 La création d'applications avec des rôles de travail Azure Cloud Service est un exemple de services sans état. Contrairement à cela, les microservices avec état maintiennent l’état d’autorité au-delà de la demande et de sa réponse, ce qui offre une haute disponibilité et la cohérence de cet état via les API simples qui fournissent des garanties transactionnelles sauvegardées par la réplication. Les services avec état Service Fabric démocratisent la haute disponibilité (HA), sur tous les types d’applications, et pas seulement des bases de données et autres banques de données. Il s’agit d’une évolution naturelle : les applications ont déjà évolué d’un état de simples bases de données purement relationnelles pour les bases de données HA à NoSQL ; maintenant, les applications elles-mêmes peuvent avoir un état « actif » et les données gérées au sein de celles-ci pour des gains de performances supplémentaires sans sacrifier la fiabilité, la cohérence ou disponibilité.
 
-Quand vous créez des applications comprenant des microservices, vous avez généralement une combinaison d’applications web sans état (ASP.NET, node.js, etc.) qui appellent des services de couche intermédiaire métier sans et avec état, tous déployés dans le même cluster Service Fabric au moyen des commandes de déploiement Service Fabric. Chacun de ces microservices est indépendant de l’évolution, de la fiabilité et de l’utilisation des ressources, ce qui améliore grandement la souplesse dans le développement et la gestion du cycle de vie.
+Quand vous créez des applications comprenant des microservices, vous avez généralement une combinaison d’applications web sans état (ASP.NET, node.js, etc.) qui appellent des services de couche intermédiaire métier sans et avec état, tous déployés dans le même cluster Service Fabric au moyen des commandes de déploiement Service Fabric. Chacun de ces services est indépendant de l'évolution, de la fiabilité et de l'utilisation des ressources, ce qui améliore grandement la souplesse dans le développement et la gestion du cycle de vie.
   
-Les microservices avec état simplifient les conceptions d'applications, car ils suppriment les caches et files d'attente supplémentaires, jusque-là indispensables pour répondre aux exigences de disponibilité et de latence d'une application purement sans état. Les services avec état étant naturellement hautement disponibles et à faible latence, vous avez moins d’éléments mobiles à gérer au sein de votre application. Les diagrammes ci-dessous comparent la conception d'une application sans état et la conception d'une application avec état. Grâce aux modèles de programmation [Services fiables](../Service-Fabric/service-fabric-reliable-services-introduction.md) et [Acteurs fiables](service-fabric-reliable-actors-introduction.md), les services avec état réduisent la complexité de l’application, tout en atteignant un débit élevé et une faible latence.
+Les microservices avec état simplifient les conceptions d'applications, car ils suppriment les caches et files d'attente supplémentaires, jusque-là indispensables pour répondre aux exigences de disponibilité et de latence d'une application purement sans état. Les services avec état étant naturellement hautement disponibles et à faible latence, vous avez moins d’éléments mobiles à gérer au sein de votre application. Les diagrammes ci-dessous comparent la conception d'une application sans état et la conception d'une application avec état. Grâce aux modèles de programmation [Reliable Services](service-fabric-reliable-services-introduction.md) et [Reliable Actors](service-fabric-reliable-actors-introduction.md), les services avec état réduisent la complexité de l'application, tout en atteignant un débit élevé et une faible latence.
 
 ## Application créée à l'aide de services sans état##
 ![Application utilisant un service sans état][Image1]
@@ -57,7 +57,7 @@ Consultez également les rubriques suivantes :
 
 [Définition et gestion de l'état des services](service-fabric-concepts-state.md)
 
-[Disponibilité des services](../service-fabric-concepts-availability-services.md)
+[Disponibilité des services](service-fabric-concepts-availability-services.md)
 
 [Extensibilité des services Service Fabric](service-fabric-concepts-scalability.md)
 
@@ -68,4 +68,4 @@ Consultez également les rubriques suivantes :
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

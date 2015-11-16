@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Gestion de votre service Search sur Microsoft Azure | Microsoft Azure" 
-	description="Gestion de votre service Search sur Microsoft Azure" 
+	description="Gestion d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Gestion de votre service Search sur Microsoft Azure
 
-Azure Search est à la fois un service cloud et une API HTTP qu'il est possible d'utiliser dans des applications de recherche personnalisées. Notre service Search fournit le moteur d'analyse de texte avec recherche en texte intégral, des fonctionnalités de recherche avancée, un espace de stockage de données de recherche et une syntaxe de commande de requête.
+Azure Search est un service cloud avec une API HTTP qu'il est possible d'utiliser dans des applications de recherche personnalisées. Notre service Search fournit le moteur d'analyse de texte avec recherche en texte intégral, des fonctionnalités de recherche avancée, un espace de stockage de données de recherche et une syntaxe de commande de requête.
 
 Cet article vous explique comment administrer un service Search dans le [portail Azure](https://portal.azure.com).
 
@@ -193,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

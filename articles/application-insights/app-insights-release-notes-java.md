@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Notes de publication pour Application Insights pour Java" 
-	description="Les dernières mises à jour pour le Kit de développement logiciel (SDK) Java." 
-	services="application-insights" 
+<properties
+	pageTitle="Notes de publication pour Application Insights pour Java"
+	description="Les dernières mises à jour pour le Kit de développement logiciel (SDK) Java."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour Java
 
 Le [Kit de développement logiciel (SDK) Application Insights pour Java](app-insights-java-get-started.md) envoie la télémétrie de votre application en direct à [Application Insights](http://azure.microsoft.com/services/application-insights/) afin que vous puissiez en analyser les performances et l’utilisation.
@@ -22,7 +22,7 @@ Le [Kit de développement logiciel (SDK) Application Insights pour Java](app-in
 
 Consultez la rubrique [Prise en main du Kit de développement logiciel (SDK) pour Java](app-insights-java-get-started.md).
 
-#### Pour passer à la dernière version du Kit de développement logiciel (SDK) 
+#### Pour passer à la dernière version du Kit de développement logiciel (SDK)
 
 Une fois la mise à jour effectuée, vous devrez fusionner toutes les personnalisations qui ont été apportées à ApplicationInsights.xml. Conservez-en une copie pour effectuer une comparaison avec le nouveau fichier.
 
@@ -33,17 +33,18 @@ Une fois la mise à jour effectuée, vous devrez fusionner toutes les personnali
 
 *Sinon*
 
-* Téléchargez la dernière version des [bibliothèques Azure pour Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) et remplacez les anciennes. 
- 
+* Téléchargez la dernière version des [bibliothèques Azure pour Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) et remplacez les anciennes.
+
 Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plupart des modifications que vous apercevez sont dues aux ajouts et suppressions de modules. Rétablissez toutes les personnalisations que vous avez apportées.
 
 ## Version 1.0.2
+- Possibilité d'empêcher le remplacement de la clé d'instrumentation à l'aide de celle spécifiée dans le fichier config lorsqu'elle est fournie explicitement dans le code.
+- Traitement de tous les codes d'état HTTP réussis et signalisation de la réussite des requêtes HTTP correspondante.
+- Traitement de toutes les exceptions générées par le ConfigurationFileLocator.
 
-- Compatibilité avec Docker
-- Résolution des bogues - interception de toutes les exceptions, gestion de tous les codes d’état de réussite
 
 ## Version 1.0.1
-- L’[agent Java](app-insights-java-agent.md) collecte les informations de dépendance sur les éléments suivants :
+- L'[agent Java](app-insights-java-agent.md) collecte les informations de dépendance concernant les éléments suivants :
 	- Appels HTTP passés via HttpClient, OkHttp et RestTemplate (Spring).
 	- Appels à Redis passés via le client Jedis. Lorsqu'un seuil configurable est dépassé, le Kit de développement logiciel récupère également les arguments d'appel.
 	- Appels JDBC passés avec des clients Oracle DB et Apache Derby DB.
@@ -71,6 +72,5 @@ Comparez les anciennes et nouvelles versions d’ApplicationInsights.xml. La plu
 - Prise en charge de la collecte des compteurs de performances à partir d’ordinateurs Windows 32 bits.
 - Prise en charge du suivi manuel des dépendances à l’aide d’une nouvelle API de méthode ```trackDependency```.
 - Possibilité de baliser un élément de télémétrie comme synthétique en ajoutant une propriété ```SyntheticSource``` à l’élément de rapport.
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

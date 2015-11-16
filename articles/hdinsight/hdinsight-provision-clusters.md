@@ -240,7 +240,7 @@ Pour plus d'informations sur les fonctions, les avantages et les capacités d'Az
 
 ## Création à l’aide du portail Azure en version préliminaire
 
-Vous pouvez vous référer aux [options de configuration de base] et aux [options de configuration avancées] pour obtenir une description des champs.
+Vous pouvez vous référer aux [options de configuration de base](#basic-configuration-options) et aux [options de configuration avancées](#advanced-configuration-options) pour obtenir une description des champs.
 
 **Création d'un cluster HDInsight**
 
@@ -757,4 +757,4 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop avec le compte
 [ssisclustercreate]: http://msdn.microsoft.com/fr-FR/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/fr-FR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

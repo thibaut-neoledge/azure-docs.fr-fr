@@ -219,15 +219,16 @@ Vous pouvez uniquement utiliser les services de calcul au sein des réseaux virt
 
 ### Puis-je utiliser des applications web avec un réseau virtuel ?
 
-Non. Une application web Azure ne peut pas être déployée dans un réseau virtuel. Toutefois, des applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connectivité de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les liens suivants :
+Oui. Vous pouvez déployer des applications Web à l'intérieur d'un réseau virtuel à l'aide d'ASE (App Service Environment). De plus, des applications web peuvent se connecter en toute sécurité et accéder aux ressources de votre réseau virtuel Azure si vous avez configuré une connectivité de point à site pour votre réseau virtuel. Pour plus d’informations, consultez les liens suivants :
 
-- [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/
-- 014/09/15/azure-websites-virtual-network-integration/)
+
+- [Création d'applications web dans un environnement App Service](https://azure.microsoft.com/fr-FR/documentation/articles/app-service-web-how-to-create-a-web-app-in-an-ase/)
+
+- [Intégration au réseau virtuel d’applications web](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
 
 - [Utilisation de l’intégration au réseau virtuel et des connexions hybrides avec les applications web](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
 - [Intégrer une application web à un réseau virtuel Azure](web-sites-integrate-with-vnet.md)
-
 
 ### Puis-je déployer des services cloud avec les rôles web et de travail (PaaS) dans un réseau virtuel ?
 
@@ -265,4 +266,4 @@ Oui. Vous pouvez utiliser l’API REST pour gérer la connectivité des réseaux
 
 Oui. Vous pouvez utiliser les outils PowerShell et de ligne de commande pour une variété de plateformes. Des informations supplémentaires sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=317721).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

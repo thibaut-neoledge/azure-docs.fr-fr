@@ -34,13 +34,7 @@ Avant d’entrer dans les détails du déploiement d’une application existante
 
   Voici un exemple de manifeste d'application :
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -55,8 +49,7 @@ Avant d’entrer dans les détails du déploiement d’une application existante
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest>
-  ```
+  </ApplicationManifest> ```
 
 * **Manifeste de service**
 
@@ -64,16 +57,7 @@ Avant d’entrer dans les détails du déploiement d’une application existante
 
   Voici un exemple de manifeste de service
 
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
+  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -90,8 +74,7 @@ Avant d’entrer dans les détails du déploiement d’une application existante
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest>
-  ```
+  </ServiceManifest> ```
 
 ## Structure de fichiers d’un package d’application
 Pour déployer une application à l'aide, par exemple, des applets de commande powershell, l'application doit respecter une structure de répertoires prédéfinie.
@@ -132,7 +115,7 @@ Vous pouvez commencer par créer la structure de répertoires, comme décrit ci-
 ### Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires Code et Config. Vous pouvez également créer d'autres répertoires ou sous-répertoires dans les répertoires Code ou Config. Service Fabric crée une copie xcopy du contenu du répertoire racine de l’application. Par conséquent, il n'existe aucune structure prédéfinie à utiliser autre que la création des deux principaux répertoires Code et Config (mais vous pouvez choisir des noms différents si vous le souhaitez ; consultez la section suivante pour plus de détails).
 
->[AZURE.NOTE]: Veillez à bien inclure la totalité des fichiers/dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n'est pas recommandé de supposer que les dépendances sont déjà installées.
+>[AZURE.NOTE]Veillez à bien inclure la totalité des fichiers/dépendances nécessaires à l’application. Service Fabric copiera le contenu du package de l'application sur tous les nœuds du cluster où les services de l'application seront déployés. Le package doit contenir tout le code nécessaire à l’exécution de l'application. Il n'est pas recommandé de supposer que les dépendances sont déjà installées.
 
 ### Modification du fichier de manifeste de service
 L’étape suivante consiste à modifier le fichier de manifeste de service afin d’inclure les informations suivantes :
@@ -294,7 +277,7 @@ Un service Fabric Service peut être déployé dans différentes « configurati
 
 * `InstanceCount` : permet de spécifier le nombre d’instances du service qui doivent être lancées dans le cluster Service Fabric. Vous pouvez définir la valeur `InstanceCount` selon le type d’application que vous déployez. Les deux scénarios les plus courants sont :
 
-	* `InstanCount = "1"` : dans ce cas, une seule instance du service sera déployée sur le cluster. Le planificateur de Service Fabric détermine le nœud sur lequel le service sera déployé. Une seule instance peut s'avérer utile pour les applications qui nécessitent une configuration différente si elles s'exécutent sur plusieurs instances. Dans ce cas, il est plus facile de définir plusieurs services dans le même fichier de manifeste d’application et d’utiliser `InstanceCount = "1"`. Par conséquent, nous obtiendrons finalement plusieurs instances du même service, mais chacune avec une configuration spécifique. Une valeur `InstanceCount` supérieure à 1 n’est utile que si l’objectif est d’avoir plusieurs instances d’une configuration rigoureusement identique.
+	* `InstanceCount = "1"` : dans ce cas, une seule instance du service sera déployée sur le cluster. Le planificateur de Service Fabric détermine le nœud sur lequel le service sera déployé. Une seule instance peut s'avérer utile pour les applications qui nécessitent une configuration différente si elles s'exécutent sur plusieurs instances. Dans ce cas, il est plus facile de définir plusieurs services dans le même fichier de manifeste d’application et d’utiliser `InstanceCount = "1"`. Par conséquent, nous obtiendrons finalement plusieurs instances du même service, mais chacune avec une configuration spécifique. Une valeur `InstanceCount` supérieure à 1 n’est utile que si l’objectif est d’avoir plusieurs instances d’une configuration rigoureusement identique.
 
 	* `InstanceCount ="-1"` : dans ce cas, une seule instance du service sera déployée sur chaque nœud du cluster Service Fabric. Nous obtiendrons finalement une seule (et unique) instance du service pour chaque nœud du cluster. Cette configuration est utile pour les applications frontales (par exemple, un point de terminaison REST) car les applications clientes doivent simplement « se connecter » à n’importe quel nœud du cluster afin d'utiliser le point de terminaison. Cette configuration peut également être utilisée lorsque, par exemple, tous les nœuds du cluster Service Fabric sont connectés à un équilibreur de charge pour permettre de distribuer le trafic client sur le service en cours d'exécution sur tous les nœuds du cluster.
 
@@ -353,4 +336,4 @@ Consultez [ceci](service-fabric-develop-your-service-index.md) si vous souhaitez
 [5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
 [6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

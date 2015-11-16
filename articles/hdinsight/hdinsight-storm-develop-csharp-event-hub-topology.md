@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/02/2015"
+   ms.date="10/30/2015"
    ms.author="larryfr"/>
 
 # Traitement des événements Azure Event Hubs avec Storm sur HDInsight (C#)
@@ -28,15 +28,15 @@ Dans ce didacticiel, vous allez apprendre à utiliser HDInsight Tools pour Visu
 
 [AZURE.NOTE]Les étapes décrites dans ce document fonctionnent uniquement avec un cluster HDInsight Windows. Pour obtenir une version Java de ce projet, qui fonctionne avec un cluster basé sur Windows ou un cluster basé sur Linux, consultez [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
-## Composants requis
+## Configuration requise
 
-* Un <a href="../hdinsight-storm-getting-started/" target="_blank">cluster Apache Storm sur HDInsight</a>
+* Un [cluster Apache Storm sur HDInsight](hdinsight-storm-getting-started.md)
 
-* Un <a href="../service-bus-event-hubs-csharp-ephcs-getstarted/" target="_blank">concentrateur d’événements Azure</a>
+* Un [Concentrateur d'événements Azure](../service-bus/service-bus-event-hubs-csharp-ephcs-getstarted.md).
 
-* Le <a href="http://azure.microsoft.com/downloads/" target="_blank">kit de développement logiciel (SDK) Azure .NET</a>
+* Le [kit de développement logiciel Azure .NET](http://azure.microsoft.com/downloads/)
 
-* <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">HDInsight Tools pour Visual Studio</a> (la version datée du 17/02/2015 ou une version plus récente)
+* Les [outils HDInsight pour Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
 
 ## Projet terminé
 
@@ -557,4 +557,4 @@ Dans ce document, vous avez découvert comment utiliser le spout et le bolt du h
 * [Exemples de topologies pour Storm dans HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

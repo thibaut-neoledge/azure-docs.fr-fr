@@ -22,4 +22,6 @@ Voici les fonctionnalités et les concepts importants de Mobile Services :
 + **Mise à l’échelle** : possibilité d’ajouter, moyennant un coût supplémentaire, davantage de puissance de traitement, de performance et de stockage avec le gain de popularité de votre application.
 + **Tâche planifiée** : code personnalisé exécuté en fonction d’une planification prédéfinie ou à la demande.
 
-<!---HONumber=Oct15_HO3-->
+Pour plus d'informations, consultez la rubrique [Concepts de Mobile Services](mobile-services-concepts-links.md).
+
+<!---HONumber=Nov15_HO2-->

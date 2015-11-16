@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Prise en main des services fiables Service Fabric de Microsoft Azure"
-   description="Création d’une application Service Fabric avec des services avec et sans état."
+   pageTitle="Prise en main des services fiables | Microsoft Azure"
+   description="Introduction à la création d'une application Microsoft Azure Service Fabric avec des services avec et sans état."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
 # Prise en main des services fiables Service Fabric de Microsoft Azure
 
-Une application Service Fabric contient un ou plusieurs services qui exécutent votre code. Ce didacticiel vous guide tout au long des étapes de création d'applications Service Fabric « Hello World » avec et sans état à l'aide du [modèle de programmation *Services fiables*](../Service-Fabric/service-fabric-reliable-services-introduction.md).
+Une application Service Fabric contient un ou plusieurs services qui exécutent votre code. Ce didacticiel vous guide tout au long des étapes de création d'applications Service Fabric « Hello World » avec et sans état à l'aide du [modèle de programmation *Reliable Services*](service-fabric-reliable-services-introduction.md).
 
 Un service sans état est le type de service qui existe principalement dans des applications cloud actuelles. Le service est considéré comme étant sans état car le service proprement dit ne contient pas de données devant être stockées de manière fiable ou rendues hautement disponibles. En d'autres termes, si une instance d'un service sans état s'arrête, l'intégralité de son état interne est perdue. Dans ces types de services, l'état doit être conservé dans un magasin externe, comme les Tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
 
@@ -26,7 +26,7 @@ Service Fabric présente un nouveau type de service avec état : un service qu
 
 Dans ce didacticiel, vous allez implémenter un service sans état et un service avec état conservant un compteur interne. Dans le service sans état, la valeur du compteur est perdue lorsque le service redémarre ou se déplace. Toutefois, dans le service avec état, l'état du compteur est rendu fiable par Service Fabric. Ainsi, si l'exécution du service est interrompue pour une raison quelconque au milieu du comptage, elle peut reprendre là où elle s'était arrêtée.
 
-## Créer un service sans état
+## Création d'un service sans état
 
 Commençons par un service sans état.
 
@@ -100,7 +100,7 @@ Cette orchestration est gérée par le système afin de conserver votre service 
 
 Dans cet exemple de service sans état, le décompte est stocké dans une variable locale. Mais comme il s'agit d'un service sans état, la valeur stockée existe uniquement pour le cycle de vie actuel de l'instance de service dans laquelle elle se trouve. Lorsque le service se déplace ou redémarre, la valeur est perdue.
 
-## Créer un service avec état
+## Création d'un service avec état
 
 Pour convertir notre valeur de compteur de sans état à hautement disponible et persistante même lorsque le service se déplace ou redémarre, nous avons besoin d'un service avec état.
 
@@ -204,4 +204,4 @@ Une fois que les services sont en cours d'exécution, vous pouvez voir les évé
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

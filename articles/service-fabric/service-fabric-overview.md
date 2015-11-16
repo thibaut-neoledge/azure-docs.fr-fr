@@ -40,7 +40,7 @@ Pourquoi les microservices avec état sont-ils importants ? Pourquoi ne pas sim
 
 1) La possibilité de créer des services OLTP à débit élevé, faible latence et tolérance de pannes, comme les vitrines interactives, la recherche, les systèmes Internet des objets (IoT), les systèmes commerciaux, les systèmes de traitement de carte de crédit et de détection des fraudes, la gestion des enregistrements personnels, etc., en conservant le code proche des données sur le même ordinateur.
 
-2) La simplification de la conception d'applications sous forme de microservices avec état permet de supprimer les caches et files d'attente supplémentaires, jusque-là indispensables pour répondre aux exigences de disponibilité et de latence d'une application purement sans état. Les services avec état étant naturellement hautement disponibles et à faible latence, vous avez moins d'éléments mobiles à gérer au sein de votre application.
+2) La simplification de la conception d'applications sous forme de microservices avec état permet de supprimer les caches et files d'attente supplémentaires, jusque-là indispensables pour répondre aux exigences de disponibilité et de latence d'une application purement sans état. Les services avec état étant naturellement hautement disponibles et à faible latence, vous avez moins d’éléments mobiles à gérer au sein de votre application.
 
 Pour plus d'informations sur les modèles d'application et la conception à l'aide de Service Fabric, consultez [Scénarios d'application](service-fabric-application-scenarios.md)
 
@@ -98,4 +98,4 @@ Service Fabric vous permet d'effectuer les opérations suivantes :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/29/2015" 
 	ms.author="genemi"/>
 
 
@@ -77,7 +77,7 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET personnalisé](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [Pilote ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
-| Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
+| Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
 | PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC personnalisé](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
@@ -90,8 +90,8 @@ Cette section fournit des liens vers des rubriques d'échantillons de code pour 
 - [Bibliothèques de connexions de la base de données SQL et de SQL Server](sql-database-libraries.md)
 - [Liste de codes numériques des erreurs temporaires](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Développement de base de données SQL Azure : rubriques Procédures](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-- [Connexion à SQL Database : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
+- [Connexion à la base de données SQL : liens, meilleures pratiques et règles de conception](sql-database-connect-central-recommendations.md)
 - [Créer votre première base de données SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 ici, EF 7 sur GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

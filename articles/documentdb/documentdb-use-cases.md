@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/10/2015" 
+    ms.date="10/30/2015" 
     ms.author="hawong"/>
 
 # Cas d’utilisation courants de DocumentDB
@@ -79,4 +79,4 @@ Si vous souhaitez en savoir plus sur les clients qui utilisent DocumentDB, consu
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). Le magasin du futur fonctionne grâce à la recherche rapide et au flux de données simplifié.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

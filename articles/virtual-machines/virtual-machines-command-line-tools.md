@@ -19,7 +19,7 @@
 
 # Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec Microsoft Azure Service Management.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](azure-cli-arm-commands.md).
 
 Cet article décrit comment utiliser l'interface de ligne de commande (CLI) Azure dans le mode Service Management (asm) pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l'aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure. L'utilisation des services Azure avec le mode Service Management revient, dans les grandes lignes, à la création et la gestion des services et concepts isolés Azure tels que les sites Web, les machines virtuelles, les réseaux virtuels, le stockage, etc.
 
@@ -2350,4 +2350,4 @@ Supprime une entrée de serveur DNS de la configuration réseau.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

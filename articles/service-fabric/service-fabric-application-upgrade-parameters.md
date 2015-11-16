@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Mise à niveau d'une application Service Fabric : paramètres de mise à niveau"
-   description="Cet article décrit les différents paramètres relatifs à la mise à niveau d'une application Service Fabric."
+   pageTitle="Mise à niveau d'une application : paramètres de mise à niveau | Microsoft Azure"
+   description="Décrit les paramètres relatifs à la mise à niveau d'une application Service Fabric, y compris les vérifications d'intégrité à effectuer et les stratégies pour annuler automatiquement la mise à niveau."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@ Cet article décrit les différents paramètres qui s'appliquent pendant la mise
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

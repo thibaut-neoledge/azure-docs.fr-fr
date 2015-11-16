@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Comment mettre à l’échelle les unités réservées d’encodage à l’aide du portail Azure" 
-	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako,milangada" 
-	manager="dwrede" 
+<properties
+	pageTitle="Comment mettre à l'échelle le traitement multimédia à l'aide du portail Azure"
+	description="Apprenez à mettre à l’échelle Media Services en spécifiant le nombre d’unités réservées de diffusion en continu à la demande et d’unités réservées d’encodage que vous voulez attribuer à votre compte."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako,milangada"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Comment mettre à l’échelle l’encodage à l’aide du portail Azure
+# Comment mettre à l'échelle le traitement multimédia à l'aide du portail Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -25,11 +25,13 @@
 - [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
-##Vue d'ensemble
+## Vue d'ensemble
 
-Un compte Media Services est associé à un Type d’unité réservé qui détermine la vitesse à laquelle vos tâches d’encodage sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **Standard** que le type **De base**. Pour plus d’informations, consultez [Types d’unités réservées d’encodage](http://azure.microsoft.com/blog/author/milanga).
+Un compte Media Services est associé à un Type d'unité réservé qui détermine la vitesse à laquelle vos tâches de traitement multimédia sont traitées. Vous avez le choix entre les types d’unités réservées suivantes : **De base**, **Standard** ou **Premium**. Par exemple, une même tâche d’encodage s’exécute plus rapidement quand vous utilisez le type d’unité réservée **Standard** que le type **De base**. Pour plus d’informations, consultez [Types d’unités réservées d’encodage](http://azure.microsoft.com/blog/author/milanga).
 
 En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées d’encodage. Le nombre d’unités réservées d’encodage approvisionnées détermine le nombre de tâches de média qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a 5 unités réservées, les 5 tâches de média sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement dès que l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d’attente entre la fin d’une tâche et le début de la suivante dépend de la disponibilité des ressources du système.
+
+>[AZURE.IMPORTANT]Les unités réservées fonctionnent pour la mise en parallèle de tout le traitement multimédia, notamment les travaux à l'aide de l'Indexeur multimédia Azure. Toutefois, contrairement à l'encodage, l'indexation des travaux ne sera pas plus rapide avec des unités réservées plus rapides.
 
 Pour modifier le type d’unité réservée et le nombre d’unités réservées d’encodage, procédez comme suit :
 
@@ -40,11 +42,11 @@ Pour modifier le type d’unité réservée et le nombre d’unités réservées
 	Pour modifier le **TYPE D’UNITÉ RÉSERVÉE**, appuyez sur DE BASE, STANDARD ou PREMIUM.
 
 	Pour modifier le nombre d’unités réservées pour le type d’unité réservée sélectionné, utilisez le curseur **ENCODAGE**.
-	
-	
+
+
 	![Processors page](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
-	  
+
 	>[AZURE.NOTE]Les centres de données suivants ne proposent pas le type d’unité réservée Premium : Singapour, Hong Kong, Osaka, Beijing, Shanghai.
 
 3. Appuyez sur le bouton ENREGISTRER pour enregistrer vos modifications.
@@ -63,10 +65,7 @@ Pour plus d’informations sur les quotas et les limitations et pour savoir comm
 
 Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

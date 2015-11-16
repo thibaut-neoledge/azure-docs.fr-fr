@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vue d’ensemble de la testabilité"
-   description="Cet article décrit la fonction de testabilité de Microsoft Azure Service Fabric."
+   pageTitle="Vue d'ensemble de la testabilité | Microsoft Azure"
+   description="Cet article décrit la fonctionnalité de testabilité dans Microsoft Azure Service Fabric pour induire des erreurs et exécuter des scénarios de test sur vos services."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ Pour créer de véritables services de mise à l’échelle du cloud, vous devez
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

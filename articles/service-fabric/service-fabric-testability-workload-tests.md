@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Scénarios de test personnalisés"
-   description="Procédure de renforcement de vos services contre les défaillances sans/avec pertes de données"
+   pageTitle="Scénarios de test personnalisés | Microsoft Azure"
+   description="Procédure de renforcement de vos services contre les défaillances avec et sans pertes de données"
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

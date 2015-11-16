@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # Surveiller les dépendances, les exceptions et les temps d’exécution dans les applications web Java
@@ -33,7 +33,7 @@ Pour utiliser l’agent Java, installez-le sur votre serveur. Vos applications w
 
 ## Installer l’agent Application Insights pour Java
 
-1. Sur la machine exécutant votre serveur Java, [téléchargez l’agent](http://go.microsoft.com/fwlink/?LinkId=618633).
+1. [Téléchargez l'agent](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) sur la machine exécutant votre serveur Java.
 2. Modifiez le script de démarrage du serveur d’applications et ajoutez la Machine virtuelle Java (JVM) suivante :
 
     `javaagent:`*chemin d’accès complet au fichier JAR de l’agent*
@@ -122,4 +122,4 @@ Pour rechercher des instances individuelles de rapports sur les dépendances, le
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

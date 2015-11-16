@@ -13,7 +13,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="vm-windows"
    	ms.workload="big-compute"
-   	ms.date="09/30/2015"
+   	ms.date="11/02/2015"
    	ms.author="v-marsma"/>
 
 # Optimiser l’utilisation des ressources de calcul Azure Batch avec les tâches de nœud simultanées
@@ -38,7 +38,7 @@ Pour illustrer les avantages de l’exécution de tâches parallèles, supposons
 
 La configuration des nœuds de calcul dans votre solution Batch pour l’exécution des tâches parallèles s’effectue au niveau du pool. Lorsque vous travaillez avec l’API .NET Batch, la propriété [CloudPool.MaxTasksPerComputeNode][maxtasks_net] est définie lors de la création d’un pool. Dans l’API REST Batch, l’élément [maxTasksPerNode][maxtasks_rest] est défini dans le corps de la demande lors de la création du pool.
 
-Azure Batch permet un nombre maximum de tâches par nœud allant jusqu’à quatre fois (4x) le nombre de cœurs de nœud. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Des informations sur le nombre de cœurs pour chaque taille de nœud sont disponibles dans [Tailles de machines virtuelles](../virtual-machines/virtual-machines-size-specs.md). Vous trouverez plus d’informations sur les limites de service dans [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+Azure Batch permet un nombre maximum de tâches par nœud allant jusqu’à quatre fois (4x) le nombre de cœurs de nœud. Par exemple, si le pool est configuré avec des nœuds de grande taille (quatre cœurs), alors la valeur `maxTasksPerNode` peut être définie sur 16. Des informations sur le nombre de cœurs pour chaque taille de nœud sont disponibles dans [Tailles des services cloud](../cloud-services/cloud-services-sizes-specs.md), et des informations supplémentaires sur les limites de service sont disponibles dans [Quotas et limites pour le service Azure Batch](batch-quota-limit.md).
 
 > [AZURE.TIP]Veillez à prendre en compte la valeur `maxTasksPerNode` lors de la construction d’une [formule de mise à l’échelle automatique][enable_autoscaling] pour votre pool. Par exemple, une formule qui évalue `$RunningTasks` pourrait être considérablement affectée par une augmentation des tâches par nœud. Consultez [Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch](batch-automatic-scaling.md) pour plus d’informations.
 
@@ -106,11 +106,11 @@ La deuxième exécution de l’exemple montre une réduction significative de la
 
 ## Carte thermique Batch Explorer
 
-[Batch Explorer][batch_explorer], l’un des [exemples d’application][github_samples] d’Azure Batch, contient une fonctionnalité *Carte thermique* qui permet de visualiser l’utilisation des cœurs de nœud au sein d’un pool. Lorsque vous exécutez l’exemple d’application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser facilement l’activité des cœurs de nœud.
+[Batch Explorer][batch_explorer], l'un des [exemples d'application][github_samples] Azure Batch, contient une fonctionnalité *Carte thermique* qui permet de visualiser l'exécution de tâches. Lorsque vous exécutez l'exemple d'application [ParallelTasks][parallel_tasks_sample], utilisez la fonctionnalité Carte thermique pour visualiser l'exécution de tâches parallèles pour chaque mode.
 
 ![Carte thermique Batch Explorer][1]
 
-*Carte thermique Batch Explorer montrant quatre nœuds avec quatre cœurs chacun, chaque cœur exécutant actuellement une tâche*
+*Carte thermique Batch Explorer affichant un pool de quatre nœuds, chaque nœud exécutant quatre tâches*
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -127,4 +127,4 @@ La deuxième exécution de l’exemple montre une réduction significative de la
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

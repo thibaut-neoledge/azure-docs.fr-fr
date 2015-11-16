@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-Ce didacticiel vous explique comment charger des données dans votre base de données Azure SQL Data Warehouse avec PolyBase.
+Ce didacticiel vous explique comment charger des données dans votre base de données Azure SQL Data Warehouse avec PolyBase. Pour en savoir plus sur PolyBase, consultez [Didacticiel PolyBase dans SQL Data Warehouse][].
 
 
 ## Configuration requise
@@ -63,19 +63,18 @@ Ouvrez le Bloc-notes et copiez les lignes de données suivantes dans un nouveau 
 .\AzCopy.exe /Source:C:\Temp\ /Dest:https://pbdemostorage.blob.core.windows.net/datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
 ```
 
-Pour en savoir plus sur AzCopy, consultez l’article [Prise en main de l’utilitaire de ligne de commande AzCopy][].
+Pour en savoir plus sur AzCopy, consultez [Prise en main de l'utilitaire de ligne de commande AzCopy][].
 
 
 ## Étape 3 : Créer des tables externes
 
 Vous devez ensuite créer des tables externes dans la base de données SQL Data Warehouse pour faire référence aux données dans le stockage d’objets blob Azure. Pour créer une table externe, procédez comme suit :
 
-- [Créer une clé principale][] : pour chiffrer la clé secrète de vos informations d’identification de niveau base de données.
-- [Créer des informations d’identification de niveau base de données] : pour spécifier les informations d’authentification de votre compte de stockage Azure.
-- [Créer une source de données externe] : pour spécifier l’emplacement de votre stockage d’objets blob Azure.
+- [Créer une clé principale][] : pour chiffrer la clé secrète de vos informations d'identification de niveau base de données.
+- [Créer des informations d'identification de niveau base de données] : pour spécifier les informations d'authentification de votre compte de stockage Azure.
+- [Créer une source de données externe] : pour spécifier l'emplacement de votre stockage d'objets blob Azure.
 - [Créer un format de fichier externe] : pour spécifier la disposition de vos données.
 - [Créer une table externe] : pour référencer les données de stockage Azure.
-
 
 
 ```
@@ -132,7 +131,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## Étape 4 : Charger des données dans SQL Data Warehouse
 
-- Pour charger les données dans une nouvelle table, exécutez l'instruction CREATE TABLE AS SELECT. La nouvelle table hérite des colonnes désignées dans la requête. Elle hérite des types de données de ces colonnes à partir de la définition de table externe. 
+- Pour charger les données dans une nouvelle table, exécutez l'instruction [CREATE TABLE AS SELECT (Transact-SQL)][]. La nouvelle table hérite des colonnes désignées dans la requête. Elle hérite des types de données de ces colonnes à partir de la définition de table externe. 
 - Pour charger les données dans une table existante, utilisez l'instruction INSERT...SELECT.  
 
 
@@ -144,18 +143,25 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-Voir [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-Pour en savoir plus sur PolyBase, consultez [Didacticiel PolyBase dans SQL Data Warehouse][].
+## Étape 5 : Créer des statistiques sur vos données nouvellement chargées 
 
+Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour une explication détaillée des statistiques, consultez la rubrique [Statistiques][] dans le groupe de rubriques sur le développement. Voici un exemple rapide de la création de statistiques sur le tableau chargé dans cet exemple
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
 [Didacticiel PolyBase dans SQL Data Warehouse]: sql-data-warehouse-load-with-polybase.md
@@ -163,13 +169,18 @@ Pour en savoir plus sur PolyBase, consultez [Didacticiel PolyBase dans SQL Data 
 
 <!-- External Links -->
 [dernière version d'AzCopy]: http://aka.ms/downloadazcopy
-[Prise en main de l’utilitaire de ligne de commande AzCopy]: https://azure.microsoft.com/documentation/articles/storage-use-azcopy/
+[Prise en main de l'utilitaire de ligne de commande AzCopy]: https://azure.microsoft.com/documentation/articles/storage-use-azcopy/
 
 [Créer une source de données externe]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [Créer un format de fichier externe]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [Créer une table externe]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 [Créer une clé principale]: https://msdn.microsoft.com/fr-FR/library/ms174382.aspx
-[Créer des informations d’identification de niveau base de données]: https://msdn.microsoft.com/fr-FR/library/mt270260.aspx
+[Créer des informations d'identification de niveau base de données]: https://msdn.microsoft.com/fr-FR/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Nov15_HO1-->
+
+<!--Article references-->
+
+[Statistiques]: ./sql-data-warehouse-develop-statistics.md
+
+<!---HONumber=Nov15_HO2-->

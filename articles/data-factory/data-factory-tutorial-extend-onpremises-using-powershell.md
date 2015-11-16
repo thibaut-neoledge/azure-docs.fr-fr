@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 
@@ -23,6 +23,10 @@ Dans cette procédure pas à pas, vous allez apprendre à configurer l’environ
 Dans la dernière étape du scénario de traitement de journal, lors de la première procédure pas à pas avec Partition -> Enrichir -> Analyser le flux de travail, la sortie de l’efficacité de la campagne marketing a été copiée dans une base de données SQL Azure. Vous pouvez également déplacer ces données vers une base de données SQL Server locale pour l’analyser au sein de votre organisation.
  
 Pour copier les données d’efficacité de la campagne marketing depuis un objet blob Azure vers une base de données SQL Server locale, vous devez créer en supplément un service lié local, une table et un pipeline utilisant le même jeu de cmdlets présenté dans la première procédure pas à pas.
+
+> [AZURE.IMPORTANT]cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
+>    
+> Si vous utilisez la version préliminaire d'Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
 
 ## Configuration requise
 
@@ -116,7 +120,7 @@ Pour commencer, vous devez créer la base de données SQL Server, la table, les 
 ### Création de la table logique locale
 
 1.	Dans **Azure PowerShell**, accédez au dossier **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Utilisez l’applet de commande **New-AzureDataFactoryDataset** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
+2.	Utilisez l'applet de commande **New-AzureDataFactoryDataset** pour créer les tables pour **MarketingCampaignEffectivenessOnPremSQLTable.json**, comme suit.
 
 			
 		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
@@ -170,4 +174,4 @@ Félicitations ! Vous avez terminé la procédure pas à pas pour utiliser votr
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

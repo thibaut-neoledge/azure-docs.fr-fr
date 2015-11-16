@@ -18,9 +18,7 @@
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -40,6 +38,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Suivez le [didacticiel de démarrage rapide](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Créer un concentrateur de notification
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Inscrire une application pour les notifications Push
 
 [AZURE.INCLUDE [Activer les notifications Push Apple](../../includes/enable-apple-push-notifications.md)]
@@ -48,11 +50,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-##<a id="update-server"></a>Mettre à jour le projet de serveur pour l’envoi de notifications Push
+##<a id="update-server"></a>Mettre à jour le projet de serveur pour l'envoi de notification Push
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Déployer le projet de serveur sur Azure
+## <a name="publish-the-service"></a>Déployer le projet de serveur dans Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
@@ -62,7 +64,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="add-push"></a>Ajout de notifications Push à votre application
 
-1. Dans **QSTodoService**, ajoutez la propriété suivante pour qu’**AppDelegate** puisse acquérir le client mobile :
+1. Dans **QSTodoService**, ajoutez la propriété suivante pour qu'**AppDelegate** puisse acquérir le client mobile :
         
             public MobileServiceClient GetClient {
             get
@@ -75,7 +77,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
             }
         }
 
-1. Ajoutez l’instruction `using` suivante au début du fichier **AppDelegate.cs**.
+1. Ajoutez l'instruction `using` suivante au début du fichier **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -133,7 +135,7 @@ L’application est mise à jour et prend en charge les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-2. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
+2. Dans l'application, tapez une tâche, puis cliquez sur l'icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -154,4 +156,4 @@ Vous avez terminé ce didacticiel.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

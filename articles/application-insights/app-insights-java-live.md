@@ -40,7 +40,7 @@ Vous devrez vous abonner à [Microsoft Azure](http://azure.com).
 
 ## 2\. Télécharger le Kit de développement logiciel (SDK)
 
-1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
+1. Téléchargez le [Kit de développement logiciel (SDK) Application Insights pour Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. Sur votre serveur, extrayez le contenu du Kit de développement logiciel dans le répertoire à partir duquel les fichiers binaires de votre projet sont chargés. Si vous utilisez Tomcat, le contenu est généralement extrait sous `webapps<your_app_name>\WEB-INF\lib`.
 
 
@@ -139,4 +139,4 @@ Et lorsque vous affichez les propriétés d'une demande, vous voyez les événem
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

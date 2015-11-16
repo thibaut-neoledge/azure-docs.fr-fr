@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Routage dépendant des données" 
-	description="Utilisation de ShardMapManager pour le routage selon les données, une fonctionnalité de base de données élastique pour la base de données SQL Azure" 
+	pageTitle="Routage dépendant des données | Microsoft Azure" 
+	description="Utilisation de ShardMapManager pour le routage dépendant des données, une fonctionnalité de base de données élastique pour la base de données SQL Azure" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="torsteng" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 #Routage dépendant des données
 
 La classe **ShardMapManager** permet aux applications ADO.NET de diriger facilement les requêtes et les commandes de base de données vers la base de données physique appropriée dans un environnement partitionné. Il s'agit du **routage dépendant des données** qui est un modèle fondamental lorsque vous travaillez avec des bases de données partitionnées. Chaque requête ou transaction spécifique d'une application utilisant le routage dépendant des données est limitée à l'accès à une seule base de données par demande.
 
 À l'aide du routage dépendant des données, il est inutile que l'application effectue le suivi des diverses chaînes de connexion ou emplacements de base de données associés à différents segments de données dans l'environnement partitionné. À la place, le [Gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md) assume la responsabilité de la distribution des connexions ouvertes à la base de données appropriée, le cas échéant, en fonction des données de la carte de partitions et de la valeur de la clé de partitionnement qui est la cible de la demande de l'application. (Cette clé est généralement l'identificateur *customer\_id*, *tenant\_id* ou *date\_key* ou tout autre identificateur spécifique qui est un paramètre fondamental de la demande de la base de données).
+
+## Téléchargement de la bibliothèque cliente
+
+Pour installer la bibliothèque, accédez à [Bibliothèque cliente de base de données élastique](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Utilisation d’une classe ShardMapManager dans une application de routage dépendant des données 
 
@@ -30,9 +34,9 @@ Pour les applications utilisant le routage dépendant des données, une classe *
                       ShardMapManagerLoadPolicy.Lazy);
     RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
-Dans cet exemple, à la fois une classe **ShardMapManager** et un objet **ShardMap** spécifique qu'elle contient sont initialisés.
+Dans cet exemple, une classe **ShardMapManager** et un objet **ShardMap** spécifique qu'elle contient sont initialisés.
 
-Pour une application qui ne manipule pas la carte de partitions proprement dite, les informations d'identification utilisées dans la méthode de fabrique pour obtenir la classe **ShardMapManager** (dans l'exemple ci-dessus, *smmConnectionString*) doivent être des informations d'identification disposant des autorisations en lecture seule dans la base de données **Carte de partitions globale** référencée par la chaîne de connexion. Ces informations d'identification sont généralement différentes des informations d'identification utilisées pour ouvrir des connexions dans le gestionnaire des cartes de partitions. Voir également [Gestion des informations d’identification dans les bibliothèques clientes de la base de données élastique](sql-database-elastic-scale-manage-credentials.md).
+Pour une application qui ne manipule pas la carte de partitions proprement dite, les informations d'identification utilisées dans la méthode de fabrique pour obtenir la classe **ShardMapManager** (dans l'exemple ci-dessus, *smmConnectionString*) doivent être des informations d'identification disposant des autorisations en lecture seule dans la base de données **Carte de partitions globale** référencée par la chaîne de connexion. Ces informations d'identification sont généralement différentes des informations d'identification utilisées pour ouvrir des connexions dans le gestionnaire des cartes de partitions. Voir également [Gestion des informations d'identification dans les bibliothèques clientes de la base de données élastique](sql-database-elastic-scale-manage-credentials.md).
 
 ## Appel du routage dépendant des données 
 
@@ -72,7 +76,7 @@ Il s'agit d'un exemple de code qui utilise le gestionnaire des cartes de partiti
 
 Notez qu'au lieu d'utiliser un constructeur pour un objet **SqlConnection**, suivi d'un appel **Open()** à l'objet de connexion, la méthode **OpenConnectionForKey** est utilisée et elle offre une nouvelle connexion déjà ouverte à la base de données. Les connexions utilisées de cette manière tirent pleinement parti du regroupement de connexions ADO.Net. Tant que les transactions et les demandes peuvent être satisfaites une seule partition à la fois, il s'agit de la seule modification nécessaire dans une application utilisant déjà ADO.Net.
 
-La méthode **OpenConnectionForKeyAsync** est également disponible si votre application utilise la programmation asynchrone avec ADO.Net. Son comportement est l’équivalent du routage dépendant des données de la méthode ADO.NET **Connection.OpenAsync**.
+La méthode **OpenConnectionForKeyAsync** est également disponible si votre application utilise la programmation asynchrone avec ADO.Net. Son comportement est l'équivalent du routage dépendant des données de la méthode ADO.NET **Connection.OpenAsync**.
 
 ## Intégration de la gestion des erreurs temporaires 
 
@@ -117,4 +121,4 @@ Les propriétés transactionnelles sont garanties pour toutes les opérations lo
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

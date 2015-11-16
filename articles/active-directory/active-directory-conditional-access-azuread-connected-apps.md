@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/30/2015"
 	ms.author="femila"/>
 
 # Vue d’ensemble de l’accès conditionnel Azure pour les applications SaaS
@@ -55,7 +55,7 @@ Par défaut, la stratégie s’applique à tous les utilisateurs qui ont accès 
 
 Des groupes de sécurité peuvent également être explicitement exclus de la stratégie en sélectionnant l’option Sauf et en spécifiant un ou plusieurs groupes. Les utilisateurs qui sont membres d’un groupe dans la liste Sauf ne sont pas soumis à l’exigence d’authentification multifacteur, même s’ils sont membres d’un groupe auquel s’applique la règle d’accès. La règle d’accès indiquée ci-dessous nécessite que tous les utilisateurs du groupe Gestionnaires utilisent l’authentification multifacteur pour accéder à l’application.
 
-![Définition des règles d’accès conditionnel avec l’authentification multifacteur](./media/active-directory-conditional-access/conditionalaccess-saas-apps.jpg)
+![Définition des règles d’accès conditionnel avec l’authentification multifacteur](./media/active-directory-conditional-access/conditionalaccess-saas-apps.png)
 
 ##Règles d’accès conditionnel avec l’authentification multifacteur
 Si un utilisateur a été configuré à l’aide de la fonctionnalité d’authentification multifacteur en fonction de l’utilisateur, ce paramètre sur l’utilisateur a priorité sur les règles d’authentification multifacteur par application. Cela signifie qu’un utilisateur qui a été configuré pour l’authentification multifacteur en fonction de l’utilisateur doit effectuer l’authentification multifacteur, même s’il a été exclu des règles d’authentification multifacteur par application. En savoir plus sur l’authentification multifacteur et sur les paramètres pour chaque utilisateur.
@@ -86,4 +86,4 @@ L’exemple suivant montre comment activer l’authentification multifacteur loc
 
 En plus de définir cet indicateur, vous devez configurer l’instance AD FS du client fédéré pour effectuer une authentification multifacteur. Suivez les instructions permettant de déployer Azure Multi-Factor Authentication localement.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

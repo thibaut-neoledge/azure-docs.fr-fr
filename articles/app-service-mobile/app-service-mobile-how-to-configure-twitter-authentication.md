@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion Twitter
@@ -29,7 +29,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 1. Connectez-vous au [portail de gestion Azure] et accédez à votre application Mobile App. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Twitter.
 
-2. Cliquez sur **Paramètres**, **Authentification utilisateur**, puis cliquez sur **Twitter**. Copie l’**URL de rappel**. Vous l’utiliserez pour configurer votre application Twitter.
+2. Cliquez sur **Paramètres**, **Authentification mobile**, puis cliquez sur **Twitter**. Copie l’**URL de rappel**. Vous l’utiliserez pour configurer votre application Twitter.
 
 3. Accédez au site web [Twitter Developers], connectez-vous avec vos identifiants Twitter, puis cliquez sur **Create New App**.
 
@@ -70,6 +70,5 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [portail de gestion Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

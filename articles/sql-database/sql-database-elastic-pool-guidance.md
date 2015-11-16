@@ -40,7 +40,7 @@ Les pools de base de données élastiques dans Base de données SQL Azure permet
 
 Les pools élastiques de bases de données sont idéals en cas de nombreuses bases de données avec des modèles d'utilisation spécifique. Pour une base de données indiquée, ce modèle se caractérise par une faible utilisation moyenne avec des pics d'utilisation relativement rares.
 
-Plus vous pouvez ajouter de bases de données à un pool, plus vous faites d’économies. Toutefois, en fonction de votre modèle d’utilisation de l’application, il est possible de réaliser des économies rien qu’avec 2 bases de données S3.
+Plus vous ajoutez de bases de données à un pool, plus vous faites d'économies. En fonction de votre modèle d'utilisation de l'application, il est possible de faire des économies avec seulement 2 bases de données S3.
 
 Les sections suivantes vous aideront à comprendre comment savoir si votre collection de bases de données spécifique tirera profit de l’utilisation d’un pool élastique de bases de données. Les exemples utilisent les pools élastiques de bases de données Standard, mais ces principes s'appliquent également aux pools De base et Premium.
 
@@ -435,4 +435,4 @@ Toutes les bases de données uniques ne sont pas de parfaits candidats à un poo
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

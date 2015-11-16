@@ -27,37 +27,35 @@ Configurez votre première ou prochaine batterie de serveurs SharePoint de déve
 
 ## Batterie de serveurs de développement/test SharePoint de base
 
-Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, consultez l’élément [Batterie de serveurs non hautement disponible SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs de développement/test de base pour un site web SharePoint sur Internet.
+L'environnement créé automatiquement se compose de trois serveurs sur un réseau virtuel Azure cloud uniquement : un contrôleur de domaine, un serveur SQL et le serveur SharePoint.
 
-Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez la page [Déployer une batterie de serveurs SharePoint à trois serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Consultez l'élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs de développement/test de base pour un site web SharePoint sur Internet. Consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) pour plus de détails.
 
-L’environnement créé automatiquement se compose de trois serveurs pour un contrôleur de domaine, d’un serveur SQL et du serveur SharePoint sur un réseau virtuel Azure cloud uniquement.
+Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à trois serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-Pour créer une configuration similaire avec le modèle de déploiement classique, utilisez l’élément [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) dans Azure Marketplace du portail Azure en version préliminaire.
-
+> [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure en version préliminaire a été supprimé.
 
 ## Batterie de serveurs de développement/test SharePoint haute disponibilité
 
-Pour les machines virtuelles créées à l’aide du modèle de déploiement Resource Manager, consultez l’élément [Batterie de serveurs hautement disponible SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs hautement disponible pour un site web SharePoint sur Internet.
+L'environnement créé automatiquement se compose de neuf serveurs sur un réseau virtuel Azure cloud uniquement : deux pour les contrôleurs de domaine, trois pour un cluster SQL Server, deux serveurs SharePoint de couche Application et deux serveurs SharePoint de niveau web.
 
-Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez la page [Déployer une batterie de serveurs SharePoint à neuf serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Consultez l'élément [Batterie de serveurs SharePoint 2013 hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs de développement/test à haute disponibilité pour un site web SharePoint sur Internet. Consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) pour plus de détails.
 
-L’environnement créé automatiquement se compose de neuf serveurs sur un réseau virtuel Azure cloud uniquement : deux pour les contrôleurs de domaine, trois pour un cluster SQL Server, deux serveurs SharePoint de couche Application et deux serveurs SharePoint de niveau web.
+Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à neuf serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-Pour créer une configuration similaire avec le modèle de déploiement classique, utilisez l’élément [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) dans Azure Marketplace du portail Azure en version préliminaire.
-
+> [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure en version préliminaire a été supprimé.
 
 ## Batterie de serveurs de développement/test de cloud hybride
 
 La [batterie de serveurs SharePoint intranet dans un environnement de développement/test de cloud hybride](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md) vous permet de créer une simulation de configuration de cloud hybride qui héberge une batterie SharePoint simple, à deux niveaux, que vous pouvez utiliser pour tester une batterie de serveurs SharePoint intranet hébergée dans Azure à partir de votre emplacement sur Internet.
 
-Cette configuration utilise des machines virtuelles classiques.
+Cette configuration utilise le modèle de déploiement classique.
 
 ## Batterie de serveurs de production SharePoint intranet haute disponibilité
 
 Le déploiement de [SharePoint 2013 avec des groupes de disponibilité AlwaysOn SQL Server dans Azure](virtual-machines-workload-intranet-sharepoint-overview.md) permet de générer une batterie de serveurs SharePoint Server 2013 intranet haute disponibilité et prête pour la production dans Azure.
 
-Cette configuration utilise des machines virtuelles classiques.
+Cette configuration utilise le modèle de déploiement classique.
 
 ## Ressources supplémentaires
 
@@ -71,4 +69,4 @@ Cette configuration utilise des machines virtuelles classiques.
 
 [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

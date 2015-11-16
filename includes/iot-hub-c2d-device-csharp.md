@@ -1,9 +1,9 @@
-## Réception de messages à partir de la l’appareil simulé
+## Réception de messages sur le périphérique simulé
 
 Dans cette section, vous allez modifier l’application de l’appareil simulé que vous avez créée dans [Prise en main d’IoT Hub] pour recevoir des messages du cloud vers des appareils à partir du concentrateur IoT.
 
 1. Dans Visual Studio, dans le projet **SimulatedDevice**, ajoutez la méthode suivante à la classe **Program**.
-   
+
         private static async void ReceiveC2dAsync()
         {
             Console.WriteLine("\nReceiving cloud to device messages from service");
@@ -37,4 +37,4 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

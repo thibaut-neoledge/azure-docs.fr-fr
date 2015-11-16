@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Mise à niveau des applications Service Fabric"
-   description="Cet article présente la mise à niveau d'une application Service Fabric."
+   pageTitle="Mise à niveau d'application Service Fabric | Microsoft Azure"
+   description="Cet article fournit une introduction à la mise à niveau d'une application Service Fabric, y compris le choix des modes de mise à niveau et les vérifications d'intégrité exécutées."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -19,10 +19,10 @@
 
 # Mise à niveau des applications Service Fabric
 
-
 Une application Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-model.md#describe-an-application) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. À cette fin, les numéros de version dans les manifestes de service sont comparés à la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.
 
 ## Vue d'ensemble des mises à niveau propagées
+
 Une mise à niveau d'application propagée s'effectue par étapes. À chaque étape, la mise à niveau est appliquée à un sous-ensemble de nœuds du cluster, appelé domaine de mise à niveau. Ainsi, l'application demeure disponible tout au long de la mise à niveau. Au cours de la mise à niveau, le cluster peut contenir une combinaison des versions ancienne et nouvelle. De ce fait, les deux versions doivent être mutuellement compatibles. Si ce n'est pas le cas, l'administrateur d'application doit effectuer une mise à niveau échelonnée pour maintenir la disponibilité. Pour cela, il effectue une mise à niveau avec une version intermédiaire de l'application qui est compatible avec la version précédente, puis procède à une mise à niveau vers la version finale.
 
 Les domaines de mise à niveau sont spécifiés dans le manifeste de cluster quand vous configurez le cluster. Les domaines de mise à niveau ne sont pas censés recevoir les mises à jour dans un ordre particulier. Un domaine de mise à niveau est une unité logique de déploiement pour une application. Grâce aux domaines de mise à niveau, les services demeurent hautement disponibles pendant une mise à niveau.
@@ -30,6 +30,7 @@ Les domaines de mise à niveau sont spécifiés dans le manifeste de cluster qua
 Une mise à niveau non propagée est possible si elle est appliquée à tous les nœuds du cluster, ce qui est le cas quand l'application n'a qu'un seul domaine de mise à niveau. Cette méthode n'est pas recommandée, car le service est arrêté et indisponible au moment de la mise à niveau. En outre, Azure ne fournit aucune garantie quand un cluster est configuré avec un seul domaine de mise à niveau.
 
 ## Vérifications d'intégrité pendant les mises à niveau
+
 Pour une mise à niveau, vous devez définir des stratégies d'intégrité (ou utiliser éventuellement des valeurs par défaut). Une mise à niveau est considérée comme ayant réussi quand tous les domaines de mise à niveau sont mis à niveau dans les délais spécifiés et que tous les domaines de mise à niveau sont considérés comme intègres. Un domaine de mise à niveau est considéré comme intègre quand il passe avec succès toutes les vérifications d'intégrité spécifiées dans la stratégie d'intégrité (par exemple, celle-ci peut imposer que tous les services dans une instance d'application soient <em>intègres</em>, l'intégrité étant définie par Service Fabric).
 
 Pendant une mise à jour effectuée par Service Fabric, les stratégies et vérifications d'intégrité sont indépendantes du service et de l'application. Autrement dit, aucun test spécifique au service n'est mené. Par exemple, votre service nécessite un débit minimal. Toutefois, comme Service Fabric ne dispose pas des informations permettant de le vérifier, il ne vérifie pas le débit tel que défini pour votre application. Reportez-vous aux [articles sur l'intégrité](service-fabric-health-introduction.md) pour connaître les vérifications effectuées ; les vérifications pendant la mise à jour déterminent, entre autres, si le package d'application a été correctement copié et si l'instance a été démarrée.
@@ -66,4 +67,4 @@ L'organigramme ci-dessous facilite la compréhension du processus de mise à niv
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

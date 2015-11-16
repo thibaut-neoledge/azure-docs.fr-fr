@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Ajout d'utilisateurs à un pool élastique de bases de données" 
 	description="Vous devez ajouter un utilisateur disposant des privilèges pour chaque base de données du pool" 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Ajout d’utilisateurs à un pool de base de données élastique
@@ -33,7 +32,7 @@ La fonctionnalité **Tâches de bases de données élastiques** (version prélim
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. L'utilisateur doit également disposer des autorisations suffisantes pour exécuter le script spécifié pour la tâche. Utilisez la procédure **sp\_addrolemember** pour fournir à l'utilisateur les autorisations minimales requises pour exécuter le script avec succès.
+3. L'utilisateur doit également disposer des autorisations suffisantes pour exécuter le script spécifié pour la tâche. Utilisez la procédure [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) pour fournir à l'utilisateur les autorisations minimales requises pour exécuter le script avec succès.
 
 ## Étapes suivantes
 
@@ -45,4 +44,4 @@ Pour assurer la création et la gestion des tâches, consultez la rubrique [Cré
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

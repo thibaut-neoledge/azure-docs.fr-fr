@@ -17,7 +17,7 @@
 	ms.author="billmath"/>
 
 # Expérience de connexion avec Azure Multi-Factor Authentication
-Les informations suivantes sont fournies pour vous guider dans le processus de connexion.
+La documentation fournie sur cette page montre une expérience de connexion classique. Pour obtenir de l'aide concernant la connexion, référez-vous à [Problèmes avec Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 
 
 ## Quelle sera votre expérience de connexion ?
@@ -46,7 +46,7 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 ![Réponse](./media/multi-factor-authentication-end-user-signin-phone/phone.png)
 
-- Vous devez maintenant être connecté.</li>
+- À ce stade, vous devez être connecté.</li>
 
 ## Connexion avec l’application mobile à l’aide de la notification
 
@@ -102,4 +102,4 @@ La section suivante vous montre comment vous connecter avec une autre méthode q
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

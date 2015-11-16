@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure SQL à l’aide d’Azure Data Factory
@@ -562,4 +562,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
 	 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

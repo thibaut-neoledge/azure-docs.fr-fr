@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="09/21/2015" 
 	ms.author="andrela"/>
 
 
@@ -38,7 +38,7 @@ Une fois votre ordinateur configuré avec FreeTDS, installez Ruby si vous ne l�
 
 Si vous rencontrez des problèmes avec les signatures, exécutez la commande suivante.
 
-    command curl -sSL https://rvm.io/mpapis.asc | gph --import - 
+    command curl -sSL https://rvm.io/mpapis.asc | gpg --import - 
 
 Si les signatures ne présentent aucun problème, exécutez les commandes suivantes.
 
@@ -117,4 +117,4 @@ Pour être en harmonie avec le format [DateHeure](http://msdn.microsoft.com/libr
     puts row
     end 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

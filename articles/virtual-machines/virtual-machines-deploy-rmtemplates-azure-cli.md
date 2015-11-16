@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/01/2015"
 	ms.author="rasquill"/>
 
 # Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure
@@ -22,7 +22,6 @@
 Cet article montre comment utiliser les modèles Azure Resource Manager et l’interface de ligne de commande Azure pour effectuer les tâches courantes suivantes de déploiement et de gestion de machines virtuelles Azure. Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Vous ne pouvez pas utiliser de modèles dans le modèle de déploiement classique.
-
 
 - [Création rapide d’une machine virtuelle dans Azure](#quick-create-a-vm-in-azure)
 - [Déploiement d’une machine virtuelle dans Azure à partir d’un modèle](#deploy-a-vm-in-azure-from-a-template)
@@ -38,7 +37,7 @@ Cet article montre comment utiliser les modèles Azure Resource Manager et l’
 
 ## Préparation
 
-Avant de pouvoir utiliser l’interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l’interface de ligne de commande Azure, ainsi qu’un compte professionnel ou scolaire.
+Avant de pouvoir utiliser l'interface de ligne de commande Azure avec des groupes de ressources Azure, vous devez avoir la version adéquate de l'interface de ligne de commande Azure, ainsi qu'un compte Azure. Si vous n'avez pas l'interface de ligne de commande Azure, [installez-la](xplat-cli-install.md).
 
 ### Mettre à jour votre interface de ligne de commande Microsoft Azure vers la version 0.9.0 ou une version ultérieure
 
@@ -47,7 +46,7 @@ Entrez `azure --version` pour savoir si vous avez déjà installé la version 0
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Si vous disposez d’une version antérieure à la version 0.9.0, vous devez [installer l’interface de ligne de commande Azure](../xplat-cli-install.md) ou la mettre à jour en utilisant l’un des programmes d’installation natifs ou via **npm**, en tapant `npm update -g azure-cli`.
+Si vous disposez d'une version antérieure à la version 0.9.0, vous devez la mettre à jour en utilisant l'un des programmes d'installation natifs ou via **npm**, en tapant `npm update -g azure-cli`.
 
 Vous pouvez également exécuter l’interface de ligne de commande Azure en tant que conteneur Docker à l’aide de l’[image Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/) suivante. À partir d’un hôte Docker, exécutez la commande suivante :
 
@@ -57,9 +56,9 @@ Vous pouvez également exécuter l’interface de ligne de commande Azure en tan
 
 Si vous ne possédez pas déjà un abonnement Azure, mais que vous avez un abonnement MSDN, vous pouvez activer vos [avantages abonnés MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ou vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
-Vous devez disposer d’un compte professionnel ou scolaire pour utiliser des modèles de gestion des ressources Azure. Si vous en avez un, vous pouvez taper `azure login` et entrer vos nom d’utilisateur et mot de passe ; vous devriez pouvoir vous connecter.
+À présent, [connectez-vous à votre compte Azure de façon interactive](../xplat-cli-connect.md#use-the-log-in-method) en tapant `azure login`, puis en suivant les invites pour une expérience de connexion interactive à votre compte Azure.
 
-> [AZURE.NOTE]Si cela n’est pas le cas, un message d’erreur s’affiche, indiquant que vous avez besoin d’un autre type de compte. Pour en créer un à partir de votre compte Azure actuel, consultez [Création d’une identité professionnelle ou scolaire dans Azure Active Directory](resource-group-create-work-id-from-personal.md).
+> [AZURE.NOTE]Si vous disposez d'un ID professionnel ou scolaire et que vous savez que l'authentification à deux facteurs n'est pas activée, vous pouvez **également** utiliser `azure login -u` avec l'ID professionnel ou scolaire pour vous connecter *sans* session interactive. Si vous ne disposez pas d'un ID professionnel ou scolaire, vous pouvez [créer un ID professionnel ou scolaire à partir de votre compte Microsoft personnel](resource-group-create-work-id-from-personal.md) pour vous connecter de la même façon.
 
 Votre compte peut avoir plusieurs abonnements. Vous pouvez répertorier vos abonnements en tapant `azure account list`, ce qui pourrait donner ceci :
 
@@ -80,19 +79,15 @@ Vous pouvez définir l’abonnement Azure actuel en tapant la commande suivante.
 
 ### Passer en mode de groupe de ressources d’interface de ligne de commande Microsoft Azure
 
-Par défaut, l’interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
+Par défaut, l'interface de ligne de commande Azure démarre en mode Azure Service Management (mode **asm**). Tapez la commande suivante pour basculer en mode de groupe de ressources.
 
 	azure config mode arm
-
-
-
-> [AZURE.NOTE]Vous pouvez revenir à la configuration des commandes par défaut en tapant `azure config mode asm`.
 
 ## Présentation des groupes et des modèles de ressources Azure
 
 La plupart des applications sont basées sur une combinaison de différents types de ressources (au moins une machine virtuelle et un compte de stockage, une base de données SQL, un réseau virtuel ou un réseau de distribution de contenu). L’API de gestion des services Azure par défaut et le portail Azure présentaient ces éléments en suivant une approche au cas par cas, ce qui nécessitait un déploiement et une gestion propres à chaque service (ou l’obtention d’outils supplémentaires pour le faire) et interdisait l’usage d’une seule unité logique de déploiement.
 
-Les *modèles Azure Resource Manager* permettent de regrouper le déploiement et la gestion de ces différentes ressources en une seule unité logique de déploiement de manière déclarative. Au lieu de devoir utiliser une suite de commandes pour indiquer à Azure les éléments à déployer les uns après les autres, il vous suffit de décrire l’intégralité de votre déploiement dans un fichier JSON, comprenant toutes vos ressources, ainsi que les configurations et les paramètres de déploiement leur étant associés, puis d’indiquer à Azure de déployer ces ressources en tant que groupe.
+Cependant, les *modèles Azure Resource Manager* permettent de regrouper le déploiement et la gestion de ces différentes ressources en une seule unité logique de déploiement de manière déclarative. Au lieu de devoir utiliser une suite de commandes pour indiquer à Azure les éléments à déployer les uns après les autres, il vous suffit de décrire l’intégralité de votre déploiement dans un fichier JSON, comprenant toutes vos ressources, ainsi que les configurations et les paramètres de déploiement leur étant associés, puis d’indiquer à Azure de déployer ces ressources en tant que groupe.
 
 Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe en utilisant les commandes de gestion des ressources de l’interface de ligne de commande Azure pour :
 
@@ -101,7 +96,7 @@ Vous pouvez ensuite gérer l’ensemble du cycle de vie des ressources du groupe
 - mener des opérations d’audit ;
 - baliser des ressources avec des métadonnées supplémentaires pour améliorer leur suivi.
 
-Pour plus d’informations sur les groupes de ressources Azure et ce qu’ils peuvent faire pour vous, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+Pour plus d'informations sur les groupes de ressources Azure et ce qu'ils peuvent faire pour vous, consultez [Présentation d'Azure Resource Manager](../resource-group-overview.md). Si vous êtes intéressé par la création de modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Tâche : Créer rapidement une machine virtuelle dans Azure
 
@@ -123,7 +118,7 @@ Commencez par créer votre groupe de ressources.
     info:    group create command OK
 
 
-Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l’aide de l’interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
+Ensuite, vous aurez besoin d’une image. Pour rechercher une image à l'aide de l'interface de ligne de commande Azure, consultez [Rechercher par navigation et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l'interface de ligne de commande Azure](resource-groups-vm-searching.md). Mais pour cet article, voici une brève liste d’images populaires. Nous allons utiliser l’image Stable de CoreOS pour cette création rapide.
 
 > [AZURE.NOTE]Pour l’élément ComputeImageVersion, vous pouvez simplement ajouter 'latest' en tant que paramètre dans le langage du modèle et dans l’interface de ligne de commande Azure. Ceci vous permettra de toujours utiliser la version la plus récente et corrigée de l’image, sans modifier vos scripts ou vos modèles. Consultez l’illustration ci-dessous.
 
@@ -232,7 +227,7 @@ Créez simplement votre machine virtuelle en entrant la commande `azure vm quick
 
 Et vous voici avec une nouvelle machine virtuelle.
 
-## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tâche : Déployer une machine virtuelle dans Azure à partir d’un modèle
+## <a id="deploy-a-vm-in-azure-from-a-template"></a>Tâche : Déployer une machine virtuelle dans Azure à partir d'un modèle
 
 Suivez les instructions des sections suivantes pour déployer une nouvelle machine virtuelle Azure à l’aide d’un modèle avec l’interface de ligne de commande Azure. Ce modèle crée une seule machine virtuelle dans un réseau virtuel avec un seul sous-réseau et, contrairement à la commande `azure vm quick-create`, il permet de décrire précisément ce que vous voulez et de le répéter sans erreurs. Voici le résultat du modèle :
 
@@ -434,7 +429,7 @@ Une fois que vous avez déterminé ces valeurs, vous pouvez créer un groupe pou
 
 Lorsque vos valeurs de paramètres sont prêtes, vous devez créer un groupe de ressources pour le déploiement de votre modèle avant de procéder à celui-ci.
 
-Pour créer le groupe de ressources, tapez `azure group create <group name> <location>` en indiquant le nom du groupe de votre choix et l’emplacement du centre de données où a lieu le déploiement. Le processus est rapide :
+Pour créer le groupe de ressources, tapez `azure group create <group name> <location>` en indiquant le nom du groupe de votre choix et l'emplacement du centre de données où a lieu le déploiement. Le processus est rapide :
 
     azure group create myResourceGroup westus
     info:    Executing command group create
@@ -692,9 +687,9 @@ Ici encore, vous devez rechercher les valeurs que vous souhaitez entrer pour les
 
 Évidemment, vous aurez besoin d’un fichier .vhd pour cela. Vous pouvez utiliser un fichier dont vous disposez dans Azure ou en télécharger un.
 
-Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
+Dans le cas d’une machine virtuelle Windows, consultez la page [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
-Pour une machine virtuelle Linux, consultez [Création et téléchargement d’un disque dur virtuel contenant le système d’exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
+Pour une machine virtuelle Linux, consultez [Création et téléchargement d'un disque dur virtuel contenant le système d'exploitation Linux](virtual-machines-linux-create-upload-vhd.md).
 
 ### Étape 3 : création de la machine virtuelle à l’aide du modèle
 
@@ -713,7 +708,7 @@ Vous êtes maintenant prêt à créer une machine virtuelle basée sur le fichie
     data:
     info:    group create command OK
 
-Ensuite, créez le déploiement avec l’option `--template-uri` pour appeler directement le modèle (ou utilisez l’option `--template-file` pour utiliser un fichier enregistré localement). Notez que, comme le modèle possède des valeurs par défaut, vous n’avez pas à renseigner beaucoup d’invites. Si vous déployez le modèle à différents endroits, il est possible que des conflits de noms se produisent vis-à-vis des valeurs par défaut (notamment le nom DNS que vous avez créé).
+Ensuite, créez le déploiement avec l'option `--template-uri` pour appeler directement le modèle (ou utilisez l'option `--template-file` pour utiliser un fichier enregistré localement). Notez que, comme le modèle possède des valeurs par défaut, vous n’avez pas à renseigner beaucoup d’invites. Si vous déployez le modèle à différents endroits, il est possible que des conflits de noms se produisent vis-à-vis des valeurs par défaut (notamment le nom DNS que vous avez créé).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1108,7 +1103,7 @@ Voici le contenu du fichier JSON relatif au modèle. La version la plus récente
 
 ### Étape 2 : création du déploiement à l’aide du modèle
 
-Créez un groupe de ressources pour le modèle à l’aide de `azure group create <location>`. Ensuite, créez un déploiement dans ce groupe de ressources à l’aide de la commande `azure group deployment create`, puis transmettez le groupe de ressources et un nom de déploiement et renseignez les invites relatives aux paramètres du modèle n’ayant pas de valeurs par défaut.
+Créez un groupe de ressources pour le modèle à l'aide de `azure group create <location>`. Ensuite, créez un déploiement dans ce groupe de ressources à l'aide de la commande `azure group deployment create`, puis transmettez le groupe de ressources et un nom de déploiement et renseignez les invites relatives aux paramètres du modèle n'ayant pas de valeurs par défaut.
 
 
     azure group create lbgroup westus
@@ -1176,7 +1171,7 @@ Notez que ce modèle déploie une image Windows Server ; toutefois, vous pouvez
 
 ## <a id="remove-a-resource-group"></a>Tâche : Supprimer un groupe de ressources
 
-N’oubliez pas que vous pouvez effectuer un redéploiement dans un groupe de ressources, mais si vous ne voulez plus en utiliser un, vous pouvez le supprimer en utilisant `azure group delete <group name>`.
+N'oubliez pas que vous pouvez effectuer un redéploiement dans un groupe de ressources, mais si vous ne voulez plus en utiliser un, vous pouvez le supprimer en utilisant `azure group delete <group name>`.
 
     azure group delete myResourceGroup
     info:    Executing command group delete
@@ -1184,11 +1179,11 @@ N’oubliez pas que vous pouvez effectuer un redéploiement dans un groupe de re
     + Deleting resource group myResourceGroup
     info:    group delete command OK
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Tâche : Afficher le journal d’un déploiement de groupe de ressources
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Tâche : Afficher le journal d'un déploiement de groupe de ressources
 
-Cette tâche est courante lors de la création ou de l’utilisation de modèles. L’appel permettant d’afficher les journaux de déploiement d’un groupe est `azure group log show <groupname>`. Cela entraîne l’affichage d’informations utiles pour comprendre pourquoi un événement s’est produit ou ne s’est pas produit. Pour plus d’informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-group-deploy-debug.md).
+Cette tâche est courante lors de la création ou de l’utilisation de modèles. L'appel permettant d'afficher les journaux de déploiement d'un groupe est `azure group log show <groupname>`. Cela entraîne l'affichage d'informations utiles pour comprendre pourquoi un événement s'est produit ou ne s'est pas produit. Pour plus d'informations sur la résolution des problèmes de vos déploiements, mais aussi pour obtenir des informations supplémentaires sur les problèmes, consultez [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](resource-group-deploy-debug.md).
 
-Pour résoudre certaines défaillances, vous pouvez utiliser des outils tels que **jq** pour obtenir des renseignements plus précis, comme par exemple, l’identification des défaillances individuelles à corriger. L’exemple suivant utilise **jq** pour analyser un journal de déploiement à la recherche de défaillances dans **lbgroup**.
+Pour résoudre certaines défaillances, vous pouvez utiliser des outils tels que **jq** pour obtenir des renseignements plus précis, comme par exemple, l’identification des défaillances individuelles à corriger. L'exemple suivant utilise **jq** pour analyser un journal de déploiement à la recherche de défaillances dans **lbgroup**.
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
@@ -1202,7 +1197,7 @@ Vous pouvez découvrir très rapidement ce qui pose problème, le corriger et re
 
 ## <a id="display-information-about-a-virtual-machine"></a>Tâche : Afficher les informations relatives à une machine virtuelle
 
-Des informations relatives à des machines virtuelles spécifiques sont disponibles dans votre groupe de ressources. Consultez-les en utilisant la commande `azure vm show <groupname> <vmname> command`. Si vous avez plusieurs machines virtuelles dans votre groupe, vous aurez peut-être besoin de les répertorier dans un groupe à l’aide de la commande `azure vm list <groupname>`.
+Des informations relatives à des machines virtuelles spécifiques sont disponibles dans votre groupe de ressources. Consultez-les en utilisant la commande `azure vm show <groupname> <vmname> command`. Si vous avez plusieurs machines virtuelles dans votre groupe, vous aurez peut-être besoin de les répertorier dans un groupe à l'aide de la commande `azure vm list <groupname>`.
 
     azure vm list zoo
     info:    Executing command vm list
@@ -1265,11 +1260,11 @@ Ensuite, recherchez myVM1 :
     info:    vm show command OK
 
 
-> [AZURE.NOTE]Si vous souhaitez stocker et manipuler la sortie des commandes de votre console par programme, vous pouvez utiliser un outil d’analyse JSON tel que **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
+> [AZURE.NOTE]Si vous souhaitez stocker et manipuler la sortie des commandes de votre console par programme, vous pouvez utiliser un outil d'analyse JSON tel que **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** ou les bibliothèques de langages adaptées à cette tâche.
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Tâche : Se connecter à une machine virtuelle Linux
 
-En général, les machines Linux sont connectées via SSH. Pour plus d’informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
+En général, les machines Linux sont connectées via SSH. Pour plus d'informations, consultez [Utilisation de SSH avec Linux dans Azure](virtual-machines-linux-use-ssh-key.md).
 
 ## <a id="stop-a-virtual-machine"></a>Tâche : Arrêter une machine virtuelle
 
@@ -1302,8 +1297,8 @@ Vous devrez ensuite monter le disque, comme vous le feriez normalement sous Linu
 
 ## Étapes suivantes
 
-Pour consulter d’autres exemples d’utilisation de l’interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez [Présentation d’Azure Resource Manager](../resource-group-overview.md).
+Pour consulter d'autres exemples d'utilisation de l'interface de ligne de commande Azure avec le mode **arm**, consultez [Utilisation de l'interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md). Pour en savoir plus sur les ressources Azure et leurs concepts, consultez la page [Présentation d'Azure Resource Manager](../resource-group-overview.md).
 
-Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d’application à l’aide de modèles](virtual-machines-app-frameworks.md).
+Pour connaître les modèles supplémentaires utilisables, consultez [Modèles de démarrage rapide Azure](http://azure.microsoft.com/documentation/templates/) et [Infrastructures d'application à l'aide de modèles](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

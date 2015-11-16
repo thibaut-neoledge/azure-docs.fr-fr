@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Création et gestion de tâches de bases de données élastiques"
+	pageTitle="Création et gestion de tâches de bases de données élastiques | Micosoft Azure"
 	description="Passez en revue la création et la gestion d'une tâche de base de données élastique."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Créer et gérer des tâches de bases de données SQL élastiques avec le portail (version préliminaire)
@@ -115,4 +115,4 @@ Si une tâche échoue, un journal détaillant son exécution est créé. Cliquez
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

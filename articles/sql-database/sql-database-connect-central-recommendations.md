@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/02/2015" 
 	ms.author="genemi"/>
 
 
@@ -100,16 +100,6 @@ Sauf si votre programme doit réutiliser immédiatement la connexion pour une au
 - Fermez la connexion.
 
 
-#### Exception levée lors de l’utilisation d’un pool
-
-
-Quand la mise en pool de connexions est activé et qu’une erreur de délai d’attente ou une autre erreur de connexion se produit, une exception est levée. Les tentatives de connexion suivantes échoueront au cours des 5 secondes suivantes, qui est appelée une *période de blocage*.
-
-Si l’application tente de se connecter au cours de la période de blocage, la première exception est levée à nouveau. Après la fin de la période blocage, les échecs suivants entraînent une nouvelle période de blocage qui dure deux fois plus longtemps que la période de blocage précédente.
-
-La durée maximale d’une période de blocage est de 60 secondes.
-
-
 ### Ports autres que simplement 1433 dans V12
 
 
@@ -131,7 +121,12 @@ Le système Azure a la capacité de reconfigurer dynamiquement les serveurs quan
 
 Toutefois, une reconfiguration peut entraîner la perte par votre programme client de sa connexion à SQL Database. Cette erreur est appelée une *erreur temporaire*.
 
-Votre programme client peut tenter de rétablir une connexion après avoir attendu entre par exemple 6 à 60 secondes entre deux tentatives. Vous devez fournir la logique de nouvelle tentative dans votre client.
+Si votre programme client possède une logique de nouvelle tentative, il peut tenter de rétablir une connexion après avoir donné à l'erreur temporaire le temps de se corriger elle-même.
+
+Nous vous recommandons de patienter 5 secondes avant votre première tentative. Si vous effectuez une nouvelle tentative avant 5 secondes, vous risquez de submerger le service cloud. Pour chaque nouvelle tentative, le délai doit augmenter de manière exponentielle, sans dépasser 60 secondes.
+
+Pour en savoir plus sur la *période de blocage* des clients qui utilisent ADO.NET, consultez [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+
 
 Pour obtenir des exemples de code qui illustrent une logique de nouvelle tentative, consultez [Exemples de code de démarrage rapide du client pour SQL Database](sql-database-develop-quick-start-client-code-samples.md).
 
@@ -174,4 +169,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

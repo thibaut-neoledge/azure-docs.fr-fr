@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -34,11 +34,9 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
+[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md)
+
 [Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Ressources générales
-
-[Modèles de démarrage rapide Microsoft Azure](http://azure.microsoft.com/documentation/templates/)
 
 [Fournisseurs de calcul, de réseau et de stockage Azure dans Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,31 +45,17 @@ Microsoft Azure Resource Manager simplifie le déploiement et la gestion d’
 
 [Fournisseur de ressources réseau](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## Automatiser avec l’interface de ligne de commande Microsoft Azure
-
-[Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](xplat-cli-azure-resource-manager.md)
-
-[Déploiement et gestion de machines virtuelles à l’aide des modèles Azure Resource Manager et de l’interface de ligne de commande Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## Automatisation avec Azure PowerShell
-
-[Déploiement et gestion des machines virtuelles à l’aide de modèles Azure Resource Manager et de PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## Automatiser avec .NET
+## .NET
 
 [Déployer les ressources Microsoft Azure à l’aide de la bibliothèque .NET](virtual-machines-arm-deployment.md)
 
 
-## Automatiser avec Microsoft Azure Automation
+## Azure Automation
 
 [Gestion d'Azure Virtual Machines à l'aide d'Azure Automation](automation-manage-virtual-machines.md)
-
-
 
 ## Ressources supplémentaires
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

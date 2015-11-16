@@ -25,7 +25,7 @@ Souhaitez-vous :
 - Déplacer votre abonnement Azure d’un répertoire vers un autre ?
 - Consolider les différents clients que vous avez actuellement pour Azure et Office 365 ?
 
-Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l’utilisation. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d’autres termes, vous pouvez maintenant modifier l’administrateur de compte sur n’importe quel abonnement de type paiement à l’utilisation dont vous êtes titulaire.
+Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation ou MSDN. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte sur n'importe quel abonnement de type paiement à l'utilisation ou MSDN dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez.
 
 ## Transfert d’un abonnement Azure
 
@@ -59,15 +59,11 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 
     Le transfert n’a aucune incidence sur le service. Il annule l’abonnement de l’administrateur de compte actuel et en crée un nouveau sous le compte du destinataire, mais associe les services Azure sous-jacents avec ce nouvel abonnement. L’ID de l’abonnement reste inchangé.
 
--   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**-   
-    Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
+-   **Comment utiliser ce mécanisme pour modifier le répertoire d'abonnement ?**- Un abonnement Azure est créé dans le répertoire auquel le compte administrateur appartient. Par conséquent, pour modifier le répertoire, il suffit de transférer l'abonnement à un compte d'utilisateur situé dans le répertoire cible. Lorsque cet utilisateur exécute les étapes pour accepter le transfert, l'abonnement se déplace automatiquement vers le répertoire cible.
    
 -   **Si je deviens titulaire d’un abonnement d’une autre organisation, cette dernière aura-t-elle toujours accès à mes ressources ?**
 
-    Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Par exemple :
-    - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
-    -	Clés d'accès pour les services tels que Storage. Pour plus d'informations, consultez [Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
-    -	Informations d'accès à distance pour les services tels que Azure Virtual Machines
+    Si l’abonnement est transféré à un autre client, les utilisateurs associés au client précédent perdront l’accès à l’abonnement. Même si un utilisateur n’est plus administrateur ou coadministrateur des services, il pourra toujours accéder à l’abonnement via d’autres mécanismes de sécurité. Par exemple : - Certificats de gestion accordant à l’utilisateur des droits d’administrateur pour les ressources d’abonnement. Pour plus d'informations, consultez [Créer et télécharger un certificat de gestion pour Windows Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx) - Clés d'accès pour les services tels que Storage. Pour plus d'informations, consultez [Affichage, copie et régénération de clés d'accès de stockage](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys) - Informations d'accès à distance pour les services tels que Azure Virtual Machines
 
     Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
 
@@ -111,4 +107,4 @@ Si votre compte est situé aux États-Unis, vous pouvez effectuer aisément ces 
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

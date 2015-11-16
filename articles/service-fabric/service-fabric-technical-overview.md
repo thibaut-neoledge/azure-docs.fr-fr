@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vue d’ensemble technique"
-   description="Une vue d’ensemble technique de Service Fabric. Traite des concepts clés et présente une vue d’ensemble architecturale."
+   pageTitle="Vue d'ensemble technique de Service Fabric | Microsoft Azure"
+   description="Une vue d’ensemble technique de Service Fabric. Traite des concepts clés et présente l'architecture."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -54,4 +54,4 @@ Pour en savoir plus sur Service Fabric, consultez les pages suivantes :
 - [Scénarios d’application](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

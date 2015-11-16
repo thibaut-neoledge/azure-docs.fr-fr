@@ -54,12 +54,13 @@ Découvrez comment utiliser des fonctionnalités spécifiques d’Azure Active D
 
 Les liens ci-dessous vous seront utiles pour explorer le service en profondeur :
 
-- Pour obtenir une aide sur le dépassement de la capacité de la pile, utilisez les mots-clés [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
-- Dites-nous ce que vous pensez de la version préliminaire via le [User Voice](http://feedback.azure.com/forums/169401-azure-active-directory). Votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
+- Consultez les [informations de tarification Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c)
+- Pour obtenir une aide sur le dépassement de capacité de la pile, utilisez les mots-clés [azure active directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ou [adal](http://stackoverflow.com/questions/tagged/adal).
+- Dites-nous ce que vous pensez de la version préliminaire sur le [forum des utilisateurs](http://feedback.azure.com/forums/169401-azure-active-directory), votre avis nous intéresse ! Ajoutez « AzureADB2C » dans le titre de votre publication pour nous aider à la repérer.
 - Azure Active Directory B2C prend en charge les protocoles standard, OpenID Connect et OAuth 2.0, à l’aide d’un modèle d’inscription d’application que nous appelons « Modèle d’application v2.0 ».
   - [Informations de référence sur les protocoles du modèle d’application v2.0](active-directory-b2c-reference-protocols.md)
   - [Informations de référence sur les jetons du modèle d’application v2.0](active-directory-b2c-reference-tokens.md)
 - [FAQ sur Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Demandes de prise en charge de fichier adressées à Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

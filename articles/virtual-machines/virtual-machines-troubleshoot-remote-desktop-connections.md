@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure exécutant Windows
@@ -30,9 +30,9 @@ Si vous avez besoin d’aide supplémentaire concernant n’importe quel point d
 
 La première section, « Étapes de base », répertorie les étapes de résolution des problèmes de connexion courants, la deuxième section affiche les étapes de résolution message d’erreur par message d'erreur et la dernière section permet d'effectuer un dépannage détaillé de chaque composant réseau.
 
-## Étapes de base
+## Étapes de base - Modèle de déploiement classique
 
-Ces étapes de base permettent de résoudre la plupart des problèmes de connexion Bureau à distance courants. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
+Ces étapes de base peuvent aider à résoudre les échecs de connexion Bureau à distance les plus courants sur les machines virtuelles créées à l'aide du modèle de déploiement classique. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
 - Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
 
@@ -44,19 +44,46 @@ Ces étapes de base permettent de résoudre la plupart des problèmes de connexi
 
 - Passez en revue le journal de la console ou la capture d'écran de votre machine virtuelle pour corriger les problèmes de démarrage. Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Diagnostics de démarrage**.
 
+- Vérifiez l'intégrité des ressources de la machine virtuelle pour les problèmes de plateforme. Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Vérifier l'intégrité**.
+-  
+
+## Étapes de base - Modèle de déploiement de Resource Manager
+
+Ces étapes de base peuvent aider à résoudre les échecs de connexion Bureau à distance les plus courants sur les machines virtuelles créées à l'aide du modèle de déploiement Resource Manager. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
+
+- Réinitialisez l'accès à distance à l'aide de Powershell<br> a. Si ce n'est pas déjà fait, [installez Azure PowerShell et connectez-vous à votre abonnement Azure](../powershell-install-configure.md) à l'aide de la méthode Azure AD.
+
+	b. Basculez en mode Resource Manager.
+
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
+	c. Exécutez la commande Set-AzureVMAccessExtension pour réinitialiser votre connexion RDP, comme illustré dans l'exemple suivant.
+
+	```
+	Set-AzureVMExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccessExtension" -ExtensionType "VMAccessAgent" -Publisher "Microsoft.Compute" -typeHandlerVersion "2.0" -Location Westus
+	```
+
+- Redémarrez la machine virtuelle pour résoudre d'autres problèmes de démarrage.<br> Cliquez sur Parcourir tout > Machines virtuelles > votre machine virtuelle Windows > **Redémarrer**.
+
+- Redimensionnez la machine virtuelle pour résoudre les problèmes d'hôte.<br> Cliquez sur Parcourir tout > Machines virtuelles > votre machine virtuelle Windows > **Redimensionner**.
+
+- Passez en revue le journal de la console ou la capture d'écran de votre machine virtuelle pour corriger les problèmes de démarrage. Cliquez sur Parcourir tout > Machines virtuelles > votre machine virtuelle Windows > **Diagnostics de démarrage**.
+
+
 ## Résoudre les erreurs RDP courantes
 
 Voici les erreurs les plus courantes que vous pouvez rencontrer lorsque vous tentez de connecter le Bureau à distance à votre machine virtuelle Azure :
 
-1. [Erreur de connexion Bureau à distance : La session à distance a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence](#rdplicense).
+1. [Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n'est disponible pour fournir une licence.](#rdplicense)
 
-2. [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l’ordinateur](#rdpname).
+2. [Erreur de connexion Bureau à distance : Le Bureau à distance ne trouve pas le « nom » de l'ordinateur.](#rdpname)
 
-3. [Erreur de connexion Bureau à distance : Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
+3. [Erreur de connexion Bureau à distance : Une erreur d'authentification s'est produite. L’autorité de sécurité locale ne peut pas être contactée](#rdpauth).
 
-4. [Erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné](#wincred).
+4. [Message d'erreur de sécurité Windows : Vos informations d'identification n'ont pas fonctionné](#wincred).
 
-5. [Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant](#rdpconnect).
+5. [Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l'ordinateur distant](#rdpconnect).
 
 <a id="rdplicense"></a>
 ### Erreur de connexion Bureau à distance : La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
@@ -93,7 +120,7 @@ La partie adresse de ce fichier RDP comprend le nom de domaine complet du servic
 
 Cause : La machine virtuelle cible n'a pas pu localiser l'autorité de sécurité dans la partie nom d'utilisateur de vos informations d'identification.
 
-Quand votre nom d’utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Quand votre nom d'utilisateur est au format *SecurityAuthority*\*UserName* (par exemple : CORP\\User1), la partie *SecurityAuthority* est soit le nom d'ordinateur de la machine virtuelle (pour l'autorité de sécurité locale), soit un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -115,7 +142,7 @@ Si vous avez promu votre machine virtuelle vers un contrôleur de domaine d’un
 
 Vérifiez que le nom du compte est un nom qui peut être considéré comme valide par la machine virtuelle, et que le mot de passe est correct.
 
-Pour modifier le mot de passe du compte administrateur local, voir [Réinitialisation d’un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md).
+Pour modifier le mot de passe du compte administrateur local, consultez [Réinitialisation d'un mot de passe ou du service Bureau à distance pour les machines virtuelles Windows](virtual-machines-windows-reset-password.md).
 
 <a id="rdpconnect"></a>
 ### Erreur de connexion Bureau à distance : Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
@@ -124,11 +151,11 @@ Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de con
 
 Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau à distance, qui comporte les comptes et les groupes autorisés à se connecter à distance. Les membres du groupe Administrateurs local y ont également accès, même si ces comptes ne sont pas répertoriés dans le groupe local d’utilisateurs du Bureau à distance. Pour les ordinateurs associés à un domaine, le groupe Administrateurs local contient également les administrateurs de domaine du domaine en question.
 
-Assurez-vous que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour contourner le problème, utilisez un compte d’administrateur local ou d’administrateur de domaine pour vous connecter au Bureau à distance puis utilisez le composant logiciel enfichable Gestion de l’ordinateur (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**) pour ajouter le compte de votre choix au groupe local Utilisateurs du Bureau à distance.
+Assurez-vous que le compte que vous utilisez pour vous connecter dispose des droits de connexion au Bureau à distance. Pour contourner le problème, utilisez un compte d'administrateur local ou d'administrateur de domaine pour vous connecter au Bureau à distance puis utilisez le composant logiciel enfichable Gestion de l'ordinateur (**Outils système > Utilisateurs et groupes locaux > Groupes > Utilisateurs du Bureau à distance**) pour ajouter le compte de votre choix au groupe local Utilisateurs du Bureau à distance.
 
 ## Résolution détaillée des problèmes
 
-Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à vous connecter à la machine virtuelle via le Bureau à distance, lisez [cet article](virtual-machines-rdp-detailed-troubleshoot.md) pour identifier les autres causes.
+Si aucune de ces erreurs ne s'est produite et vous ne parvenez toujours pas à vous connecter à la machine virtuelle via le Bureau à distance, lisez [cet article](virtual-machines-rdp-detailed-troubleshoot.md) pour identifier les autres causes.
 
 
 ## Ressources supplémentaires
@@ -143,4 +170,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

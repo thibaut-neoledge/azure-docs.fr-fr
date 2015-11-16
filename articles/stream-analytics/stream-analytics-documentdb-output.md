@@ -19,7 +19,7 @@
 
 # Utilisation de DocumentDB comme sortie Azure Stream Analytics
 
-Azure Stream Analytics prend désormais en charge [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) comme sortie, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur les données JSON non structurées. Ce document décrit comment implémenter au mieux cette intégration. Pour ceux qui ne sont pas familiarisés avec DocumentDB, commençons par suivre le [parcours d’apprentissage de DocumentDB](../articles/documentdb-get-started.md/).
+Azure Stream Analytics prend désormais en charge [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) comme sortie, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur les données JSON non structurées. Ce document décrit comment implémenter au mieux cette intégration. Pour ceux qui ne sont pas familiarisés avec DocumentDB, commençons par suivre le [parcours d'apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
 La sortie Azure DocumentDB dans Stream Analytics vous permet d’écrire les résultats du traitement de votre flux dans vos collections DocumentDB. Stream Analytics ne crée pas collections dans votre base de données, mais vous oblige à les créer dès le départ. Les coûts de facturation des collections DocumentDB vous apparaissent ainsi de façon totalement transparente. Vous pouvez en outre optimiser les performances, la cohérence et la capacité de vos collections directement à l’aide des [API DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx). Nous vous recommandons d’utiliser une seule base de données DocumentDB par tâche de streaming afin de séparer logiquement vos collections pour une tâche de streaming.
 
@@ -59,4 +59,4 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 -   **Partition Key** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 -   **Document ID** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

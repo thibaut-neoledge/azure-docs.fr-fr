@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@ Pour en savoir plus :
 - [Documentation d’Azure Media Player](http://aka.ms/ampdocs) 
 - [Blog de prise en main d’Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [Inscrivez-vous pour vous tenir informé des dernières informations concernant Azure Media Player](http://aka.ms/ampsignup)
-- [Ajouter de nouvelles demandes de fonctionnalités, des idées et des commentaires](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [Ajouter de nouvelles demandes de fonctionnalités, des idées et des commentaires](http://aka.ms/ampuservoice) 
 
 
 ##Autres outils pour la création d’applications de lecteur
@@ -48,7 +48,7 @@ Vous pouvez également utiliser un des Kits de développement logiciel (SDK) sui
 - [Plateforme multimédia Microsoft : infrastructure de lecteur](http://playerframework.codeplex.com/) 
 - [Documentation de l’infrastructure de lecteur HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](http://aka.ms/sspk) 
 - [Développement d’applications vidéo pour XBOX](http://xbox.create.msdn.com/) 
  
 
@@ -82,4 +82,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

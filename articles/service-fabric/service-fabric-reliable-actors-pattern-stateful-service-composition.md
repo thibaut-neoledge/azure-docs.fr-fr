@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Modèle de conception de composition de service avec état pour les Acteurs fiables"
-   description="Modèle de conception Acteurs fiables Service Fabric qui utilise des acteurs avec état pour conserver l'état entre les appels de service ainsi que les précédents résultats de service mis en cache. L'état peut être persistant ou transitoire."
+   pageTitle="Modèle de composition de service avec état | Microsoft Azure"
+   description="Modèle de conception Service Fabric Reliable Actors qui utilise des acteurs avec état pour conserver l'état entre les appels de service, ainsi que les précédents résultats de service mis en cache."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -18,9 +18,11 @@
    ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : composition de service avec état
+
 Les développeurs ont passé les 15 dernières années à créer des services sans état à N niveaux dans l'entreprise. Ils ont créé des services au-dessus des bases de données, des services d'ordre élevé au-dessus d'autres services ainsi que des moteurs d'orchestration et des intergiciels orientés messages pour coordonner ces services. À mesure que les charges de travail de l'utilisateur évoluent, qu'elles exigent plus d'interactivité ou d'échelle, l'architecture orientée services sans état a commencé à montrer ses limites.
 
 ## L'ancienne méthode : Services SOA
+
 Alors que les services SOA évoluaient horizontalement en toute transparence en raison de leur nature sans état, ils ont créé un goulet d'étranglement au niveau du stockage avec l'accès simultané et le débit. L'accès au stockage est devenu de plus en plus onéreux. La plupart des développeurs avaient pour habitude d'introduire une mise en cache dans leurs solutions afin de réduire la demande en stockage, mais cette solution n'était pas sans inconvénients : un autre niveau à gérer, un accès simultané au cache, des limitations et des modifications sémantiques, et enfin des problèmes de cohérence. Comme indiqué précédemment dans le modèle Smart Cache, le modèle d'acteur virtuel fournit une solution parfaite pour cela.
 
 Certains développeurs ont tenté de résoudre le problème en répliquant leur niveau de stockage. Mais cette approche n'a pas évolué correctement et a rapidement atteint les limites CAP. Le deuxième défi concernait l'évolution des besoins ; les utilisateurs finaux et les entreprises recherchent des services interactifs, la norme étant de pouvoir répondre aux demandes en quelques millisecondes plutôt qu'en secondes. Pour y répondre, les développeurs ont commencé a créé des services de façade au-dessus d'autres services, dans certains cas des dizaines de services, pour créer des services centrés sur l'utilisateur. Mais la composition de plusieurs services en aval a rapidement montré des problèmes de latence.
@@ -34,6 +36,7 @@ Le diagramme ci-dessous illustre ce point :
 ![][1]
 
 ## Une meilleure solution avec Actors
+
 Dans le cas de la composition des services, les acteurs peuvent être de type avec état ou sans état.
 
 * Les acteurs sans état peuvent être utilisés comme proxys pour les services sous-jacents. Ces acteurs peuvent évoluer dynamiquement dans l'ensemble du cluster Azure Service Fabric et mettre en cache certaines informations liées au service, par exemple le système d'extrémité lorsqu'il est détecté.
@@ -46,6 +49,7 @@ La plupart des développeurs souhaitent appliquer une approche centrée sur l'ut
 Parlons maintenant d'une approche basée sur l'acteur. Un acteur utilisateur peut représenter à la fois le comportement de l'utilisateur (parcourir le catalogue, plébisciter un produit, ajouter un article au panier, recommander un produit à un ami) ainsi que son état composé : profil, articles dans le panier, liste des articles recommandés par leurs amis, historique des achats, position géographique actuelle, etc.
 
 ## Utilisation d'acteurs avec état
+
 Examinons tout d'abord un exemple où l'acteur utilisateur doit remplir son état à partir de plusieurs services. Nous n'allons pas fournir un exemple de code dans ce cas car tout ce que dont nous avons parlé dans le modèle Smart Cache s'applique également ici. Nous pouvons activer l'acteur utilisateur au moment de la connexion en le remplissant avec suffisamment de données à partir de services principaux. Bien sûr, comme nous l'avons vu à maintes reprises précédemment dans ce document, un état complet et partiel peut être prérempli à la demande, sur un minuteur, ou un peu des deux, avant d'être mis en cache dans l'acteur. Pour cet exemple, le profil et la liste de souhaits sont présentés ci-dessous :
 
 ![][2]
@@ -71,6 +75,7 @@ Nous consistons qu'un « service sans état » présente des inconvénients dans
 
 
 ## Étapes suivantes
+
 [Modèle : Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Modèle : Réseaux distribués et graphiques](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -91,4 +96,4 @@ Nous consistons qu'un « service sans état » présente des inconvénients dans
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
