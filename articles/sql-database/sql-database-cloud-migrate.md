@@ -93,7 +93,7 @@ Si des incompatibilités de base de données sont détectées, vous devrez les c
 
 Après avoir vérifié que vous disposez d'une base de données compatible, vous devez choisir votre méthode de migration. Tout d'abord, vous devez décider si vous pouvez vous permettre de sortir la base de données de la production pendant la migration. Dans le cas contraire, utilisez la réplication de transaction SQL Server, comme indiqué ci-dessous. Si vous pouvez vous permettre un temps d'arrêt ou si vous effectuez un test de migration d'une base de données de production que vous envisagez de migrer à l'aide de la réplication transactionnelle, examinez l'une des trois méthodes suivantes.
 
-### Migration d'une base de données compatible avec temps d'arrêt   
+***Migrer une base de données compatible à l’aide de SQL Server Management Studio (SSMS) ***
 La liste suivante décrit les options de migration d'une base de données compatible vers une base de données SQL Azure lorsque vous pouvez vous permettre un temps d'arrêt pendant la migration et avant de rediriger les utilisateurs et les applications vers la base de données migrée dans la base de données SQL Azure. Avec ces méthodes, vous migrez votre base de données telle qu'elle existe à un certain point dans le temps.
 
 > [AZURE.WARNING]Avant de migrer votre base de données à l'aide d'une de ces méthodes, assurez-vous qu'aucune transaction active n'est en cours pour garantir la cohérence transactionnelle pendant la migration. Il existe de nombreuses méthodes pour suspendre une base de données, que ce soit en désactivant la connectivité des clients ou en créant un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx).
