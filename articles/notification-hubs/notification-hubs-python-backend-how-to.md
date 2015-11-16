@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Python
@@ -204,6 +204,48 @@ Avec cette classe, nous pouvons à présent écrire les méthodes d'envoi des no
 
         self.make_http_request(url, payload_to_send, headers)
 
+	def send_apple_notification(self, payload, tags=""):
+        nh = Notification("apple", payload)
+        self.send_notification(nh, tags)
+
+    def send_gcm_notification(self, payload, tags=""):
+        nh = Notification("gcm", payload)
+        self.send_notification(nh, tags)
+
+    def send_adm_notification(self, payload, tags=""):
+        nh = Notification("adm", payload)
+        self.send_notification(nh, tags)
+
+    def send_baidu_notification(self, payload, tags=""):
+        nh = Notification("baidu", payload)
+        self.send_notification(nh, tags)
+
+    def send_mpns_notification(self, payload, tags=""):
+        nh = Notification("windowsphone", payload)
+
+        if "<wp:Toast>" in payload:
+            nh.headers = {'X-WindowsPhone-Target': 'toast', 'X-NotificationClass': '2'}
+        elif "<wp:Tile>" in payload:
+            nh.headers = {'X-WindowsPhone-Target': 'tile', 'X-NotificationClass': '1'}
+
+        self.send_notification(nh, tags)
+
+    def send_windows_notification(self, payload, tags=""):
+        nh = Notification("windows", payload)
+
+        if "<toast>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/toast'}
+        elif "<tile>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/tile'}
+        elif "<badge>" in payload:
+            nh.headers = {'X-WNS-Type': 'wns/badge'}
+
+        self.send_notification(nh, tags)
+
+    def send_template_notification(self, properties, tags=""):
+        nh = Notification("template", properties)
+        self.send_notification(nh, tags)
+
 Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
 
 ### Utilisation de la propriété debug pour activer la journalisation détaillée
@@ -348,4 +390,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Pytho
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

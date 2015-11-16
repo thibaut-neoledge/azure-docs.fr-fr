@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="11/03/2015"
 	ms.author="garye"/>
 
 # Déploiement d’un service web Azure Machine Learning
@@ -24,11 +24,11 @@ D'un point de vue très général, cela s'effectue en trois étapes :
 
 - **[Créez une expérience d'apprentissage]** : Azure Machine Learning Studio est un environnement de développement visuel collaboratif qui vous permet d'effectuer l'apprentissage et de tester un modèle d'analyse prédictive à l'aide de données d'apprentissage que vous fournissez.
 - **[Convertissez-la en expérience prédictive]** : une fois que vous avez effectué l'apprentissage de votre modèle avec des données existantes et que vous êtes prêt à l'utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience de notation.
-- **[Déployez-la en tant que service web]** : en un seul clic, vous pouvez publier votre expérience de notation en tant que service web Azure. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
+- **[Déployez-la en tant que service web]** : en un seul clic, vous pouvez déployer votre expérience de notation en tant que service web Azure. Les utilisateurs peuvent envoyer des données à votre modèle et recevoir des prédictions de votre modèle.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Une fois que vous avez publié le service web, vous pouvez :
+Une fois que vous avez déployé le service web, vous pouvez :
 
 - **[y accéder]** via l'API du service web
 - **[le gérer]** via le portail de gestion Azure et
@@ -55,9 +55,9 @@ Le processus de création et gestion d'expériences d'apprentissage est traité 
 
 ## Convertir l'expérience de formation en expérience prédictive
 
-Une fois que vous avez effectué l'apprentissage de votre modèle, vous êtes prêt à l'utiliser pour la notation de nouvelles données. Pour cela, convertissez votre expérience de formation en expérience prédictive. En la convertissant en expérience prédictive, vous préparez votre modèle entraîné à être publié en tant que service web de notation. Les utilisateurs du service web envoient des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Par conséquent, lorsque vous convertissez l’expérience en expérience prédictive, vous devez tenir compte du mode d’utilisation de votre modèle par les autres utilisateurs.
+Une fois que vous avez effectué l'apprentissage de votre modèle, vous êtes prêt à l'utiliser pour la notation de nouvelles données. Pour cela, convertissez votre expérience de formation en expérience prédictive. En la convertissant en expérience prédictive, vous préparez votre modèle formé à être déployé en tant que service web de notation. Les utilisateurs du service web envoient des données d’entrée à votre modèle, qui leur renvoie les résultats de sa prédiction. Par conséquent, lorsque vous convertissez l’expérience en expérience prédictive, vous devez tenir compte du mode d’utilisation de votre modèle par les autres utilisateurs.
 
-Pour convertir votre expérience de formation en expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience, puis cliquez sur **Configurer le service web**.
+Pour convertir votre expérience de formation en expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l'expérience, cliquez sur **Configurer le service Web**, puis sélectionnez **Service Web prédictif**.
 
 ![Convertir une expérience de notation](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
@@ -68,7 +68,7 @@ Pour plus d'informations sur la façon d'effectuer cette conversion, consultez [
 
 Maintenant que l’expérience prédictive est correctement préparée, vous pouvez la publier en tant que service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
-Pour publier votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l'expérience, puis cliquez sur **Déployer le service web**. Le service web est configuré et vous êtes placé dans le tableau de bord du service web.
+Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l'expérience, puis cliquez sur **Déployer le service Web**. Le service web est configuré et vous êtes placé dans le tableau de bord du service web.
 
 ![Déploiement du service web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
@@ -89,12 +89,12 @@ Une fois que vous avez déployé votre service web à partir de Machine Learnin
 
 Le tableau de bord fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Par exemple, la clé API est fournie afin de permettre un accès autorisé au service et des pages d'aide API sont fournies pour vous aider à commencer à écrire votre code.
 
-Pour plus d'informations sur l'accès à un service web Machine Learning, consultez [Comment consommer un service web Azure Machine Learning publié](machine-learning-consume-web-services.md).
+Pour plus d'informations sur l'accès à un service Web Machine Learning, consultez [Utilisation d'un service web Azure Machine Learning déployé à partir d'une expérience Machine Learning](machine-learning-consume-web-services.md).
 
 
 ## Gestion du service web dans le portail de gestion Azure
 
-Dans le portail de gestion Azure, vous pouvez gérer vos services web en cliquant sur le service **Machine Learning**, en ouvrant votre espace de travail Machine Learning puis en ouvrant le service web à partir de l'onglet **SERVICES WEB**. À partir de cette page, vous pouvez contrôler le service web, le mettre à jour et le supprimer. Vous pouvez également ajouter un deuxième point de terminaison pour votre service web en plus du point de terminaison par défaut qui est créé lorsque vous le publiez.
+Dans le portail de gestion Azure, vous pouvez gérer vos services web en cliquant sur le service **Machine Learning**, en ouvrant votre espace de travail Machine Learning puis en ouvrant le service web à partir de l'onglet **SERVICES WEB**. À partir de cette page, vous pouvez contrôler le service web, le mettre à jour et le supprimer. Vous pouvez également ajouter un deuxième point de terminaison pour votre service web en plus du point de terminaison par défaut qui est créé lorsque vous le déployez.
 
 Pour plus d'informations, consultez [Gestion d'un espace de travail Azure Machine Learning](machine-learning-manage-workspace.md).
 <!-- When this article gets published, fix the link and uncomment
@@ -104,12 +104,12 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 ## Mise à jour du service web
 
-Vous pouvez apporter des modifications à votre service web, par exemple mettre à jour le modèle avec des données d'apprentissage supplémentaires et le publier à nouveau, en remplaçant le service web d'origine.
+Vous pouvez apporter des modifications à votre service web, par exemple mettre à jour le modèle avec des données d'apprentissage supplémentaires, et le déployer à nouveau, en remplaçant le service web d'origine.
 
-Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine utilisée pour déployer le service web et effectuez une copie modifiable en cliquant sur **ENREGISTRER SOUS**. Effectuez vos modifications, puis cliquez sur **Déployer le service web**. Étant donné que vous avez déjà publié cette expérience, Machine Learning Studio vous demande si vous souhaitez remplacer le service existant. Si vous cliquez sur **OUI**, le service web existant est arrêté et la nouvelle expérience prédictive est publiée à la place.
+Pour mettre à jour le service web, ouvrez l'expérience prédictive d'origine utilisée pour déployer le service web et effectuez une copie modifiable en cliquant sur **ENREGISTRER SOUS**. Effectuez vos modifications, puis cliquez sur **Déployer le service web**. Étant donné que vous avez déjà déployé cette expérience, Machine Learning Studio vous demande si vous souhaitez remplacer le service existant. Si vous cliquez sur **OUI**, le service web existant est arrêté et la nouvelle expérience prédictive est déployée à la place.
 
 > [AZURE.NOTE]Si vous avez apporté des modifications de configuration dans le service web d'origine, par exemple, si vous saisissez un nouveau nom d'affichage ou une description, vous devrez saisir ces valeurs à nouveau.
 
-Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d’informations, consultez la page [Nouvel apprentissage des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
+Pour mettre à jour votre service web, vous pouvez reformer le modèle à l’aide d’un programme. Pour plus d'informations, consultez la page [Reformation des modèles Machine Learning par programme](machine-learning-retrain-models-programmatically.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

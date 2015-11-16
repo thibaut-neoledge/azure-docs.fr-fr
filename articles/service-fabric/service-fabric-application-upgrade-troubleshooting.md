@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Résolution des problèmes de mise à niveau des applications Service Fabric"
+   pageTitle="Résolution des problèmes des mises à niveau d'applications | Microsoft Azure"
    description="Cet article aborde certains problèmes courants relatifs à la mise à niveau d'une application Service Fabric et la manière de les résoudre."
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ La durée de mise à niveau d'un domaine de mise à niveau est limitée par *Upg
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

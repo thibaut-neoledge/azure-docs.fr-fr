@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="zarizvi"/>
 	
 # Configurations de déplacement prises en charge
@@ -26,4 +26,4 @@ Les applications web Azure prennent actuellement en charge les scénarios de dé
 	* Remarque : le groupe de ressources de destination ne peut pas contenir de ressources Microsoft.Web dans ce scénario
 * Déplacement des applications web individuelles vers un groupe de ressources différent, tout en les hébergeant toujours dans leur plan de service d’application actuel (le plan de service d’application reste dans l’ancien groupe de ressources)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Qui utilise Azure Search : études de cas et témoignages de clients"
-	description="Études de cas et témoignages de clients Azure Search."
+	description="Études de cas et témoignages sur Azure Search, un service de recherche cloud hébergé sur Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="10/05/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Qui utilise Azure Search : études de cas et témoignages de clients
@@ -61,4 +61,4 @@ Découvrez comment une start-up suédoise a conçu un portail d’informations q
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

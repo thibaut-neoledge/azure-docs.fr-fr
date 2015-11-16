@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Disponibilité et fiabilité des clusters Hadoop dans HDInsight
@@ -146,7 +146,7 @@ Lorsque vous créez un nouveau cluster, vous pouvez spécifier la taille des nœ
 
 * **Interface de ligne de commande Azure** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille du nœud principal à l'aide du paramètre `--headNodeSize`.
 
-* **Azure PowerShell** : lorsque vous utilisez l'`New-AzureHDInsightCluster`applet de commande, vous pouvez définir la taille du nœud principal en utilisant le paramètre `-HeadNodeVMSize`.
+* **Azure PowerShell** : lorsque vous utilisez l'`New-AzureRmHDInsightCluster`applet de commande, vous pouvez définir la taille du nœud principal en utilisant à l'aide du paramètre `-HeadNodeVMSize`.
 
 ##Étapes suivantes
 
@@ -166,4 +166,4 @@ Dans ce document, vous avez appris comment HDInsight Azure offre une haute dispo
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

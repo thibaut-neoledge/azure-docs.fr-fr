@@ -13,16 +13,24 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="10/06/2015"
+	ms.date="11/02/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
 
-Azure Resource Manager vous permet désormais de contrôler l’accès par le biais de stratégies personnalisées. Une stratégie représente une ou plusieurs violations qui peuvent être évitées dans l’étendue de votre choix. Dans ce cas, une étendue peut être un abonnement, un groupe de ressources ou une ressource individuelle.
+Azure Resource Manager vous permet désormais de contrôler l’accès par le biais de stratégies personnalisées. Avec les stratégies, vous pouvez empêcher les utilisateurs de votre organisation de rompre les conventions qui sont nécessaires pour gérer les ressources de votre organisation.
 
-Le service Policy est un système d’autorisation par défaut. Une stratégie est définie par une définition de stratégie et est appliquée par le biais d’une affectation de stratégie. Les affectations de stratégies vous permettent de contrôler l’étendue de l’application d’une stratégie.
+Vous créez des définitions de stratégies qui décrivent les actions ou les ressources qui sont spécifiquement refusées. Vous affectez ces définitions de stratégies selon l'étendue souhaitée, au niveau de l'abonnement, du groupe de ressources ou d'une ressource individuelle.
 
-Dans cet article, nous allons expliquer la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrirons comment vous pouvez appliquer ces stratégies au niveau de différentes étendues et, enfin, nous présenterons des exemples d’application par le biais de l’API REST. La prise en charge de PowerShell sera ajoutée prochainement.
+Dans cet article, nous allons expliquer la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrirons comment vous pouvez appliquer ces stratégies au niveau de différentes étendues et, enfin, nous présenterons des exemples d'application par le biais de l'API REST.
+
+## Quelle est la différence avec RBAC ?
+
+Il existe quelques différences importantes entre la stratégie et le contrôle d'accès en fonction du rôle, mais la première chose à comprendre est que les stratégies et le contrôle d'accès en fonction du rôle (RBAC) fonctionnent ensemble. Pour pouvoir utiliser la stratégie, l'utilisateur doit être authentifié au moyen de RBAC. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus.
+
+Le RBAC se concentre sur les actions qu'un **utilisateur** peut effectuer selon différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
+
+La stratégie se concentre sur les actions sur les **ressources** selon différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
 
 ## Scénarios courants
 
@@ -40,7 +48,7 @@ Une définition de stratégie est créée à l’aide de JSON. Elle se compose d
 
 Essentiellement, une stratégie contient les éléments suivants :
 
-**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d’un ensemble d’opérateurs logiques.
+**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d'un ensemble d'opérateurs logiques.
 
 **Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un audit si quelqu’un crée une machine virtuelle de grande taille, puis passer en revue les journaux ultérieurement.
 
@@ -60,14 +68,15 @@ Les opérateurs logiques pris en charge avec la syntaxe sont répertoriés ci-ap
 
 | Nom de l’opérateur | Syntaxe |
 | :------------- | :------------- |
-| Différent de | "not" : {&lt;condition&gt;} |
+| Not | "not" : {&lt;condition ou opérateur &gt;} |
 | Et | "allOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 | Ou | "anyOf" : [ {&lt;condition1&gt;},{&lt;condition2&gt;}] |
 
+Les conditions imbriquées ne sont pas prises en charge.
 
 ## Conditions
 
-Les conditions prises en charge avec la syntaxe sont répertoriées ci-après :
+Une condition évalue si un **champ** ou une **source** répond à certains critères. Les noms et la syntaxe des conditions prises en charge sont répertoriés ci-après :
 
 | Nom de la condition | Syntaxe |
 | :------------- | :------------- |
@@ -80,11 +89,15 @@ Les conditions prises en charge avec la syntaxe sont répertoriées ci-après :
 
 ## Champs et sources
 
-Les conditions sont formées à partir de champs et de sources. Les sources et champs suivants sont pris en charge :
+Les conditions sont formées à partir de champs et de sources. Un champ représente des propriétés dans la charge utile de la requête de ressource. Une source représente les caractéristiques de la requête elle-même.
+
+Les sources et champs suivants sont pris en charge :
 
 Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
-Sources : **action**
+Sources : **action**.
+
+Pour obtenir plus d'informations sur les actions, consultez [RBAC - Rôles intégrés](active-directory/role-based-access-built-in-roles.md).
 
 ## Exemples de définition de stratégie
 
@@ -181,7 +194,7 @@ Cette section fournit des détails sur la façon dont une stratégie peut être 
 
 ### Créer la définition de stratégie avec l’API REST
 
-Vous pouvez créer une stratégie avec l’[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
+Vous pouvez créer une stratégie avec l'[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
 
 Pour créer une stratégie, exécutez la commande suivante :
 
@@ -211,7 +224,7 @@ Avec un corps de demande semblable au suivant :
     }
 
 
-La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l'API, utilisez *2015-10-01-preview*. Pour plus d'informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Création d'une définition de stratégie à l'aide de PowerShell
 
@@ -237,7 +250,7 @@ Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être
 
 ### Affectation de stratégie avec l’API REST
 
-Vous pouvez appliquer la définition de stratégie en fonction l’étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
+Vous pouvez appliquer la définition de stratégie en fonction l'étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
 Pour créer une affectation de stratégie, exécutez la commande suivante :
 
@@ -276,4 +289,4 @@ Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'a
 
 De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

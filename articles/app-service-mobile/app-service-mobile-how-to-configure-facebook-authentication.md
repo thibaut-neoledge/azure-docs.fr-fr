@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion Facebook
@@ -28,7 +28,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 1. Connectez-vous au [portail de gestion Azure] et accédez à votre application Mobile App. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Facebook.
  
-2. Cliquez sur **Paramètres**, **Authentification utilisateur**, puis cliquez sur **Facebook**. Copiez ensuite l’**URI de redirection** à partir du panneau Facebook. Vous l’utiliserez avec votre application Facebook.
+2. Cliquez sur **Paramètres**, **Authentification mobile**, puis cliquez sur **Facebook**. Copiez ensuite l’**URI de redirection** à partir du panneau Facebook. Vous l’utiliserez avec votre application Facebook.
  
 3. Dans une autre fenêtre de navigateur, accédez au site web [Développeurs Facebook] et connectez-vous à l’aide des informations d’identification de votre compte Facebook.
 
@@ -54,7 +54,7 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 12. Cliquez sur l’onglet **Advanced** et ajoutez l’**URI de redirection** de votre application Mobile App dans **Valid OAuth redirect URIs**. Ensuite, cliquez sur **Save Changes**. Votre URI de redirection correspond à l’URL de la passerelle de votre application Mobile App suivie du chemin d’accès _/signin-facebook_. Par exemple : `https://contosogateway.azurewebsites.net/signin-facebook`. Assurez-vous d'utiliser le schéma HTTPS.
 
-13. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d’autres comptes Facebook, cliquez sur **Status & Review** dans la barre de navigation de gauche. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
+13. Le compte Facebook qui a été utilisé pour inscrire l'application est un administrateur de l'application. À ce stade, seuls les administrateurs peuvent se connecter à cette application. Pour authentifier d'autres comptes Facebook, cliquez sur **Status & Review (État et révision)** dans la barre de navigation à gauche. Cliquez ensuite sur **Oui** pour autoriser l'accès public général.
 
 
 ## <a name="secrets"> </a>Ajout des informations Facebook à votre application Mobile App
@@ -79,6 +79,5 @@ Vous êtes maintenant prêt à utiliser Facebook pour l'authentification dans vo
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /fr-FR/develop/mobile/tutorials/get-started-with-users-dotnet/
 [portail de gestion Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

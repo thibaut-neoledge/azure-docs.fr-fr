@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Prise en main d’Azure Search | Microsoft Azure" 
-	description="Prise en main d'Azure Search" 
+	description="Prise en main d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Prise en main d'Azure Search
 
-Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se font à l'aide d'une bibliothèque .NET ou d'une API REST.
+Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit le moteur de recherche et assure le stockage de vos données, dont l'accès et la gestion se font à l'aide d'une bibliothèque .NET ou d'une API REST.
 
 Cet article vous permet de vous familiariser avec l'API REST d’Azure Search.
 
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

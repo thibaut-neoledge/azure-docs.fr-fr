@@ -92,10 +92,10 @@ Par exemple, pour déclencher la tâche web toutes les 15 minutes, le `settings
 
 Autres exemples de planification CRON :
 
-- Toutes les heures (autrement dit, chaque fois que le nombre de minutes est 0) : `* 0 * * * *` 
-- Toutes les heures entre 9h et 17h : `* 0 9-17 * * *` 
-- À 9h30 tous les jours : `* 30 9 * * *`
-- À 9h30 tous les jours de la semaine : `* 30 9 * * 1-5`
+- Toutes les heures (autrement dit, chaque fois que le nombre de minutes est 0) : `0 0 * * * *` 
+- Toutes les heures entre 9h et 17h : `0 0 9-17 * * *` 
+- À 9h30 tous les jours : `0 30 9 * * *`
+- À 9h30 tous les jours de la semaine : `0 30 9 * * 1-5`
 
 **Remarque** : quand vous déployez une tâche web à partir de Visual Studio, veillez à marquer les propriétés du fichier `settings.job` comme « Copier si plus récent ».
 
@@ -239,4 +239,4 @@ Pour plus d’informations, consultez [Ressources Azure WebJobs][WebJobsRecomme
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

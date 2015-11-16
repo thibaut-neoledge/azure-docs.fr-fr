@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
@@ -54,32 +54,6 @@ La syntaxe de base du modèle est JSON. Toutefois, des expressions et fonctions 
 
 En général, vous utilisez des expressions avec des fonctions pour effectuer des opérations de configuration du déploiement. Comme en JavaScript, les appels de fonctions sont formatés ainsi : **functionName(arg1,arg2,arg3)**. Pour référencer des propriétés, vous utilisez les opérateurs point et [index].
 
-La liste suivante vous indique les fonctions courantes.
-
-- **parameters(parameterName)**
-
-    Retourne une valeur de paramètre qui est fournie lors de l’exécution du déploiement.
-
-- **variables(variableName)**
-
-    Retourne une variable qui est définie dans le modèle.
-
-- **concat(arg1,arg2,arg3,...)**
-
-    Combine plusieurs valeurs de chaîne. Cette fonction peut prendre n'importe quel nombre d'arguments.
-
-- **base64(inputString)**
-
-    Retourne la représentation en base 64 de la chaîne d'entrée.
-
-- **resourceGroup()**
-
-    Retourne un objet structuré (avec ID, nom et propriétés de l’emplacement) qui représente le groupe de ressources actuel.
-
-- **resourceId([nom\_groupe\_ressources], type\_ressource, nom\_ressource1, [nom\_ressource2]...)**
-
-    Retourne l'identificateur unique d'une ressource. Peut être utilisé pour récupérer une ressource d'un autre groupe de ressources.
-
 L'exemple suivant vous indique comment utiliser plusieurs fonctions lors de la construction de valeurs :
  
     "variables": {
@@ -88,7 +62,7 @@ L'exemple suivant vous indique comment utiliser plusieurs fonctions lors de la c
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-À ce stade, vous en savez suffisamment sur les expressions et les fonctions pour comprendre les sections du modèle. Pour plus d'informations sur toutes les fonctions des modèles, y compris les paramètres et le format des valeurs renvoyées, consultez la rubrique [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
+Pour obtenir la liste complète des fonctions de modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
 
 
 ## Paramètres
@@ -107,7 +81,10 @@ Vous définissez des paramètres avec la structure suivante :
          "minValue": <optional-minimum-value-for-int-parameters>,
          "maxValue": <optional-maximum-value-for-int-parameters>,
          "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
-         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>,
+         "metadata": {
+             "description": "<optional-description-of-the parameter>" 
+         }
        }
     }
 
@@ -121,6 +98,7 @@ Vous définissez des paramètres avec la structure suivante :
 | maxValue | Non | Valeur maximale pour les paramètres de type int. Cette valeur est inclusive.
 | minLength | Non | Valeur minimale pour les paramètres de type string, secureString et array. Cette valeur est inclusive.
 | maxLength | Non | Valeur maximale pour les paramètres de type string, secureString et array. Cette valeur est inclusive.
+| description | Non | Description du paramètre qui sera affiché pour les utilisateurs du modèle par le biais de l'interface de modèle personnalisé du portail.
 
 Les valeurs et types autorisés sont :
 
@@ -262,7 +240,7 @@ Vous définissez des ressources avec la structure suivante :
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs pour l’élément **properties** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
+Les valeurs pour l'élément **properties** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l'opération d'API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d'API REST pour la ressource que vous souhaitez déployer.
 
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
@@ -348,7 +326,7 @@ Cette rubrique donne un premier aperçu du modèle. Toutefois, votre scénario p
 
 Vous devrez peut-être fusionner deux modèles ou utiliser un modèle enfant au sein d'un modèle parent. Pour plus d’informations, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
 
-Pour effectuer une itération un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Pour itérer un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 Vous devrez peut-être utiliser des ressources qui existent au sein d'un groupe de ressources différent. Cette situation est classique quand vous utilisez des comptes de stockage ou des réseaux virtuels qui sont partagés entre plusieurs groupes de ressources. Pour plus d'informations, consultez la [fonction resourceId](../resource-group-template-functions#resourceid).
 
@@ -436,8 +414,8 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Générer une application de prototype pour Azure Search" 
-	description="Créez votre premier prototype d'application pour prendre en main Azure Search." 
+	description="Créez votre premier prototype d'application pour prendre en main Azure Search, un service de recherche cloud hébergé." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Générer une application de prototype pour Azure Search
 
-Les développeurs qui évaluent Azure Search commencent presque toujours avec une application de test préliminaire qui démontre la valeur que représente l'ajout d'Azure Search à une application personnalisée. Dans cet article, nous vous donnons quelques éléments pour accélérer le processus de création de prototype.
+Les développeurs qui évaluent Azure Search pour la recherche sur cloud hébergée commencent presque toujours avec une application de test préliminaire qui démontre la valeur que représente l'ajout d'Azure Search à une application personnalisée. Dans cet article, nous vous donnons quelques éléments pour accélérer le processus de création de prototype.
  
 - Un projet C# Visual Studio qui inclut des fichiers data.json et schema.json. Le fait de disposer d'exemples de données vous permet de générer et d'exécuter immédiatement la solution, pour confirmer qu'elle fonctionne sur votre système avant d'écrire une seule ligne de code. 
 
@@ -133,4 +133,4 @@ Suivez ces liens pour en savoir plus :
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

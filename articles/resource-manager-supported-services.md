@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/21/2015"
+   ms.date="11/04/2015"
    ms.author="tomfitz"/>
 
 # Prise en charge de Resource Manager pour les services, les régions et les versions API
@@ -67,8 +67,11 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Non | Non | - | - | - |
+| StorSimple | Non | Non | - | - | - | | Cache géré | Non | Non | - | - | - |
+| Backup | Non | Non | - | - | - |
+| Site Recovery | Non | Non | - | - | - |
 | Managed cache | Non | Non | - | - | - |
+| Data Catalog | Non | Non | - | - | - |
 
 ## Analyse
 
@@ -78,8 +81,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Stream Analytics | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DataFactory) | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | Non | Non | - | - | - |
-| Catalogue de données | Non | Non | - | - | - |
+| Machine Learning | Non | Non | - | - | - | | Catalogue de données | Non | Non | - | - | - |
 
 ## Mise en réseau
 
@@ -96,8 +98,9 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
+| CDN | Oui (version préliminaire) | Non | | | |
 | Media Service | Non | Non | | | |
-| CDN | Non | Non | | | |
+
 
 ## Intégration hybride
 
@@ -105,8 +108,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk Services | Oui | Non | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Oui | Non | | [REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Sauvegarde | Non | Non | - | - | - |
-| Récupération de sites | Non | Non | - | - | - |
+| Sauvegarde | Non | Non | - | - | - | | Récupération de sites | Non | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 
@@ -139,15 +141,15 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 Quand vous déployez des ressources, vous devez généralement spécifier une région pour les ressources. Resource Manager est pris en charge dans toutes les régions, mais il est possible que certaines ressources que vous déployez ne soient pas prises en charge dans toutes les régions. Par ailleurs, il peut y avoir des limitations sur votre abonnement qui vous empêchent d’utiliser certaines régions prenant en charge la ressource. Ces limitations peuvent être liées à la fiscalité appliquée dans votre pays de domiciliation, ou le résultat d’une stratégie mise en place par votre administrateur d’abonnement pour restreindre les régions disponibles.
 
-Avant de déployer vos ressources, vérifiez quelles régions sont prises en charge pour votre type de ressource en exécutant l’une des commandes suivantes.
+Pour obtenir la liste complète de toutes les régions prises en charge pour tous les services Azure, consultez [Services par région](https://azure.microsoft.com/regions/#services). Toutefois, cette liste peut inclure des régions que votre abonnement ne prend pas en charge. Vous pouvez déterminer les régions pour un type de ressource spécifique que votre abonnement prend en charge en exécutant l'une des commandes suivantes.
 
 ### API REST
 
-Pour découvrir quelles régions sont disponibles pour un type de ressource particulier dans votre abonnement, utilisez l’opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Pour découvrir quelles régions sont disponibles pour un type de ressource particulier dans votre abonnement, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d’informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
+L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d'informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -177,7 +179,7 @@ L’exemple suivant affiche la liste de tous les emplacements pris en charge pou
 
     azure location list
 
-Vous pouvez également filtrer les emplacements répertoriés à l’aide d’un outil tel que **jq**. Pour en savoir plus sur les outils tels que jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Vous pouvez également filtrer les emplacements répertoriés à l'aide d'un outil tel que **jq**. Pour en savoir plus sur les outils tels que jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -195,7 +197,7 @@ Lorsque vous déployez un modèle, vous devez spécifier une version de l'API à
 
 ### API REST
 
-Pour découvrir quelles versions de l’API sont disponibles pour les types de ressources, utilisez l’opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Pour découvrir quelles versions de l'API sont disponibles pour les types de ressources, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
@@ -226,11 +228,11 @@ Vous pouvez enregistrer les informations (y compris les versions disponibles de 
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
+Vous pouvez ouvrir le fichier et rechercher l'élément **apiVersions**.
 
 ## Étapes suivantes
 
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](./azure-portal/resource-group-template-deploy.md).
+- Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!-----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

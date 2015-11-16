@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques" 
+    pageTitle="Mise à l'échelle utilisant l'outil de fractionnement et de fusion de bases de données élastiques | Microsoft Azure" 
     description="Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l'aide des API de base de données élastique." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh"/>
+    authors="ddove"/>
 
 <tags 
     ms.service="sql-database" 
@@ -12,14 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/29/2015" 
-    ms.author="sidneyh" />
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh" />
 
 # Mise à l’échelle utilisant l’outil de fractionnement et de fusion de bases de données élastiques
 
-Si vous choisissez de ne pas utiliser le modèle simple d’attribution des bases de données distinctes pour chaque shardlet (locataire), votre application devra peut-être redistribuer de manière flexible les données entre les bases de données lorsque les besoins de capacité varient. Les outils de base de données élastique incluent un outil de fusion et de fractionnement hébergé par le client pour rééquilibrer la distribution des données et la gestion des zones réactives pour les applications partitionnées. Ce principe s’appuie sur une capacité sous-jacente à déplacer des shardlets à la demande entre les différentes bases de données et s’intègre à la gestion des cartes de partitions afin de conserver des mappages cohérents.
+Les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md) incluent un outil pour rééquilibrer la distribution des données et la gestion des zones réactives pour les applications partitionnées. L'**outil de fractionnement et de fusion** gère les mises à échelle (réduction ou augmentation) ; vous pouvez ajouter ou supprimer des bases de données à partir de votre ensemble de partitions et utiliser l'outil de fractionnement et de fusion pour rééquilibrer la distribution des shardlets entre eux. (Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l'infrastructure élastique](sql-database-elastic-scale-glossary.md).)
 
-L'outil de fractionnement et de fusion gère les mises à échelle (réduction ou augmentation) ; vous pouvez ajouter ou supprimer des bases de données à partir de votre ensemble de partitions et utiliser l'outil de fractionnement et de pour rééquilibrer la distribution des shardlets entre eux. (Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire de l’infrastructure élastique](sql-database-elastic-scale-glossary.md).)
+L'outil déplace des shardlets à la demande entre les différentes bases de données et s'intègre à la [gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md) afin de conserver des mappages cohérents.
+
+Pour commencer, consultez l'[outil de fusion et de fractionnement de bases de données élastiques](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Nouveautés du fractionnement et de la fusion
 
@@ -29,8 +31,6 @@ La version 1.0.0 de l'outil de fusion et de fractionnement offre les améliorati
 
 ## Mise à niveau
 
-Pour mettre à niveau vers la dernière version de fractionnement et de fusion, procédez comme suit :
-
 1. Téléchargez la dernière version du package de fractionnement et de fusion à partir de NuGet, comme décrit dans la section [Téléchargement des packages de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
 2. Modifiez votre fichier de configuration de service cloud pour votre déploiement de fractionnement et de fusion afin de refléter les nouveaux paramètres de configuration. Les informations relatives au certificat utilisé pour le chiffrement sont un nouveau paramètre obligatoire. Un moyen simple de procéder consiste à comparer le nouveau fichier de modèle de configuration du téléchargement avec votre configuration existante. Assurez-vous que vous ajoutez les paramètres de « DataEncryptionPrimaryCertificateThumbprint » et « DataEncryptionPrimary » pour le rôle Web et de travail.
 3. Avant de déployer la mise à jour vers Azure, assurez-vous que toutes les opérations de fractionnement et de fusion en cours d’exécution sont terminées. Vous pouvez le faire facilement en interrogeant les tables RequestStatus et PendingWorkflows dans la base de données de métadonnées de fractionnement et de fusion pour les demandes en cours.
@@ -39,6 +39,7 @@ Pour mettre à niveau vers la dernière version de fractionnement et de fusion, 
 Il est inutile de configurer une nouvelle base de données de métadonnées de fractionnement et de fusion pour la mise à niveau. La nouvelle version mettra automatiquement à niveau votre base de données de métadonnées existante vers la nouvelle version.
 
 ## Scénarios de fusion et de fractionnement 
+
 Les applications doivent étirer la flexibilité au-delà des limites d'une seule base de données SQL Azure, comme illustré dans les scénarios suivants :
 
 * **Augmentation de la capacité – Plages de fractionnement** : la possibilité d'augmenter la capacité d'agrégation de la couche Données répond à des besoins de capacité croissants. Dans ce scénario, l'application fournit la capacité supplémentaire par le partitionnement de données et en la répartissant de manière incrémentielle entre plusieurs bases de données jusqu'à ce que les besoins en capacité soient satisfaits. La fonction « fractionner » du service de fusion et de fractionnement de l'infrastructure élastique correspond à ce scénario. 
@@ -56,15 +57,15 @@ Figure 1 : vue d’ensemble conceptuelle du service de fractionnement et de fu
 ![Vue d'ensemble][1]
 
 
-**Remarque** : tous les scénarios d’**Augmentation de la capacité** ne nécessitent pas le service de fractionnement et de fusion. Par exemple, si vous créez régulièrement de nouvelles partitions dans votre environnement pour stocker les nouvelles données avec des valeurs de clé de partitionnement, vous pouvez utiliser les API clientes de gestion des cartes de partitions pour diriger les nouvelles plages de données vers les partitions nouvellement créées. Le service de fractionnement et de fusion n’est nécessaire que lorsque les données existantes doivent également être déplacées.
+**Remarque** : tous les scénarios d'**augmentation de la capacité** ne nécessitent pas le service de fractionnement et de fusion. Par exemple, si vous créez régulièrement de nouvelles partitions dans votre environnement pour stocker les nouvelles données avec des valeurs de clé de partitionnement, vous pouvez utiliser les API clientes de gestion des cartes de partitions pour diriger les nouvelles plages de données vers les partitions nouvellement créées. Le service de fractionnement et de fusion n’est nécessaire que lorsque les données existantes doivent également être déplacées.
 
 ## Concepts et fonctionnalités clés
 
-**Services hébergés par le client** : le service de fractionnement et de fusion est fourni comme service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md). Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d’informations sur la sécurité dans le document suivant [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
+**Services hébergés par le client** : le service de fractionnement et de fusion est fourni comme service hébergé par le client. Vous devez déployer et héberger le service dans votre abonnement Microsoft Azure. Le package que vous téléchargez à partir de NuGet comporte un modèle de configuration à réaliser ainsi que les informations relatives à votre déploiement. Pour plus d'informations, consultez le [didacticiel du service de fractionnement et de fusion](sql-database-elastic-scale-configure-deploy-split-and-merge.md). Étant donné que le service s'exécute dans votre abonnement Azure, vous pouvez contrôler et configurer la plupart des aspects de sécurité du service. Le modèle par défaut comprend les options permettant de configurer SSL, l’authentification client basée sur certificat, le chiffrement des informations d’identification stockées, la protection contre le déni de service et les restrictions d’adresse IP. Vous trouverez plus d'informations sur la sécurité dans le document suivant sur la [configuration de la sécurité de la fusion et du fractionnement](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Le service déployé par défaut s'exécute avec un rôle de travail et un rôle web. Chacun utilise la taille de machine virtuelle A1 dans Azure Cloud Services. Même si vous ne pouvez pas modifier ces paramètres lors du déploiement du package, vous pouvez les modifier après un déploiement dans le service cloud en cours d'exécution (via le portail Azure). Notez que le rôle de travail ne doit pas être configuré pour plus d'une instance unique pour des raisons techniques.
 
-**Intégration des cartes de partitions** : le service de fractionnement et de fusion interagit avec la carte de partitions de l'application. Lorsque vous utilisez le service de fusion et de fractionnement pour fractionner ou fusionner des plages ou déplacer des shardlets entre les partitions, le service conserve automatiquement la carte de partitions à jour. Pour ce faire, le service se connecte à la base de données du gestionnaire des cartes de partitions de l'application et gère les plages et les mappages au fur et à mesure de l'avancement des demandes de fractionnement/fusion/déplacement. Cela garantit que la carte de partitions présente toujours une vue à jour lorsque les opérations de fusion et de fractionnement sont en cours. Les opérations de fractionnement, fusion et déplacement des shardlets sont implémentées en déplaçant un lot de shardlets à partir de la partition source vers la partition cible. Au cours de l’opération de déplacement des shardlets, les shardlets du batch en cours sont marqués comme étant hors connexion dans la carte de partitions et ne sont pas disponibles pour les connexions de routage dépendant des données utilisant l’API **OpenConnectionForKey**.
+**Intégration des cartes de partitions** : le service de fractionnement et de fusion interagit avec la carte de partitions de l'application. Lorsque vous utilisez le service de fusion et de fractionnement pour fractionner ou fusionner des plages ou déplacer des shardlets entre les partitions, le service conserve automatiquement la carte de partitions à jour. Pour ce faire, le service se connecte à la base de données du gestionnaire des cartes de partitions de l'application et gère les plages et les mappages au fur et à mesure de l'avancement des demandes de fractionnement/fusion/déplacement. Cela garantit que la carte de partitions présente toujours une vue à jour lorsque les opérations de fusion et de fractionnement sont en cours. Les opérations de fractionnement, fusion et déplacement des shardlets sont implémentées en déplaçant un lot de shardlets à partir de la partition source vers la partition cible. Au cours de l'opération de déplacement des shardlets, les shardlets du batch en cours sont marqués comme étant hors connexion dans la carte de partitions et ne sont pas disponibles pour les connexions de routage dépendant des données utilisant l'API **OpenConnectionForKey**.
 
 **Connexions cohérentes des shardlets** : lorsque le déplacement des données débute pour un nouveau batch de shardlets, les connexions du routage dépendant des données à la partition stockant le shardlet sont supprimées et les connexions ultérieures à partir des API de la carte de partitions à ces shardlets sont bloquées pendant le déplacement des données afin d'éviter les incohérences. Les connexions aux autres shardlets sur la même partition seront également supprimées mais réussiront immédiatement lors d'une nouvelle tentative. Une fois le lot déplacé, les shardlets sont marqués comme étant à nouveau en ligne pour la partition cible et la source des données est supprimée de la partition source. Le service effectue ces étapes pour chaque lot jusqu'à ce que tous les shardlets aient été déplacés. Cela entraîne plusieurs opérations de suppression des connexions au cours de l'opération de fractionnement/fusion/déplacement.
 
@@ -139,7 +140,7 @@ L'implémentation actuelle du service de fractionnement et de fusion est soumise
 
 * Actuellement, le service s’appuie sur l’identité de ligne définie par un index unique ou une clé incluant la clé de partitionnement pour améliorer les performances et la fiabilité des shardlets volumineux. Cela permet au service de déplacer des données à une granularité encore plus fine que la valeur de clé de partitionnement. Cela permet de réduire la quantité maximale de l'espace de journalisation ainsi que le nombre de verrous requis lors de l'opération. Envisagez de créer un index unique ou une clé primaire incluant la clé de partitionnement sur une table donnée si vous souhaitez utiliser cette table avec des demandes de fusion/fractionnement/déplacement. Pour des raisons liées aux performances, la clé de partitionnement doit être la première colonne de la clé ou de l’index.
 
-* Au cours du traitement des demandes, des données de shardlet peuvent être présentes à la fois sur la partition source et sur la partition cible. Cette présence est actuellement nécessaire à la protection contre les défaillances pendant le déplacement de shardlets. Comme expliqué ci-dessus, l’intégration du service de fractionnement et de fusion à la carte de partitions de l’infrastructure élastique permet de s’assurer que les connexions via les API de routage dépendant des données, utilisant la méthode **OpenConnectionForKey** sur la carte de partitions, ne constatent pas d’états intermédiaires incohérents. Toutefois, lors de la connexion aux partitions source ou cible sans utiliser la méthode **OpenConnectionForKey**, des états intermédiaires incohérents peuvent apparaître pendant l’exécution de demandes de fractionnement, de fusion et de déplacement. Ce type de connexion peut afficher des résultats partiels ou en double en fonction de la synchronisation ou de la partition sous-jacente à la connexion. Actuellement, cette limitation inclut les connexions établies par les interrogations de plusieurs partitions de l’infrastructure élastique.
+* Au cours du traitement des demandes, des données de shardlet peuvent être présentes à la fois sur la partition source et sur la partition cible. Cette présence est actuellement nécessaire à la protection contre les défaillances pendant le déplacement de shardlets. Comme expliqué ci-dessus, l'intégration du service de fractionnement et de fusion à la carte de partitions de l'infrastructure élastique permet de s'assurer que les connexions via les API de routage dépendant des données, utilisant la méthode **OpenConnectionForKey** sur la carte de partitions, ne constatent pas d'états intermédiaires incohérents. Toutefois, lors de la connexion aux partitions source ou cible sans utiliser la méthode **OpenConnectionForKey**, des états intermédiaires incohérents peuvent apparaître pendant l'exécution de demandes de fractionnement, de fusion et de déplacement. Ce type de connexion peut afficher des résultats partiels ou en double en fonction de la synchronisation ou de la partition sous-jacente à la connexion. Actuellement, cette limitation inclut les connexions établies par les interrogations de plusieurs partitions de l’infrastructure élastique.
 
 * La base de données de métadonnées de fractionnement et de fusion ne doit pas être partagée entre différents rôles. Par exemple, un rôle du service de fractionnement et de fusion en cours d’exécution intermédiaire doit pointer vers une base de données de métadonnées différente du rôle de production.
  
@@ -198,7 +199,7 @@ Vous trouverez plus d'informations sur la façon de configurer et de déployer l
 
 ## Récupération des diagnostics 
 
-Vous pouvez accéder facilement aux diagnostics à partir de l’Explorateur de serveurs Visual Studio dans la partie Azure de l’arborescence de l’Explorateur de serveurs : Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur Affichage et Explorateur de serveurs. Cliquez sur l’icône Azure pour vous connecter à votre abonnement Azure. Ensuite, accédez à Azure -> Stockage -> <your storage account> -> Tables -> WADLogsTable. Pour plus d’informations, consultez la page [Consultation des ressources de stockage avec l’Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
+Vous pouvez accéder facilement aux diagnostics à partir de l’Explorateur de serveurs Visual Studio dans la partie Azure de l’arborescence de l’Explorateur de serveurs : Ouvrez une instance de Visual Studio, puis dans la barre de menus, cliquez sur Affichage et Explorateur de serveurs. Cliquez sur l’icône Azure pour vous connecter à votre abonnement Azure. Ensuite, accédez à Azure -> Stockage -> <your storage account> -> Tables -> WADLogsTable. Pour plus d'informations, consultez la page [Consultation des ressources de stockage avec l'Explorateur de serveurs](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 ![WADLogsTable][2]
 
@@ -218,7 +219,7 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 ## Meilleures pratiques et dépannage : 
 -    Définissez un locataire test et exercez vos opérations les plus importantes de fractionnement, de fusion et de déplacement avec le locataire test sur plusieurs partitions. Assurez-vous que toutes les métadonnées sont définies correctement dans la carte de partitions et que les opérations ne violent pas les contraintes ou les clés étrangères.
 -    Maintenez la taille des données du locataire test au-dessus de la taille maximale des données de votre locataire le plus volumineux pour garantir que vous ne rencontrerez pas de problèmes liés à la taille des données. Cela vous aide à évaluer une limite supérieure relative au temps requis pour déplacer un seul locataire. 
--    Assurez-vous que votre schéma autorise les suppressions. Le service de fractionnement et de fusion requiert la possibilité de supprimer les données de la partition source une fois que les données ont été copiées dans la partition cible. Par exemple, les **déclencheurs de suppression** peuvent empêcher le service de supprimer les données de la partition source et provoquer l’échec des opérations.
+-    Assurez-vous que votre schéma autorise les suppressions. Le service de fractionnement et de fusion requiert la possibilité de supprimer les données de la partition source une fois que les données ont été copiées dans la partition cible. Par exemple, les **déclencheurs de suppression** peuvent empêcher le service de supprimer les données de la partition source et provoquer l'échec des opérations.
 -    La clé de partitionnement doit être la première colonne de la définition de la clé primaire ou de l’index unique. Cela garantit les meilleures performances pour les requêtes de validation de fractionnement ou de fusion ainsi que pour les opérations de déplacement et suppression de données réelles qui fonctionnent systématiquement sur des plages de clés de partitionnement.
 -    Colocalisez votre service de fractionnement et de fusion dans le centre de données et dans la région où résident vos bases de données. 
 
@@ -238,4 +239,4 @@ En outre, une propriété d'unicité avec la clé de partitionnement en tant que
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

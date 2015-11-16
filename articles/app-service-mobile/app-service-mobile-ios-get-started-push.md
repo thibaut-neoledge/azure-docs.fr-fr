@@ -23,9 +23,14 @@
 &nbsp;  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide iOS] afin qu’une notification Push soit envoyée chaque fois qu’un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## Vue d'ensemble
+Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide iOS] afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS] que vous devez lire en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Le [simulateur iOS ne prend pas en charge les notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) donc, pour ce didacticiel, vous avez besoin d'un périphérique iOS physique et d’une [adhésion au programme de développement Apple](https://developer.apple.com/programs/ios/).
+Le [simulateur iOS ne prend pas en charge les notifications Push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Vous aurez donc besoin pour ce didacticiel d'un périphérique iOS physique et d'une [adhésion au programme de développement Apple](https://developer.apple.com/programs/ios/).
+
+##<a name="create-hub"></a>Créer un concentrateur de notification
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
 ## <a id="register"></a>Inscrire une application pour les notifications Push
 
@@ -39,15 +44,15 @@ Le [simulateur iOS ne prend pas en charge les notifications Push](https://develo
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Déployer le projet de serveur sur Azure
+## <a name="publish-the-service"></a>Déployer le projet de serveur dans Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a id="add-push"></a>Ajout de notifications Push à l’application
+## <a id="add-push"></a>Ajout de notifications Push à l'application
 
 [AZURE.INCLUDE [Ajout de notifications push à l’application](../../includes/app-service-add-push-notifications-to-app.md)]
 
-## <a id="test"></a>Tester les notifications Push dans l’application
+## <a id="test"></a>Tester les notifications push dans l'application
 
 [AZURE.INCLUDE [Tester les notifications push dans l’application](../../includes/test-push-notifications-in-app.md)]
 
@@ -66,4 +71,4 @@ Le [simulateur iOS ne prend pas en charge les notifications Push](https://develo
 <!-- URLs. -->
 [Démarrage rapide iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

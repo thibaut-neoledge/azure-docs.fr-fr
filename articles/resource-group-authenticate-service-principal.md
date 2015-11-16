@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="10/30/2015"
    ms.author="tomfitz"/>
 
 # Authentification d'un principal du service à l'aide d'Azure Resource Manager
@@ -78,7 +78,7 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 
      Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
-3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
+3. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](resource-group-rbac.md)
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -202,7 +202,7 @@ Tout d’abord, vous devez configurer certaines valeurs dans PowerShell que vous
 
     Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
-5. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
+5. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](resource-group-rbac.md)
 
         PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
@@ -275,13 +275,13 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
     Vous avez désormais créé un principal du service dans le répertoire, mais aucune autorisation ni étendue n’a encore été attribuée au service. Vous devez autoriser explicitement le principal du service à effectuer des opérations dans une étendue donnée.
 
-4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)
+4. Accordez des autorisations au principal du service sur votre abonnement. Dans cet exemple, vous allez permettre au principal du service de lire toutes les ressources de l’abonnement. Pour le paramètre **ServicePrincipalName**, indiquez la propriété **ApplicationId** ou **IdentifierUris** que vous avez utilisée lors de la création de l’application. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez la page [Gestion et audit d’accès aux ressources](resource-group-rbac.md)
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
 5. Déterminez le paramètre **TenantId** du client correspondant à l’attribution de rôle du principal du service en affichant les comptes sous forme de liste et en recherchant la propriété **TenantId** dans la sortie.
 
-        azure account list
+        azure account list --json
 
 6. Connectez-vous en vous identifiant en tant que principal du service. Pour le nom d’utilisateur, utilisez le paramètre **ApplicationId** que vous avez utilisé lors de la création de l’application. Utilisez le mot de passe que vous avez indiqué lors de la création du compte.
 
@@ -291,7 +291,7 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
 ## Étapes suivantes
   
-- Pour obtenir une vue d’ensemble du contrôle d’accès en fonction du rôle, consultez [Gestion et audit d’accès aux ressources](azure-portal/resource-group-rbac.md)  
+- Pour obtenir une vue d'ensemble du contrôle d'accès en fonction du rôle, consultez [Gestion et audit d'accès aux ressources](resource-group-rbac.md)  
 - Pour en savoir plus sur l’utilisation du portail avec les principaux du service, consultez [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
 - Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 
@@ -299,4 +299,4 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Charge de travail des services d'infrastructure Azure : batterie de serveurs SharePoint Intranet
@@ -48,9 +48,9 @@ Vous pouvez créer ces environnements de développement/test gratuitement avec v
 
 ### Réseau virtuel cloud uniquement
 
-Un réseau virtuel cloud uniquement n’est pas connecté à un réseau local. Si vous voulez simplement créer rapidement une batterie de serveurs SharePoint de base ou à haute disponibilité, consultez [Batterie de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). L'exemple suivant montre la configuration d'une batterie de serveurs SharePoint de base.
+Un réseau virtuel cloud uniquement n’est pas connecté à un réseau local. Si vous voulez simplement créer rapidement une batterie de serveurs SharePoint de base ou à haute disponibilité, consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). L'exemple suivant montre la configuration d'une batterie de serveurs SharePoint de base.
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Réseau virtuel entre sites locaux
 
@@ -128,4 +128,4 @@ Une fois la configuration terminée, vous pouvez développer cette batterie de s
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

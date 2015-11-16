@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Collections fiables"
-   description="Les Collections fiables vous permettent d'écrire des applications cloud hautement disponibles, évolutives et à faible latence."
+   pageTitle="Collections fiables | Microsoft Azure"
+   description="Les services avec état Service Fabric fournissent des collections fiables qui vous permettent d'écrire des applications cloud hautement disponibles, évolutives et à faible latence."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="mcoskun"/>
 
-# Collections fiables
+# Introduction aux Collections fiable dans les services avec état de Service Fabric
 
 Les Collections fiables vous permettent d'écrire des applications cloud hautement disponibles, évolutives et à faible latence comme si vous écriviez des applications pour ordinateur unique. Les classes dans l'espace de noms `Microsoft.ServiceFabric.Data.Collections` fournissent un ensemble de collections prêtes à l'emploi qui rendent automatiquement votre état hautement disponible. Il suffit aux développeurs de programmer les API de Collection fiable et de laisser les Collections fiables gérer l'état répliqué et local.
 
@@ -38,7 +38,7 @@ Les Collections fiables fournissent des garanties de forte cohérence instantan�
 
 Les API de Collections fiables sont une évolution des API de collections simultanées (trouvées dans l'espace de noms `System.Collections.Concurrent`) :
 
-1. Asynchrones : renvoie une tâche car, contrairement aux Collections fiables, les opérations sont répliquées et conservées.
+1. Asynchrones : renvoie une tâche car, contrairement aux collections simultanées, les opérations sont répliquées et conservées.
 2. Aucun paramètre de sortie : utilise `ConditionalResult<T>` pour renvoyer un paramètre booléen et une valeur au lieu de paramètres. `ConditionalResult<T>` est similaire à `Nullable<T>` mais ne nécessite pas que T soit une structure.
 3. Transactions : utilise un objet de transaction pour permettre à l'utilisateur de regrouper des actions sur plusieurs Collections fiables dans une transaction.
 
@@ -78,7 +78,7 @@ Le Gestionnaire d'état fiable et les Collections fiables suivent un modèle de 
 
 Pour mieux comprendre le modèle de journal et de point de contrôle, penchons-nous d'abord sur le scénario de disque infini. Le Gestionnaire d'état fiable enregistre chaque opération avant qu'elle ne soit répliquée. Ceci permet à la Collection fiable d'appliquer uniquement l'opération en mémoire. Dans la mesure où les journaux sont conservés, même lorsque le réplica échoue et doit être redémarré, le Gestionnaire d'état fiable possède suffisamment d'informations dans ses journaux pour recréer toutes les opérations perdues par le réplica. Étant donné que le disque est infini, les enregistrements du journal n'ont jamais besoin d'être supprimés et la Collection fiable ne doit gérer que l'état en mémoire.
 
-Maintenant, examinons le scénario de disque limité. À un moment donné, le Gestionnaire d'état fiable manquera d'espace disque. Avant que cela n'arrive, le Gestionnaire d'état fiable doit tronquer son journal pour accueillir les enregistrements plus récents. Il demande alors aux Collections fiables de contrôler leur état en mémoire. La responsabilité de la Collection fiable est de conserver son état jusqu'à ce point. Une fois que les Collections fiables ont terminé leur contrôle, le Gestionnaire d'état fiable peut tronquer le journal pour libérer de l'espace disque. Ainsi, lorsque le réplica doit être redémarré, les Collections fiables récupéreront leur état au point de contrôle et le Gestionnaire d'état fiable récupérera et lira toutes les modifications d'état qui se sont produites depuis le point de contrôle.
+Maintenant, examinons le scénario de disque limité. À un moment donné, le Gestionnaire d'état fiable manquera d'espace disque. Avant que cela n'arrive, le Gestionnaire d'état fiable doit tronquer son journal pour accueillir les enregistrements plus récents. Il demande alors aux Collections fiables de contrôler leur état en mémoire sur disque. La responsabilité de la Collection fiable est de conserver son état jusqu'à ce point. Une fois que les Collections fiables ont terminé leur contrôle, le Gestionnaire d'état fiable peut tronquer le journal pour libérer de l'espace disque. Ainsi, lorsque le réplica doit être redémarré, les Collections fiables récupéreront leur état au point de contrôle et le Gestionnaire d'état fiable récupérera et lira toutes les modifications d'état qui se sont produites depuis le point de contrôle.
 
 ## Verrouillage
 Dans les Collections fiables, toutes les transactions ont deux phases : une transaction ne libère pas les verrous qu'elle a acquis jusqu'à ce que la transaction se termine avec un abandon ou une validation.
@@ -115,7 +115,7 @@ Voici quelques points à retenir :
 
 - [Démarrage rapide des Services fiables](service-fabric-reliable-services-quick-start.md)
 - [Prise en main des services API Web de Fabric Service](service-fabric-reliable-services-communication-webapi.md)
-- [Utilisation avancée du modèle de programmation de services fiables](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
+- [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

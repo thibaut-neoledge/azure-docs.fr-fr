@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Débogage de votre application Service Fabric dans Visual Studio à l'aide de F5"
-   description="Améliorez la fiabilité et les performances de vos services à l'aide de Visual Studio et d'un cluster de développement local."
+   pageTitle="Débogage de votre application dans Visual Studio | Microsoft Azure"
+   description="Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Visual Studio et un cluster de développement local."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Débogage de votre application Service Fabric dans Visual Studio à l'aide de F5
+# Débogage de votre application Service Fabric à l'aide de Visual Studio
 
 Vous pouvez économiser du temps et de l'argent en déployant et déboguant votre application Service Fabric dans un cluster de développement d'ordinateur local. Visual Studio peut déployer l'application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application.
 
@@ -66,4 +66,4 @@ Vous pouvez économiser du temps et de l'argent en déployant et déboguant votr
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

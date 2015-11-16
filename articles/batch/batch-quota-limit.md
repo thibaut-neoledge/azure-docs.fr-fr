@@ -29,7 +29,7 @@ Si vous envisagez d’exécuter des charges de travail Batch dans un environneme
 ## Quotas d’abonnement
 Ressource|Limite par défaut|Limite maximale
 ---|---|---
-Comptes Batch par région et par abonnement|1|20
+Comptes Batch par région et par abonnement|1|50
 
 ## Quotas de compte Batch
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

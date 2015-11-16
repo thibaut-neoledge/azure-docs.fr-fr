@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="10/01/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # API REST du service Azure Search : version 2015-02-28-Preview
 
-Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
+Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Cet article constitue la documentation de référence de `api-version=2015-02-28-Preview`. Cette version préliminaire étend la version actuelle disponible, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), en fournissant les fonctionnalités expérimentales suivantes :
 
 - La [syntaxe de requête Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) est une implémentation de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) que vous pouvez spécifier à l’aide du paramètre queryType dans les [opérations de recherche](#SearchDocs).
 - `moreLikeThis` est un paramètre de requête utilisé dans les [opérations de recherche](#SearchDocs) qui trouve des documents en rapport avec un autre document spécifique.
@@ -1742,4 +1742,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

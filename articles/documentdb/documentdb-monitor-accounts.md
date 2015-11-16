@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="10/30/2015" 
 	ms.author="mimig"/>
 
 # Surveillance d’un compte DocumentDB avec le portail Azure en version préliminaire 
@@ -21,7 +21,7 @@
 Vous pouvez surveillez vos comptes DocumentDB dans le [portail Azure en version préliminaire de Microsoft](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
 ## Affichage des mesures de performances pour un compte DocumentDB
-1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
+1.	Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Comptes DocumentDB**. Cliquez ensuite sur le nom du compte DocumentDB dont vous souhaitez afficher les mesures de performances.
 2.	Dans le filtre **Surveillance**, vous pouvez, par défaut, voir :
 	*	le nombre total de demandes pour le jour en cours ;
 	*	la moyenne des demandes par seconde pour le jour en cours. 
@@ -90,4 +90,4 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

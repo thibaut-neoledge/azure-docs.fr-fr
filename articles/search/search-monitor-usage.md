@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Surveillance de l’utilisation et des statistiques dans un service Azure Search" 
-   description="Effectuez le suivi de la consommation des ressources et de la taille des index pour Azure Search" 
+   pageTitle="Surveillance de l'utilisation et des statistiques dans un service Azure Search | Microsoft Azure" 
+   description="Suivez la consommation de ressource et la taille de l'index pour Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="09/08/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Surveillance de l’utilisation et des statistiques dans un service Azure Search
@@ -57,4 +57,4 @@ Consultez [Gestion de votre service Search sur Microsoft Azure](search-manage.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

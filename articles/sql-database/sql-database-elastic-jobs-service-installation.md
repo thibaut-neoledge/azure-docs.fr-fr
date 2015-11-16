@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Installation de tâches de bases de données élastiques" 
+	pageTitle="Installation de Tâches de bases de données élastiques | Microsoft Azure" 
 	description="Passez en revue l'installation de la fonctionnalité de tâche élastique." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jhubbard" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
-	ms.author="ddove; sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble de l’installation de Tâches de bases de données élastiques
-**Tâches de bases de données élastiques** peut être installée via PowerShell ou via le portail Azure, même si vous ne pourrez y accéder qu’à la création et la gestion des tâches à l'aide de l'API PowerShell si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités via le portail. Pour plus d’informations concernant **Tâches de bases de données élastiques**, consultez la rubrique [Vue d’ensemble de Tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
+Les [**Tâches de bases de données élastiques**](sql-database-elastic-jobs-overview.md) peuvent être installées à l'aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l'aide de l'API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
-Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d’un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l’API PowerShell.
+Si vous avez déjà installé **Tâches de bases de données élastiques** via le portail à partir d'un **pool élastique de bases de données** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
 
 ## Composants requis
-* Un abonnement Azure. Pour un essai gratuit, consultez [Version d’évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure. Pour un essai gratuit, consultez [Version d'évaluation gratuite](http://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell, version 0.8.16 (ou ultérieure). Installez la dernière version (0.9.5) via [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](powershell-install-configure.md).
-* [L'utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d'informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
+* L'[utilitaire de ligne de commande NuGet](https://nuget.org/nuget.exe) est utilisé pour installer le package Tâches de bases de données élastiques. Pour plus d'informations, consultez http://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Téléchargez et importez le package Tâches de bases de données élastiques PowerShell
 1. Lancez la fenêtre de commande Microsoft Azure PowerShell et accédez au répertoire où vous avez téléchargé l’utilitaire de ligne de commande NuGet (nuget.exe).
 
-2. Téléchargez et importez le package **Tâches de bases de données élastiques** dans le répertoire actuel à l’aide de la commande suivante :
+2. Téléchargez et importez le package **Tâches de bases de données élastiques** dans le répertoire actuel à l'aide de la commande suivante :
 
 		PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
 
-    Les fichiers **Tâches de bases de données élastiques** sont placés dans un répertoire local du fichier nommé **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** où *x.x.xxxx.x* correspond au numéro de version. Les applets de commande PowerShell (y compris les .dll clients requis) se trouvent dans le sous-répertoire **tools\\ElasticDatabaseJobs** et les scripts PowerShell d’installation, de mise à niveau et de désinstallation résident également dans le sous-répertoire **tools**.
+    Les fichiers **Tâches de bases de données élastiques** sont placés dans un dossier du répertoire local nommé **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** où *x.x.xxxx.x* correspond au numéro de version. Les applets de commande PowerShell (y compris les .dll clients requis) se trouvent dans le sous-répertoire **tools\\ElasticDatabaseJobs** et les scripts PowerShell d'installation, de mise à niveau et de désinstallation résident également dans le sous-répertoire **tools**.
 
 3. Accédez au sous-répertoire tools sous le dossier Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x en tapant cd tools, par exemple :
 
@@ -54,7 +54,7 @@ Si vous avez déjà installé **Tâches de bases de données élastiques** via l
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1 
 		PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
-Lorsque vous exécutez cette commande, une fenêtre dans laquelle vous devez entrer un **nom d'utilisateur** et un **mot de passe** apparaît. Il ne s'agit pas de vos informations d'identification Azure. Entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur que vous souhaitez créer pour le nouveau serveur.
+Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous devez entrer un **nom d'utilisateur** et un **mot de passe**. Il ne s'agit pas de vos informations d'identification Azure. Entrez le nom d'utilisateur et le mot de passe qui seront les informations d'identification d'administrateur que vous souhaitez créer pour le nouveau serveur.
 
 Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par les paramètres souhaités. La liste suivante vous fournit plus d'informations sur le comportement de chaque paramètre :
 
@@ -113,7 +113,7 @@ Pour les systèmes qui ciblent un très grand nombre de tâches s’exécutant e
 
 ## Mettez à jour une installation de composants de Tâches de bases de données élastiques existante à l'aide de PowerShell
 
-**Tâches de bases de données élastiques** peut être mis à jour dans une installation existante pour assurer la mise à l’échelle et la haute disponibilité. Ce processus permet d’effectuer ultérieurement des mises à niveau du code de service sans avoir à supprimer et recréer la base de données de contrôle. Il peut également être utilisé sur la même version pour modifier la taille de la machine virtuelle du service ou le nombre de travaux de serveur.
+**Tâches de bases de données élastiques** peut être mis à jour dans une installation existante pour assurer la mise à l'échelle et la haute disponibilité. Ce processus permet d’effectuer ultérieurement des mises à niveau du code de service sans avoir à supprimer et recréer la base de données de contrôle. Il peut également être utilisé sur la même version pour modifier la taille de la machine virtuelle du service ou le nombre de travaux de serveur.
 
 Pour mettre à jour la taille de la machine virtuelle d’une installation, exécutez le script suivant via les paramètres mis à jour avec les valeurs de votre choix.
 
@@ -150,12 +150,12 @@ Pour mettre à jour la taille de la machine virtuelle d’une installation, exé
 
 ## Installez les composants de Tâches de bases de données élastiques à l'aide du portail
 
-Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l’exécution des tâches d’administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécuté que sur un pool existant.
+Une fois que vous avez [créé un pool de bases de données élastique](sql-database-elastic-pool-portal.md), vous pouvez installer les composants de **Tâches de bases de données élastiques** pour activer l'exécution des tâches d'administration dans chaque base de données du pool de bases de données élastique. Contrairement aux API PowerShell de **Tâches de bases de données élastiques**, l'interface du portail ne peut être exécutée que sur un pool existant.
 
 
 **Durée estimée :** 10 minutes.
 
-1. Dans la vue du tableau de bord du pool élastique de bases de données via la [version préliminaire du portail Azure](https://ms.portal.azure.com/#), cliquez sur **Créer une tâche**.
+1. Dans la vue du tableau de bord du pool de bases de données élastique via le [portail Azure en version préliminaire](https://ms.portal.azure.com/#), cliquez sur **Créer une tâche**.
 2. Si vous créez une tâche pour la première fois, vous devez installer **Tâches de bases de données élastiques** en cliquant sur **PREVIEW TERMS**. 
 3. Acceptez les termes en cliquant sur la case à cocher.
 4. Dans la vue « Installer les services », cliquez sur **JOB CREDENTIALS**.
@@ -174,11 +174,11 @@ Une fois que vous avez [créé un pool de bases de données élastique](sql-data
 
 	![Déploiement en cours][4]
 
-Si la désinstallation est nécessaire, supprimez le groupe de ressources. Consultez la rubrique [Désinstaller les composants de Tâches de bases de données élastiques](sql-database-elastic-jobs-uninstall.md)
+Si la désinstallation est nécessaire, supprimez le groupe de ressources. Consultez [Désinstaller les composants de Tâches de bases de données élastiques](sql-database-elastic-jobs-uninstall.md).
 
 ## Étapes suivantes
 
-Vérifiez que les informations d'identification disposant des droits appropriés pour l'exécution du script sont créées sur chaque base de données du groupe. Pour plus d'informations, consultez la rubrique [Ajouter des utilisateurs à toutes les bases de données de mon groupe de bases de données](sql-database-elastic-jobs-add-logins-to-dbs.md). Consultez la rubrique [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
+Vérifiez que les informations d'identification disposant des droits appropriés pour l'exécution du script sont créées sur chaque base de données du groupe. Pour plus d'informations, consultez la rubrique [Ajouter des utilisateurs à toutes les bases de données de mon groupe de bases de données](sql-database-elastic-jobs-add-logins-to-dbs.md). Consultez [Création et gestion de Tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md) pour commencer.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
@@ -187,4 +187,4 @@ Vérifiez que les informations d'identification disposant des droits appropriés
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle de conception Smart Cache pour les Acteurs fiables"
-   description="Modèle de conception sur l'utilisation des Acteurs fiables comme infrastructure de mise en cache dans les applications Web"
+   pageTitle="Modèle de conception Smart Cache | Microsoft Azure"
+   description="Modèle de conception sur l'utilisation du modèle de programmation Reliable Actors de Service Fabric pour créer une infrastructure de mise en cache pour les applications web."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,11 +17,13 @@
    ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : Smart Cache
+
 La combinaison d'un niveau web, d'un niveau de mise en cache, d'un niveau de stockage et parfois d'un niveau travailleur constitue les éléments standard des applications actuelles. Le niveau de mise en cache est généralement essentiel pour les performances et peut, en fait, être lui-même composé de plusieurs niveaux. De nombreux caches sont de simples paires clé-valeur tandis que d'autres systèmes comme [Redis](http://redis.io) utilisés comme caches offrent une sémantique plus riche. Cependant, tout niveau particulier de mise en cache sera limité en termes de sémantique et plus important encore, il constituera un autre niveau à gérer. Que se passe-t-il si au lieu de cela, les objets conservaient simplement l'état dans des variables locales et qu'on puisse en faire des instantanés ou les conserver automatiquement dans un magasin durable ? En outre, de collections riches, telles que des listes, des ensembles triés, des files d'attente et tout autre type personnalisé sont simplement modélisés comme des variables et des méthodes membres.
 
 ![][1]
 
 ## L'exemple du classement
+
 Prenons comme exemples des classements : un objet Classement doit conserver une liste triée des joueurs et de leurs scores pour nous permettre de lancer des recherches. Par exemple, pour afficher les « 100 premiers joueurs » ou pour situer un joueur dans le classement par rapport aux +- N joueurs avant et après lui. Une solution standard avec des outils traditionnels nécessiterait une commande 'GET' pour obtenir l'objet Classement (une collection qui prend en charge l'insertion d'un nouveau tuple<Player  Points> nommé Score), un tri de l'objet, puis une commande 'PUT' pour replacer l'objet dans le cache. Nous verrouillerions (LOCK) probablement l'objet Classement (GETLOCK, PUTLOCK) pour garantir la cohérence. Examinons une solution basée sur un acteur où l'état et le comportement sont combinés. Nous avons deux options :
 
 * Implémenter la collection Classement comme un composant de l'acteur,
@@ -280,6 +282,7 @@ Essentiellement, Smart Cache fournit :
 
 
 ## Étapes suivantes
+
 [Modèle : réseaux distribués et graphiques](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
 [Modèle : Gestion des ressources](service-fabric-reliable-actors-pattern-resource-governance.md)
@@ -298,4 +301,4 @@ Essentiellement, Smart Cache fournit :
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

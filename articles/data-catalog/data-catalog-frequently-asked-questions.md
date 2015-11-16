@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Forum Aux Questions Azure Data Catalog
@@ -79,7 +79,7 @@ Outre les ressources répertoriées ci-dessus, **Azure Data Catalog** prend en c
 - Base de données SQL Server
 - Oracle Database
 - Cluster HDFS
-- Base de données Teradata 
+- Base de données Teradata
 
 
 ## Q : Comment demander la prise en charge d’une autre source de données ?
@@ -172,4 +172,4 @@ Si vous rencontrez des problèmes ou si vous avez besoin d’assistance avec la 
 
 Rendez-vous sur le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

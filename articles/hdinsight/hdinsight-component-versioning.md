@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -162,4 +162,4 @@ La **Date d’obsolescence** est la date après laquelle la version du cluster n
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

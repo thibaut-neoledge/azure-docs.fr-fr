@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="10/17/2015"
+   ms.date="10/29/2015"
    ms.author="jehollan"/>
 
 #Application API C#
@@ -79,7 +79,7 @@ Par exemple, supposons que vous utilisiez le déclencheur d’Office 365 **Nouv
 }
 ```
 
-Toutefois, vous voulez charger ces pièces jointes dans une publication Yammer. Malheureusement, le schéma des pièces jointes Yammer est légèrement différent. À présent, vous êtes désormais en mesure d’analyser ceci à l’intérieur de votre application logique. Pour l’objet de contexte, transmettez simplement la chaîne : `@triggerBody()`, et pour l’expression, transmettez le code suivant :
+Toutefois, vous voulez charger ces pièces jointes dans une publication Yammer. Malheureusement, le schéma des pièces jointes Yammer est légèrement différent. À présent, vous êtes en mesure d'analyser ceci dans votre application logique. Pour l’objet de contexte, transmettez simplement la chaîne : `@triggerBody()`, et pour l’expression, transmettez le code suivant :
 
 ```javascript
 JArray YammerAttachments = new JObject();
@@ -105,4 +105,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

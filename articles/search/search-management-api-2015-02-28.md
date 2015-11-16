@@ -1,10 +1,10 @@
-<properties pageTitle="API REST de gestion Azure Search version 2015-02-28" description="API REST de gestion Azure Search : version 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST de gestion Azure Search : version 2015-02-28 | Microsoft Azure" description="API REST de gestion Azure Search : version 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # API de gestion : version 2015-02-28
 
-Ce document décrit la version **2015-02-28* de l’API REST de gestion Azure Search. Elle a depuis été remplacée par une version plus récente. Pour obtenir la dernière version, consultez [API REST de gestion Azure Search (2015-08-19)](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN.
+Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Ce document décrit la version **2015-02-28* de l’API REST de gestion Azure Search. Elle a depuis été remplacée par une version plus récente. Pour obtenir la dernière version, consultez [API REST de gestion Azure Search (2015-08-19)](https://msdn.microsoft.com/library/dn832684.aspx) sur MSDN.
 
 ##Opérations de gestion de service
 
@@ -812,4 +812,4 @@ Le code d’état de réponse est HTTP 200  (OK) si l’opération réussit.
 
 Aucun.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

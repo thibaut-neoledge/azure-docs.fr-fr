@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -68,11 +68,19 @@ Par défaut, les nœuds principaux sont alloués en tant que machines virtuelles
 
 Les machines virtuelles de taille très importante peuvent être configurées soit avec des cmdlets Azure PowerShell soit avec le Kit de développement logiciel (SDK) HDInsight.
 
-La création et l’approvisionnement d’un cluster avec Azure PowerShell sont documentés sur la page [Administration de HDInsight à l’aide de PowerShell](hdinsight-administer-use-powershell.md). La configuration d’un nœud principal de très grande taille nécessite l’ajout du paramètre `-HeadNodeVMSize ExtraLarge` à la cmdlet `New-AzureHDInsightcluster` utilisée dans ce code.
+La création et l’approvisionnement d’un cluster avec Azure PowerShell sont documentés sur la page [Administration de HDInsight à l’aide de PowerShell](hdinsight-administer-use-powershell.md). La configuration d’un nœud principal de très grande taille nécessite l’ajout du paramètre `-HeadNodeVMSize ExtraLarge` à la cmdlet `New-AzureRmHDInsightcluster` utilisée dans ce code.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge head-node VM
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+    New-AzureRmHDInsightCluster `
+				-ResourceGroupName $resourceGroupName `
+				-ClusterName $clusterName ` 
+				-Location $location `
+				-HeadNodeVMSize ExtraLarge `
+				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+				-DefaultStorageAccountKey $storageAccountKey `
+				-DefaultStorageContainerName $containerName  `
+				-ClusterSizeInNodes $clusterNodes
 
 Pour le Kit de développement logiciel (SDK), le scénario est similaire. La création et l’approvisionnement d’un cluster avec le Kit de développement logiciel (SDK) sont documentés sur la page [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk). La configuration d’un nœud principal de très grande taille nécessite l’ajout du paramètre `HeadNodeSize = NodeVMSize.ExtraLarge` à la méthode `ClusterCreateParameters()` utilisée dans ce code.
 
@@ -80,15 +88,15 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 	# Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-    Name = clustername,
-    Location = location,
-    HeadNodeSize = NodeVMSize.ExtraLarge,
-    DefaultStorageAccountName = storageaccountname,
-    DefaultStorageAccountKey = storageaccountkey,
-    DefaultStorageContainer = containername,
-    UserName = username,
-    Password = password,
-    ClusterSizeInNodes = clustersize
+		Name = clustername,
+		Location = location,
+		HeadNodeSize = NodeVMSize.ExtraLarge,
+		DefaultStorageAccountName = storageaccountname,
+		DefaultStorageAccountKey = storageaccountkey,
+		DefaultStorageContainer = containername,
+		UserName = username,
+		Password = password,
+		ClusterSizeInNodes = clustersize
     };
 
 
@@ -98,4 +106,4 @@ Pour le Kit de développement logiciel (SDK), le scénario est similaire. La cr�
 - [Connexion à des clusters HDInsight à l’aide de RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Utilisation du Kit de développement logiciel (SDK) HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

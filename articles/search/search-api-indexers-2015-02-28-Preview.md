@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)" 
+pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview) | Microsoft Azure" 
 description="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/29/2015" 
+ms.date="11/04/2015" 
 ms.author="heidist" />
 
 #Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)#
@@ -21,7 +21,7 @@ ms.author="heidist" />
 
 ## Vue d'ensemble ##
 
-Azure Search peut s'intégrer directement à des sources de données courantes, ce qui évite d'avoir à écrire du code pour indexer vos données. Pour cela, vous pouvez appeler l'API Azure Search pour créer et gérer des **indexeurs** et des **sources de données**.
+Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Azure Search peut s'intégrer directement à des sources de données courantes, ce qui évite d'avoir à écrire du code pour indexer vos données. Pour cela, vous pouvez appeler l'API Azure Search pour créer et gérer des **indexeurs** et des **sources de données**.
 
 Un **indexeur** est une ressource qui connecte des sources de données à des index de recherche cibles. Un indexeur est utilisé pour :
 
@@ -776,4 +776,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

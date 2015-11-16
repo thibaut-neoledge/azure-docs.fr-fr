@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Exécution du test chaos."
-   description="Cet article présente les scénarios Service Fabric prédéfinis par Microsoft."
+   pageTitle="Tests chaos et de basculement | Microsoft Azure"
+   description="Utilisation des scénarios de test chaos et de test de basculement Service Fabric pour induire des erreurs et vérifier la fiabilité de vos services."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -28,7 +28,7 @@ Le scénario de chaos génère des erreurs dans l’ensemble du cluster Service�
 ### Erreurs simulées dans le test chaos
  - Redémarrage d’un nœud
  - Redémarrage d’un package de code déployé
- - Suppression de réplicas
+ - Suppression d'un réplica
  - Redémarrage d’un réplica
  - Déplacement d’un réplica principal (facultatif)
  - Déplacement d’un réplica secondaire (facultatif)
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

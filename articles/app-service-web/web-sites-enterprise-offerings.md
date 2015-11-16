@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="anwestg"/>
 
 # Livre blanc sur les offres Azure App Service Web Apps pour les entreprises #
@@ -153,4 +153,4 @@ Pour plus d’informations sur le service Azure App Service Web Apps, visitez le
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

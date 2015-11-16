@@ -1,29 +1,33 @@
-<properties 
-	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement" 
+<properties
+	pageTitle="Intégration du SDK Android d'Azure Mobile Engagement"
 	description="Dernières mises à jour et procédures du SDK Android pour Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
 #Notes de publication
 
+##4\.1.1 (11/04/2015)
+
+- Améliorations de la stabilité.
+
 ##4\.1.0 (25/08/2015)
 
 - Gestion du nouveau modèle d’autorisation pour Android M.
-- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l’exécution au lieu d’utiliser `AndroidManifest.xml`.
-- Résolution d’un bogue d’autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n’est plus nécessaire.
+- Vous pouvez désormais configurer les fonctionnalités de localisation lors de l'exécution au lieu d'utiliser `AndroidManifest.xml`.
+- Résolution d'un bogue d'autorisation : si vous utilisez `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` n'est plus nécessaire.
 - Améliorations de la stabilité.
 
 ##4\.0.0 (06/07/2015)
@@ -45,6 +49,4 @@
 -   Améliorations de sécurité.
 -   Suppression du suivi de Google Play et SmartAd.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

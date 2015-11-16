@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
-	ms.author="tarcher"/>
+	ms.date="11/03/2015" 
+	ms.author="tdykstra"/>
 
 # Connexion à un serveur SQL Server local à partir d’une application API dans Azure App Service au moyen de connexions hybrides
 
@@ -430,4 +430,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

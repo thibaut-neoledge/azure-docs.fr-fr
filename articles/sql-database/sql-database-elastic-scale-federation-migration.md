@@ -1,10 +1,10 @@
 <properties 
-    pageTitle="Migration de fédérations" 
+    pageTitle="Migration de fédérations | Microsoft Azure" 
     description="Décrit la procédure de migration d’une application existante créée avec la fonctionnalité Fédérations vers un modèle de base de données élastique." 
     services="sql-database" 
     documentationCenter="" 
     manager="jeffreyg" 
-    authors="sidneyh" 
+    authors="ddove" 
     editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/14/2015" 
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015" 
+    ms.author="ddove;sidneyh"/>
 
 # Migration de fédérations 
 
@@ -108,7 +108,7 @@ L’utilitaire de migration de fédérations permet d’effectuer les opération
 
 ## Comparaison des fonctionnalités
 
-Bien que les outils de bases de données élastiques offrent de nombreuses fonctionnalités supplémentaires (par exemple, [l’interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md), [, le fractionnement et la fusion de partitions](sql-database-elastic-scale-overview-split-and-merge.md), [l’élasticité des partitions](sql-database-elastic-scale-elasticity.md), [la mise en cache côté client](sql-database-elastic-scale-shard-map-management.md), etc.), il existe quelques fonctionnalités intéressantes des fédérations qui ne sont pas prises en charge par les outils de bases de données élastiques.
+Bien que les outils de bases de données élastiques offrent de nombreuses fonctionnalités supplémentaires (par exemple, l'[interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md), le [fractionnement et la fusion de partitions](sql-database-elastic-scale-overview-split-and-merge.md), l'élasticité des partitions, la [mise en cache côté client](sql-database-elastic-scale-shard-map-management.md), etc.), il existe quelques fonctionnalités intéressantes des fédérations qui ne sont pas prises en charge par les outils de bases de données élastiques.
   
 - Utilisation de **FILTERING=ON**. Au lieu de cela, il est recommandé d’utiliser la sécurité au niveau des lignes pour le filtrage de ligne. Comme le filtrage de fédérations, la sécurité au niveau des lignes ajoute automatiquement un prédicat à toutes les requêtes sur une table partitionnée. Pour plus d’informations, consultez [Applications mutualisées avec les outils de bases de données élastiques et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md). 
  
@@ -150,4 +150,4 @@ Si votre application n'est pas encore prête à fonctionner sans fédération, c
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

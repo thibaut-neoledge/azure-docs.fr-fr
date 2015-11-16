@@ -14,12 +14,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="10/29/2015"
+	ms.date="11/03/2015"
 	ms.author="jroth" />
 
 # Guide des performances de base de données SQL Azure pour les bases de données uniques
 
-## Vue d'ensemble
+## Vue d'ensemble 
 
 La base de données SQL Microsoft Azure compte trois [niveaux de service](sql-database-service-tiers.md) : De base, Standard et Premium. Tous ces niveaux isolent strictement les ressources fournies à votre base de données SQL Azure et garantissent des performances prévisibles. Le débit garanti pour votre base de données augmente du niveau De base à Standard, puis passe à Premium.
 
@@ -114,8 +114,8 @@ La géo-réplication standard et active fournit des fonctionnalités de récupé
 
 Pour plus d'informations, consultez [Vue d'ensemble de la continuité des activités](sql-database-business-continuity.md).
 
-### Stockage en mémoire XTP maximal
-Le **stockage en mémoire XTP maximal** fait référence à la quantité maximale de stockage disponible pour la [version préliminaire d'In-Memory OLTP](sql-database-in-memory.md) des bases de données Premium. Vous pouvez utiliser le portail Azure ou la vue **sys.dm\_db\_resource\_stats** pour surveiller votre utilisation du stockage en mémoire. Pour plus d'informations sur la surveillance, consultez [Surveiller le stockage en mémoire XTP](sql-database-in-memory-oltp-monitoring.md).
+### Stockage In-Memory OLTP maximal
+Le **In-Memory OLTP maximal** fait référence à la quantité maximale de stockage disponible pour la [version préliminaire d'In-Memory OLTP](sql-database-in-memory.md) des bases de données Premium. Cela est parfois aussi appelé le *stockage XTP en mémoire*. Vous pouvez utiliser le portail Azure ou la vue **sys.dm\_db\_resource\_stats** pour surveiller votre utilisation du stockage en mémoire. Pour plus d'informations sur la surveillance, consultez [Surveiller le stockage In-Memory OLTP](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE]La version préliminaire d'In-Memory OLTP est actuellement prise en charge uniquement par les bases de données uniques et non par les bases de données de pools de bases de données élastiques.
 
@@ -285,7 +285,7 @@ Alors que les niveaux de service sont conçus pour améliorer la stabilité et l
 
 - **Les applications dont les performances sont lentes en raison d'un comportement bavard** : cela inclut les applications qui effectuent trop d'opérations d'accès aux données qui sont sensibles à la latence du réseau. De telles applications peuvent nécessiter une modification pour réduire le nombre d’opérations d’accès aux données sur la base de données SQL Azure. Par exemple, l’application peut être améliorée à l’aide de techniques comme le traitement par lot des requêtes ad hoc ou le déplacement des requêtes dans des procédures stockées. Pour plus d’informations, consultez la section Traitement par lot des requêtes ci-après.
 - **Les bases de données avec une charge de travail intensive qui ne peuvent pas être prises en charge par un seul ordinateur** : les bases de données qui dépassent les ressources du niveau de performances Premium le plus élevé ne sont pas de bonnes candidates. Ces bases de données peuvent bénéficier de la montée en charge de la charge de travail. Pour plus d’informations, consultez les sections Partitionnement entre plusieurs bases de données et Partitionnement fonctionnel ci-après.
-- **Les applications qui contiennent des requêtes non optimales** : les applications, en particulier dans la couche d’accès aux données, qui ont des requêtes mal paramétrées peuvent ne pas être en mesure de choisir un niveau de performances supérieur comme prévu. Cela inclut les requêtes dépourvues d’une clause WHERE et les requêtes présentant des index manquants ou des statistiques obsolètes. Ces applications bénéficieront des techniques de paramétrage des performances de requête standards. Pour plus d’informations, consultez les sections Index manquants et Paramétrage/Compréhension de requêtes ci-après.
+- **Les applications qui contiennent des requêtes non optimales** : les applications, en particulier dans la couche d'accès aux données, qui ont des requêtes mal paramétrées peuvent ne pas être en mesure de choisir un niveau de performances supérieur comme prévu. Cela inclut les requêtes dépourvues d’une clause WHERE et les requêtes présentant des index manquants ou des statistiques obsolètes. Ces applications bénéficieront des techniques de paramétrage des performances de requête standards. Pour plus d’informations, consultez les sections Index manquants et Paramétrage/Compréhension de requêtes ci-après.
 - **Les applications dotées d'un accès aux données non optimal** : les applications qui rencontrent des problèmes inhérents de concurrence d'accès aux données, par exemple d'interblocage, peuvent ne pas être en mesure de choisir un niveau de performances supérieur. Les développeurs d’applications doivent envisager de réduire les boucles sur la base de données SQL Azure en mettant en cache des données côté client à l’aide du service Azure Caching ou d’autres technologies de mise en cache. Consultez la section relative à la mise en cache de la couche Application ci-après.
 
 ## Techniques de paramétrage
@@ -468,7 +468,7 @@ Si une charge de travail contient un ensemble de requêtes répétitives, il est
 ### Partitionnement entre plusieurs bases de données
 La base de données SQL Azure s’exécutant sur du matériel, il existe généralement des limites de capacité inférieures pour une base de données unique par rapport à une installation SQL Server locale traditionnelle. Par conséquent, il existe des clients qui utilisent des techniques de partitionnement pour diffuser les opérations de base de données sur plusieurs bases de données lorsqu’elles ne s’adaptent pas aux limites d’une base de données unique dans la base de données SQL Azure. La plupart des clients utilisant des techniques de partitionnement aujourd’hui sur la base de données SQL Azure fractionnent leurs données dans une seule dimension sur plusieurs bases de données. L’approche implique de comprendre que, souvent, les applications OLTP exécutent des transactions qui s’appliquent uniquement à une ligne ou à un petit groupe de lignes dans le schéma.
 
->[AZURE.NOTE]La base de données SQL fournit désormais une bibliothèque pour faciliter le partitionnement. Pour en savoir plus, consultez [Vue d'ensemble de la bibliothèque cliente de la base de données élastique](sql-database-elastic-database-client-library.md).
+>[AZURE.NOTE]La base de données SQL fournit désormais une bibliothèque pour faciliter le partitionnement. Pour en savoir plus, consultez [Vue d'ensemble de la bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md).
 
 Par exemple, si une base de données contient un client, une commande et des détails relatifs à une commande (comme vu dans l’exemple de base de données Northwind classique fourni dans SQL Server), ces données pourraient être fractionnées en plusieurs bases de données, en regroupant un client avec la commande associée et les informations de détails relatifs à une commande et en garantissant qu’elles restent au sein d’une base de données unique. L’application fractionnerait différents clients sur les bases de données, répartissant ainsi efficacement la charge sur celles-ci. Cela permet non seulement aux clients d’éviter la limite de taille maximum de la base de données, mais également à la base de données SQL Azure de traiter les charges de travail qui sont beaucoup plus volumineuses que les limites des différents niveaux de performances à condition que chaque base de données individuelle s’adapte à sa DTU.
 
@@ -491,4 +491,4 @@ Certaines applications de base de données contiennent des charges de travail à
 
 Les niveaux de service dans la base de données SQL Azure vous permettent de placer la barre haut sur les types d’applications que vous créez dans le cloud. Associés à un paramétrage minutieux de l’application, ils vous permettent d’obtenir des performances puissantes et prévisibles pour votre application. Ce document décrit les techniques recommandées pour optimiser la consommation de ressources d’une base de données afin de l’adapter convenablement à l’un des niveaux de performances. Le paramétrage est un exercice continu dans le modèle de cloud, et les niveaux de service et leurs niveaux de performances permettent aux administrateurs d’optimiser les performances tout en réduisant les coûts sur la plateforme Microsoft Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

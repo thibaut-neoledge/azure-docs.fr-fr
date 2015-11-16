@@ -62,7 +62,10 @@ Dans cette section, vous allez écrire une application console Windows qui simul
         SendDeviceToCloudMessagesAsync();
         Console.ReadLine();
 
-> [AZURE.NOTE]Par souci de simplicité, ce didacticiel n'implémente aucune stratégie de nouvelle tentative. Dans le code de production, il est recommandé d’implémenter des stratégies de nouvelle tentative (par exemple, d’interruption exponentielle), comme indiqué dans l'article MSDN [Gestion des erreurs temporaires].
+  Par défaut, la méthode **Create (créer)** crée un **DeviceClient** qui utilise le protocole AMQP pour communiquer avec le concentrateur IoT. Pour utiliser le protocole HTTPS, remplacez la méthode **Create** pour spécifier le protocole. Si vous choisissez d'utiliser le protocole HTTPS, vous devez également ajouter le package NuGet **Microsoft.AspNet.WebApi.Client** à votre projet de manière à inclure l'espace de noms **System.Net.Http.Formatting**.
+
+
+> [AZURE.NOTE]Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Il est recommandé de mettre en œuvre dans le code de production des stratégies de nouvelle tentative (comme par exemple, l'interruption exponentielle), comme indiqué dans l'article MSDN [Gestion des erreurs temporaires].
 
 <!-- Links -->
 
@@ -72,4 +75,4 @@ Dans cette section, vous allez écrire une application console Windows qui simul
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

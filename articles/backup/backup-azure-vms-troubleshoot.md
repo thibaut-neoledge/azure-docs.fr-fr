@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Dépannage de machine virtuelle Azure - Sauvegarde | Microsoft Azure"
-	description="Recherchez des informations pour résoudre les problèmes de sauvegarde et de restauration de la machine virtuelle Azure"
+	pageTitle="Dépannage de la sauvegarde de machines virtuelles Azure | Microsoft Azure"
+	description="Dépannage de la sauvegarde et de la restauration de machines virtuelles Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Dépannage de la sauvegarde de machine virtuelle Azure
@@ -123,4 +123,4 @@ Une fois que la résolution de noms a été effectuée correctement, l’accès 
 1. Obtenez la liste des [adresses IP de centres de données Azure](https://msdn.microsoft.com/library/azure/dn175718.aspx) à débloquer.
 2. Débloquez les adresses IP à l’aide de l’applet de commande [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Exécutez cette applet de commande dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges (exécution en tant qu’administrateur).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Informations sur le langage Transact-SQL de la base de données SQL Azure
@@ -76,6 +76,8 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 - SHUTDOWN
 - sp\_addmessage
 - sp\_configureoptions et RECONFIGURE
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
 - Audit SQL Server (utilisez plutôt l’audit de la base de données SQL)
 - Générateur de profils SQL Server
 - SQL Server trace
@@ -86,12 +88,12 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 
 ## Référence complète Transact-SQL
 
-Pour plus d’informations sur la grammaire, l’utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
 
 ### À propos des balises « S’applique à »
 
-La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 et la base de données SQL Microsoft Azure. En haut de chaque rubrique se trouve une section indiquant les produits qui prennent en charge l’objet de la rubrique. Si un produit est omis, cela signifie que la fonctionnalité décrite dans la rubrique n’est pas disponible pour ce produit. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu’ils sont appliqués à**SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à la base de données SQL Microsoft Azure.
+La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 et la base de données SQL Microsoft Azure. En haut de chaque rubrique se trouve une section indiquant les produits qui prennent en charge l’objet de la rubrique. Si un produit est omis, cela signifie que la fonctionnalité décrite dans la rubrique n’est pas disponible pour ce produit. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu'ils sont appliqués à **SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à la base de données SQL Microsoft Azure.
 
-Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L’instruction **CREATE USER** peut être utilisée dans n’importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S’applique à** sont insérées dans les descriptions d’argument appropriées dans le corps de la rubrique.
+Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L'instruction **CREATE USER** peut être utilisée dans n'importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S'applique à** sont insérées dans les descriptions d'argument appropriées dans le corps de la rubrique.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

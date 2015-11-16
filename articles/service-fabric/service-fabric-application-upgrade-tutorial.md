@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Didacticiel sur la mise à niveau d'une application Service Fabric"
-   description="Cet article décrit pas à pas une expérience de mise à niveau d'une application Service Fabric."
+   pageTitle="Didacticiel de mise à niveau d'application | Microsoft Azure"
+   description="Cet article vous présente l'expérience de déploiement d'une application Service Fabric, la modification du code et le déploiement d'une mise à niveau."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -24,7 +24,7 @@ L'approche de la mise à niveau la plus fréquemment utilisée et recommandée e
 
 La mise à niveau propagée surveillée de Service Fabric permet à l'administrateur d'une application de configurer la stratégie d'évaluation d'intégrité que Service Fabric utilise pour déterminer si l'application est saine. En outre, elle permet également à l'administrateur de configurer l'action à entreprendre en cas d'échec de l'évaluation d'intégrité, telle qu'une restauration automatique. Cette section présente une procédure pas à pas de mise à niveau surveillée pour l'un des exemples du Kit de développement logiciel (SDK).
 
-## Étape 1 : Créer et déployer l'exemple d'objets visuels
+## Étape 1 : Créer et déployer l'exemple Visual Objects
 
 Pour effectuer cette procédure, ouvrez le projet dans Visual Studio, cliquez avec le bouton droit sur la solution et sélectionnez la commande Déployer dans l'élément de menu Service Fabric. Consultez l'article [Gestion de votre application Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md) pour plus d'informations. Il est également possible d'utiliser PowerShell.
 
@@ -34,7 +34,7 @@ Après avoir créé le projet dans Visual Studio, il est possible d'utiliser la 
 
 À présent, vous pouvez utiliser l'[Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L'application possède un service web accessible dans Internet Explorer en tapant [http://localhost:80](http://localhost:80) dans la barre d'adresse. Vous devez normalement voir des objets visuels flottants en rotation à l'écran. En outre, vous pouvez utiliser **Get-ServiceFabricApplication** pour vérifier l'état de l'application.
 
-## Étape 2 : Mettre à jour l'exemple d'objets visuels
+## Étape 2 : Mettre à jour l'exemple Visual Objects
 
 Vous pouvez remarquer qu'avec la version qui a été déployée à l'étape 1, les objets visuels ne sont pas en rotation. Mettons à niveau cette application vers une application dans laquelle les objets visuels sont en rotation.
 
@@ -126,4 +126,4 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

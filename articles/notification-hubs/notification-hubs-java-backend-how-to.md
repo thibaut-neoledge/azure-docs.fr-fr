@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de Java
@@ -303,4 +303,4 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

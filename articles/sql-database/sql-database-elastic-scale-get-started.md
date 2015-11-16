@@ -4,8 +4,8 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
-	editor=""/>
+	authors="ddove" 
+	editor="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,38 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh@microsoft.com"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
-#Prise en main des outils de base de données élastiques
+# Prise en main des outils de base de données élastiques
 
-La capacité d’augmentation et de réduction à la demande est l’une des principales promesses du cloud computing. Pour les applications de base de données, une technique importante de création de ces solutions extensibles est le modèle appelé partitionnement, où les données sont partitionnées physiquement sur un certain nombre de bases de données structurées de façon identique. Jusqu’ici, la création et la gestion des applications qui utilisent le partitionnement ont nécessité un codage important en dehors de la logique métier de l’application.
+Ce document présente l'aspect développement avec l'exécution de l'exemple d'application. L’exemple crée une application partitionnée simple et explore les fonctionnalités clés des outils de bases de données élastiques. L'exemple illustre des fonctions de la [bibliothèque de client de bases de données élastiques](sql-database-elastic-database-client-library.md)
 
-Les outils de base de données élastiques simplifient la création et la gestion des applications à l’aide du partitionnement de base de données dans Azure SQL DB. Les outils incluent la bibliothèque cliente de la base de données élastique et l’outil de fusion et de fractionnement. Ensemble, ils implémente les aspects du partitionnement ayant trait à l’infrastructure, ce qui vous permet de vous concentrer sur la logique métier de votre application.
-
-Ce document présente l’aspect développement à l’aide de la bibliothèque cliente de la base de données élastique.
-
-Pour plus d’informations sur le fonctionnement des outils de base de données élastique, consultez [Présentation des outils de bases de données élastiques](sql-database-elastic-scale-introduction.md).
-
-Pour obtenir la liste de toutes les rubriques sur les outils de bases de données élastiques, consultez le [plan de formation](sql-database-elastic-scale-documentation-map.md)
-
-## Exemple d’application de base de données élastique
-
-L’exemple crée une application partitionnée simple et explore les fonctionnalités clés des outils de bases de données élastiques. Pour télécharger et exécuter l’application, suivez les étapes affichées ci-dessous ou dans la vidéo intitulée [Infrastructure élastique - Prise en main](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
-
-## Composants requis
-Pour exécuter l'exemple d'application, vous devez utiliser Visual Studio et accéder à une base de données SQL Azure exécutée sur Azure. Si vous n'êtes pas encore abonné à Azure, inscrivez-vous pour vous abonner à une [version d'évaluation](http://azure.microsoft.com/pricing/free-trial/).
-### Visual Studio et Nuget
+## Configuration requise
 
 1. Visual Studio 2012 ou ultérieur et C# sont requis. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-### Création d'une base de données SQL Azure
-
-* Consultez [Prise en main de Microsoft Azure SQL Database](sql-database-get-started.md).
 
 ## Télécharger et exécuter l’exemple d’application
 
-L’exemple **Base de données élastique avec Azure SQL - Prise en main** présente les aspects les plus importants du développement d’applications partitionnées à l’aide des outils de bases de données élastiques SQL Azure. Il s’intéresse aux principaux cas d’utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et l’[interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). Pour télécharger et exécuter les exemples, procédez comme suit :
+L'exemple **Base de données élastique avec Azure SQL - Prise en main** présente les aspects les plus importants du développement d'applications partitionnées à l'aide des outils de bases de données élastiques SQL Azure. Il s'intéresse aux principaux cas d'utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et l'[interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). Pour télécharger et exécuter les exemples, procédez comme suit :
 
 1. Ouvrez Visual Studio et sélectionnez **Fichier -> Nouveau -> Projet**.
 2. Dans la boîte de dialogue, cliquez sur **En ligne**.
@@ -115,4 +98,4 @@ Pour plus d’informations sur les outils de bases de données élastiques, cons
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

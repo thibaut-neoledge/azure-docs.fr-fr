@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #Connexion de DocumentDB à Azure Search à l'aide d'indexeurs
@@ -270,4 +270,4 @@ Félicitations ! Vous venez d'apprendre comment intégrer Azure Search à Azure
  - Pour en savoir plus sur Azure Search, cliquez [ici](/services/search/).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

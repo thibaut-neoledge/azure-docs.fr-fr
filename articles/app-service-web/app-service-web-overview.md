@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/27/2015"
 	ms.author="jaime.espinosa"/>
 
 
@@ -27,7 +27,7 @@ Grâce à la puissance d’[App Service Web Apps](http://go.microsoft.com/fwli
 
 ## Bien plus que de simples sites web##
 
-Les entreprises modernes interagissent avec leurs clients de façon de plus en plus sophistiquée. Les entreprises de tous types considèrent leur présence sur le Web comme un élément essentiel de leur activité et comme un composant majeur de leur plan commercial. Pour répondre à une telle importance, les entreprises recherchent une plateforme qui fournisse souplesse, sécurité et évolutivité. Par ailleurs, elles ont besoin que les fonctionnalités soient compatibles avec leur système existant, afin de déployer rapidement du nouveau code et de mettre à disposition leurs instances dans le monde entier. Grâce à Azure App Service et à Web Apps, les entreprises peuvent répondre aux besoins de leurs clients rapidement et à moindre coût.
+Les entreprises modernes interagissent avec leurs clients de façon de plus en plus sophistiquée. Les entreprises de tous types considèrent leur présence sur le Web comme un élément essentiel de leur activité et comme un composant majeur de leur plan commercial. En conséquence, les entreprises recherchent une plate-forme qui leur fournira souplesse, sécurité et évolutivité. En outre, elles doivent être en mesure d'établir une liaison à leur au système métier existant, de déployer rapidement de nouveau code et de réaliser une rotation des instances dans le monde entier. Grâce à Azure App Service et à Web Apps, les entreprises peuvent répondre aux besoins de leurs clients rapidement et à moindre coût.
 
 ## Pourquoi Web Apps ? ##
 
@@ -39,7 +39,7 @@ Azure App Service Web Apps est une plateforme entièrement gérée qui vous pe
 
 ## Concepts de Web Apps ##
 
-- **Galerie Web Apps** : sélectionnez parmi la liste des modèles d’applications web existants qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal. Commencez votre développement d'applications sur de bonnes bases en utilisant les infrastructures .NET MVC, Django et CakePHP.
+- **Galerie Web Apps** : sélectionnez parmi la liste des modèles d’applications web existants qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal. Commencez votre développement d'applications sur de bonnes bases en exploitant des infrastructures telles que .NET MVC, Django et CakePHP.
 - **Mise à l’échelle automatique** : Web Apps permet de réaliser rapidement une montée ou une descente en puissance pour gérer la charge entrante des clients. Sélectionnez manuellement le nombre et la taille des machines virtuelles ou configurez la mise à l'échelle automatique pour adapter vos serveurs à la charge ou planification.
 - **Intégration continue** : configurez des flux de travail d’intégration et de déploiement continus avec VSO, GitHub, TeamCity, Hudson ou BitBucket ; vous pouvez ainsi générer, tester et déployer automatiquement votre application web après chaque test d’intégration ou de vérification de code réussi.
 - **Emplacements de déploiement** : mettez en place un [déploiement intermédiaire][Slots] pour vérifier votre code dans un environnement de pré-production identique à celui de votre application web de production dans Azure App Service. Quand vous êtes satisfait du résultat, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d'échange. 
@@ -65,4 +65,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Code du fichier d’événements XEvent pour SQL Database | Microsoft Azure" 
+	pageTitle="Code de la mémoire tampon en anneau XEvent pour SQL Database | Microsoft Azure" 
 	description="Fournit un exemple de code Transact-SQL simple et rapide en utilisant la cible de la mémoire tampon en anneau, dans Azure SQL Database." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -364,7 +364,7 @@ La rubrique suivante fournit des informations essentielles au sujet des événem
 - La rubrique [Considérations relatives aux événements étendus dans Azure SQL Database](sql-database-xevent-db-diff-from-svr.md) décrit les différences à prendre en compte entre les événements étendus dans Azure SQL Database et ceux dans Microsoft SQL Server.
 
 
-Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou Azure SQL Database. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
+Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
 
 
 - Exemple de code pour Azure SQL Database : [Code cible du fichier d’événements pour les événements étendus dans SQL Database](sql-database-xevent-code-event-file.md)
@@ -377,4 +377,4 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

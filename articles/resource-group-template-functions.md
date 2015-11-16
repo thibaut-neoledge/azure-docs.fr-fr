@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Fonctions des modèles de gestionnaire des ressources Azure"
-   description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, mettre en forme des chaînes et récupérer des informations sur le déploiement."
+   pageTitle="Fonctions des modèles Resource Manager | Microsoft Azure"
+   description="Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="tomfitz"/>
 
-# Fonctions des modèles de gestionnaire des ressources Azure
+# Fonctions des modèles Azure Resource Manager
 
 Cette rubrique décrit toutes les fonctions que vous pouvez utiliser dans un modèle de gestionnaire des ressources Azure.
+
+Les fonctions des modèles et leurs paramètres ne respectent pas la casse. Par exemple, le Gestionnaire de ressources résout **variables('var1')** et **VARIABLES('VAR1')** de la même façon.
 
 ## ajouter
 
@@ -131,7 +133,7 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
 
 **length(array)**
 
-Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d’utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+Retourne le nombre d'éléments dans un tableau. En règle générale, utilisé pour spécifier le nombre d'itérations lors de la création de ressources. Pour obtenir un exemple d'utilisation de cette fonction, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 
 ## listKeys
 
@@ -266,7 +268,7 @@ Permet à une expression de dériver sa valeur de l'état d'exécution d'une aut
 
 La fonction **reference** dérive sa valeur d'un état d'exécution, et ne peut donc pas être utilisée dans la section variables. Elle peut être utilisée dans la section outputs d'un modèle.
 
-En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n’avez pas besoin d’utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
+En utilisant l'expression « reference », vous déclarez de manière implicite qu'une ressource dépend d'une autre ressource si la ressource référencée est configurée dans le même modèle. Vous n'avez pas besoin d'utiliser également la propriété **dependsOn**. L'expression n'est pas évaluée tant que le déploiement de la ressource référencée n'est pas terminé.
 
     "outputs": {
       "siteUri": {
@@ -540,9 +542,9 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 
 ## Étapes suivantes
-- Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md)
-- Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md)
-- Pour effectuer une itération un nombre de fois spécifié pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
+- Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

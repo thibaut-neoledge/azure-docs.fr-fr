@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/14/2015"
+	ms.date="10/28/2015"
 	ms.author="tomfitz"/>
 
 
@@ -155,8 +155,9 @@ Lorsque vous téléchargez le fichier CSV d’utilisation pour les services qui 
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
-- Si vous n’avez jamais utilisé l’interface de ligne de commande Azure pour le déploiement de ressources, consultez [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
-- Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. La stratégie que vous définissez peut exiger la définition d'une balise spécifique pour toutes les ressources. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
+- Pour plus d'informations sur l'utilisation d'Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d'Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md).
+- Si vous n'avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d'Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](./xplat-cli-azure-resource-manager.md).
+- Pour plus d'informations sur l'utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](./resource-group-portal.md).  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

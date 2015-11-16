@@ -56,7 +56,7 @@ Les règles de pare-feu au niveau du serveur peuvent être créées et gérées 
 3. Les règles de pare-feu au niveau du serveur peuvent être sélectionnées, créées, mises à jour ou supprimées dans la fenêtre de requête.
 4. Pour créer ou mettre à jour les règles de pare-feu au niveau du serveur, exécutez la procédure stockée sp\_set\_firewall\_rule. L’exemple suivant active une plage d’adresses IP sur le serveur Contoso.<br/> Commencez par regarder quelles règles existent déjà.
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	Ensuite, ajoutez une règle de pare-feu.
 
@@ -141,4 +141,4 @@ Pour consulter un didacticiel sur la création d’une base de données, voir [C
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

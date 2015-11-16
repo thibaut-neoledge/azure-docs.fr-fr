@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Automatisation des services mobiles avec les outils en ligne de commande 
@@ -184,4 +184,4 @@ Pour plus d'informations sur l'enregistrement des scripts, consultez la page [RÃ
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

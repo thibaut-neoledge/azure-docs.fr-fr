@@ -13,25 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/21/2015"
+   ms.date="11/02/2015"
    ms.author="cherylmc" />
 
 # Liaison de réseaux virtuels à des circuits ExpressRoute
 
-Cet article vous donne une vue d’ensemble de la façon de lier des réseaux virtuels à des circuits ExpressRoute. Les réseaux virtuels peuvent appartenir au même abonnement, ou faire partie d’un autre abonnement. Cet article s’applique aux réseaux virtuels déployés à l’aide du modèle de déploiement classique.
+> [AZURE.SELECTOR]
+- [PowerShell - Classic](expressroute-howto-linkvnet-classic.md)
+- [Template - Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection)
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md)
+Cet article vous donne une vue d'ensemble de la façon de lier des réseaux virtuels à des circuits ExpressRoute. Les réseaux virtuels peuvent appartenir au même abonnement, ou faire partie d’un autre abonnement. Cet article s'applique aux réseaux virtuels déployés à l'aide du modèle de déploiement classique. Si vous souhaitez lier un réseau virtuel déployé à l'aide de la méthode de déploiement Azure Resource Manager, vous pouvez utiliser un modèle. Consultez l'onglet ci-dessus pour accéder au modèle.
+
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d’utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. 
-	- Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité. 
-	- Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Pour obtenir des instructions de routage, consultez l’article sur la [configuration du routage](expressroute-howto-routing-classic.md). 
+	- Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de service de connectivité. 
+	- Vérifiez que l’homologation privée Azure est configurée pour votre circuit. Pour obtenir des instructions de routage, consultez l'article sur la [configuration du routage](expressroute-howto-routing-classic.md). 
 	- L’homologation privée Azure doit être configurée et l’homologation BGP entre votre réseau et Microsoft doit être opérationnelle pour que vous puissiez activer la connectivité de bout en bout.
 
-Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. Tous les circuits ExpressRoute doivent être situés dans la même région géopolitique. Si vous avez activé le module complémentaire Premium d’ExpressRoute, vous pouvez lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute. Pour plus d’informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md).
+Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. Tous les circuits ExpressRoute doivent être situés dans la même région géopolitique. Si vous avez activé le module complémentaire Premium d’ExpressRoute, vous pouvez lier un plus grand nombre de réseaux virtuels à votre circuit ExpressRoute. Pour plus d'informations sur le module complémentaire Premium, consultez le [FAQ](expressroute-faqs.md).
 
 ## Liaison d’un réseau virtuel dans le même abonnement Azure à un circuit ExpressRoute
 
@@ -50,7 +54,7 @@ Vous pouvez partager un circuit ExpressRoute entre plusieurs abonnements. La fig
 
 ### Administration
 
-Le *propriétaire du circuit* est l’administrateur/le co-administrateur de l’abonnement dans lequel le circuit ExpressRoute est créé. Le propriétaire du circuit peut autoriser les administrateurs/co-administrateurs d’autres abonnements (appelés *utilisateurs du circuit* dans le diagramme de flux de travail) à utiliser ce circuit dédié de l’organisation. Une fois autorisés, les utilisateurs du circuit peuvent lier le réseau virtuel dans leur abonnement au circuit ExpressRoute.
+Le *propriétaire du circuit* est l'administrateur/le co-administrateur de l'abonnement dans lequel le circuit ExpressRoute est créé. Le propriétaire du circuit peut autoriser les administrateurs/co-administrateurs d'autres abonnements (appelés *utilisateurs du circuit* dans le diagramme de flux de travail) à utiliser ce circuit dédié de l'organisation. Une fois autorisés, les utilisateurs du circuit peuvent lier le réseau virtuel dans leur abonnement au circuit ExpressRoute.
 
 Le propriétaire du circuit a le pouvoir de modifier et de révoquer les autorisations à tout moment. La révocation d’une autorisation entraîne la suppression de tous les liens de l’abonnement dont l’accès a été révoqué.
 
@@ -145,4 +149,4 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 
 Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

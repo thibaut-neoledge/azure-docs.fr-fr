@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs : instructions relatives au diagnostic
@@ -85,7 +85,7 @@ Lorsque le message de notification a été reçu par le PNS respectif, il est de
 
 Si un PNS tente de remettre une notification, mais que le périphérique est en mode hors connexion, la notification est stockée par le PNS pendant une période limitée et remise au périphérique lorsqu’il est disponible. Seule une notification récente est stockée pour une application donnée. Si plusieurs notifications sont envoyées lorsque le périphérique est hors connexion, chaque nouvelle notification provoque la suppression de la notification préalable. Ce comportement consistant à ne conserver que la dernière notification est appelé fusion des notifications dans APN et réduction dans GCM (qui utilise une clé de réduction). Si le périphérique reste hors connexion pendant une longue période, les notifications qui ont été stockées sont ignorées. Source : [conseils APNS] et [conseils GCM]
 
-Avec Azure Notification Hubs : vous pouvez transmettre une clé de fusion via un en-tête HTTP avec `SendNotification`l’API générique (par exemple, pour le Kit de développement logiciel (SDK) .NET –`SendNotificationAsync`), qui transmet également les en-têtes HTTP tels quels au PNS respectif.
+Avec Azure Notification Hubs : vous pouvez transmettre une clé de fusion avec un en-tête HTTP avec `SendNotification` l'API générique (par exemple, pour le kit de développement logiciel .NET –`SendNotificationAsync`), qui transmet également les en-têtes HTTP tels quels au PNS respectif.
 
 ##Conseils pour le diagnostic personnel
 
@@ -115,7 +115,7 @@ Nous examinerons ici les différents moyens pour diagnostiquer et trouver les ca
 
 	![][8]
  
-	> [AZURE.NOTE]Les fonctionnalités de Visual Studio pour modifier les enregistrements doivent uniquement servir au cours du développement/test, avec un nombre limité d’enregistrements. Si vous avez besoin de corriger vos enregistrements en bloc, envisagez d’utiliser la fonctionnalité d’exportation/importation d’enregistrements ici : [Exportation/importation d’enregistrements] (disponible uniquement pour le niveau Standard)
+	> [AZURE.NOTE]Les fonctionnalités de Visual Studio pour modifier les enregistrements doivent uniquement servir au cours du développement/test, avec un nombre limité d’enregistrements. Si vous avez besoin de corriger vos enregistrements en bloc, envisagez d'utiliser la fonctionnalité d'exportation/importation d'enregistrements ici : [Exportation/importation d'enregistrements](https://msdn.microsoft.com/library/dn790624.aspx)
 
 2. **Explorateur Service Bus**
 
@@ -227,7 +227,7 @@ Plus de détails ici :
 [Conseils relatifs aux modèles]: https://msdn.microsoft.com/library/dn530748.aspx
 [conseils APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [conseils GCM]: http://developer.android.com/google/gcm/adv.html
-[Exportation/importation d’enregistrements]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Explorateur ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
 [Code de l’explorateur ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Vue d’ensemble de l’Explorateur de serveurs Visual Studio]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -239,4 +239,4 @@ Plus de détails ici :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,14 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="11/04/2015" 
     ms.author="vikbucha" />
 
 
 
 # Résolution des problèmes de création de collections cloud RemoteApp
 
-Erreurs courantes dans le portail de gestion Azure :
+Si vous rencontrez des difficultés à créer une collection cloud, consultez les informations suivantes.
+
+## Votre image n'est pas valide ##
+Si vous voyez un message similaire à « GoldImageInvalid » lorsque vous attendez qu'Azure configure votre collection, cela signifie que votre image de modèle ne répond pas aux [exigences définies pour l'image](remoteapp-imagereqs.md). Donc, lisez ces [exigences](remoteapp-imagereqs.md), corrigez votre image et essayez de créer à nouveau votre collection.
+
+## Erreurs courantes dans le portail de gestion Azure
 
 	DNS server could not be reached
 	ProvisioningTimeout
@@ -38,4 +43,4 @@ Si vous utilisez l’une des images Microsoft incluses dans votre abonnement, es
 Cette erreur signifie généralement que vous avez été mis à niveau vers un compte payant, mais que vous essayez d’utiliser une image fournie par Microsoft, valide uniquement pendant le mode d’évaluation du service. Dans ce cas, essayez de créer à nouveau votre collection cloud, en veillant à spécifier une image correcte.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

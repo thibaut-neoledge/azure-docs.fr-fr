@@ -33,7 +33,7 @@ L’échantillonnage est actuellement disponible pour le kit de développement l
 
 1. Mettez à jour les packages NuGet de votre projet vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
 
-2. Ajoutez cet extrait de code à ApplicationInsights.config
+2. Ajoutez cet extrait de code à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) :
 
 ```XML
 
@@ -55,7 +55,7 @@ L’échantillonnage est actuellement disponible pour le kit de développement l
 
 Vous pouvez configurer des pages Web pour l’échantillonnage à partir de n’importe quel serveur. Pour les serveurs ASP.NET, configurez vos pages Web côté client et côté serveur.
 
-Lorsque vous [configurez les pages web pour Application Insights](app-insights-javascript.md), modifiez l’extrait de code que vous obtenez à partir du portail Application Insights. (dans ASP.NET, cet extrait de code se trouve dans \_Layout.cshtml). Insérez une ligne de type `samplingPercentage: 10,` avant la clé d’instrumentation :
+Lorsque vous [configurez les pages web pour Application Insights](app-insights-javascript.md), modifiez l'extrait de code que vous obtenez à partir du portail Application Insights. (dans ASP.NET, cet extrait de code se trouve dans \_Layout.cshtml). Insérez une ligne de type `samplingPercentage: 10,` avant la clé d'instrumentation :
 
     <script>
 	var appInsights= ... 
@@ -162,4 +162,6 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 * Non, l’échantillonnage pour les applications d’appareils mobiles ou de bureau n’est pas pris en charge actuellement. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

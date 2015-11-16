@@ -51,8 +51,9 @@ L'API Node.js est un ensemble de wrappers qui permet la mise en œuvre via le mo
 
 ## Gestion des coffres de clés
 
-Les conteneurs de coffres des clé Azure peuvent également être gérés à l'aide de PowerShell ou CLI, comme décrit dans les articles suivants :
+Les conteneurs Azure Key Vault (coffres) peuvent également être gérés à l'aide de REST, de PowerShell ou de l'interface de ligne de commande, comme décrit dans les articles suivants :
 
+- [Créer et gérer les coffres de clés avec REST](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 - [Créer et gérer les coffres de clés avec PowerShell](key-vault-get-started.md)
 - [Créer et gérer les coffres de clés avec l'interface de ligne de commande](key-vault-manage-with-cli.md)
 
@@ -67,4 +68,4 @@ Les articles suivants fournissent des conseils spécifiques à des tâches :
 
 - Ce téléchargement contient l'exemple d'application HelloKeyVault et un exemple de service web Azure. [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

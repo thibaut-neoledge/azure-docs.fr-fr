@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper" 
+	pageTitle="Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper | Microsoft Azure" 
 	description="Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper 
 
@@ -174,4 +174,4 @@ Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer p
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

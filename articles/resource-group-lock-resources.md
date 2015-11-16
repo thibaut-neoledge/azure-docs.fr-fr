@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/28/2015" 
 	ms.author="tomfitz"/>
 
 # Verrouiller des ressources avec Azure Resource Manager
@@ -106,5 +106,6 @@ Azure PowerShell fournit d'autres commandes d'utilisation des verrous, comme **S
 - Pour plus d'informations sur l'utilisation des verrous sur les ressources, consultez [Verrouillage de vos ressources Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)
 - Pour en savoir plus sur le classement logique de vos ressources, consultez [Organisation des ressources à l’aide de balises](resource-group-using-tags.md)
 - Pour modifier le groupe de ressources dans lequel une ressource réside, consultez [Déplacer les ressources vers un nouveau groupe de ressources](resource-group-move-resources.md)
+- Vous pouvez appliquer des restrictions et des conventions sur votre abonnement avec des stratégies personnalisées. Pour plus d'informations, consultez [Utiliser le service Policy pour gérer les ressources et contrôler l'accès](resource-manager-policy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
