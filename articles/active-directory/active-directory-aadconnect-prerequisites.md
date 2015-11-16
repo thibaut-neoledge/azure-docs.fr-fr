@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/13/2015"
+   ms.date="11/02/2015"
    ms.author="andkjell;billmath"/>
 
 # Conditions préalables pour Azure Active Directory Connect (Azure AD Connect)
@@ -31,8 +31,9 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 **Environnement et serveurs locaux**
 
 - La version de schéma Active Directory et le niveau fonctionnel de forêt doivent être Windows Server 2003 ou version ultérieure. Les contrôleurs de domaine peuvent exécuter n’importe quelle version aussi longtemps que les exigences relatives au schéma et le niveau de forêt sont remplies.
+- Si vous prévoyez d'utiliser la fonctionnalité **Écriture différée du mot de passe**, les contrôleurs de domaine doit être exécutés sous Windows Server 2008 (avec dernier SP) ou une version ultérieure.
 - Azure Active Directory Connect doit être installé sur Windows Server 2008 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre si vous utilisez la configuration rapide. Si vous utilisez des paramètres personnalisés, le serveur peut également être autonome et n’a pas besoin d’être joint à un domaine.
-- Si vous prévoyez d’utiliser la synchronisation de mot de passe, le serveur doit s’exécuter sur Windows Server 2008 R2 SP1 ou version ultérieure.
+- Si vous prévoyez d'utiliser la fonctionnalité **Synchronisation de mot de passe**, le serveur doit être exécuté sous Windows Server 2008 R2 SP1 ou une version ultérieure.
 - Si les services de fédération Active Directory sont déployés, les serveurs sur lesquels ces services ou le proxy d’application web doivent être installés doivent être Windows Server 2012 R2 ou version ultérieure. La gestion à distance de Windows doit être activée sur ces serveurs pour l’installation à distance.
 - Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Une base de données SQL Server 2012 Express LocalDB (version légère de SQL Server Express) est installée par défaut et le compte du service est créé sur l'ordinateur local. SQL Server Express a une limite de 10 Go qui vous permet de gérer environ 100 000 objets. Si vous avez besoin de gérer un volume plus important d’objets d’annuaire, vous devez pointer le processus d’installation vers une autre version de SQL Server. Azure AD Connect prend en charge toutes les versions de Microsoft SQL Server à partir de SQL Server 2008 (SP4) et jusqu’à SQL Server 2014.
 
@@ -40,11 +41,11 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
 
 - Un compte d’administrateur général Azure AD pour l’annuaire Azure AD auquel vous souhaitez effectuer l’intégration
 - Un compte d’administrateur d’entreprise pour votre annuaire Active Directory local si vous utilisez la configuration rapide ou effectuez une mise à niveau depuis DirSync.
-- [Comptes Active Directory](active-directory-aadconnect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés.
+- [Comptes Active Directory](active-directory-aadconnect-accounts-permissions.md) si vous utilisez le chemin d'installation des paramètres personnalisés.
 
 **Connectivité**
 
-- Si vous utilisez un proxy sortant pour la connexion à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l’Assistant d’installation et le dispositif de synchronisation d’Azure AD puissent se connecter à Internet et à Azure AD.
+- Si vous utilisez un proxy sortant pour la connexion à Internet, le paramètre suivant dans le fichier **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** doit être ajouté pour que l'Assistant d'installation et le dispositif de synchronisation d'Azure AD puissent se connecter à Internet et à Azure AD.
 
 ```
     <system.net>
@@ -58,7 +59,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous aurez besoin.
     </system.net>
 ```
 
-Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente le nom d’hôte ou l’adresse IP réel du proxy. -Si votre proxy limite les URL effectivement accessibles, les URL documentées dans [URL et plages d’adresses IP Office 365](https://support.office.com/fr-FR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) doivent être ouvertes dans le proxy.
+Ce texte doit être entré en bas du fichier. Dans ce code, &lt;PROXYADRESS&gt; représente le nom d'hôte ou l'adresse IP réelle du proxy. -Si votre proxy limite les URL accessibles, les URL documentées dans [URL et plages d'adresses IP Office 365](https://support.office.com/fr-FR/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) doivent être ouvertes dans le proxy.
 
 **Autres**
 
@@ -73,11 +74,11 @@ Azure AD Connect repose sur PowerShell et .Net 4.5.1. Selon votre version de Wi
   - PowerShell est installé par défaut ; aucune action n’est nécessaire.
   - Les versions .NET 4.5.1 et ultérieures sont offertes par le biais de Windows Update. Assurez-vous que vous avez installé les dernières mises à jour de Windows Server dans le Panneau de configuration.
 - Windows Server 2008 R2 et Windows Server 2012
-  - La dernière version de PowerShell est disponible dans **Windows Management Framework 4.0**, récupérable du [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
-  - Les versions .NET 4.5.1 et ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+  - La dernière version de PowerShell est disponible dans **Windows Management Framework 4.0**, disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+  - Les versions .Net 4.5.1 et ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 - Windows Server 2008
   - La dernière version prise en charge de PowerShell est disponible dans **Windows Management Framework 3.0**, disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
- - Les versions .NET 4.5.1 et ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
+ - Les versions .Net 4.5.1 et ultérieures sont disponibles dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/downloads).
 
 ## Composants de prise en charge d’Azure AD Connect
 
@@ -112,6 +113,6 @@ La configuration minimale requise pour les ordinateurs exécutant les services d
 
 
 ## Étapes suivantes
-En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

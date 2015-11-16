@@ -8,12 +8,12 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Approvisionner un cluster HDInsight avec Data Lake Store à l'aide d'Azure PowerShell
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) afin qu'il fonctionne avec un Azure Data Lake Store. Considérations importantes pour cette version : * **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour ce type de clusters sera toujours les objets Blob Azure Storage (WASB). * **Pour les clusters HBase (Windows et Linux)**, le Data Lake Store peut être utilisé comme stockage par défaut ou comme stockage supplémentaire.
+Apprenez à utiliser Azure PowerShell pour configurer un cluster HDInsight (Hadoop, HBase ou Storm) afin qu'il fonctionne avec un Azure Data Lake Store. Points importants à prendre en compte pour cette version :
+
+* **Pour les clusters Hadoop et Storm (Windows et Linux)**, le Data Lake Store n'est utilisable que comme compte de stockage supplémentaire. Le compte de stockage par défaut pour de tels clusters sera toujours Objets BLOB de stockage Azure (WASB).
+
+* **Pour les clusters HBase (Windows et Linux)**, vous pouvez utiliser Data Lake Store comme stockage par défaut ou comme stockage supplémentaire.
+
 
 Dans cet article, nous approvisionnons un cluster Hadoop avec Data Lake Store comme stockage supplémentaire.
 
@@ -41,11 +46,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
 - **Kit de développement logiciel (SDK) Windows**. Vous pouvez l'installer [ici](https://dev.windows.com/fr-FR/downloads). Il vous permet de créer un certificat de sécurité.
-- **Azure PowerShell 1.0 ou version ultérieure**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Après avoir installé Azure PowerShell 1.0 ou version ultérieure, vous devez exécuter l'applet de commande suivante pour installer le module Azure Data Lake Store.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Pour plus d'informations sur le module **AzureRM.DataLakeStore**, consultez [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Vous pouvez l'installer depuis [ici](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
  
 
 ## Créer un Azure Data Lake Store
@@ -119,7 +120,7 @@ Assurez-vous que le [Kit de développement logiciel (SDK) Windows](https://dev.w
 
 4. Utilisez l'utilitaire [Pvk2Pfx][pvk2pfx] pour convertir en un fichier .pfx les fichiers .pvk et .cer créés par MakeCert. Exécutez la commande ci-dessous.
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
 	Lorsque vous y êtes invité, entrez le mot de passe de la clé privée spécifié au préalable. La valeur que vous donnez au paramètre **-po** est le mot de passe associé au fichier .pfx. Une fois la commande exécutée avec succès, CertFile.pfx est visible dans le répertoire du certificat que vous avez spécifié.
 
@@ -131,7 +132,7 @@ Cette section décrit les étapes pour créer un principal du service pour une a
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 		
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 		
@@ -293,4 +294,4 @@ Une fois que vous avez configuré le cluster HDInsight pour qu'il utilise Data L
 [makecert]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

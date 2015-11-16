@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
@@ -96,7 +96,8 @@ La sécurité est une préoccupation essentielle pour quiconque mène ses activi
 - [Rôles d’application](http://msdn.microsoft.com/library/ms190998.aspx) gérés avec GRANT, DENY et REVOKE
 - [Chiffrement transparent des données](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
- - SQL Database prend désormais en charge l’authentification Azure Active Directory, un mécanisme servant à se connecter à SQL Database à l’aide d’identités dans Azure Active Directory (Azure AD). Grâce à l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé.
+ - SQL Database prend désormais en charge l’authentification Azure Active Directory, un mécanisme servant à se connecter à SQL Database à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé.
+- [Toujours chiffré](https://msdn.microsoft.com/library/mt163865.aspx) (dans la version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec SQL Database.
 
 
 ## Continuité d’activité améliorée lors de la récupération
@@ -159,6 +160,6 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 - Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
 - La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
-[Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Conditions d'utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Acteurs fiables pour l'Internet des objets (IoT)"
-   description="Les Acteurs fiables Service Fabric constituent la clé de voûte (comme une couche intermédiaire) d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels."
+   pageTitle="Reliable Actors pour l'Internet des objets | Microsoft Azure"
+   description="Service Fabric Reliable Actors constituent la clé de voûte d'une solution qui combine un système de messagerie frontal prenant en charge plusieurs transports tels que HTTPS, MQTT ou AMQP, puis qui communique avec les acteurs représentant des appareils individuels."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -217,4 +217,4 @@ Nous pouvons en conclure que de plus en plus de clients considéreront Azure Ser
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

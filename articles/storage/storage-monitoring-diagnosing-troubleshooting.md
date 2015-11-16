@@ -3,8 +3,8 @@
 	description="Utilisation de fonctionnalités telles que l’analyse du stockage, la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage."
 	services="storage"
 	documentationCenter=""
-	authors="dominicbetts"
-	manager="adinah"
+	authors="jasonnewyork"
+	manager="tadb"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="v-dobett"/>
+	ms.author="jahogg"/>
 
 # Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 
@@ -911,4 +911,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

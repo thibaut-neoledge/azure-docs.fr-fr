@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/03/2015"
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
@@ -54,7 +54,7 @@ L’exemple copie des données appartenant à une série horaire depuis un stock
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -227,7 +227,7 @@ L’exemple copie des données appartenant à une série horaire depuis un magas
 	    "properties": {
 	        "type": "AzureDataLakeStore",
 	        "typeProperties": {
-	            "dataLakeUri": "https://<accountname>.azuredatalake.net/webhdfs/v1",
+	            "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
 				"sessionId": "<session ID>",
 	            "authorization": "<authorization URL>"
 	        }
@@ -395,9 +395,9 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
 Vous pouvez lier un compte de stockage Azure à une Azure Data Factory à l'aide d'un service lié Azure Storage. Le tableau suivant fournit la description des éléments JSON spécifiques au service lié Azure Storage.
 
 | Propriété | Description | Requis |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
-| dataLakeUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalake.net/webhdfs/v1 | Oui |
+| dataLakeUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il est au format suivant : https://<Azure Data Lake account name>.azuredatalakestore.net/webhdfs/v1 | Oui |
 | autorisation | Cliquez sur le bouton **Autoriser** dans **Data Factory Editor** et saisissez vos informations d’identification, ce qui affecte l’URL d’autorisation générée automatiquement à cette propriété. | Oui |
 | sessionId | ID de session OAuth issu de la session d’autorisation oauth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Il est généré automatiquement lorsque vous utilisez Data Factory Editor. | Oui |  
 | accountName | Nom du compte de lac de données | Non |
@@ -412,13 +412,15 @@ Pour obtenir une liste complète des sections et propriétés JSON disponibles p
 La section **typeProperties** est différente pour chaque type de jeu de données et fournit des informations sur l’emplacement, le format, etc. des données dans le magasin de données. La section typeProperties correspondant au jeu de données de type **AzureDataLakeStore** a les propriétés suivantes.
 
 | Propriété | Description | Requis |
-| -------- | ----------- | -------- |
+| :-------- | :----------- | :-------- |
 | folderPath | Chemin d’accès au conteneur et au dossier dans le magasin Azure Data Lake | Oui |
 | fileName | <p>Le nom du fichier dans le magasin Azure Data Lake. fileName est facultative. </p><p>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur le fichier spécifique.</p><p>Quand fileName n’est pas spécifié, la copie inclut tous le fichier dans folderPath pour le jeu de données d’entrée.</p><p>Quand fileName n’est pas spécifié pour un jeu de données de sortie, le nom du fichier généré est au format suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt)</p> | Non |
 | partitionedBy | partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez la section propriété Leveraging partitionedBy ci-dessous pour obtenir plus d’informations et des exemples. | Non |
+| format | Deux types de formats sont pris en charge : **TextFormat**, **AvroFormat**. Vous devez définir la propriété de type sous format sur l'une de ces valeurs. Lorsque le format est TextFormat, vous pouvez spécifier des propriétés facultatives supplémentaires pour le format. Consultez la section [Définition de TextFormat](#specifying-textformat) ci-dessous pour plus de détails. | Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : GZip, Deflate et BZip2 ; niveaux pris en charge : Optimal et Fastest (le plus rapide). Pour plus de détails, consultez la section [Prise en charge de la compression](#compression-support). | Non |
 
 ### Utilisation de la propriété partitionedBy
-Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique avec la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour un segment spécifique de données.
+Comme mentionné ci-dessus, vous pouvez spécifier des valeurs folderPath et filename dynamiques pour les données de série chronologique dans la section **partitionedBy**, les macros Data Factory et les variables système : SliceStart et SliceEnd, qui indiquent les heures de début et de fin pour une tranche de données spécifique.
 
 Consultez les articles [Création de jeux de données](data-factory-create-datasets.md) et [Planification et exécution](data-factory-scheduling-and-execution.md) pour mieux comprendre les jeux de données de série chronologique, la planification et les segments.
 
@@ -446,8 +448,96 @@ Dans l'exemple ci-dessus {Slice} est remplacé par la valeur de la variable syst
 
 Dans l'exemple ci-dessus, l'année, le mois, le jour et l'heure de SliceStart sont extraits dans des variables distinctes qui sont utilisées par les propriétés folderPath et fileName.
 
+### Définition de TextFormat
+
+Si le format est défini sur **TextFormat**, vous pouvez spécifier les propriétés **facultatives** suivantes dans la section **Format**.
+
+| Propriété | Description | Requis |
+| -------- | ----------- | -------- |
+| columnDelimiter | Caractère(s) utilisé(s) comme séparateur de colonnes dans un fichier. Cette balise est facultative. La valeur par défaut est la virgule (,). | Non |
+| rowDelimiter | Caractère(s) utilisé(s) comme séparateur de lignes dans un fichier. Cette balise est facultative. La valeur par défaut est : [« \\r\\n », « \\r », « \\n »]. | Non |
+| escapeChar | <p>Caractère spécial utilisé pour placer dans une séquence d'échappement le délimiteur de colonnes indiqué dans le contenu. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme délimiteur de colonnes, mais que vous voulez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d'échappement et utiliser la chaîne « Hello$, world » dans la source.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non | 
+| quoteChar | <p>Caractère spécial utilisé pour entourer de guillemets la valeur de la chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette balise est facultative. Aucune valeur par défaut. Vous ne devez pas spécifier plusieurs caractères pour cette propriété.</p><p>Par exemple, si vous avez une virgule (,) comme délimiteur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (exemple : <Hello  world>), vous pouvez définir « " » comme caractère de guillemet et utiliser la chaîne <"Hello, world"> dans la source. Cette propriété s'applique aux tables d'entrée et de sortie.</p><p>Notez que vous ne pouvez pas spécifier escapeChar et quoteChar pour une table.</p> | Non |
+| nullValue | <p>Caractère(s) utilisé(s) pour représenter la valeur null dans le fichier blob. Cette balise est facultative. La valeur par défaut est « \\N ».</p><p>Par exemple, en prenant l'exemple ci-dessus, « NaN » dans l'objet blob sera converti en tant que valeur null au moment de la copie vers, par exemple, SQL Server.</p> | Non |
+| encodingName | Spécifier le nom d'encodage. Pour obtenir une liste des noms de d'encodage valides, consultez : [Propriété Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Par exemple : windows-1250 ou shift\_jis. La valeur par défaut est : UTF-8. | Non | 
+
+#### Exemples
+L'exemple suivant illustre certaines des propriétés de format pour TextFormat.
+
+	"typeProperties":
+	{
+	    "folderPath": "mycontainer/myfolder",
+	    "fileName": "myfilename"
+	    "format":
+	    {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "quoteChar": """,
+	        "NullValue": "NaN"
+	    }
+	},
+
+Pour utiliser escapeChar à la place de quoteChar, remplacez la ligne contenant quoteChar par ce qui suit :
+
+	"escapeChar": "$",
+
+### Définition d'AvroFormat
+Si le format est défini sur AvroFormat, il est inutile de spécifier des propriétés dans la section Format de la section typeProperties. Exemple :
+
+	"format":
+	{
+	    "type": "AvroFormat",
+	}
+
+Pour utiliser le format Avro dans une table Hive, vous pouvez vous référer au [didacticiel Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
+
+
+### Prise en charge de la compression  
+Le traitement de jeux de données de grande taille peut provoquer des goulots d’étranglement des E/S et du réseau. Par conséquent, les données compressées dans les magasins peuvent non seulement accélérer le transfert des données sur le réseau et économiser l’espace disque, mais également apporter des améliorations significatives des performances du traitement du Big Data. À ce stade, la compression est prise en charge pour les magasins de données de fichiers, comme les objets blob Azure ou un système de fichiers local.
+
+Pour spécifier la compression pour un jeu de données, utilisez la propriété **compression** du jeu de données JSON, comme dans l'exemple suivant :
+
+	{  
+		"name": "AzureDatalakeStoreDataSet",  
+	  	"properties": {  
+	    	"availability": {  
+	    		"frequency": "Day",  
+	    	  	"interval": 1  
+	    	},  
+	    	"type": "AzureDatalakeStore",  
+	    	"linkedServiceName": "DataLakeStoreLinkedService",  
+	    	"typeProperties": {  
+	    		"fileName": "pagecounts.csv.gz",  
+	    	  	"folderPath": "compression/file/",  
+	    	  	"compression": {  
+	    	    	"type": "GZip",  
+	    	    	"level": "Optimal"  
+	    	  	}  
+    		}  
+	  	}  
+	}  
+ 
+Notez que la section **compression** a deux propriétés :
+  
+- **Type** : le codec de compression, qui peut être **GZIP**, **Deflate** ou **BZIP2**.  
+- **Level** : le taux de compression, qui peut être **Optimal** ou **Fastest**. 
+	- **Fastest** : l'opération de compression doit se terminer le plus rapidement possible, même si le fichier résultant n'est pas compressé de façon optimale. 
+	- **Optimal** : l'opération de compression doit aboutir à une compression optimale, même si l'opération prend plus de temps. 
+	
+	Pour plus d'informations, consultez la rubrique [Niveau de compression](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
+
+Supposons que l'exemple de jeu de données ci-dessus est utilisé comme sortie d'une activité de copie. L'activité de copie compresse les données de sortie avec le codec GZIP en utilisant le taux optimal, puis va écrit les données compressées dans un fichier nommé pagecounts.csv.gz dans l'Azure Data Lake Store.
+
+Quand vous spécifiez la propriété compression dans un jeu de données JSON d’entrée, le pipeline peut lire les données compressées à partir de la source et, quand vous spécifiez la propriété dans un jeu de données JSON de sortie, l’activité de copie peut écrire les données compressées dans la destination. Voici quelques exemples de scénarios :
+
+- Lisez les données GZIP compressées à partir de l'Azure Data Lake Store, décompressez-les et écrivez les données résultantes dans une base de données SQL Azure. Dans ce cas, vous définissez le jeu de données d'entrée de l'Azure Data Lake Store avec la propriété de compression JSON. 
+- Lisez les données d'un fichier de texte brut dans le système de fichiers local, compressez-les en utilisant le format GZip et écrivez les données compressées dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store de sortie avec la propriété de compression JSON.  
+- Lisez les données compressées au format GZIP à partir d'un compression, décompressez-les, compressez-les en utilisant le format BZIP2 et écrivez les données résultantes dans un Azure Data Lake Store. Dans ce cas, vous définissez le jeu de données Azure Data Lake Store d'entrée avec le type de compression défini sur GZIP et le jeu de données de sortie avec le type de compression défini sur BZIP2.   
+
+
 ## Propriétés de type activité de copie Azure Data Lake  
-Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l’article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
+Pour obtenir la liste complète des sections et des propriétés disponibles pour la définition des activités, consultez l'article [Création de pipelines](data-factory-create-pipelines.md). Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités.
 
 Par contre, les propriétés disponibles dans la section typeProperties de l'activité varient avec chaque type d'activité et dans le cas de l'activité de copie, elles varient selon les types de sources et de récepteurs.
 
@@ -463,7 +553,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Spécifie le comportement de copie. | <p>**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.</p><p>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.</p><p>**MergeFiles :** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</p> | Non |
+| copyBehavior | Spécifie le comportement de copie. | <p>**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</p><p>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.</p><p>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier ou d'objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</p> | Non |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -472,4 +562,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

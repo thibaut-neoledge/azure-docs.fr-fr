@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 # Échantillonnage, filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
@@ -42,7 +42,7 @@ La méthode recommandée pour réduire le trafic tout en conservant des statisti
 
 1. Mettez à jour les packages NuGet de votre projet vers la dernière version *préliminaire* d'Application Insights. Cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
 
-2. Ajoutez cet extrait de code à ApplicationInsights.config :
+2. Ajoutez cet extrait de code à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) :
 
 ```XML
 
@@ -58,7 +58,7 @@ La méthode recommandée pour réduire le trafic tout en conservant des statisti
 ```
 
 
-Pour obtenir un échantillonnage sur les données à partir des pages web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître comme \_Layout.cshtml) :
+Pour obtenir un échantillonnage de données de pages web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
 
 *JavaScript*
 
@@ -91,21 +91,26 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 
 ### Créer un processeur de télémétrie
 
-1. Pour créer un filtre, déployez ITelemetryProcessor. Il s’agit d’un autre point d’extensibilité, à l’instar d’un module de télémétrie, d’un initialiseur de télémétrie et d’un canal de télémétrie. 
+1. Mettez à jour le kit de développement logiciel Application Insights à la dernière version (2.0.0-beta2 ou version ultérieure). Cliquez avec le bouton droit sur votre projet dans l'explorateur de solutions Visual Studio, puis sélectionnez Gérer les packages NuGet. Dans le gestionnaire de packages NuGet, activez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
+
+1. Pour créer un filtre, déployez ITelemetryProcessor. Il s’agit d’un autre point d’extensibilité, à l’instar d’un module de télémétrie, d’un initialiseur de télémétrie et d’un canal de télémétrie.
 
     Notez que les processeurs de télémétrie construisent une chaîne de traitement. Lorsque vous instanciez un processeur de télémétrie, vous transmettez un lien au processeur suivant dans la chaîne. Lorsqu’un point de données de télémétrie est transmis à la méthode de traitement, il effectue son travail, puis appelle le processeur de télémétrie suivant dans la chaîne.
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,17 +122,52 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
+2. Insérez-la dans ApplicationInsights.config : 
+
+```XML
+
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(Notez qu'il s'agit de la section dans laquelle vous initialisez un filtre d'échantillonnage).
+
+Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en fournissant des propriétés publiques nommées dans votre classe.
+
+> [AZURE.WARNING]Veillez à faire correspondre le nom de type et les noms de propriété dans le fichier .config aux noms de classe et de propriété dans le code. Si le fichier .config fait référence à un type ou à une propriété qui n'existe pas, le kit de développement peut échouer lors de l'envoi d'une télémétrie quelconque.
+
+ 
+Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
 
     ```C#
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
@@ -136,7 +176,7 @@ Pour filtrer la télémétrie, vous écrivez un processeur de télémétrie et l
 
     ```
 
-    Les clients de télémétrie créés après ce point utiliseront vos processeurs.
+Les clients de télémétrie créés après ce point utiliseront vos processeurs.
 
 ### Exemples de filtres
 
@@ -146,19 +186,19 @@ Excluez les robots et les tests web. Bien que Metrics Explorer vous donne la pos
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
 #### Échec d’authentification
 
-Excluez les demandes avec des réponses de type « 401 ».
+Excluez les demandes avec une réponse de type « 401 ».
 
 ```C#
 
@@ -333,33 +373,14 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 * [Présentation de l’API](app-insights-api-custom-events-metrics.md)
 
 * [Référence ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Référence Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [Référence JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Kit de développement logiciel Android](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Kit de développement logiciel (SDK) iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## Code du Kit de développement logiciel (SDK)
 
 * [Kit de développement logiciel (SDK) principal ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Kit de développement logiciel Android](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Kit de développement logiciel (SDK) Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Kit de développement logiciel (SDK) JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [Kit de développement logiciel (SDK) iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [Toutes les plateformes](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## Questions
-
-* *Quelles exceptions peuvent être lancées par les appels Track\_() ?*
-    
-    Aucun. Vous n’avez pas besoin de les inclure dans des clauses try-catch. Si le Kit de développement logiciel (SDK) rencontre des problèmes, il enregistrera des messages que vous pourrez consulter dans la sortie de la console de débogage et, si les messages aboutissent, dans la recherche de diagnostic.
-
-
-
-* *Existe-t-il une API REST ?*
-
-    Oui, mais nous ne l’avons pas encore publiée.
 
 ## <a name="next"></a>Étapes suivantes
 
@@ -388,4 +409,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

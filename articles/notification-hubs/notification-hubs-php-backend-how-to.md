@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="11/01/2015" 
 	ms.author="yuaxu"/>
 
 # Utilisation de Notification Hubs à partir de PHP
@@ -133,11 +133,7 @@ Pour connaître toutes les options disponibles, reportez-vous à la [documentati
 
 Munis de cette classe, nous pouvons à présent écrire les méthodes d'envoi des notifications à l'intérieur de la classe **NotificationHub**.
 
-	public function sendNotification($notification) {
-		$this->sendNotification($notification, "");
-	}
-
-	public function sendNotification($notification, $tagsOrTagExpression) {
+	public function sendNotification($notification, $tagsOrTagExpression="") {
 		if (is_array($tagsOrTagExpression)) {
 			$tagExpression = implode(" || ", $tagsOrTagExpression);
 		} else {
@@ -199,7 +195,9 @@ Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /
 ##<a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent suivre le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal PHP.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) : $hub = new NotificationHub("connection string", "hubname");
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du concentrateur comme indiqué dans le [didacticiel de prise en main]) :
+
+	$hub = new NotificationHub("connection string", "hubname");	
 
 Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible.
 
@@ -229,7 +227,7 @@ Ajoutez ensuite le code d’envoi en fonction de la plateforme mobile cible.
 		                '<wp:Text1>Hello from PHP!</wp:Text1>' .
 		           '</wp:Toast> ' .
 		        '</wp:Notification>';
-	$notification = new Notification("mpns", $toast);
+	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
 	$hub->sendNotification($notification);
@@ -250,11 +248,11 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 * poursuivre l'apprentissage de la fonction de balisage dans le [didacticiel Nouvelles de dernière minute] ;
 * vous familiariser avec l'envoi de notifications Push à des utilisateurs individuels dans le [didacticiel Envoi de notifications à des utilisateurs]
 
-Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+Pour plus d'informations, consultez également le [Centre pour développeurs PHP (PHP Developer Center)](/develop/php/).
 
 [exemple de wrapper PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [exemple de wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Limites de service d’Azure Search | Microsoft Azure"
-	description="Limites d’Azure Search permettant de planifier la capacité et les limites maximales des requêtes et réponses."
+	description="Limites de service permettant de planifier la capacité et les limites maximales des requêtes et réponses pour Azure Search, un service de recherche cloud hébergé."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="08/18/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Limites de service d’Azure Search
@@ -39,12 +39,13 @@ Nombre maximal d’unités de recherche|N/A
 Nombre maximal d’indexeurs|3
 Nombre maximal de sources de données d’indexeur|3
 Nombre maximal de documents indexés par appel d'indexeur|10 000
+Durée d'exécution maximale de l'indexeur|3 minutes
 
 Vous constaterez qu’aucun quota ou limite maximale n’est associé aux requêtes. Les requêtes par seconde (QPS) varient en fonction de la bande passante disponible et des ressources système concurrentes. Les ressources de calcul et de stockage Azure, qui réalise une sauvegarde de votre service partagé, sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varie donc selon le nombre de charges de travail supplémentaires exécutées simultanément.
 
 ## Limites maximales d’un service de recherche standard (dédié)
 
-Sous le niveau de tarification standard, un service de recherche dédié ne stocke que vos données et n’exécute que vos charges de travail. Contrairement au service partagé, l'allocation de ressources d’un service de recherche dédié peut être établie en fonction du niveau requis. Vous pouvez définir, de manière indépendante, les niveaux de ressources des partitions (pour améliorer la capacité de stockage) et des réplicas (pour fournir une haute disponibilité et mettre à l’échelle les requêtes par seconde et les performances d'indexation). Consultez la rubrique [Gérer votre solution de recherche](search-manage.md) pour découvrir les différentes configurations de ressources.
+Sous le niveau de tarification standard, un service de recherche dédié ne stocke que vos données et n’exécute que vos charges de travail. Contrairement au service partagé, l'allocation de ressources d’un service de recherche dédié peut être établie en fonction du niveau requis. Vous pouvez définir, de manière indépendante, les niveaux de ressources des partitions (pour améliorer la capacité de stockage) et des réplicas (pour fournir une haute disponibilité et mettre à l’échelle les requêtes par seconde et les performances d'indexation). Consultez [Gérer votre solution de recherche](search-manage.md) pour découvrir les différentes configurations de ressources.
 
 Le tableau suivant établit une liste des limites supérieures, mais le graphique sous forme de matrice vous permet de découvrir plus en détail les différentes capacités disponibles en termes de [combinaisons de partitions et de réplicas](#chart) autorisées.
 
@@ -93,7 +94,7 @@ Le tableau suivant est un graphique qui répertorie les réplicas sur l'axe vert
 <tr><td>N/A</td><td><b>1&#160;partition</b></td><td><b>2&#160;partitions</b></td><td><b>3&#160;partitions</b></td><td><b>4&#160;partitions</b></td><td><b>6&#160;partitions</b></td><td><b>12&#160;partitions</b></td></tr>
 </table>
 
-Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d’informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
+Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d'informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
 
 > [AZURE.NOTE]Les partitions choisies doivent être partagées de façon uniforme en 12 (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 
@@ -108,13 +109,13 @@ Recommandations générales pour la haute disponibilité :
 - 2 réplicas pour la haute disponibilité des charges de travail en lecture seule (requêtes)
 - 3 réplicas (ou plus) pour la haute disponibilité des charges de travail en lecture-écriture (requêtes et indexation)
 
-Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. Au lieu de cela, vous pouvez envisager d'ajouter de la redondance au niveau du service. Pour plus d’informations sur les solutions de contournement, consultez [ce billet de forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
+Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. Au lieu de cela, vous pouvez envisager d'ajouter de la redondance au niveau du service. Pour plus d'informations sur les solutions de contournement, consultez [ce billet de forum](https://social.msdn.microsoft.com/Forums/ee108a26-00c5-49f6-b1ff-64c66c8b828a/dr-and-high-availability-for-azure-search?forum=azuresearch).
 
-> [AZURE.NOTE]Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Consultez la rubrique [Création d’un service Azure Search dans le portail](search-create-portal.md) pour obtenir des instructions sur l’approvisionnement du service.
+> [AZURE.NOTE]Rappelez-vous que l'évolutivité et les contrats de niveau de service sont des fonctionnalités du service standard. Le service gratuit est proposé à un niveau de ressource fixe, avec des réplicas et des partitions partagés par plusieurs abonnés. Si vous démarrez avec le service gratuit et que vous voulez procéder à une mise à niveau, vous devrez créer un nouveau service de recherche Azure au niveau standard, puis recharger ensuite les index et les données vers le nouveau service. Consultez la rubrique [Création d'un service Azure Search dans le portail](search-create-portal.md) pour obtenir des instructions sur l'approvisionnement du service.
 
 ## Limites de clé API
 
-Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d’informations sur la gestion des clés, consultez la rubrique [Gestion de votre service de recherche sur Microsoft Azure](search-manage.md).
+Les clés API sont utilisées pour l'authentification de service. Il existe deux types de clé API. Les clés administrateur sont spécifiées dans l'en-tête de la requête. Les clés de requête sont spécifiées dans l'URL. Pour plus d'informations sur la gestion des clés, consultez la rubrique [Gestion de votre service de recherche sur Microsoft Azure](search-manage.md).
 
 - 2 clés administrateur maximum par service
 - 50 clés de requête maximum par service
@@ -132,4 +133,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

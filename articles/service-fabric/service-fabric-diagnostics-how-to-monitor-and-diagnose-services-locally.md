@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/04/2015"
    ms.author="kunalds"/>
 
 
@@ -79,4 +79,4 @@ Le même code de suivi que vous avez ajouté à votre application ci-dessus pour
 * [Diagnostics et surveillance des performances pour Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="10/23/2015" 
+    ms.date="11/04/2015" 
     ms.author="elizapo" />
 
 
@@ -77,4 +77,4 @@ La partie la plus difficile de cette méthode consiste à trouver l’ID d’ins
 ### Vos commentaires nous aideront à mieux vous servir 
 Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

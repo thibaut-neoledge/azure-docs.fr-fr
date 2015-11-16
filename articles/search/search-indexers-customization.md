@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Personnalisation des indexeurs Azure Search" 
-	description="Apprenez à personnaliser les paramètres et les stratégies des indexeurs Azure Search." 
+	pageTitle="Personnalisation de l'indexeur Azure Search | Microsoft Azure" 
+	description="Apprenez à personnaliser les paramètres et les stratégies des indexeurs dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Personnalisation des indexeurs Azure Search
@@ -117,4 +117,4 @@ Même si vous choisissez de tolérer certains échecs, les informations indiquan
 C'est tout pour le moment. Si vous avez des idées ou des suggestions de contenu, vous pouvez nous envoyer un tweet en utilisant le hashtag #AzureSearch ou les soumettre via notre [page UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

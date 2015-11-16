@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="arramac"/>
 	
 # Indexation automatique dans Azure DocumentDB
@@ -55,7 +55,7 @@ Le fait de traiter des valeurs d’instance et de schéma de la même manière q
 
 ![Index sous forme d'arborescence](media/documentdb-indexing/IndexAsTree.png)
 
-Bien qu’ils n’utilisent aucun schéma, les langages de requête SQL et JavaScript de DocumentDB fournissent des filtres et des projections relationnelles, une navigation hiérarchique à travers les documents et l'appel de fonctions définies par l’utilisateur, qui ont été entièrement écrites en JavaScript. L’exécution de requête de DocumentDB est en mesure de prendre en charge ces requêtes puisqu’elle peut fonctionner directement sur cette représentation d’arborescence d'index des données.
+Bien qu'ils n#utilisent aucun schéma, les langages de requête SQL et JavaScript de DocumentDB fournissent des filtres et des projections relationnelles, une navigation hiérarchique à travers les documents, des opérations spatiales et l'appel de fonctions définies par l'utilisateur entièrement écrites en JavaScript. L’exécution de requête de DocumentDB est en mesure de prendre en charge ces requêtes puisqu’elle peut fonctionner directement sur cette représentation d’arborescence d'index des données.
 
 La stratégie d'indexation par défaut indexe automatiquement toutes les propriétés des documents et fournit des requêtes cohérentes (l'index est ainsi mis à jour de façon synchrone avec l'écriture du document). Comment DocumentDB prend-il en charge les mises à jour cohérentes de l'arborescence d'index à grande échelle ? DocumentDB utilise une technique de maintenance des index structurée par des journaux, sans verrouillage et optimisée pour l’écriture. Cela signifie que DocumentDB peut prendre en charge un volume soutenu d’écritures rapides, tout en continuant de servir les requêtes cohérentes.
 
@@ -67,4 +67,4 @@ L’indexation de DocumentDB vous permet de prendre en charge une architecture m
 - Pour en savoir plus sur la personnalisation de l'index DocumentDB, cliquez [ici](documentdb-indexing-policies.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Scénarios de testabilité de Service Fabric : Communication de service" 
+   pageTitle="Testabilité : communication de service | Microsoft Azure" 
    description="La communication service à service constitue un point d’intégration critique d’une application Service Fabric. Cet article aborde les problématiques de conception et les techniques de test." 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -16,7 +16,7 @@
    ms.date="08/25/2015"
    ms.author="vturecek"/>
 
-# Scénarios de testabilité de Service Fabric : Communication de service
+# Scénarios de testabilité de Service Fabric : communication de service
 
 Les microservices et les styles architecturaux orientés services émergent naturellement dans Service Fabric. Dans ces types d’architectures distribuées, les applications de microservices compartimentés sont généralement composées de plusieurs services qui interagissent entre eux. Même dans le cas le plus simple, vous disposez habituellement d’au moins un service Web sans état et d’un service de stockage de données avec état qui communiquent.
 
@@ -101,4 +101,4 @@ Dans cet exemple, nous avons défini `QuorumLossMode` sur `PartialQuorumLoss` af
 
 [En savoir plus sur les scénarios de testabilité](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

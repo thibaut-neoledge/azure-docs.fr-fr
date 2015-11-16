@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Comment les Acteurs fiables utilisent la plateforme Service Fabric"
-   description="Cet article explique comment les Acteurs fiables utilisent les fonctionnalités de la plateforme Service Fabric. Il traite les concepts de la plateforme Service Fabric du point de vue des développeurs d'acteur."
+   pageTitle="Reliable Actors dans Service Fabric | Microsoft Azure"
+   description="Décrit comment Reliable Actors utilise les fonctionnalités de la plateforme Service Fabric en traitant les concepts du point de vue des développeurs d'acteur."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,8 +18,9 @@
 
 # Comment les Acteurs fiables utilisent la plateforme Service Fabric
 
-## Concepts de modèle d'application Service Fabric pour les acteurs
-Les acteurs utilisent le modèle d'application Service Fabric pour gérer le cycle de vie de l'application. Chaque type d'acteur est mappé à un [type de Service](service-fabric-application-model.md#describe-a-service) Service Fabric. Le code de l'acteur est [empaqueté](service-fabric-application-model.md#package-an-application) comme une application Service Fabric et [déployé](service-fabric-deploy-remove-applications.md#deploy-an-application) sur le cluster.
+Les acteurs utilisent le modèle d'application Service Fabric pour gérer le cycle de vie de l'application. Chaque type d'acteur est mappé à un [type de service](service-fabric-application-model.md#describe-a-service) Service Fabric. Le code de l'acteur est [empaqueté](service-fabric-application-model.md#package-an-application) comme une application Service Fabric et [déployé](service-fabric-deploy-remove-applications.md#deploy-an-application) sur le cluster.
+
+## Exemple de concept de modèle d'application pour des acteurs
 
 Prenons l'exemple d'un projet d'acteur [créé à l'aide de Visual Studio](service-fabric-reliable-actors-get-started.md) afin d'illustrer certains des concepts ci-dessus.
 
@@ -242,4 +243,4 @@ Veuillez noter que la modification du fournisseur d'état nécessite la recréat
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

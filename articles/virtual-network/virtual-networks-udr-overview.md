@@ -36,7 +36,7 @@ La figure ci-dessous montre un exemple d’itinéraires définis par l’utilisa
 
 ![Itinéraires système dans Azure](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT]Les itinéraires définis par l’utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d’itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d’Internet, par exemple. En outre, l’équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d’où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements.
+>[AZURE.IMPORTANT]Les itinéraires définis par l'utilisateur sont appliqués uniquement au trafic qui quitte un sous-réseau. Vous ne pouvez pas créer d'itinéraires pour spécifier la façon dont le trafic entre dans un sous-réseau à partir d'Internet, par exemple. En outre, l'équipement auquel vous transférez le trafic ne peut pas se trouver dans le même sous-réseau que celui d'où provient le trafic. Créez toujours un sous-réseau distinct pour vos équipements.
 
 ## Routage
 Les paquets sont acheminés via un réseau TCP/IP basé sur une table d’itinéraires définie sur chaque nœud du réseau physique. Une table d’itinéraires est une collection d’itinéraires individuels permettant de déterminer où transférer les paquets en fonction de l’adresse IP de destination. Un itinéraire se compose des éléments suivants :
@@ -90,4 +90,4 @@ La machine virtuelle d’appliance virtuelle doit être capable de recevoir le t
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement du Gestionnaire de ressources](../virtual-network-create-udr-arm-template) et les associer à des sous-réseaux. 
 - Découvrez comment [créer des itinéraires dans le modèle de déploiement classique](../virtual-network-create-udr-classic-ps) et les associer à des sous-réseaux.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

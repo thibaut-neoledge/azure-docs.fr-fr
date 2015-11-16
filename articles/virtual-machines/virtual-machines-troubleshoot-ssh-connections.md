@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Impossible de se connecter à une machine virtuelle Azure par le biais de SSH | Microsoft Azure"
+	pageTitle="Résoudre les problèmes de connexion à une machine virtuelle Azure par le biais de SSH | Microsoft Azure"
 	description="Résolution des problèmes des connexions SSH avec une machine virtuelle Azure exécutant Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="10/27/2015"
 	ms.author="dkshir"/>
 
 # Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux
@@ -25,24 +25,24 @@
 
 Les échecs de connexion SSH sur une machine virtuelle Azure Linux peuvent avoir plusieurs causes. Cet article vous aidera à les déterminer et à corriger les échecs.
 
-> [AZURE.NOTE]Cet article s’applique uniquement aux machines virtuelles Azure exécutant Linux. Pour résoudre les problèmes de connexion à des machines virtuelles exécutant Windows, consultez [cet article](virtual-machines-troubleshoot-remote-desktop-connections.md).
+Cet article s’applique uniquement aux machines virtuelles Azure exécutant Linux. Pour résoudre les problèmes de connexion à des machines virtuelles exécutant Windows, consultez [cet article](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 ## Contacter le Support technique Azure
 
 Si vous avez besoin d’aide supplémentaire concernant n’importe quel point de cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](http://azure.microsoft.com/support/forums/).
 
-Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](http://azure.microsoft.com/support/options/), puis cliquez sur **Obtenir un support**. Pour plus d'informations sur l'utilisation du support Azure, lisez la [FAQ du support Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 
 ## Étapes de base - Modèle de déploiement classique
 
 Pour résoudre les échecs de connexion SSH les plus courants sur les machines virtuelles créées à l’aide du modèle de déploiement classique, essayez les étapes suivantes :
 
-1. **Réinitialisez l'accès à distance** à partir du [portail Azure en version préliminaire](https://portal.azure.com). Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
+1. **Réinitialisez l'accès à distance** à partir du [portail Azure en version préliminaire](https://portal.azure.com). Cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Réinitialiser l'accès à distance**.
 
 	![Réinitialiser l'accès à distance](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Redémarrez** la machine virtuelle. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail de gestion Azure](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **Redémarrer**.
+2. **Redémarrez** la machine virtuelle. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail de gestion Azure](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **redémarrer**.
 
 3. [**Redimensionnez** la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -51,6 +51,8 @@ Pour résoudre les échecs de connexion SSH les plus courants sur les machines v
 	- réinitialiser le mot de passe ou la clé SSH ;
 	- créer un nouveau compte d’utilisateur sudo ;
 	- réinitialiser la configuration SSH.
+
+5. Vérifiez l'intégrité des ressources de la machine virtuelle pour les problèmes de plateforme. Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Linux > **Vérifier l'intégrité**.
 
 
 ## Étapes de base - Modèle de déploiement de Resource Manager
@@ -284,6 +286,6 @@ Pour les machines virtuelles suivant un modèle de déploiement classique, suive
 
 [Résolution des problèmes de connexion du Bureau à distance Windows avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-[Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
+[Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

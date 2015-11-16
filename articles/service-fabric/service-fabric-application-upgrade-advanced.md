@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Mise à niveau d'une application Service Fabric : rubriques avancées"
+   pageTitle="Mise à niveau d'application : rubriques avancées | Microsoft Azure"
    description="Cet article traite de sujets avancés se rapportant à la mise à niveau d'une application Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="07/17/2015"
    ms.author="subramar"/>
 
-# Mise à niveau d'une application Service Fabric : rubriques avancées
+# Mise à niveau d'application Service Fabric : rubriques avancées
 
 ## Mode de mise à niveau manuelle
 
@@ -51,4 +51,4 @@ Situations qui se prêtent à l'utilisation d'un package différentiel :
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

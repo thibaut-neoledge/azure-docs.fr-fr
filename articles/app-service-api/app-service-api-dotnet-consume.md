@@ -51,7 +51,7 @@ Dans cette section, vous créez un projet d'application console et vous y ajoute
 
 1. Si vous ne l'avez pas déjà fait, suivez [Déployer une application API](app-service-dotnet-deploy-api-app.md) pour déployer l'exemple de projet ContactsList sur une application API dans votre abonnement Azure.
 
-	Ce didacticiel vous indique comment définir le niveau d'accès dans la boîte de dialogue Publier de Visual Studio à **Disponible pour tout le monde**, qui équivaut à **Public (anonyme)** dans le portail. Cependant, si vous avez effectué après cela le didacticiel [Protéger une application API](../app-service-dotnet-add-authentication.md), le niveau d'accès a été défini sur **Public (authentifié)** et dans ce cas, vous devez le changer comme indiqué à l'étape suivante.
+	Ce didacticiel vous indique comment définir le niveau d'accès dans la boîte de dialogue Publier de Visual Studio à **Disponible pour tout le monde**, qui équivaut à **Public (anonyme)** dans le portail. Cependant, si vous avez effectué après cela le didacticiel [Protéger une application API](../app-service-api-dotnet-add-authentication.md), le niveau d'accès a été défini sur **Public (authentifié)** et dans ce cas, vous devez le changer comme indiqué à l'étape suivante.
 
 2. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), dans le panneau **Application API** pour l'application API que vous voulez appeler, accédez à **Paramètres > Paramètres de l'application** et définissez **Niveau d'accès** sur **Public (anonyme)**.
 
@@ -102,7 +102,7 @@ Dans cette section, vous créez un projet d'application de bureau Windows et vou
 
 ### Configurer l'application d'API et créer le projet
 
-1. Suivez le didacticiel [Protéger une application API](../app-service-dotnet-add-authentication.md) pour configurer une application API avec le niveau d'accès **Public (authentifié)**.
+1. Suivez le didacticiel [Protéger une application API](../app-service-api-dotnet-add-authentication.md) pour configurer une application API avec le niveau d'accès **Public (authentifié)**.
 
 1. Dans Visual Studio, créez un projet de bureau Windows Forms.
 
@@ -205,4 +205,4 @@ Pour d'autres exemples de code appelant une application API à partir de clients
 Pour plus d’informations sur l’utilisation de l’authentification dans les applications API, consultez la page [Authentification pour les applications d’API et les applications mobiles dans Azure App Service](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

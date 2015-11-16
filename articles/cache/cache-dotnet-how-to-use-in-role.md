@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -410,7 +410,7 @@ Maintenant que vous avez appris les bases de In-Role Cache, suivez ces liens pou
 [Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Choix de l'offre Azure Cache appropriée]: http://msdn.microsoft.com/library/azure/dn766201.aspx
+[Choix de l'offre Azure Cache appropriée]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure"
+   pageTitle="Obtenir une vue d'ensemble de votre consommation des ressources Microsoft Azure | Microsoft Azure"
    description="Offre une présentation conceptuelle des API Azure Billing Usage et RateCard, qui fournissent des vues d’ensemble des tendances et de la consommation des ressources Azure."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/07/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure 
@@ -72,10 +72,10 @@ L’article [Intégration des API Microsoft Azure Billing par Cloud Cruiser](b
 
 ## Étapes suivantes
 + Pour plus d’informations sur ces deux API, qui font partie intégrante de l’ensemble d’API fourni par Azure Resource Manager, consultez la [Référence des API REST Azure Billing](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
-+ Si vous souhaitez vous plonger directement dans l’exemple de code, consultez nos [exemples de code d’API Microsoft Azure Billing sur Github](https://github.com/Azure/BillingCodeSamples) (en anglais).
++ Si vous souhaitez vous plonger directement dans l'exemple de code, consultez nos exemples de code d'API de facturation Microsoft Azure sur [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## En savoir plus
 + Pour plus d’informations sur Azure Resource Manager, voir l’article [Présentation d’Azure Resource Manager](resource-group-overview.md).
 + Pour plus d’informations sur la suite d’outils nécessaire pour acquérir une bonne compréhension de la dépense cloud, voir l’article du cabinet Gartner [Guide de marché relatif aux outils de gestion financière informatique (ITFM)](http://www.gartner.com/technology/reprints.do?id=1-212F7AL&ct=140909&st=sb) (en anglais).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

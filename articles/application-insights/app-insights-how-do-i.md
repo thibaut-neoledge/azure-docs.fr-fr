@@ -183,21 +183,25 @@ Vous pouvez ensuite effectuer les opérations suivantes :
 
 ![](./media/app-insights-how-do-i/115-metrics.png)
 
+## Modification de noms ou de valeurs de propriété
+
+Créez un filtre (app-insights-api-filtering-sampling.md#filtering). Cela vous permet de modifier ou de filtrer la télémétrie avant son envoi depuis votre application vers Application Insights.
+
 ## Répertorier les utilisateurs spécifiques et leur utilisation
 
-Si vous voulez simplement [rechercher des utilisateurs spécifiques](#search-specific-users), vous pouvez définir l’[ID d’utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users).
+Si vous voulez simplement [rechercher des utilisateurs spécifiques](#search-specific-users), vous pouvez définir l'[ID d'utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users).
 
 Si vous voulez une liste des utilisateurs avec des données telles que les pages qu’ils ont consultées ou leur fréquence de connexion, deux options s’offrent à vous :
 
-* [Définissez l’ID d’utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users), [exportez vers une base de données](app-insights-code-sample-export-sql-stream-analytics.md) et utilisez des outils pour analyser les données de votre utilisateur.
+* [Définissez l'ID d'utilisateur authentifié](app-insights-api-custom-events-metrics/#authenticated-users), [exportez vers une base de données](app-insights-code-sample-export-sql-stream-analytics.md) et utilisez des outils pour analyser vos données utilisateur.
 * Si vous ne disposez que d’un petit nombre d’utilisateurs, envoyez des événements ou des métriques personnalisés, en utilisant les données d’intérêt comme le nom de l’événement ou la valeur de la métrique et en définissant l’id d’utilisateur en tant que propriété. Pour analyser les vues de page, remplacez l’appel standard de trackPageView JavaScript. Pour analyser la télémétrie côté serveur, utilisez un initialiseur de télémétrie pour ajouter l’id d’utilisateur à toute la télémétrie de serveur. Vous pouvez ensuite filtrer et segmenter les métriques et les recherches sur l’id d’utilisateur.
 
 
 ## Réduire le trafic de mon application vers Application Insights
 
-* Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n’avez pas besoin, comme le collecteur de compteurs de performances.
-* Utilisez [Échantillonnage et filtrage](app-insights-api-filtering-sampling.md) dans le Kit de développement logiciel (SDK).
-* Si vous utilisez [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calculez l’agrégat des lots de valeurs de métriques avant d’envoyer le résultat. Il existe une surcharge de TrackMetric() qui se charge de cette tâche.
+* Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), désactivez tous les modules dont vous n'avez pas besoin, comme le collecteur de compteurs de performances.
+* Utilisez l'[échantillonnage et le filtrage](app-insights-api-filtering-sampling.md) dans le kit de développement logiciel.
+* Si vous utilisez [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), calculez l'agrégat des lots de valeurs de métriques avant d'envoyer le résultat. Il existe une surcharge de TrackMetric() qui se charge de cette tâche.
 
 
 En savoir plus sur la [tarification et les quotas](app-insights-pricing.md).
@@ -215,32 +219,25 @@ Pour **arrêter et démarrer dynamiquement** la collecte et la transmission de l
 
 
 
-Pour **désactiver les collecteurs standard sélectionnés**, par exemple, les compteurs de performances, les requêtes HTTP ou les dépendances, supprimez ou commentez les lignes appropriées dans [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Par exemple, vous pouvez faire cela si vous souhaitez envoyer vos propres données TrackRequest.
+Pour **désactiver les collecteurs standard sélectionnés** (par exemple, les compteurs de performances, les requêtes HTTP ou les dépendances), supprimez ou commentez les lignes correspondantes dans [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Par exemple, vous pouvez faire cela si vous souhaitez envoyer vos propres données TrackRequest.
 
 
 
 ## Afficher les compteurs de performances système
 
-Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d’entre eux.
+Parmi les métriques que vous pouvez afficher dans Metrics Explorer, il existe un ensemble de compteurs de performances système. Un panneau prédéfini intitulé **Serveurs** affiche plusieurs d'entre eux.
 
 ![Ouvrez votre ressource Application Insights et cliquez sur Serveurs.](./media/app-insights-how-do-i/121-servers.png)
 
 ### Si aucune donnée de compteur de performances ne s’affiche
 
 * **Serveur IIS** sur votre ordinateur ou une machine virtuelle. [Installer Status Monitor](app-insights-monitor-performance-live-website-now.md). 
-* **Site web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
-* **Serveur Unix** : [Installer collectd](app-insights-java-collectd.md)
+* **Site Web Azure** : nous ne prenons pas encore en charge les compteurs de performances. Il existe plusieurs métriques que vous pouvez obtenir de manière standard dans le panneau de configuration des sites web Azure.
+* **Serveur Unix** : [installer collectd](app-insights-java-collectd.md)
 
 ### Pour afficher davantage de compteurs de performances
 
-* Tout d’abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
+* Tout d'abord, [ajoutez un nouveau graphique](app-insights-metrics-explorer.md) et vérifiez si le compteur se trouve dans le jeu de base que nous offrons.
 * Dans le cas contraire, [ajoutez le compteur au jeu collecté par le module de compteur de performances](app-insights-web-monitor-performance.md#system-performance-counters).
 
-
- 
-
-### Rôles web Azure
-
-Nous ne surveillons pas actuellement les compteurs de performance sur
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

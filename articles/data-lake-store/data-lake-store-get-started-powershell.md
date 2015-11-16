@@ -31,11 +31,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
 - **Activez votre abonnement Azure** pour la version d'évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell 1.0 ou version ultérieure**. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](../install-configure-powershell.md). Après avoir installé Azure PowerShell 1.0 ou version ultérieure, vous devez exécuter l'applet de commande suivante pour installer le module Azure Data Lake Store.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Pour plus d'informations sur le module **AzureRM.DataLakeStore**, consultez [PowerShell Gallery](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Vous pouvez l'installer depuis [ici](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
 
 ## Créer un compte Azure Data Lake Store
 
@@ -99,7 +95,7 @@ Vous pouvez créer des répertoires sous votre compte Azure Data Lake Store pour
 
 Vous pouvez télécharger vos données sur Data Lake Store directement à la racine ou dans un répertoire que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment télécharger des exemples de données dans le répertoire (**mynewdirectory**) que vous avez créé dans la section précédente.
 
-Si vous recherchez des exemples de données à télécharger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
+Si vous recherchez des exemples de données à télécharger, vous pouvez récupérer le dossier **Ambulance Data** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
 
 	Import-AzureRmDataLakeStoreItem -AccountName $dataLakeStoreName -Path "C:\sampledata\vehicle1_09142014.csv" -Destination $myrootdir\mynewdirectory\vehicle1_09142014.csv
 
@@ -143,4 +139,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

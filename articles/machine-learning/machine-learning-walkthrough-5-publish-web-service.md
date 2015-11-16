@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -98,8 +98,11 @@ Pour déployer un service web dérivé de notre expérience, cliquez sur **Dépl
 
 Vous pouvez configurer le service en cliquant sur l'onglet **CONFIGURATION**. Vous pouvez modifier le nom du service (il s'agit par défaut du nom de l'expérience) et lui attribuer une description. Vous pouvez également attribuer des étiquettes plus significatives aux colonnes d'entrée et de sortie.
 
+![Configuration du service web][5]
+
 ## Test du service web
-Sur la page **TABLEAU DE BORD**, cliquez sur le lien **Test** sous **Point de terminaison par défaut**. Une boîte de dialogue vous demande d’entrer les données du service. Les colonnes sont identiques à celles du jeu de données d'origine du risque sur le crédit allemand.
+Sur la page **TABLEAU DE BORD**, cliquez sur le lien **Test** sous **Point de terminaison par défaut**. Une boîte de dialogue vous demande d’entrer les données du service. Les colonnes sont identiques à celles du jeu de données d'origine du risque de crédit allemand. ![Test du service web][6]
+
 
 Entrez un jeu de données, puis cliquez sur **OK**.
 
@@ -108,12 +111,14 @@ Les résultats générés par le service web sont affichés au bas du tableau de
 
 ----------
 
-**Suivant : [Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)**
+**Étape suivante : [Accéder au service web](machine-learning-walkthrough-6-access-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -127,4 +132,4 @@ Les résultats générés par le service web sont affichés au bas du tableau de
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

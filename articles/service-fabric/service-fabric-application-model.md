@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle d'application Service Fabric"
-   description="Comment modéliser une application dans Service Fabric"
+   pageTitle="Modèle d'application Service Fabric | Microsoft Azure"
+   description="Comment modéliser et décrire des applications et des services dans Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="alexwun"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/02/2015"
    ms.author="alexwun"/>
 
 # Modéliser une application dans Service Fabric
@@ -232,4 +232,4 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

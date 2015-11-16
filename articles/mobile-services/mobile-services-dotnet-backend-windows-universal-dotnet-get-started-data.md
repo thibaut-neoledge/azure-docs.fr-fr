@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/02/2015" 
 	ms.author="glenga"/>
 
 # Ajout de services mobiles à une application existante
@@ -111,7 +111,7 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [Prise en main de l'authentification]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Prise en main des notifications Push]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Prise en main de la synchronisation des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -121,4 +121,4 @@ Ce didacticiel a présenté les bases de l'activation d'un projet d'application 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

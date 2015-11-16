@@ -33,7 +33,7 @@ Ces mêmes principes s’appliquent dans un scénario hybride où votre entrepri
 
 ## Évaluation initiale
 
-Même si votre entreprise utilise déjà un système de gestion des mises à jour et si des stratégies de mise à jour logicielle sont déjà en place, il est important de revoir les évaluations de stratégie précédentes fréquemment et de les mettre à jour en fonction des exigences actuelles. Cela signifie que vous devez connaître l’état actuel des ressources de votre entreprise. Pour obtenir cet état, vous devez connaître :
+Même si votre entreprise utilise déjà un système de gestion des mises à jour et si des stratégies de mise à jour logicielle sont déjà en place, il est important de revoir les évaluations de stratégie précédentes fréquemment et de les mettre à jour en fonction des exigences actuelles. Cela signifie que vous devez connaître l’état actuel des ressources de votre entreprise. Pour obtenir des informations relatives à cet état, vous devez connaître :
 
 -   les ordinateurs physiques et virtuels dans votre entreprise,
 
@@ -119,4 +119,4 @@ Outre les considérations générales expliquées dans cet article, vous devez p
 
 Utilisez les directives décrites dans cet article pour déterminer les meilleures options de mises à jour logicielles de machines virtuelles au sein d’IaaS Azure. Il existe de nombreuses similitudes entre les pratiques recommandées de mise à jour de logiciel dans un centre de données traditionnel et Azure IaaS, et il est par conséquent recommandé d’évaluer vos stratégies de mise à jour logicielle en cours pour inclure des machines virtuelles Azure et les meilleures pratiques figurant dans cet article dans votre processus de mise à jour logicielle globale.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

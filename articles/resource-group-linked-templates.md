@@ -108,6 +108,6 @@ Si vous devez transmettre une valeur du modèle lié vers le modèle principal, 
 
 ## Étapes suivantes
 - [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md)
-- [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md)
+- [Déploiement d’une application à l’aide d’un modèle Azure Resource Manager](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

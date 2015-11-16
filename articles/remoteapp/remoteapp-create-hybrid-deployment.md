@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/04/2015" 
 	ms.author="elizapo"/>
 
 # Création d'une collection hybride pour Azure RemoteApp
@@ -54,7 +54,7 @@ Avant de créer la collection, vous devez effectuer les étapes suivantes :
 ## Étape 1 : configuration de votre réseau virtuel
 Vous pouvez déployer une collection hybride qui utilise un réseau virtuel Azure existant ou vous pouvez créer un réseau virtuel. Un réseau virtuel permet aux utilisateurs d'accéder aux données de votre réseau local via des ressources distantes de RemoteApp. L'utilisation d'un réseau virtuel Azure offre à votre collection un accès réseau direct aux autres services Azure et aux machines virtuelles déployées sur ce réseau virtuel.
 
-Passez en revue les informations sur la [planification](remoteapp-planvpn.md) et le [dimensionnement d’un réseau virtuel](remoteapp-vnetsizing.md) avant de créer votre réseau virtuel.
+Passez en revue les informations sur la [planification](remoteapp-planvnet.md) et le [dimensionnement d'un réseau virtuel](remoteapp-vnetsizing.md) avant de créer votre réseau virtuel.
 
 ### Création d'un réseau virtuel Azure et jonction à votre déploiement Active Directory
 
@@ -87,6 +87,8 @@ Vous trouverez plus d'informations sur la création de machines virtuelles Azure
 
 Après avoir créé votre collection Azure RemoteApp, double-cliquez sur son nom. Ceci affiche la page **Démarrage rapide** qui vous permet de terminer la configuration de la collection.
 
+Un problème est survenu ? Consultez les [informations de dépannage d'une collection hybride](remoteapp-hybridtrouble.md).
+
 ## Étape 3 : liaison de votre collection au domaine local ##
 
  
@@ -98,7 +100,7 @@ Après avoir créé votre collection Azure RemoteApp, double-cliquez sur son nom
 
 ## Étape 4 : établir un lien vers une image Azure RemoteApp ##
 
-Une image de modèle Azure RemoteApp contient les programmes que vous souhaitez partager avec les utilisateurs. Vous pouvez créer une [image de modèle](remoteapp-imageoptions.md) ou un lien vers une image existante (une image déjà importée ou téléchargée vers Azure RemoteApp). Vous pouvez également établir un lien avec l’une des [images de modèle](remoteapp-images.md) Azure RemoteApp contenant des programmes Office 365 ou Office 2013 (à des fins d’évaluation).
+Une image de modèle Azure RemoteApp contient les programmes que vous souhaitez partager avec les utilisateurs. Vous pouvez créer une [image de modèle](remoteapp-imageoptions.md) ou un lien vers une image existante (une image déjà importée ou téléchargée vers Azure RemoteApp). Vous pouvez également établir un lien avec l'une des [images de modèle](remoteapp-images.md) Azure RemoteApp contenant des programmes Office 365 ou Office 2013 (à des fins d'évaluation).
 
 Si vous optez pour le téléchargement de la nouvelle image, vous devez entrer un nom et choisir son emplacement. Plusieurs cmdlets PowerShell sont affichés sur la page suivante de l'Assistant. Copiez-les et exécutez-les à partir d'une invite de commandes Windows PowerShell avec élévation de privilèges afin de télécharger l'image spécifiée.
 
@@ -110,7 +112,7 @@ En cas d'association d'une image de modèle existante, il vous suffit de spécif
 
 Azure RemoteApp exige que vous intégriez Azure Active Directory soit 1) en configurant la synchronisation Azure Active Directory avec l’option de synchronisation de mot de passe ou 2) en configurant Azure Active Directory sans option de synchronisation de mot de passe, mais à l’aide d’un domaine fédéré à AD FS.
 
-Consultez [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx). Cet article vous permet de configurer l’intégration de répertoires en 4 étapes.
+Consultez [AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx). Cet article vous permet de configurer l'intégration de répertoires en 4 étapes.
 
 Pour plus d'informations sur la planification, consultez la rubrique [Programme de synchronisation d'annuaires](http://msdn.microsoft.com//library/azure/hh967642.aspx).
 
@@ -120,7 +122,7 @@ Une application Azure RemoteApp correspond à l’application ou au programme qu
 
 Avant que vos utilisateurs puissent accéder à des applications, vous devez les publier dans le flux de l'utilisateur final. Il s'agit d'une liste des applications disponibles auxquelles vos utilisateurs peuvent accéder via le client Bureau à distance.
  
-Vous pouvez publier plusieurs applications dans votre collection. Dans la page de publication, cliquez sur **Publier** pour ajouter une application. Vous pouvez publier l'application à partir du menu **Démarrer** de l'image de modèle ou en indiquant le chemin d'accès dans l'image de modèle de l'application. Si vous choisissez d’ajouter l’application à partir du menu **Démarrer**, sélectionnez le programme à ajouter. Si vous choisissez la deuxième option, indiquez un nom pour l'application ainsi que le chemin d'accès à son répertoire d'installation dans l'image de modèle.
+Vous pouvez publier plusieurs applications dans votre collection. Dans la page de publication, cliquez sur **Publier** pour ajouter une application. Vous pouvez publier l'application à partir du menu **Démarrer** de l'image de modèle ou en indiquant le chemin d'accès dans l'image de modèle de l'application. Si vous choisissez d'ajouter l'application à partir du menu **Démarrer**, sélectionnez le programme à ajouter. Si vous choisissez la deuxième option, indiquez un nom pour l'application ainsi que le chemin d'accès à son répertoire d'installation dans l'image de modèle.
 
 ## Étape 7 : configuration de l'accès utilisateur ##
 
@@ -145,6 +147,6 @@ Félicitations ! Vous avez créé et déployé correctement votre collection hy
 
  
 ### Vos commentaires nous aideront à mieux vous servir 
-Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l’écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
+Saviez-vous qu’en plus de noter cet article et de rédiger des commentaires ci-dessous, vous pouviez modifier l’article lui-même ? Il manque des informations ? Des informations sont erronées ? Certains passages ne sont pas clairs ? Faites défiler l'écran vers le haut et cliquez sur **Modifier sur GitHub** pour apporter des modifications. Nous les passerons ensuite en revue, et une fois que nous les aurons confirmées, vos modifications et les améliorations seront visibles ici.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

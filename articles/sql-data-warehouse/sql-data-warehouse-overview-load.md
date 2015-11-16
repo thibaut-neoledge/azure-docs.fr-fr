@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Charger des données dans SQL Data Warehouse
@@ -163,6 +163,16 @@ Notez que vous pouvez également charger une partie des lignes d’une table à 
 
 En plus de l’instruction `CREATE TABLE...AS SELECT`, vous pouvez charger des données à partir de tables externes dans des tables préexistantes avec une instruction « INSERT...INTO ».
 
+##  Créer des statistiques sur vos données nouvellement chargées 
+
+Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour une explication détaillée des statistiques, consultez la rubrique [Statistiques][] dans le groupe de rubriques sur le développement. Voici un exemple rapide de la création de statistiques sur le tableau chargé dans cet exemple.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires sur le développement, consultez la [vue d’ensemble sur le développement][].
 
@@ -175,6 +185,7 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 [Migration du schéma]: sql-data-warehouse-migrate-schema.md
 [Migration du code]: sql-data-warehouse-migrate-code.md
+[Statistiques]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -189,4 +200,4 @@ Pour obtenir des conseils supplémentaires sur le développement, consultez la [
 [Documentation d’Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/articles/storage-create-storage-account/
 [Documentation sur ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

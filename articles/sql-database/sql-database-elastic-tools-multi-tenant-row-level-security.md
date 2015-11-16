@@ -1,5 +1,4 @@
 <properties 
-	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes" 
 	description="Découvrez comment utiliser les outils de base de données élastique avec la fonction de sécurité au niveau des lignes (RLS) pour générer une application présentant une couche Données hautement évolutive sur la base de données SQL Microsoft Azure qui prend en charge les partitions multi-locataires." 
 	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/03/2015" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes 
@@ -48,17 +47,17 @@ Générez et exécutez l’application. Cette opération démarre le gestionnair
 
 Comme la fonction RLS n’a pas encore été activée sur les bases de données de la partition, vous pouvez voir que chacun de ces tests met en lumière un problème : les locataires peuvent afficher des blogs qui ne leur appartiennent pas et l’application est autorisée à insérer un blog associé à un locataire incorrect. Le reste de cet article explique comment résoudre ces problèmes en appliquant l’isolation des locataires avec la fonction RLS. La procédure à suivre implique deux étapes :
 
-1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément CONTEXT\_INFO sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
-2. **Couche Données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon la valeur de l’élément CONTEXT\_INFO. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
+1. **Couche application** : modifiez le code de l’application en définissant toujours l’élément SESSION\_CONTEXT sur l’ID de locataire actuel après l’ouverture d’une connexion. Cet exemple de projet a déjà effectué cette opération. 
+2. **Couche données** : créez une stratégie de sécurité RLS dans chaque base de données de partition, afin de filtrer les lignes selon l’ID de locataire stocké dans l’élément SESSION\_CONTEXT. Vous devez procéder ainsi pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions multi-locataires ne seront pas filtrées. 
 
 
-## Étape 1) Couche Application : définition de l’élément CONTEXT\_INFO sur l’ID de locataire
+## Étape 1) Couche application : définissez l’identifiant de locataire dans l’élément SESSION\_CONTEXT
 
-Une fois la connexion à la base de données de partition établie, via les API de routage dépendant des données de la bibliothèque de base de données élastique, vous devez faire en sorte que l’application indique à la base de données quel ID de locataire utilise cette connexion, afin que la stratégie de sécurité RLS puisse filtrer les lignes appartenant aux autres locataires. Pour transmettre ces informations, la méthode recommandée consiste à définir l’élément [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) sur l’ID de locataire en cours pour cette connexion. Notez que sur la base de données SQL Azure, CONTEXT\_INFO est prérempli avec un GUID spécifique à la session. Vous *devez* donc définir CONTEXT\_INFO sur l’ID de locataire correct avant d’exécuter des requêtes sur une nouvelle connexion afin d’éviter la perte accidentelle de lignes.
+Une fois la connexion à la base de données de partition établie, via les API de routage dépendant des données de la bibliothèque de base de données élastique, vous devez faire en sorte que l’application indique à la base de données quel ID de locataire utilise cette connexion, afin que la stratégie de sécurité RLS puisse filtrer les lignes appartenant aux autres locataires. Pour transmettre ces informations, la méthode recommandée consiste à stocker l’ID de locataire en cours pour cette connexion dans l’élément [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Remarque : vous pouvez également utiliser [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125.aspx), mais SESSION\_CONTEXT offre une meilleure option car cet élément, plus facile à utiliser, renvoie la valeur NULL par défaut et prend en charge les paires clé-valeur.)
 
 ### Entity Framework
 
-Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément CONTEXT\_INFO dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément CONTEXT\_INFO sur la valeur shardingKey (ID de locataire) spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément CONTEXT\_INFO.
+Pour les applications utilisant Entity Framework, l’approche la plus simple consiste à définir l’élément SESSION\_CONTEXT dans la substitution ElasticScaleContext décrite dans la section [Routage dépendant des données utilisant EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Avant de retourner la connexion répartie via le routage dépendant des données, vous devez simplement créer et exécuter une commande SqlCommand qui définit l’élément SESSION\_CONTEXT sur la valeur shardingKey spécifiée pour cette connexion. De cette façon, il vous suffit d’écrire le code une seule fois pour définir l’élément SESSION\_CONTEXT.
 
 ```
 // ElasticScaleContext.cs 
@@ -83,9 +82,9 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
     {
         conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
 
-        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
         cmd.ExecuteNonQuery();
 
@@ -104,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Désormais, l’élément CONTEXT\_INFO est automatiquement défini sur l’ID de locataire spécifié chaque fois que le paramètre ElasticScaleContext est appelé :
+Désormais, l’élément SESSION\_CONTEXT est automatiquement défini avec l’ID de locataire spécifié chaque fois que le paramètre ElasticScaleContext est appelé :
 
 ```
 // Program.cs 
@@ -127,15 +126,15 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### SqlClient ADO.NET 
 
-Pour les applications utilisant SqlClient ADO.NET, il est recommandé d’opter pour la création d’une fonction wrapper autour de ShardMap.OpenConnectionForKey() qui définit automatiquement CONTEXT\_INFO sur l’ID de locataire correct avant de renvoyer une connexion. Pour garantir que CONTEXT\_INFO est toujours correctement défini, vous ne devez ouvrir des connexions qu’à l’aide de cette fonction wrapper.
+Pour les applications utilisant SqlClient ADO.NET, il est recommandé d’opter pour la création d’une fonction wrapper autour de ShardMap.OpenConnectionForKey() qui définit automatiquement SESSION\_CONTEXT sur l’ID de locataire correct avant de renvoyer une connexion. Pour garantir que SESSION\_CONTEXT est toujours défini, vous ne devez ouvrir des connexions qu’à l’aide de cette fonction wrapper.
 
 ```
 // Program.cs
 // ...
 
-// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets CONTEXT_INFO to the correct
+// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with the correct
 // tenantId before returning a connection. As a best practice, you should only open connections using this 
-// method to ensure that CONTEXT_INFO is always set before executing a query.
+// method to ensure that SESSION_CONTEXT is always set before executing a query.
 public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
 {
     SqlConnection conn = null;
@@ -144,9 +143,9 @@ public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenan
         // Ask shard map to broker a validated connection for the given key
         conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
 
-        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", tenantId);
         cmd.ExecuteNonQuery();
 
@@ -185,13 +184,13 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ```
 
-## Étape 2) Couche Données : création de contraintes et d’une stratégie de sécurité au niveau des lignes 
+## Étape 2) Couche données : création d’une stratégie de sécurité au niveau des lignes
 
-### Créez une stratégie de sécurité pour filtrer les requêtes SELECT, UPDATE et DELETE. 
+### Créez une stratégie de sécurité pour filtrer les lignes accessibles à chaque client.
 
-Comme l’application définit désormais l’élément CONTEXT\_INFO sur l’ID de locataire en cours avant d’envoyer des requêtes, une stratégie de sécurité RLS peut filtrer les requêtes et exclure les lignes associées à un ID de locataire différent.
+Comme l’application définit désormais l’élément SESSION\_CONTEXT avec l’ID de locataire en cours avant d’envoyer des requêtes, une stratégie de sécurité RLS peut filtrer les requêtes et exclure les lignes associées à un ID de locataire différent.
 
-La fonction RLS est implémentée dans T-SQL : une fonction de prédicat définie par l’utilisateur détermine la logique de filtrage, et une stratégie de sécurité lie cette fonction à un nombre de tables quelconque. Pour les besoins de ce projet, la fonction de prédicat vérifie simplement que l’application (plutôt qu’un autre utilisateur SQL) est connectée à la base de données, et que la valeur de l’élément CONTEXT\_INFO correspond à l’ID de locataire d’une ligne donnée. Les lignes qui répondent à ces conditions seront sélectionnées par le filtre pour les requêtes SELECT, UPDATE et DELETE. Si l’élément CONTEXT\_INFO n’est pas défini, aucune ligne n’est renvoyée.
+La fonction RLS est implémentée dans T-SQL : une fonction définie par l’utilisateur détermine la logique d’accès, et une stratégie de sécurité lie cette fonction à un nombre de tables quelconque. Pour les besoins de ce projet, la fonction vérifie simplement que l’application (plutôt qu’un autre utilisateur SQL) est connectée à la base de données, et que l’ID de locataire stocké dans l’élément SESSION\_CONTEXT correspond à l’ID de locataire d’une ligne donnée. Un prédicat de filtrage permet de filtrer les lignes satisfaisant à ces conditions pour les requêtes SELECT, UPDATE et DELETE ; un prédicat de blocage empêche l’insertion ou la mise à jour des lignes qui violent ces conditions. Si l’élément SESSION\_CONTEXT n’a pas été défini, il retournera la valeur NULL et aucune ligne ne sera visible ou ne pourra être insérée.
 
 Pour activer la fonction RLS, exécutez la commande T-SQL suivante sur toutes les partitions, à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet (le cas échéant, si vous avez recours aux [tâches de la base de données élastique](sql-database-elastic-jobs-overview.md), vous pouvez les utiliser pour automatiser l’exécution de cette commande T-SQL sur toutes les partitions) :
 
@@ -205,76 +204,44 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
 AS
 	RETURN SELECT 1 AS fn_accessResult          
 		WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-		AND CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) = @TenantId -- @TenantId (int) is 4 bytes 
+		AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
 	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
 GO 
 ```
 
-> [AZURE.TIP]Pour les projets plus complexes qui nécessitent l’ajout de la fonction de prédicat à des centaines de tables, vous pouvez utiliser une procédure stockée d’assistance, qui génère automatiquement une stratégie de sécurité en ajoutant un prédicat sur toutes les tables dans un schéma. Voir [Appliquer la sécurité au niveau des lignes à toutes les tables – Script d’assistance (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> [AZURE.TIP]Pour les projets plus complexes qui nécessitent l’ajout du prédicat à des centaines de tables, vous pouvez utiliser une procédure stockée d’assistance, qui génère automatiquement une stratégie de sécurité en ajoutant un prédicat sur toutes les tables dans un schéma. Voir [Appliquer la sécurité au niveau des lignes à toutes les tables – Script d’assistance (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
-Si vous ajoutez une nouvelle table par la suite, il vous suffit de MODIFIER la stratégie de sécurité et d’ajouter un prédicat de filtre sur la nouvelle table :
+À présent, si vous exécutez l’exemple d’application une nouvelle fois, les locataires ne seront en mesure de voir que les lignes qui leur appartiennent. Par ailleurs, l’application ne peut pas insérer des lignes qui appartiennent à un locataire autre que celui qui est actuellement connecté à la base de données de partition, de même qu’elle ne peut pas mettre à jour les lignes visibles pour leur affecter un autre ID de locataire. Si elle tente d’effectuer l’une ou l’autre de ces opérations, une exception DbUpdateException est déclenchée.
+
+Si vous ajoutez une nouvelle table par la suite, il vous suffit de MODIFIER la stratégie de sécurité et d’ajouter des prédicats de filtrage et de blocage sur la nouvelle table :
 
 ```
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable 
+	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
 GO 
 ```
-
-À présent, si vous exécutez l’exemple d’application une nouvelle fois, les locataires ne seront pas en mesure de voir les lignes qui ne leur appartiennent pas.
-
-### Ajouter des contraintes check pour bloquer les opérations INSERT et UPDATE provenant d’un locataire incorrect
-
-Désormais, les stratégies de sécurité RLS n’empêchent pas l’application d’insérer accidentellement des lignes pour un ID de locataire incorrect, ni de mettre à jour l’ID de locataire d’une ligne visible en lui affectant une autre valeur. Pour certaines applications, telles que les applications de création de rapports en lecture seule, ce n’est pas un problème. Toutefois, comme cette application permet aux clients d’insérer de nouveaux blogs, il est utile de créer une protection supplémentaire, qui génère une erreur si le code d’application tente par erreur d’insérer ou de mettre à jour des lignes en violation avec le prédicat de filtre. Comme indiqué dans l’article [Sécurité au niveau des lignes : blocage des opérations INSERT non autorisées (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/23/row-level-security-blocking-unauthorized-inserts), la solution recommandée consiste à créer une contrainte check sur chaque table afin d’appliquer le même prédicat de filtre RLS pour les opérations d’insertion et de mise à jour.
-
-Pour ajouter des contraintes check, exécutez la commande T-SQL suivante sur toutes les partitions via SSMS, SSDT, ou le script PowerShell inclus (voire une tâche de base de données élastique) comme décrit ci-dessus :
-
-```
--- Create a scalar version of the predicate function for use in check constraints 
-CREATE FUNCTION rls.fn_tenantAccessPredicateScalar(@TenantId int)     
-	RETURNS bit 
-AS     
-	BEGIN     
-		IF EXISTS( SELECT 1 FROM rls.fn_tenantAccessPredicate(@TenantId) )         
-			RETURN 1     
-		RETURN 0 
-	END 
-GO 
-
--- Add the function as a check constraint on all sharded tables 
-ALTER TABLE Blogs     
-	WITH NOCHECK -- don't check data already in table     
-	ADD CONSTRAINT chk_blocking_Blogs -- needs a unique name     
-	CHECK( rls.fn_tenantAccessPredicateScalar(TenantId) = 1 ) 
-GO
-
-ALTER TABLE Posts     
-	WITH NOCHECK     
-	ADD CONSTRAINT chk_blocking_Posts     
-	CHECK( rls.fn_tenantAccessPredicateScalar(TenantId) = 1 ) 
-GO 
-```
-
-À présent, l’application ne peut pas insérer des lignes qui appartiennent à un locataire autre que celui qui est actuellement connecté à la base de données de partition. De la même manière, elle ne peut pas mettre à jour les lignes visibles afin d’afficher un ID de locataire différent. Si elle tente d’effectuer l’une ou l’autre de ces opérations, une exception DbUpdateException est déclenchée.
-
 
 ### Ajouter des contraintes par défaut afin d’indiquer automatiquement les ID de locataire pour les opérations INSERT 
 
-En plus de bloquer les insertions de locataires incorrects à l’aide de contraintes check, vous pouvez placer une contrainte par défaut sur chaque table, afin de renseigner automatiquement l’ID de locataire en indiquant la valeur actuelle de l’élément CONTEXT\_INFO lors de l’insertion de lignes. Par exemple :
+Vous pouvez placer une contrainte par défaut sur chaque table pour renseigner automatiquement l’ID de locataire avec la valeur actuellement stockée dans l’élément SESSION\_CONTEXT lors de l’insertion de lignes. Par exemple :
 
 ```
--- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
+-- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
 	ADD CONSTRAINT df_TenantId_Blogs      
-	DEFAULT CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) FOR TenantId 
+	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO
 
 ALTER TABLE Posts     
 	ADD CONSTRAINT df_TenantId_Posts      
-	DEFAULT CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) FOR TenantId 
+	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO 
 ```
 
@@ -292,7 +259,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Si vous utilisez des contraintes par défaut pour un projet Entity Framework, il est recommandé de ne PAS inclure la colonne « ID de locataire » dans votre modèle de données Entity Framework. En effet, les requêtes Entity Framework fournissent automatiquement des valeurs par défaut, qui remplacent les contraintes par défaut créées dans T-SQL et qui utilisent l’élément CONTEXT\_INFO. Pour utiliser les contraintes par défaut dans l’exemple de projet, par exemple, vous devez supprimer l’ID de locataire dans le fichier DataClasses.cs (et exécuter l’élément Add-Migration dans la Console du gestionnaire de package), puis utiliser T-SQL pour vérifier que le champ existe uniquement dans les tables de base de données. De cette façon, vous vous assurez qu’Entity Framework ne fournit pas automatiquement des valeurs par défaut incorrectes lors de l’insertion de données.
+> [AZURE.NOTE]Si vous utilisez des contraintes par défaut pour un projet Entity Framework, il est recommandé de ne PAS inclure la colonne « ID de locataire » dans votre modèle de données Entity Framework. En effet, les requêtes Entity Framework fournissent automatiquement des valeurs par défaut, qui remplacent les contraintes par défaut créées dans T-SQL et qui utilisent l’élément SESSION\_CONTEXT. Pour utiliser les contraintes par défaut dans l’exemple de projet, par exemple, vous devez supprimer l’ID de locataire dans le fichier DataClasses.cs (et exécuter l’élément Add-Migration dans la Console du gestionnaire de package), puis utiliser T-SQL pour vérifier que le champ existe uniquement dans les tables de base de données. De cette façon, vous vous assurez qu’Entity Framework ne fournit pas automatiquement des valeurs par défaut incorrectes lors de l’insertion de données.
 
 ### (Facultatif) Activer un « superutilisateur » pour accéder à toutes les lignes
 Certaines applications peuvent nécessiter la création d’un « superutilisateur » pouvant accéder à toutes les lignes. Cela permet par exemple d’activer la création de rapports pour tous les locataires de toutes les partitions, ou d’exécuter des opérations de fractionnement et de fusion sur des partitions impliquant le déplacement de lignes de locataires entre les bases de données. Pour ce faire, vous devez créer un nouvel utilisateur SQL (un « superutilisateur » dans cet exemple) dans chaque base de données de partition. Vous devez ensuite modifier la stratégie de sécurité en ajoutant une nouvelle fonction de prédicat permettant à cet utilisateur d’accéder à toutes les lignes :
@@ -307,7 +274,7 @@ AS
         WHERE 
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- note, should not be dbo!
-            AND CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) = @TenantId
+            AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
         ) 
         OR
         (
@@ -318,16 +285,18 @@ GO
 -- Atomically swap in the new predicate function on each table
 ALTER SECURITY POLICY rls.tenantAccessPolicy
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
-    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
+    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
+    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts,
+    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
 GO
 ```
 
 
 ### Maintenance 
 
-* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS (et ajouter des contraintes check) sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
+* **Ajout de nouvelles partitions** : vous devez exécuter le script T-SQL pour activer la fonction RLS sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne seront pas filtrées.
 
-* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtre à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+* **Ajout de nouvelles tables** : vous devez ajouter un prédicat de filtrage et de blocage à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne seront pas filtrées. Vous pouvez automatiser ce processus via un déclencheur DDL, comme décrit dans l’article [Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
 ## Résumé 
@@ -341,4 +310,4 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

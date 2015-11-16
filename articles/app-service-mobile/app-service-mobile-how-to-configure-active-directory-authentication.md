@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="10/29/2015" 
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser la connexion Azure Active Directory
@@ -26,7 +26,7 @@ Cette rubrique montre comment configurer Azure App Services pour utiliser Azure 
 
 1. Connectez-vous à la [version préliminaire du portail de gestion Azure] et accédez à votre application Mobile App.
 
-2. Sous **Paramètres**, cliquez sur **Authentification utilisateur**, puis cliquez sur **Azure Active Directory**. Copiez l’**URL de l’application** et l’**URL de réponse** qui y sont répertoriées. Vous les utiliserez ultérieurement. Assurez-vous que l’**URL de l’application** et l’**URL de réponse** utilisent le schéma HTTPS.
+2. Sous **Paramètres**, cliquez sur **Authentification mobile**, puis cliquez sur **Azure Active Directory**. Copiez l’**URL de l’application** et l’**URL de réponse** qui y sont répertoriées. Vous les utiliserez ultérieurement. Assurez-vous que l’**URL de l’application** et l’**URL de réponse** utilisent le schéma HTTPS.
 
     ![][1]
 
@@ -73,6 +73,5 @@ Authentification des utilisateurs de votre application Mobile App à l’aide de
 [version préliminaire du portail de gestion Azure]: https://portal.azure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [ios-adal]: ../app-service-mobile-xamarin-ios-aad-sso.md
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

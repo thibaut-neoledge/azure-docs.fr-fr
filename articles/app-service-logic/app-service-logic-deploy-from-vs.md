@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/>
 	
 # Déploiement depuis Visual Studio
@@ -65,4 +65,4 @@ Enfin, après avoir configuré votre application, vous pouvez procéder directem
 
 Si vous ne souhaitez pas utiliser Visual Studio tout en utilisant des outils pour déployer votre application logique à partir du contrôle de code source, vous pouvez utiliser l’[API](https://msdn.microsoft.com/library/azure/dn948510.aspx) ou [PowerShell](../powershell-azure-resource-manager.md) directement pour automatiser vos déploiements.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/03/2015" 
 	ms.author="tdykstra"/>
 
 # Déployer et configurer une application API de connecteur SaaS dans Microsoft Azure App Service
@@ -236,4 +236,4 @@ Vous avez vu comment installer, configurer et tester un connecteur SaaS. Pour pl
 [portail Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

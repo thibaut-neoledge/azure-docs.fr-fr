@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ Il existe d’autres méthodes de chiffrement des données secrètes :
 
 * Le [chiffrement au niveau des cellules](https://msdn.microsoft.com/library/ms179331.aspx) permet de chiffrer des colonnes spécifiques, voire des cellules de données, avec des clés de chiffrement différentes.
 * S’il vous faut un module de sécurité matériel ou si vous devez gérer la hiérarchie des clés de chiffrement de manière centralisée, consultez l’article de blog relatif au [coffre de clés Microsoft Azure avec SQL Server dans une machine virtuelle Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
-
+* [Toujours chiffré](https://msdn.microsoft.com/library/mt163865.aspx) (dans la version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec SQL Database.
 
 ## Audit
 
@@ -106,4 +106,4 @@ Les fonctions d’audit et de suivi des événements de la base de données peuv
 
 Non seulement la base de données SQL Microsoft Azure propose les fonctions décrites ci-dessus ainsi que des fonctionnalités permettant à votre application à répondre à différentes exigences en matière de conformité de la sécurité, mais elle participe également à des audits réguliers. Elle est certifiée conforme avec de nombreuses normes actuelles. Pour en savoir plus, accédez au [Centre de gestion de la confidentialité Microsoft Azure](http://azure.microsoft.com/support/trust-center/), qui inclut la liste la plus à jour des [certifications de conformité de la base de données SQL](http://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

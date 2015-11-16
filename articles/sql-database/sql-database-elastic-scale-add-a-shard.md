@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Ajout d’une partition à l’aide des outils de base de données élastique" 
+	pageTitle="Ajout d'une partition à l'aide des outils de base de données élastique | Microsoft Azure" 
 	description="Utilisation des API avec infrastructure élastique pour ajouter de nouvelles partitions à un ensemble de partitions." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Ajout d’une partition à l’aide des outils de base de données élastique
 
@@ -79,4 +79,4 @@ Une base de données nommée « sample\_shard\_2 » et tous les objets de sch�
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

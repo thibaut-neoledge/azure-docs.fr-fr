@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle de conception de gestion des ressources Azure Service Fabric Actors"
-   description="Modèle de conception montrant comment utiliser Service Fabric Actors pour modéliser une application à mettre à l'échelle mais avec des ressources limitées"
+   pageTitle="Modèle de conception de gestion des ressources | Microsoft Azure"
+   description="Modèle de conception montrant comment utiliser Service Fabric Reliable Actors pour modéliser une application à mettre à l'échelle mais avec des ressources limitées"
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -17,6 +17,7 @@
    ms.author="vturecek"/>
 
 # Modèle de conception Acteurs fiables : gestion des ressources
+
 Ce modèle et les scénarios associés sont facilement identifiables par les développeurs (entreprises ou autres) qui disposent de ressources limitées sur site ou dans le cloud qu'ils ne peuvent pas mettre immédiatement à l'échelle, ou qui souhaitent transférer des applications et des données volumineuses vers le cloud.
 
 Dans l'entreprise, ces ressources limitées, telles que des bases de données, s'exécutent sur du matériel avec une augmentation d'échelle. Toute personne disposant d'une longue expérience en entreprise sait qu'il s'agit d'une situation courante sur site. Même à l'échelle du cloud, nous avons vu cette situation se produire lorsqu'un service cloud a tenté de dépasser la limite de connexions 64K TCP entre un tuple adresse/port, ou lorsque vous tentez de vous connecter à une base de données en cloud qui limite le nombre de connexions simultanées.
@@ -30,6 +31,7 @@ Le diagramme ci-dessous illustre ce scénario :
 ![][1]
 
 ## Modélisation de scénarios de mise en cache avec des acteurs
+
 Essentiellement, nous modélisons l'accès à des ressources avec un ou plusieurs acteurs qui agissent comme des proxies (une connexion, par exemple) vers une ressource ou un groupe de ressources. Vous pouvez ensuite gérer directement la ressource par le biais d'acteurs individuels ou utiliser un acteur de coordination qui gère les acteurs de la ressource. Pour plus de clarté, nous étudierons le besoin fréquent de devoir travailler sur un niveau de stockage partitionné pour des questions de performances et d'évolutivité. Notre première option est plutôt basique : nous pouvons utiliser une fonction statique pour mapper et résoudre nos acteurs aux ressources en aval. Une telle fonction peut retourner, par exemple, une chaîne de connexion avec un résultat donné. Nous pouvons librement choisir comment implémenter cette fonction. Bien entendu, cette approche présente ses propres inconvénients comme une affinité statique qui complique beaucoup le repartitionnement des ressources ou le remappage d'un acteur à des ressources. Voici un exemple très simple dans lequel nous utilisons une arithmétique modulaire pour déterminer le nom de la base de données en utilisant la valeur userID et une région pour identifier le serveur de la base de données.
 
 ## Exemple de code de gestion des ressources – résolution statique
@@ -140,6 +142,7 @@ public class Resolver : Actor<ResolverState>, IResolver
 ```
 
 ## Accès aux ressources avec une capacité limitée
+
 Examinons maintenant un autre exemple ; l'accès exclusif à des ressources précieuses comme des bases de données, des comptes de stockage et des systèmes de fichiers avec une capacité de débit limitée. Notre scénario est le suivant : nous aimerions traiter des événements à l'aide d'un acteur appelé EventProcessor, qui est responsable du traitement et de la persistance de l'événement, dans ce cas un fichier .CSV pour plus de simplicité. Même si nous pouvons suivre l'approche de partitionnement décrite ci-dessus pour monter en charge nos ressources, nous devons toujours traiter les problèmes de concurrence. C'est pourquoi nous avons choisi un exemple basé sur un fichier pour illustrer ce point particulier car l'écriture dans un fichier unique à partir de plusieurs acteurs entraîne des problèmes d'accès simultané. Pour résoudre le problème, nous avons introduit un autre acteur appelé EventWriter qui est propriétaire exclusif des ressources limitées. Voici une illustration de ce scénario :
 
 ![][3]
@@ -398,6 +401,7 @@ Ce modèle est très courant dans les scénarios où des développeurs doivent t
 
 
 ## Étapes suivantes
+
 [Modèle : Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Modèle : Réseaux distribués et graphiques](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -417,4 +421,4 @@ Ce modèle est très courant dans les scénarios où des développeurs doivent t
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -13,49 +13,50 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/02/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Charger des exemples de données dans SQL Data Warehouse
 
-Une instance de SQL Data Warehouse étant configurée, vous pouvez facilement y charger des exemples de données. Les informations ci-après vous aident à créer un jeu de données appelé AdventureWorksPDW2012 dans votre base de données. Ce jeu de données modélise un exemple de structure d’entrepôt de données pour une société fictive nommée AdventureWorks. Notez que BCP doit être installé pour les étapes suivantes. Si ce n’est pas le cas, vous devez installer les [utilitaires de ligne de commande Microsoft pour SQL Server][].
+Une fois que vous avez [créé une instance de base de données SQL Data Warehouse][create a SQL Data Warehouse database instance] l'étape suivante consiste à créer et charger des tables. Vous pouvez utiliser les exemples de scripts Adventure Works que nous avons créés pour SQL Data Warehouse pour créer et charger des tables pour la société fictive appelée Adventure Works. Ces scripts utilisent sqlcmd pour exécuter SQL et bcp pour charger les données. Si vous ne disposez pas encore de ces outils, suivez ces liens pour [installer bcp][] et [installer sqlcmd][].
 
-1. Pour commencer, cliquez pour télécharger nos [exemples de scripts de données][].
+Suivez ces étapes simples pour charger l'exemple de base de données Adventure Works dans SQL DW...
 
-2. Une fois le fichier téléchargé, extrayez le contenu du fichier AdventureWorksPDW2012.zip et ouvrez le nouveau dossier AdventureWorksPDW2012.
+1. Téléchargez [Exemples de scripts Adventure Works pour SQL Data Warehouse][].
 
-3. Modifiez le fichier aw\_create.bat et définissez les valeurs suivantes au début du fichier :
+2. Extrayez les fichiers du fichier zip téléchargé dans un répertoire sur votre ordinateur local.
 
-   a. **Server** : nom complet du serveur sur lequel réside SQL Data Warehouse
+3. Modifiez le fichier extrait aw\_create.bat et définissez les variables suivantes au début du fichier. Veillez à ne laisser aucun espace entre le « = » et le paramètre. Vous trouverez ci-dessous des exemples de ce à quoi vos modifications peuvent ressembler.
 
-   b. **User** : utilisateur du serveur ci-dessus
-   
-   c. **Password** : mot de passe de la connexion serveur fournie
-   
-   d. **Database** : nom de l’instance SQL Data Warehouse sur laquelle vous souhaitez charger des données.
-   
-   Assurez-vous qu’il n’existe aucun espace entre le « = » et ces paramètres.
-   
+    	server=mylogicalserver.database.windows.net
+    	user=mydwuser
+    	password=Mydwpassw0rd
+    	database=mydwdatabase
 
-4. Exécutez aw\_create.bat à partir du répertoire dans lequel il se trouve. Cela crée le schéma et charge les données dans toutes les tables à l’aide de BCP.
+4. À partir d'une invite de commande Windows, exécutez le fichier aw\_create.bat modifié. Assurez-vous que vous êtes dans le répertoire où vous avez enregistré votre version modifiée du fichier aw\_create.bat. Ce script va...
+	* Supprimer les tables ou vues Adventure Works qui existent déjà dans votre base de données.
+	* Créer les tables et les vues Adventure Works.
+	* Charger chaque table Adventure Works à l'aide de bcp.
+	* Valider le nombre de lignes pour chaque table Adventure Works.
+	* Collecter les statistiques sur chaque colonne pour chaque table Adventure Works.
 
 
-## Connexion à votre exemple et interrogation de ce dernier
+##Interroger vos exemples de données.
 
-Comme l’indique la documentation sur [la connexion][], vous pouvez vous connecter à cette base de données à l’aide de Visual Studio et de SSDT. Des exemples de données étant chargés dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes pour commencer.
+Lorsque vous avez chargé des exemples de données dans SQL Data Warehouse, vous pouvez exécuter rapidement quelques requêtes. Pour exécuter une requête, connectez-vous à votre base de données Adventure Works nouvellement créée Azure SQL DW avec Visual Studio et SSDT, comme décrit dans le document [de connexion][].
 
-Nous pouvons exécuter une instruction select simple pour obtenir toutes les informations des employés :
+Exemple d'instruction simple select pour obtenir toutes les informations des employés :
 
 	SELECT * FROM DimEmployee;
 
-Nous pouvons également exécuter une requête plus complexe à l’aide de constructions telles que GROUP BY pour examiner le montant total de toutes les ventes chaque jour :
+Exemple de requête plus complexe à l'aide de constructions telles que GROUP BY pour examiner le montant total de toutes les ventes chaque jour :
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-Nous pouvons même utiliser la clause WHERE pour filtrer les commandes antérieures à une date donnée :
+Exemple d'instruction SELECT avec une clause WHERE pour filtrer les commandes antérieures à une date donnée :
 
 	SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
 	FROM FactInternetSales
@@ -63,24 +64,24 @@ Nous pouvons même utiliser la clause WHERE pour filtrer les commandes antérieu
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-De fait, SQL Data Warehouse prend parfaitement en charge presque toutes les constructions T-SQL de SQL Server. Certaines des différences sont indiquées dans notre documentation sur le [code de migration][].
+SQL Data Warehouse prend en charge presque toutes les constructions T-SQL prises en charge par SQL Server. Toutes les différences sont documentées dans notre documentation sur la [migration du code][].
 
 ## Étapes suivantes
-Après vous être familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement][], de [chargement][] ou de [migration][].
+Maintenant que vous avez eu l'occasion d'essayer certaines requêtes avec des exemples de données, découvrez comment [développer][], [charger][] ou [migrer][] vers SQL Data Warehouse.
 
 <!--Image references-->
 
 <!--Article references-->
-[migration]: ./sql-data-warehouse-overview-migrate.md
-[développement]: ./sql-data-warehouse-overview-develop.md
-[chargement]: ./sql-data-warehouse-overview-load.md
-[la connexion]: ./sql-data-warehouse-get-started-connect.md
-[code de migration]: ./sql-data-warehouse-migrate-code.md
-
-<!--MSDN references-->
-[utilitaires de ligne de commande Microsoft pour SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
+[migrer]: ./sql-data-warehouse-overview-migrate.md
+[développer]: ./sql-data-warehouse-overview-develop.md
+[charger]: ./sql-data-warehouse-overview-load.md
+[de connexion]: ./sql-data-warehouse-get-started-connect.md
+[migration du code]: ./sql-data-warehouse-migrate-code.md
+[create a SQL Data Warehouse database instance]: ./sql-data-warehouse-get-started-provision.md
+[installer bcp]: ./sql-data-warehouse-load-with-bcp.md
+[installer sqlcmd]: ./sql-data-warehouse-get-started-connect-query-sqlcmd.md
 
 <!--Other Web references-->
-[exemples de scripts de données]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
+[Exemples de scripts Adventure Works pour SQL Data Warehouse]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

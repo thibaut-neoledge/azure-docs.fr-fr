@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Présentation d’Azure Storage"
-	description="Présentation technique d'Azure Search et résumé des fonctionnalités."
+	description="Azure Search est un service de recherche cloud hébergé. Apprenez-en davantage dans cette présentation technique et ce résumé des fonctionnalités."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,12 +14,12 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Présentation d’Azure Storage
 
-Azure Search Service est un service cloud entièrement géré qui permet aux développeurs de créer des applications de recherche avancées à l'aide d'un Kit de développement (SDK) .NET ou d'API REST. Il inclut une recherche en texte intégral étendue à votre contenu, des comportements de recherche plus avancés similaires à ceux des moteurs de recherche web commerciaux, notamment des suggestions de requête en fonction d’une saisie de terme partiel, le surlignage des correspondances et la navigation à facettes. La prise en charge de la langue naturelle est intégrée et utilise des règles linguistiques appropriées à la langue spécifiée.
+Azure Search Service est un service de recherche cloud hébergé, entièrement géré, qui permet aux développeurs de créer des applications de recherche avancées à l'aide d'un Kit de développement logiciel (SDK) .NET ou d'API REST. Il inclut une recherche en texte intégral étendue à votre contenu, des comportements de recherche plus avancés similaires à ceux des moteurs de recherche web commerciaux, notamment des suggestions de requête en fonction d’une saisie de terme partiel, le surlignage des correspondances et la navigation à facettes. La prise en charge de la langue naturelle est intégrée et utilise des règles linguistiques appropriées à la langue spécifiée.
 
 Vous pouvez faire évoluer votre service pour répondre à des besoins de recherche ou de capacité de stockage accrus. Par exemple, les revendeurs peuvent augmenter la capacité pour répondre aux volumes supplémentaires associés aux périodes de soldes ou aux promotions.
 
@@ -131,4 +131,4 @@ Vous pouvez également essayer ces didacticiels :
 
 [Utilisation d’Azure Search dans .NET](search-howto-dotnet-sdk.md) [Prise en main d’Azure Search .NET](search-get-started-dotnet.md) [Azure Search : didacticiels, démonstrations vidéo et exemples](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

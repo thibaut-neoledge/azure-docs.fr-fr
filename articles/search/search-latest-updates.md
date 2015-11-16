@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="10/01/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Nouveautés de la dernière mise à jour d’Azure Search#
 
-Azure Search est mis à la disposition générale avec un contrat de niveau de service (SLA) affichant une disponibilité de 99,9 % et dédié aux configurations prises en charge pour la [version 2015-02-28 de l’API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Il est mis à la disposition générale avec un contrat de niveau de service (SLA) affichant une disponibilité de 99,9 % et dédié aux configurations prises en charge pour la [version 2015-02-28 de l'API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Contrôle de version et déploiement des fonctionnalités
 
@@ -32,7 +32,7 @@ La bibliothèque .NET et les API REST existent dans différentes versions. Les A
 
 Cette version ajoute une nouvelle [prise en charge de la syntaxe des requêtes Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) qui peut être utilisée sur la [version préliminaire de l’API REST du service Azure Search](search-api-2015-02-28-preview.md). Pour utiliser la nouvelle syntaxe, vous devez spécifier le `queryType` dans une opération de recherche de documents.
 
-En outre, les deux fonctionnalités suivantes ont quitté la version préliminaire pour rejoindre l’API officielle sur MSDN : - Processeurs en langage naturel - Opérations POST dans la recherche, les suggestions et les requêtes de recherche
+En outre, les deux fonctionnalités suivantes ont quitté la version préliminaire pour rejoindre l'API officielle sur MSDN : - [Processeurs en langage naturel](search-language-support.md) - Opérations POST dans la recherche, les suggestions et les requêtes de recherche
 
 ##Kit de développement logiciel .NET 0.10.0-preview
 **Publiée : août 2015**
@@ -47,14 +47,14 @@ Il s’agit de la deuxième itération de la bibliothèque cliente .NET, Micros
 
 Il s’agit de la première version publique du Kit de développement logiciel .NET pour Azure Search. Ce Kit inclut une bibliothèque cliente, Microsoft.Azure.Search.dll, comprenant deux espaces de noms :
 
-- [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
-- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
+- [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx) ;
+- [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx).
 
 Exclut :
 
-- Les [indexeurs](http://go.microsoft.com/fwlink/p/?LinkId=528173) (cette fonctionnalité n’est plus exclue dans la version 0.10.0-preview)
-- L’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- Les fonctionnalités de la version [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (à l’heure actuelle, les fonctionnalités préliminaires sont les processeurs de langage naturel Microsoft et `moreLikeThis`)
+- les [indexeurs](http://go.microsoft.com/fwlink/p/?LinkId=528173) (cette fonctionnalité n’est plus exclue dans la version 0.10.0-preview) ;
+- l’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) ;
+- les fonctionnalités de la version [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (à l’heure actuelle, les fonctionnalités préliminaires sont les processeurs de langage naturel Microsoft et `moreLikeThis`).
 
 Consultez [Utilisation d’Azure Search dans .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) pour savoir comment installer et utiliser le Kit de développement logiciel.
 
@@ -105,7 +105,7 @@ Cette version était la version préliminaire publique d’Azure Search et four
 ##Version d’API de gestion 2015-08-19
 **Date de publication : 11 septembre 2015**
 
-L’[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclut les mises à jour suivantes.
+L'[API REST de gestion](https://msdn.microsoft.com/library/azure/dn832684.aspx) inclut les mises à jour suivantes.
 
 - checkNameAvailability vérifie si un nom de service donné est déjà utilisé.
 - La plage de réplica, allant précédemment de 1 à 6, s’étend désormais de 1 à 12.
@@ -125,4 +125,4 @@ L’ajout de la version préliminaire de l’[API REST de gestion](search-manage
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

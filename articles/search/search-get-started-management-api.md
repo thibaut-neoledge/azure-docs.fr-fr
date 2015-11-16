@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en main de l'API REST de gestion Azure Search" 
-	description="Prise en main de l'API REST de gestion Azure Search" 
+	pageTitle="Prise en main de l'API REST de gestion Azure Search | Microsoft Azure" 
+	description="Gérez votre service cloud Azure Search hébergé à l'aide d'une API REST de gestion" 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Prise en main de l'API REST de gestion Azure Search
@@ -204,4 +204,4 @@ Après avoir terminé ce didacticiel, vous souhaiterez peut-être en savoir plus
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

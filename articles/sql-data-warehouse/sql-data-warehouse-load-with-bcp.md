@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 **[bcp][]** est un utilitaire de ligne de commande de chargement par lots qui vous permet de charger des données entre SQL Server, des fichiers de données et SQL Data Warehouse. Utilisez bcp pour importer un nombre important de lignes dans les tables SQL Data Warehouse ou pour exporter des données des tables SQL Server dans les fichiers de données. L’utilitaire bcp, sauf lorsqu’il est utilisé avec l’option queryout, ne nécessite aucune connaissance de Transact-SQL.
 
@@ -34,7 +35,7 @@ Avec bcp, vous pouvez :
 - Utiliser un utilitaire en ligne de commande simple pour extraire des données de SQL Data Warehouse.
 
 Ce didacticiel vous explique comment :
- 
+
 - Importer des données dans une table à l’aide de la commande bcp in
 - Exporter des données d’une table à l’aide de la commande bcp out
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 Une fois que vous êtes connecté, copiez le script de table suivant sur l’invite sqlcmd, puis appuyez sur la touche Entrée :
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-Sur la ligne suivante, tapez le terminateur de lot GO, puis appuyez sur la touche Entrée afin d’exécuter l’instruction :
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]Consultez la rubrique [Conception de tables][] dans le groupe de rubriques sur le développement pour obtenir plus d'informations sur les options disponibles dans la clause WITH.
 
 ### Étape 2 : Créer un fichier de données source
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
+### Étape 4 : Créer des statistiques sur vos données nouvellement chargées 
+
+Azure SQL Data Warehouse ne prend pas encore en charge les statistiques à création ou mise à jour automatique. Pour optimiser les performances de vos requêtes, il est important de créer les statistiques sur toutes les colonnes de toutes les tables après le premier chargement ou après toute modification substantielle dans les données. Pour une explication détaillée des statistiques, consultez la rubrique [Statistiques][] dans le groupe de rubriques sur le développement. Voici un exemple rapide de la création de statistiques sur le tableau chargé dans cet exemple
+
+À partir d'une invite sqlcmd, exécutez les instructions CREATE STATISTICS suivantes :
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## Exporter des données de SQL Data Warehouse
 Dans ce didacticiel, vous allez créer un fichier de données à partir d’une table de SQL Data Warehouse. Nous allons exporter les données créées plus haut vers un nouveau fichier de données, DimDate2\_export.txt.
 
@@ -163,8 +183,11 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 
 <!--Article references-->
 
-[Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load/
-[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop/
+[Chargement de données dans SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[Vue d’ensemble sur le développement SQL Data Warehouse]: ./sql-data-warehouse-overview-develop.md
+[Conception de tables]: ./sql-data-warehouse-develop-table-design.md
+[Statistiques]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ Pour consulter une vue d’ensemble sur le chargement, accédez à la rubrique [
 <!--Other Web references-->
 [Centre de téléchargement Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

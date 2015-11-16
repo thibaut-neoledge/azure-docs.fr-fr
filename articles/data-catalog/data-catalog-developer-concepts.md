@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
+   ms.date="10/27/2015"
    ms.author="derrickv"/>
 
 # Concepts de développeur Azure Data Catalog
@@ -40,7 +40,7 @@ Les utilisateurs sont des principaux de sécurité qui ont des autorisations pou
 
 Un utilisateur peut avoir plusieurs rôles différents. Pour plus d'informations sur les rôles, consultez la section Rôles et autorisations.
 
-Seuls des utilisateurs individuels (et non des groupes de sécurité) peuvent être ajoutés.
+Des utilisateurs individuels et des groupes de sécurité peuvent être ajoutés.
 
 Azure Data Catalog utilise Azure Active Directory pour la gestion des identités et des accès. Chaque utilisateur de catalogue doit être un membre de l’Active Directory du compte.
 
@@ -92,19 +92,19 @@ Ces propriétés s'appliquent à tous les types de ressources racines et tous le
 
 > [AZURE.NOTE]Les propriétés dont les noms commencent par deux traits de soulignement sont des types système.
 
-<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>L’heure de dernière modification de la racine. Cela est défini par le client. (Le serveur ne gère pas cette valeur).</td></tr><tr><td>__id</td><td>Guid</td><td>ID de l'élément (lecture seule). Cet ID garantit l’unicité de la ressource. Par conséquent, la clé pour l'élément est __Id, __id de racine. Ce tuple est uniquement garanti pour être unique dans un annuaire.</td></tr><tr><td>__typeId</td><td>Guid</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>__creatorId</td><td>Chaîne</td><td>Une chaîne utilisée par le créateur de la ressource pour son identification unique. </td></tr></table>
+<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>modifiedTime</td><td>DateTime</td><td>L’heure de dernière modification de la racine. Cela est défini par le client. (Le serveur ne gère pas cette valeur).</td></tr><tr><td>__id</td><td>String</td><td>ID de l'élément (lecture seule). Cet ID garantit l'unicité de la ressource dans un catalogue.</td></tr><tr><td>__type</td><td>String</td><td>Le type de ressource (lecture seule)</td></tr><tr><td>__creatorId</td><td>Chaîne</td><td>Une chaîne utilisée par le créateur de la ressource pour son identification unique. </td></tr></table>
 
 ### Propriétés de racine communes
 
 Ces propriétés s'appliquent à tous les types de ressources racines.
 
-<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>name</td><td>Chaîne</td><td>Un nom dérivé des informations d’emplacement de source de données</td></tr><tr><td>dsl</td><td>Emplacement de la source de données</td><td>Décrit la source de données de manière unique et est un des identificateurs de la ressource. (Voir la section identité double). La structure du dsl varie selon le type de source.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Plus de détails sur le type de ressource.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Décrit l'utilisateur qui a enregistré cette ressource le plus récemment. Contient l’ID unique de l'utilisateur (l'UPN) ainsi qu'un nom complet (nom et prénom).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>La dernière fois que cette ressource a été enregistrée dans le catalogue.</td></tr></table>
+<table><tr><td><b>Nom de la propriété</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>name</td><td>Chaîne</td><td>Un nom dérivé des informations d’emplacement de source de données</td></tr><tr><td>dsl</td><td>Emplacement de la source de données</td><td>Décrit la source de données de manière unique et est un des identificateurs de la ressource. (Voir la section identité double). La structure du dsl varie selon le type de source.</td></tr><tr><td>dataSource</td><td>DataSourceInfo</td><td>Plus de détails sur le type de ressource.</td></tr><tr><td>lastRegisteredBy</td><td>SecurityPrincipal</td><td>Décrit l'utilisateur qui a enregistré cette ressource le plus récemment. Contient l’ID unique de l'utilisateur (l'UPN) ainsi qu'un nom complet (nom et prénom).</td></tr><tr><td>lastRegisteredTime</td><td>dateTime</td><td>La dernière fois que cette ressource a été enregistrée dans le catalogue.</td></tr><tr><td>containerId</td><td>String</td><td>ID de la ressource de conteneur pour la source de données. Cette propriété n'est pas prise en charge pour le type Conteneur.</td></tr></table>
 
 ### Types de ressources racines
 
 Les types de ressources racines sont des types qui représentent les différents types de ressources de données pouvant être enregistrés dans le catalogue.
 
-<table><tr><td><b>Type de ressource</b></td><td><b>Propriétés supplémentaires</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>Table</td><td></td><td></td><td>Une table représente des données tabulaires. Cela inclut une table SQL, un affichage SQL, une table tabulaire Analysis&#160;Services, une dimension multidimensionnelle Analysis&#160;Services, une table Oracle, etc.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Ce type représente une mesure Analysis&#160;Services.</td></tr><tr><td></td><td>Measure</td><td>des colonnes</td><td>Métadonnées décrivant la mesure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Indique si la mesure est calculée ou non.</td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td>Conteneur physique de mesure</td></tr><tr><td>KPI</td><td></td><td></td><td>Ce type représente un indicateur de performance clé Analysis&#160;Services.</td></tr><tr><td></td><td>goalExpression</td><td>Chaîne</td><td>Une expression numérique MDX ou un calcul qui retourne la valeur cible de l'indicateur de performance clé.</td></tr><tr><td></td><td>valueExpression</td><td>Chaîne</td><td>Une expression numérique MDX qui retourne la valeur réelle de l'indicateur de performance clé.</td></tr><tr><td></td><td>statusExpression</td><td>Chaîne</td><td>Une expression MDX qui représente l'état de l'indicateur de performance clé à un point spécifié dans le temps.</td></tr><tr><td></td><td>trendExpression</td><td>Chaîne</td><td>Une expression MDX qui évalue la valeur de l’indicateur de performance clé au fil du temps. La tendance peut être n'importe quel critère de temps utile dans un contexte d’entreprise spécifique.</td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td>conteneur physique de mesure</td></tr><tr><td>Rapport</td><td></td><td></td><td>Ce type représente un rapport SQL&#160;Server Reporting&#160;Services </td></tr><tr><td></td><td>CreatedBy</td><td>Chaîne</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>Chaîne</td><td></td></tr></table>
+<table><tr><td><b>Type de ressource</b></td><td><b>Propriétés supplémentaires</b></td><td><b>Type de données</b></td><td><b>Commentaires</b></td></tr><tr><td>Table</td><td></td><td></td><td>Une table représente des données tabulaires. Cela inclut une table SQL, un affichage SQL, une table tabulaire Analysis&#160;Services, une dimension multidimensionnelle Analysis&#160;Services, une table Oracle, etc.   </td></tr><tr><td>Measure</td><td></td><td></td><td>Ce type représente une mesure Analysis&#160;Services.</td></tr><tr><td></td><td>Measure</td><td>des colonnes</td><td>Métadonnées décrivant la mesure</td></tr><tr><td></td><td>isCalculated </td><td>Boolean</td><td>Indique si la mesure est calculée ou non.</td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td>Conteneur physique de mesure</td></tr><tr><td></td><td>goalExpression</td><td>Chaîne</td><td>Une expression numérique MDX ou un calcul qui retourne la valeur cible de l'indicateur de performance clé.</td></tr><tr><td></td><td>valueExpression</td><td>Chaîne</td><td>Une expression numérique MDX qui retourne la valeur réelle de l'indicateur de performance clé.</td></tr><tr><td></td><td>statusExpression</td><td>Chaîne</td><td>Une expression MDX qui représente l'état de l'indicateur de performance clé à un point spécifié dans le temps.</td></tr><tr><td></td><td>trendExpression</td><td>String</td><td>Une expression MDX qui évalue la valeur de l’indicateur de performance clé au fil du temps. La tendance peut être n'importe quel critère de temps utile dans un contexte d’entreprise spécifique.</td></tr><tr><td></td><td>measureGroup</td><td>Chaîne</td><td>conteneur physique de mesure</td></tr><tr><td>Rapport</td><td></td><td></td><td>Ce type représente un rapport SQL&#160;Server Reporting&#160;Services </td></tr><tr><td></td><td>CreatedBy</td><td>Chaîne</td><td></td></tr><tr><td></td><td>CreatedDate</td><td>String</td><td></td></tr><tr><td>Conteneur</td><td></td><td></td><td>Ce type représente un conteneur d'autres ressources telles qu'une base de données SQL, un conteneur d'objets Blob Azure ou un modèle Analysis Services.</td></tr></table>
 
 ### Types d'annotation
 
@@ -123,6 +123,10 @@ Les types d'annotation représentent des types de métadonnées qui peuvent êtr
 
 <tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>colonnes</td></td><td>ColumnDataProfile[]</td><td>Le nombre de lignes dans le jeu de données</td></tr>
+
+<tr><td>Documentation</td><td></td><td></td><td>Une seule documentation peut être associée à une ressource donnée.</td></tr>
+<tr><td></td><td>mimeType</td><td>string</td><td>Le type mime du contenu.</td></tr>
+<tr><td></td><td>Contenu</td><td>string</td><td>Le contenu de la documentation.</td></tr>
 
 
 </table>
@@ -258,4 +262,4 @@ Les demandes d’éléments d’affichage **PUT** et **POST** peuvent être util
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

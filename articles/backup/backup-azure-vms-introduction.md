@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
@@ -102,4 +102,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Résoudre les problèmes de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

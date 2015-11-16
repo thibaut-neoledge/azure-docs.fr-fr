@@ -1,10 +1,9 @@
 <properties
-	pageTitle="Modifier la lettre de lecteur du disque temporaire | Microsoft Azure"
-	description="Modifiez la lettre de lecteur du disque temporaire sur une machine virtuelle Windows créée avec le modèle de déploiement classique."
+	pageTitle="Définition du lecteur D d'une machine virtuelle comme lecteur de données | Microsoft Azure"
+	description="Décrit comment modifier les lettres de lecteurs pour une machine virtuelle Windows créée à l'aide du modèle de déploiement classique, afin que vous puissiez utiliser le lecteur D: comme lecteur de données."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="cynthn
-"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,43 +14,90 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="11/03/2015"
 	ms.author="cynthn"/>
 
-#Modifiez la lettre de lecteur du disque temporaire Windows sur une machine virtuelle créée avec le modèle de déploiement classique.
+# Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Si vous avez besoin d'utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser un autre lecteur de disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
+Si vous avez besoin d'utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser une autre lettre de lecteur pour le disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.
 
-Avant de commencer, vous aurez besoin d'un disque de données attaché à la machine virtuelle afin d'y enregistrer le fichier d'échange Windows (pagefile.sys) au cours de cette procédure. Si vous n’en avez pas, consultez l’article [Association d’un disque de données à une machine virtuelle Windows][Attach]. Pour obtenir des instructions sur la recherche des disques associés, consultez « Recherche du disque » dans [Détachement d’un disque d’une machine virtuelle Windows][Detach].
+## Association du disque de données
 
-Si vous souhaitez utiliser un disque de données existant sur le lecteur D, assurez-vous que vous avez également téléchargé le disque dur virtuel vers le compte de stockage. Pour plus d’instructions, consultez les étapes 3 et 4 de la rubrique [Création et téléchargement d’un disque dur virtuel Windows Server dans Azure][VHD].
+Tout d'abord, vous devrez attacher le disque de données à la machine virtuelle. Pour attacher un nouveau disque, consultez [Association d'un disque de données à une machine virtuelle Windows][Attach].
 
-> [AZURE.WARNING]Si vous procédez au redimensionnement ou à l’arrêt (désallocation) d’une machine virtuelle, il est possible que cela déclenche le placement de la machine virtuelle sur un nouvel hyperviseur. Ce placement peut également être déclenché par un événement de maintenance planifié ou non planifié. Dans ce scénario, le disque temporaire est réaffecté à la première lettre de lecteur disponible. Si vous possédez une application qui exige spécifiquement le lecteur « D », veillez à affecter un nouveau disque persistant après avoir déplacé le fichier d’échange et affectez à ce disque la lettre D. Azure ne reprendra pas la lettre D.
+Si vous souhaitez utiliser un disque de données existant, assurez-vous que vous avez également téléchargé le disque dur virtuel vers le compte de stockage. Pour plus d'instructions, consultez les étapes 3 et 4 de la rubrique [Création et téléchargement d'un disque dur virtuel Windows Server dans Azure][VHD].
 
-> [AZURE.WARNING]Si vous redimensionnez une machine virtuelle après avoir déplacé explicitement le fichier d’échange, notez qu’une erreur de démarrage peut se produire si le disque temporaire de la nouvelle machine virtuelle n’est pas suffisamment grand pour contenir le fichier d’échange de la taille de la machine virtuelle d’origine. Cette erreur peut aussi se produire si le lecteur temporaire n’a pas été affecté à la lettre de lecteur disponible suivante. Dans ce cas, Windows fait référence à une lettre de lecteur non valide dans la configuration du fichier d’échange, tandis qu’Azure crée le lecteur temporaire en lui affectant la lettre de lecteur disponible suivante.
 
-##Modification de la lettre de lecteur
+## Déplacement temporaire du fichier pagefile.sys vers le lecteur C
 
-1. Connectez-vous à votre machine virtuelle. Pour plus d’informations, consultez [Comment se connecter à une machine virtuelle exécutant Windows Server][Logon].
+1. Connexion à la machine virtuelle. 
 
-2. Déplacez pagefile.sys du lecteur D vers un autre lecteur.
+2. Avec le bouton droit, cliquez sur le menu **Démarrer** et sélectionnez **Système**.
 
-3. Redémarrez la machine virtuelle.
+3. Dans le menu de gauche, sélectionnez **Paramètres système avancés**.
 
-4. Connectez-vous à nouveau et modifiez la lettre du lecteur D en E.
+4. Dans la section **Performances**, sélectionnez **Paramètres**.
 
-5. Depuis le [portail Azure](http://manage.windowsazure.com), associez un disque de données existant ou vide.
+5. Sélectionnez l'onglet **Avancé**.
 
-6.	Connectez-vous à nouveau à la machine virtuelle, initialisez le disque, puis attribuez D comme lettre de lecteur au disque que vous venez d'associer.
+5. Dans la section **Mémoire virtuelle**, sélectionnez **Modifier**.
 
-7.	Vérifiez que E fait référence au disque temporaire.
+6. Sélectionnez le lecteur **C**, puis cliquez sur **Taille gérée par le système** et sur **Définir**.
 
-8.	Déplacez pagefile.sys de l'autre lecteur vers le lecteur E.
+7. Sélectionnez le lecteur **D**, puis cliquez sur **Aucun fichier d'échange** et sur **Définir**.
 
-9.	Redémarrez la machine virtuelle.
+8. Cliquez sur Appliquer. Vous serez averti que l'ordinateur doit être redémarré pour que les modifications prennent effet.
+
+9. Redémarrez la machine virtuelle.
+
+
+
+
+## Modification des lettres de lecteurs 
+
+1. Lorsque la machine virtuelle a redémarré, connectez-vous de nouveau.
+
+2. Cliquez sur le menu **Démarrer**, tapez **diskmgmt.msc** et appuyez sur Entrée. La Gestion des disques démarre.
+
+3. Avec le bouton droit, cliquez sur **D**, le disque de stockage temporaire, puis sélectionnez **Modifier la lettre de lecteur et les chemins d'accès**.
+
+4. Sous la lettre de lecteur, sélectionnez le lecteur **G**, puis cliquez sur **OK**.
+
+5. Avec le bouton droit, cliquez sur le disque de données, puis sélectionnez **Modifier la lettre de lecteur et les chemins d'accès**.
+
+6. Sous la lettre de lecteur, sélectionnez le lecteur **D**, puis cliquez sur **OK**.
+
+7. Avec le bouton droit, cliquez sur **G**, le disque de stockage temporaire, puis sélectionnez **Modifier la lettre de lecteur et les chemins d'accès**.
+
+8. Sous la lettre de lecteur, sélectionnez le lecteur **E**, puis cliquez sur **OK**.
+
+> [AZURE.NOTE]Si votre machine virtuelle a d'autres disques ou lecteurs, utilisez la même méthode pour réaffecter les lettres de lecteur des autres disques et lecteurs. Vous voulez que la configuration des disques soit la suivante : - C : disque du système d'exploitation - D : disque des données - E : disque temporaire
+
+
+
+## Déplacement de pagefile.sys vers le disque de stockage temporaire 
+
+1. Avec le bouton droit, cliquez sur le menu **Démarrer** et sélectionnez **Système**.
+
+2. Dans le menu de gauche, sélectionnez **Paramètres système avancés**.
+
+3. Dans la section **Performances**, sélectionnez **Paramètres**.
+
+4. Sélectionnez l'onglet **Avancé**.
+
+5. Dans la section **Mémoire virtuelle**, sélectionnez **Modifier**.
+
+6. Sélectionnez le disque du système d'exploitation **C**, puis cliquez sur **Aucun fichier d'échange** et sur **Définir**.
+
+7. Sélectionnez le disque de stockage temporaire **E**, puis cliquez sur **Taille gérée par le système** et sur **Définir**.
+
+8. Cliquez sur **Apply**. Vous serez averti que l'ordinateur doit être redémarré pour que les modifications prennent effet.
+
+9. Redémarrez la machine virtuelle.
+
 
 
 
@@ -65,8 +111,6 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, ass
 <!--Link references-->
 [Attach]: storage-windows-attach-disk.md
 
-
-
 [VHD]: virtual-machines-create-upload-vhd-windows-server.md
 
 [Logon]: virtual-machines-log-on-windows-server.md
@@ -75,4 +119,4 @@ Si vous souhaitez utiliser un disque de données existant sur le lecteur D, ass
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

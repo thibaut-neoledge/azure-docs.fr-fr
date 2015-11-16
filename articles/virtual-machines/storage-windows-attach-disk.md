@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Attachez un disque à une machine virtuelle | Microsoft Azure"
-	description="Attacher un disque de données à une machine virtuelle créée avec le modèle de déploiement classique et l’initialiser."
+	description="Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique et l'initialiser."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="cynthn"/>
 
 # Attacher un disque de données à une machine virtuelle Windows créée avec le modèle de déploiement classique
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-attach-disk-preview.md).
 
-Vous pouvez attacher des disques, qu’ils soient vides ou non. Dans les deux cas, les disques sont en fait des fichiers .vhd conservés dans un compte de stockage Azure. Après avoir attaché le disque, vous devrez également l'initialiser pour le rendre opérationnel.
+Si vous avez besoin d'un disque de données supplémentaire, vous pouvez joindre un disque vide ou un disque existant avec des données à une machine virtuelle. Dans les deux cas, les disques sont en fait des fichiers .vhd qui doivent résider dans un compte de stockage Azure. Dans le cas d'un nouveau disque, après avoir joint le disque, vous devrez également l'initialiser afin qu'il soit prêt à être utilisé par une machine virtuelle Windows.
 
-Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d’exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N’utilisez pas le lecteur D pour stocker des données.** Comme son nom l’indique, le lecteur D ne permet qu’un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
+Il est recommandé d'utiliser un ou plusieurs disques distincts pour stocker les données d'une machine virtuelle. Quand vous créez une machine virtuelle Azure, celle-ci comporte un disque pour le système d'exploitation mappé au lecteur C et un disque temporaire mappé au lecteur D. **N'utilisez pas le disque temporaire pour stocker des données**. Comme son nom l'indique, le disque temporaire ne permet qu'un stockage temporaire. Il n’offre aucune possibilité de redondance ou de sauvegarde, car il ne réside pas dans Azure Storage.
 
 ## Vidéo de procédure pas à pas
 
@@ -43,11 +43,11 @@ Voici une procédure pas à pas de ce didacticiel.
 
 3. Développez le menu et sélectionnez **Disques**.
 
-4. La section **Disques** répertorie les disques 0, 1 et 2. Le disque 0 est le disque du système d’exploitation, le disque 1 est le disque temporaire (qui ne doit pas être utilisé pour le stockage des données), et le disque 2 est le disque de données que vous avez attaché à la machine virtuelle. Le disque de données a une capacité de 5 Go, conformément à ce que vous avez spécifié lorsque vous avez attaché le disque. Cliquez avec le bouton droit sur le disque 2, puis sélectionnez **Initialiser**.
+4. La section **Disques** répertorie les disques. Dans la plupart des cas, elle contient le disque 0, le disque 1 et le disque 2. Le disque 0 est le disque du système d'exploitation, le disque 1 est le disque temporaire (qui ne doit pas être utilisé pour le stockage des données) et le disque 2 est le disque de données que vous venez d'attacher à la machine virtuelle. Le nouveau disque de données répertorie la Partition comme **Inconnue**. Cliquez avec le bouton droit sur le disque et sélectionnez **Initialiser**.
 
-5.	Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l’avertissement et initialiser le disque. Cliquez de nouveau avec le bouton droit sur le disque 2, puis sélectionnez **Nouveau volume**.
+5.	Vous êtes averti que toutes les données seront supprimées lors de l’initialisation du disque. Cliquez sur **Oui** pour accuser réception de l'avertissement et initialiser le disque. Une fois l'opération terminée, la partition sera répertoriée comme **GPT**. Cliquez de nouveau avec le bouton droit sur le disque et sélectionnez **Nouveau volume**.
 
-6.	Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l’assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
+6.	Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Lorsque l'assistant est terminé, la section **Volumes** répertorie le nouveau volume. Le disque est désormais en ligne et prêt à stocker des données.
 
 	![Volume correctement initialisé](./media/storage-windows-attach-disk/newvolumecreated.png)
 
@@ -61,4 +61,4 @@ Voici une procédure pas à pas de ce didacticiel.
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configuration d'une passerelle Application Gateway pour le déchargement SSL | Microsoft Azure"
+   pageTitle="Configuration d'une passerelle Application Gateway pour le déchargement SSL à l'aide d'un déploiement classique| Microsoft Azure"
    description="Cet article fournit des instructions pour configurer le déchargement SSL sur une passerelle Application Gateway Azure."
    documentationCenter="na"
    services="application-gateway"
@@ -12,16 +12,19 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/25/2015"
+   ms.date="10/28/2015"
    ms.author="joaoma"/>
 
-# Configuration d'une passerelle Application Gateway pour le déchargement SSL
+# Configuration d'une passerelle Application Gateway pour le déchargement SSL à l'aide d'un déploiement classique
+ 
+Une passerelle Application Gateway peut être configurée pour terminer la session SSL au niveau de la passerelle afin d'éviter le déchiffrement SSL coûteux sur la batterie de serveurs web. Le déchargement SSL simplifie également l'installation du serveur principal et la gestion de l'application Web.
 
-Une passerelle Application Gateway peut être configurée pour terminer la session SSL au niveau de la passerelle, ce qui permet d'éviter le déchiffrement SSL coûteux sur la batterie de serveurs web. Le déchargement SSL simplifie également l'installation du serveur frontal et la gestion de l'application.
+>[AZURE.IMPORTANT]Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](azure-classic-rm.md) avant d'utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Ce document décrit la création d'une passerelle Application Gateway à l'aide d'un déploiement Azure classique. Pour utiliser la version classique, accédez à [Configuration d'une passerelle Application Gateway à l'aide d'Azure Resource Manager](application-gateway-ssl-arm.md).
+
 
 ## Avant de commencer
 
-1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page de téléchargement](http://azure.microsoft.com/downloads/).
+1. Installez la version la plus récente des applets de commande PowerShell Azure à l'aide de Web Platform Installer. Vous pouvez télécharger et installer la dernière version à partir de la section **Windows PowerShell** de la [page de téléchargement](http://azure.microsoft.com/downloads/).
 2. Vérifiez que vous disposez d'un réseau virtuel qui fonctionne avec un sous-réseau valide.
 3. Vérifiez que vous disposez de serveurs principaux dans le réseau virtuel ou avec une adresse IP/VIP affectée.
 
@@ -37,7 +40,7 @@ Pour configurer le déchargement SSL sur une passerelle Application Gateway, pro
 
 ## Créer une passerelle Application Gateway
 
-**Pour créer la passerelle**, utilisez l'applet de commande `New-AzureApplicationGateway`, en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
+**Pour créer la passerelle**, utilisez l'applet de commande `New-AzureApplicationGateway` en remplaçant les valeurs par les vôtres. Notez que la facturation de la passerelle ne démarre pas à ce stade. La facturation commence à une étape ultérieure, lorsque la passerelle a démarré correctement.
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
@@ -49,10 +52,10 @@ Cet exemple montre l'applet de commande sur la première ligne, suivie de la sor
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
-**Pour valider** que la passerelle a été créée, vous pouvez utiliser l'applet de commande `Get-AzureApplicationGateway`.
+**Pour valider** la création de la passerelle, vous pouvez utiliser l'applet de commande `Get-AzureApplicationGateway`.
 
 
-Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut pour *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* s'affichent sans valeur car la passerelle n'a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
+Dans l'exemple, *Description*, *InstanceCount* et *GatewaySize* sont des paramètres facultatifs. La valeur par défaut pour *InstanceCount* est 2, avec une valeur maximale de 10. La valeur par défaut pour *GatewaySize* est Medium. Les autres valeurs disponibles sont Small et Large. *Vip* et *DnsName* s'affichent sans valeur, car la passerelle n'a pas encore démarré. Ces valeurs seront créées une fois la passerelle en cours d'exécution.
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie.
 
@@ -74,7 +77,7 @@ Cet exemple montre l'applet de commande sur la première ligne, suivie de la sor
 
 ## Télécharger des certificats SSL 
 
-Utilisez `Add-AzureApplicationGatewaySslCertificate` pour télécharger le certificat de serveur au format *pfx* sur la passerelle Application Gateway. Le nom du certificat est choisi par l'utilisateur et doit être unique au sein de la passerelle Application Gateway. Ce certificat est identifié par ce nom dans toutes les opérations de gestion de certificat sur la passerelle Application Gateway.
+Utilisez `Add-AzureApplicationGatewaySslCertificate` pour télécharger le certificat de serveur au format *pfx* dans la passerelle Application Gateway. Le nom du certificat est choisi par l'utilisateur et doit être unique au sein de la passerelle Application Gateway. Ce certificat est identifié par ce nom dans toutes les opérations de gestion de certificat sur la passerelle Application Gateway.
 
 Cet exemple montre l'applet de commande sur la première ligne, suivie de la sortie. Remplacez les valeurs de l'exemple par les vôtres.
 
@@ -107,17 +110,17 @@ La configuration d'une passerelle Application Gateway se compose de plusieurs va
 
 Les valeurs sont :
  
-- **Pool de serveurs principaux :** la liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
-- **Paramètres du pool de serveurs principaux :** chaque pool a des paramètres comme le port, le protocole et une affinité basée sur les cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
-- **Port frontal :** ce port est le port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l'un des serveurs principaux.
-- **Écouteur :** l'écouteur a un port frontal, un protocole (Http ou Https, sensibles à la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
-- **Règle :** la règle lie l'écouteur et le pool de serveurs principaux et définit vers quel pool de serveurs principaux le trafic doit être dirigé lorsqu'il atteint un écouteur spécifique. Actuellement, seule la règle de *base* est prise en charge. La règle de *base* est la distribution de charge par tourniquet.
+- **Pool de serveurs principaux** : liste des adresses IP des serveurs principaux. Les adresses IP répertoriées doivent appartenir au sous-réseau de réseau virtuel ou elles doivent être une adresse IP/VIP publique. 
+- **Paramètres du pool de serveurs principaux :** chaque pool comporte des paramètres tels que le port, le protocole et une affinité basée sur des cookies. Ces paramètres sont liés à un pool et sont appliqués à tous les serveurs du pool.
+- **Port frontal** : il s'agit du port public ouvert sur la passerelle Application Gateway. Le trafic atteint ce port, puis il est redirigé vers l’un des serveurs principaux.
+- **Écouteur :** l'écouteur possède un port frontal, un protocole (Http ou Https, avec respect de la casse) et le nom du certificat SSL (en cas de configuration du déchargement SSL). 
+- **Règle** : la règle lie l'écouteur et le pool de serveurs principaux et définit le pool de serveurs principaux vers lequel le trafic doit être dirigé quand il atteint un écouteur spécifique. Actuellement, seule la règle *de base* est prise en charge. La règle *de base* est la distribution de charge par tourniquet (round robin).
 
 **Notes de configuration supplémentaires :**
 
-Pour configurer des certificats SSL, le protocole dans **HttpListener** doit passer à *Https* (sensible à la casse). L'élément **SslCert** doit être ajouté à **HttpListener** avec la valeur définie sur le même nom que celui utilisé dans le téléchargement des certificats SSL dans la section ci-dessus. Le port du serveur frontal doit être mis à jour sur 443.
+Pour configurer des certificats SSL, le protocole dans **HttpListener** doit être configuré sur *Https* (avec respect de la casse). L'élément **SslCert** doit être ajouté à **HttpListener** avec le même nom que celui utilisé dans le chargement des certificats SSL dans la section ci-dessus. Le port du serveur frontal doit être mis à jour sur 443.
 
-**Pour activer l'affinité basée sur les cookies** : une passerelle Application Gateway peut être configurée pour s'assurer qu'une requête d'une session client est toujours dirigée vers le même ordinateur virtuel dans la batterie de serveurs web. Ceci se fait par l'injection d'un cookie de session qui permet à la passerelle diriger le trafic de manière appropriée. Pour activer l'affinité basée sur les cookies, définissez **CookieBasedAffinity** sur *Activé* dans l'élément **BackendHttpSettings**.
+**Pour activer l'affinité basée sur les cookies** : une passerelle Application Gateway peut être configurée pour garantir qu'une requête d'une session client est toujours dirigée vers la même machine virtuelle dans la batterie de serveurs web. Ceci se fait par l'injection d'un cookie de session qui permet à la passerelle diriger le trafic de manière appropriée. Pour activer l'affinité basée sur les cookies, définissez **CookieBasedAffinity** sur *Activé* dans l'élément **BackendHttpSettings**.
 
 
 
@@ -190,7 +193,7 @@ Ensuite, vous allez définir la passerelle Application Gateway. Vous pouvez util
 Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-**Remarque :** l'applet de commande `Start-AzureApplicationGateway` peut prendre jusqu'à 15 à 20 minutes pour se terminer.
+**Remarque :** l'exécution de l'applet de commande `Start-AzureApplicationGateway` peut prendre 15 à 20 minutes.
 
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
@@ -204,7 +207,7 @@ Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureAp
 
 ## Vérifier l'état de la passerelle
 
-Utilisez l'applet de commande `Get-AzureApplicationGateway` pour vérifier l'état de la passerelle. Si *Start-AzureApplicationGateway* a réussi à l'étape précédente, l'état doit être *en cours d'exécution*, et Vip et DnsName doivent disposer d'entrées valides.
+Utilisez l’applet de commande `Get-AzureApplicationGateway` pour vérifier l’état de la passerelle. Si *Start-AzureApplicationGateway* a réussi à l’étape précédente, l’état doit être *En cours d’exécution* et l’adresse IP virtuelle et DnsName doivent avoir des entrées valides.
 
 Cet exemple montre une passerelle Application Gateway en cours d'exécution et est prête à prendre le trafic.
 
@@ -229,4 +232,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -154,6 +154,6 @@ Vous pouvez spécifier le déploiement d’une ressource après une autre ressou
 ## Étapes suivantes
 - Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](./resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](./resource-group-template-functions.md).
-- Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](azure-portal/resource-group-template-deploy.md).
+- Pour savoir comment déployer votre modèle, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Gestion de vos applications Service Fabric dans Visual Studio"
-   description="Vous pouvez gérer vos applications et services Microsoft Azure Service Fabric via Visual Studio."
+   pageTitle="Gestion de vos applications dans Visual Studio | Microsoft Azure"
+   description="Utilisez Visual Studio pour créer, développer, packager, déployer et déboguer vos applications et services Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Gestion de vos applications Service Fabric dans Visual Studio
+# Utilisation de Visual Studio pour simplifier l'écriture et la gestion des applications Service Fabric
 
-Vous pouvez gérer vos applications et services Microsoft Azure Service Fabric via Visual Studio. Une fois que vous avez [configuré votre environnement de développement](../service-fabric-setup-your-development-environment), vous pouvez utiliser Visual Studio pour créer des applications Service Fabric, ajouter des services ou empaqueter, enregistrer et déployer des applications dans votre cluster de développement local.
+Vous pouvez gérer vos applications et services Service Fabric via Visual Studio. Une fois que vous avez [configuré votre environnement de développement](service-fabric-setup-your-development-environment.md), vous pouvez utiliser Visual Studio pour créer des applications Service Fabric, ajouter des services ou empaqueter, enregistrer et déployer des applications dans votre cluster de développement local.
 
-Pour gérer votre application Service Fabric, dans l'Explorateur de solutions, cliquez avec le bouton droit sur votre projet d'application.
+Pour gérer votre application, dans l'Explorateur de solutions, cliquez avec le bouton droit sur votre projet d'application.
 
 ![Gérer votre application Service Fabric en cliquant avec le bouton droit sur le projet d'application][manageservicefabric]
 
 ## Déploiement de votre application Service Fabric
 
-Le déploiement d'une application Service Fabric combine les étapes suivantes en une simple opération.
+Le déploiement d'une application combine les étapes suivantes en une simple opération.
 
 1. Création du package d'application
 2. Téléchargement du package d'application dans le magasin d'images
@@ -79,4 +79,4 @@ Vous pouvez supprimer une application de votre cluster local à l'aide de l'Expl
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

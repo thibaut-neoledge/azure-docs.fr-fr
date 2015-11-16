@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="mebha"/>
+	ms.date="11/03/2015"
+	ms.author="meetb"/>
 
 
 # Connexion à SQL Database à l'aide de PHP sur Windows
@@ -180,4 +180,4 @@ Pour plus d'informations sur l'installation et l'utilisation de PHP, consultez [
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

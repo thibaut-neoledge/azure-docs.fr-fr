@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/03/2015"
 	ms.author="larryfr"/>
 
 #Génération de recommandations de films à l’aide d’Apache Mahout avec Hadoop dans HDInsight
@@ -105,7 +105,7 @@ De façon pratique, [GroupLens Research][movielens] fournit des données d’év
             -Container $container `
             -Context $context
     
-    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’URI __wasb:///example/data/u.data__ des tâches HDInsight.
+    Cela télécharge le fichier __u.data__ vers __example/data/u.data__ sur le stockage par défaut de votre cluster. Vous pouvez ensuite accéder à ces données à l’aide de l’URI \_\___wasb:///example/data/u.data__ des tâches HDInsight.
 
 ###Exécution de la tâche
 
@@ -133,7 +133,7 @@ Utilisez le script Windows PowerShell suivant pour exécuter une tâche à l’a
             
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
-	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.1.15.1-1234/examples/target/mahout-examples-0.9.0.2.1.15.1-1234-job.jar"
+	$jarFile = "file:///C:/apps/dist/mahout-0.9.0.2.2.7.1-33/examples/target/mahout-examples-0.9.0.2.2.7.1-33-job.jar"
     #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you
@@ -421,10 +421,7 @@ L'une des méthodes de classification disponibles avec Mahout est la constructio
 
 Mahout est installé sur les clusters HDInsight 3.1 et peut être installé manuellement sur les clusters HDInsight 3.0 ou 2.1 en suivant les étapes ci-dessous.
 
-1. La version de Mahout à utiliser dépend de la version de HDInsight de votre cluster. Vous trouverez la version de cluster à l’aide de la commande [Azure PowerShell][aps] suivante :
-
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
-
+1. La version de Mahout à utiliser dépend de la version de HDInsight de votre cluster. La version de cluster est affichée dans les propriétés du cluster dans le portail Azure.
 
   * __Pour HDInsight 2.1__, vous pouvez télécharger un fichier JAR (Java Archive) qui contient [Mahout 0,9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
 
@@ -436,7 +433,7 @@ Mahout est installé sur les clusters HDInsight 3.1 et peut être installé man
 
     	> [AZURE.NOTE] À la sortie de Mahout1.0, vous devriez être en mesure d'utiliser les packages préconçus avec HDInsight3,0.
 
-2. Téléchargez le fichier jar vers __example/jars__ dans le stockage par défaut de votre cluster. Dans le script suivant, remplacez CLUSTERNAME par le nom de votre cluster HDInsight et FILENAME par le chemin du fichier __mahout-coure-0.9-job.jar__.
+2. Téléchargez le fichier jar vers __example/jars__ dans le stockage par défaut de votre cluster. Dans le script suivant, remplacez CLUSTERNAME par le nom de votre cluster HDInsight et FILENAME par le chemin d'accès du fichier __mahout-coure-0.9-job.jar__.
 
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterName = "CLUSTERNAME"
@@ -469,10 +466,24 @@ Pour éviter les erreurs lors de l’exécution des tâches Mahout, supprimez le
 
 ###Fichier JAR introuvable
 
-Les clusters HDInsight 3.1 incluent Mahout. Le chemin d’accès et le nom de fichier comprennent le numéro de version de l’installation de Mahout sur le cluster. L’exemple de script Windows PowerShell dans ce didacticiel utilise un chemin d’accès valide en juillet 2014, mais le numéro de version changera lors des futures mises à jour de HDInsight. Pour déterminer le chemin d’accès actuel du fichier jar Mahout pour votre cluster, utilisez les commandes Windows PowerShell ci-après, puis modifiez le script pour référencer le chemin de fichier renvoyé :
+Les clusters HDInsight 3.1 incluent Mahout. Le chemin d’accès et le nom de fichier comprennent le numéro de version de l’installation de Mahout sur le cluster. L'exemple de script Windows PowerShell dans ce didacticiel utilise un chemin d'accès valide à partir de novembre 2015, mais le numéro de version changera lors de mises à jour ultérieures de HDInsight. Pour déterminer le chemin d’accès actuel du fichier jar Mahout pour votre cluster, utilisez les commandes Windows PowerShell ci-après, puis modifiez le script pour référencer le chemin de fichier renvoyé :
 
-	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	Use-AzureRmHDInsightCluster -ClusterName $clusterName
+    #Get the cluster info so we can get the resource group, storage, etc.
+        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+        $resourceGroup = $clusterInfo.ResourceGroup
+        $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
+        $container=$clusterInfo.DefaultStorageContainer
+        $storageAccountKey=Get-AzureRmStorageAccountKey `
+            -Name $storageAccountName `
+            -ResourceGroupName $resourceGroup `
+            | %{ $_.Key1 }
+    Invoke-AzureRmHDInsightHiveJob `
+            -StatusFolder "wasb:///example/statusout" `
+            -DefaultContainer $container `
+            -DefaultStorageAccountName $storageAccountName `
+            -DefaultStorageAccountKey $storageAccountKey `
+            -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Classes ne fonctionnant pas avec Windows PowerShell
 
@@ -520,4 +531,4 @@ Maintenant que vous avez appris à utiliser Mahout, découvrez d’autres façon
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

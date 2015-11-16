@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Base de données SQL Azure - outils de base de données élastique"
+    pageTitle="Vue d'ensemble des fonctionnalités des outils des bases de données élastiques | Microsoft Azure"
     description="Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils"
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Vue d’ensemble des fonctionnalités de base de données élastique
 
@@ -108,4 +108,4 @@ Que pouvons-nous améliorer ? Cette rubrique explique-t-elle la fonctionnalité
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

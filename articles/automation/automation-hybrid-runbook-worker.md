@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/23/2015"
+   ms.date="11/03/2015"
    ms.author="bwren" />
 
 # Runbooks Workers hybrides Azure Automation
@@ -52,26 +52,30 @@ Tenez compte des recommandations suivantes pour les Workers hybrides :
 - Des Workers hybrides peuvent coexister avec les serveurs runbooks Service Management Automation ou System Center Orchestrator.
 - Envisagez d’utiliser un ordinateur physiquement situé au sein ou à proximité de la région de votre compte Automation dans la mesure où les données des tâches sont renvoyées à Azure Automation lorsqu’une tâche se termine.
 
+Configuration du pare-feu requise :
+
+- Le Runbook Worker hybride exécuté sur l'ordinateur sur site doit avoir un accès sortant à *. cloudapp.net sur les ports 443, 9354 et 30199 à 30000.
+
 ## Installation de la fonctionnalité Runbook Worker hybride
 La procédure suivante décrit comment installer et configurer un Runbook Worker hybride. Effectuez les deux premières étapes une fois pour votre environnement Automation, puis répétez les étapes restantes pour chaque ordinateur Worker.
 
 ### 1\. Création d’un espace de travail Operations Management Suite
-Si vous ne disposez pas déjà d’un espace de travail Operations Management Suite, créez-en un à l’aide des instructions mentionnées dans la page [Configuration de votre espace de travail Operational Insights](../operational-insights/operational-insights-onboard-in-minutes.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
+Si vous ne disposez pas déjà d'un espace de travail Operations Management Suite, créez-en un en suivant les instructions mentionnées dans la page [Configuration de votre espace de travail Operational Insights (en anglais)](../operational-insights/operational-insights-onboard-in-minutes.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
 
 ### 2\. Ajout de la solution Automation à l’espace de travail Operations Management Suite
 Les solutions ajoutent des fonctionnalités à Operations Management Suite. La solution Automation ajoute des fonctionnalités à Azure Automation, notamment la prise en charge des Runbooks Workers hybrides. Lorsque vous ajoutez la solution à votre espace de travail, les composants Worker sont automatiquement transférés à l’ordinateur agent que vous installerez à l’étape suivante.
 
-Suivez les instructions de la page [Pour ajouter une solution à l’aide de la galerie de solutions](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) pour ajouter la solution **Automation** à votre espace de travail Operations Management Suite.
+Suivez les instructions de la page [Pour ajouter une solution à l'aide de la galerie de solutions](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions) pour ajouter la solution **Automation** à votre espace de travail Operations Management Suite.
 
 ### 3\. Installer Microsoft Management Agent
 Microsoft Management Agent connecte les ordinateurs à Operations Management Suite. Lorsque vous installez l’agent sur votre ordinateur local et que vous le connectez à votre espace de travail, il télécharge automatiquement les composants requis pour le Runbook Worker hybride.
 
-Suivez les instructions fournies dans la section [Connexion directe des ordinateurs à Operational Insights](../operational-insights/operational-insights-direct-agent.md) pour installer l’agent sur l’ordinateur local. Vous pouvez répéter ce processus pour plusieurs ordinateurs afin d’ajouter plusieurs Workers à votre environnement.
+Suivez les instructions fournies dans la section [Connexion directe des ordinateurs à Operational Insights](../operational-insights/operational-insights-direct-agent.md) pour installer l'agent sur l'ordinateur local. Vous pouvez répéter ce processus pour plusieurs ordinateurs afin d’ajouter plusieurs Workers à votre environnement.
 
-Lorsque l’agent parvient à se connecter à Operations Management Suite, il est répertorié dans l’onglet **Sources connectées** du volet **Paramètres** d’Operations Management Suite. Vous pouvez vérifier que l’agent a correctement téléchargé la solution Automation lorsqu’un dossier appelé **AzureAutomationFiles** figure dans C:\\Program Files\\Microsoft Monitoring Agent\\Agent.
+Lorsque l'agent parvient à se connecter à Operations Management Suite, il est répertorié dans l'onglet **Sources connectées** du volet **Paramètres** d'Operations Management Suite. Vous pouvez vérifier que l'agent a correctement téléchargé la solution Automation lorsqu'un dossier appelé **AzureAutomationFiles** figure dans C:\\Program Files\\Microsoft Monitoring Agent\\Agent.
 
 ### 4\. Installer l'environnement de Runbook et se connecter à Azure Automation
-Lorsque vous ajoutez un agent à Operations Management Suite, la solution Automation lance le module PowerShell **HybridRegistration** qui contient l’applet de commande **Add-HybridRunbookWorker**. Vous utilisez cette applet de commande pour installer l'environnement de Runbook sur la machine et l'inscrire auprès d'Azure Automation.
+Lorsque vous ajoutez un agent à Operations Management Suite, la solution Automation lance le module PowerShell **HybridRegistration** qui contient l'applet de commande **Add-HybridRunbookWorker**. Vous utilisez cette applet de commande pour installer l'environnement de Runbook sur la machine et l'inscrire auprès d'Azure Automation.
 
 Ouvrez une session PowerShell en mode administrateur et exécutez les commandes suivantes pour importer le module.
 
@@ -91,7 +95,7 @@ Vous pouvez obtenir les informations requises pour cette applet de commande dans
 - **EndPoint** est le champ **URL** dans le panneau **Gérer les clés**.
 - **Token** est la **clé d'accès primaire** dans le panneau **Gérer les clés**.  
 
-Utilisez le commutateur **-Verbose** avec **Add-HybridRunbookWorker** pour recevoir des informations détaillées concernant l’installation.
+Utilisez le commutateur **-Verbose** avec **Add-HybridRunbookWorker** pour recevoir des informations détaillées concernant l'installation.
 
 ### 5\. Installer des modules PowerShell
 Les Runbooks peuvent utiliser toutes les activités et applets de commande définies dans les modules installés dans votre environnement Azure Automation. Toutefois, comme ces modules ne sont pas automatiquement déployés sur les machines locales, vous devez les installer manuellement. L'exception est le module Azure qui est installé par défaut et qui permet d'accéder aux applets de commande pour l'ensemble des services et activités Azure pour Azure Automation.
@@ -100,7 +104,7 @@ Les Runbooks peuvent utiliser toutes les activités et applets de commande défi
 
 ## Suppression de la fonctionnalité Runbook Worker hybride
 
-Vous pouvez supprimer Runbook Worker hybride d’un ordinateur local en exécutant l’applet de commande **Remove-HybridRunbookWorker** sur cet ordinateur. Utilisez le commutateur **-Verbose** pour afficher un journal détaillé du processus de suppression.
+Vous pouvez supprimer Runbook Worker hybride d'un ordinateur local en exécutant l'applet de commande **Remove-HybridRunbookWorker** sur cet ordinateur. Utilisez le commutateur **-Verbose** pour afficher un journal détaillé du processus de suppression.
 
 ## Démarrage de Runbooks sur un Runbook Worker hybride
 
@@ -116,7 +120,7 @@ Utilisez le paramètre **RunOn**. Vous pouvez utiliser la commande suivante pour
 
 ## Résolution de problèmes de runbooks sur un Runbook Worker hybride
 
-[Sortie et messages de Runbooks](automation-runbook-output-and-messages.md) : ils sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de Runbook s’exécutent dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
+[Sortie et messages de Runbooks](automation-runbook-output-and-messages.md) : ils sont envoyés à Azure Automation à partir de Workers hybrides tout comme les tâches de Runbook exécutées dans le cloud. Vous pouvez également activer les flux Détaillé et Progression comme vous le feriez pour d’autres runbooks.
 
 Les journaux sont stockés localement sur chaque Worker hybride à l’emplacement C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes.
 
@@ -164,4 +168,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

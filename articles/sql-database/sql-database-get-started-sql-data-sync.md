@@ -20,10 +20,9 @@
 #Prise en main d’Azure SQL Data Sync (version préliminaire)
 Dans ce didacticiel, vous allez vous familiariser avec les concepts de base d’Azure SQL Data Sync à l’aide de la version préliminaire du portail Azure.
 
-
 Ce didacticiel ne présuppose aucune expérience préalable de SQL Server et de la base de données SQL Azure. Au cours de ce didacticiel, vous allez créer un groupe de synchronisation hybride (instances SQL Server et base de données SQL) entièrement configuré et synchronisé avec la planification que vous avez définie.
 
-**Remarque :** La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf téléchargeable [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+> [AZURE.NOTE]La documentation technique complète pour la synchronisation des données SQL Azure, qui se trouvait auparavant sur MSDN, est à présent disponible dans un fichier .pdf téléchargeable [ici](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 ## Étape 1 : se connecter à la base de données SQL Azure
 
@@ -64,7 +63,7 @@ Veillez à installer les composants suivants sur l’ordinateur sur lequel vous 
 <a id="InstallClient"></a>
 ### Étape 2b : installer un nouvel agent client
 
-Pour installer l’agent, suivez les instructions de la page [Installer un Agent client (Synchronisation des données SQL)]((http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
+Pour installer l'agent, suivez les instructions de la page [Installer un agent client (synchronisation des données SQL)](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 
 
@@ -203,4 +202,4 @@ Pour plus d’informations sur la base de données SQL et la synchronisation des
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

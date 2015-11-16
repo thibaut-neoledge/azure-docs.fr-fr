@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Notification des utilisateurs via Azure Notification Hubs"
+	pageTitle="Notification des utilisateurs via Azure Notification Hubs avec service principal .NET"
 	description="Découvrez comment envoyer des notifications Push aux utilisateurs dans Azure. Exemples de code écrits en Java pour Android"
 	documentationCenter="android"
 	services="notification-hubs"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Notification des utilisateurs via Azure Notification Hubs
+#Notification des utilisateurs via Azure Notification Hubs avec service principal .NET
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -432,4 +432,4 @@ L'étape suivante consiste à créer l'application Android.
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

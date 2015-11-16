@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/25/2015" 
+	ms.date="10/29/2015" 
 	ms.author="spelluru"/>
 
 # Didacticiel : déplacer et traiter des fichiers journaux à l’aide de Data Factory [PowerShell]
 Cet article fournit une procédure pas à pas pour un scénario de traitement de journaux à l’aide d’Azure Data Factory pour transformer les données des fichiers journaux en informations.
+
+> [AZURE.IMPORTANT]cet article ne couvre pas toutes les applets de commande Data Factory. Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
+>    
+> Si vous utilisez la version préliminaire d'Azure PowerShell 1.0, vous devez utiliser les applets de commande documentées [ici](https://msdn.microsoft.com/library/dn820234.aspx). Par exemple, utilisez New-AzureRMDataFactory au lieu de New-AzureDataFactory.
 
 ## Scénario
 Contoso est une société qui crée des jeux pour plusieurs plateformes : des consoles de jeux, des appareils portatifs et des ordinateurs personnels (PC). Chacun de ces jeux produit une très grande quantité de journaux. L’objectif de Contoso est de collecter et d’analyser les journaux générés par ces jeux pour obtenir des informations sur l’utilisation, identifier les opportunités de vente incitative et de vente croisée, développer de nouvelles fonctionnalités intéressantes, etc. pour optimiser vos affaires et fournir une meilleure expérience aux clients.
@@ -181,7 +185,7 @@ Dans cette étape, vous allez créer une fabrique de données Microsoft Azure no
 9.	Dans le panneau **Nouvelle fabrique de données**, cliquez sur **Créer** pour créer la fabrique de données.
 10.	Lorsque la fabrique de données est créée, vous voyez apparaître le panneau **DATA FACTORY** intitulé **LogProcessingFactory**.
 
-	![Page d’accueil Fabrique de données][image-data-factory-tutorial-datafactory-homepage]
+	![Page d’accueil Data Factory][image-data-factory-tutorial-datafactory-homepage]
 
 	
 	Si vous ne le voyez pas, effectuez l’une des opérations suivantes :
@@ -297,7 +301,7 @@ Le portail Azure n’autorise pas encore la création de jeux de données/tables
 ### Créer des tables
 
 1.	Dans Azure PowerShell, accédez au dossier **Tables** (**C:\\ADFWalkthrough\\Tables**) depuis l’emplacement auquel vous avez extrait les exemples.
-2.	Utilisez l’applet de commande **New-AzureDataFactoryDataset** pour créer les jeux de données pour **RawGameEventsTable.json**, comme suit.	
+2.	Utilisez l'applet de commande **New-AzureDataFactoryDataset** pour créer les jeux de données pour **RawGameEventsTable.json** comme suit.	
 
 
 		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
@@ -434,7 +438,7 @@ Pour spécifier la période active pour le pipeline, vous pouvez utiliser la cmd
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l'état **Prêt** ou à l'état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
  
 	Pour comprendre tous les états possibles des tranches, reportez-vous à la rubrique [Référence du développeur Azure Data Factory][developer-reference].
 
@@ -558,4 +562,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

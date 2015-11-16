@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/02/2015"
+	ms.date="11/03/2015"
 	ms.author="nitinme"/>
 
 # Installer et utiliser Giraph dans HDInsight
@@ -183,4 +183,4 @@ Consultez [Personnaliser des clusters HDInsight à l’aide d’une action de sc
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

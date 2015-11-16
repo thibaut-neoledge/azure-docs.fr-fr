@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/03/2015"  
 	ms.author="juliako"/>
 
 #Utilisation des canaux recevant un flux dynamique à débit binaire multiple provenant d’encodeurs locaux
@@ -240,7 +240,7 @@ Autres considérations liées à l’utilisation des canaux et des composants as
 
 ##Création de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux
 
-Pour plus d’informations sur les encodeurs en direct locaux, consultez [Utilisation d’encodeurs tiers en direct avec Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+Pour plus d'informations sur les encodeurs en direct locaux, consultez [Utilisation d'encodeurs tiers en direct avec Azure Media Services (en anglais)](https://azure.microsoft.com/blog/azure-media-services-rtmp-support-and-live-encoders/).
 
 Choisissez **Portail**, **.NET**, **API REST** pour voir comment créer et gérer des canaux et des programmes.
 
@@ -266,4 +266,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

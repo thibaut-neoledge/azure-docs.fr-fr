@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="11/03/2015" 
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis un objet Blob Azure à l’aide d’Azure Data Factory
@@ -510,4 +510,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré com
 ## Envoyer des commentaires
 Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

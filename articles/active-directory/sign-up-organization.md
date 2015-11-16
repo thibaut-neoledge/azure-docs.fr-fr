@@ -3,7 +3,7 @@
 	description="Découvrez comment vous pouvez utiliser un compte professionnel ou scolaire pour tirer parti des comptes d’utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="markvi"
+	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@ Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](h
 * [Présentation d’Azure AD](active-directory-whatis.md)
 * [Utiliser votre infrastructure d’identité locale dans le cloud](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

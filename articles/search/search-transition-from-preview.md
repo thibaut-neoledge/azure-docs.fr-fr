@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Transition de la version préliminaire api-version=2014* vers api-version=2015*#
 
-Les instructions suivantes sont destinées aux clients ayant créé des applications personnalisées sur les versions préliminaires d’Azure Search et migrant actuellement vers la version mise à la disposition générale, 2015-02-28.
+Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Les instructions suivantes sont destinées aux clients ayant créé des applications personnalisées sur les versions préliminaires d’Azure Search et migrant actuellement vers la version mise à la disposition générale, 2015-02-28.
 
 En tant que client de la version préliminaire, vous avez peut-être utilisé l’une de ces anciennes versions préliminaires :
 
@@ -144,4 +144,4 @@ La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de s
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

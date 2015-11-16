@@ -31,7 +31,7 @@ Vous trouverez ci-dessous un exemple de campagne marketing numérique multi-cana
 
 Créez rapidement de nouvelles applications web à partir d’un CMS populaire dans la galerie ou intégrez vos ressources web existantes à App Service Web Apps à partir d’une variété de langues et d’infrastructures.
 
-Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que [Orchard], [Umbraco], Drupal et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
+Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que Orchard, Umbraco, Drupal et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
 
 Vos ressources web existantes peuvent s’exécuter sur des applications web, même s’il s’agit d’applications .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide des outils [FTP] avec lesquels vous êtes familiarisé. Si vous créez souvent des campagnes marketing numériques, il se peut que vous disposiez de ressources web existantes au sein d’un système de gestion de contrôle de code source. Vous pouvez effectuer un déploiement vers Web Apps directement à partir d’options de contrôle de code source populaires, telles que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
@@ -95,8 +95,6 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
 [Azure App Service]: /services/app-service/web/
 
-[Orchard]: web-sites-dotnet-orchard-cms-gallery.md
-[Umbraco]: web-sites-gallery-umbraco.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -141,4 +139,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

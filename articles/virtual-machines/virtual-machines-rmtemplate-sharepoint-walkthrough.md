@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
-	ms.author="davidmu"/>
+	ms.author="josephd"/>
 
 # Modèle Resource Manager pour la batterie de serveurs SharePoint à trois serveurs
 
@@ -376,4 +376,4 @@ Pour plus d’informations, consultez [Langage du modèle Azure Resource Manag
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

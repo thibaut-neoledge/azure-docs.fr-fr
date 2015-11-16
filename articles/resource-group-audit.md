@@ -158,8 +158,8 @@ Sélectionnez n’importe quelle opération pour plus d’informations la concer
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la configuration des stratégies de sécurité, consultez [Gestion de l’accès aux ressources](./azure-portal/resource-group-rbac.md).
+- Pour en savoir plus sur la configuration des stratégies de sécurité, consultez [Gestion de l'accès aux ressources](resource-group-rbac.md).
 - Pour savoir comment autoriser l’accès à un principal du service, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
 - Pour savoir comment effectuer des actions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
