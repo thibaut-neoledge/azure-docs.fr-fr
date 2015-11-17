@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search | Microsoft Azure"
+	pageTitle="Utilisation de Fiddler pour évaluer et tester les API REST Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Utilisation de Fiddler dans une approche sans code pour vérifier la disponibilité d'Azure Search et tester les API REST."
 	services="search"
 	documentationCenter=""
@@ -13,10 +13,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Fiddler pour évaluer et tester les API REST Azure Search
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 Cet article explique comment utiliser Fiddler, disponible en tant que [téléchargement gratuit de Telerik](http://www.telerik.com/fiddler), pour émettre des requêtes HTTP vers et afficher les réponses à l'aide de l'API REST Azure Search, sans avoir à écrire de code. Azure Search est un service de recherche hébergé sur le cloud entièrement géré, disponible sur Microsoft Azure et facilement programmable via les API .NET et REST. Les API REST du service Azure Search sont documentées dans [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
@@ -235,4 +241,4 @@ Les liens suivants fournissent des informations supplémentaires pour une approc
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

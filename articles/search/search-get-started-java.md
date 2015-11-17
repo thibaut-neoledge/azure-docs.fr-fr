@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Search dans Java | Microsoft Azure"
+	pageTitle="Prise en main d’Azure Search dans Java | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java."
 	services="search"
 	documentationCenter=""
@@ -231,4 +231,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

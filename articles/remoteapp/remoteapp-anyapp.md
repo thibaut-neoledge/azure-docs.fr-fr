@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
 
-Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’Internet Explorer 6, d’une application personnalisée écrite il y a 10 ans, ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
+Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’une application personnalisée écrite il y a 10 ans ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
 
 Grâce à Azure RemoteApp, vos utilisateurs peuvent également utiliser leurs propres appareils Android ou Apple et bénéficier de la même expérience que sur Windows (ou Windows Phone). Pour obtenir ce résultat, votre application Windows est hébergée sur une collection de machines virtuelles Windows via Azure, auxquelles vos utilisateurs peuvent accéder depuis n’importe quel lieu connecté à Internet.
 
 Lisez la suite pour obtenir un exemple précis de façon de procéder.
 
-Dans cet article, nous allons partager l’application Access avec tous nos utilisateurs. Toutefois, vous pouvez utiliser n'importe quelle application. Tant que vous pouvez installer votre application sur un ordinateur Windows Server 2012 R2, vous pouvez la partager à l'aide de la procédure ci-dessous. Vous pouvez consulter la [configuration requise des applications](remoteapp-appreqs) pour vous assurer du bon fonctionnement de votre application.
+Dans cet article, nous allons partager l’application Access avec tous nos utilisateurs. Toutefois, vous pouvez utiliser n'importe quelle application. Tant que vous pouvez installer votre application sur un ordinateur Windows Server 2012 R2, vous pouvez la partager à l'aide de la procédure ci-dessous. Vous pouvez consulter la [configuration requise des applications](remoteapp-appreqs.md) pour vous assurer du bon fonctionnement de votre application.
 
 Veuillez noter que, comme Access est une base de données, et comme nous voulons que cette base de données soit utile, nous allons effectuer quelques étapes supplémentaires afin de permettre aux utilisateurs d’accéder au partage de données Access. Si votre application n'est pas une base de données ou si vos utilisateurs n'ont pas besoin d'accéder à un partage de fichiers, vous pouvez ignorer ces étapes de ce didacticiel.
 
@@ -110,4 +110,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

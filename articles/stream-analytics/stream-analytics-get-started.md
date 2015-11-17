@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prise en main de Stream Analytics : détection des fraudes en temps réel | Microsoft Azure"
 	description="Apprenez à créer une solution de détection des fraudes en temps réel avec Stream Analytics. Utilisez un concentrateur d’événements pour le traitement des événements en temps réel."
-	keywords="event hub,fraud detection,real-time,real-time processing"
+	keywords="concentrateurs d’événements, détection de fraude, temps réel, traitement en temps réel"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="10/05/2015"
+	ms.date="11/06/2015"
 	ms.author="jeffstok" />
 
 
@@ -102,7 +102,7 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 ### Spécification d'une entrée de travail
 1.	En haut de la page de votre travail Stream Analytics, cliquez sur **Entrées**, puis sur **Ajouter une entrée**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre entrée.
 2.	Sélectionnez **Flux de données**, puis cliquez avec le bouton droit.
-3.	Sélectionnez **Concentrateur d’événements**, puis cliquez avec le bouton droit.
+3.	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
 4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **Alias d'entrée** : entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
@@ -257,4 +257,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -41,7 +41,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 6.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 7.	Cliquez sur **Create**.
@@ -50,7 +50,7 @@ Selon le modèle, la génération de la charge de travail par Azure peut prendre
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **New-AzureResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **AzureRMResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -113,7 +113,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 5.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 6.	Cliquez sur **Create**.
@@ -122,7 +122,7 @@ Selon le modèle, la génération de la charge de travail par Azure peut prendre
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **New-AzureResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Cet article contient des commandes pour la version préliminaire Azure PowerShell 1.0. Pour exécuter ces commandes dans Azure PowerShell 0.9.8 et les versions antérieures, remplacez **New-AzureRMResourceGroup** par **New-AzureResourceGroup**, remplacez **AzureRMResourceGroupDeployment** par **New-AzureResourceGroupDeployment**, puis ajoutez la commande **Switch-AzureMode AzureResourceManager** avant la commande **New-AzureResourceGroup**. Pour plus d’informations, consultez [Version préliminaire Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Saisissez un nom de déploiement Azure, un nouveau nom de groupe de ressources et un emplacement de centre de données Azure dans l’ensemble de commandes suivant. Supprimez les éléments entre guillemets, notamment les caractères < and >.
 
@@ -186,4 +186,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

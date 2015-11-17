@@ -157,15 +157,34 @@ Vous êtes prêt à envoyer un toast. Nous allons maintenant vérifier que vous 
 
 ###Accorder l’accès à Mobile Engagement pour l’envoi de notifications push
 
-1. Vous devrez associer votre application à une application du Windows Store pour obtenir votre **Identificateur de sécurité (SID) du package** et votre **clé secrète** (clé secrète client). Vous pouvez créer une application à partir du [Centre de développement du Windows Store]. Veillez ensuite à utiliser **Associer l’application au Store** dans Visual Studio.
+1. Ouvrez le [Centre de développement Windows Store] dans votre navigateur web, connectez-vous et créez un compte si nécessaire.
+2. Cliquez sur **Tableau de bord** en haut à droite, puis cliquez sur **Créer une application** dans le menu du panneau gauche. 
 
-	![][7]
+	![][9]
 
-2. Accédez aux **Paramètres** du portail Mobile Engagement, puis cliquez sur la section **Push natif** à gauche.
+2. Créez votre application en réservant son nom.
 
-3. Cliquez sur le bouton **Modifier** pour entrer l’**identificateur de sécurité (SID) du package** et votre **clé secrète**, comme indiqué ci-dessous :
+	![][10]
+
+3. Une fois l’application créée, accédez à **Services -> Notifications Push** dans le menu de gauche.
+
+	![][11]
+
+4. Dans la section Notifications Push, cliquez sur le lien du **site Services Microsoft Live**.
+
+	![][12]
+
+5. Vous accédez à la section des informations d’identification Push. Assurez-vous que vous êtes dans la section **Paramètres de l’application** et copiez le **SID du package** et votre **clé secrète client**
+
+	![][13]
+
+6. Accédez aux **Paramètres** du portail Mobile Engagement, puis cliquez sur la section **Push natif** à gauche. Cliquez ensuite sur le bouton **Modifier** pour entrer l’**identificateur de sécurité (SID) du package** et votre **clé secrète**, comme indiqué ci-dessous :
 
 	![][6]
+
+8. Enfin, assurez-vous que vous avez associé votre application Visual Studio à cette application que vous avez créée dans l’App Store. Pour ce faire, vous devez cliquer sur **Associer l’application au Store** à partir de Visual Studio.
+
+	![][7]
 
 ##<a id="send"></a>Envoi d’une notification vers votre application
 
@@ -178,7 +197,7 @@ Si l’application était en cours d’exécution, une notification dans l’app
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
-[Centre de développement du Windows Store]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
+[Centre de développement Windows Store]: https://dev.windows.com
 [Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
@@ -189,5 +208,10 @@ Si l’application était en cours d’exécution, une notification dans l’app
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 [8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
+[9]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_create_app.png
+[10]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_app_name.png
+[11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
+[12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
+[13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
