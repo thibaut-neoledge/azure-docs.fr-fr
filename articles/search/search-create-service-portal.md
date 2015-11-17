@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Créer un service Azure Search dans le portail | Microsoft Azure"
+	pageTitle="Créer un service Azure Search dans le portail Azure | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Ajouter un service Azure Search gratuit ou standard à un abonnement existant à l’aide du portail Azure. Azure Search est un service de recherche hébergé dans le cloud dédié aux applications personnalisées."
 	services="search"
 	documentationCenter=""
@@ -19,11 +19,11 @@
 
 # Créer un service Azure Search dans le portail Azure
 
-Microsoft Azure Search est un nouveau service qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion se font à l’aide du portail Azure, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](fundamentals-azure-search-chappell/).
+Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du portail Azure, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes, les profils de score et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](seach-what-is-search.md).
 
-## Ajouter Azure Search à votre abonnement  
+## Ajouter gratuitement Azure Search à votre abonnement
 
-En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement existant gratuitement quand vous choisissez le service partagé, ou à un tarif standard quand vous choisissez des ressources dédiées.
+En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement Azure existant gratuitement quand vous choisissez le service partagé, ou à un tarif standard quand vous choisissez des ressources dédiées.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -52,25 +52,14 @@ En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un a
 
 Surveillez les notifications dans la barre de lancement. Une notification s'affiche lorsque le service est prêt à être utilisé.
 
-<a id="sub-2"></a>
-## Recherche du nom du service et des clés api de votre service Azure Search
-
-Une fois le service créé, vous pouvez revenir au portail Azure pour obtenir l’URL ou la `api-key`. Pour vous connecter à votre service Azure Search, vous devez entrer l’URL et une `api-key` afin d’authentifier l’appel.
-
-1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service Azure Search pour ouvrir le tableau de bord du service.
-
-2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
-
-  	![][3]
-
-3. Copiez l'URL du service et une clé administrateur. Vous en aurez besoin pour la tâche suivante, [Test des opérations de service](#sub-4).
-
 <a id="sub-3"></a>
-## Mettre à niveau vers le niveau standard
+## Ajouter un service de recherche de niveau Standard pour obtenir des ressources dédiées
 
-De nombreux clients commencent par le service gratuit puis évoluent vers le niveau standard quand les performances des requêtes ou du stockage ne suffisent plus à exécuter les charges de travail. Le niveau standard vous permet d’accéder aux ressources dédiées d’un centre de données Azure réservé à votre seul usage. Les opérations Azure Search nécessitent à la fois des réplicas de stockage et de service. Lorsque vous vous inscrivez à une recherche standard, vous pouvez optimiser la configuration du service pour utiliser une plus grande partie de la ressource qui est la plus importante pour votre scénario.
+De nombreux clients commencent par le service gratuit avant de basculer au niveau Standard pour prendre en charge de plus grandes charges de travail. Le niveau Standard vous permet d’accéder aux ressources dédiées d’un centre de données Azure réservé à votre seul usage.
 
-Pour utiliser le niveau standard, répétez les étapes précédentes de cet article pour créer un service Azure Search, en choisissant le niveau tarifaire Standard. Notez que la configuration des ressources dédiées peut prendre du temps, jusqu'à 15 minutes voire plus.
+Les opérations Azure Search nécessitent à la fois des réplicas de stockage et de service. Contrairement au service gratuit qui ne permet pas d’ajouter des ressources, le niveau Standard vous permet d’évoluer pour prendre en charge davantage de stockage ou de requêtes en augmentant la ressource la plus importante de votre scénario, quelle qu’elle soit.
+
+Pour utiliser le niveau Standard, vous devez créer un nouveau service de recherche à ce niveau de tarification. Vous pouvez répéter les étapes précédentes de cet article pour créer un nouveau service Azure Search. Notez que la configuration des ressources dédiées peut prendre du temps, jusqu'à 15 minutes voire plus.
 
 Il n'existe aucune mise à niveau sur place de la version gratuite. Le passage à l'offre standard, avec son potentiel en matière de mise à l'échelle, requiert un nouveau service. Il vous faudra recharger les index et les documents utilisés par votre application de recherche.
 
@@ -85,6 +74,20 @@ Un service Azure Search standard commence avec un réplica et une partition, mai
 Les réplicas et les partitions supplémentaires sont facturés en tant qu'unités de recherche. Le nombre total d’unités de recherche requises pour prendre en charge une configuration de ressource particulière s’affiche sur la page, à mesure que vous ajoutez des ressources.
 
 Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com/fwlink/p/?LinkID=509792) pour obtenir les informations de facturation par unité. Consultez [Limites et contraintes](search-limits-quotas-capacity.md) pour savoir comment configurer des combinaisons de partitions et de réplicas.
+
+<a id="sub-2"></a>
+## Recherche du nom du service et des clés api de votre service Azure Search
+
+Une fois le service créé, vous pouvez revenir au portail Azure pour obtenir l’URL ou la `api-key`. Pour vous connecter à votre service Azure Search, vous devez entrer l’URL et une `api-key` afin d’authentifier l’appel.
+
+1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service Azure Search pour ouvrir le tableau de bord du service.
+
+2. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
+
+  	![][3]
+
+3. Copiez l'URL du service et une clé administrateur. Vous en aurez besoin pour la tâche suivante, [Test des opérations de service](#sub-4).
+
 
 <a id="sub-4"></a>
 ## Test des opérations de service
@@ -120,4 +123,4 @@ Les informations suivantes vous expliquent comment créer et gérer des applicat
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/22/2015"
+	ms.date="11/12/2015"
 	ms.author="cabailey"/>
 
 
@@ -38,7 +38,7 @@ Utilisez le tableau suivant afin de mieux comprendre comment Key Vault peut perm
 | ------------- |-------------|-----|
 | Développeur d’une application Azure | « Je souhaite écrire une application pour Azure qui utilise des clés de signature et de chiffrement, mais je veux que celles-ci soient externes à mon application afin que la solution soit adaptée à une application répartie au niveau géographique. <br/><br/>Je souhaite également protéger ces clés et secrets, sans avoir à écrire le code moi-même, et je veux qu’ils soient faciles à utiliser pour moi à partir de mes applications, avec des performances optimales. | √ Les clés sont stockées dans un coffre et appelées par un URI, si nécessaire.<br/><br/> √ Les clés sont protégées par Azure, à l’aide d’algorithmes standard, de longueurs de clé et de modules de sécurité matériels (HSM).<br/><br/> √ Les clés sont traitées dans des modules de sécurité matériels résidant dans les mêmes centres de données Azure que les applications, ce qui garantit une meilleure fiabilité et une latence plus faible que si elles résidaient dans un emplacement séparé, par exemple sur site.|
 | Développeur de logiciels en tant que service (SaaS) |« Je ne veux pas prendre la responsabilité des clés et secrets de mes clients. <br/><br/>Je souhaite que les clients possèdent et gèrent leurs clés pour pouvoir me concentrer sur ce que je fais le mieux, à savoir fournir les principales fonctionnalités du logiciel ». | √ Les clients peuvent importer leurs propres clés dans Azure et les gérer. Lorsqu’une application SaaS doit effectuer des opérations de chiffrement à l’aide des clés de leurs clients, Key Vault s’en charge à sa place. L’application ne voit pas les clés des clients.|
-| Responsable de la sécurité | « Je veux être sûr que nos applications sont conformes à la norme FIPS 140-2HSM de niveau 2 pour la gestion sécurisée des clés. <br/><br/>Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation. <br/><br/>Et bien que nous utilisions plusieurs ressources et services Azure, je souhaite gérer les clés à partir d’un emplacement unique dans Azure. » |√ Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2.<br/><br/>√ Key Vault est conçu de sorte que Microsoft ne voit ni n’extrait vos clés.<br/><br/>√ L’utilisation de la clé est assortie d’une journalisation quasiment en temps réel (actuellement non disponible).<br/><br/>√ Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure, des régions qui sont prises en charge et des applications qui les utilisent. |
+| Responsable de la sécurité | « Je veux être sûr que nos applications sont conformes à la norme FIPS 140-2HSM de niveau 2 pour la gestion sécurisée des clés. <br/><br/>Je souhaite m’assurer que mon organisation contrôle le cycle de vie d’une clé et peut surveiller son utilisation. <br/><br/>Et bien que nous utilisions plusieurs ressources et services Azure, je souhaite gérer les clés à partir d’un emplacement unique dans Azure. » |√ Les modules de sécurité matériels sont certifiés FIPS 140-2 de niveau 2.<br/><br/>√ Key Vault est conçu de sorte que Microsoft ne voit ni n’extrait vos clés.<br/><br/>√ L’utilisation de la clé est assortie d’une journalisation quasiment en temps réel (actuellement en [version préliminaire](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx)).<br/><br/>√ Le coffre fournit une interface unique, indépendamment du nombre de coffres dont vous disposez dans Azure, des régions qui sont prises en charge et des applications qui les utilisent. |
 
 
 Toute personne disposant d’un abonnement Azure peut créer et utiliser des coffres de clés. Bien que Key Vault procure des avantages aux développeurs et aux administrateurs de sécurité, il peut être implémenté et géré par l’administrateur d’une organisation qui gère les autres services Azure pour cette dernière. Par exemple, cet administrateur peut se connecter avec un abonnement Azure, créer un coffre pour l’organisation dans lequel stocker les clés et avoir la responsabilité de tâches opérationnelles, telles que :
@@ -49,7 +49,7 @@ Toute personne disposant d’un abonnement Azure peut créer et utiliser des cof
 + configurer l’utilisation de la clé (par exemple, signer ou chiffrer) ;
 + surveiller l’utilisation de clés.
 
-Cet administrateur peut ensuite fournir aux développeurs des URI à appeler à partir de leurs applications et fournir à leur administrateur de sécurité des informations de journalisation sur l’utilisation des clés. **Les informations de journalisation de l’utilisation des clés ne sont pas disponibles actuellement.**
+Cet administrateur peut ensuite fournir aux développeurs des URI à appeler à partir de leurs applications et fournir à leur administrateur de sécurité des informations de journalisation sur l’utilisation des clés. Notez que la journalisation de l’utilisation est actuellement en [version préliminaire](http://blogs.technet.com/b/kv/archive/2015/11/10/keyvault_2d00_logging_2d00_preview.aspx).
 
    ![Vue d’ensemble Azure Key Vault][1]
 
@@ -65,4 +65,4 @@ Pour plus d’informations sur l’utilisation des clés et des secrets avec Azu
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

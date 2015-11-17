@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/06/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # Prise en main de Mobile Services
@@ -89,4 +89,4 @@ Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mob
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

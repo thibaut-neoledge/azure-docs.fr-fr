@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="09/02/2015"
+   ms.date="11/05/2015"
    ms.author="elizapo"/>
 
 # Exécuter n’importe quelle application Windows sur n’importe quel appareil avec Azure RemoteApp
 
-Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’Internet Explorer 6, d’une application personnalisée écrite il y a 10 ans, ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
+Vous pouvez exécuter une application Windows n’importe où et sur n’importe quel appareil. Pour cela, il vous suffit d’utiliser Azure RemoteApp. Qu’il s’agisse d’une application personnalisée écrite il y a 10 ans ou d’une application Office, vos utilisateurs n’ont plus besoin d’être rattachés à un système d’exploitation spécifique (comme Windows XP) pour accéder à ces applications.
 
 Grâce à Azure RemoteApp, vos utilisateurs peuvent également utiliser leurs propres appareils Android ou Apple et bénéficier de la même expérience que sur Windows (ou Windows Phone). Pour obtenir ce résultat, votre application Windows est hébergée sur une collection de machines virtuelles Windows via Azure, auxquelles vos utilisateurs peuvent accéder depuis n’importe quel lieu connecté à Internet.
 
 Lisez la suite pour obtenir un exemple précis de façon de procéder.
 
-Dans cet article, nous allons partager l’application Access avec tous nos utilisateurs. Toutefois, vous pouvez utiliser n'importe quelle application. Tant que vous pouvez installer votre application sur un ordinateur Windows Server 2012 R2, vous pouvez la partager à l'aide de la procédure ci-dessous. Vous pouvez consulter la [configuration requise des applications](remoteapp-appreqs) pour vous assurer du bon fonctionnement de votre application.
+Dans cet article, nous allons partager l’application Access avec tous nos utilisateurs. Toutefois, vous pouvez utiliser n'importe quelle application. Tant que vous pouvez installer votre application sur un ordinateur Windows Server 2012 R2, vous pouvez la partager à l'aide de la procédure ci-dessous. Vous pouvez consulter la [configuration requise des applications](remoteapp-appreqs.md) pour vous assurer du bon fonctionnement de votre application.
 
 Veuillez noter que, comme Access est une base de données, et comme nous voulons que cette base de données soit utile, nous allons effectuer quelques étapes supplémentaires afin de permettre aux utilisateurs d’accéder au partage de données Access. Si votre application n'est pas une base de données ou si vos utilisateurs n'ont pas besoin d'accéder à un partage de fichiers, vous pouvez ignorer ces étapes de ce didacticiel.
 
@@ -76,8 +76,7 @@ Dans un premier temps, vous allez être mis à contribution en tant qu’adminis
 1. Commencez par publier l’interface de ligne de commande (cmd.exe). Dans l’onglet **Publication**, sélectionnez **cmd**, puis cliquez sur **Publier > Publier le programme à l’aide d’un chemin d’accès**.
 2. Entrez le nom de l’application et le chemin d’accès. Dans notre cas, utilisez « Explorateur de fichiers » comme nom et « %SYSTEMDRIVE%\\windows\\explorer.exe » comme chemin d’accès. ![Publiez le fichier cmd.exe.](./media/remoteapp-anyapp/ra-publishcmd.png)
 3. Vous devez à présent créer un [compte de stockage](../storage-create-storage-account.md) Azure. Nous avons appelé le nôtre « accessstorage », choisissez donc un nom significatif pour vous. (Pour reprendre Highlander, il peut n’y avoir qu’un seul « accessstorage ».) ![Notre compte de stockage Azure](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
-4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. 
-![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
+4. Revenez maintenant à votre tableau de bord afin d’obtenir le chemin d’accès vers votre espace de stockage (emplacement de point de terminaison). Vous allez l’utiliser dans peu de temps, veillez donc à le copier quelque part. ![Chemin d’accès au compte de stockage](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Une fois le compte de stockage créé, vous allez avoir besoin de la clé d’accès primaire. Cliquez sur **Gérer les clés d’accès**, puis copiez la clé d’accès primaire.
 6. À présent, définissez le contexte du compte de stockage et créez un partage de fichiers pour Access. Dans une fenêtre Windows PowerShell exécutée avec des privilèges élevés, exécutez les applets de commande suivantes :
 
@@ -110,4 +109,4 @@ Maintenant que vous maîtrisez la création d’une collection, essayez de crée
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -81,7 +81,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 	![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur. 
-4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -235,7 +235,4 @@ Dans cette étape, vous allez créer votre premier pipeline.
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

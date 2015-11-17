@@ -28,8 +28,6 @@
 
 Utilisez le portail Azure, le Kit de développement logiciel (SDK) .NET ou l’API REST pour créer un compte Azure Media Services.
 
-
-
 <a id="setup_dev_env"></a>
 ## Configuration de l’environnement de développement  
 
@@ -45,11 +43,12 @@ Choisissez .NET ou l’API REST pour vous connecter par programme à Azure Media
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Étapes suivantes : parcours d’apprentissage d’AMS
+##Étapes suivantes : Parcours d’apprentissage Azure Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

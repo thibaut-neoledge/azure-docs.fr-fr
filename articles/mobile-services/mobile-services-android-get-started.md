@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Prendre en main Mobile Services pour Android (backend JavaScript)
@@ -28,9 +28,11 @@ Ce didacticiel présente l'ajout d'un service backend cloud à une application A
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-Voici une capture d’écran de l’application terminée : ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+Voici une capture d’écran de l’application terminée :
 
-## Composants requis
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+
+## Configuration requise
 
 Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
 
@@ -93,4 +95,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/07/2015"
+	ms.date="11/04/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
@@ -49,7 +49,7 @@ Vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour c
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>De retour sur le portail de gestion, cliquez sur l’onglet **DATA**, puis sur la table **TodoItem**. Cela vous permet de parcourir les données insérées par l’application dans la table.<p></li></ol></p>
+<ol start="4"> <li><p>De retour dans le portail de gestion, cliquez sur l’onglet **DONNÉES**, puis sur la table **TodoItem**. Cela vous permet de parcourir les données insérées par l’application dans la table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
@@ -90,4 +90,4 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version de serveur principal .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

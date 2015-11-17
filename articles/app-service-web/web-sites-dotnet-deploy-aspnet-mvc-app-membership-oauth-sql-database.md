@@ -13,7 +13,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/07/2015" 
 	ms.author="riande"/>
 
@@ -37,7 +37,7 @@ Vous apprendrez ce qui suit :
 
 >[AZURE.NOTE]Ce didacticiel est long. Pour obtenir une présentation rapide des projets web Azure App Service et Visual Studio, consultez [Création d’une application web ASP.NET dans Azure App Service](web-sites-dotnet-get-started.md). Pour des informations relatives à la résolution des problèmes, consultez la section [Résolution des problèmes](#troubleshooting).
 >
->Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement et gratuitement une application web de départ temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Configuration requise
 
@@ -55,7 +55,7 @@ Pour configurer votre environnement de développement, vous devez installer [Vis
 
 1. Dans la boîte de dialogue **Nouveau projet**, développez **C#**, puis sélectionnez **Web** sous **Modèles installés**, puis sélectionnez **Application Web ASP.NET**.
 
-1. Nommez l’application **ContactManager**, puis cliquez sur **OK**.
+1. Nommez l’application **GestionnaireContacts**, puis cliquez sur **OK**.
 
 	![Boîte de dialogue Nouveau projet](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13newprojdb.png)
  
@@ -186,7 +186,7 @@ Voilà, vous avez fait tout ce qu'il fallait pour créer l'application que vous 
 
 ## Activation du protocole SSL pour le projet ##
 
-1. Dans l’**Explorateur de solutions**, cliquez sur le projet **ContactManager**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
+1. Dans l’**Explorateur de solutions**, cliquez sur le projet **GestionnaireContacts**, puis appuyez sur F4 pour ouvrir la fenêtre **Propriétés**.
 
 3. Définissez **SSL activé** sur **True**.
 
@@ -404,7 +404,7 @@ En plus de l’authentification, ce didacticiel utilise également des rôles po
 
 ## Utilisation de l’API d’appartenance
 
-Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *canDeleteMembers*, plus parlant que le nom *superAdmin*.
+Dans cette section, vous allez ajouter un utilisateur local, ainsi que le rôle *peutModifier* à la base de données d’appartenance. Seuls les utilisateurs du rôle *peutModifier* pourront modifier les données. Il est recommandé de nommer les rôles en fonction des actions qu’ils peuvent effectuer, c’est pourquoi *peutModifier* est un meilleur nom que *admin*. Lorsque votre application évolue, vous pouvez ajouter de nouveaux rôles tels que *peutSupprimerMembres*, plus parlant que le nom *superAdmin*.
 
 1. Ouvrez le fichier *migrations\\configuration.cs* et ajoutez les instructions `using` suivantes :
 
@@ -730,7 +730,7 @@ Vous avez créé une application web MVC ASP.NET de base qui authentifie les uti
 
 Pour un didacticiel plus avancé sur l’utilisation d’Entity Framework, consultez [Prise en main d’Entity Framework et de MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) (en anglais).
 
-Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l’aide de Tom Dykstra et de Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
+Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) avec l’aide de Tom Dykstra et Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
 ***N’hésitez pas à nous transmettre vos commentaires*** sur ce qui vous a plu et ce qui pourrait être amélioré… pas seulement à propos de ce didacticiel, mais aussi en ce qui concerne les produits présentés ici. Vos commentaires nous aideront à orienter nos améliorations. Vous pouvez aussi demander de nouvelles rubriques et noter les rubriques existantes sur [Leçons de code](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
@@ -798,4 +798,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

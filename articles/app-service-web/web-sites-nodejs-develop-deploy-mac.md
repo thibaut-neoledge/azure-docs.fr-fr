@@ -61,35 +61,37 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 	Ce nom doit être unique dans le domaine azurewebsites.net, car l’URL de l’application web sera {nom}.azurewebsites.net. Si le nom que vous entrez n’est pas unique, un point d’exclamation rouge s’affiche dans la zone de texte.
 
-5. Sélectionnez un **Groupe de ressources** ou créez-en un.
+5. Sélectionnez un **Abonnement**.
+
+6. Sélectionnez un **Groupe de ressources** ou créez-en un.
 
 	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../resource-group-portal.md).
 
-5. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
+7. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
 	Pour plus d’informations sur les plans App Service, consultez [Présentation des plans d’Azure App Service](../azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-6. Cliquez sur **Create**.
+8. Cliquez sur **Create**.
    
 	![][portal-quick-create2]
 
 	Azure termine la création de la nouvelle application web dans un délai bref, généralement inférieur à une minute.
 
-7. Cliquez sur **Applications Web > {votre nouvelle application web}**.
+9. Cliquez sur **Applications Web > {votre nouvelle application web}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
-8. Dans le panneau **Application web**, cliquez sur la partie **Déploiement**.
+10. Dans le panneau **Application web**, cliquez sur la partie **Déploiement**.
 
 	![][deployment-part]
 
-9. Dans le panneau **Déploiement continu** lame, cliquez sur **Choisir la source**
+11. Dans le panneau **Déploiement continu** lame, cliquez sur **Choisir la source**
 
-14. Cliquez sur **Référentiel Git local**, puis sur **OK**.
+12. Cliquez sur **Référentiel Git local**, puis sur **OK**.
 
 	![][setup-git-publishing]
 
-11. Configurez les informations d’identification de déploiement si vous ne l’avez pas déjà fait.
+13. Configurez les informations d’identification de déploiement si vous ne l’avez pas déjà fait.
 
 	a. Dans le panneau Application web, cliquez sur **Paramètres > Informations d’identification de déploiement**.
 
@@ -99,7 +101,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 	
 	![](./media/web-sites-nodejs-develop-deploy-mac/setdeploycreds.png)
 
-11. Dans le panneau Application web, cliquez sur **Paramètres**, puis sur **Propriétés**.
+14. Dans le panneau Application web, cliquez sur **Paramètres**, puis sur **Propriétés**.
  
 	Pour procéder à la publication, vous effectuerez une transmission de type push vers un référentiel Git distant. L’URL pour le référentiel est répertoriée sous **URL GIT**. Vous aurez besoin de cette URL plus loin dans le didacticiel.
 
@@ -222,4 +224,4 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

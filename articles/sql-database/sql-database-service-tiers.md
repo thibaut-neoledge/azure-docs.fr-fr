@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/03/2015"
+	ms.date="11/10/2015"
 	ms.author="jroth"/>
 
 # Niveaux du service relatifs aux bases de données SQL
@@ -35,7 +35,7 @@ Les niveaux de service De base, Standard et Premium proposent un contrat SLA ga
 ### Niveaux de service pour bases de données uniques
 Pour des bases de données uniques, il existe plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir celui qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter le système en puissance ou de réduire son échelle, vous pouvez très simplement modifier ses niveaux dans le portail Microsoft Azure, sans occasionner de coupure de service pour votre application. Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
 
-Les caractéristiques de performances répertoriées ici s’appliquent aux bases de données créées à l’aide de [SQL Database V12](sql-database-v12-whats-new.md).
+Les caractéristiques de performances répertoriées ici s’appliquent aux bases de données créées à l’aide de [SQL Database V12](sql-database-v12-whats-new.md). Dans les situations où le matériel sous-jacent d’Azure héberge plusieurs bases de données SQL, votre base de données obtiendra un ensemble de ressources garanti, et les caractéristiques de performance attendues de la base de données n’est pas affectée.
 
 [AZURE.INCLUDE [Tableau de niveaux de service de base de données SQL](../../includes/sql-database-service-tiers-table.md)]
 
@@ -95,4 +95,4 @@ Si vous êtes intéressé par la gestion de plusieurs bases de données en tant 
 Maintenant que vous êtes au fait des différents niveaux de base de données SQL, essayez-les, grâce à notre version [d’essai gratuit](http://azure.microsoft.com/pricing/free-trial/), et découvrez [comment créer votre première base de données SQL](sql-database-get-started.md) !
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

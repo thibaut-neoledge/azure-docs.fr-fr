@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/02/2015"
    ms.author="bwren" />
 
 # Configuration d’Azure Automation
@@ -21,7 +21,7 @@ Cet article décrit les actions que vous devez effectuer pour commencer à utili
 
 ## Comptes Automation
 
-Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources Automation (Runbooks, ressources) des ressources Automation contenues dans d’autres comptes Automation. Vous pouvez utiliser des comptes Automation pour séparer les ressources Automation dans des environnements logiques distincts. Par exemple, vous pouvez utiliser un compte pour le développement et un autre pour la production.
+Lorsque vous démarrez Azure Automation pour la première fois, vous devez créer au moins un compte Automation. Les comptes Automation vous permettent d’isoler vos ressources Automation (Runbooks, ressources, configurations) des ressources Automation contenues dans d’autres comptes Automation. Vous pouvez utiliser des comptes Automation pour séparer les ressources Automation dans des environnements logiques distincts. Par exemple, vous pouvez utiliser un compte pour le développement et un autre pour la production.
 
 Les ressources Automation de chaque compte Automation sont associées à une seule région Azure, mais les comptes Automation peuvent gérer les services Azure dans n’importe quelle région. L’existence de stratégies qui requièrent l’isolation des données et des ressources dans une région spécifique constitue la raison principale de création de comptes Automation dans différentes régions.
 
@@ -67,4 +67,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](http://technet.
 - [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

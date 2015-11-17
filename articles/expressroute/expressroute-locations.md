@@ -44,6 +44,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
 |**Cloud du gouvernement des États-Unis**|Gouvernement américain|Iowa, Virginie|Ashburn, Chicago|
+|**Cloud de Chine**|Chine|Moyen-Orient, nord|
 
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
@@ -55,8 +56,8 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 | **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Aryaka Networks](http://www.aryaka.com/)** | Pris en charge | Pris en charge | Amsterdam, Silicon Valley, Singapour, Washington DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam+, Londres+, Dallas, Silicon Valley, Washington DC |
+| **[Réseaux Aryaka](http://www.aryaka.com/)** | Pris en charge | Pris en charge | Amsterdam, Silicon Valley, Singapour, Washington DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam, Londres, Dallas, Silicon Valley, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Londres, Silicon Valley, Singapour, Washington DC |
 |**China Telecom Global** | Bientôt disponible | Non pris en charge | Hong Kong+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Non pris en charge | Amsterdam, Londres |
@@ -93,7 +94,14 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Bientôt disponible | Non pris en charge | Chicago+, Washington DC+ |
 | **[Communications de niveau 3 - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Chicago+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Pris en charge | Non pris en charge | Chicago, Washington DC |
+
+#### Cloud de Chine
+
+| **Fournisseur de services** |**Microsoft Azure** | **Office 365** | **Emplacements** |
+|-----------------------|--------------------|----------------|---------------|
+| **China Telecom** | Pris en charge | Non pris en charge | Pékin, Shanghai +|
+Pour plus d’informations, consultez [ExpressRoute en Chine](http://www.windowsazure.cn/home/features/expressroute/).
 
 ## Connectivité via des fournisseurs de services non répertoriés
 
@@ -129,4 +137,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

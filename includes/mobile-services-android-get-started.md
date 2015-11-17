@@ -10,7 +10,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Attendez que l’activité de synchronisation Gradle se termine. Si l’erreur « Impossible de trouver la cible » s’affiche, c’est que la version utilisée dans Android Studio ne correspond pas à celui de l’échantillon. Le moyen le plus simple de résoudre ce problème consiste à cliquer sur le lien **Installer les plateformes manquantes et le projet de synchronisation** dans le message d’erreur. Vous pouvez obtenir des messages d’erreur au sujet des versions supplémentaires et répéter simplement ce processus jusqu’à ce qu’aucune erreur n’apparaisse.
+4. Attendez que l’activité de synchronisation Gradle se termine. Si l’erreur « Impossible de trouver la cible » s’affiche, c’est que la version utilisée dans Android Studio ne correspond pas à celui de l’échantillon. Le moyen le plus simple de résoudre ce problème consiste à cliquer sur le lien **Installer les plateformes manquantes et le projet de synchronisation** dans le message d’erreur. Vous pouvez obtenir des messages d’erreur au sujet des versions supplémentaires et répéter simplement ce processus jusqu’à ce que plus aucune erreur n’apparaisse.
     - Il existe une autre façon de résoudre ce problème si vous souhaitez exécuter avec la version « plus récente et plus performante » d’Android. Vous pouvez mettre à jour **targetSdkVersion** dans le fichier *build.gradle* du répertoire *application* correspondant à la version déjà installée sur votre ordinateur. Vous pouvez l’identifier en cliquant sur l’icône **Gestion des kits de développement logiciels** et en affichant la version répertoriée. Appuyez ensuite sur l’option **Synchronisation du projet avec les fichiers Gradle**. Vous pouvez obtenir un message d’erreur concernant la version des outils de génération et corriger cela de la même façon.
 
 ### Exécution de l'application
@@ -19,7 +19,7 @@ Vous pouvez exécuter l’application en utilisant l’émulateur ou un périph�
 
 1. Pour exécuter l’appareil depuis un appareil, connectez ce dernier à votre ordinateur avec un câble USB. Vous devez [configurer le périphérique pour le développement](https://developer.android.com/training/basics/firstapp/running-app.html). Si vous effectuez le développement sur un ordinateur Windows, vous devez également télécharger et installer un pilote USB.
 
-2. Pour exécuter le projet dans l’émulateur Android, vous devez définir au moins un AVD (Android Virtual Device - appareil virtuel Android). Utilisez l’icône du gestionnaire AVD pour créer et gérer ces appareils.
+2. Pour assurer l’exécution avec l’émulateur Android, vous devez définir au moins un appareil virtuel Android (AVD - Android Virtual Device). Utilisez l’icône du gestionnaire AVD pour créer et gérer ces appareils.
 
 3. À partir du menu **Exécuter**, cliquez sur **Exécuter** pour lancer le projet et choisissez un périphérique ou un émulateur dans la boîte de dialogue qui s’affiche.
 
@@ -39,4 +39,4 @@ Vous pouvez exécuter l’application en utilisant l’émulateur ou un périph�
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

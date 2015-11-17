@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Utilisation de Chrome Postman avec Azure Search | Microsoft Azure"
+	pageTitle="Utilisation de Chrome Postman avec Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Utilisez Postman Chrome avec le service de recherche hébergé dans le cloud Azure Search. Installez et configurez Postman. Création d'un index Azure Search Validez des documents et l’index de requête avec Postman."
 	services="search"
 	documentationCenter=""
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # Utilisation de Chrome Postman avec Azure Search #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") est un outil fourni avec Google Chrome, permettant aux développeurs de travailler efficacement avec des services API REST comme Azure Search. Vous pouvez utiliser Postman pour rapidement créer et interroger vos index de recherche en envoyant des appels API via Postman sans être obligé d’écrire du code. Cette approche est un moyen efficace d'apprendre l'API et de tester de nouvelles fonctionnalités.
 
@@ -118,4 +124,4 @@ Vous pouvez également obtenir d'autres exemples grâce aux [vidéos et didactic
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
