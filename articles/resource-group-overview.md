@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/27/2015"
+   ms.date="11/09/2015"
    ms.author="tomfitz"/>
 
 # Présentation d’Azure Resource Manager
@@ -123,11 +123,12 @@ Pour plus d’informations sur l’API REST, voir [Référence sur l’API REST 
 
 Pour plus d’informations sur l’utilisation du portail en version préliminaire, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
+Azure Resource Manager prend en charge le partage des ressources cross-origin (CORS). CORS permet d’appeler l’API REST Resource Manager ou une API REST du service Azure à partir d’une application web qui se trouve dans un domaine différent. Sans la prise en charge de CORS, le navigateur web empêcherait une application d’un domaine d’accéder aux ressources d’un autre domaine. Resource Manager active CORS pour toutes les demandes associées à des informations d’authentification valides.
 
 ## Étapes suivantes
 
 - Pour en savoir plus sur la création de modèles, consultez [Création de modèles](./resource-group-authoring-templates.md).
-- Pour déployer le modèle créé, consultez [Déploiement de modèles](resource-group-template-deploy.md).
+- Pour déployer le modèle créé, consultez [Déploiement de modèles](resource-group-template-deploy.md)
 - Pour comprendre les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions de modèle](./resource-group-template-functions.md).
 - Pour obtenir des instructions sur la conception de vos modèles, consultez [Meilleures pratiques relatives à la conception des modèles Azure Resource Manager](best-practices-resource-manager-design-templates.md).
 
@@ -135,4 +136,4 @@ Voici une vidéo de cette présentation :
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

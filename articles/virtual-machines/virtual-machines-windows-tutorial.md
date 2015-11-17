@@ -24,11 +24,11 @@
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle de déploiement classique.
+<br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
 
 
 
-Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure en seulement quelques minutes dans le portail en version préliminaire. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure en version préliminaire, et ce, en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
 Vous pouvez également créer des machines virtuelles à l’aide de vos propres images, de modèles Resource Manager ou d’outils d’automatisation. Pour en savoir plus sur les différentes méthodes, consultez la page [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md).
 
@@ -44,7 +44,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 ## Sélectionnez l'image
 
-1. Connectez-vous au [portail en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au portail Azure en version préliminaire.
 
 2. Dans le menu Hub, cliquez sur **Nouveau** > **Calcul** > **Windows Server 2012 R2 Datacenter**.
 
@@ -88,7 +88,7 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 
 >[AZURE.NOTE]Pour des conseils concernant les exigences et le dépannage, consultez [Connexion d'une machine virtuelle Azure à l'aide de RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Si ce n’est pas déjà fait, connectez-vous au [portail en version préliminaire](https://portal.azure.com).
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure en version préliminaire.
 
 2. Cliquez sur votre machine virtuelle dans le Tableau d’accueil. Si vous devez la rechercher, cliquez sur **Rechercher tout** > **Récent** ou **Rechercher tout** > **Machines virtuelles**. Sélectionnez ensuite votre machine virtuelle dans la liste.
 
@@ -96,7 +96,7 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 
 	![Connexion à la machine virtuelle](./media/virtual-machines-windows-tutorial/connect_vm_portal.png)
 
-4. Cliquez sur **Ouvrir** pour utiliser le fichier de protocole RDP qui est créé automatiquement pour la machine virtuelle Windows Server.
+4. Cliquez sur **Ouvrir** pour utiliser le fichier de protocole RDP (Remote Desktop Protocol) automatiquement créé pour la machine virtuelle Windows Server.
 
 5. Cliquez sur **Connecter**.
 
@@ -111,4 +111,4 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
 * Automatisez le déploiement et la gestion de la machine virtuelle et de la charge de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

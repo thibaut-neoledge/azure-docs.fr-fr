@@ -63,7 +63,7 @@ Pour la prise en charge de l’application, un conteneur est créé dans Azure 
 
 	- **[account-name]** : nom du compte de stockage que vous avez créé précédemment.
 
-	- **[account-key]** : clé primaire du compte de stockage. Vous pouvez trouver la clé primaire dans la page Stockage du portail Azure.
+	- **[account-key]** : clé primaire du compte de stockage. Vous pouvez trouver la clé primaire dans la page Stockage du portail Azure en version préliminaire.
 
 2. Enregistrez le fichier App.config.
 
@@ -487,7 +487,7 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 			Task status: Completed
 			Task start: 7/17/2015 8:31:57 PM
 
-8. À ce stade, vous pouvez accéder au portail Azure pour examiner les ressources qui ont été créées. Pour supprimer les ressources, appuyez sur Entrée jusqu’à ce que le programme se termine.
+8. À ce stade, vous pouvez accéder au portail Azure en version préliminaire pour examiner les ressources qui ont été créées. Pour supprimer les ressources, appuyez sur Entrée jusqu’à ce que le programme se termine.
 
 ## Étapes suivantes
 
@@ -495,4 +495,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

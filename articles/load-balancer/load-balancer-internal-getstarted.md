@@ -23,6 +23,7 @@
 
 L’équilibrage de charge interne (ILB) d’Azure permet l’équilibrage de charge entre les machines virtuelles qui résident dans un service cloud ou un réseau virtuel avec une portée régionale. Pour plus d’informations sur l’utilisation et la configuration des réseaux virtuels avec une portée régionale, consultez [Réseaux virtuels régionaux](virtual-networks-migrate-to-regional-vnet.md). Les réseaux virtuels existants qui ont été configurés pour un groupe d'affinités ne peuvent pas utiliser l'ILB.
 
+
 ## Pour créer un jeu d’équilibrage de charge interne pour les machines virtuelles
 
 Pour créer un jeu d'équilibrage de charge interne Azure et les serveurs qui y enverront leur trafic, vous devez procéder comme suit :
@@ -332,4 +333,4 @@ Pour obtenir plus d’informations sur les applets de commande d’équilibrage 
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

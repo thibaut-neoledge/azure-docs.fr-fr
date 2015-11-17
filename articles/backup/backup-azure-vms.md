@@ -70,13 +70,13 @@ Vous inscrivez une machine virtuelle Azure pour l’associer au service Azure Ba
 
     ![inscrire le travail](./media/backup-azure-vms/register-create-job.png)
 
-   La machine virtuelle est également affichée dans la liste des éléments inscrits avec l’état de l’opération d’inscription.
+    La machine virtuelle est également affichée dans la liste des éléments inscrits avec l’état de l’opération d’inscription.
 
-    ![Registering status 1](./media/backup-azure-vms/register-status01.png)
+    ![État de l’inscription 1](./media/backup-azure-vms/register-status01.png)
 
-    When the operation completes, the status will change to reflect the *registered* state.
+    Une fois l’opération terminée, l’état change pour refléter l’état *inscrit*.
 
-    ![Registration status 2](./media/backup-azure-vms/register-status02.png)
+    ![État de l’inscription 2](./media/backup-azure-vms/register-status02.png)
 
 ## Étape 3 - Protection des machines virtuelles Azure
 Vous pouvez désormais configurer une stratégie de sauvegarde et de rétention pour la machine virtuelle. Plusieurs machines virtuelles peuvent être protégées à l’aide d’une même action de protection.
@@ -88,7 +88,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
 
     ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
 
-3. En bas de la page, cliquez sur **PROTÉGER**.
+3. En bas de la page, cliquez sur **CONNECT**.
 
     L’Assistant **Protection des éléments** s’affiche. Cet Assistant ne répertorie que les machines virtuelles qui sont inscrites et non protégées. Il permet de sélectionner les machines virtuelles que vous souhaitez protéger.
 
@@ -128,7 +128,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
     ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## Sauvegarde initiale
-Une fois la machine virtuelle protégée par une stratégie, elle apparaît sous l’onglet **Éléments protégés** avec l’état *Protégé (sauvegarde initiale en attente)*. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
+Une fois la machine virtuelle protégée par une politique, elle apparaît sous l’onglet **Éléments protégés**, à l’état *Protégé* (sauvegarde initiale en attente). Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
 Pour déclencher la sauvegarde initiale immédiatement après la configuration de la protection :
 
@@ -161,4 +161,4 @@ Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuel
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

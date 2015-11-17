@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créer et gérer un pool élastique de base de données SQL à l’aide de PowerShell | Microsoft Azure"
-	description="Créer un seul pool de ressources à partager dans un groupe de bases de données SQL Azure."
+	pageTitle="Créer un pool élastique de bases de données SQL Azure avec le portail Azure en version préliminaire | Microsoft Azure"
+	description="Créez un pool élastique de base de données pour partager des ressources sur plusieurs bases de données de Azure SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -10,24 +10,26 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/29/2015"
+	ms.date="11/06/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"/>
 
 
-# Créer un pool de base de données élastique
+# Créer un pool élastique de bases de données avec le portail Azure en version préliminaire.
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
-- [C#](sql-database-client-library.md)
+- [Azure preview portal](sql-database-elastic-pool-portal.md)
+- [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-Cet article vous montre comment créer un pool de bases de données élastiques, qui simplifie le processus de création, de maintenance et de gestion des performances et le coût pour plusieurs bases de données. Avant de commencer, vous devez avoir au moins une base de données sur un serveur SQL Database V12. Dans le cas contraire, consultez [Création de votre première base de données SQL Azure](sql-database-get-started.md) pour en créer une en moins de cinq minutes.
+Cet article vous montre comment créer un [pool élastique de bases de données](sql-database-elastic-pool.md) en utilisant le portail Azure en version préliminaire.
+
+> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server.md) en une seule étape.
 
 
-> [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12.
+Avant de commencer, vous avez besoin d’une base de données sur un serveur SQL Database V12. Dans le cas contraire, consultez [Création de votre première base de données SQL Azure](sql-database-get-started.md) pour en créer une en moins de cinq minutes. Ou si vous disposez déjà d’un serveur de base de données SQL V11, vous pouvez [assurer la mise à niveau vers V12 dans le portail](sql-database-v12-upgrade.md), puis revenir et suivre les instructions ci-après pour créer un pool.
 
 
 ## Étape 1 : ajouter un pool à un serveur
@@ -44,7 +46,7 @@ Dans le [portail Azure en version préliminaire](https://ms.portal.azure.com/), 
 Si vous voyez un message indiquant un pool recommandé pour un serveur, cliquez dessus pour l'examiner et créer facilement un pool qui est optimisé pour les bases de données de votre serveur. Pour plus d'informations, consultez [Pools de base de données élastiques recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools).
    
   
-   ![Créer un pool élastique][1]
+![Créer un pool élastique][1]
 
 
 Le volet **Pool de bases de données élastiques** fournit des options pour choisir le niveau de tarification, ajouter des bases de données et configurer les caractéristiques de performances du pool.
@@ -106,7 +108,7 @@ Il existe trois paramètres configurables qui définissent les performances pou
 
 | Paramètre de performance | Description |
 | :--- | :--- |
-| **POOL eDTU** : nombre d'eDTU garanti pour le pool | Il s'agit du nombre d'eDTU garanti disponibles et partagées par toutes les bases de données dans le pool. <br> Le nombre d'eDTU garanti spécifique pour un groupe doit être configuré en tenant compte de l'utilisation historique des eDTU du groupe. Cette taille peut également être définie par le nombre d'eDTU garanti souhaité par base de données et l'utilisation simultanée des bases de données actives. Le nombre d'eDTU garanti pour le pool dépend également de la quantité de stockage disponible pour le pool. Pour chaque eDTU que vous allouez au pool, vous obtenez une quantité de stockage de base de données fixe. <br> **Quelle valeur définir pour le nombre d'eDTU garanti pour le pool ?** <br>Au minimum, vous devez définir le nombre d'eDTU garanti pour le pool sur ([nombre de bases de données] x [utilisation moyenne des eDTU par base de données]). |
+| **POOL eDTU** : nombre d'eDTU garanti pour le pool | Il s'agit du nombre d'eDTU garanti disponibles et partagées par toutes les bases de données dans le pool. <br> Le nombre d'eDTU garanti spécifique pour un groupe doit être configuré en tenant compte de l'utilisation historique des eDTU du groupe. Cette taille peut également être définie par le nombre d'eDTU garanti souhaité par base de données et l'utilisation simultanée des bases de données actives. Le nombre d'eDTU garanti pour le pool dépend également de la quantité de stockage disponible pour le pool. Pour chaque eDTU que vous allouez au pool, vous obtenez une quantité de stockage de base de données fixe. <br> **Quelle valeur définir pour le nombre d'eDTU garanti pour le pool ?** <br>Au minimum, vous devez définir le nombre d’eDTU garanti pour le pool sur ([nombre de bases de données] x [utilisation moyenne des eDTU par base de données]) |
 | **eDTU MIN** : nombre d'eDTU garanti pour chaque base de données | Le nombre d'eDTU garanti (eDTU guarantee) par base de données est le nombre d'eDTU garanti pour une base de données unique. Dans les pools Standard, vous pouvez, par exemple, définir ce nombre garanti sur 0, 10, 20, 50 ou 100 eDTU, ou vous pouvez choisir de ne pas fournir une garantie aux bases de données dans le groupe (eDTU MIN=0). <br> **Quelle valeur définir pour le nombre d'eDTU garanti par base de données ?** <br> En règle générale, le nombre d'eDTU garanti par base de données (eDTU MIN) est défini sur n'importe quelle valeur comprise entre 0 et l'([utilisation moyenne par base de données]). Le nombre d'eDTU garanti par base de données est un paramètre global qui définit le nombre d'eDTU garanti pour toutes les bases de données dans le pool. |
 | **eDTU MAX** : nombre d'eDTU maximal par base de données | L’eDTU MAX par base de données est le nombre maximum d'eDTU qu'une base de données unique peut utiliser. Définissez un nombre d'eDTU maximal par base de données suffisamment élevé pour gérer les rafales ou les pics que vos bases de données peuvent rencontrer. Vous pouvez définir ce seuil jusqu'à la limite du système, qui dépend du niveau de tarification du pool (1 000 eDTU en mode Premium) Le niveau spécifique de ce seuil doit tenir compte de modèles de pic d'utilisation des bases de données au sein du groupe. Une certaine allocation excessive du groupe est attendue dans la mesure où le pool prend généralement en compte des modèles de creux et de pics d'utilisation des bases de données dans lesquels toutes les bases de données ne connaissent pas simultanément des pics d'utilisation.<br> **Quelle valeur définir pour le nombre d'eDTU maximal par base de données ?** <br> Définissez eDTU MAX (nombre maximal d'eDTU par base de données) sur le ([pic d'utilisation de la base de données]). Par exemple, supposons que le pic d'utilisation par base de données est 50 UDBD et que 20 % des 100 bases de données du groupe connaissent simultanément un pic d'utilisation. Si le nombre d'eDTU maximal par base de données est défini sur 50 eDTU, vous pouvez envisager une allocation 5 fois plus élevée du pool et définir le nombre d'eDTU garanti pour le groupe (POOL eDTU) sur 1 000 eDTU. Il est également à noter que le nombre d'eDTU maximal n'est pas une garantie de ressource pour une base de données. Il s'agit d'un plafond du nombre d'eDTU qui peut être atteint s'il est défini. |
 
@@ -146,7 +148,7 @@ Après avoir créé un pool élastique de bases de données, vous pouvez surveil
 
 Après avoir créé un pool, vous pouvez :
 
-- Sélectionner **Configurer le pool** pour modifier les paramètres d'eDTU par pool et par base de données.
+- Sélectionner **Configurer le pool** pour modifier les paramètres d’eDTU par pool et par base de données.
 - Sélectionner **Créer une tâche** et gérer les bases de données dans le pool en créant des tâches élastiques. Les tâches élastiques vous permettent d'exécuter des scripts Transact-SQL, quel que soit le nombre de bases de données dans le pool. Pour en savoir plus, consultez [Vue d'ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md).
 - Sélectionner **Gérer les tâches** pour gérer les travaux élastiques existants.
 
@@ -199,4 +201,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

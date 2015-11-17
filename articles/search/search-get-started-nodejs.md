@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main d’Azure Search dans NodeJS | Microsoft Azure"
+	pageTitle="Prise en main d’Azure Search dans NodeJS | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Guide de création d’une application de recherche sur un service de recherche Azure hébergée dans le cloud en utilisant le langage de programmation NodeJS."
 	services="search"
 	documentationCenter=""
@@ -147,4 +147,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

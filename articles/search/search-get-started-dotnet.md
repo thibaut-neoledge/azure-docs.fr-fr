@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main de votre première application Azure Search dans .NET | Microsoft Azure"
+	pageTitle="Prise en main de votre première application Azure Search dans .NET | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Didacticiel sur la création d'une solution Visual Studio à l'aide de la bibliothèque cliente .NET à partir du kit de développement logiciel (SDK) .NET Azure Search."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
