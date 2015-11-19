@@ -99,4 +99,4 @@ Cliquez sur la page **Bienvenue** pour modifier le texte s’affichant sur la pa
 [amorçage]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
