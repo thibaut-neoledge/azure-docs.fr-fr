@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
 	manager="udayh"
-	editor="inhenk"/>
+	editor="curtand"/>
 
 <tags
 	ms.service="active-directory-ds"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="11/09/2015"
 	ms.author="maheshu"/>
 
 # Services de domaine Azure AD *(version préliminaire)* : prise en main
@@ -21,9 +21,10 @@
 ## Instructions pour sélectionner un réseau virtuel Azure
 Quand vous sélectionnez un réseau virtuel en vue de l’utiliser avec les services de domaine Azure AD, gardez à l’esprit les instructions suivantes :
 
-- Veillez à sélectionner un réseau virtuel dans une région qui est prise en charge par les services de domaine Azure AD. La liste actuelle des régions Azure prises en charge est disponible dans la [page Régions](active-directory-ds-regions.md).
+- Veillez à sélectionner un réseau virtuel dans une région qui est prise en charge par les services de domaine Azure AD. La liste actuelle des régions Azure prises en charge est disponible dans la [page Régions](https://azure.microsoft.com/regions/#services).
 - Si vous prévoyez d’utiliser un réseau virtuel existant, assurez-vous qu’il s’agit d’un réseau virtuel régional. Les réseaux virtuels qui recourent au mécanisme des groupes d’affinités hérité ne peuvent pas être utilisés avec les services de domaine Azure AD. Dans ce cas de figure, vous devez [migrer les réseaux virtuels hérités vers des réseaux virtuels régionaux](../virtual-networks-migrate-to-regional-vnet.md).
 - Sélectionnez le réseau virtuel qui héberge actuellement, ou qui hébergera, des machines virtuelles ayant besoin d’accéder aux services de domaine Azure AD. Vous ne pourrez pas déplacer les services de domaine vers un autre réseau virtuel ultérieurement.
+- Les services de domaine Azure AD ne sont pas pris en charge avec les réseaux virtuels créés à l’aide d’Azure Resource Manager.
 
 
 ## Étape 2 : créer un réseau virtuel Azure
@@ -55,4 +56,4 @@ Effectuez les étapes de configuration suivantes pour créer un réseau virtuel 
 ---
 [**Étape suivante : activer les services de domaine Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

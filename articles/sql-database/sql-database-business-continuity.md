@@ -68,6 +68,9 @@ Le tableau suivant montre les différences entre les fonctionnalités de continu
 
 Ces fonctionnalités sont fournies pour résoudre les scénarios répertoriés ci-dessus. Reportez-vous à la section [Conception pour la continuité des activités](sql-database-business-continuity-design.md) pour savoir comment sélectionner la fonctionnalité spécifique.
 
+> [AZURE.NOTE]Les valeurs ERT et RPO sont des objectifs d’ingénierie et sont indiquées à titre de conseil uniquement. Elles ne font pas partie du [contrat SLA pour Base de données SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_0/)
+
+
 ###Limite de restauration dans le temps
 
 La Limite de restauration dans le temps est conçue pour restaurer votre base de données selon un point antérieur dans le temps. Elle utilise les sauvegardes de base de données, les sauvegardes incrémentielles et les sauvegardes de journaux de transactions que le service gère automatiquement pour chaque base de données utilisateur. Cette fonctionnalité est disponible pour tous les niveaux de service. Vous pouvez revenir en arrière 7 jours avec le niveau de base, 14 jours avec le niveau standard et 35 jours avec le niveau Premium. Consultez [Récupération après une erreur humaine](sql-database-user-error-recovery.md) pour savoir comment utiliser la limite de restauration dans le temps.
@@ -88,4 +91,4 @@ La géo-réplication active est disponible pour les bases de données Premium. E
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

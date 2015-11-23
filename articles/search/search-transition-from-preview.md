@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transition de la version préliminaire api-version=2014* vers api-version=2015*" 
+	pageTitle="Transition de la version préliminaire api-version=2014* vers api-version=2015* | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Découvrez les dernières modifications et apprenez à faire migrer le code écrit pour la version 2014-07-31-preview ou 2014-10-20-preview vers Azure Search, api-version = 2015-02-28." 
 	services="search" 
 	documentationCenter="" 
@@ -22,8 +22,8 @@ Azure Search est un service de recherche cloud hébergé sur Microsoft Azure. Le
 
 En tant que client de la version préliminaire, vous avez peut-être utilisé l’une de ces anciennes versions préliminaires :
 
-- [2014-07-31-Preview](search-api-2014-07-31-preview.md) ;
-- [2014-10-20-Preview](search-api-2014-10-20-preview.md).
+- 2014-07-31-Preview ;
+- 2014-10-20-Preview.
 
 À présent qu’Azure Search est mis à la disposition générale, nous encourageons la transition vers des versions plus récentes : 2015-02-28 constitue la version d’API officielle de la version mise à la disposition générale d’Azure Search. Cette version est documentée sur [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
@@ -144,4 +144,4 @@ La version d’API `2015-02-28` est sous contrat SLA. Utilisez les options de s
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

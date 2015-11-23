@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/17/2015"
+   ms.date="11/10/2015"
    ms.author="maroche"/>
 
 
@@ -44,6 +44,7 @@ La version préliminaire d’**Azure Data Catalog** prend en charge les types d�
 | Experts | Des experts peuvent être fournis au niveau des ressources de données. Les experts identifient les utilisateurs ou groupes avec des perspectives d’expert sur les données et peuvent servir de points de contact pour les utilisateurs qui détectent les sources de données inscrites et se posent des questions auxquelles les annotations existantes n’apportent pas de réponse. |
 | Demander l'accès | Des informations d’accès de requête peuvent être fournies au niveau des ressources de données. Ces informations sont destinées aux utilisateurs qui détectent une source de données à laquelle ils ne sont pas encore autorisés à accéder. Les utilisateurs peuvent saisir l’adresse de messagerie de l’utilisateur ou du groupe qui accorde l’accès ou l’URL du processus ou de l’outil dont les utilisateurs ont besoin pour obtenir l’accès. Ils peuvent également indiquer le processus lui-même sous forme de texte. |
 
+
 ## Annotation de plusieurs ressources
 Lorsque vous sélectionnez plusieurs ressources de données dans le portail **Azure Data Catalog**, les utilisateurs peuvent annoter toutes les ressources sélectionnées en une seule opération. Les annotations s’appliqueront à toutes les ressources sélectionnées, favorisant ainsi la sélection et la fourniture d’une description cohérente et de jeux de balises et d’experts pour les ressources de données associées.
 
@@ -57,4 +58,4 @@ Les métadonnées extraites à partir de la source de données lors de l’inscr
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** favorise la détection des données. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, les utilisateurs peuvent fournir des annotations pour faciliter la détection et la compréhension des données via le portail **Azure Data Catalog**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

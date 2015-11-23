@@ -41,7 +41,7 @@ Les messages Appareil vers cloud respectent les recommandations de débit souten
 | S1 | jusqu’à 8 Ko/h par appareil | moyenne de 4 messages/heure par appareil |
 | S2 | jusqu’à 4 Ko/min par appareil | moyenne de 2 messages/min par appareil |
 
-Lors de la réception des messages appareil vers cloud, l’application principale peut attendre les débits maximum suivants (pour tous les lecteurs).
+Lors de la réception des messages appareil vers cloud, l’application principale peut attendre le débit maximal suivant (pour tous les lecteurs).
 
 | Niveau | Débit soutenu |
 | ---- | -------------------- |
@@ -73,4 +73,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

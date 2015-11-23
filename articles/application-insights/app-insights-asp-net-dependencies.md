@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
 * Java
  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
 
-Vous pouvez écrire vos propres appels SDK pour surveiller d'autres dépendances à l'aide de la [TrackDependency API] (app-insights-api-custom-events-metrics.md #track dependency.
+Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d'autres dépendances à l'aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Pour configurer la surveillance des dépendances
@@ -59,7 +59,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
     ![Connectez-vous à Azure avec les informations d’identification de votre compte Microsoft.](./media/app-insights-asp-net-dependencies/appinsights-035-signin.png)
 
-    *Des erreurs de connexion ? Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
+    *Erreurs de connexion Consultez la rubrique [Résolution des problèmes](#troubleshooting).*
 
 5. Sélectionnez l’application web installée ou le site web à surveiller, puis configurez la ressource dans laquelle vous voulez afficher les résultats dans le portail Application Insights.
 
@@ -88,7 +88,7 @@ Lorsque l'Assistant est terminé, vous pouvez reconfigurer l'agent à tout momen
 ![Click the Application Insights icon on the task bar](./media/app-insights-asp-net-dependencies/appinsights-033-aicRunning.png)
 
 
-### Si votre application s’exécute en tant que qu’application web Azure
+### Si votre application s’exécute en tant qu’application web Azure
 
 Dans le panneau de configuration de votre application web Azure, ajoutez l’extension Application Insights.
 
@@ -153,7 +153,7 @@ Le module de suivi des dépendances standard découvre automatiquement les dépe
 
 Vous pouvez écrire du code qui envoie des informations de dépendance, en utilisant la même [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que celle utilisée par les modules standard.
 
-Par exemple, si vous générez votre code avec un assembly que vous n’avez pas écrit vous-même, vous pouvez minuter tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
+Par exemple, si vous générez votre code avec un assembly que vous n’avez pas écrit vous-même, vous pouvez minuter tous les appels vers cet assembly afin de déterminer sa contribution dans votre temps de réponse. Pour afficher ces données dans les graphiques de dépendance d’Application Insights, envoyez-les en utilisant `TrackDependency`.
 
 ```C#
 
@@ -202,4 +202,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -98,10 +98,10 @@ Vous disposez maintenant d'une nouvelle machine virtuelle Windows nommée MyWind
 
 [Création d’une machine virtuelle Windows avec le Gestionnaire de ressources Azure et PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Création d’une machine virtuelle Windows avec PowerShell et le Gestionnaire de ressources Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Créer des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Documentation sur les machines virtuelles](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Installation et configuration d’Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

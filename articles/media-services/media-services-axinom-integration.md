@@ -196,15 +196,17 @@ Amorce de clé|Doit être utilisé pour générer la clé de contenu avec un ID 
 URL d’acquisition de licence Widevine.|Doit être utilisé dans la configuration de la stratégie de remise de l’élément multimédia de diffusion en continu DASH (consultez [cette](media-services-axinom-integration.md#content-protection) section).
 ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendication Entitlement Message du jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section). 
 
+
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ###Remerciements 
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

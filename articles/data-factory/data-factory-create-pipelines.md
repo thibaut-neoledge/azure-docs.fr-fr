@@ -224,7 +224,7 @@ Le tableau suivant décrit les propriétés dans les définitions JSON du pipeli
 
 Balise | Description | Requis
 --- | ----------- | --------
-name | Nom de l'activité ou du pipeline. Spécifiez un nom qui représente l'action que l'activité ou le pipeline doit exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un nombre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « \* », « % », « & », « : », « \\ »</li></ul>|Oui
+name | Nom de l'activité ou du pipeline. Spécifiez un nom qui représente l'action que l'activité ou le pipeline doit exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un nombre ou un trait de soulignement (_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul>|Oui
 Description | Texte décrivant l’utilisation de l'activité ou du pipeline | Oui
 Type | Spécifie le type de l'activité. Consultez les articles [Activités de déplacement des données](data-factory-data-movement-activities.md) et [Activités de transformation des données](data-factory-data-transformation-activities.md) pour différents types d'activités. | Oui
 Entrées | Tables d'entrées utilisées par l'activité<p>// une table d'entrée<br/>« entrées » : [ { « nom » : « inputtable1 » } ],</p><p>// deux tables d'entrée<br/>« entrées » : [ { « nom » : « inputtable1 » }, { « nom » : « inputtable2 » } ],</p> | Oui
@@ -310,8 +310,7 @@ Une fois qu'un pipeline est déployé, vous pouvez gérer et surveiller les pipe
 - Comprendre [la gestion et la surveillance dans Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Générer et déployer votre premier pipeline](data-factory-build-your-first-pipeline.md). 
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-pipelines.md).
+
  
 
    
@@ -336,4 +335,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

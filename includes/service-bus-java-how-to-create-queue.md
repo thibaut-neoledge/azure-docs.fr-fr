@@ -19,11 +19,11 @@ Pour commencer à utiliser les files d'attente Service Bus dans Azure, vous deve
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail de gestion Azure][].
+1.  Connectez-vous au [portail Azure][].
 
-2.  Dans le volet de navigation gauche du portail de gestion, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail de gestion, cliquez sur **Créer**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**. ![](./media/service-bus-java-how-to-create-queue/sb-queues-03.png)
 
 4.  Dans la boîte de dialogue **Add a new namespace**, entrez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible. ![](./media/service-bus-java-how-to-create-queue/sb-queues-04.png)
 
@@ -35,11 +35,11 @@ Pour créer un espace de noms de service :
 
 	![](./media/service-bus-java-how-to-create-queue/getting-started-multi-tier-27.png)
 
-L'espace de noms que vous avez créé apparaît alors dans le portail de gestion. Son activation peut prendre un peu de temps. Attendez que l'état de l’espace de noms soit **Actif** avant de continuer.
+L’espace de noms que venez de créer apparaît alors dans le portail Azure. Son activation peut prendre un certain temps. Attendez que l'état de l’espace de noms soit **Actif** avant de continuer.
 
 ## Obtention d’informations d’identification de gestion par défaut pour l’espace de noms
 
-Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles sur le portail de gestion Azure.
+Afin d’effectuer des opérations de gestion, comme la création d’une file d’attente, sur le nouvel espace de noms, vous devez obtenir les informations de gestion associées. Ces informations d’identification sont disponibles dans le portail Azure.
 
 ###Pour obtenir les informations de gestion du portail
 
@@ -51,9 +51,8 @@ Afin d’effectuer des opérations de gestion, comme la création d’une file d
 
 4.  Notez la clé primaire ou copiez-la dans le Presse-papiers.
 
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [portail de gestion Azure]: http://manage.windowsazure.com
+  [portail Azure]: http://manage.windowsazure.com
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

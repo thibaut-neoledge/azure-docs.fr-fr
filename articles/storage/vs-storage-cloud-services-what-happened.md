@@ -3,7 +3,7 @@
 	description="Décrit ce qui se produit dans un projet services cloud une fois que vous vous connectez à un compte de stockage Azure à l’aide des services connectés de Visual Studio"
     services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Qu’est-il arrivé à mon projet services cloud (service connecté Azure Storage de Visual Studio) ?
 
@@ -43,4 +43,4 @@ Les éléments ont été créés avec la clé et la chaîne de connexion du comp
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

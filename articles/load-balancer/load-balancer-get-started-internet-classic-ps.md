@@ -1,0 +1,69 @@
+<properties 
+   pageTitle="Prise en main de la création d’un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell | Microsoft Azure"
+   description="Découvrir comment créer un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell"
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"
+/>
+<tags  
+   ms.service="load-balancer"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/23/2015"
+   ms.author="joaoma" />
+
+# Prise en main de la création d’un équilibreur de charge accessible sur Internet (classique) dans PowerShell
+
+[AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+[AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
+
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Si vous recherchez un modèle de déploiement Azure Resource Manager, accédez à la page [Prise en main de la création d’équilibreur de charge Internet à l’aide de Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+
+[AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
+
+
+
+## Configurer de l'équilibrage de charge à l'aide de PowerShell
+
+Pour configurer un équilibreur de charge à l’aide de PowerShell, procédez comme suit :
+
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+
+
+2. Après avoir créé une machine virtuelle, vous pouvez utiliser les applets de commande PowerShell pour ajouter un équilibrage de charge à une machine virtuelle dans le même service cloud.
+
+Dans l'exemple suivant, vous allez ajouter un jeu d'équilibrage de charge appelé « webfarm » au service cloud « mytestcloud » (ou myctestcloud.cloudapp.net), puis ajouter les points de terminaison de l'équilibreur de charge aux machines virtuelles nommées « web1 » et « web2 ». L'équilibreur de charge reçoit le trafic réseau sur le port 80 et effectue l'équilibrage de charge entre les machines virtuelles définies par le point de terminaison local (dans ce cas, le port 80) avec TCP.
+
+
+### Étape 1
+Créer un point de terminaison d'équilibrage de charge avec la première machine virtuelle « web1 »
+
+	Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+### Étape 2 
+
+Créer un autre point de terminaison pour la deuxième machine virtuelle « web2 » en utilisant le même nom de jeu d’équilibrage de charge
+
+	Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+## Supprimer une machine virtuelle de l’équilibreur de charge
+
+Vous pouvez utiliser Remove-AzureEndpoint pour supprimer un point de terminaison de machine virtuelle de l'équilibreur de charge
+
+	Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+
+## Étapes suivantes
+
+[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
+
+[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
+
+[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=Nov15_HO3-->

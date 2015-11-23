@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Modèle d’exportation de données Application Insights
@@ -120,43 +120,6 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     *Exemples*<br/> www.fabrikam.com<br/>www.contoso.com<br/>bretwpc711.azurewebsites.net<br/>
 
-**urlData.port**
-
-    string <telemetrytype>.urldata.port      Max: 100
-* 
-    Port de l’élément de données d’URL, s’il est représenté sur l’URL complète. Dans le cas contraire, ce champ est vide. 
-
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
-
-    *Exemples*<br/> 80<br/>443
-
-**urlData.protocol**
-
-    string <telemetrytype>.urldata.protocol      Max: 100
-* 
-    Protocole (HTTP, FTP, etc.) de l’élément de données d’URL 
-
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
-
-    *Exemples*<br/> http<br/>https
-
-**urlData.queryParameters.parameter**
-
-    string <telemetrytype>.urldata.queryparameters.parameter      Max: 100
-* 
-    Tableau des noms de paramètre de requête de l’élément de données d’URL 
-
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
-
-    *Exemples*<br/> etc<br/>extraqs<br/>pagemode<br/>pagetype
-
-**urlData.queryParameters.value**
-
-    string <telemetrytype>.urldata.queryparameters.value      Max: 100
-* 
-    Tableau des valeurs de paramètre de requête analysées à partir de l’élément de données d’URL. 
-
-    *Dérivation :* voir l’annexe concernant la transformation d’URL.
 
 
 ## availability
@@ -531,15 +494,6 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     *Exemples*<br/> 640<br/>800<br/>1 080
 
-**userAgentString**
-
-    string context.device.useragent      Max: 1000
-* 
-    Agent utilisateur du navigateur client 
-
-    *Valeur par défaut :* en cas de valeur Null, le champ est défini par défaut sur l’agent utilisateur HTTP capturé au niveau du point de terminaison de collecte de données.
-
-    *Exemples*<br/> Opera/9.80 (Windows NT 5.1) Presto/2.12.388 Version/12.17<br/>Mozilla/5.0 (iPad ; CPU OS 8\_3 comme Mac OS X) AppleWebKit/600.1.4 (KHTML, comme Gecko) Version/8.0 Mobile/12F69 Safari/600.1.4<br/>Chrome/37.0.2062.124 Safari/537.36<br/>Mozilla/4.0 (compatible ; MSIE 7.0 ; Windows NT 6.1 ; Trident/7.0 ; SLCC2 ; .NET CLR 2.0.50727 ; .NET CLR 3.5.30729 ; .NET CLR 3.0.30729 ; Media Center PC 6.0 ; .NET4.0C ; .NET4.0E)<br/>Safari/537.36<br/>+S89
 
 **aiAgentVersion**
 
@@ -581,17 +535,6 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     *Exemples*<br/> Bélarus<br/>Pays-Bas<br/>Allemagne
 
-**latitude**
-
-    long context.location.point.lat      
-* 
-    *Exemples*<br/> 53.9<br/>45.7788 
-
-**longitude**
-
-    long context.location.point.lon      
-* 
-    *Exemples*<br/> 27.5667<br/>-119.529 
 
 **state**
 
@@ -1081,4 +1024,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

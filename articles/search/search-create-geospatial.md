@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création d'une application de recherche géospatiale à l'aide du service Azure Search | Microsoft Azure" 
+	pageTitle="Création d'une application de recherche géospatiale à l'aide d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Créez une application de recherche géospatiale à l'aide de Bing et du service Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@ Pour votre apprentissage personnel, essayez d'ajouter d'autres fonctionnalités 
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

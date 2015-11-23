@@ -43,7 +43,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 Cette section vous montre comment utiliser l’option **À partir de la galerie** dans le portail Azure pour créer la machine virtuelle. Cette option propose davantage de possibilités de configuration que l'option **Création rapide**. Par exemple, si vous voulez associer une machine virtuelle à un réseau virtuel, vous devez utiliser l'option **À partir de la galerie**.
 
-> [AZURE.NOTE]Vous pouvez également faire un essai avec le [portail Azure en version préliminaire](https://portal.azure.com) pour créer une machine virtuelle, utiliser les fonctionnalités avancées de surveillance et de diagnostic des machines virtuelles, utiliser le stockage Premium, etc. Bien qu'il existe des recoupements importants entre les options de configuration d'une machine virtuelle disponibles dans les deux portails, ces options ne sont pas identiques. Par exemple, utilisez le portail en version préliminaire pour configurer une machine virtuelle avec le stockage Premium.
+> [AZURE.NOTE]Vous pouvez également faire un essai avec le portail Azure en version préliminaire (plus riche et personnalisable) pour créer une machine virtuelle, utiliser les fonctionnalités avancées de surveillance et de diagnostic, utiliser Premium Storage, etc. Bien qu'il existe des recoupements importants entre les options de configuration d'une machine virtuelle disponibles dans les deux portails, ces options ne sont pas identiques. Par exemple, utilisez le portail Azure en version préliminaire pour configurer une machine virtuelle avec Premium Storage.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
@@ -53,4 +53,4 @@ Cette section vous montre comment utiliser l’option **À partir de la galerie*
 
 - Attacher un disque pour stocker des données. Vous pouvez attacher des disques, qu'ils soient vides ou non. Pour obtenir des instructions, consultez le [didacticiel Attacher un disque de données](storage-windows-attach-disk.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -26,7 +26,8 @@ La configuration est très facile et les résultats sont visibles après quelque
 
 De quel type d’application disposez-vous ?
 
-* [Application web Azure : rôles Web et de travail](app-insights-cloudservices.md)
+* [Application Web Azure](insights-perf-analytics.md)
+* [Rôles de travail et web de l’application Azure Cloud Services](app-insights-cloudservices.md)
 * [Application web sur IIS dans Azure VM](../insights-perf-analytics.md)
 * [Application hors d’Azure](app-insights-overview.md)
 
@@ -39,4 +40,4 @@ De quel type d’application disposez-vous ?
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

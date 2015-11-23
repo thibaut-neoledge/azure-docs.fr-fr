@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview) | Microsoft Azure" 
+pageTitle="Opérations de l’indexeur (API REST du service Azure Search, version 2015-02-28-Preview) | Microsoft Azure | Service de recherche cloud hébergé" 
 description="Opérations de l'indexeur (API REST du service Azure Search : 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -776,4 +776,4 @@ Code d'état : 204 Pas de contenu en cas de réponse correcte.
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

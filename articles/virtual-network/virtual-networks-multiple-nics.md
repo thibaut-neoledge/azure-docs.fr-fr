@@ -71,6 +71,15 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |DS12|4|
 |DS13|8|
 |DS14|16|
+|D1\_v2|1|
+|D2\_v2|2|
+|D3\_v2|4|
+|D4\_v2|8|
+|D5\_v2|16|
+|D11\_v2|2|
+|D12\_v2|4|
+|D13\_v2|8|
+|D14\_v2|16|
 |G1|1|
 |G2|2|
 |G3|4|
@@ -249,4 +258,4 @@ Pour ajouter un itinéraire par défaut à la carte réseau secondaire, suivez l
 
 Pour les machines virtuelles Linux, dans la mesure où le comportement par défaut valorise un modèle de routage d’hôte faible, nous vous recommandons de limiter les cartes réseau secondaires au flux de trafic au sein du même sous-réseau. Toutefois, si certains scénarios nécessitent une connectivité à l’extérieur du sous-réseau, les utilisateurs doivent configurer un routage basé sur une stratégie afin de garantir que les trafics entrant et sortant utilisent la même carte réseau.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

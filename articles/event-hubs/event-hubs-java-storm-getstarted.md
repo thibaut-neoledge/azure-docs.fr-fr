@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des concentrateurs d’événements"
+	pageTitle="Prise en main d’Event Hubs dans Java avec Apache Storm | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en Java et à en recevoir dans un cluster Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="java"
-	ms.devlang="java"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -24,9 +24,9 @@
 
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la rubrique [Vue d’ensemble des concentrateurs d’événements].
+Pour plus d'informations, consultez la [Vue d'ensemble d’Event Hubs][].
 
-Dans ce didacticiel, vous allez apprendre comment procéder à la réception des messages dans un concentrateur d’événements à l’aide d’une application console en Java et les récupérer en parallèle à l’aide d’Apache Storm.
+Ce didacticiel explique comment collecter des messages dans un hub d’événements à l’aide d’une application console en Java et les récupérer en parallèle à l’aide d’Apache Storm.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -36,13 +36,13 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
 2. Cliquez sur **Services d’application**, sur **Service Bus**, sur **Concentrateur d’événements**, puis sur **Création rapide**.
 
    	![][1]
 
-3. Tapez le nom de votre concentrateur d’événements, sélectionnez la région de votre choix, puis cliquez sur **Créer un hub d’événements**.
+3. Attribuez un nom à votre concentrateur d’événements, sélectionnez la région souhaitée, puis cliquez sur **Créer un concentrateur d’événements**.
 
    	![][2]
 
@@ -79,14 +79,14 @@ Vous êtes maintenant prêt à exécuter les applications.
 
    	![][22]
 
-> [AZURE.NOTE]Dans le cadre de ce didacticiel, utilisez exclusivement Storm en mode local destiné au développement. Reportez-vous à la [Vue d’ensemble HDInsight Storm] et à la documentation [Apache Storm] officielle pour plus d’informations sur les déploiements et les modèles Storm.
+> [AZURE.NOTE]Dans le cadre de ce didacticiel, utilisez exclusivement Storm en mode local destiné au développement. Reportez-vous à la [Vue d’ensemble HDInsight Storm][] et à la documentation [Apache Storm][] officielle pour plus d’informations sur les déploiements et les modèles Storm.
 
 ## Étapes suivantes
 
 Les ressources suivantes sont disponibles pour les applications de développement intégrant des concentrateurs d’événements et Storm.
 
 - Le didacticiel [Analyse des données de capteur avec Storm et HDInsight] est un didacticiel présentant un scénario complet qui tire parti des concentrateurs d’événements, de Storm et de HBase pour la réception des données de capteur dans un cluster Hadoop.
-- Le didacticiel [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight] décrit la marche à suivre pour écrire des pipelines Storm en C#.
+- Le didacticiel [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight][] décrit la marche à suivre pour écrire des pipelines Storm en C#.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-storm-getstarted/create-event-hub1.png
@@ -100,14 +100,14 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des concentrateurs d’événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Vue d’ensemble HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Analyse des données de capteur avec Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Vue d’ensemble HDInsight Storm]: ../hdinsight/hdinsight-storm-overview.md
+[Analyse des données de capteur avec Storm et HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

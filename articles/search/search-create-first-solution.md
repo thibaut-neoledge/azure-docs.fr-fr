@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création de votre première solution de recherche à l'aide du service Azure Search | Microsoft Azure" 
+	pageTitle="Création de votre première solution de recherche à l'aide du service Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Créez votre première solution de recherche à l'aide du service Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -206,4 +206,4 @@ Vous pouvez également vous référer à l'[API REST Azure Search](http://msdn.m
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

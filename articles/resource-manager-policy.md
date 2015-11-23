@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="11/02/2015"
+	ms.date="11/10/2015"
 	ms.author="gauravbh;tomfitz"/>
 
 # Utiliser le service Policy pour gérer les ressources et contrôler l’accès
@@ -24,11 +24,13 @@ Vous créez des définitions de stratégies qui décrivent les actions ou les re
 
 Dans cet article, nous allons expliquer la structure de base du langage de définition de stratégies que vous pouvez utiliser pour créer des stratégies. Ensuite, nous décrirons comment vous pouvez appliquer ces stratégies au niveau de différentes étendues et, enfin, nous présenterons des exemples d'application par le biais de l'API REST.
 
+La stratégie est actuellement disponible en version préliminaire.
+
 ## Quelle est la différence avec RBAC ?
 
 Il existe quelques différences importantes entre la stratégie et le contrôle d'accès en fonction du rôle, mais la première chose à comprendre est que les stratégies et le contrôle d'accès en fonction du rôle (RBAC) fonctionnent ensemble. Pour pouvoir utiliser la stratégie, l'utilisateur doit être authentifié au moyen de RBAC. Contrairement à RBAC, la stratégie est, par défaut, un système explicite d'autorisation et de refus.
 
-Le RBAC se concentre sur les actions qu'un **utilisateur** peut effectuer selon différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
+Le contrôle d’accès en fonction du rôle (RBAC) se concentre sur les actions qu’un **utilisateur** peut effectuer selon différentes étendues. Par exemple, un utilisateur particulier est ajouté au rôle de collaborateur pour un groupe de ressources dans l'étendue de votre choix, ce qui permet à l'utilisateur d'apporter des modifications dans ce groupe de ressources.
 
 La stratégie se concentre sur les actions sur les **ressources** selon différentes étendues. Par exemple, avec les stratégies, vous pouvez contrôler les types de ressources qui peuvent être mises en service ou restreindre les emplacements dans lesquels les ressources peuvent être mises en service.
 
@@ -48,7 +50,7 @@ Une définition de stratégie est créée à l’aide de JSON. Elle se compose d
 
 Essentiellement, une stratégie contient les éléments suivants :
 
-**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d'un ensemble d'opérateurs logiques.
+**Opérateurs logiques/conditions :** ensemble de conditions qui peuvent être manipulées par le biais d’un ensemble d’opérateurs logiques.
 
 **Résultat :** résultat obtenu quand la condition est satisfaite (refus ou audit). Un résultat d’audit émet un journal de service d’événement d’avertissement. Par exemple, un administrateur peut créer une stratégie qui provoque un audit si quelqu’un crée une machine virtuelle de grande taille, puis passer en revue les journaux ultérieurement.
 
@@ -97,7 +99,7 @@ Champs : **name**, **kind**, **type**, **location**, **tags**, **tags.***.
 
 Sources : **action**.
 
-Pour obtenir plus d'informations sur les actions, consultez [RBAC - Rôles intégrés](active-directory/role-based-access-built-in-roles.md).
+Pour obtenir plus d'informations sur les actions, consultez [RBAC : rôles intégrés](active-directory/role-based-access-built-in-roles.md).
 
 ## Exemples de définition de stratégie
 
@@ -194,7 +196,7 @@ Cette section fournit des détails sur la façon dont une stratégie peut être 
 
 ### Créer la définition de stratégie avec l’API REST
 
-Vous pouvez créer une stratégie avec l'[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
+Vous pouvez créer une stratégie avec l’[API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx). L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes.
 
 Pour créer une stratégie, exécutez la commande suivante :
 
@@ -224,7 +226,7 @@ Avec un corps de demande semblable au suivant :
     }
 
 
-La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l'API, utilisez *2015-10-01-preview*. Pour plus d'informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
+La définition de la stratégie peut s’inspirer de l’un des exemples montrés plus haut. Pour la version de l’API, utilisez *2015-10-01-preview*. Pour plus d’informations et des exemples, consultez [API REST pour les définitions de stratégies](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
 ### Création d'une définition de stratégie à l'aide de PowerShell
 
@@ -250,7 +252,7 @@ Le résultat de l'exécution est stocké dans l'objet $policy, car il peut être
 
 ### Affectation de stratégie avec l’API REST
 
-Vous pouvez appliquer la définition de stratégie en fonction l'étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
+Vous pouvez appliquer la définition de stratégie en fonction l’étendue souhaitée par le biais de l'[API REST pour les affectations de stratégies](https://msdn.microsoft.com/library/azure/mt588466.aspx). L’API REST vous permet de créer et de supprimer des affectations de stratégies, ainsi que d’obtenir des informations sur les affectations existantes.
 
 Pour créer une affectation de stratégie, exécutez la commande suivante :
 
@@ -289,4 +291,4 @@ Vous pouvez obtenir, modifier ou supprimer des définitions de stratégie à l'a
 
 De même, vous pouvez obtenir, modifier ou supprimer les affectations de stratégies à l'aide des applets de commande Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment et Remove-AzureRmPolicyAssignment respectivement.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

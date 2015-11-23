@@ -79,7 +79,7 @@ Le modèle est également disponible en dehors du cours.
 
 - Commencez par [visionner la vidéo de formation](http://aka.ms/3dBlueprintTemplateVideo) afin de savoir ce qu'il peut faire.   
 - Téléchargez le [modèle Microsoft 3D Blueprint Visio](http://aka.ms/3DBlueprintTemplate).
-- Téléchargez les [symboles Cloud et Enterprise](#symbol-and-icon-sets) à utiliser avec le modèle 3D.
+- Téléchargez les [symboles Cloud et Enterprise](#drawing-symbol-and-icon-sets) à utiliser avec le modèle 3D. 
 
 Envoyez-nous un message à l'adresse [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) si vous avez des questions spécifiques auxquelles les supports de formation n'apportent pas de réponse, ou pour transmettre vos commentaires. La facilité d'utilisation est l'un des principaux objectifs du modèle, donc dites-nous ce qui fonctionne et ce qui ne fonctionne pas.
 
@@ -108,4 +108,4 @@ Microsoft publie plusieurs affiches/éléments d'infographie relatifs à l'archi
 
 ![Éléments d’infographie relatifs à l’architecture Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/05/2015"
    ms.author="alkohli" />
 
 # Utilisation du service StorSimple Manager pour surveiller votre appareil StorSimple 
@@ -47,29 +47,55 @@ Pour le même appareil, un instantané de cloud a été pris pour les données d
 
 La capacité de stockage principale, de cloud et de l’appareil peut être décrite comme suit :
 
-- **Utilisation de la capacité du stockage principal** : cette option affiche la quantité de données écrites sur les volumes StorSimple avant que les données ne soient dédupliquées et compressées. Les graphiques suivants montrent l'utilisation de la capacité de stockage principale d'un appareil StorSimple avant et après un instantané cloud. Étant donné qu'il s'agit uniquement des données de volume, un instantané cloud ne doit pas modifier le stockage principal. Comme vous pouvez le voir, le graphique n'affiche aucune différence dans l'utilisation de la capacité principale suite à un instantané cloud. Notez que l'instantané cloud a démarré à environ 14 h 00 sur l'appareil.
+###Utilisation de la capacité de stockage principal
+ 
+Ces graphiques affichent la quantité de données écrites sur des volumes StorSimple avant que les données ne soient dédupliquées et compressées. Vous pouvez afficher l'utilisation du stockage principal pour tous les volumes ou un seul volume.
 
-	![Utilisation de la capacité principale avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+Lorsque vous affichez des graphiques d'utilisation de la capacité de volume stockage principal pour tous les volumes (et non pour des volumes individuels) et exploitez les données principales dans ces deux cas, il se peut que vous détectiez une différence entre les deux nombres. Les données principales totales sur tous les volumes ne peuvent pas être ajoutées à la somme totale des données principales des volumes individuels. Cela peut être dû à l'une des opérations suivantes :
+
+- **Données d'instantané incluses pour tous les volumes** : les données principales affichées pour tous les volumes sont la somme des données principales de chaque volume et des données d'instantané. Les données principales indiquées pour un volume donné correspondent uniquement au volume de données alloué sur le volume (et n'incluent pas le volume correspondant de données d'instantané).
+
+	Cela peut également s'expliquer par l'équation suivante :
+
+	*Données principales (tous les volumes) = Somme (données principales (volume i) + volume de données d'instantané (volume i))*
 	
-	![Utilisation de la capacité principale après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
+	*avec Données principales (volume i) = Taille des données principales allouées au volume i*
+ 
+	Si les instantanés sont supprimés par le biais du service, la suppression s'effectue de façon asynchrone en arrière-plan. La mise à jour de la taille des données du volume peut prendre un certain temps après la suppression de l'instantané.
+ 
+- **Volumes avec l'analyse désactivée inclus dans tous les volumes** : si vous avez des volumes sur votre périphérique pour lequel la surveillance est désactivée, les données de surveillance pour ces volumes individuels ne seront pas disponibles dans les graphiques. Toutefois, les données pour tous les volumes dans le graphique incluent les volumes pour lesquels la surveillance est désactivée.
+ 
+- **Volumes supprimés avec des sauvegardes associées en continu inclus pour tous les volumes** : si les volumes contenant des données d'instantané sont supprimés alors que les instantanés associés existent toujours, vous pouvez détecter une différence.
+
+- **Volumes supprimés inclus pour tous les volumes** : dans certains cas, les anciens volumes peuvent exister même si ceux-ci ont été supprimés. L'effet de suppression n'est pas visible et le périphérique peut afficher moins de capacité disponible. Vous devez contacter le Support Microsoft pour supprimer ces volumes.
+
+Les graphiques suivants montrent l'utilisation de la capacité de stockage principale d'un appareil StorSimple avant et après un instantané cloud. Étant donné qu'il s'agit uniquement des données de volume, un instantané cloud ne doit pas modifier le stockage principal. Comme vous pouvez le voir, le graphique n'affiche aucune différence dans l'utilisation de la capacité principale suite à un instantané cloud. Notez que l'instantané cloud a démarré à environ 14 h 00 sur l'appareil.
+
+![Utilisation de la capacité principale avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
+
+![Utilisation de la capacité principale après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
 
-- **Utilisation de la capacité du stockage cloud** : cette option affiche la quantité de stockage cloud utilisé. Les données sont dédupliquées et compressées. Cette quantité inclut les instantanés cloud qui peuvent contenir des données qui ne sont pas reflétées dans un volume principal et qui sont conservées à des fins de rétention obligatoire ou héritée. Vous pouvez comparer les chiffres de la consommation du stockage principal et du stockage cloud pour obtenir une idée du taux de réduction des données, même si le chiffre ne sera pas exact. Les graphiques suivants montrent l'utilisation de la capacité de stockage cloud d'un appareil StorSimple avant et après un instantané cloud. L'instantané cloud a démarré à environ 14 h 00 sur l'appareil. Vous pouvez constater que la capacité du cloud a augmenté au même moment, passant de 5,73 Mo à 4,04 Go.
+###Utilisation de la capacité de stockage dans le cloud
 
-	![Utilisation de la capacité cloud avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
+Ces graphiques montrent la quantité de stockage cloud utilisé. Les données sont dédupliquées et compressées. Cette quantité inclut les instantanés cloud qui peuvent contenir des données qui ne sont pas reflétées dans un volume principal et qui sont conservées à des fins de rétention obligatoire ou héritée. Vous pouvez comparer les chiffres de la consommation du stockage principal et du stockage cloud pour obtenir une idée du taux de réduction des données, même si le chiffre ne sera pas exact. Les graphiques suivants montrent l'utilisation de la capacité de stockage cloud d'un appareil StorSimple avant et après un instantané cloud. L'instantané cloud a démarré à environ 14 h 00 sur l'appareil. Vous pouvez constater que la capacité du cloud a augmenté au même moment, passant de 5,73 Mo à 4,04 Go.
 
-	![Utilisation de la capacité cloud après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
+![Utilisation de la capacité cloud avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
+
+![Utilisation de la capacité cloud après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **Utilisation de la capacité de stockage de l'appareil** : cette option affiche l'utilisation totale pour l'appareil, qui sera supérieure à l'utilisation du stockage principal car elle inclut le niveau linéaire SSD. Ce niveau contient une quantité de données qui existe également sur les autres niveaux de l’appareil. La capacité du niveau linéaire SSD est cyclique, de sorte que lors de la réception de nouvelles données, les anciennes données sont déplacées vers le niveau HDD (elles sont alors dédupliquées et compressées).
+###Utilisation de la capacité de stockage du périphérique
 
-	Au fil du temps, l'utilisation de la capacité principale et l'utilisation de la capacité de l'appareil augmenteront en parallèle jusqu'à ce que les données commencent à être transférées vers le cloud. À ce stade, l'utilisation de la capacité de l'appareil commencera sans doute à stagner, mais l'utilisation de la capacité principale augmentera à mesure que davantage de données sont écrites.
+Ces graphiques affichent l'utilisation totale pour le périphérique. Elle sera supérieure à l'utilisation du stockage principal, car elle inclut le niveau linéaire SSD. Ce niveau contient une quantité de données qui existe également sur les autres niveaux de l’appareil. La capacité du niveau linéaire SSD est cyclique, de sorte que lors de la réception de nouvelles données, les anciennes données sont déplacées vers le niveau HDD (elles sont alors dédupliquées et compressées).
 
-	Les graphiques suivants montrent l'utilisation de la capacité de stockage principale d'un appareil StorSimple avant et après un instantané cloud. L'instantané cloud a démarré à 14 h 00 et la capacité du périphérique a commencé à diminuer à ce moment-là. L'utilisation de capacité de stockage de l’appareil a diminué, passant de 11,58 Go à 7,48 Go. Cela indique très probablement que des données non compressées au niveau linéaire SSD ont été dédupliquées, compressées et déplacées vers le niveau de disque dur. Notez que si l’appareil possède déjà une grande quantité de données dans les niveaux de SSD et de disque dur, vous ne verrez pas cette diminution. Dans cet exemple, l’appareil a une petite quantité de données.
+Au fil du temps, l'utilisation de la capacité principale et l'utilisation de la capacité de l'appareil augmenteront en parallèle jusqu'à ce que les données commencent à être transférées vers le cloud. À ce stade, l'utilisation de la capacité de l'appareil commencera sans doute à stagner, mais l'utilisation de la capacité principale augmentera à mesure que davantage de données sont écrites.
 
-	![Utilisation de la capacité de l’appareil avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
+Les graphiques suivants montrent l'utilisation de la capacité de stockage principale d'un appareil StorSimple avant et après un instantané cloud. L'instantané cloud a démarré à 14 h 00 et la capacité du périphérique a commencé à diminuer à ce moment-là. L'utilisation de capacité de stockage de l’appareil a diminué, passant de 11,58 Go à 7,48 Go. Cela indique très probablement que des données non compressées au niveau linéaire SSD ont été dédupliquées, compressées et déplacées vers le niveau de disque dur. Notez que si l’appareil possède déjà une grande quantité de données dans les niveaux de SSD et de disque dur, vous ne verrez pas cette diminution. Dans cet exemple, l’appareil a une petite quantité de données.
 
-	![Utilisation de la capacité de l’appareil après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
+![Utilisation de la capacité de l’appareil avant l'instantané cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
+
+![Utilisation de la capacité de l’appareil après l'instantané cloud](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
 
 
 ## Débit du réseau
@@ -95,4 +121,4 @@ Les graphiques ci-dessous montrent le débit du réseau pour Data 0 et Data 4,
 
 - Découvrez comment [utiliser le service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

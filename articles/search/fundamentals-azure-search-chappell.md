@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Présentation d’Azure Search | Microsoft Azure" 
+	pageTitle="Présentation d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Découvrez comment Azure Search, un service de recherche dans le cloud hébergé, peut vous aider à créer des applications de recherche avancées." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -18,7 +18,7 @@
 
 # Présentation d'Azure Search #
 
-**Résumé :** découvrez comment vous pouvez utiliser Azure Search, un service cloud entièrement géré pour effectuer des recherches avancées dans des applications web et mobiles. La recherche est typiquement le genre d'interaction que vous pouvez avoir avec les données sur le web. Elle est de plus en plus attendue dans toutes les situations de chaque application.
+**Résumé :** découvrez Azure Search, service de recherche entièrement géré sur Azure qui vous permet d'effectuer des recherches avancées dans les applications web et mobiles. La recherche est typiquement le genre d'interaction que vous pouvez avoir avec les données sur le web. Elle est de plus en plus attendue dans toutes les situations de chaque application.
 
 **Sommaire :**
 
@@ -42,4 +42,4 @@ Ce livre est une vue d'ensemble de la technologie, ainsi que des fonctionnalité
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">« Présentation d'Azure Search » (au format PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">« Présentation d'Azure Search » (au format Microsoft Word)</a> 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -63,10 +63,10 @@ Pour la prise en main d'Azure, vous pouvez bénéficier d'un [essai gratuit](htt
 
 Un compte de stockage standard vous donne accès au stockage d’objets blob, de tables, de files d’attente et de fichiers :
 
-- Le **stockage d'objets blob** stocke des données de fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. 
-- Le **stockage de tables** stocke des jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
-- Le **stockage de files d'attente** fournit une messagerie fiable pour le traitement du workflow et pour la communication entre les composants des services cloud.
-- Le **stockage de fichiers** propose un stockage partagé pour les applications héritées utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. 
+- **Blob Storage** stocke des données de fichiers. Un objet blob peut correspondre à n'importe quel type de données texte ou binaires, par exemple, un document, un fichier multimédia ou un programme d'installation d'application. Blob Storage est parfois appelé stockage d’objets. 
+- Le **stockage de table** stocke des jeux de données structurés. Le stockage de tables est un magasin de données de clés-attributs NoSQL qui permet le développement rapide et l'accès rapide à de grosses quantités de données.
+- **Queue Storage** fournit une messagerie fiable pour le traitement des flux de travail et pour la communication entre les composants des services cloud.
+- **File Storage** propose un stockage partagé pour les applications héritées utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d’application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d’un partage via l’API REST du service de stockage de fichiers. 
 
 Chaque compte de stockage standard peut contenir jusqu’à 500 To de données d’objets blob, de files d’attente, de tables et de fichiers combinées. Pour plus d’informations sur la capacité du compte de stockage standard, consultez [Objectifs de performances et évolutivité d’Azure Storage](storage-scalability-targets.md).
 
@@ -236,4 +236,4 @@ Pour la prise en main d’Azure Storage, explorez les ressources suivantes :
 - [Utilisation du stockage de files d'attente à partir de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

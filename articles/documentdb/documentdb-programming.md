@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # Programmation DocumentDB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
@@ -751,7 +751,7 @@ __.chain()
 </table>
 
 ## Prise en charge du runtime
-Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](documentdb-interactions-with-resources.md).
 
 ### Sécurité
 Les déclencheurs et les procédures stockées JavaScript sont exécutés dans le bac à sable (sandbox) de façon à ce que les effets d'un script ne soient divulgués à un autre sans passer par l'isolement de transaction de capture instantanée au niveau de la base de données. Les environnements d'exécution sont regroupés mais leur contexte est nettoyé après chaque exécution. Par conséquent, ils sont assurés d'être préservés de tout effet secondaire inattendu les uns des autres.
@@ -903,7 +903,7 @@ Ici, le pré-déclencheur devant s'exécuter avec la demande est spécifié dans
 
 ## Exemple de code
 
-Vous trouverez d’autres exemples de code côté serveur (notamment [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)) dans notre [référentiel Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+Vous trouverez d’autres exemples de code côté serveur (notamment [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) et [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) dans notre [référentiel Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Vous souhaitez partager votre remarquable procédure stockée ? Envoyez-nous une requête d’extraction !
 
@@ -921,4 +921,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

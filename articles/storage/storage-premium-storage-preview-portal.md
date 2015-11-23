@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure | Microsoft Azure"
-	description="En savoir plus sur Azure Premium Storage pour les disques. Création d'un compte Premium Storage."
+	description="Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure. Les machines virtuelles Azure des séries DS et GS prennent en charge Premium Storage."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="carolz"
+	authors="ms-prkhad"
+	manager=""
 	editor="tysonn"/>
 
 <tags
@@ -13,23 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/04/2015"
 	ms.author="tamram;selcint"/>
 
 
 # Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure
 
-## Vue d’ensemble
+## Vue d'ensemble
 
-Bienvenue aux **Disques de stockage Azure Premium** pour des machines virtuelles Azure plus rapides !
+Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent Premium Storage stockent les données sur des disques SSD. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.
 
-Avec le stockage Premium, Microsoft Azure propose deux types de stockage durable : le **Stockage Premium** et le **Stockage standard**. Le stockage Premium stocke les données sur des disques SSD bénéficiant de la dernière technologie, tandis que le stockage Standard stocke les données sur des disques durs.
+Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu’à 80,000 IOPS (opérations d’E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
 
-Le stockage Premium offre une prise en charge très performante et à faible latence des disques pour les charges de travail intensives d'E/S exécutées sur les machines virtuelles Azure. Vous pouvez attacher plusieurs disques de stockage Premium à une machine virtuelle. Avec le stockage Premium, vos applications peuvent utiliser jusqu’à 64 To de stockage et atteindre 80 000 IOPS (opérations d’E/S par seconde) par machine virtuelle et un débit en sortie de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
+>[AZURE.NOTE]Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
 
-Pour une prise en main du stockage Azure Premium, consultez la page [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/).
-
-Cet article offre une présentation détaillée du stockage Azure Premium.
+Pour une prise en main du stockage Azure Premium, consultez la page [Évaluation d’un mois gratuite](http://azure.microsoft.com/pricing/free-trial/). Pour plus d'informations sur la migration de vos machines virtuelles existantes vers Premium Storage, consultez [Azure Premium Storage](storage-migration-to-premium-storage.md).
 
 ## Considérations sur le stockage Premium
 
@@ -60,6 +58,8 @@ Vous pouvez utiliser le stockage Premium pour disques de deux manières :
 - Créez une machine virtuelle de série DS ou GS. Pendant la création de la machine virtuelle, vous pouvez sélectionner un compte de stockage Premium créé précédemment, en créer un ou laisser le portail Azure créer un compte Premium par défaut.
 
 Azure utilise le compte de stockage comme conteneur pour votre système d'exploitation et vos disques de données. En d’autres termes, si vous créez une machine virtuelle Azure de série DS ou GS et que vous sélectionnez un compte de stockage Azure Premium, votre système d’exploitation et les disques de données sont stockés dans ce compte de stockage.
+
+Pour plus d'informations sur la migration de vos machines virtuelles existantes vers Premium Storage, consultez [Azure Premium Storage](storage-migration-to-premium-storage.md).
 
 Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de stockage Premium de type *Premium\_LRS*. Pour ce faire, vous pouvez utiliser le [portail Microsoft Azure en version préliminaire](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) ou l'[API REST de gestion des services](http://msdn.microsoft.com/library/azure/ee460799.aspx). Pour des instructions détaillées, consultez [Création et utilisation du compte de stockage Premium pour disques](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
@@ -330,17 +330,14 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 ## Étapes suivantes
 
-[Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-[Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-
-[Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
-
-[Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
-
-[Référence MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
+- [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
+- [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
+- [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
+- [Référence MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

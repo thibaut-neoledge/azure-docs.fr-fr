@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Nouveautés des concentrateurs d'événements Azure ?"
-	description="Vue d'ensemble des concentrateurs d'événements Azure."
+	pageTitle="Qu’est-ce qu’Azure Event Hubs ? | Microsoft Azure"
+	description="Vue d’ensemble d’Azure Event Hubs"
 	services="event-hubs"
 	documentationCenter=".net"
 	authors="nberdy"
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Nouveautés des concentrateurs d'événements Azure ?
@@ -30,7 +30,7 @@ Les concentrateurs d'événements Azure constituent un service de traitement des
 
 Certaines autres fonctionnalités clés des concentrateurs d’événements sont : le suivi du comportement dans les applications mobiles, les informations sur le trafic provenant de batteries de serveurs web, la capture d'événements de jeu dans les jeux de console ou les données de télémétrie recueillies sur des machines industrielles ou des véhicules connectés.
 
-Contrairement aux [rubriques et files d'attente Service Bus](../service-bus/service-bus-messaging-overview.md), les concentrateurs d'événements servent à fournir des flux de messagerie gérés à grande échelle ? Les fonctionnalités des concentrateurs d'événements Azure diffèrent des rubriques dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les concentrateurs d'événements n'implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les [rubriques](service-bus/fundamentals-service-bus-hybrid-solutions.md#topics). Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
+Contrairement aux [rubriques et files d'attente Service Bus](../service-bus/service-bus-messaging-overview.md), les concentrateurs d'événements servent à fournir des flux de messagerie gérés à grande échelle ? Les fonctionnalités des concentrateurs d'événements Azure diffèrent des rubriques dans la mesure où elles sont fortement orientées vers le débit élevé et les scénarios de traitement des événements. Par conséquent, les concentrateurs d'événements n'implémentent pas certaines des fonctionnalités de messagerie qui sont disponibles pour les [rubriques](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). Si vous avez besoin de ces fonctionnalités, les rubriques constituent le meilleur choix.
 
 ## Étapes suivantes
 
@@ -39,10 +39,10 @@ Pour obtenir des informations détaillées sur les concentrateurs d'événements
 - [Vue d’ensemble des concentrateurs d’événements](event-hubs-overview.md)
 - [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md)
 - [Forum Aux Questions sur la disponibilité et le support des hubs d’événements](event-hubs-availability-and-support-faq.md)
-- Prise en main avec un [didacticiel des concentrateurs d'événements].
-- Un [exemple d'application complet qui utilise des concentrateurs d’événements].
+- Prise en main avec un [didacticiel des concentrateurs d'événements][].
+- Un [exemple d'application complet qui utilise des concentrateurs d’événements][].
 
-[didacticiel des concentrateurs d'événements]: service-bus-event-hubs-csharp-ephcs-getstarted.md
-[exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[didacticiel des concentrateurs d'événements]: event-hubs-csharp-ephcs-getstarted.md
+[exemple d'application complet qui utilise des concentrateurs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

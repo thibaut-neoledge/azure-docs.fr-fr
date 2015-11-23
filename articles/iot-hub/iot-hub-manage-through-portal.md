@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Utilisation du portail Azure pour gérer IoT Hub | Microsoft Azure"
-	 description="Une vue d'ensemble de la façon de créer et gérer les concentrateurs IoT Azure via le portail Azure"
+	 pageTitle="Utilisation du portail Azure en version préliminaire pour gérer IoT Hub | Microsoft Azure"
+	 description="Vue d'ensemble de la façon de créer et de gérer les concentrateurs IoT Azure via le portail Azure en version préliminaire"
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Configuration de concentrateurs IoT par le biais du portail Azure
+# Gestion de concentrateurs IoT par le biais du portail Azure en version préliminaire
 
 ## Introduction
 
-Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure, comment trouver les concentrateurs IoT et comment créer et gérer des concentrateurs IoT.
+Cet article décrit comment démarrer avec Azure IoT Hub via le portail Azure en version préliminaire, comment trouver les concentrateurs IoT et comment créer et gérer des concentrateurs IoT.
 
 ## Où trouver les concentrateurs IoT
 
@@ -153,4 +153,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

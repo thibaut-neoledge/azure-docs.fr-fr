@@ -27,7 +27,7 @@ La prise en charge d’AMQP 1.0 est disponible dans le Kit de développement lo
 
 Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
 
-Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Celles-ci sont répertoriées plus bas dans la section « Fonctionnalités non prises en charge et restrictions ». Certains paramètres de configuration avancés ont également une signification différente lors de l'utilisation d'AMQP.
+Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Celles-ci sont répertoriées plus bas dans la section [Fonctionnalités non prises en charge, restrictions et différences de comportement](#unsupported-features-restrictions-and-behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l'utilisation d'AMQP.
 
 ### Configuration à l’aide d’App.config
 
@@ -168,6 +168,7 @@ Les API .NET exposent plusieurs paramètres pour contrôler le comportement du p
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 - [Vue d’ensemble d’AMQP de Service Bus]
+- [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
 - [AMQP dans Service Bus pour Windows Server]
 
   [Utilisation des files d'attente Service Bus]: service-bus-dotnet-how-to-use-queues.md
@@ -199,6 +200,7 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
+[Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

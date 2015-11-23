@@ -2,9 +2,9 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 
-Pour plus d'informations sur les modèles de réception Event Hubs, consultez la page [Vue d'ensemble d'Event Hubs].
+Pour plus d'informations sur les modèles de réception Event Hubs, consultez la page [Vue d'ensemble d'Event Hubs][].
 
-Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
+Ce didacticiel utilise une installation [HDInsight Storm][], fournie avec la commande « spout » Event Hubs déjà disponible.
 
 1. Suivez la procédure [Prise en main de Storm avec HDInsight](../hdinsight/hdinsight-storm-overview.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 
@@ -230,4 +230,4 @@ Ce didacticiel utilise une installation [HDInsight Storm], fournie avec la comma
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

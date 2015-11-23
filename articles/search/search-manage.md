@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Gestion de votre service Search sur Microsoft Azure | Microsoft Azure" 
+	pageTitle="Gestion de votre service Search sur Microsoft Azure | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Gestion d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Les rôles offrent un contrôle d'accès après la création du service. Seuls l
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

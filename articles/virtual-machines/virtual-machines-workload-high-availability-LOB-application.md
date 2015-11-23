@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité
@@ -68,6 +68,29 @@ Cette configuration de référence requiert l’ensemble suivant de services et 
 - Un réseau virtuel entre sites locaux
 - deux comptes de stockage ;
 
+Voici les machines virtuelles et leur taille par défaut pour cette configuration.
+
+Élément | Description de la machine virtuelle | Image de galerie | Taille par défaut 
+--- | --- | --- | --- 
+1\. | Premier contrôleur de domaine | Windows Server 2012 R2 Datacenter | D1
+2\. | Deuxième contrôleur de domaine | Windows Server 2012 R2 Datacenter | D1
+3\. | Serveur de base de données primaire | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+4\. | Serveur de base de données secondaire | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | D4
+5\. | Nœud majoritaire du cluster | Windows Server 2012 R2 Datacenter | D1
+6\. | Premier serveur web | Windows Server 2012 R2 Datacenter | D3
+7\. | Deuxième serveur web | Windows Server 2012 R2 Datacenter | D3
+
+Pour calculer le coût estimé de cette configuration, consultez la [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/).
+
+1. Dans **Modules**, cliquez sur **Compute**, puis sur **Virtual Machines**, suffisamment de fois pour créer une liste de sept machines virtuelles.
+2. Pour chaque machine virtuelle, sélectionnez :
+	- votre région prévue
+	- le type **Windows**
+	- le niveau de tarification **Standard**
+	- La taille par défaut de la table précédente ou la **taille prévue des instances**
+
+> [AZURE.NOTE]La calculatrice de prix Azure n’inclut pas les coûts supplémentaires de la licence SQL Server pour les deux machines virtuelles exécutant SQL Server 2014 Enterprise. Pour plus d’informations, consultez [Tarification Virtual Machines-SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
+
 ### Phases de déploiement
 
 Pour déployer cette configuration, procédez comme suit :
@@ -106,4 +129,4 @@ Une fois la configuration effectuée, vous pouvez étendre cette application mé
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

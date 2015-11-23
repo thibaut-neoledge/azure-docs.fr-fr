@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # Version préliminaire du modèle d’application v2.0 : connecter les utilisateurs de compte Microsoft et d’Azure AD dans une même application
@@ -57,4 +57,4 @@ Les liens ci-dessous vous seront utiles pour explorer la plateforme en profondeu
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

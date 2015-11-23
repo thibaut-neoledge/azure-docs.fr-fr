@@ -208,13 +208,4 @@ Si vous avez besoin d’exécuter un pipeline tous les mois à une date et une h
 	  }
 	}
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
-
-
-
-
-
-  
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

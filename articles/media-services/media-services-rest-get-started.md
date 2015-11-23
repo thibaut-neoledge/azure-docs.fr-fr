@@ -1189,16 +1189,15 @@ Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsp
 Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
 
-##Étapes suivantes
+##Étapes suivantes : Parcours d’apprentissage Media Services
 
-###Parcours d’apprentissage de Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+##Fournir des commentaires
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Vous recherchez quelque chose d’autre ?
+## Vous recherchez quelque chose d’autre ?
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
@@ -1214,4 +1213,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

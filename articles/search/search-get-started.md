@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Prise en main d’Azure Search | Microsoft Azure" 
+	pageTitle="Prise en main d'Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Prise en main d'Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@ Vous êtes prêt à passer à l'étape suivante ? Les liens suivants fournissen
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

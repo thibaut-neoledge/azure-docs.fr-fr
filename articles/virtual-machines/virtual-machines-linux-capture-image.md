@@ -18,14 +18,14 @@
 	ms.author="dkshir"/>
 
 
-# Capture d’une machine virtuelle Linux à utiliser comme modèle
+# Capture d’une machine virtuelle Linux classique en tant qu’image
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-Cet article vous montre comment capturer une machine virtuelle Azure exécutant Linux pour l'utiliser comme modèle afin de créer d'autres machines virtuelles. Ce modèle comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Il ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles utilisant le modèle.
+Cet article vous montre comment capturer une machine virtuelle Azure classique exécutant Linux en tant qu’image pour créer d’autres machines virtuelles. Cette image comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Elle ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles à partir de l’image.
 
-Azure traite ce modèle comme une image et le stocke sous **Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
+Azure stocke l'image sous **Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
 
 ## Avant de commencer
 
@@ -89,7 +89,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 
 ## Étapes suivantes
-L'image est prête à être utilisée comme modèle pour la création de machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Consultez la rubrique [Utilisation de la CLI Azure avec l’API de gestion des services](virtual-machines-command-line-tools.md) pour plus d'informations sur la commande. Vous pouvez également utiliser le [Portail de gestion][] pour créer une machine virtuelle personnalisée en utilisant l’option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
+L'image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Pour plus d’informations sur la commande, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec la gestion des services Azure](virtual-machines-command-line-tools.md). Vous pouvez également utiliser le [portail de gestion][] pour créer une machine virtuelle personnalisée en utilisant l’option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
 
 **Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
@@ -100,4 +100,4 @@ L'image est prête à être utilisée comme modèle pour la création de machine
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

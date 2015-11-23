@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/30/2015" 
 	ms.author="bradygaster"/>
 
 # Utiliser une application API Azure à l'aide de HTML et JavaScript
@@ -141,7 +141,7 @@ Le processus d'activation de CORS dans Web API est documenté de façon détaill
 
 ## Création d'une application web pour utiliser l'application API
 
-Dans cette section, vous allez créer une nouvelle application web vide, installer et y utiliser AngularJS, et lier une application frontale HTML simple à l'application API. Vous allez déployer cette application web dans Azure App Service. L'application web HTML se liera à l'application API et affichera des données extraites de celle-ci. Elle offrira aux utilisateurs une interface utilisateur simple pour l'API Contacts.
+Dans cette section, vous allez créer une nouvelle application web vide, installer et utiliser AngularJS, et lier une application frontale HTML simple à l'application API. Vous allez déployer cette application web dans Azure App Service. L'application web HTML se liera à l'application API et affichera des données extraites de celle-ci. Elle offrira aux utilisateurs une interface utilisateur simple pour l'API Contacts.
 
 1. Cliquez avec le bouton droit de la souris sur la solution créée lors de l’étape [Créer une application API](app-service-dotnet-create-api-app.md), puis sélectionnez **Ajouter -> Nouveau projet**.
 
@@ -312,7 +312,7 @@ Dans cette section, vous allez créer une nouvelle application web vide, install
 
 1, Dans le code que vous venez d’ajouter dans le fichier index.html, remplacez le numéro de port de l’URL de base (`http://localhost:1578`) par le numéro de port réel de votre projet d’API.
 
-	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+>[AZURE.NOTE]**Remarque** N'utilisez pas le numéro de port du projet client HTML. Pour ouvrir une fenêtre de navigateur indiquant le numéro de port, cliquez avec le bouton droit sur le projet d'API, puis cliquez sur **Déboguer > Démarrer une nouvelle instance**.
 
 1. Assurez-vous que le projet d’application API est également en cours d’exécution lorsque vous lancez le client HTML. Dans le cas contraire, le code HTML JavaScript ne fonctionnera pas correctement. Cliquez avec le bouton droit sur la solution et sélectionnez **Propriétés**. Spécifiez que les deux projets web doivent s'**Exécuter sans débogage** et que le projet d'API doit s'exécuter en premier. 
 
@@ -371,4 +371,4 @@ Cet exemple a montré comment vous pouvez utiliser AngularJS comme plateforme Ja
 
 Cet exemple illustre un accès non authentifié à une application API. Pour plus d’informations sur l’authentification dans App Service, consultez la page [Authentification pour les applications d’API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

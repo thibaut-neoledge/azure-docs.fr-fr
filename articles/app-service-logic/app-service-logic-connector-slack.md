@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Utilisation du connecteur Slack dans des applications logiques | Microsoft Azure App Service"
 	description="Comment créer et configurer le connecteur Slack ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	authors="anuragdalmia" 
+	authors="rajeshramabathiran" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Prise en main du connecteur Slack et ajout de celui-ci à votre application logique
 Connectez-vous aux canaux Slack et publiez des messages à l’attention de votre équipe. Les connecteurs peuvent être utilisés dans les applications logiques dans le cadre d’un « flux de travail » pour effectuer différentes tâches. En utilisant le connecteur Slack dans votre flux de travail, vous pouvez effectuez une multitude d’opérations à l’aide des autres connecteurs. Par exemple, vous pouvez utiliser le [connecteur Facebook](app-service-logic-connector-facebook.md) dans votre flux de travail pour envoyer un message à votre canal Slack.
@@ -99,4 +99,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

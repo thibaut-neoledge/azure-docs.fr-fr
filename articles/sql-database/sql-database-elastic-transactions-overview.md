@@ -98,15 +98,36 @@ Les transactions de bases de données élastiques pour la base de données SQL p
 
 Vous pouvez automatiser l’installation et le déploiement de la version de .NET et des bibliothèques nécessaires pour les transactions de bases de données élastiques vers Azure (dans le système d’exploitation invité de votre service cloud). Pour les rôles de travail Azure, utilisez les tâches de démarrage. Les concepts et les étapes sont documentées dans [Installer .NET sur un rôle de service cloud](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/).
 
+Notez que le programme d'installation pour .NET 4.6.1 nécessite plus de stockage temporaire pendant le processus de démarrage des services cloud Azure que la version .NET 4.6. Pour garantir la réussite de l’installation, vous devez augmenter le stockage temporaire de votre service cloud Azure dans votre fichier ServiceDefinition.csdef dans la section LocalResources et les paramètres d'environnement de votre tâche de démarrage, comme illustré dans l'exemple suivant :
+
+	<LocalResources>
+	...
+		<LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+		<LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+	</LocalResources>
+	<Startup>
+		<Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+			<Environment>
+		...
+				<Variable name="TEMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+				</Variable>
+				<Variable name="TMP">
+					<RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+				</Variable>
+			</Environment>
+		</Task>
+	</Startup>
+
 ## Surveillance de l’état de transaction
 
 Utilisez les vues de gestion dynamique (DMV) dans la base de données SQL pour surveiller l’état et la progression de vos transactions de bases de données élastiques en cours. Toutes les DMV relatives aux transactions s’appliquent aux transactions distribuées dans la base de données SQL. Vous trouverez ici la liste correspondante des vues de gestion dynamique : [Fonctions et vues de gestion dynamique relatives aux transactions (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
  
 Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
-* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, voir la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
-* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, voir la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
-* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, voir la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
+* **sys.dm\_tran\_active\_transactions** : répertorie les transactions actives et leur état. La colonne UOW (Unit Of Work) peut identifier les différentes transactions enfants qui appartiennent à la même transaction distribuée. Toutes les transactions associées à la même transaction distribuée ont la même valeur UOW. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms174302.aspx).
+* **sys.dm\_tran\_database\_transactions** : fournit des informations supplémentaires sur les transactions, telles que le placement de la transaction dans le journal. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms186957.aspx).
+* **sys.dm\_tran\_locks** : fournit des informations sur les verrous maintenus par les transactions en cours. Pour plus d’informations, consultez la [documentation DMV](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ## Limites 
 
@@ -119,9 +140,9 @@ Les limites suivantes s’appliquent actuellement aux transactions de bases de d
 
 ## En savoir plus
 
-Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Windows Azure ? Découvrez notre [table de documentation](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
+Vous n’utilisez pas encore les fonctionnalités de bases de données élastiques pour vos applications Windows Azure ? Découvrez notre [parcours d’apprentissage](https://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-documentation-map/). Pour toute question, contactez-nous sur le [forum Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) et formulez vos demandes de fonctionnalités éventuelles sur le [forum de commentaires Base de données SQL](http://feedback.azure.com/forums/217321-sql-database).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

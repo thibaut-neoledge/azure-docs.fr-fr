@@ -20,7 +20,7 @@
 # Créer des machines virtuelles Windows avec PowerShell et le modèle de déploiement classique 
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -146,8 +146,8 @@ Vous pouvez éventuellement ajouter la machine virtuelle à un jeu à charge éq
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -157,7 +157,7 @@ Option 1 : créez la machine virtuelle dans un service cloud existant.
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Le nom court du service cloud est celui qui apparaît dans la liste des services cloud ou la liste des groupes de ressources dans le portail Azure en version préliminaire.
+Le nom court du service cloud est celui qui apparaît dans la liste Cloud Services dans le portail Azure ou dans la liste des groupes de ressources dans le portail Azure en version préliminaire.
 
 Option 2 : créez la machine virtuelle dans un service cloud et un réseau virtuel existants.
 
@@ -174,7 +174,7 @@ Si vous utilisez un éditeur de texte, copiez le jeu de commandes dans le Presse
 Si vous comptez créer cette machine virtuelle de nouveau ou une autre similaire, vous pouvez :
 
 - Enregistrez ce jeu de commandes en tant que fichier de script PowerShell (*.ps1).
-- Enregistrez ce jeu de commandes en tant que Runbook Azure Automation dans la section **Automation** du Portail de gestion Azure.
+- Enregistrez ce jeu de commandes en tant que runbook Azure Automation dans la section **Automation** du portail Azure.
 
 ## <a id="examples"></a>Exemples
 
@@ -265,4 +265,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

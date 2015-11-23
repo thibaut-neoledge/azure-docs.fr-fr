@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="joaoma"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/03/2015"
+   ms.date="11/09/2015"
    ms.author="joaoma"/>
 
 # Présentation de Application Gateway
@@ -52,9 +52,10 @@ L'équilibrage de charge de couche 7 HTTP est utile pour :
 
 Application Gateway est actuellement disponible en 3 tailles : Small (petite), Medium (moyenne) et Large (grande). Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
-Vous pouvez créer jusqu'à 10 passerelles Application Gateway par abonnement et chacune peut contenir jusqu'à 10 instances. L'équilibrage de charge Application Gateway sous forme de service géré par Azure permet la mise en service d'un équilibreur de charge de couche 7 derrière l'équilibreur de charge logiciel Azure.
+Vous pouvez créer jusqu'à 50 passerelles Application Gateway par abonnement et chacune peut contenir jusqu'à 10 instances. L'équilibrage de charge Application Gateway sous forme de service géré par Azure permet la mise en service d'un équilibreur de charge de couche 7 derrière l'équilibreur de charge logiciel Azure.
 
 Le tableau ci-dessous présente un débit moyen de performances pour chaque instance d'Application Gateway :
+
 
 | Réponse de la page principale | Petite | Moyenne | Grande|
 |---|---|---|---|
@@ -62,24 +63,25 @@ Le tableau ci-dessous présente un débit moyen de performances pour chaque inst
 |100k | 35 Mbits/s | 100 Mbits/s| 200 Mbits/s |
 
 
->[AZURE.NOTE]Les performances mesurées dépend également de la réponse de l'application web à Application Gateway.
+>[AZURE.NOTE]Il s'agit d’une aide approximative pour un débit de passerelle d’application. Le débit réel dépend de divers détails d'environnement tels que la taille de page moyenne, l'emplacement des instances de serveur principal, le temps de traitement d’une page par le serveur, entre autres.
 
-
-## Analyse
+## Surveillance de l’intégrité
  
-Application Gateway surveille l'état d'intégrité des instances principales à l'aide des ports des sondes en testant régulièrement la réponse HTTP à partir des sections HttpSettings de la passerelle. La sonde attend une réponse de réussite de la requête HTTP dans la plage de codes de réponse 200-390 et teste les adresses IP principale toutes les 30 secondes pour vérifier la réponse HTTP.
 
-Lorsqu'une réponse de réussite HTTP est reçue, l'adresse IP est marquée comme intègre. Si l'analyse échoue, l'adresse IP est supprimée d'un pool principal intègre et le trafic vers ce serveur est arrêté. L'analyse d'intégrité continue toutes les 30 secondes dans l'instance web ayant échoué jusqu'à ce qu'il soit de nouveau en ligne. Lorsque l'instance web répond correctement à la sonde d'intégrité, elle est ajoutée au pool principal intègre et le trafic circule de nouveau vers cette instance.
+Azure Application Gateway surveille l'intégrité des instances de serveur principal toutes les 30 secondes. Il envoie une demande de sonde d’intégrité à chaque instance du port configuré dans les éléments *BackendHttpSettings* de la configuration. La sonde d'intégrité attend une réponse HTTP réussie avec le code d'état de réponse dans la plage de 200 à 399.
+
+Lorsqu'une réponse HTTP est correctement reçue, l'adresse IP est marquée comme intègre et continue de recevoir du trafic d’Azure Application Gateway. Si la sonde échoue, l’instance de serveur principal est supprimée d’un pool principal intègre et le trafic vers ce serveur est arrêté. La sonde d'intégrité continue toutes les 30 secondes dans l'instance de serveur principal ayant échoué afin que l’état d’intégrité soit contrôlé. Lorsque l'instance du serveur principal répond correctement à la sonde d'intégrité, elle est ajoutée au pool principal intègre et le trafic circule de nouveau vers l’instance.
 
 ## Configuration et gestion
 
 Vous pouvez créer et gérer une passerelle d'application à l'aide des API REST et des applets de commande PowerShell.
 
 
+
 ## Étapes suivantes
 
-Créer une passerelle Application Gateway. Consultez [Création d'une passerelle Application Gateway](application-gateway-create-gateway.md).
+Créer une passerelle Application Gateway. Consultez [Création d’une passerelle Application Gateway](application-gateway-create-gateway.md).
 
-Configurer le déchargement SSL. Consultez [Configuration d'une passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
+Configurer le déchargement SSL. Consultez [Configuration du déchargement SSL avec une passerelle Application Gateway](application-gateway-ssl.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

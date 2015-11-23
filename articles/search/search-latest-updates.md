@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Nouveautés de la dernière mise à jour d’Azure Search | Microsoft Azure" 
+	pageTitle="Nouveautés de la dernière mise à jour d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Notes de publication relatives à Azure Search sur les dernières mises à jour du service" 
 	services="search" 
 	documentationCenter="" 
@@ -125,4 +125,4 @@ L’ajout de la version préliminaire de l’[API REST de gestion](search-manage
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

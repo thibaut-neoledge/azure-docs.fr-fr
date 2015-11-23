@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application pour utiliser une connexion par compte Microsoft
@@ -71,4 +71,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portail de gestion Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

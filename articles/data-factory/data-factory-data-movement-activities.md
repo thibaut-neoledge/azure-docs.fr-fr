@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Activités de déplacement des données
@@ -51,7 +51,10 @@ L’activité de copie sélectionne un jeu de données d’entrée (**source**) 
 L’activité de copie fournit les fonctionnalités suivantes :
 
 ### <a name="global"></a>Déplacement des données globalement disponibles
-Le service de déplacement des données de l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant les sauts entre régions dans la plupart des cas.
+Même si Azure Data Factory est disponible uniquement dans la région Ouest des États-Unis, le service de déplacement des données incluant l’activité de copie est disponible dans le monde entier, dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant les sauts entre régions dans la plupart des cas.
+
+
+Dans le cas d’une copie de données entre une source cloud et une destination cloud (par exemple : objet blob -> SQL Server), le service de déplacement des données sélectionne le déploiement le plus proche de l’emplacement de réception pour effectuer le transfert. Dans le cas d’une copie de données à partir d'une source de données locale vers le cloud ou vice versa (par exemple : copie locale SQL Server -> objets blob Azure), le déplacement des données s’effectue en fait de la passerelle de gestion des données sans intervention du service de déplacement des données.
 
 | Région | Geography |
 | ------ | --------- | 
@@ -67,6 +70,8 @@ Le service de déplacement des données de l’activité de copie est disponible
 | Asie du Sud-Est | Asie-Pacifique |
 | Est du Japon | Asie-Pacifique |
 
+
+
 ### <a name="moveonpremtocloud"></a>Déplacement en toute sécurité de données entre un site local et le cloud
 Un des défis de l’intégration de données modernes consiste à déplacer en toute transparence des données vers et depuis un site local et le cloud. La passerelle de gestion des données est un agent que vous pouvez installer en local pour créer des pipelines de données hybrides.
 
@@ -77,7 +82,7 @@ La passerelle de données offre les fonctionnalités suivantes :
 3.	Un point unique de surveillance et de gestion avec une visibilité du statut de la passerelle et un tableau de bord basé sur un cloud de fabrique de données.
 
 
-Pour plus d’informations, consultez [Déplacement des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
+Pour plus de détails, voir [Déplacement des données entre un site local et le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Déplacement fiable et économique des données
 L’activité de copie sert à déplacer de grands volumes de données de manière fiable et en évitant les erreurs temporaires entre une grande variété de sources de données. Les données peuvent être copiées selon une méthode économique avec une option permettant d'activer la compression sur le réseau.
@@ -94,12 +99,8 @@ Vous pouvez trouver le mappage d'un système de type natif donné en .NET pour l
 L’activité de copie prend en charge différents formats de fichiers, y compris les formats binaire, texte et Avro pour les magasins basés sur des fichiers. Il est possible d’utiliser l’activité de copie pour convertir des données d’un format vers un autre. Exemple : du format texte (CSV) au format Avro.
 
 ### Propriétés de l’activité de copie
-Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités. En revanche, les propriétés disponibles dans la section **typeProperties** de l’activité varient pour chaque type d’activité.
+Des propriétés telles que le nom, la description, les tables d’entrée et de sortie, différentes stratégies, etc. sont disponibles pour tous les types d'activités. En revanche, les propriétés disponibles dans la section **typeProperties** de l'activité varient pour chaque type d'activité.
 
 Pour l’activité de copie, la section **typeProperties** varie selon les types de sources et récepteurs. Chaque page spécifique du magasin de données répertoriée ci-dessus décrit les propriétés spécifiques au type de magasin de données.
 
-
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

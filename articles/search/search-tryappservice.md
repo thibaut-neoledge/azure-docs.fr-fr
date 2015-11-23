@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Essayer Azure App Service avec Azure Search | Microsoft Azure" 
+   pageTitle="Essayer Azure App Service avec Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
    description="Essayez gratuitement Azure Search, un service de recherche cloud hébergé, pendant une heure à l'aide du modèle TryAzureAppService." 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@ La capture d’écran suivante montre le schéma utilisé pour créer l’index 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -168,7 +168,7 @@ public class Job : IComparable<Job>
 }
 ```
 
-Enfin, nous implémentons précisément l'interface IJobQueue. Notez que nous avons omis ici les détails d'implémentation de la file d'attente de priorité par souci de clarté. Vous trouverez un exemple d'implémentation dans les exemples qui accompagnent ce document.
+Enfin, nous implémentons l'interface IJobQueue dans l’acteur. Notez que nous avons omis ici les détails d'implémentation de la file d'attente de priorité par souci de clarté. Vous trouverez un exemple d'implémentation dans les exemples qui accompagnent ce document.
 
 ## Exemple de code Smart Cache – File d'attente des tâches
 
@@ -240,7 +240,7 @@ Dans les exemples ci-dessus, Classement et File d'attente de tâches, nous avons
 
 * En revanche, dans l'exemple File d'attente de tâches, nous avons implémenté l'acteur comme une file d'attente de priorité plutôt qu'en faisant référence à un autre objet défini ailleurs.
 
-Les acteurs fournissent au développeur la flexibilité de définir des structures d'objet riches dans le cadre des acteurs ou de référencer des graphiques d'objets en dehors des acteurs. En termes de mise en cache, les acteurs peuvent effectuer des opérations d'écriture différées ou de double écriture, ou nous pouvons utiliser différentes techniques à un niveau de granularité de variable membre. En d'autres termes, nous avons un contrôle total sur les éléments à conserver et le moment de le faire. Nous n'avons pas besoin de conserver un état transitoire ou un état que nous pouvons créer à partir d'un état enregistré. Et qu'en est-il du remplissage des caches de ces acteurs ? Il existe plusieurs moyens d'y parvenir. Les acteurs fournissent des méthodes virtuelles appelées OnActivateAsync() et OnDectivateAsync() qui nous avertissent lorsqu'une instance d'acteur est activée et désactivée. Notez que l'acteur est activé à la demande lorsqu'il reçoit la première requête. Nous pouvons utiliser OnActivateAsync() pour remplir l'état à la demande comme dans l'opération de double lecture, peut-être à partir d'un magasin externe stable. Ou nous pouvons remplir l'état d'un minuteur, par exemple un acteur Taux de change qui fournit la fonction de conversion à partir des derniers taux de change. Cet acteur peut remplir régulièrement son état à partir d'un service externe, par exemple toutes les 5 secondes, et utiliser l'état pour la fonction de conversion. Prenons l'exemple suivant :
+Les acteurs fournissent au développeur la flexibilité de définir des structures d'objet riches dans le cadre des acteurs ou de référencer des graphiques d'objets en dehors des acteurs. En termes de mise en cache, les acteurs peuvent effectuer des opérations d'écriture différées ou de double écriture, ou nous pouvons utiliser différentes techniques à un niveau de granularité de variable membre. En d'autres termes, nous avons un contrôle total sur les éléments à conserver et le moment de le faire. Nous n'avons pas besoin de conserver un état transitoire ou un état que nous pouvons créer à partir d'un état enregistré. Et qu'en est-il du remplissage des caches de ces acteurs ? Il existe plusieurs moyens d'y parvenir. Les acteurs fournissent des méthodes virtuelles appelées OnActivateAsync() et OnDeactivateAsync() qui nous avertissent lorsqu'une instance d'acteur est activée et désactivée. Notez que l'acteur est activé à la demande lorsqu'il reçoit la première requête. Nous pouvons utiliser OnActivateAsync() pour remplir l'état à la demande comme dans l'opération de double lecture, peut-être à partir d'un magasin externe stable. Ou nous pouvons remplir l'état d'un minuteur, par exemple un acteur Taux de change qui fournit la fonction de conversion à partir des derniers taux de change. Cet acteur peut remplir régulièrement son état à partir d'un service externe, par exemple toutes les 5 secondes, et utiliser l'état pour la fonction de conversion. Prenons l'exemple suivant :
 
 ## Exemple de code Smart Cache – Convertisseur de taux
 
@@ -301,4 +301,4 @@ Essentiellement, Smart Cache fournit :
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

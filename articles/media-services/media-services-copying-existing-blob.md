@@ -24,7 +24,11 @@ Vos objets blob peuvent exister dans un compte de stockage associé à un compte
 
 >[AZURE.NOTE]Vous ne devez pas essayer de modifier le contenu des conteneurs d’objets blob qui ont été générés par Media Services sans utiliser les API Media Services.
 
-##Composants requis
+##Charger l’exemple
+
+Obtenez et exécutez un exemple [ici](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+
+##Configuration requise
 
 - Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez la rubrique [Création d'un compte Media Services](media-services-create-account.md).
 - Systèmes d’exploitation : Windows 10, Windows 7, Windows 2008 R2 ou Windows 8.
@@ -305,9 +309,10 @@ L'exemple de code ci-dessous effectue les tâches suivantes :
 
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

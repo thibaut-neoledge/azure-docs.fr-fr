@@ -74,7 +74,8 @@ Pour chaque disque en cours de sauvegarde, Azure Backup lit les blocs sur le dis
 La majeure partie du temps est consacrée à la lecture et la copie des données, mais il existe d’autres opérations qui contribuent à la durée totale nécessaire à la sauvegarde d’une machine virtuelle :
 
 - Délai nécessaire à l’[installation ou à la mise à jour de l’extension de sauvegarde](backup-azure-vms.md#offline-vms)
-- Temps d’attente de la file d’attente : le service de sauvegarde traitant les sauvegardes de plusieurs clients, il se peut que votre opération de sauvegarde ne démarre pas immédiatement. Lors de pic de charge, les temps d'attente peuvent durer jusqu'à 8 heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
+- Heure de l'instantané : durée nécessaire au déclenchement d’un instantané. Les instantanés sont déclenchés peu avant l’heure de sauvegarde planifiée.
+- Temps d’attente de la file d’attente : comme le service de sauvegarde traite les sauvegardes de plusieurs clients, il se peut que la copie de données de sauvegarde de l’instantané vers l’archivage de sauvegarde Azure ne démarre pas immédiatement. Lors de pic de charge, les temps d'attente peuvent durer jusqu'à 8 heures en raison du nombre de sauvegardes à traiter. Toutefois, la durée de sauvegarde totale d’un ordinateur virtuel est inférieure à 24 heures pour des stratégies de sauvegarde quotidiennes.
 
 ## Mode de calcul des instances protégées
 Les machines virtuelles Azure sauvegardées à l’aide d’Azure Backup sont soumises à la [Tarification d’Azure Backup](http://azure.microsoft.com/pricing/details/backup/). Le calcul des instances protégées est basé sur la taille *réelle* de la machine virtuelle, qui est la somme de toutes les données de la machine virtuelle, à l’exception du « disque de ressources ». Vous n’êtes *pas* facturé en fonction de la taille maximale prise en charge pour chaque disque de données attaché à la machine virtuelle, mais en fonction des données réelles stockées sur le disque de données. De même, la facture du stockage de sauvegarde est basée sur la quantité de données stockées avec Azure Backup, qui est la somme des données réelles de chaque point de récupération.
@@ -102,4 +103,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 - [Résoudre les problèmes de sauvegarde de machines virtuelles](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

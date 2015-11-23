@@ -3,7 +3,7 @@
    description="Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale"
    services="visual-studio-online"
    documentationCenter="n/a"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="08/14/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 
 # Utilisation de l’émulateur express pour exécuter et déboguer un service cloud sur une machine locale
@@ -54,4 +54,4 @@ Avant d’utiliser l’émulateur express, prenez connaissance des limitations c
 
 [Débogage de Cloud Services](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

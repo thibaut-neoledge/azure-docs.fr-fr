@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Modèle de conception de réseaux distribués et graphiques Service Fabric Actors"
-   description="Modèle de conception décrivant comment utiliser Service Fabric Actors pour modéliser une application sous forme de réseaux distribués et de graphiques"
+   pageTitle="Modèle Réseaux distribués et graphiques | Microsoft Azure"
+   description="Modèle de conception décrivant comment utiliser Service Fabric Reliable Actors pour modéliser une application sous forme de réseaux distribués et de graphiques."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -224,4 +224,4 @@ Ce code ne fait qu'exploiter la capacité Reliable Actors pour permettre à n'im
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

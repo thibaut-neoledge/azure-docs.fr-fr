@@ -203,13 +203,14 @@ La méthode suivante charge un fichier multimédia en tant qu'élément multimé
 
 
 
+##Parcours d’apprentissage de Media Services
 
-## Parcours d’apprentissage de Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+##Fournir des commentaires
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 
@@ -220,4 +221,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

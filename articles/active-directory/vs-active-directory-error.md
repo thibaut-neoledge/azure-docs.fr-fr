@@ -3,7 +3,7 @@
 	description="L’Assistant de connexion Active Directory a détecté un type d’authentification incompatible" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
   
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Erreur lors de la détection de l’authentification
 
@@ -97,4 +97,4 @@ Pour modifier le type d'authentification, supprimez le type d'authentification i
 Pour plus d’informations, consultez la page [Scénarios d’authentification pour Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

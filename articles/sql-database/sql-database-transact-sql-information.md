@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Informations sur le langage Transact-SQL de la base de données SQL Azure
@@ -29,7 +29,6 @@ Cette rubrique traite des fonctionnalités qui sont disponibles avec la base de 
 
 La V12 de la base de données SQL prend en charge certains arguments qui existent dans les instructions relatives au langage Transact-SQL pour SQL Server 2016. Par exemple, l’instruction CREATE PROCEDURE est disponible, cependant l’option WITH ENCRYPTION de CREATE PROCEDURE n’est pas disponible. Reportez-vous aux rubriques de syntaxe liées pour plus d’informations sur la prise en charge des fonctionnalités de chaque instruction.
 
-- Assemblys CLR : [CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - Bases de données : [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - Les DMV sont généralement disponibles pour les fonctionnalités disponibles
 - Fonctions : [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -88,12 +87,12 @@ La V12 de la base de données SQL prend en charge certains arguments qui existen
 
 ## Référence complète Transact-SQL
 
-Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d’informations sur la grammaire, l’utilisation et les exemples Transact-SQL, consultez [Référence Transact-SQL (moteur de la base de données)](https://msdn.microsoft.com/library/bb510741.aspx) dans la documentation en ligne de SQL Server.
 
 ### À propos des balises « S’applique à »
 
-La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 et la base de données SQL Microsoft Azure. En haut de chaque rubrique se trouve une section indiquant les produits qui prennent en charge l’objet de la rubrique. Si un produit est omis, cela signifie que la fonctionnalité décrite dans la rubrique n’est pas disponible pour ce produit. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu'ils sont appliqués à **SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à la base de données SQL Microsoft Azure.
+La référence Transact-SQL inclut des rubriques relatives à SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 et la base de données SQL Microsoft Azure. En haut de chaque rubrique se trouve une section indiquant les produits qui prennent en charge l’objet de la rubrique. Si un produit est omis, cela signifie que la fonctionnalité décrite dans la rubrique n’est pas disponible pour ce produit. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. La rubrique **CREATE AVAILABILTY GROUP** indique qu’ils sont appliqués à**SQL Server (de SQL Server 2012 à la version actuelle)**, car ils ne sont pas appliqués à SQL Server 2008, SQL Server 2008 R2 ou à la base de données SQL Microsoft Azure.
 
-Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L'instruction **CREATE USER** peut être utilisée dans n'importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S'applique à** sont insérées dans les descriptions d'argument appropriées dans le corps de la rubrique.
+Dans certains cas, le sujet général de rubrique peut être utilisé pour un produit, mais tous les arguments ne sont pas forcément pris en charge. Par exemple, les utilisateurs de la base de données contenant-contenu ont été introduits dans SQL Server 2012. L’instruction **CREATE USER** peut être utilisée dans n’importe quel produit de SQL Server, cependant, la syntaxe **WITH PASSWORD** ne peut pas être utilisée avec les versions antérieures. Dans ce cas, des sections supplémentaires **S’applique à** sont insérées dans les descriptions d’argument appropriées dans le corps de la rubrique.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

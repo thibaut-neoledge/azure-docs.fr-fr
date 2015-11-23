@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Surveillance d’un site SharePoint avec Application Insights
@@ -31,7 +31,7 @@ Dans le [portail Azure](http://portal.azure.com), créez une ressource Applicati
 ![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur ctrl + C](./media/app-insights-sharepoint/01-new.png)
 
 
-Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l’écran d’accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
     
 
 
@@ -77,21 +77,21 @@ Redéployez votre application.
 
 Revenez au panneau de votre application dans le [portail Azure](http://portal.azure.com).
 
-Les premiers événements s’affichent dans Recherche de diagnostic.
+Les premiers événements s’affichent dans Search.
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Après quelques secondes, cliquez sur Actualiser pour obtenir des données supplémentaires.
 
-L’**analyse de l'utilisation** renvoie aux graphiques des utilisateurs, des sessions et des affichages de page :
+Dans le panneau de présentation, cliquez sur **Analyse de l'utilisation** pour accéder aux graphiques des utilisateurs, des sessions et des affichages de page :
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Par exemple, cliquez sur Affichages de page pour plus de détails :
+Par exemple, cliquez sur un graphique, comme celui nommé Affichages de page, pour plus d’informations :
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
-Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux utilisateurs et leur emplacement.
+Ou bien Utilisateurs :
 
 
 ![](./media/app-insights-sharepoint/08-users.png)
@@ -108,4 +108,4 @@ Cliquez sur Utilisateurs pour accéder aux informations concernant les nouveaux 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # Transformation et analyse en utilisant Azure Data Factory
@@ -23,12 +23,12 @@ Les activités de transformation dans Azure Data Factory transforment et traiten
 
 
 Activité de transformation | Environnement de calcul 
------------------------ | --------------------
+:----------------------- | :--------------------
 [Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
 [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
 [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
-[Machine Learning Batch Execution](data-factory-azure-ml-batch-execution-activity.md) | Microsoft Azure 
+[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
+[Activités Machine Learning : Exécution par lot et Mettre à jour la ressource](data-factory-azure-ml-batch-execution-activity.md) | Microsoft Azure 
 [Procédure stockée](data-factory-stored-proc-activity.md) | Azure SQL |
 [Langage U-SQL du service Analytique Data Lake](data-factory-usql-activity.md) | Service Analytique Azure Data Lake 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] ou Azure Batch
@@ -41,7 +41,4 @@ Vous devez créer un service lié à l'environnement de calcul puis l’utiliser
 
 Consultez l’article [Services liés de calcul](data-factory-compute-linked-services.md) pour en savoir plus sur les services de calcul liés pris en charge par Data Factory.
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/09/2015"
    ms.author="jgao"/>
 
 # Didacticiel : Analyser les journaux des sites web à l'aide d'Azure Data Lake Analytics
@@ -58,13 +58,13 @@ Avant de pouvoir générer et tester des scripts U-SQL, vous devez d'abord vous 
 **Pour parcourir vos comptes Data Lake Analytics**
 
 1. Dans Visual Studio, ouvrez l'**Explorateur de serveurs** en appuyant sur **CTRL+ALT+S**.
-2. Dans l'**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir du studio. Pour créer un compte, consultez [Prise en main d'Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md) ou [Prise en main d'Azure Data Lake Analytics avec Azure PowerShell](data-lake-get-started-powershell.md).
+2. Dans l'**Explorateur de serveurs**, développez **Azure**, puis **Data Lake Analytics**. Le cas échéant, la liste de vos comptes Data Lake Analytics s'affiche. Vous ne pouvez pas créer de comptes Data Lake Analytics à partir du studio. Pour créer un compte, consultez [Prise en main d'Azure Data Lake Analytics avec le portail Azure en version préliminaire](data-lake-analytics-get-started-portal.md) ou [Prise en main d'Azure Data Lake Analytics avec Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Développement d'application U-SQL 
 
 Une application U-SQL est essentiellement un script U-SQL. Pour en savoir plus sur U-SQL, consultez [Prise en main de U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application. Pour plus d'informations, consultez [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-user-defined-operators.md).
+Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application. Pour plus d'informations, consultez [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Analytique Data Lake](data-lake-analytics-u-sql-develop-user-defined-operators.md).
  
 **Pour créer et soumettre une tâche Data Lake Analytics**
 
@@ -129,6 +129,8 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
                 s_timetaken int
             FROM @"/Samples/Data/WebLog.log"
             USING Extractors.Text(delimiter:' ');
+		    RETURN;
+		END;
         
         // Create a table for storing referrers and status 
         DROP TABLE IF EXISTS SampleDBTutorials.dbo.ReferrersPerDay;
@@ -151,6 +153,10 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
                 cs_referer, 
                 sc_status;
         
+    Pour comprendre U-SQL, voir [Prise en main du langage U-SQL Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
+       
+5. Ajoutez un nouveau script U-SQL dans votre projet et entrez ce qui suit :
+
         // Query the referrers that ran into errors
         @content =
             SELECT *
@@ -161,21 +167,23 @@ Vous pouvez ajouter des opérateurs définis par l'utilisateur à l'application.
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
 
-    Pour comprendre U-SQL, voir [Prise en main du langage U-SQL Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
-       
-5. À côté du bouton **Soumettre**, spécifiez votre compte Analytics.
-5. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**. Vérifiez les résultats dans le volet Sortie.
-6. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
-7. Vérifiez que le **compte Analytics** est celui où vous souhaitez exécuter la tâche, puis cliquez sur **Soumettre**. Les résultats de la soumission et le lien vers la tâche sont disponibles dans la fenêtre Résultats de Data Lake Tools pour Visual Studio à l'issue de la soumission.
-8. Attendez que la tâche soit terminée avec succès. Si la tâche a échoué, le fichier source est probablement manquant. Consultez la section Configuration requise de ce didacticiel. Pour plus d'informations de dépannage, consultez [Analyser et résoudre les problèmes des tâches Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. Revenez au premier script U-SQL, puis, à côté du bouton **Soumettre**, spécifiez votre compte Analytics.
+7. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Générer le script**. Vérifiez les résultats dans le volet Sortie.
+8. Dans l'**Explorateur de solutions**, cliquez avec le bouton droit sur **Script.usql**, puis cliquez sur **Soumettre le script**.
+9. Vérifiez que le **compte Analytics** est celui où vous souhaitez exécuter la tâche, puis cliquez sur **Soumettre**. Les résultats de la soumission et le lien vers la tâche sont disponibles dans la fenêtre Résultats de Data Lake Tools pour Visual Studio à l'issue de la soumission.
+10. Attendez que la tâche soit terminée avec succès. Si la tâche a échoué, le fichier source est probablement manquant. Consultez la section Configuration requise de ce didacticiel. Pour plus d'informations de dépannage, consultez [Analyser et résoudre les problèmes des tâches Azure Data Lake Analytics](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
     Une fois la tâche terminée, l'écran suivant s'affiche :
     
     ![data lake analytics analyser les journaux des sites web](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
 
+11. Répétez les étapes 7 à 10 pour **Script1.usql**.
+
+>[AZURE.NOTE]Vous ne pouvez pas lire ou écrire dans une table U-SQL qui a été créée ou modifiée dans le même script. C'est pourquoi nous utilisons deux scripts pour cet exemple.
+
 **Voir le résultat de la tâche**
 
-1. Dans l'**Explorateur de serveurs**, développez **Azure**, **Data Lake Analytics**, puis votre compte Data Lake Analytics et **Comptes de stockage**. Cliquez avec le bouton droit sur le compte de stockage Data Lake par défaut, puis sur **Explorateur**. 
+1. Dans l'**Explorateur de serveurs**, développez **Azure**, **Analytique Data Lake**, puis votre compte Analytique Data Lake et **Comptes de stockage**. Cliquez avec le bouton droit sur le compte de stockage Data Lake par défaut, puis sur **Explorateur**. 
 2.  Double-cliquez sur **Exemples** pour ouvrir le dossier, puis double-cliquez sur **Sorties**.
 3.  Double-cliquez sur **UnsuccessfulResponsees.log**.
 4.  Vous pouvez également double-cliquer sur le fichier de sortie dans l'affichage graphique de la tâche afin d'accéder directement à la sortie.
@@ -194,4 +202,4 @@ Pour afficher les autres rubriques sur le développement :
 - [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md)
 - [Développer des opérateurs définis par l'utilisateur U-SQL pour des travaux Data Lake Analytics](data-lake-analytics-u-sql-user-defined-operators.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/25/2015"
+	ms.date="11/11/2015"
 	ms.author="jgao"/>
 
 # Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
@@ -121,7 +121,7 @@ La sortie est la suivante :
 
 **Pour la version du 8/10/2014** :
 
-Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 8/10/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l'exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
+Lors de l’utilisation du point de terminaison Ambari, « https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} », le champ *host\_name* renvoie le nom de domaine complet du nœud au lieu du nom d’hôte. Avant la version du 8/10/2014, cet exemple renvoyait simplement « **headnode0** ». Après la version du 10/8/2014, vous obtenez le nom de domaine complet « **headnode0.{ClusterDNS}.azurehdinsight.net** », comme illustré dans l’exemple précédent. Cette modification était nécessaire pour permettre les scénarios dans lesquels plusieurs types de cluster tels que HBase et Hadoop sont déployés dans un réseau virtuel (VNET). Cela se produit, par exemple, lors de l'utilisation de HBase en tant que plateforme principale pour Hadoop.
 
 ## API de surveillance Ambari
 
@@ -130,17 +130,17 @@ Le tableau suivant répertorie certains des appels d'API de surveillance Ambari 
 Appel d'API de surveillance|URI|Description
 ---|---|---
 Obtenir des clusters|`/api/v1/clusters`|
-Obtenir des infos sur les clusters|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|clusters, services, hôtes
-Obtenir des services|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|Les services incluent : hdfs, mapreduce
-Obtenir des infos sur les services|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
-Obtenir des composants de service|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS : namenode, datanode<br/>MapReduce : jobtracker ; tasktracker
-Obtenir des infos sur les composants|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, host-components, mesures
-Obtenir des hôtes|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
-Obtenir des infos sur les hôtes|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
-Obtenir des composants d'hôte|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
-Obtenir des informations sur les composants d'hôte|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, composant, hôte, mesure
-Obtenir des configurations|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|Types de configurations : core-site, hdfs-site, mapred-site, hive-site
-Obtenir des infos sur la configuration|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Types de configurations : core-site, hdfs-site, mapred-site, hive-site
+Obtenir des infos sur les clusters|`/api/v1/clusters/<ClusterName>.azurehdinsight.net`|clusters, services, hôtes
+Obtenir des services|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services`|Les services incluent : hdfs, mapreduce
+Obtenir des infos sur les services|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>`|
+Obtenir des composants de service|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components`|HDFS : namenode, datanode<br/>MapReduce : jobtracker ; tasktracker
+Obtenir des infos sur les composants|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>`|ServiceComponentInfo, host-components, mesures
+Obtenir des hôtes|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts`|headnode0, workernode0
+Obtenir des infos sur les hôtes|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>`|
+Obtenir des composants d'hôte|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components`|namenode, resourcemanager
+Obtenir des informations sur les composants d'hôte|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>`|HostRoles, composant, hôte, mesure
+Obtenir des configurations|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations`|Types de configurations : core-site, hdfs-site, mapred-site, hive-site
+Obtenir des infos sur la configuration|`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>`|Types de configurations : core-site, hdfs-site, mapred-site, hive-site
 
 
 ##Étapes suivantes
@@ -175,4 +175,4 @@ Vous avez appris à utiliser les appels d'API de surveillance Ambari. Pour plus 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

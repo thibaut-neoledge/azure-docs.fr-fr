@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API REST du service Azure Search : version 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="API REST du service Azure Search, version 2015-02-28-Preview | Microsoft Azure | Service de recherche cloud hébergé"
    description="L’API REST du service Azure Search version 2015-02-28-Preview comprend des fonctionnalités expérimentales telles que la syntaxe de requête Lucene et des recherches moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -1742,4 +1742,4 @@ Récupérer 5 suggestions pour lesquelles l'entrée de recherche partielle est 
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

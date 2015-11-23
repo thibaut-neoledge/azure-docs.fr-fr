@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure" 
+	pageTitle="Utilisation des profils de score dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Paramétrez le classement de recherche avec les profils de score dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -126,4 +126,4 @@ Vous avez besoin de revenir en arrière et de vous former davantage à la créat
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

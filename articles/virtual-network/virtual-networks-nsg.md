@@ -12,61 +12,86 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/22/2015"
+   ms.date="11/10/2015"
    ms.author="telmos" />
 
 # Présentation du groupe de sécurité réseau
 
-Vous pouvez utiliser un groupe de sécurité réseau pour contrôler le trafic vers une ou plusieurs instances de machine virtuelle dans votre réseau virtuel. Un groupe de sécurité réseau contient les règles de contrôle d’accès qui autorisent ou refusent le trafic en fonction de la direction du trafic, du protocole, de l’adresse et du port source ainsi que de l’adresse et du port de destination. Les règles d'un groupe de sécurité réseau peuvent être modifiées à tout moment et les modifications sont appliquées à toutes les instances associées.
+Vous êtes probablement familiarisé avec l’utilisation de pare-feux et listes de contrôle d’accès (ACL) pour filtrer le flux de trafic réseau pour les segments de réseau, les ordinateurs individuels et même les cartes d’interface réseau (NIC) au sein d’un ordinateur. Vous pouvez filtrer le flux du trafic réseau dans Azure de manière similaire, comme indiqué ci-dessous.
 
->[AZURE.WARNING]Les groupes de sécurité réseau peuvent uniquement être utilisés dans les réseaux virtuels régionaux. Si vous tentez de sécuriser les points de terminaison dans un déploiement sans un réseau virtuel, ou qui utilise un réseau virtuel associé à un groupe d’affinités, consultez la rubrique [Qu’est-ce qu’une liste de contrôle d’accès (ACL) de point de terminaison ?](./virtual-networks-acl.md). Vous pouvez également [migrer votre réseau virtuel vers un réseau virtuel régional](./virtual-networks-migrate-to-regional-vnet.md).
+- **Listes de contrôle d’accès de points de terminaison**.
+	- Peut filtrer uniquement le trafic entrant.
+	- Peut uniquement être utilisé sur les points de terminaison exposés à Internet, ou via un équilibreur de charge interne.
+	- Limité à 50 listes de contrôle d’accès par point de terminaison.
+	- Ne nécessite **PAS** de réseau virtuel (déploiements classiques).
+- **Groupes de sécurité réseau (NSG)**
+	- Autorisent ou refusent le trafic en fonction du sens du trafic, du protocole, de l’adresse et du port source, ainsi que de l’adresse et du port de destination.
+	- Peut contrôler le trafic entrant et sortant sur les machines virtuelles ou des instances de rôle (déploiements classiques), les cartes réseau (déploiements du Gestionnaire de ressources) et les sous-réseaux (tous les déploiements). Cela inclut toutes les ressources connectées aux sous-réseaux, notamment les services de cloud et des environnements AppService.
+	- Ne peut être appliqué qu’aux ressources connectées à un réseau virtuel régional.
+	- N’exige **PAS** la gestion d’un dispositif pare-feu.
+	- Limité à 100 groupes de sécurité réseau, chacun avec 200 règles, par région.
+- **Installations pare-feu**
+	- Implémenté en tant que machines virtuelles dans votre réseau Azure.
+	- Autorisent ou refusent le trafic en fonction du sens du trafic, du protocole, de l’adresse et du port source, ainsi que de l’adresse et du port de destination.
+	- Fournit des fonctionnalités supplémentaires, en fonction de la solution de pare-feu utilisée.
 
-![Groupes de sécurité réseau](./media/virtual-network-nsg-overview/figure1.png)
+Cet article concerne plus particulièrement les groupes de sécurité réseau. Pour plus d’informations sur les autres options de filtrage de trafic, visitez les liens fournis ci-dessous.
 
-La figure ci-dessus illustre un réseau virtuel comportant deux sous-réseaux et quatre machines virtuelles (deux dans chaque sous-réseau). Notez que les machines virtuelles du sous-réseau *principal* ont des adresses IP publiques (PIP) qui leur sont directement associées, et que les machines virtuelles du sous-réseau *frontal* se trouvent derrière un équilibreur de charge Azure. Vous pouvez utiliser des groupes de sécurité réseau liés à chaque sous-réseau pour contrôler la façon dont le trafic transite vers le sous-réseau, qu’ils proviennent d’une adresse IP virtuelle ou publique.
+- [Documentation relative aux listes de contrôle d’accès](./virtual-networks-acl.md).
+- [Créer un réseau de périmètre à l’aide de groupes de sécurité réseau et d’équipements de pare-feu](virtual-networks-dmz-nsg-fw-udr-asm.md).
+
+## Comment fonctionne un groupe de sécurité réseau ?
+
+Un groupe de sécurité réseau contient deux types de règles : **Entrantes** et **Sortantes**. Lorsque le trafic circule au sein d’un serveur Windows Azure qui héberge des machines virtuelles ou des instances de rôle, l’hôte charge toutes les règles de groupe de sécurité réseau entrantes ou sortantes du groupe de sécurité réseau, selon la direction du trafic. Ensuite, les hôtes inspectent chaque règle par ordre de priorité. Si une règle correspond au paquet en cours d’analyse par l’hôte, l’action de la règle (autoriser ou refuser) est appliquée. Si aucune règle ne correspond au paquet, le paquet est abandonné. La figure ci-dessous illustre ce flux de décision.
+
+![ACL de groupe de sécurité réseau](./media/virtual-network-nsg-overview/figure3.png)
+
+>[AZURE.NOTE]Les règles appliquées à une machine virtuelle ou à une instance de rôle donnée peuvent provenir de plusieurs groupes de sécurité réseau, car vous pouvez associer un groupe de sécurité réseau à une machine virtuelle (déploiements classiques), une carte réseau (Gestionnaire de ressources des déploiements) ou un sous-réseau (tous les déploiements). La section [Association de groupes de sécurité réseau](#Associating-NSGs) décrit comment sont appliquées les règles issues de plusieurs groupes de sécurité réseau selon la direction du trafic.
+
+Les groupes de sécurité réseau peuvent présenter les propriétés suivantes.
+
+|Propriété|Description|Contraintes|Considérations|
+|---|---|---|---|
+|Nom|Nom du groupe de sécurité réseau|Doit être unique dans la région<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union<br/>doit commencer par une lettre ou un chiffre<br/>doit se terminer par une lettre, un nombre ou un trait de soulignement<br/>peut contenir jusqu’à 80 caractères|Étant donné que vous devrez peut-être créer plusieurs groupes de sécurité réseau, assurez-vous que vous disposez d’une convention d’affectation de noms qui permet de facilement identifier la fonction de vos groupes de sécurité réseau|
+|Région|Région Azure dans laquelle le groupe de sécurité réseau est hébergé|Les groupes de sécurité réseau ne peuvent être appliqués qu’aux ressources de la région dans laquelle ils sont créés|Voir les [limites](#Limits) ci-dessous pour savoir combien de groupes de sécurité réseau vous pouvez avoir dans une région|
+|Groupe de ressources|Groupe de ressources auquel le groupe de sécurité réseau appartient|Bien qu’un groupe de sécurité réseau appartienne à un groupe de ressources, il peut être associé à des ressources dans n’importe quel groupe de ressources, tant que le groupe de ressources fait partie de la même région Azure que le groupe de sécurité réseau|Les groupes de ressources servent à gérer plusieurs ressources ensemble, comme une unité de déploiement<br/>Vous pouvez envisager de regrouper le groupe de sécurité réseau avec les ressources auxquelles il est associé|
+|Règles|Règles définissant quel trafic est autorisé ou refusé||Voir les [règles de groupe de sécurité réseau](#Nsg-rules) ci-dessous| 
 
 >[AZURE.NOTE]Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour en savoir plus sur cette procédure, consultez [Gestion des listes de contrôle d’accès (ACL) pour les points de terminaison à l’aide de PowerShell](virtual-networks-acl-powershell.md).
 
-## Fonctionnement du groupe de sécurité réseau
-
-Les groupes de sécurité réseau sont différents des ACL basées sur le point de terminaison. Les ACL de point de terminaison fonctionnent uniquement sur le port public qui est exposé via le point de terminaison d'entrée. Un groupe de sécurité réseau fonctionne sur une ou plusieurs instances de machine virtuelle et contrôle tout le trafic entrant et sortant sur la machine virtuelle.
-
-Un groupe de sécurité du réseau a un *Nom*, est associé à un *Région* et a une étiquette descriptive. Il contient deux types de règles : **Entrant** et **Sortant**. Les règles de trafic entrant sont appliquées aux paquets entrants sur une machine virtuelle et les règles de trafic sortant sont appliquées aux paquets sortants à partir de la machine virtuelle. Les règles sont appliquées sur l'hôte où se trouve la machine virtuelle. Un paquet entrant ou sortant doit correspondre à une règle **Autoriser** pour avoir l’autorisation, autrement il sera supprimé.
-
 ### Règles de groupe de sécurité réseau
 
-Les règles sont traitées dans l'ordre de priorité. Par exemple, une règle avec un numéro de priorité inférieur (par exemple, 100) est traitée avant les règles avec une priorité plus élevée (par exemple, 200). Une fois qu'une correspondance est trouvée, aucune autre règle n'est traitée.
+Les règles de groupe de sécurité réseau contiennent les propriétés suivantes.
 
-Une règle de groupe de sécurité réseau contient les propriétés suivantes.
-
-|Propriété|Description|Exemples de valeurs|
-|---|---|---|
-|**Description**|Description de la règle|Autoriser le trafic entrant pour toutes les machines virtuelles dans un sous-réseau X|
-|**Protocole**|Protocole à faire correspondre pour la règle|TCP, UDP ou *||**Plage de ports source**|Plage de ports source à faire correspondre pour la règle|80, 100-200, *| |**Plage de ports de destination**|Plage de ports de destination à faire correspondre pour la règle|80, 100-200, *||**Préfixe d’adresse source**|Préfixe d'adresse source à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VIRTUAL\_NETWORK|
-|**Préfixe d’adresse de destination**|Préfixe d'adresse de destination à faire correspondre pour la règle|10\.10.10.1, 10.10.10.0/24, VIRTUAL\_NETWORK|
-|**Direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|
-|**Priorité**|Priorité de la règle. Les règles sont vérifiées dans l'ordre de priorité ; une fois qu'une règle s'applique, plus aucune règle n'est testée pour la correspondance.|10, 100, 65000|
-|**Access**|Type d'accès à appliquer si la règle correspond|autoriser ou refuser|
+|Propriété|Description|Contraintes|Considérations|
+|---|---|---|---|
+|**Name**|Nom de la règle|Doit être unique dans la région<br/>Peut contenir des lettres, des chiffres, des traits de soulignement, des points et des traits d’union<br/>doit commencer par une lettre ou un chiffre<br/>doit se terminer par une lettre, un nombre ou un trait de soulignement<br/>peut contenir jusqu’à 80 caractères|Un groupe de sécurité réseau peut contenir plusieurs règles, alors assurez-vous que vous respectez une convention d’affectation de noms qui vous permet d’identifier la fonction de votre règle|
+|**Protocole**|Protocole à faire correspondre pour la règle|TCP, UDP ou *|L’utilisation de * comme protocole inclut ICMP (trafic est-ouest uniquement), ainsi que les protocoles UDP et TCP et peut réduire le nombre de règles dont vous avez besoin<br/>Dans le même temps, l’utilisation de * peut être une approche trop large, alors assurez-vous que vous ne l’utilisez qu’en cas de nécessité|
+|**Plage de ports source**|Plage de ports source à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 100-2000) ou * (pour tous les ports)|Essayez d’utiliser les plages de ports aussi souvent que possible pour éviter le besoin de règles multiples|
+|**Plage de ports de destination**|Plage de ports de destination à faire correspondre pour la règle|Numéro de port unique compris entre 1 et 65535, plage de ports (par exemple, 100-2000) ou * (pour tous les ports)|Essayez d’utiliser les plages de ports aussi souvent que possible pour éviter le besoin de règles multiples|
+|**Préfixe d’adresse source**|Préfixe d’adresse source à faire correspondre à la règle|Une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises et * pour réduire le nombre de règles|
+|**Préfixe d’adresse de destination**|Préfixe d’adresse de destination ou balise pour faire correspondre la règle|une seule adresse IP (par exemple 10.10.10.10), sous-réseau IP (par exemple, 192.168.1.0/24) [balise par défaut](#Default-Tags), ou * (pour toutes les adresses)|Envisagez d’utiliser des plages, balises et * pour réduire le nombre de règles|
+|**Direction**|Direction du trafic à faire correspondre pour la règle|entrant ou sortant|Les règles entrantes et sortantes sont traitées séparément, en fonction de la direction|
+|**Priorité**|Les règles sont vérifiées dans l’ordre de priorité ; une fois qu’une règle s’applique, plus aucune correspondance de règle n’est testée.|Nombre compris entre 100 et 65535.|Envisagez de créer des règles de passage des priorités par 100 pour chaque règle, de laisser de la place pour les nouvelles règles à venir entre les règles existantes|
+|**Access**|Type d'accès à appliquer si la règle correspond|autoriser ou refuser|N’oubliez pas que si la règle d’autorisation d’un paquet est introuvable, le paquet est abandonné|
 
 ### Balises par défaut
 
-Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d'adresses IP. Vous pouvez utiliser les balises par défaut dans les propriétés du *préfixe d’adresse source* et du *préfixe d’adresse de destination* de toute règle. Il existe trois balises par défaut que vous pouvez utiliser.
+Les balises par défaut sont des identificateurs fournis par le système pour adresser une catégorie d'adresses IP. Vous pouvez utiliser les balises par défaut dans les propriétés du **préfixe d’adresse source** et du **préfixe d’adresse de destination** de toute règle. Il existe trois balises par défaut que vous pouvez utiliser.
 
-- **VIRTUAL\_NETWORK :** cette balise par défaut indique tous les espaces d'adressage de votre réseau. Elle inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage local connecté et les réseaux virtuels Azure connectés (réseaux locaux).
+- **VIRTUAL\_NETWORK :** cette balise par défaut indique tous les espaces d’adressage de votre réseau. Elle inclut l’espace d’adressage du réseau virtuel (plages CIDR définies dans Azure), ainsi que tous les espaces d’adressage local connecté et les réseaux virtuels Azure connectés (réseaux locaux).
 
-- **AZURE\_LOADBALANCER :** cette balise par défaut indique l'équilibreur de charge de l'infrastructure d'Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d'Azure. Cela est nécessaire uniquement si la machine virtuelle ou un ensemble de machines virtuelles associées au groupe de sécurité réseau fait partie d'un jeu d'équilibrage de charge.
+- **AZURE\_LOADBALANCER :** cette balise par défaut désigne l’équilibreur de charge de l’infrastructure d’Azure. Il convertit en une adresse IP de centre de données Azure l’emplacement d’où proviennent les sondes d’intégrité d’Azure.
 
-- **INTERNET :** cette balise par défaut indique l'espace d'adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l'Internet public. Cette plage inclut espace IP public d’Azure.
+- **INTERNET :** cette balise par défaut indique l’espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible par l’Internet public. Cette plage inclut également l’[espace IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### Règles par défaut
 
-Un groupe de sécurité réseau contient des règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez. Les règles par défaut décrivent les paramètres par défaut recommandés par la plateforme. Comme illustré par les règles par défaut ci-dessous, le trafic d’origine et de fin d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante.
+Tous les groupes de ressources réseau contiennent un ensemble de règles par défaut. Les règles par défaut ne peuvent pas être supprimées, mais comme la priorité la plus basse leur est attribuée, elles peuvent être remplacées par les règles que vous créez.
 
-Tandis que la connectivité à Internet est autorisée pour la direction sortante, elle est bloquée par défaut pour la direction entrante. Il existe une règle par défaut pour autoriser l'équilibreur de charge d’Azure pour tester l'intégrité de la machine virtuelle. Vous pouvez remplacer cette règle si la machine virtuelle ou l’ensemble des machines virtuelles du groupe de sécurité réseau ne sont pas inclus dans le jeu à charge équilibrée.
+Comme illustré par les règles par défaut ci-dessous, le trafic d’origine et de fin d’un réseau virtuel est autorisé à la fois dans les directions entrante et sortante. Tandis que la connectivité à Internet est autorisée pour la direction sortante, elle est bloquée par défaut pour la direction entrante. Il existe une règle par défaut pour autoriser l’équilibreur de charge d’Azure à tester l’intégrité des machines virtuelles et les instances de rôle. Vous pouvez remplacer cette règle si vous n’utilisez pas un ensemble de charges équilibré.
 
-Les règles par défaut sont :
-
-**Trafic entrant**
+**Les règles par défaut sont :**
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
@@ -74,7 +99,7 @@ Les règles par défaut sont :
 | AUTORISER LE TRAFIC ENTRANT DE L'ÉQUILIBREUR DE CHARGE AZURE | 65 001 | AZURE\_LOADBALANCER | * | * | * | * | AUTORISER |
 | REFUSER TOUT TRAFIC ENTRANT | 65 500 | * | * | * | * | * | REFUSER |
 
-**Trafic sortant**
+**Les règles sortantes par défaut sont :**
 
 | Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
@@ -84,55 +109,62 @@ Les règles par défaut sont :
 
 ## Association de groupe de sécurité réseau
 
-Vous pouvez associer un groupe de sécurité réseau aux machines virtuelles, cartes d’interface réseau et sous-réseaux.
+Vous pouvez associer un groupe de sécurité réseau aux machines virtuelles, aux cartes réseau et sous-réseau, selon le modèle de déploiement que vous utilisez.
 
-- **Association d’un groupe de sécurité réseau à une machine virtuelle.** Lorsque vous associez un groupe de sécurité réseau à une machine virtuelle, les règles d’accès réseau du groupe de sécurité réseau sont appliquées à tout le trafic à destination et en provenance de la machine virtuelle. 
+[AZURE.INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
+ 
+- **Association d’un groupe de sécurité réseau à une machine virtuelle (uniquement pour les déploiements classiques).** Lorsque vous associez un groupe de sécurité réseau à une machine virtuelle, les règles d’accès réseau du groupe de sécurité réseau sont appliquées à tout le trafic à destination et en provenance de la machine virtuelle. 
 
-- **Association d’un groupe de sécurité réseau à une carte d’interface réseau.** Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Cela signifie que dans une machine virtuelle dotée de plusieurs cartes d’interface réseau, si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau, il n’affecte pas le trafic lié à ses cartes d’interface réseau.
+- **Association d’un groupe de sécurité réseau à une carte réseau (uniquement pour les déploiements de gestionnaire de ressources).** Lorsque vous associez un groupe de sécurité réseau à une carte réseau, les règles d’accès réseau du groupe de sécurité réseau sont appliquées uniquement à cette carte d’interface réseau. Cela signifie que dans une machine virtuelle dotée de plusieurs cartes d’interface réseau, si un groupe de sécurité réseau est appliqué à une seule carte d’interface réseau, il n’affecte pas le trafic lié à d’autres cartes d’interface réseau.
 
-- **Association d’un groupe de sécurité réseau à un sous-réseau**. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles d’accès réseau dans le groupe de sécurité réseau sont appliquées à toutes les machines virtuelles dans le sous-réseau.
+- **Association d’un groupe de sécurité réseau à un sous-réseau et une machine virtuelle**. Lorsqu’un groupe de sécurité réseau est affecté à un sous-réseau, les règles d’accès réseau au sein du groupe de sécurité réseau sont appliquées à toutes les ressources IaaS et PaaS dans le sous-réseau.
 
-Vous pouvez associer différents groupes de sécurité réseau à une machine virtuelle, une carte d’interface réseau utilisée par la machine virtuelle et le sous-réseau auquel la carte d’interface réseau est liée. Lorsque cela se produit, toutes les règles d’accès réseau sont appliquées au trafic dans l’ordre suivant :
+Vous pouvez associer différents groupes de sécurité réseau à une machine virtuelle (ou une carte réseau, selon le modèle de déploiement) et le sous-réseau auquel une carte réseau ou la machine virtuelle est liée. Lorsque cela se produit, toutes les règles d’accès réseau sont appliquées au trafic dans l’ordre suivant :
 
 - **Trafic entrant**
-	1. Groupe de sécurité réseau du sous-réseau.
-	2. Groupe de sécurité réseau de la carte d’interface réseau.
-	3. Groupe de sécurité réseau de la machine virtuelle.
+	1. groupe de sécurité réseau appliqué au sous-réseau
+	2. groupe de sécurité réseau appliqué à la carte réseau (Gestionnaire de ressources) ou machine virtuelle (classique).
 - **Trafic sortant**
-	1. Groupe de sécurité réseau de la machine virtuelle.
-	2. Groupe de sécurité réseau de la carte d’interface réseau.
-	3. Groupe de sécurité réseau du sous-réseau.
+	1. groupe de sécurité réseau appliqué à la carte réseau (Gestionnaire de ressources) ou machine virtuelle (classique).
+	3. groupe de sécurité réseau appliqué au sous-réseau
 
 ![ACL de groupe de sécurité réseau](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE]Bien que vous ne puissiez associer qu’un seul groupe de sécurité réseau à un sous-réseau, une machine virtuelle ou une carte d’interface réseau, vous pouvez associer le même groupe de sécurité réseau au nombre de ressources que vous souhaitez.
 
+## Planification
+
+Avant d’implémenter des groupes de sécurité réseau, vous devez répondre aux questions ci-dessous :
+
+1. Quels sont les types de ressources depuis ou vers lesquels vous voulez filtrer le trafic (cartes réseau dans la même machine virtuelle, machines virtuelles ou autres ressources telles que les services de cloud ou des environnements de service d’application connectées au même sous-réseau, ou entre les ressources connectées à différents sous-réseaux) ?
+
+2. Les ressources vers ou depuis lesquelles vous voulez filtre le trafic à partir de sous-réseau dans les réseaux virtuels existants sont-elles connectées à des réseaux dans des réseaux virtuels existants ou seront-elles connectées à de nouveaux réseaux virtuels ou sous-réseaux ?
+ 
+Pour plus d’informations sur la planification de la sécurité réseau dans Azure, consultez la section [Pratiques recommandées pour les services cloud et la sécurité réseau](best-practices-network-security.md).
+
 ## Remarques relatives à la conception
 
-Lorsque vous concevez vos groupes de sécurité réseau, vous devez comprendre comment les machines virtuelles interagissent avec les services d’infrastructure et les services PaaS hébergés dans Azure. La plupart des services PaaS Microsoft Azure, comme les bases de données et le stockage SQL sont accessibles uniquement via une adresse Internet publique. Cela est également vrai pour les sondes d’équilibrage de charge.
+Une fois que vous connaissez les réponses aux questions dans la section [Planification](#Planning), consultez les rubriques suivantes avant de définir vos groupes de sécurité réseau.
 
-Un scénario courant dans Azure est la ségrégation des rôles de machines virtuelles et PaaS dans les sous-réseaux en fonction de la nécessité pour ces objets d’accéder à Internet. Dans ce scénario, vous disposez par exemple d’un sous-réseau avec des machines virtuelles ou des instances de rôle qui nécessitent un accès aux services PaaS Azure, comme les bases de données et le stockage SQL, mais ce sous-réseau ne requiert aucune communication entrante ou sortante avec l’Internet public.
+### Limites
 
-Imaginez la règle de groupe de sécurité réseau suivante pour un tel scénario :
+Vous devez tenir compte des limites suivantes en concevant vos groupes de sécurité réseau.
 
-| Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|PAS D’INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|REFUSER| 
+|**Description**|**Limite par défaut**|**Implications**|
+|---|---|---|
+|Nombre de groupes de sécurité réseau que vous pouvez associer à un sous-réseau, une machine virtuelle ou une carte réseau|1|Cela signifie que vous ne pouvez pas combiner des groupes de sécurité réseau. Vérifiez que toutes les règles nécessaires à un ensemble donné de ressources sont incluses dans un seul groupe de sécurité réseau.|
+|Groupes de sécurité réseau par région et par abonnement|100|Par défaut, un nouveau groupe de sécurité réseau est créé pour chaque machine virtuelle que vous créez dans le portail Azure. Si vous autorisez ce comportement par défaut, épuiserez rapidement vos groupes de sécurité réseau. Veillez à conserver cette limite à l’esprit pendant votre conception et à séparer vos ressources en plusieurs régions ou abonnements si nécessaire. |
+|Règles de groupe de sécurité réseau par groupe de sécurité réseau|200|Utiliser une large plage d’adresses IP et ports pour vous garantir de ne pas aller au-delà de cette limite. |
 
-Étant donné que la règle bloque tout accès de ce réseau virtuel à Internet , les machines virtuelles ne pourront pas accéder aux services PaaS Azure qui nécessitent un point de terminaison Internet public, comme les bases de données SQL.
+>[AZURE.IMPORTANT]Assurez-vous que vous pouvez afficher toutes les [limites liées aux services de mise en réseau dans Azure](../azure-subscription-service-limits/#networking-limits) avant de concevoir votre solution. Il est possible d’augmenter certaines limites par le biais d’un ticket d’assistance.
 
-Au lieu d’utiliser une règle de refus, envisagez d’utiliser une règle autorisant l’accès à Internet à partir du réseau virtuel, mais refusant l’accès au réseau virtuel à partir d’Internet, comme représenté ci-dessous :
+### Conception de réseau virtuel et de sous-réseau
 
-| Nom | Priorité | IP Source | Port source | IP de destination | Port de destination | Protocole | Access |
-|------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|VERS INTERNET|100| VIRTUAL\_NETWORK|&#42;|INTERNET|&#42;|TCP|AUTORISER|
-|À PARTIR D’INTERNET|110| INTERNET|&#42;|VIRTUAL\_NETWORK|&#42;|TCP|REFUSER| 
-
->[AZURE.WARNING]Azure utilise un sous-réseau spécial appelé sous-réseau **Passerelle** pour gérer la passerelle VPN sur d’autres réseaux virtuels et réseaux locaux. Si vous associez un NSG à ce sous-réseau, votre passerelle VPN cessera de fonctionne normalement. N’associez pas de NSG aux sous-réseaux de passerelle.
+Comme les groupes de sécurité réseau peuvent être appliqués à des sous-réseaux, vous pouvez réduire le nombre de groupes de sécurité réseau en regroupant vos ressources par sous-réseau et en appliquant des groupes de sécurité réseau aux sous-réseaux. Si vous décidez d’appliquer des groupes de sécurité réseau à des sous-réseaux, il se peut que vous trouviez des réseaux virtuels et les sous-réseaux existants qui n’ont pas été définis avec des groupes de sécurité réseau à l’esprit. Vous pouvez peut-être définir de nouveaux réseaux virtuels et sous-réseaux pour prendre en charge votre conception groupe de sécurité réseau. Et déployer vos nouvelles ressources sur vos nouveaux sous-réseaux. Vous pouvez ensuite définir une stratégie de migration pour déplacer des ressources existantes vers les nouveaux sous-réseaux.
 
 ### Règles spéciales
 
-Vous devez également tenir compte des règles spéciales répertoriées ci-dessous. Assurez-vous que vous ne bloquez pas le trafic autorisé par ces règles, sinon votre infrastructure ne sera pas en mesure de communiquer avec des services Azure essentiels.
+Vous devez prendre en compte le compte des règles spéciales répertoriées ci-dessous. Assurez-vous que vous ne bloquez pas le trafic autorisé par ces règles, sinon votre infrastructure ne sera pas en mesure de communiquer avec des services Azure essentiels.
 
 - **Adresse IP virtuelle du nœud hôte :** des services d’infrastructure de base tels que DHCP, DNS et l’analyse du fonctionnement sont fournis via l'adresse IP d’hôte virtualisé 168.63.129.16. Cette adresse IP publique appartient à Microsoft et la seule adresse IP virtualisée utilisée dans toutes les régions à cet effet. Cette adresse IP mappe vers l'adresse IP physique de l’ordinateur (nœud hôte) du serveur qui héberge la machine virtuelle. Le nœud hôte agit en tant que relais DHCP, le programme de résolution récursif DNS et la sonde source de la sonde d’intégrité de l’équilibreur de charge et de la sonde d’intégrité de la machine. La communication à cette adresse IP ne doit pas être considérée comme une attaque.
 
@@ -142,21 +174,107 @@ Vous devez également tenir compte des règles spéciales répertoriées ci-dess
 
 Les règles de groupe de sécurité réseau actuelles autorisent uniquement les protocoles *TCP* ou *UDP*. Il n’existe aucune balise spécifique pour *ICMP*. Toutefois, le trafic ICMP est autorisé dans un réseau virtuel par défaut via les règles de trafic entrant du réseau virtuel qui autorisent le trafic de/vers n’importe quel port et protocole dans le réseau virtuel.
 
-## Limites
+### Sous-réseaux
 
-Vous devez tenir compte des limites suivantes en concevant vos groupes de sécurité réseau.
+- Tenez compte du nombre de niveaux que requiert votre charge de travail. Chaque niveau peut être isolé à l’aide d’un sous-réseau, avec un groupe de sécurité réseau appliqué au sous-réseau. 
+- Si vous avez besoin d’implémenter un sous-réseau de passerelle VPN ou de circuit ExpressRoute, vous devez vous assurer de ne **PAS** appliquer un groupe de sécurité réseau à ce sous-réseau. Si vous procédez ainsi, votre connectivité inter réseau ou entre sites ne fonctionnera pas.
+- Si vous avez besoin d’implémenter un équipement virtuel, assurez-vous de déployer l’application virtuelle sur son propre sous-réseau, de sorte que votre propre UDR puisse fonctionner correctement. Vous pouvez implémenter un niveau de sous-réseau groupe de sécurité réseau pour filtrer le trafic vers et depuis ce sous-réseau. En savoir plus sur [comment contrôler le flux de trafic et utiliser des équipements virtuels](virtual-networks-udr-overview.md).
 
-|**Description**|**Limite**|
-|---|---|
-|Nombre de groupes de sécurité réseau que vous pouvez associer à un sous-réseau, une machine virtuelle ou une carte réseau|1|
-|Groupes de sécurité réseau par région et par abonnement|100|
-|Règles de groupe de sécurité réseau par groupe de sécurité réseau|200|
+### Équilibreurs de charge
 
-Assurez-vous que vous pouvez afficher toutes les [limites liées aux services de mise en réseau dans Azure](../azure-subscription-service-limits/#networking-limits) avant de concevoir votre solution.
+- Envisagez l’équilibrage de charge et les règles NAT pour chaque équilibreur de charge utilisé par chacune de vos charges de travail. Ces règles sont liées à un pool principal qui contient des cartes réseau (déploiements de Gestionnaire de ressources) ou machines virtuelles/instances de rôle (déploiements classiques). Envisagez de créer un groupe de sécurité réseau pour chaque pool principal, ce qui permet uniquement le trafic mappé via les règles implémentées dans les équilibreurs de charge. Cela garantit que le trafic entrant directement vers le pool principal sans passer par l’équilibreur de charge est également filtré.
+- Dans les déploiements classiques, vous pouvez créer des points de terminaison qui mappent des ports d’un équilibreur de charge sur des ports sur vos machines virtuelles ou instances de rôle. Vous pouvez également créer votre propre équilibreur de charge public individuel dans un déploiement du Gestionnaire de ressources. Si vous limitez le trafic aux machines virtuelles et instances de rôle qui font partie d’un pool de serveur principal dans un équilibreur de charge à l’aide de groupes de sécurité réseau, n’oubliez pas que le port de destination pour le trafic entrant est le port réel de la machine virtuelle ou de l’instance de rôle, et non le port exposé par l’équilibreur de charge. Gardez à l’esprit que le port source et l’adresse de connexion à la machine virtuelle sont un port et une adresse sur l’ordinateur distant sur Internet, pas le port et l’adresse exposés par l’équilibreur de charge.
+- Comme en cas de port public présenté aux équilibreurs de charge, lorsque vous créez des groupes de sécurité réseau pour filtrer le trafic provenant d’un équilibreur de charge interne, vous devez comprendre que le port source et la plage d’adresses appliqués sont ceux de l’ordinateur à l’origine de l’appel, et pas l’équilibreur de charge. Et le port de destination et la plage d’adresses sont associés à l’ordinateur recevant le trafic, et non à l’équilibreur de charge.
+
+### Autres
+
+- Les contrôles d’accès réseau basés sur le point de terminaison et les groupes de sécurité réseau ne sont pas pris en charge sur la même instance de machine virtuelle. Si vous souhaitez utiliser un groupe de sécurité réseau et une ACL de point de terminaison déjà en place, supprimez d'abord l’ACL de point de terminaison. Pour plus d’informations, consultez [Gérer les ACL de point de terminaison](virtual-networks-acl-powershell.md).
+- Dans le modèle de déploiement de gestionnaire de ressources, vous pouvez utiliser un groupe de sécurité réseau associé à une carte réseau pour les machines virtuelles contenant plusieurs cartes réseau pour activer la gestion (accès à distance) par carte réseau, ce qui revient à séparer le trafic.
+- Comme en cas d’utilisation des équilibreurs de charge, lorsque vous filtrez le trafic vers d’autres réseaux virtuels, vous devez utiliser la plage d’adresses source de l’ordinateur distant, et non la passerelle qui connecte les réseaux virtuels.
+- De nombreux services Azure ne peuvent pas être connectés aux réseaux virtuels Azure et donc, le trafic depuis et vers ces derniers ne peuvent être filtrés à l’aide des groupes de sécurité réseau. Lisez la documentation des services vous permettant de déterminer si oui ou non ils peuvent être connectés à des réseaux virtuels.
+
+## Exemple de déploiement
+
+Pour montrer l’application des informations dans cet article, nous allons définir des groupes de sécurité réseau pour filtrer le trafic réseau d’une solution de charge de travail à deux niveaux avec les spécifications suivantes :
+
+1. Séparation du trafic entre le serveur frontal (serveurs web Windows) et le serveur principal (serveurs de base de données SQL).
+2. Règles d’équilibrage de charge du transfert de trafic pour l’équilibreur de charge sur tous les serveurs web sur le port 80.
+3. Les règles NAT de transfert de trafic arrivant au port 50001 de l’équilibreur de charge vers le port 3389 une seule machine virtuelle dans la partie frontale.
+4. Aucun accès aux machines virtuelles frontales ou principales depuis Internet, à l’exception du numéro de la spécification 1.
+5. Aucun accès à partir des serveurs frontaux ou principaux vers Internet.
+6. Accès au port 3389 vers n’importe quel serveur frontal, le trafic entrant du sous-réseau frontal lui-même.
+7. Accès au port 3389 pour toutes les machines virtuelles SQL Server dans le sous-réseau entre le réseau principal et le réseau frontal uniquement.
+8. Accès au port 1433 pour toutes les machines virtuelles SQL Server dans le sous-réseau entre le réseau principal et le réseau frontal uniquement.
+9. Séparation du trafic de gestion (port 3389) et du trafic de base de données (1433) sur les différentes cartes réseau dans les machines virtuelles principales.
+
+![Groupes de sécurité réseau](./media/virtual-network-nsg-overview/figure1.png)
+
+Comme indiqué dans le diagramme ci-dessus, les machines virtuelles *Web1* et *Web2* sont connectées au sous-réseau *frontal* et les machines virtuelles *DB1* et *DB2* sont connectées au sous-réseau *principal*. Les deux sous-réseaux font partie du réseau virtuel *TestVNet*. Toutes les ressources sont affectées à la région Azure *Ouest des États-Unis*.
+
+Les configurations requises 1 à 6 (à l’exception de 3) ci-dessus sont limitées aux espaces de sous-réseau confinés. Pour réduire le nombre de règles requises pour chaque groupe de sécurité réseau, et pour faciliter l’ajout de machines virtuelles supplémentaires aux sous-réseaux exécutant les mêmes types de charge de travail que les machines virtuelles, nous pouvons mettre en œuvre le niveau de sous-réseau suivant.
+
+### Groupe de sécurité réseau pour le sous-réseau frontal
+
+**Règles de trafic entrant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|Autoriser HTTP|Autoriser|100|INTERNET|*|*|80|TCP|
+|Autoriser RDP à partir du serveur frontal|Autoriser|200|192\.168.1.0/24|*|*|3389|TCP|
+|refuser tout élément en provenance d’Internet|Deny|300|INTERNET|*|*|*|TCP|
+
+**Règles de trafic sortant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|refuser Internet|Deny|100|*|*|INTERNET|*|*|
+
+### Groupe de sécurité réseau pour le sous-réseau principal
+
+**Règles de trafic entrant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|refuser Internet|Deny|100|INTERNET|*|*|*|*|
+
+**Règles de trafic sortant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|refuser Internet|Deny|100|*|*|INTERNET|*|*|
+
+### Groupe de sécurité réseau pour machine virtuelle (carte réseau) dans un serveur frontal pour RDP depuis Internet
+
+**Règles de trafic entrant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|Autoriser RDP à partir d’Internet|Autoriser|100|INTERNET|**|*|3389|TCP|
+
+>[AZURE.NOTE]Notez que la plage d’adresses source pour cette règle est **Internet**, et non l’adresse IP virtuelle de l’équilibreur de charge et le port source *****, pas 500001. Ne confondez pas les règles NAT/règles d’équilibre de charge et règles de groupe de sécurité réseau. Les règles du groupe de sécurité réseau sont toujours associées à la source d’origine et la destination finale du trafic, et **PAS** à l’équilibreur de charge entre les deux.
+
+### Le groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
+
+**Règles de trafic entrant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|Autoriser RDP à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|**|*|3389|TCP|
+
+### Groupe de sécurité réseau pour la gestion des cartes réseau dans le serveur principal
+
+**Règles de trafic entrant**
+
+|Règle|Access|Priorité|Plage d’adresses source|Port source|Plage d’adresses de destination|Port de destination|Protocole|
+|---|---|---|---|---|---|---|---|
+|Autoriser SQL à partir du serveur frontal|Autoriser|100|192\.168.1.0/24|**|*|1433|TCP|
+
+Étant donné que certains des groupes de sécurité réseau ci-dessus doivent être associés à des cartes réseau individuelles, vous devez déployer ce scénario en tant que déploiement de gestionnaire de ressources. Notez comment les règles sont combinées au niveau du sous-réseau et de la carte réseau, selon la façon dont ils doivent être appliqués.
 
 ## Étapes suivantes
 
 - [Déploiement des groupes de sécurité réseau dans le modèle de déploiement classique](virtual-networks-create-nsg-classic-ps.md).
-- [Déploiement des groupes de sécurité réseau dans Resource Manager](virtual-networks-create-nsg-arm-pportal.md).
+- [Déploiement des groupes de sécurité réseau dans le Gestionnaire de ressources](virtual-networks-create-nsg-arm-pportal.md).
+- [Gestion des journaux de groupe de sécurité réseau](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

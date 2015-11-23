@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Capturer l’image d'une machine virtuelle Windows | Microsoft Azure"
-	description="Capturer l’image d’une machine virtuelle Windows créée avec le modèle de déploiement classique."
+	pageTitle="Capturer l’image d'une machine virtuelle Microsoft Azure | Microsoft Azure"
+	description="Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/05/2015"
 	ms.author="cynthn"/>
 
-#Capturer l’image d’une machine virtuelle Windows créée avec le modèle de déploiement classique.
+#Capturer l’image d’une machine virtuelle Microsoft Azure créée avec le modèle de déploiement classique
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser comme image pour créer d’autres machines virtuelles. Cette image contient le disque du système d'exploitation et les disques de données éventuellement associés à la machine virtuelle. Comme elle ne comporte pas de configurations de mise en réseau, vous devez effectuer ces tâches de configuration quand vous créez d’autres machines virtuelles à partir de ce modèle.
+Cet article vous montre comment capturer une machine virtuelle Azure exécutant Windows de façon à l’utiliser comme image pour créer d’autres machines virtuelles. Cette image contient le disque du système d'exploitation et les disques de données éventuellement associés à la machine virtuelle. Comme elle ne comporte pas de configurations de mise en réseau, vous devez effectuer ces tâches de configuration quand vous créez d’autres machines virtuelles à partir de l’image.
 
 Azure stocke l'image sous **Mes images**. Il s’agit de l’emplacement où sont stockées les images que vous avez éventuellement téléchargées. Pour plus d’informations sur les images, consultez la page [À propos des images pour les machines virtuelles](virtual-machines-images.md).
 
@@ -30,12 +30,15 @@ Azure stocke l'image sous **Mes images**. Il s’agit de l’emplacement où son
 
 Ces étapes partent du principe que vous avez déjà créé une machine virtuelle Azure, configuré le système d'exploitation et attaché les disques de données. Si vous ne l’avez pas encore fait, consultez ces instructions :
 
-- [Création d’une machine virtuelle personnalisée exécutant Windows][]
-- [Comment attacher un disque de données à une machine virtuelle][]
+- [Créer une machine virtuelle à partir d’une image](virtual-machines-create-custom.md)
+- [Comment attacher un disque de données à une machine virtuelle](storage-windows-attach-disk.md)
 
-> [AZURE.WARNING]Ce processus supprime la machine virtuelle d'origine une fois celle-ci capturée et ne doit pas être considéré comme un moyen de sauvegarder une machine virtuelle. Pour cela, vous pouvez utiliser Azure Backup, qui est disponible sous forme de version préliminaire dans certaines régions. Pour plus d’informations, consultez la page [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+> [AZURE.WARNING]Ce processus supprime la machine virtuelle d'origine une fois celle-ci capturée.
 
-##Capture de la machine virtuelle##
+Il ne doit pas être considéré comme un moyen de sauvegarder une machine virtuelle. Pour cela, vous pouvez utiliser Azure Backup, qui est disponible sous forme de version préliminaire dans certaines régions. Pour plus d’informations, consultez la page [Sauvegarde des machines virtuelles Azure](../backup/backup-azure-vms.md). D’autres solutions sont disponibles auprès de partenaires certifiés. Pour savoir ce qui est actuellement disponible, faites une recherche dans Azure Marketplace.
+
+
+##Capture de la machine virtuelle
 
 1. Dans le [portail Azure](http://manage.windowsazure.com), **connectez-vous** à la machine virtuelle. Pour obtenir des instructions, consultez la page [Comment se connecter à une machine virtuelle exécutant Windows Server][].
 
@@ -71,11 +74,12 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
  	![Capture d'image réussie](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
-##Étapes suivantes##
-L'image est prête à être utilisée pour créer des machines virtuelles. Pour cela, créez une machine virtuelle en utilisant l’élément de menu **Depuis la galerie** et sélectionnez l'image que vous venez de créer. Pour obtenir des instructions, consultez la page [Création d’une machine virtuelle personnalisée exécutant Windows][].
+##Étapes suivantes
 
-[Création d’une machine virtuelle personnalisée exécutant Windows]: virtual-machines-windows-create-custom.md
-[Comment attacher un disque de données à une machine virtuelle]: storage-windows-attach-disk.md
+L'image est prête à être utilisée pour créer des machines virtuelles. Pour cela, créez une machine virtuelle en utilisant l’élément de menu **Depuis la galerie** et sélectionnez l'image que vous venez de créer. Pour obtenir des instructions, consultez [Création d'une machine virtuelle à partir d’une image](virtual-machines-create-custom.md).
+
+
+
 [Comment se connecter à une machine virtuelle exécutant Windows Server]: virtual-machines-log-on-windows-server.md
 [Introduction à l'utilisation de Sysprep]: http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
@@ -86,4 +90,4 @@ L'image est prête à être utilisée pour créer des machines virtuelles. Pour 
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

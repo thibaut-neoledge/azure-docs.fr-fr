@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs | Microsoft Azure" 
+	pageTitle="Connexion d'Azure SQL Database à Azure Search à l'aide d'indexeurs | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Découvrez comment extraire des données d’Azure SQL Database à un index Azure à l'aide d'indexeurs." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@ R. : Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherc
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

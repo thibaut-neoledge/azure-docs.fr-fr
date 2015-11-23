@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -156,14 +156,14 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 
     Le Gestionnaire de travaux HPC s’ouvre et affiche une liste de travaux sur le nœud principal.
 
-**Pour utiliser le portail web de travaux sur le nœud principal**
+**Pour utiliser le portail web exécuté sur le nœud principal**
 
 1. Démarrez un navigateur web sur l’ordinateur client et tapez l’adresse suivante : ```
     https://HeadNodeDnsName.cloudapp.net/HpcPortal
     ```
 2. Dans la boîte de dialogue de sécurité qui s’affiche, tapez les informations d’identification de domaine de l’administrateur de cluster HPC. (Vous pouvez également ajouter d’autres utilisateurs de cluster dans des rôles différents. Pour plus d’informations, consultez [Gestion des utilisateurs de cluster](https://technet.microsoft.com/library/ff919335.aspx).)
 
-    Le portail s’ouvre sur l’affichage de liste de travaux.
+    Le portail web s’ouvre sur l’affichage de liste de travaux.
 
 3. Pour envoyer un exemple de travail qui retourne la chaîne « Hello World » à partir du cluster, cliquez sur **Nouveau travail** dans le cadre de gauche.
 
@@ -183,4 +183,4 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

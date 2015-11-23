@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2015" 
+	ms.date="11/06/2015" 
 	ms.author="sethm"/>
 
 # Azure Service Bus
@@ -21,7 +21,8 @@
 Que l’application ou le service s’exécute dans le cloud ou localement, il est souvent en interaction avec d’autres applications ou services. Afin de répondre à ce besoin de façon globale, Azure contient Service Bus. Cet article présente la technologie Service Bus, décrit ce qu’elle fait et présente des exemples d’utilisation.
 
 ## Concepts de base de Service Bus
-À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Et dans certains cas, vous avez uniquement besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, laissant vos applications interagir de différentes manières.
+
+À chaque situation correspond un style de communication. Parfois, laisser les applications envoyer et recevoir des messages via une simple file d’attente suffit. Dans d’autres situations, une file d’attente ordinaire n’est pas suffisante et une file avec mécanisme de publication et d’abonnement est une meilleure solution. Dans certains cas, vous avez juste besoin d’une connexion entre les applications, sans file d’attente. Service Bus offre ces trois options, permettant à vos applications d’interagir de différentes manières.
 
 Service Bus est un service cloud mutualisé, ce qui signifie que le service est partagé par plusieurs utilisateurs. Chaque utilisateur, par exemple un développeur d’applications, crée un *espace de noms*, puis définit les mécanismes de communication nécessaires au sein de ce dernier. La figure 1 illustre ce concept.
 
@@ -56,13 +57,13 @@ Chaque message se compose de deux parties : un jeu de propriétés, chacune ave
 
 Le destinataire peut lire le message de file d'attente Service Bus de deux façons. La première option, appelée *ReceiveAndDelete*, retire le message de la file d’attente et le supprime immédiatement. C’est simple, mais si le destinataire rencontre un problème avant d’avoir fini de traiter le message, ce dernier est perdu. Comme il est retiré de la file d’attente, aucun autre destinataire ne peut y accéder.
 
-La deuxième option, *PeekLock*, a pour but de résoudre ce problème. Comme dans le cas de ReceiveAndDelete, la lecture PeekLock retire le message de la file d’attente. Par contre, le message n’est pas supprimé. Il est verrouillé, et donc désormais invisible par les autres destinataires. Il attend ensuite un des trois événements suivants :
+La deuxième option, *PeekLock*, a pour but de résoudre ce problème. Comme dans le cas de **ReceiveAndDelete**, la lecture **PeekLock** retire le message de la file d’attente. Par contre, le message n’est pas supprimé. Il est verrouillé, et donc désormais invisible par les autres destinataires. Il attend ensuite un des trois événements suivants :
 
-- Si le destinataire traite correctement le message, il passe l'appel *Complete* et la file d'attente supprime le message. 
-- Si le destinataire décide qu'il ne peut pas traiter correctement le message, il passe l'appel *Abandon*. La file d'attente déverrouille le message et le remet à disposition des autres destinataires.
-- Si le destinataire ne passe aucun de ces appels pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l'appel Abandon, rendant le message accessible aux autres destinataires.
+- Si le destinataire traite correctement le message, il passe l'appel **Complete** et la file d'attente supprime le message. 
+- Si le destinataire décide qu'il ne peut pas traiter correctement le message, il passe l'appel **Abandon**. La file d'attente déverrouille le message et le remet à disposition des autres destinataires.
+- Si le destinataire ne passe aucun de ces appels pendant une période réglable (60 secondes par défaut), la file d’attente part du principe que le destinataire a échoué. Dans ce cas, elle se comporte comme si le destinataire avait passé l'appel **Abandon**, rendant le message accessible aux autres destinataires.
 
-Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété MessageID unique, qui reste la même par défaut, quel que soit le nombre de fois que le message est lu dans la file d’attente.
+Notez ce qui peut se produire ici : le même message risque d’être remis deux fois, peut-être à deux destinataires différents. Les applications qui utilisent des files d’attente Service Bus doivent pouvoir faire face à cette situation. Afin de faciliter la détection des doublons, chaque message comporte une propriété **MessageID** unique, qui reste la même par défaut, quel que soit le nombre de fois que le message est lu dans la file d’attente.
 
 Les files d’attente sont utiles dans de nombreuses situations. Elles laissent les applications communiquer, même si elles ne s’exécutent pas toutes les deux en même temps, ce qui peut s’avérer utile avec les applications mobiles et les applications de traitement par lots. Une file d'attente avec plusieurs destinataires assure aussi un équilibrage automatique de la charge, car les messages sont répartis vers ces différents destinataires.
 
@@ -74,13 +75,13 @@ Même si elles sont utiles, les files d'attente ne sont pas toujours la bonne so
  
 **Figure 3 : en fonction du filtre spécifié par l’application, celle-ci peut recevoir certains messages ou tous les messages envoyés à une rubrique Service Bus.**
 
-Les rubriques sont assez similaires aux files d'attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques laissent chaque application créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
+Les rubriques sont assez similaires aux files d'attente. Les expéditeurs envoient les messages à la rubrique de la même façon qu’ils envoient des messages dans la file d’attente. Ces messages ont le même aspect que dans la file d’attente. La principale différence est que les rubriques permettent à chaque application réceptrice de créer son propre abonnement en définissant un *filtre*. L’abonné ne voit alors que les messages correspondant à ce filtre. Par exemple, la figure 3 présente un expéditeur et une rubrique avec trois abonnés, chacun disposant de son propre filtre :
 
 - L’abonné 1 ne reçoit que les messages contenant la propriété *Seller="Ava"*.
 - L’abonné 2 reçoit les messages qui contiennent la propriété *Seller="Ruby"* et/ou qui contiennent la propriété *Amount* avec une valeur de 100 000 ou plus. Si Ruby est la directrice des ventes, elle veut peut-être pouvoir afficher ses propres ventes et toutes les ventes importantes, quel que soit le vendeur.
 - L’abonné 3 a défini son filtre sur *True*, ce qui veut dire qu’il reçoit tous les messages. Par exemple, cette application peut être chargée de maintenir une piste d’audit et doit donc voir tous les messages.
 
-Comme pour les files d'attente, les abonnés d'une rubrique peuvent lire les messages via ReceiveAndDelete ou PeekLock. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, appelée *publication et abonnement*, est utile lorsque plusieurs applications peuvent être intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
+Comme pour les files d'attente, les abonnés d'une rubrique peuvent lire les messages via **ReceiveAndDelete** ou **PeekLock**. À l’inverse des files d’attente cependant, un message unique envoyé à une rubrique peut être reçu par plusieurs abonnés. Cette approche, appelée *publication et abonnement*, est utile lorsque plusieurs applications sont intéressées par les mêmes messages. En définissant le filtre approprié, chaque abonné peut récupérer la partie du flux de messages qu’il souhaite voir.
 
 ## Relais
 
@@ -104,7 +105,7 @@ Lorsque vous avez besoin d’une communication directe entre les applications, l
 
 ## Concentrateurs d’événements
 
-Les concentrateurs d'événements consistent en un système d'ingestion hautement évolutif capable de traiter plusieurs millions d'événements par seconde. Ils permettent ainsi à votre application de traiter et d'analyser les quantités de données immenses produites par vos appareils connectés et les applications. Par exemple, vous pouvez utiliser un concentrateur d’événements pour collecter les données de performance de moteur en direct d’un parc de voitures. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage. Pour plus d’informations sur les concentrateurs d’événements, consultez la [Vue d’ensemble des concentrateurs d’événements](../event-hubs-overview.md).
+Les concentrateurs d'événements consistent en un système d'ingestion hautement évolutif capable de traiter plusieurs millions d'événements par seconde. Ils permettent ainsi à votre application de traiter et d'analyser les quantités de données immenses produites par vos appareils connectés et les applications. Par exemple, vous pouvez utiliser un concentrateur d’événements pour collecter les données de performance de moteur en direct d’un parc de voitures. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage. Pour plus d’informations sur les concentrateurs d’événements, consultez la [Vue d’ensemble des concentrateurs d’événements](../event-hubs/event-hubs-overview.md).
 
 ## Résumé
 
@@ -117,17 +118,11 @@ Maintenant que vous avez appris les principes de base d’Azure Service Bus, con
 - Utilisation des [files d’attente Service Bus](service-bus-dotnet-how-to-use-queues.md)
 - Utilisation des [rubriques Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 - Utilisation des [relais Service Bus](service-bus-dotnet-how-to-use-relay.md)
-- Exemples relatifs à Service Bus : afficher un aperçu sur [MSDN][]. 
-
-[svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
-[queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
-[topics-subs]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
-[relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
-[MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
+- [Exemples Service Bus](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

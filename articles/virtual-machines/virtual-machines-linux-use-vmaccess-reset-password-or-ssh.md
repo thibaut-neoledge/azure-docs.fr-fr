@@ -22,15 +22,15 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Microsoft Azure en version préliminaire pour réinitialiser le mot de passe ou la clé SSH, ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
+Si vous ne pouvez pas vous connecter à une machine virtuelle Linux en raison d’un mot de passe oublié, d’une clé SSH (Secure Shell) incorrecte ou d’un problème lié à la configuration SSH, utilisez le portail Azure en version préliminaire pour réinitialiser le mot de passe ou la clé SSH ou corriger la configuration SSH. Notez que cet article s’applique aux machines virtuelles créées à l’aide du modèle de déploiement **Classique**.
 
-## Version préliminaire du portail Azure
+## Portail Azure en version préliminaire
 
-Pour réinitialiser la configuration SSH dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual machines** > *votre machine virtuelle Linux* > **Réinitialiser l’accès à distance**. Voici un exemple.
+Pour réinitialiser la configuration SSH dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual Machines** > *votre machine virtuelle Linux* > **Réinitialiser l’accès à distance**. Voici un exemple.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-RDP-Reset-Linux.png)
 
-Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des privilèges sudo ou la clé publique SSH dans le [portail Microsoft Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual machines** > *votre machine virtuelle Linux* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
+Pour réinitialiser le nom et le mot de passe du compte d’utilisateur avec des privilèges sudo ou la clé publique SSH dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Virtual Machines** > *votre machine virtuelle Linux* > **Tous les paramètres** > **Réinitialisation du mot de passe**. Voici un exemple.
 
 ![](./media/virtual-machines-linux-use-vmaccess-reset-password-or-ssh/Portal-PW-Reset-Linux.png)
 
@@ -165,7 +165,7 @@ Si vous ne connaissez pas le service cloud et le nom de la machine virtuelle, ex
 
 > [AZURE.NOTE]Les lignes de commande qui commencent par $ définissent des variables PowerShell qui sont ensuite utilisées dans les commandes PowerShell.
 
-Si vous créez la machine virtuelle à l’aide du portail de gestion Azure, exécutez la commande supplémentaire suivante :
+Si vous avez créé la machine virtuelle avec le portail Azure, exécutez la commande supplémentaire suivante :
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@ Pour afficher l’état de l’extension VMAccess, exécutez cette commande.
 [Fonctionnalités et extensions de machine virtuelle Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

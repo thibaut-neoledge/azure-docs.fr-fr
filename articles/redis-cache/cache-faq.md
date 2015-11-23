@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/12/2015" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -47,9 +47,9 @@ De ce tableau, nous pouvons tirer les conclusions suivantes.
 -	Avec le clustering Redis, le débit augmente de façon linéaire à mesure que vous augmentez le nombre de partitions (nœuds) dans le cluster. Par exemple, si vous créez un cluster P4 de 10 partitions, le débit disponible est alors de 250 000 * 10 = 2,5 millions de demandes par seconde.
 -	Pour les tailles de clé supérieures, le débit du niveau Premium est plus élevé que celui du niveau Standard.
 
-| Niveau tarifaire | Taille | Bande passante disponible (Mbits/s) | Taille de clé de 1 Ko |
+| Niveau tarifaire | Taille | Bande passante disponible | Taille de clé de 1 Ko |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tailles de cache Standard** | &nbsp; | &nbsp; | **Demandes par seconde (RPS)** |
+| **Tailles de cache Standard** | &nbsp; | **(Mbits/s)** | **Demandes par seconde (RPS)** |
 | C0 | 250 Mo | 5 | 600 |
 | C1 | 1 Go | 100 | 12 200 |
 | C2 | 2,5 Go | 200 | 24 000 |
@@ -204,7 +204,7 @@ Le Cache Azure propose actuellement trois offres :
 
 
 ### Cache Redis Azure
-Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau premium](cache-premium-tier.md) est en version préliminaire ; il propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, le réseau virtuel et la persistance.
+Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau Premium](cache-premium-tier.md) est en version préliminaire ; il propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, le réseau virtuel et la persistance.
 
 Le Cache Redis Azure permet aux clients d’utiliser un cache Redis sécurisé et dédié, géré par Microsoft. Avec cette offre, vous pouvez exploiter toutes les fonctionnalités et l’écosystème fournis par Redis, ainsi que la fiabilité des services d’hébergement et de surveillance Microsoft.
 
@@ -220,4 +220,4 @@ Si vous êtes un client existant du service de cache géré Azure, vous pouvez c
 ### In-Role Cache
 Si vous auto-hébergez le cache à l’aide d’In-Role Cache, vous pouvez également continuer ainsi. In-Role Cache étant un composant logiciel auto-hébergé et non un service hébergé de Microsoft, aucun contrat SLA n’est proposé. Les utilisateurs d’In-Role Cache peuvent choisir de migrer vers le Cache Redis Azure pour tirer parti de son ensemble de fonctionnalités enrichies et obtenir un contrat SLA.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

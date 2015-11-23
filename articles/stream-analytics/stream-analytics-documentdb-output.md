@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/29/2015" 
+	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
 # Utilisation de DocumentDB comme sortie Azure Stream Analytics
@@ -59,4 +59,4 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 -   **Partition Key** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 -   **Document ID** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Générer une application de prototype pour Azure Search" 
+	pageTitle="Générer une application de prototype pour Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Créez votre premier prototype d'application pour prendre en main Azure Search, un service de recherche cloud hébergé." 
 	services="search" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@ Suivez ces liens pour en savoir plus :
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

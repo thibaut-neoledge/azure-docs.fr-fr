@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2015"
+	ms.date="11/10/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
 # Afficher vos rapports d'accès et d'utilisation
@@ -159,6 +159,10 @@ Dans le portail de gestion Azure, les rapports sont classés comme suit :
 | :-------------     | :-------        |
 | Utilisez ce rapport pour afficher l'utilisation de toutes les applications SaaS dans votre répertoire. Ce rapport est basé sur le nombre de clics effectués par les utilisateurs sur l'application dans le volet d'accès. | Répertoire > onglet Rapports |
 
+Ce rapport comprend les connexions à _toutes_ applications auxquelles votre répertoire a accès, y compris les applications Microsoft pré-intégrées.
+
+Les applications Microsoft pré-intégrées incluent Office 365, Sharepoint, le portail de gestion Azure, entre autres.
+
 ![Résumé de l’utilisation des applications](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)
 
 
@@ -239,7 +243,7 @@ Si vous suspectez qu'un compte d'utilisateur a été compromis ou tout type d’
 
 - Contactez l'utilisateur pour vérifier l'activité
 - Réinitialisez le mot de passe de l'utilisateur.
-- [Activez l'authentification multi-facteur](http://go.microsoft.com/fwlink/?linkid=335774) pour renforcer la sécurité
+- [Activez l'authentification multi-facteur](multi-factor-authentication-get-started.md) pour renforcer la sécurité
 
 ## Afficher ou télécharger un rapport
 
@@ -271,4 +275,4 @@ Pour plus d’informations sur les notifications de création de rapport Azure 
 - [Prise en main d’Azure Active Directory Premium (AD)](active-directory-get-started-premium.md)
 - [Ajout d’une marque de société aux pages de connexion et du volet d’accès](active-directory-add-company-branding.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

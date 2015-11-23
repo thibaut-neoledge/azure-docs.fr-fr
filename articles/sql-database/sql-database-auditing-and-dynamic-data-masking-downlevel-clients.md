@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Prise en charge des clients de niveau inférieur de base de données SQL pour l’audit et le masquage de données dynamiques | Microsoft Azure" 
-	description="En savoir plus sur la prise en charge des clients de niveau inférieur de base de données SQL pour l’audit et le masquage de données dynamiques." 
+	pageTitle="Base de données SQL : prise en charge des clients de niveau inférieur pour l’audit | Microsoft Azure" 
+	description="En savoir plus sur la prise en charge par Base de données SQL des clients de niveau inférieur pour l’audit." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="nadavhelfman" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="nadavhelfman"/>
+	ms.date="11/12/2015" 
+	ms.author="nadavhelfman; ronitr"/>
  
-# Base de données SQL : prise en charge des clients de niveau inférieur pour l’audit et le masquage de données dynamiques 
+# Base de données SQL : prise en charge des clients de niveau inférieur pour l’audit
 
 
-[L’audit](sql-database-auditing-get-started.md) et [le masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md) fonctionnent avec les clients SQL qui prennent en charge la redirection TDS.
+[L’audit](sql-database-auditing-get-started.md) fonctionne automatiquement avec les clients SQL qui prennent en charge la redirection TDS.
 
 Tout client qui implémente TDS 7.4 doit également prendre en charge la redirection. Cependant, cette règle comporte deux exceptions : JDBC 4.0, qui ne prend pas complètement en charge la fonctionnalité de redirection et Tedious pour Node.JS, où la redirection n’a pas été implémentée.
 
@@ -38,6 +38,4 @@ Voici une liste non exhaustive de « clients de niveau inférieur » :
 
 **Remarque :** la modification des noms de domaines complets de serveur précédents peut aussi être utile pour appliquer une stratégie d’audit au niveau de SQL Server sans avoir à configurer chaque base de données (atténuation temporaire).
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

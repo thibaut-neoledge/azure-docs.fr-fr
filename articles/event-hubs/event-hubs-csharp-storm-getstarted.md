@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des concentrateurs d’événements"
+	pageTitle="Prise en main d’Event Hubs en C# avec Apache Storm | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C# et à en recevoir dans un cluster Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -89,9 +89,9 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
 
-- Un [exemple d'application complet qui utilise des hubs d’événements].
-- L’exemple de [montée en puissance du traitement des événements avec Event Hubs].
-- Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
+- Un [exemple d'application complet qui utilise des hubs d’événements][].
+- L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
+- Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-storm-getstarted/create-event-hub1.png
@@ -108,9 +108,9 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [portail Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d'ensemble des concentrateurs d'événements]: event-hubs-overview.md
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

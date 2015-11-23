@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
 
+Cet article complète la vidéo [Intégrer la gestion des API Azure avec Event Hubs](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) et décrit la façon de consigner les événements Gestion des API à l’aide d’Azure Event Hubs.
+
 ## Création d'un hub d'événements Azure
 
-Pour créer un Event Hub, connectez-vous au [portail Azure](https://manage.windowsazure.com) et cliquez sur **Nouveau**->**App Services**->**Service Bus**->**Event Hub**-> **Création rapide**. Entrez un nom d’Event Hub, une région, sélectionnez un abonnement et sélectionnez un espace de noms. Si vous n’avez pas créé d’espace de noms précédemment, vous pouvez en créer un en entrant un nom dans la zone de texte **Espace de noms**. Une fois que toutes les propriétés sont configurées, cliquez sur **Créer un Event Hub** pour créer l’Event Hub.
+Pour créer un hub d’événements, connectez-vous au [portail Azure](https://manage.windowsazure.com) et cliquez sur **Nouveau**->**App Services**->**Service Bus**->**Event Hub**-> **Création rapide**. Entrez un nom d’Event Hub, une région, sélectionnez un abonnement et sélectionnez un espace de noms. Si vous n’avez pas créé d’espace de noms précédemment, vous pouvez en créer un en entrant un nom dans la zone de texte **Espace de noms**. Une fois que toutes les propriétés sont configurées, cliquez sur **Créer un hub d'événements** pour créer le hub d'événements.
 
 ![Créer un event hub][create-event-hub]
 
-Ensuite, accédez à l’onglet **Configurer** de votre nouvel Event Hub et créez deux **stratégies d’accès partagé**. Nommez la première stratégie **Envoi** et attribuez-lui des autorisations d’**envoi**.
+Ensuite, accédez à l’onglet **Configurer** de votre nouvel hub d'événements et créez deux **stratégies d’accès partagé**. Nommez la première stratégie **Envoi** et attribuez-lui des autorisations d’**envoi**.
 
 ![Stratégie Envoi][sending-policy]
 
@@ -34,17 +36,17 @@ Nommez la seconde **Réception** et attribuez-lui des autorisations d’**écout
 
 ![Stratégie Réception][receiving-policy]
 
-Chaque stratégie d’accès partagé permet aux applications d’envoyer et de recevoir des événements vers et depuis l’Event Hub. Pour accéder aux chaînes de connexion pour ces stratégies, accédez à l’onglet **Tableau de bord** de l’Event Hub et cliquez sur **Informations de connexion**.
+Chaque stratégie d’accès partagé permet aux applications d’envoyer et de recevoir des événements vers et depuis l’Event Hub. Pour accéder aux chaînes de connexion pour ces stratégies, accédez à l’onglet **Tableau de bord** du hub d'événements et cliquez sur **Informations de connexion**.
 
 ![Chaîne de connexion][event-hub-dashboard]
 
-La chaîne de connexion **Envoi** est utilisée lors de l’enregistrement des événements et la chaîne de connexion **Réception** lors du téléchargement des événements à partir de l’Event Hub.
+La chaîne de connexion **Envoi** est utilisée lors de l’enregistrement des événements et la chaîne de connexion **Réception** lors du téléchargement des événements à partir du hub d'événements.
 
 ![Chaîne de connexion][event-hub-connection-string]
 
 ## Créer un enregistreur d’événements de gestion des API
 
-Maintenant que vous disposez d’un Event Hub, l’étape suivante consiste à configurer un [enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx) dans votre service de gestion des API afin qu’il puisse enregistrer des événements sur l’Event Hub.
+Maintenant que vous disposez d’un hub d'événements, l’étape suivante consiste à configurer un [enregistreur d’événements](https://msdn.microsoft.com/library/azure/mt592020.aspx) dans votre service de gestion des API afin qu’il puisse enregistrer des événements sur le hub d'événements.
 
 Les enregistreurs d’événements de gestion des API sont configurés à l’aide de l’[API REST de gestion des API](http://aka.ms/smapi). Avant d’utiliser l’API REST pour la première fois, passez en revue les [conditions préalables](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) et assurez-vous que vous avez [activé l’accès à l’API REST](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
@@ -53,7 +55,7 @@ Pour créer un enregistreur d’événements, créez une demande HTTP PUT à l�
     https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2014-02-14-preview
 
 -	Remplacez `{your service}` par le nom de votre instance de service de gestion des API.
--	Remplacez `{new logger name}` par le nom souhaité pour votre nouvel enregistreur d’événements. Vous référencerez ce nom lorsque vous configurerez la stratégie [enregistrer sur event hub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub).
+-	Remplacez `{new logger name}` par le nom souhaité pour votre nouvel enregistreur d’événements. Vous référencerez ce nom lorsque vous configurerez la stratégie [log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub).
 
 Ajoutez les en-têtes suivants à la demande.
 
@@ -74,7 +76,7 @@ Spécifiez le corps de la demande en utilisant le modèle suivant.
 
 -	`type` doit être défini sur `AzureEventHub`.
 -	`description` fournit une description facultative de l’enregistreur d’événements et peut être une chaîne de longueur nulle si vous le souhaitez.
--	`credentials` contient les valeurs `name` et `connectionString` de votre Azure Event Hub.
+-	`credentials` contient les valeurs `name` et `connectionString` de votre hub d’événements Azure.
 
 Lorsque vous créez la demande, si l’enregistreur d’événements est créé, un code d’état `201 Created` est renvoyé.
 
@@ -92,7 +94,7 @@ Cliquez sur **Stratégies** dans le menu Gestion des API situé à gauche, séle
 
 ![Add policy][add-policy]
 
-Placez votre curseur dans la section de la stratégie `inbound` et cliquez sur la stratégie **Enregistrer sur EventHub** pour insérer le modèle de déclaration de stratégie `log-to-eventhub`.
+Placez votre curseur dans la section de la stratégie `inbound` et cliquez sur la stratégie **Log to EventHub** pour insérer le modèle de déclaration de stratégie `log-to-eventhub`.
 
 ![Policy editor][event-hub-policy]
 
@@ -112,6 +114,15 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 	-	[Prise en main avec Azure Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 	-	[Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
 	-	[Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md)
+-	En savoir plus sur l’intégration de Gestion des API et Event Hubs
+	-	[Référence d’entité d’enregistreur](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[Référence de stratégie log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Surveiller vos API avec gestion des API Azure, les hubs d’événements et Runscope](api-management-log-to-eventhub-sample.md)	
+
+## Regarder une procédure pas à pas en vidéo
+
+> [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
+
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -122,4 +133,4 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

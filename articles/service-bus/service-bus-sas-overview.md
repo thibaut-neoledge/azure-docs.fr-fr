@@ -38,7 +38,7 @@ Les autorisations disponibles pour une stratégie sont relativement explicites 
 
 Une fois la stratégie créée, une *clé primaire* et une *clé secondaire* lui sont attribuées. Il s'agit de clés de chiffrement fortes. Ne les perdez pas et ne les égarez pas ; elles seront toujours disponibles sur le portail. Vous pouvez utiliser n'importe laquelle des clés générées et vous pouvez les régénérer à tout moment. Toutefois, si vous régénérez ou modifiez la clé primaire dans la stratégie, les signatures d'accès partagé créées à partir de celle-ci ne seront plus valides.
 
-Lorsque vous créez un espace de noms Service Bus, une stratégie est automatiquement créée pour l'espace de noms complet, appelée **RootManageSharedAccessKey** et cette stratégie dispose de toutes les autorisations. Vous ne vous connectez pas en tant que **racine**, donc n'utilisez pas cette stratégie sauf s'il existe une très bonne raison. Vous pouvez créer des stratégies supplémentaires dans l'onglet **Configurer** pour l'espace de noms dans le portail de gestion Azure. Il est important de noter qu'un seul niveau d'arborescence dans Service Bus (espace de noms, file d'attente, hub d'événements, etc.) peut avoir jusqu'à 12 stratégies.
+Lorsque vous créez un espace de noms Service Bus, une stratégie est automatiquement créée pour l'espace de noms complet, appelée **RootManageSharedAccessKey** et cette stratégie dispose de toutes les autorisations. Vous ne vous connectez pas en tant que **racine**, donc n'utilisez pas cette stratégie sauf s'il existe une très bonne raison. Vous pouvez créer des stratégies supplémentaires dans l'onglet **Configurer** pour l'espace de noms dans le [portail Azure](http://manage.windowsazure.com). Il est important de noter qu'un seul niveau d'arborescence dans Service Bus (espace de noms, file d'attente, hub d'événements, etc.) peut avoir jusqu'à 12 stratégies.
 
 ## Signature d'accès partagé (jeton)
 
@@ -255,4 +255,4 @@ Pour plus d’informations sur l’authentification avec Service Bus, consultez 
 
 Pour obtenir d’autres exemples de signature d’accès partagé en C# et JavaScript, consultez [ce billet de blog](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

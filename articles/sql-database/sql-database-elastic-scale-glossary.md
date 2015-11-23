@@ -17,37 +17,39 @@
     ms.author="ddove;sidneyh"/>
 
 # Glossaire des outils de base de données élastique
-Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), l'[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md).
+Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), l'[outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md).
+
+Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md) et [Utiliser la classe RecoveryManager pour résoudre les problèmes de carte de partition](sql-database-elastic-database-recovery-manager.md).
 
 ![Termes liés ç l’infrastructure flexible][1]
 
 **Base de données** : une base de données SQL Azure.
 
-**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d'une clé de partitionnement spécifique. Comparer à la **requête sur plusieurs partitions**.
+**Routage dépendant des données** : fonctionnalité qui permet à une application de se connecter à une partition en fonction d’une clé de partitionnement spécifique. Comparer à la **requête sur plusieurs partitions**.
 
-**Carte de partitions globale** : la carte correspondant aux clés de partitionnement et à leurs partitions respectives au sein d'un **jeu de partitions**. La carte de partitions globale est stockée dans le **gestionnaire des cartes de partitions**. Comparer à la **carte de partitions locale**.
+**Carte de partitions globale** : la carte correspondant aux clés de partitionnement et à leurs partitions respectives au sein d’un **jeu de partitions**. La carte de partitions globale est stockée dans le **gestionnaire des cartes de partitions**. Comparer à la **carte de partitions locale**.
 
 **Carte de partitions de liste** : carte de partitions dans laquelle les clés de partitionnement sont mappées individuellement. Comparer à la **carte de partitions de plage**.
 
 **Carte de partitions locale** : stockée sur une partition, la carte de partitions locale contient des mappages pour les shardlets se trouvant sur la partition.
 
-**Requête sur plusieurs partitions** : possibilité d'émettre une requête sur plusieurs partitions ; les ensembles de résultats sont retournés à l'aide de la sémantique UNION ALL (également appelée « requête de distribution ramifiée »). Comparer au **routage dépendant des données**.
+**Requête sur plusieurs partitions** : possibilité d’émettre une requête sur plusieurs partitions ; les ensembles de résultats sont retournés à l’aide de la sémantique UNION ALL (également appelée « requête de distribution ramifiée »). Comparer au **routage dépendant des données**.
 
 **Carte de partitions de plage** : carte de partitions dans laquelle la stratégie de distribution des partitions est basée sur plusieurs plages de valeurs contiguës.
 
 **Tables de référence** : tables qui ne sont pas partitionnées, mais qui sont répliquées sur plusieurs partitions. Par exemple, les codes postaux peuvent être stockés dans une table de référence.
 
-**Partition** : base de données SQL Azure qui stocke les données provenant d'un jeu de données partitionnées.
+**Partition** : base de données SQL Azure qui stocke les données provenant d’un jeu de données partitionnées.
 
-**Élasticité des partitions** : capacité à effectuer une **mise à l'échelle horizontale** et une **mise à l'échelle verticale**.
+**Élasticité des partitions** : capacité à effectuer une **mise à l’échelle horizontale** et une **mise à l’échelle verticale**.
 
-**Tables partitionnées** : tables qui sont partitionnées, c'est-à-dire dont les données sont distribuées entre des partitions en fonction de la valeur de leur clé de partitionnement.
+**Tables partitionnées** : tables qui sont partitionnées, c’est-à-dire dont les données sont distribuées entre des partitions en fonction de la valeur de leur clé de partitionnement.
 
 **Clé de partitionnement** : valeur de colonne qui détermine comment les données sont réparties entre les partitions. Les types de valeur disponibles sont les suivants : **int**, **bigint**, **varbinary** ou **uniqueidentifier**.
 
 **Ensemble de partitions** : collection de partitions qui sont attribuées à la même carte de partitions dans le gestionnaire des cartes de partitions.
 
-**Shardlet** : toutes les données associées à la valeur unique d'une clé de partitionnement sur une partition. Un shardlet est la plus petite unité de transfert de données possible lors de la redistribution des tables partitionnées.
+**Shardlet** : toutes les données associées à la valeur unique d’une clé de partitionnement sur une partition. Un shardlet est la plus petite unité de transfert de données possible lors de la redistribution des tables partitionnées.
 
 **Carte de partitions** : jeu de mappages composé de clés de partitionnement et de leurs partitions respectives.
 
@@ -58,7 +60,7 @@ Les termes suivants sont définis pour les [outils des bases de données élasti
 
 ##Verbes et adverbes
 
-**Mise à l'échelle horizontale** : montée en charge (augmentation ou réduction) d'une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions, comme dans l'exemple ci-dessous.
+**Mise à l’échelle horizontale** : montée en charge (augmentation ou réduction) d’une collection de partitions en ajoutant ou supprimant des partitions dans une carte de partitions, comme dans l’exemple ci-dessous.
 
 ![Mise à l’échelle horizontale et verticale][3]
 
@@ -66,11 +68,11 @@ Les termes suivants sont définis pour les [outils des bases de données élasti
 
 **Déplacement de shardlet** : action de déplacer un shardlet unique vers une autre partition.
 
-**Partitionner** : action qui consiste à partitionner horizontalement des données structurées de façon identique sur plusieurs bases de données en fonction d'une clé de partitionnement.
+**Partitionner** : action qui consiste à partitionner horizontalement des données structurées de façon identique sur plusieurs bases de données en fonction d’une clé de partitionnement.
 
-**Fractionner** : action de déplacer plusieurs shardlets d'une partition vers une autre (généralement nouvelle). Une clé de partitionnement est fournie par l'utilisateur comme point de fractionnement.
+**Fractionner** : action de déplacer plusieurs shardlets d’une partition vers une autre (généralement nouvelle). Une clé de partitionnement est fournie par l'utilisateur comme point de fractionnement.
 
-**Mise à l'échelle verticale** : mise à l'échelle (augmentation ou réduction) du niveau de performances d'une partition individuelle. Par exemple, modifier une partition standard vers l’édition Premium (qui génère plus de ressources informatiques).
+**Mise à l’échelle verticale** : mise à l’échelle (augmentation ou réduction) du niveau de performances d’une partition individuelle. Par exemple, modifier une partition standard vers l’édition Premium (qui génère plus de ressources informatiques).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -80,4 +82,4 @@ Les termes suivants sont définis pour les [outils des bases de données élasti
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

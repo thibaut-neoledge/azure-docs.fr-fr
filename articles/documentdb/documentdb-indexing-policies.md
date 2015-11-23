@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
     ms.date="10/05/2015" 
-    ms.author="mimig"/>
+    ms.author="arramac"/>
 
 
 # Stratégies d’indexation de DocumentDB
@@ -769,4 +769,4 @@ Suivez les liens ci-dessous pour accéder à des exemples de gestion de stratég
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

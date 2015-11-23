@@ -1,8 +1,6 @@
-# Microsoft Azure et l’Internet des objets (IoT)
+# Microsoft Azure et l'Internet des objets (IoT)
 
-Une solution IoT typique nécessite de sécuriser la communication bidirectionnelle entre les appareils, pouvant se chiffrer par millions, et un service principal d’applications. Le traitement des événements « appareil vers cloud » pour découvrir des informations à l’aide des analyses prédictive et automatisée est un exemple de fonctionnalité de service principal d’applications.
-
-Microsoft fournit un ensemble de bibliothèques, qui prennent en charge plusieurs langages et plateformes matérielles, que vous pouvez utiliser pour développer des applications clientes destinées à être exécutées sur un appareil IoT. Pour implémenter votre application de service principal IoT, vous pouvez combiner plusieurs services Azure ou utiliser une des solutions préconfigurées disponibles dans [Azure IoT Suite][]. Pour mieux comprendre comment Azure permet cette infrastructure IoT, il est utile d’envisager une architecture de solution IoT classique.
+Bienvenue dans Microsoft Azure et l'Internet des objets (IoT) Cet article présente une architecture de solution IoT type qui décrit les caractéristiques communes d'une solution IoT que vous pouvez déployer à l'aide de services Azure. Une solution IoT typique nécessite une sécurisation de la communication bidirectionnelle entre les appareils, pouvant se chiffrer par millions, et un serveur principal de solution, par exemple, qui utiliser des analyses prédictive et automatisée pour obtenir des informations de votre flux d'événements « appareil vers cloud ».
 
 ## Architecture de solution IoT
 
@@ -12,17 +10,32 @@ Le diagramme suivant montre une architecture de solution IoT classique. Notez qu
 
 ### Connectivité des appareils
 
-Dans un scénario IoT classique, les appareils envoient des données de télémétrie « appareil vers cloud », telles que les lectures de température, vers un point de terminaison du cloud pour qu’elles soient traitées et stockées. Les appareils peuvent également recevoir des commandes « cloud vers appareil », et y répondre, en lisant les messages issus d’un point de terminaison du cloud. Par exemple, un appareil peut extraire une commande qui indique de modifier la fréquence à laquelle il échantillonne les données.
+Dans un scénario IoT classique, les appareils envoient la télémétrie, comme par exemple des lectures de température, vers un point de terminaison du cloud pour qu'elles soient traitées et stockées. Les appareils peuvent également recevoir des commandes « cloud vers appareil », et y répondre, en lisant les messages issus d’un point de terminaison du cloud. Par exemple, un appareil peut extraire une commande qui indique de modifier la fréquence à laquelle il échantillonne les données.
 
-Un appareil ou une source de données dans une solution IoT peut aller d’un détecteur simple connecté au réseau à un appareil informatique puissant et autonome. Un appareil peut disposer de ressources limitées en termes de capacité de traitement, de mémoire, de bande passante de communication et de prise en charge du protocole de communication.
+L'une des plus grandes difficultés dans les projets IoT consiste à pouvoir connecter de manière fiable et sécurisée des appareils au serveur principal de la solution. Généralement, les appareils IoT ont des caractéristiques différentes de celles d'autres clients tels que des navigateurs et des applications mobiles. Les appareils IoT :
 
-Un appareil peut communiquer avec un point de terminaison d’une passerelle de cloud directement à l’aide d’un protocole de communication, tel qu’AMQP ou HTTP, ou indirectement au moyen d’un dispositif tel qu’une passerelle de champ qui fournit un service de traduction de protocole.
+- sont souvent des systèmes intégrés, qui ne font appel à aucun opérateur humain ;
+- peuvent être situés sur des sites distants avec un accès physique très coûteux ;
+- sont accessibles uniquement via le serveur principal de la solution ;
+- peuvent avoir des performances et/ou des ressources de traitement limitées ;
+- peuvent avoir une connectivité réseau intermittente, lente ou coûteuse ;
+- peuvent nécessiter l'utilisation des protocoles d'application personnalisés propriétaires ou spécifiques à un secteur.
+- peuvent être crées à l'aide d'un large éventail de plates-formes matérielles et logicielles populaires.
+
+Outre les exigences ci-dessus, n’importe quelle solution IoT doit également offrir des possibilités d’évolution, la sécurité et la fiabilité. Il en résulte un ensemble d'exigences de connectivité complexe, long à mettre en place avec des technologies traditionnelles telles que des conteneurs web et des courtiers de messagerie.
+
+Un périphérique peut communiquer directement avec un point de terminaison de passerelle du cloud, ou, si le périphérique ne peut pas utiliser les protocoles de communication que la passerelle de cloud prend en charge, il peut se connecter via une passerelle intermédiaire qui effectue la conversion de protocole.
 
 ### Traitement des données et analyse
 
-Dans le cloud, un processeur d’événements de flux reçoit des messages « appareil vers cloud » à grande échelle en provenance de vos appareils et détermine comment les traiter et les stocker. Une solution pour les appareils connectés permet d’envoyer des données « cloud vers appareil » à des appareils spécifiques sous la forme de commandes. L’inscription d’appareils avec la solution IoT permet d’approvisionner les appareils et de contrôler ceux qui sont autorisés à se connecter à votre infrastructure. Vous pouvez suivre l’état de vos appareils et surveiller leurs activités au moyen du service principal.
+Dans le cloud, un serveur principal de solution IoT :
 
-Les solutions IoT peuvent inclure des boucles de rétroaction automatique. Par exemple, un module d’apprentissage automatique peut identifier à partir de données de télémétrie « appareil vers cloud » que la température d’un appareil spécifique est supérieure aux niveaux de fonctionnement normal et donc envoyer une commande à l’appareil afin qu’il corrige cette situation.
+- reçoit la télémétrie à l'échelle de vos appareils et détermine comment traiter et stocker ces données ; 
+- peut également vous permettre d'envoyer des commandes à un appareil spécifique à partir du cloud ;
+- fournit des fonctionnalités d'inscription vous permettant d'approvisionner des appareils et de contrôler ceux qui sont autorisés à se connecter à votre infrastructure ;
+- vous permet de suivre l'état de vos appareils et de surveiller leurs activités.
+
+Les solutions IoT peuvent inclure des boucles de rétroaction automatique. Par exemple, un module d'apprentissage automatique dans le serveur principal peut identifier, à partir de données de télémétrie, que la température d'un appareil spécifique est supérieure aux niveaux de fonctionnement normaux et donc envoyer une commande à l'appareil afin qu'il corrige cette situation.
 
 ### Présentation
 
@@ -33,4 +46,4 @@ De nombreuses solutions IoT permettent aux utilisateurs d’afficher et d’anal
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

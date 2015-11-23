@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Diagnostics et surveillance des performances pour les acteurs fiables"
-   description="Cet article décrit les fonctionnalités de diagnostic et de surveillance des performances dans le runtime Acteurs fiables, notamment les événements et les compteurs de performances émis par celui-ci."
+   pageTitle="Diagnostics et surveillance des performances pour les acteurs fiables | Microsoft Azure"
+   description="Cet article décrit les fonctionnalités de diagnostic et de surveillance des performances dans le runtime Reliable Actors de Service Bus, notamment les événements et les compteurs de performances émis par celui-ci."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # Diagnostics et surveillance des performances pour les acteurs fiables
 Le runtime Acteurs fiables émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et des [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) qui fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
 
 ## Événements EventSource
-Le nom de la source d'événements du runtime Acteurs fiables est « Microsoft-ServiceFabric-Actors ». Les événements issus de cette source d'événements s'affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quand l'application d'acteur est [déboguée dans Visual Studio](service-fabric-debugging-your-application.md).
+Le nom du fournisseur EventSource du runtime Reliable Actors est « Microsoft-ServiceFabric-Actors ». Les événements issus de cette source d'événements s'affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quand l'application d'acteur est [déboguée dans Visual Studio](service-fabric-debugging-your-application.md).
 
-Service Fabric offre également la possibilité de diriger ces événements vers [Application Insights](http://azure.microsoft.com/services/application-insights/). Pour plus d'informations, consultez l'article sur la [configuration d'Application Insights pour Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) constituent d'autres exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
+[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), les [Diagnostics Azure](../cloud-services-dotnet-diagnostics.md), la [Journalisation sémantique](https://msdn.microsoft.com/library/dn774980.aspx) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
 
 ### Mots clés
 Tous les événements qui appartiennent à la source d'événements Acteurs fiables sont associés à un ou plusieurs mots clés. Cela permet de filtrer les événements collectés. Les bits de mots clés suivants sont définis :
@@ -155,4 +153,4 @@ Le runtime Acteurs fiables émet les événements suivants liés à l'[activatio
 |ActorActivated|5|Informations|0x1|Un acteur a été activé.|
 |ActorDeactivated|6|Informations|0x1|Un acteur a été désactivé.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

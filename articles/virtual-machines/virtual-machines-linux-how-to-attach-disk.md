@@ -160,6 +160,7 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 
 	Si la commande `mount` génère une erreur, vérifiez que la syntaxe utilisée dans le fichier /etc/fstab est correcte. Si des lecteurs de données ou partitions supplémentaires sont créés, vous devez également les ajouter séparément au fichier /etc/fstab.
 
+	Vous devez déverrouiller le lecteur à l'aide des commandes suivantes : # cd /datadrive # sudo chmod go+w /datadrive
 
 >[AZURE.NOTE]La suppression ultérieure d’un disque de données sans modifier fstab pourrait entraîner l’échec du démarrage de la machine virtuelle. S’il s’agit d’une occurrence courante, la plupart des distributions proposent les options fstab `nofail` et/ou `nobootwait` qui permettent à un système de démarrer même si le disque n’est pas monté au moment du démarrage. Pour plus d'informations sur ces paramètres, consultez la documentation de votre distribution.
 
@@ -174,4 +175,4 @@ Vous pouvez attacher des disques, qu'ils soient vides ou non. Dans les deux cas,
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

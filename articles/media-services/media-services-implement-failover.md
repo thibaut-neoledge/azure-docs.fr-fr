@@ -960,4 +960,13 @@ Dans cette section, vous aller créer et configurer un projet d'application cons
 
 Vous pouvez désormais utiliser un gestionnaire de trafic pour acheminer les demandes entre les deux centres de données et ainsi bénéficier d’un basculement en cas de panne.
 
-<!---HONumber=Oct15_HO3-->
+
+##Parcours d’apprentissage de Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->
