@@ -14,16 +14,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="11/09/2015" 
 	ms.author="jeffstok"/>
 
 # Utilisation des données de référence en tant qu’entrée
 
-Les données de référence sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](./articles/data-factory-data-movement-activities.md).
+Les données de référence sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](./articles/data-factory-data-movement-activities.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l'ajout à la fin de la séquence à l'aide d'une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
 
 ## Configuration des données de référence
 
-Pour configurer vos données de référence, vous devez d’abord créer une entrée de type Données de référence. Le tableau ci-dessous explique chaque propriété que vous devez fournir lors de la création de l’entrée des données de référence avec sa description :
+Pour configurer vos données de référence, vous devez d'abord créer une entrée de type **Données de référence**. Le tableau ci-dessous explique chaque propriété que vous devez fournir lors de la création de l’entrée des données de référence avec sa description :
 
 <table>
 <tbody>
@@ -48,7 +48,7 @@ Pour configurer vos données de référence, vous devez d’abord créer une ent
 <td>Les conteneurs fournissent un regroupement logique des objets blob stockés dans le service d’objets blob Microsoft Azure. Lorsque vous téléchargez un objet blob dans le service d'objets Blob, vous devez spécifier un conteneur pour cet objet blob.</td>
 </tr>
 <tr>
-<td>Séquence d’octets préfixe du chemin d’accès [facultatif]</td>
+<td>Modèle de chemin d'accès</td>
 <td>Chemin d’accès de fichier utilisé pour localiser vos objets blob dans le conteneur spécifié. Dans le chemin d’accès, vous pouvez choisir de spécifier une ou plusieurs instances de l’une des 2&#160;variables suivantes&#160;:<BR>{date}, {time}<BR>Exemple&#160;1&#160;: products/{date}/{time}/product-list.csv<BR>Exemple&#160;2&#160;: products/{date}/product-list.csv
 </tr>
 <tr>
@@ -74,9 +74,15 @@ Pour configurer vos données de référence, vous devez d’abord créer une ent
 
 Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle ````"/sample/{date}/{time}/products.csv"```` avec un format de date « JJ-MM-AAAA » et un format d’heure « HH:mm » indique à Stream Analytics de récupérer l’objet blob mis à jour ````"/sample/2015-04-16/17:30/products.csv"```` à 17:30 le 16 avril 2015 (UTC).
 
-> [AZURE.NOTE]Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine coïncide avec l’heure encodée dans le nom de l’objet blob. Par exemple, la tâche recherchera /sample/2015-04-16/17:30/products.csv entre 17:30 et 17:30:59.9 le 16 avril 2015 (UTC). Lorsque l’horloge de la machine marque 17:31, la tâche cesse de rechercher /sample/2015-04-16/17:30/products.csv et commence à rechercher /sample/2015-04-16/17:31/products.csv. Le seul cas où les objets blob de données de référence précédents sont pris en compte est lorsque la tâche démarre pour la première fois. À ce moment-là, la tâche recherche l’objet blob le plus récent produit avant l’heure spécifiée de début de la tâche. Cela permet de garantir la présence d’un jeu de données de référence non vide au démarrage de la tâche. En l’absence d’un tel jeu de données, la tâche échouera et affichera la notification de diagnostic suivante à l’utilisateur :
+> [AZURE.NOTE]Actuellement, les tâches Stream Analytics recherchent l’actualisation des objets blob uniquement lorsque l’heure machine coïncide avec l’heure encodée dans le nom de l’objet blob. Par exemple, la tâche recherchera /sample/2015-04-16/17:30/products.csv entre 17:30 et 17:30:59.9 le 16 avril 2015 (UTC). Lorsque l’horloge de la machine marque 17:31, la tâche cesse de rechercher /sample/2015-04-16/17:30/products.csv et commence à rechercher /sample/2015-04-16/17:31/products.csv. Une exception est faite à cette règle lorsque la tâche doit traiter de nouveau des données en revenant en arrière dans le temps ou lors du premier démarrage de la tâche. Au moment du démarrage, la tâche recherche l'objet blob le plus récent produit avant l'heure de début de la tâche spécifiée. Cela permet de garantir la présence d'un jeu de données de référence non vide au démarrage de la tâche. En l’absence d’un tel jeu de données, la tâche échouera et affichera la notification de diagnostic suivante à l’utilisateur :
 
 [Azure Data Factory](http://azure.microsoft.com/documentation/services/data-factory/) peut être utilisé pour orchestrer la tâche de création d’objets blob mis à jour requise par Stream Analytics pour mettre à jour les définitions de données de référence. Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le déplacement et la transformation des données. Data Factory prend en charge [la connexion à un grand nombre de magasins de données cloud et en local](./articles/data-factory-data-movement-activities.md) et le déplacement facile de données à intervalles réguliers que vous spécifiez. Pour plus d’informations et des instructions étape par étape sur la façon de configurer un pipeline Data Factory pour générer des données de référence pour Stream Analytics qui est actualisé selon une planification prédéfinie, consultez cet [exemple GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+
+## Conseils pour l'actualisation de vos données de référence ##
+
+1. Le remplacement d'objets BLOB de données de référence n'entraînera pas le rechargement de l'objet blob par Stream Analytics et, dans certains cas, il peut provoquer l'échec de la tâche. La méthode recommandée pour modifier les données de référence consiste à ajouter un objet blob utilisant le même modèle de conteneur et le même chemin d'accès que ceux définis dans l'entrée de travail et à utiliser une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
+2.	Les données de référence d'objets BLOB ne sont pas triées selon l'heure de la « Dernière modification » de l'objet blob, mais uniquement par l'heure et la date spécifiées dans le nom d'objet blob utilisant les substitutions {date} et {time}.
+3.	Une tâche doit revenir en arrière à plusieurs reprises. Par conséquent, les objets blobs de données de référence ne doivent pas être modifiés ou supprimés.
 
 ## Obtenir de l'aide
 Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureStreamAnalytics)
@@ -97,4 +103,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -190,14 +190,14 @@ Si vous avez terminé de diffuser en continu les événements et que vous voulez
 - Vous pouvez arrêter votre point de terminaison de diffusion en continu, sauf si vous souhaitez continuer à fournir l’archive de votre événement en direct en tant que flux à la demande. Si le canal est arrêté, aucun frais n’est encouru.
 
 
-##Étapes suivantes
+##Étapes suivantes : Parcours d’apprentissage Media Services
 
-###Parcours d’apprentissage de Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+##Fournir des commentaires
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### Vous recherchez quelque chose d’autre ?
 
@@ -212,4 +212,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

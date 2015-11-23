@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@ Les dernières informations sur les limites de ressources pour une base de donn�
 Un objectif important de la version 12 (V12) de SQL Database était d’améliorer la compatibilité avec Microsoft SQL Server 2014. Entre autres, la version 12 (V12) est désormais équivalente à SQL Server dans le domaine de la programmabilité. Exemple :
 
 
-- [Assemblys Common Language Runtime (CLR)](http://msdn.microsoft.com/library/ms189524.aspx)
 - [Fonctions Windows](http://msdn.microsoft.com/library/bb934097.aspx), avec [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
 - [Index XML](http://msdn.microsoft.com/library/bb934097.aspx) et [index XML sélectifs](http://msdn.microsoft.com/library/jj670104.aspx)
 - [Suivi des modifications](http://msdn.microsoft.com/library/bb933875.aspx)
@@ -48,7 +47,7 @@ Un objectif important de la version 12 (V12) de SQL Database était d’amélio
 - [Recherche en texte intégral](http://msdn.microsoft.com/library/ms142571.aspx)
 
 
-Consultez [cette page](http://msdn.microsoft.com/library/azure/ee336281.aspx) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
+Consultez [cette page](sql-database-transact-sql-information.md) pour découvrir les quelques fonctionnalités non prises en charge par Base de données SQL.
 
 
 ## Plus de performances pour le niveau Premium, nouveaux niveaux de performances
@@ -92,12 +91,12 @@ La sécurité est une préoccupation essentielle pour quiconque mène ses activi
 
 - [Sécurité au niveau de la ligne](http://msdn.microsoft.com/library/dn765131.aspx) (RLS)
 - [Dynamic Data Masking (masquage des données dynamiques)](sql-database-dynamic-data-masking-get-started.md)
-- [Bases de données à relation contenant-contenu](http://msdn.microsoft.com/library/azure/ff394108.aspx)
+- [Bases de données à relation contenant-contenu](http://msdn.microsoft.com/library/ff929188.aspx)
 - [Rôles d’application](http://msdn.microsoft.com/library/ms190998.aspx) gérés avec GRANT, DENY et REVOKE
 - [Chiffrement transparent des données](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE)
 - [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
  - SQL Database prend désormais en charge l’authentification Azure Active Directory, un mécanisme servant à se connecter à SQL Database à l’aide d’identités dans Azure Active Directory (Azure AD). Avec l’authentification Azure Active Directory, vous pouvez gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé.
-- [Toujours chiffré](https://msdn.microsoft.com/library/mt163865.aspx) (dans la version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec SQL Database.
+- Le [chiffrement intégral](https://msdn.microsoft.com/library/mt163865.aspx) (en version préliminaire) rend le chiffrement transparent pour les applications et permet aux clients de chiffrer les données sensibles dans les applications clientes sans partager les clés de chiffrement avec Base de données SQL.
 
 
 ## Continuité d’activité améliorée lors de la récupération
@@ -113,7 +112,7 @@ La version 12 (V12) offre des valeurs sensiblement améliorées pour les object
 | Géo-réplication active | • RPO < 5 minutes.<br/>• ERT < 1 heure. | • RPO < 5 secondes.<br/>• ERT < 30 secondes. |
 
 
-Pour plus d’informations, consultez la rubrique [Continuité de l’activité Base de données SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx).
+Pour plus d’informations, consultez la rubrique [Continuité de l’activité Base de données SQL Azure](sql-database-business-continuity.md).
 
 
 ## Autres raisons pour effectuer la mise à niveau maintenant
@@ -160,6 +159,6 @@ Si vous n’utilisez pas encore la version 12 (V12), vous pouvez mettre à nive
 - Le 31 juillet 2015, toutes les régions avaient été promues en disponibilité générale.
 - La version 12 (V12) a été publiée en décembre 2014, mais uniquement à l’état de version préliminaire.
 
-[Conditions d'utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+[Conditions d’utilisation supplémentaires des versions préliminaires de Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

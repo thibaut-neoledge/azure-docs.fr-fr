@@ -59,11 +59,11 @@ La méthode suivante montre comment obtenir une instance de processeur multiméd
 
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##Étapes suivantes
 Maintenant que vous savez comment obtenir une instance de processeur multimédia, consultez la rubrique [Encodage d'un élément multimédia][] pour savoir comment utiliser l'Encodeur multimédia Azure afin d'encoder un élément multimédia.
@@ -72,4 +72,4 @@ Maintenant que vous savez comment obtenir une instance de processeur multimédia
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procédure : se connecter à Media Services par programme]: ../media-services-set-up-computer/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

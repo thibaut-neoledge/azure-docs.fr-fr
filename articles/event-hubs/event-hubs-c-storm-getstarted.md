@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des concentrateurs d’événements"
+	pageTitle="Prise en main d’Event Hubs avec C et Apache Storm | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir dans un cluster Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -44,7 +44,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 	![][1]
 
-3. Tapez le nom de votre concentrateur d’événements, sélectionnez la région de votre choix, puis cliquez sur **Créer un hub d’événements**.
+3. Attribuez un nom à votre concentrateur d’événements, sélectionnez la région souhaitée, puis cliquez sur **Créer un concentrateur d’événements**.
 
 	![][2]
 
@@ -111,4 +111,4 @@ Les ressources suivantes sont disponibles pour les applications de développemen
 [Développement d’applications de traitement de données de diffusion avec SCP.NET et C# sur Storm et HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

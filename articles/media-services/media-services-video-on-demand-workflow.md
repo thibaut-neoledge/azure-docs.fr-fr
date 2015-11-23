@@ -89,15 +89,16 @@ Cet article contient des liens vers des rubriques expliquant comment configurer 
 
 Pour connaître les concepts liés à la diffusion de votre contenu à la demande, consultez la rubrique [Concepts Media Services](media-services-concepts.md) (players.md).
 
+##Parcours d’apprentissage de Media Services
 
-##Étapes suivantes : parcours d’apprentissage d’AMS
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+##Fournir des commentaires
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -9,7 +9,7 @@
    tags=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -32,7 +32,7 @@ Cet article fournit des instructions pour obtenir la certification Microsoft Azu
 
 **Pays à partir desquels vous vendez**
 
-> [AZURE.WARNING]Avant de pouvoir vendre vos services sur Microsoft Azure Marketplace, l’entité enregistrée doit résider dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de paiements et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, reportez-vous à la section 1b du document au lien [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]Avant de pouvoir vendre vos services sur Microsoft Azure Marketplace, l’entité enregistrée doit résider dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, reportez-vous à la section 1b du document au lien [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 ## Étape suivante
 Une fois que vous avez reçu l'approbation préalable du programme de certification Microsoft Azure, vous pouvez passer à l’**étape 1**, [Compte de vendeur Microsoft : création et inscription](marketplace-publishing-accounts-creation-registration.md).
@@ -40,4 +40,4 @@ Une fois que vous avez reçu l'approbation préalable du programme de certificat
 ## Voir aussi
 - [Mise en route : publication d'une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

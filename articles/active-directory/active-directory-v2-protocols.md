@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Version d’évaluation du modèle d’application v2.0 : Protocoles - OAuth 2.0 et OpenID Connect
@@ -158,7 +158,7 @@ Une réponse de jeton réussie se présente ainsi :
 | expires\_on | L’heure d’expiration du jeton d’accès. La date est représentée en tant que nombre de secondes à partir de l’heure de l’époque. |
 | scope | L’étendue de validité du jeton d’accès. |
 | refresh\_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. Pour plus d’informations, consultez la page de [référence sur les jetons v2.0](active-directory-v2-tokens.md). |
-| id\_token | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur les jetons id-token, consultez la page de [référence des jetons du modèle d’application v2.0](active-directory-v2-tokens.md). |
+| id\_token | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton à l’aide d’un décodeur base64Url afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur les jetons id\_tokens, consultez la page de [référence des jetons du modèle d’application v2.0](active-directory-v2-tokens.md). |
 
 Les réponses d’erreur se présentent comme suit :
 
@@ -475,4 +475,4 @@ Le flux « Au nom de », ou l’octroi des informations d’identification du 
 
 Ce flux n’est pas actuellement pris en charge par la version d’évaluation du modèle d’application v2.0. Pour observer son fonctionnement dans le service Azure AD disponible généralement, consultez cet [exemple de code Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

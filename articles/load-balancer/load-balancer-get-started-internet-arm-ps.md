@@ -17,23 +17,23 @@
    ms.date="10/21/2015"
    ms.author="joaoma" />
 
-# Créer un équilibreur de charge accessible sur Internet dans le Gestionnaire de ressources à l’aide de PowerShell
+# Prise en main de la création d’un équilibreur de charge accessible sur Internet dans Resource Manager à l’aide de PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager.
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Si vous recherchez un modèle de déploiement classique Azure, accédez à la page [Prise en main de la création d’un équilibreur de charge accessible sur Internet à l’aide d’un déploiement classique](load-balancer-get-started-internet-classic-portal.md)
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-Les étapes ci-dessous expliquent comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager avec PowerShell. Avec Azure Resource Manager, les éléments pour créer un équilibreur de charge accessible sur Internet sont configurés individuellement, puis rassemblés pour créer une ressource.
+Les étapes ci-dessous expliquent comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager avec PowerShell. Avec Azure Resource Manager, les éléments pour créer un équilibrage de charge accessible sur Internet sont configurés individuellement, puis rassemblés pour créer une ressource.
 
-Dans cette page, nous allons aborder la séquence de tâches individuelles qui doivent être exécutées pour créer un équilibreur de charge et expliquer en détail ce qui est effectué pour atteindre l’objectif : créer un équilibreur de charge.
+Dans cette page, nous allons aborder la séquence de tâches individuelles qui doivent être exécutées pour créer un équilibrage de charge et expliquer en détail ce qui est effectué pour atteindre l’objectif : créer un équilibrage de charge.
 
-## Ce qui est nécessaire pour créer un équilibreur de charge accessible sur Internet
+## Ce qui est nécessaire pour créer un équilibrage de charge accessible sur Internet
 
-Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge.
+Vous devez créer et configurer les objets suivants pour déployer un équilibreur de charge :
 
 - Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant. 
 
@@ -45,7 +45,7 @@ Vous devez créer et configurer les objets suivants pour déployer un équilibre
 
 - Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des machines virtuelles liées aux cartes réseau du pool d’adresses principales.
 
-Pour obtenir plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Prise en charge de l’équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
+Pour plus d’informations sur les composants de l’équilibreur de charge avec Azure Resource Manager, consultez la page [Support Azure Resource Manager pour l’équilibrage de charge](load-balancer-arm.md).
 
 
 ## Configurer PowerShell pour utiliser Resource Manager
@@ -53,7 +53,7 @@ Assurez-vous de disposer de la dernière version de production du module Azure p
 
 ### Étape 1 :
 
-1. Si vous n'avez jamais utilisé Azure PowerShell, voir [Installation et configuration d'Azure PowerShell](powershell-install-configure.md) et suivre les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. À partir d’une invite de commandes Azure PowerShell, exécutez l’applet de commande **Switch-AzureMode** pour passer en mode Resource Manager, comme illustré ci-dessous.
 
 		Switch-AzureMode AzureResourceManager
@@ -67,21 +67,7 @@ Assurez-vous de disposer de la dernière version de production du module Azure p
 
 
 
-### Étape 2 :
-
- Si vous n’avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d’Azure PowerShell](powershell-install-configure.md) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement. À partir d’une invite de commandes Azure PowerShell, exécutez l’applet de commande **Switch-AzureMode** pour passer en mode Resource Manager, comme illustré ci-dessous.
-
-		Switch-AzureMode AzureResourceManager
-	
-	Expected output:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-
->[AZURE.WARNING]L’applet de commande Switch-AzureMode sera bientôt obsolète. Lorsque ce sera le cas, toutes les applets de commande Resource Manager seront renommées.
-
-
-### Étape 3
+### Étape 2
 
 Connectez-vous à votre compte Azure.
 
@@ -91,7 +77,7 @@ Connectez-vous à votre compte Azure.
 Vous devez indiquer vos informations d’identification.
 
 
-### Étape 4
+### Étape 3
 
 Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 
@@ -101,7 +87,7 @@ Pour afficher la liste des abonnements disponibles, utilisez l'applet de command
 
 ## Créer un groupe de ressources
 
-Créez un groupe de ressources nommé *NRP-RG* à l’emplacement Azure *États-Unis de l’Ouest*.
+Créez un groupe de ressources nommé *NRP-RG* à l’emplacement Azure *Ouest des États-Unis*.
 
     PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
@@ -120,13 +106,13 @@ Créez une adresse IP publique (PIP) nommée *PublicIP* pour qu’elle soit util
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Static -DomainNameLabel loadbalancernrp 
 
->[AZURE.IMPORTANT]L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage se distingue d’un déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibreur de charge. Dans cet exemple, le nom de domaine complet sera *loadbalancernrp.westus.cloudapp.azure.com*.
+>[AZURE.IMPORTANT]L’équilibreur de charge utilise l’étiquette du domaine de l’adresse IP publique en tant que nom de domaine complet (FQDN). Cet usage diffère d’un modèle de déploiement classique qui utilise le service cloud en tant que nom de domaine complet de l’équilibreur de charge. Dans cet exemple, le nom de domaine complet est *loadbalancernrp.westus.cloudapp.azure.com*.
 
 ## Créer un pool d’adresses IP frontales et un pool d’adresses principales
 
 ### Étape 1 : 
 
-Créez un pool d’adresses IP frontales nommé *LB-Frontend* qui utilise la PIP *PublicIp*.
+Créez un pool d’adresses IP frontales nommé *LB-Frontend* qui utilise l’adresse IP publique *PublicIp*.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP 
 
@@ -140,13 +126,16 @@ Créez un pool d’adresses principales nommé *LB-backend*.
 
 L’exemple ci-dessous crée les éléments suivants :
 
-- une règle NAT pour traduire tout le trafic entrant sur le port 3441 vers le port 3389 ;
-- une règle NAT pour traduire tout le trafic entrant sur le port 3442 vers le port 3389 ;
+- une règle NAT pour transférer l’ensemble du trafic du port 3441 vers le port 3389<sup>1</sup> ;
+- une règle NAT transférer l’ensemble du trafic sur le port 3442 vers le port 3389 ;
 - une règle d’équilibreur de charge pour équilibrer tout le trafic entrant sur le port 80 vers le port 80 des adresses du pool principal ;
-- une règle de sondage qui vérifie l’état d’intégrité dans une page nommée *HealthProbe.aspx* ;
+- une règle de sonde qui vérifie l’état d’intégrité dans une page nommée *HealthProbe.aspx*.
 - un équilibreur de charge qui utilise tous les objets ci-dessus.
 
-### Étape 1 :
+
+<sup>1</sup> Les règles NAT sont associées à une instance de machine virtuelle spécifique derrière l'équilibreur de charge. Le trafic réseau entrant vers le port 3341 sera envoyé à une machine virtuelle spécifique sur le port 3389 associé à une règle NAT dans l'exemple ci-dessous. Vous devez choisir un protocole pour la règle NAT : UDP ou TCP. Il est impossible d'attribuer les deux protocoles au même port.
+
+### Étape 1
 
 Créez les règles NAT.
 
@@ -162,7 +151,7 @@ Créez une règle d’équilibreur de charge.
 
 ### Étape 3
 
-Créez une sonde d’intégrité.
+Créer une sonde d’intégrité.
 
 	$healthProbe = New-AzureLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
@@ -254,12 +243,42 @@ Utilisez l’applet de commande `Add-AzureVMNetworkInterface` pour affecter les 
 
 Des instructions sur la manière de créer une machine virtuelle et d’affecter une carte réseau sont disponibles à la page [Création et préconfiguration d’une machine virtuelle Windows avec Resource Manager et Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example), et utilisent l’option 5 de l’exemple.
 
+## Mettre à jour un équilibreur de charge existant
+
+
+### Étape 1 :
+
+À l’aide de l’équilibreur de charge de l’exemple ci-dessus, attribuez un objet d’équilibreur de charge à la variable $slb à l’aide de Get-AzureLoadBalancer
+
+	$slb=get-azureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+### Étape 2 :
+
+Dans l’exemple suivant, vous allez ajouter une nouvelle règle NAT entrante en utilisant le port 81 dans le serveur frontal et le port 8181 pour le pool principal, à un équilibreur de charge existant.
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Étape 3
+
+Enregistrez la nouvelle configuration à l’aide de Set-AzureLoadBalancer
+
+	$slb | Set-AzureLoadBalancer
+
+## Supprimer un équilibreur de charge
+
+Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de charge créé précédemment appelé « NRP-LB » dans un groupe de ressources appelé « NRP-RG ».
+
+	Remove-AzureLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]Vous pouvez utiliser le commutateur facultatif -Force pour éviter l’invite relative à la suppression.
+
 ## Étapes suivantes
 
-[Prise en main de la configuration d’un équilibreur de charge interne](load-balancer-internal-getstarted.md)
+[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
 
-[Configuration d'un mode de distribution d'équilibreur de charge](load-balancer-distribution-mode.md)
+[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibreur de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

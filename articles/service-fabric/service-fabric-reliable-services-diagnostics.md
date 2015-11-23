@@ -22,9 +22,7 @@ La classe StatefulServiceBase de services fiables avec état émet des événeme
 ## Événements EventSource
 Le nom EventSource de la classe StatefulServiceBase de services fiables avec état est « Microsoft-ServiceFabric-Services ». Les événements issus de cette source d'événements s'affichent dans la fenêtre [Événements de diagnostics](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) lorsque le service est en cours de [débogage dans Visual Studio](service-fabric-debugging-your-application.md).
 
-Service Fabric offre également la possibilité de diriger ces événements vers [Application Insights](http://azure.microsoft.com/services/application-insights/). Pour plus d'informations, consultez l'article sur la [configuration d'Application Insights pour Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostics Microsoft Azure](../cloud-services-dotnet-diagnostics.md) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) constituent d'autres exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
+[PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostics Microsoft Azure](../cloud-services-dotnet-diagnostics.md) et [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d'outils et de technologies permettant de collecter et/ou d'afficher des événements EventSource.
 
 ## Événements
 
@@ -46,4 +44,4 @@ StatefulRunAsyncFailure est émis à chaque fois que la tâche RunAsync() du ser
 
 StatefulRunAsyncSlowCancellation est émis à chaque fois qu'une requête d'annulation de la tâche RunAsync prend plus de 4 secondes. Lorsqu'un service prend trop de temps pour terminer l'annulation, cela a un impact sur la capacité du service à être redémarré rapidement sur un autre nœud. Cela peut avoir un impact sur la disponibilité globale du service.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

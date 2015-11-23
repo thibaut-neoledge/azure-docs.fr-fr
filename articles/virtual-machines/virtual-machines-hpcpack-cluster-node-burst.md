@@ -1,5 +1,13 @@
-<properties pageTitle="Ajouter des nœuds « d’extension » à un cluster HPC Pack | Microsoft Azure" description="Découvrez comment ajouter des instances de rôle de travail en cours d’exécution dans un service cloud à la demande en tant que ressources de calcul à un nœud principal HPC Pack dans Azure." services="virtual-machines" documentationCenter="" authors="dlepow" manager="timlt" editor="" tags="azure-service-management"/>
-<tags 
+<properties
+ pageTitle="Ajouter des nœuds « d’extension » à un cluster HPC Pack | Microsoft Azure"
+ description="Découvrez comment ajouter des instances de rôle de travail exécutées dans un service cloud à la demande en tant que ressources de calcul à un nœud principal HPC Pack dans Azure."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management,hpc-pack"/>
+<tags
 ms.service="virtual-machines"
  ms.devlang="na"
  ms.topic="article"
@@ -33,7 +41,7 @@ Si vous souhaitez utiliser la taille d’instance de calcul intensif A8 ou A9, c
 
 ## Étape 1 : créer un service cloud et un compte de stockage pour ajouter des nœuds Azure
 
-Utiliser le portail Azure ou des outils équivalents pour configurer les éléments suivants, qui sont nécessaires pour déployer vos nœuds Azure :
+Utilisez le portail Azure ou des outils équivalents pour configurer les éléments suivants, qui sont nécessaires pour déployer vos nœuds Azure :
 
 * Un nouveau service cloud Azure
 * Un nouveau compte de stockage Azure
@@ -80,4 +88,4 @@ Si vous rencontrez des problèmes pendant le déploiement des nœuds Azure, cons
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

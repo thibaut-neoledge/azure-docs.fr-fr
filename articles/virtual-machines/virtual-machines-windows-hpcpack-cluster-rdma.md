@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -71,7 +71,7 @@ Voici les étapes pour l’intégration aux instances Azure A8 ou A9 à partir
 
 6. **Créer un nouveau service cloud et un compte de stockage**
 
-    Utilisez le portail de gestion Azure pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances nécessitant beaucoup de ressources système sont disponibles. (N’associez pas le service cloud et le compte de stockage à un groupe d’affinités existant utilisé pour d’autres déploiements.)
+    Utilisez le portail Azure pour créer un service cloud et un compte de stockage pour le déploiement dans une région où les instances nécessitant beaucoup de ressources système sont disponibles. (N’associez pas le service cloud et le compte de stockage à un groupe d’affinités existant utilisé pour d’autres déploiements.)
 
 7. **Créer un modèle de nœud Azure**
 
@@ -246,4 +246,4 @@ Vous trouverez ci-dessous des considérations relatives à l’exécution d’ap
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

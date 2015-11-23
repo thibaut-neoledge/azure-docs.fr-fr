@@ -60,8 +60,7 @@ Si vous ne commencez pas par un modèle ARM, il n’y a aucun problème. Il exis
 
 Ouvrez une ligne de commande PowerShell (Add-AzureAccount) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
-    Switch-AzureMode -Name AzureResourceManager                     <-- assumes you are still running Azure PowerShell v0.9.x    
-    New-AzureResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
     New-AzureAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT 
 
 Vous pouvez installer votre compte Automation dans l’une des régions suivantes (également appelées « emplacement ») : est du Japon, est des États-Unis, Europe de l’ouest, Asie du Sud-est, Amérique du Sud.
@@ -92,7 +91,7 @@ Il existe aussi une approche manuelle. La structure de dossier d’un module d�
             -Name MODULE-NAME –ContentLink "https://STORAGE-URI/public/MODULE-NAME.zip"
         
 
-L’exemple fourni exécute ces étapes pour cChoco et xNetworking. Consultez les notes relatives au traitement spécial pour cChoco.
+L’exemple fourni exécute ces étapes pour cChoco et xNetworking. Consultez les [notes](#notes) relatives au traitement spécial pour cChoco.
 
 ## Étape 4 : ajout de la configuration de nœud au serveur Pull
 
@@ -145,18 +144,18 @@ ISVBoxConfig.ps1:
 
 New-ConfigurationScript.ps1:
 
-    Import-AzureAutomationDscConfiguration ` 
+    Import-AzureRmAutomationDscConfiguration ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 ` 
         -Published –Force
     
-    $jobData = Start-AzureAutomationDscCompilationJob ` 
+    $jobData = Start-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -ConfigurationName ISVBoxConfig 
     
     $compilationJobId = $jobData.Id
     
-    Get-AzureAutomationDscCompilationJob ` 
+    Get-AzureRmAutomationDscCompilationJob ` 
         -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT ` 
         -Id $compilationJobId
 
@@ -188,4 +187,4 @@ La source complète de cet exemple se trouve dans ce [projet Visual Studio](http
 - [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -131,8 +131,8 @@ Vous pouvez éventuellement ajouter la machine virtuelle à un jeu à charge éq
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -265,4 +265,4 @@ Voici le jeu de commandes Azure PowerShell correspondant qui permet de créer ce
 
 [Utiliser Azure PowerShell pour créer et préconfigurer des machines virtuelles Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

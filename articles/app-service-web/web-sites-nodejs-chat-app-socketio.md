@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="10/30/2015"
 	ms.author="mwasson"/>
 
 
@@ -69,7 +69,7 @@ Suivez la procédure ci-après pour créer une application web Azure, activer la
 
 > [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Version d’essai gratuite d’Azure</a>.
 
-1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](xplat-cli).
+1. Installez l’interface de ligne de commande Azure (CLI Azure) et connectez-la à votre abonnement Azure. Consultez [Installation et configuration de l’interface de ligne de commande Azure](../xplat-cli).
 
 2. Si vous configurez un référentiel pour la première fois dans Azure, vous devez créer des informations d’identification de connexion. À partir de l’interface de ligne de commande Azure, entrez la commande suivante :
 
@@ -119,7 +119,7 @@ Vous pouvez faire monter en charge les applications Socket.IO en utilisant un __
 
 ###Création d'un cache Redis
 
-Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis](http://go.microsoft.com/fwlink/p/?linkid=398592&clcid=0x409).
+Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis](https://azure.microsoft.com/fr-FR/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache).
 
 > [AZURE.NOTE]Enregistrez le __Nom d’hôte__ et la __Clé primaire__ de votre cache, car ces paramètres seront nécessaires lors des étapes suivantes.
 
@@ -145,7 +145,7 @@ Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache
 
 	> [AZURE.NOTE]Bien que l’adaptateur __socket.io-redis__ puisse communiquer directement avec Redis, la version actuelle ne prend pas en charge l’authentification requise par le cache Azure Redis. La connexion initiale est donc créée à l'aide du module __redis__, puis le client est transferré à l'adaptateur __socket.io-redis__.
 	>
-	> Bien que Cache Redis Azure prenne en charge les connexions sécurisées sur le port 6380, les modules utilisés dans cet exemple ne gèrent pas les connexions sécurisées depuis le 14/07/2014. Le code ci-dessus utilise le port non sécurisé par défaut 6380.
+	> Bien que Cache Redis Azure prenne en charge les connexions sécurisées sur le port 6380, les modules utilisés dans cet exemple ne gèrent pas les connexions sécurisées depuis le 14/07/2014. Le code ci-dessus utilise le port non sécurisé par défaut 6379.
 
 3. Enregistrez le fichier __app.js__ modifié.
 
@@ -285,4 +285,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

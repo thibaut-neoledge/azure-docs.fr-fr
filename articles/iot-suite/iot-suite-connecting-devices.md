@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/29/2015"
+   ms.date="11/10/2015"
    ms.author="hegate"/>
 
 
@@ -37,13 +37,22 @@ Note: if you have already provisioned a device on your solution, you can skip th
 ```
 Pour connecter votre appareil à la solution préconfigurée, vous devez obtenir du tableau de bord les informations d’identification de l’appareil. Elles seront utilisées dans votre application cliente afin que votre appareil puisse être identifié. Suivez cette opération
 
-1.  Dans le coin inférieur gauche du tableau de bord, cliquez sur « Ajouter un périphérique ». ![][1]
+1.  Dans le coin inférieur gauche du tableau de bord, cliquez sur « Ajouter un appareil ».
+
+    ![][1]
+
 2.  Dans Périphérique personnalisé, cliquez sur le bouton « Ajouter un nouveau ».
 
     ![][2]
-3.  Choisissez votre propre ID d’appareil en saisissant un nom tel que realdevice1, puis cliquez sur ID de contrôle pour vous assurer que ce nom n’est pas encore utilisé. ![][3]
 
-5. Copiez les informations d’identification fournies (ID d’appareil, nom d’hôte IoT Hub et clé d’appareil). Vous en aurez besoin plus tard dans votre application cliente pour connecter votre appareil à la solution. ![][4]
+3.  Choisissez votre propre ID d’appareil en saisissant un nom tel que realdevice1, puis cliquez sur Vérifier l'ID pour vous assurer que ce nom n’est pas encore utilisé.
+
+    ![][3]
+
+5. Copiez les informations d’identification fournies (ID d’appareil, nom d’hôte IoT Hub et clé d’appareil). Vous en aurez besoin plus tard dans votre application cliente pour connecter votre appareil à la solution.
+
+    ![][4]
+
 6. Assurez-vous que votre appareil s’affiche correctement dans la section Périphériques. L’état sera « En attente ». Ceci est normal jusqu’à ce que la connexion cloud soit établie.
 
     ![][5]
@@ -65,12 +74,15 @@ Maintenant, choisissez le langage que vous souhaitez utiliser pour poursuivre vo
 
 1. Ouvrez le fichier **c/serializer/samples/serializer/remote\_monitoring.c** dans un éditeur de texte.
 
-2. Recherchez le code suivant dans le fichier : ```
+2. Recherchez le code suivant dans le fichier :
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+    
 3. Remplacez « [Device Id] », « [Device Key] » par les données de votre appareil.
 
 4. Utilisez les données d’appareil du nom d’hôte IoT Hub pour remplir le nom IoTHub et le suffixe IoTHub. Pour ce faire, vous devez fractionner IoTHub et IoTHubSuffix. Par exemple, si votre nom d’hôte IoT Hub est « Contoso.azure-devices.net », « Contoso » sera votre nom IoTHub et le reste, le suffixe. Il doit se présenter comme suit :
@@ -86,13 +98,15 @@ Maintenant, choisissez le langage que vous souhaitez utiliser pour poursuivre vo
 
 6. Exécutez l’exemple d’application **sérialiseur/c/samples/linux/remote\_monitoring/remote\_monitoring**.
 
-Visualisez l’appareil inscrit et les données
+#### Visualisez l’appareil inscrit et les données
 
-7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste de périphériques. ![][18]
+7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils.
+
+    ![][18]
 
 8. Cliquez sur le tableau de bord pour voir les données arriver. L’exemple est configuré pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Veuillez noter que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
-8. Accédez ensuite à la [section](#command) Commande et contrôle pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
+8. Accédez ensuite à la section [Commande et contrôle](#command) pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
 
 
 ### Exécution de votre appareil sous Windows
@@ -104,12 +118,15 @@ Visualisez l’appareil inscrit et les données
 
 2. Dans Visual Studio, dans **Explorateur de solutions**, accédez au dossier d’exemples. Dans le projet **remote\_monitoring**, ouvrez le fichier **remote\_monitoring.c**.
 
-2. Recherchez le code suivant dans le fichier : ```
+2. Recherchez le code suivant dans le fichier :
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+
 3. Remplacez « [Device Id] », « [Device Key] » par les données de votre appareil.
 
 4. Utilisez les données d’appareil du nom d’hôte IoT Hub pour remplir le nom IoTHub et le suffixe IoTHub. Pour ce faire, vous devez les fractionner comme suit :
@@ -125,27 +142,26 @@ Visualisez l’appareil inscrit et les données
 
 6. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit de la souris sur le projet **remote\_monitoring**, cliquez sur **Debug**, puis cliquez sur **Démarrer une nouvelle instance** pour générer et exécuter l’exemple. La console affiche les messages au fur et à mesure que l’application envoie des messages appareil à cloud à IoT Hub.
 
-Visualisez l’appareil inscrit et les données
+#### Visualisez l’appareil inscrit et les données
 
-7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils. ![][18]
+7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils.
+
+    ![][18]
 
 8. Cliquez sur le tableau de bord pour voir les données arriver. L’exemple est configuré pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Veuillez noter que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
-8. Accédez ensuite à la [section](#command) Commande et contrôle pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
-
-
-8. Accédez ensuite à la section Commande et contrôle pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
+8. Accédez ensuite à la section [Commande et contrôle](#command) pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
 
 ### Exécution de votre appareil sur mbed
 
 Les instructions qui suivent décrivent les étapes permettant de connecter un appareil [mbed-enabled Freescale FRDM-K64F](https://developer.mbed.org/platforms/FRDM-K64F/) à Azure IoT Hub.
 
 
-Configuration requise
+#### Configuration requise
 
 - Matériel requis : [mbed-enabled Freescale K64F](https://developer.mbed.org/platforms/FRDM-K64F/) ou équivalent.
 
-Connectez l’appareil
+#### Connectez l’appareil
 
 - Connectez la carte à votre réseau avec un câble Ethernet. Cette opération est obligatoire, car l’exemple dépend de l’accès Internet.
 
@@ -153,7 +169,7 @@ Connectez l’appareil
 
 - Suivez les [instructions du manuel mbed](https://developer.mbed.org/handbook/SerialPC) pour configurer la connexion série vers votre appareil à partir de votre ordinateur de développement. Si vous êtes sous Windows, installez les pilotes de port série Windows situés [ici](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port).
 
-Créez le projet mbed et importez l’exemple de code
+#### Créez le projet mbed et importez l’exemple de code
 
 - Dans votre navigateur web, accédez [au site de développement](https://developer.mbed.org/) mbed.org. Si vous n’êtes pas inscrit, une option servant à créer un nouveau compte vous sera présentée (c’est gratuit). Autrement, connectez-vous avec les informations d’identification de votre compte. Cliquez sur **Compilateur** dans le coin supérieur droit de la page. Cela devrait vous permettre d’accéder à l’interface de gestion de l’espace de travail.
 
@@ -161,22 +177,25 @@ Créez le projet mbed et importez l’exemple de code
 
 - Cliquez sur **Importer** dans le menu principal. Cliquez ensuite sur **Cliquez ici** pour procéder à l’importation lien URL en regard du logo de globe mbed.
 
-	![][6]
+    ![][6]
 
 - Dans la fenêtre contextuelle, saisissez le lien vers l’exemple de code https://developer.mbed.org/users/AzureIoTClient/code/remote_monitoring/
 
-	![][7]
+    ![][7]
 
 - Vous pouvez voir dans le compilateur mbed que l’importation de ce projet a entraîné l’importation de différentes bibliothèques. Certaines sont fournies et gérées par l’équipe Azure IoT ([azureiot\_common](https://developer.mbed.org/users/AzureIoTClient/code/azureiot_common/), [iothub\_client](https://developer.mbed.org/users/AzureIoTClient/code/iothub_client/), [iothub\_amqp\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_amqp_transport/), [iothub\_http\_transport](https://developer.mbed.org/users/AzureIoTClient/code/iothub_http_transport/), [proton-c-mbed](https://developer.mbed.org/users/AzureIoTClient/code/proton-c-mbed/)), tandis que d’autres sont des bibliothèques tierces disponibles dans le catalogue de bibliothèques mbed.
 
-	![][8]
+    ![][8]
 
-- Ouvrez remote\_monitoring\\remote\_monitoring.c, recherchez le code suivant dans le fichier : ```
+- Ouvrez remote\_monitoring\\remote\_monitoring.c, recherchez le code suivant dans le fichier :
+
+    ```
     static const char* deviceId = "[Device Id]";
     static const char* deviceKey = "[Device Key]";
     static const char* hubName = "[IoTHub Name]";
     static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
     ```
+
 3. Remplacez [Device Id], [Device Key] par les données de votre appareil.
 
 4. Utilisez les données d’appareil du nom d’hôte IoT Hub pour remplir le nom IoTHub et le suffixe IoTHub. Pour ce faire, vous devez les fractionner comme suit :
@@ -189,9 +208,10 @@ Créez le projet mbed et importez l’exemple de code
     static const char* hubName = "Contoso";
     static const char* hubSuffix = "azure-devices.net";
     ```
+
     ![][9]
 
-Créez et exécutez le projet.
+#### Créez et exécutez le projet.
 
 - Cliquez sur **Compiler** pour générer le programme. Vous pouvez sans risque ignorer les avertissements, mais si le traitement génère des erreurs, corrigez-les avant de continuer.
 
@@ -202,15 +222,17 @@ Créez et exécutez le projet.
 
 - Dans PuTTY, cliquez sur le type de connexion **série**. L’appareil se connecte au 115200. Entrez cette valeur dans la zone **Vitesse**. Cliquez ensuite sur **Ouvrir** :
 
-	![][11]
+    ![][11]
 
 Le programme démarre l’exécution. Il se peut que vous deviez réinitialiser le tableau (appuyez sur CTRL + Retour ou appuyez sur le bouton de réinitialisation du tableau) si le programme ne démarre pas automatiquement à la connexion.
 
-Visualisez l’appareil inscrit et les données 7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils. ![][18]
+#### Visualisez l’appareil inscrit et les données
+
+7. Revenez au tableau de bord de la solution de surveillance à distance. Vous pouvez constater que l’état a été changé en « En cours d’exécution » dans la liste d’appareils. ![][18]
 
 8. Cliquez sur le tableau de bord pour voir les données arriver. L’exemple est configuré pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Veuillez noter que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
-8. Accédez ensuite à la [section](#command) Commande et contrôle pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
+8. Accédez ensuite à la section [Commande et contrôle](#command) pour apprendre à modifier la température sur votre appareil à partir de la solution de surveillance à distance.
 
 
 
@@ -271,7 +293,7 @@ node .
     node simple_sample_remotemonitoring.js
     ```
 
-Visualisez votre périphérique et les données entrantes
+#### Visualisez votre périphérique et les données entrantes
 
 6. Sur le portail de solution préconfigurée, cliquez sur la section Périphériques pour vous assurer que l’état de votre appareil est passé sur « Exécution » et que vous pouvez voir toutes les données du fabricant.
 
@@ -284,14 +306,15 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 
 -  Cliquez sur votre ID de périphérique dans la liste Périphériques (vous trouverez la section de périphérique dans le menu de gauche).
 
-	![][13]
+    ![][13]
 
 - Dans le menu de droite où sont affichés les détails du périphérique, cliquez sur « Envoyer la commande »
 
 
 - Sélectionnez la commande que vous souhaitez exécuter : dans ce cas, nous avons choisi « Température définie », car nous voulons modifier la température définie pour l’appareil. Sélectionnez cette commande et choisissez la valeur de température. Cliquez sur Envoyer la commande et la nouvelle température est transmise à l’appareil. Remarque : vous verrez que le résultat de la commande est « En attente » dans l’historique des commandes. C’est pourquoi, pour plus de simplicité, les exemples n’ont pas mis en œuvre la logique dans l’appareil pour répondre à IoT Hub. Vous pouvez faire cela en étendant la solution.
 
-	![][14]
+    ![][14]
+
 - Revenez au tableau de bord et assurez-vous que les données mises à jour vous parviennent. Vous devez voir les statistiques mises à jour sur la température et les nouvelles données affichées dans l’historique de télémétrie.
 
 
@@ -309,4 +332,4 @@ Maintenant que votre appareil est connecté et envoie des données de températu
 
 Il existe plusieurs façons d’étendre la fonctionnalité de cet exemple : connecter un capteur réel à votre appareil pour envoyer une vraie date d’envoi, mettre en œuvre des fonctionnalités de contrôle de commande, etc. Utilisez notre [guide](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md) pour savoir comment étendre la solution de surveillance à distance pour en savoir plus à ce sujet.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

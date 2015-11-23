@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Implémentation de la navigation à facettes dans Azure Search | Microsoft Azure" 
+	pageTitle="Implémentation de la navigation à facettes dans Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Ajoutez la navigation à facettes aux applications qui s'intègrent à Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -372,4 +372,4 @@ Pour plus d'informations sur les principes de conception pour la navigation à f
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

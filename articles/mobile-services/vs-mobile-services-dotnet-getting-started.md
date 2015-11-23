@@ -3,7 +3,7 @@
 	description="Prise en main d’Azure Mobile Services dans un projet .NET Visual Studio"
 	services="mobile-services"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Prise en main de Mobile Services (Projets .NET)
 
@@ -85,4 +85,4 @@ Supprimez une ligne de la base de données. L'élément de paramètre correspond
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

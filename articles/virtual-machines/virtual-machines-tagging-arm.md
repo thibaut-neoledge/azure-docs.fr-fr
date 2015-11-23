@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="11/10/2015"
    ms.author="dkshir;memccror"/>
 
 # Comment baliser une machine virtuelle dans Azure
@@ -88,7 +88,7 @@ Si votre machine virtuelle contient déjà des balises, vous verrez toutes les b
 
 Si vous voulez ajouter des balises via PowerShell, vous pouvez utiliser la commande `Set-AzureResource`. Notez que lors de la mise à jour des balises via PowerShell, les balises sont mises à jour comme un tout. Ainsi, si vous ajoutez une balise à une ressource qui a déjà des balises, vous devez inclure toutes les balises que vous voulez placer sur la ressource. Voici un exemple montrant comment ajouter des balises supplémentaires à une ressource via des applets de commande PowerShell.
 
-Cette première applet de commande définit toutes les balises placées sur *MyWindowsVM* sur la variable *tags*, à l’aide de la fonction `Get-AzureResource` et `Tags`.
+Cette première applet de commande définit toutes les balises placées sur *MyWindowsVM* sur la variable *tags*, à l’aide de la fonction `Get-AzureResource` et `Tags`. Notez que le paramètre `ApiVersion` est facultatif ; s’il n’est pas spécifié, la dernière version de l'API du fournisseur de ressources est utilisée.
 
         PS C:\> $tags = (Get-AzureResource -Name MyWindowsVM -ResourceGroupName MyResourceGroup -ResourceType "Microsoft.Compute/virtualmachines" -ApiVersion 2015-05-01-preview).Tags
 
@@ -155,7 +155,7 @@ Maintenant que nous avons appliqué des balises à nos ressources via PowerShell
 
 ## Affichage de vos balises dans les détails d’utilisation
 
-Les balises placées sur des ressources Calcul, Réseau et Stockage via Azure Resource Manager apparaissent dans vos détails d’utilisation dans le portail de facturation.
+Les balises placées sur des ressources Calcul, Réseau et Stockage via Azure Resource Manager apparaissent dans vos détails d’utilisation dans le [portail de facturation](https://account.windowsazure.com/).
 
 Cliquez sur **Télécharger les détails d’utilisation** pour afficher les détails d’utilisation dans votre abonnement.
 
@@ -190,4 +190,4 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

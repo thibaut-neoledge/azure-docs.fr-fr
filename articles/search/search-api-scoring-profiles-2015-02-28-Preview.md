@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Profils de score (API REST Azure Search Version 2015-02-28-Preview) | Microsoft Azure"
+	pageTitle="Profils de score (API REST du service Azure Search : version 2015-02-28-Preview) | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Azure Search est un service de recherche cloud hébergé qui prend en charge le paramétrage des résultats classés en fonction des profils de score définis par l'utilisateur."
 	services="search"
 	documentationCenter=""
@@ -370,4 +370,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

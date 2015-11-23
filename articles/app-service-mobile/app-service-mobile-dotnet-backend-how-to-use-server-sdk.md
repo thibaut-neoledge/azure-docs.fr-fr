@@ -20,6 +20,8 @@
 
 Cette rubrique montre comment utiliser le Kit de développement logiciel (SDK) de serveur principal .NET dans les scénarios Azure App Service Mobile Apps. Le Kit de développement logiciel (SDK) Azure Mobile Apps vous permet de travailler avec des clients mobiles à partir de votre application ASP.NET.
 
+>[AZURE.TIP]Le [Kit de développement logiciel (SDK) serveur .NET pour Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) est open source sur GitHub. Le référentiel contient la suite complète de tests unitaires du Kit de développement logiciel (SDK) serveur, ainsi que quelques exemples de projets.
+
 ## Télécharger et initialiser le Kit de développement logiciel (SDK)
 
 Le Kit de développement logiciel (SDK) est disponible sur [NuGet.org]. Ce package inclut les fonctionnalités de base requises pour utiliser le Kit de développement logiciel (SDK). Pour initialiser le Kit de développement logiciel (SDK), vous devez effectuer certaines actions sur l’objet **HttpConfiguration**.
@@ -28,7 +30,7 @@ Le Kit de développement logiciel (SDK) est disponible sur [NuGet.org]. Ce packa
 
 Pour installer le Kit de développement logiciel (SDK), cliquez sur le projet de serveur dans Visual Studio, sélectionnez **Gérer les packages NuGet**, recherchez le package [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/), puis cliquez sur **Installer**.
 
-###Initialiser le projet de serveur
+###<a name="server-project-setup"></a> Initialiser le projet de serveur
 
 Un projet de serveur principal .NET est initialisé de la même façon que les autres projets ASP.NET, en incluant une classe de démarrage OWIN. Pour ajouter cette classe dans Visual Studio, cliquez avec le bouton droit sur votre projet de serveur et sélectionnez **Ajouter** -> **Nouvel élément**, puis **Web** -> **Général** -> **Classe de démarrage OWIN**.
 
@@ -73,7 +75,7 @@ La plupart des méthodes d’extension de fonctionnalité sont disponibles via d
 
 ### Extensions de Kit de développement logiciel (SDK)
 
-Les packages d’extension NuGet suivants fournissent différentes fonctionnalités mobiles que votre application peut utiliser. Les extensions s’activent à l’aide de l’objet **MobileAppConfiguration** pendant l’initialisation.
+Les packages d’extension NuGet suivants fournissent différentes fonctionnalités mobiles que votre application peut utiliser. Les extensions s’activent à l’aide de l’objet **MobileAppConfiguration** lors de l’initialisation.
 
 - [Microsoft.Azure.Mobile.Server.Quickstart] Prend en charge la configuration de base de Mobile Apps. S’ajoute à la configuration en appelant la méthode d’extension **UseDefaultConfiguration** pendant l’initialisation. Cette extension comprend les extensions suivantes : packages Notifications, Authentication, Entity, Tables, Crossdomain et Home. Cela correspond au projet de serveur de démarrage rapide que vous téléchargez à partir du portail Azure.
 
@@ -205,4 +207,4 @@ Pour publier votre projet de serveur vers Azure, procédez comme suit :
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

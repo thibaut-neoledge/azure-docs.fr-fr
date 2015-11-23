@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="11/05/2015"
    ms.author="bwren" />
 
 # Création de graphiques dans Azure Automation
@@ -131,7 +131,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 |Ressource d'identification Automation|Sélectionnez les informations d'identification Automation comme entrée.|  
 |Ressource de certificat Automation|Sélectionnez un certificat Automation comme entrée.|  
 |Ressource de connexion Automation|Sélectionnez une connexion Automation comme entrée.| 
-|Expression PowerShell|Spécifiez une expression PowerShell simple. L'expression sera évaluée avant l'activité, et le résultat utilisé pour la valeur du paramètre. Vous pouvez utiliser des variables pour faire référence à la sortie d'une activité ou à un paramètre d'entrée de Runbook.|
+|Expression PowerShell|Spécifiez une [expression PowerShell](#powershell-expressions) simple. L'expression sera évaluée avant l'activité, et le résultat utilisé pour la valeur du paramètre. Vous pouvez utiliser des variables pour faire référence à la sortie d'une activité ou à un paramètre d'entrée de Runbook.|
 |Chaîne vide|Une valeur de chaîne vide.|
 |Null|Une valeur Null.|
 |Désélectionner|Efface toute valeur qui a été précédemment configurée.|
@@ -241,6 +241,7 @@ Vous pouvez également récupérer la sortie d'une activité dans une source de 
 
 Les recommandations relatives à la définition de [points de contrôles](automation-powershell-workflow/#checkpoints) dans votre Runbook s'appliquent également aux Runbooks graphiques. Vous pouvez ajouter une activité pour l'applet de commande Checkpoint-Workflow à l'endroit où vous devez définir un point de contrôle. Vous devez ensuite suivre cette activité avec une activité Add-AzureAccount au cas où le Runbook démarrerait à partir de ce point de contrôle sur un autre Worker.
 
+
 ## Authentification auprès de ressources Azure
 
 Dans Azure Automation, la plupart des Runbooks requièrent une authentification auprès des ressources Azure. La méthode classique utilisée pour cette authentification est l'applet de commande Add-AzureAccount avec une [ressource d'informations d'identification](http://msdn.microsoft.com/library/dn940015.aspx) qui représente un utilisateur Active Directory disposant d'un accès au compte Azure. Cette procédure est décrite dans la rubrique [Configuration d'Azure Automation](automation-configuring.md).
@@ -285,10 +286,97 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 Les données créées par toute activité qui ne dispose pas d'un lien sortant seront ajoutées à la [sortie du Runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). La sortie est enregistrée avec la tâche du Runbook et est disponible pour un Runbook parent lorsque le Runbook est utilisé en tant qu'enfant.
 
 
+## Expressions PowerShell
+
+Un des avantages de la création de graphiques est qu'elle vous donne la possibilité de créer un Runbook avec une connaissance de PowerShell minimale. Pour le moment, vous devez avoir quelques connaissances de base sur PowerShell pour remplir certaines [valeurs de paramètres](#activities) et définir des [conditions de lien](#links-and-workflow). Cette section propose une brève introduction aux utilisateurs qui ne connaissent pas les expressions PowerShell. La totalité des informations sur PowerShell est disponible dans [Écriture de scripts avec Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+
+
+### Source de données d'expressions PowerShell
+
+Vous pouvez utiliser une expression PowerShell comme source de données pour remplir la valeur d'un [paramètre d'activité](#activities) avec les résultats d'un code PowerShell. Il peut s'agir d'une seule ligne de code qui exécute une fonction simple ou de plusieurs lignes qui suivent une logique complexe. Toute sortie de commande non affectée à une variable correspond à la sortie de la valeur du paramètre.
+
+Par exemple, la commande suivante affiche la date actuelle.
+
+	Get-Date
+
+Les commandes suivantes construisent une chaîne à partir de la date actuelle et l'affectent à une variable. Le contenu de la variable est ensuite envoyé à la sortie
+
+	$string = "The current date is " + (Get-Date)
+	$string
+
+Les commandes suivantes évaluent la date actuelle et renvoient une chaîne qui indique si la date du jour est un jour de la semaine ou du week-end.
+
+	$date = Get-Date
+	if (($date.DayOfWeek = "Saturday") -or ($date.DayOfWeek = "Sunday")) { "Weekend" }
+	else { "Weekday" }
+	
+ 
+
+### Sortie d'activité
+
+Pour utiliser la sortie d'une activité précédente dans le Runbook, utilisez la variable $ActivityOutput avec la syntaxe suivante.
+
+	$ActivityOutput['Activity Label'].PropertyName
+
+Par exemple, si la propriété d'une activité requiert le nom d'une machine virtuelle, vous pouvez utiliser l'expression suivante.
+
+	$ActivityOutput['Get-AzureVm'].Name
+
+Si la propriété requiert l'objet machine virtuelle au lieu d'une simple propriété, vous devez renvoyer l'objet entier avec la syntaxe suivante.
+
+	$ActivityOutput['Get-AzureVm']
+
+Vous pouvez également utiliser la sortie d'une activité dans une expression plus complexe comme celle-ci, qui concatène le texte au nom de la machine virtuelle.
+
+	"The computer name is " + $ActivityOutput['Get-AzureVm'].Name
+
+
+### Conditions
+
+Utilisez les [opérateurs de comparaison](https://technet.microsoft.com/library/hh847759.aspx) pour comparer des valeurs ou déterminer si une valeur correspond à un modèle spécifié. Une comparaison renvoie la valeur $true ou $false.
+
+Par exemple, la condition suivante détermine si la machine virtuelle d'une activité nommée *Get-AzureVM* est actuellement *arrêtée*.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped"
+
+La condition suivante détermine si la même machine virtuelle est dans un état autre qu'*arrêté*.
+
+	$ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
+
+Vous pouvez joindre plusieurs conditions en utilisant un [opérateur logique](https://technet.microsoft.com/library/hh847789.aspx) comme **-and** ou **-or**. Par exemple, la condition suivante détermine si la machine virtuelle de l'exemple précédent est dans un état *arrêté* ou *en cours d'arrêt*.
+
+	($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopped") -or ($ActivityOutput["Get-AzureVM"].PowerState –eq "Stopping") 
+
+
+### Tables de hachage
+
+Les [tables de hachage](http://technet.microsoft.com/library/hh847780.aspx) sont des paires nom/valeur servant à renvoyer un ensemble de valeurs. Les propriétés de certaines activités peuvent attendre une table de hachage plutôt qu'une valeur simple. Vous pouvez également voir une table de hachage appelée dictionnaire.
+
+Une table de hachage se crée avec la syntaxe suivante. Une table de hachage peut contenir un nombre quelconque d'entrées, chacune étant définie par un nom et une valeur.
+
+	@{ <name> = <value>; [<name> = <value> ] ...}
+
+Par exemple, l'expression suivante crée une table de hachage à utiliser dans la source de données pour un paramètre d'activité qui attend une table de hachage avec des valeurs pour une recherche sur Internet.
+
+	$query = "Azure Automation"
+	$count = 10
+	$h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
+	$h
+
+L'exemple suivant utilise la sortie d'une activité nommée *Obtenir la connexion Twitter* pour remplir une table de hachage.
+
+	@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
+	  'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
+	  'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
+	  'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+
+
+
 ## Articles connexes
 
 - [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - [Ressources Automation](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+- [Opérateurs](https://technet.microsoft.com/library/hh847732.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -117,7 +117,7 @@ HttpProxy.Port=<proxy port>
 	![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-02.png)
 2. Dans l’*Assistant Nouvelle règle de trafic entrant* choisissez l’option **personnalisée** comme *Type de règle*, puis cliquez sur Suivant. Dans l’écran servant à sélectionner le *programme*, choisissez **Tous les programmes**, puis cliquez sur Suivant.
 
-3. Dans l’écran *Protocoles et ports*, utilisez les entrées dans le tableau ci-dessous et cliquez sur Suivant :
+3. Dans l’écran *Protocoles et ports*, utilisez les entrées du tableau ci-dessous et cliquez sur Suivant :
 
 	![Créer une nouvelle règle](./media/backup-azure-vms-prepare/firewall-03.png)
 
@@ -194,4 +194,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des concentrateurs d’événements"
+	pageTitle="Prise en main d’Event Hubs en C et C# | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en C et à en recevoir en C# à l’aide d’EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -117,4 +117,4 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

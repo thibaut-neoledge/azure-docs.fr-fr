@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # Développer des scripts d’action de script pour HDInsight
@@ -200,9 +200,9 @@ Les scripts utilisés pour personnaliser un cluster doivent être soit dans le c
 
 Dans cet exemple, vous devez vous assurer que le conteneur « somecontainer » du compte de stockage « somestorageaccount » est accessible publiquement. Sinon, le script lève une exception « Introuvable » et échoue.
 
-### Passer les paramètres à l’applet de commande Add-AzureHDInsightScriptAction
+### Transmettez les paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction
 
-Pour passer plusieurs paramètres à l’applet de commande Add-AzureHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’elle contienne tous les paramètres du script. Par exemple :
+Pour transmettre plusieurs paramètres à l’applet de commande Add-AzureRmHDInsightScriptAction, vous devez mettre en forme la valeur de chaîne pour qu’elle contienne tous les paramètres du script. Par exemple :
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -339,7 +339,7 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 - [Personnaliser des clusters HDInsight à l'aide d'une action de script][hdinsight-cluster-customize]
 - [Installer et utiliser Spark sur les clusters HDInsight][hdinsight-install-spark]
 - [Installer et utiliser R sur les clusters HDInsight][hdinsight-r-scripts]
-- [Installez et utilisez Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md).
+- [Installation et utilisation de Solr sur les clusters HDInsight](hdinsight-hadoop-solr-install.md)
 - [Installez et utilisez Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
@@ -351,4 +351,4 @@ En cas d'échec de l'exécution, la sortie décrivant cet échec est également 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

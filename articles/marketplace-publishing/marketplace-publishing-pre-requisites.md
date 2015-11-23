@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -50,4 +50,4 @@ Vous devez ensuite remplir les conditions préalables techniques de chaque type 
 ## Voir aussi
 - [Mise en route : publication d’une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

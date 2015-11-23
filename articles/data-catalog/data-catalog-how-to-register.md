@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 
@@ -38,7 +38,7 @@ Dans la version préliminaire actuelle, **Azure Data Catalog** prend en charge l
 * Rapports SQL Server Reporting Services
 * Objets blob et répertoires d’Azure Storage
 * Fichiers et répertoires HDFS
-* Tables HDInsight Hive
+* Tables Apache Hive
 * Vues et tables Teradata
 
 > [AZURE.NOTE]La prise en charge de SQL Server inclut également la base de données SQL Microsoft Azure et Microsoft Azure SQL Data Warehouse
@@ -95,4 +95,4 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

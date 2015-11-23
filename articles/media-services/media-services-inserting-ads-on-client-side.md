@@ -515,7 +515,7 @@ Cet exemple utilise AdSchedulerPlugin pour planifier une publicité mi-bande en 
 
 ###VastLinearCompanionPage
 
-Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L'élément <RemoteAdSource> spécifie l'emplacement du fichier VAST.
+Cet exemple montre comment utiliser AdSchedulerPlugin pour planifier une publicité mi-bande linéaire avec une publicité d’accompagnement. L’élément <RemoteAdSource> spécifie l’emplacement du fichier VAST.
 	
 	<mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 	            <mmppf:MediaPlayer.Plugins>
@@ -798,16 +798,18 @@ L’exemple ci-dessous montre comment planifier une publicité mi-bande de recou
 	}
 
 
+
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
  
 ##Voir aussi
 
 [Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

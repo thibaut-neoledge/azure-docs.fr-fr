@@ -965,11 +965,11 @@ Vous avez terminé la leçon 4. Dans cette leçon, vous avez ajouté la fonctio
 
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 ##Autres ressources :
@@ -980,4 +980,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

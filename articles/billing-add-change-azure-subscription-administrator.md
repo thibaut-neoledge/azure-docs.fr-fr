@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="11/11/2015"
 	ms.author="genli"/>
 
 # Comment ajouter ou modifier un coadministrateur, administrateur de services et administrateur de compte Azure
@@ -39,7 +39,11 @@ L’adresse de messagerie suivante peut être ajoutée en tant que coadministrat
 * **Compte Microsoft** (anciennement, Windows Live ID) </br> Vous pouvez utiliser un compte Microsoft pour vous connecter à tous les produits et services cloud Microsoft orientés utilisateur, notamment Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone et Xbox LIVE.
 * **Compte de société**</br> Un compte de société est un compte qui est créé sous Azure Active Directory. L’adresse du compte de société est similaire à ceci : utilisateur@<your domain>.onmicrosoft.com
 
-**Remarque** * Si vous vous êtes connecté avec un compte Microsoft, vous ne pouvez ajouter d’autres comptes Microsoft qu’en tant que coadministrateurs. Pour des raisons de sécurité, il importe d’empêcher les comptes autres que les comptes de société d’identifier si certains comptes (par exemple, janedoe@contoso.com) sont des comptes valides. * Si vous vous êtes connecté avec un compte de société, vous pouvez ajouter d’autres comptes de société de votre société en tant que coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com. Les utilisateurs connectés avec des comptes de société peuvent continuer à ajouter des utilisateurs de compte Microsoft en tant qu’administrateur de services ou coadministrateur. * Avec la possibilité nouvelle de se connecter à Azure avec un compte de société, voici les modifications des conditions requises pour les comptes d’administrateur de services et de coadministrateur :
+**Remarque :**
+
+ * Si vous vous êtes connecté avec un compte Microsoft, vous ne pouvez ajouter d’autres comptes Microsoft qu’en tant que coadministrateur. Pour des raisons de sécurité, il importe d'empêcher les comptes autres que les comptes professionnels d'identifier si certains comptes (par exemple janedoe@contoso.com) sont des comptes valides.
+ * Si vous vous êtes connecté avec un compte professionnel, vous pouvez ajouter d'autres comptes de société de votre société en tant qu'administrateur de service ou coadministrateur. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services ou coadministrateur, mais ne peut pas ajouter john@notcontoso.com. Les utilisateurs connectés avec des comptes professionnels peuvent continuer à ajouter des utilisateurs de compte Microsoft en tant qu'administrateur de service ou coadministrateur.
+ * Il est désormais possible de se connecter à Azure avec un compte professionnel. Voici les modifications apportées aux exigences liées aux comptes Administrateur de service et Coadministrateur :
 
 | Méthode de connexion| Ajouter un compte Microsoft en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société de la même société en tant que coadministrateur ou administrateur de services ? |Ajouter un compte de société d’une autre société en tant que coadministrateur ou administrateur de services ?
 | ------------- | ------------- |---------------|---------------|
@@ -53,10 +57,10 @@ Seul l’administrateur de compte peut modifier l’administrateur de services p
 2. Sélectionnez l’abonnement que vous souhaitez modifier.
 3. Sur le côté droit, cliquez sur les informations **Modifier l’abonnement**. </br> ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 
-4. Dans la zone **ADMINISTRATEUR DE SERVICES**, entrez l’adresse de messagerie du nouvel administrateur de services. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+4. Dans la zone **ADMINISTRATEUR DE SERVICE**, entrez l’adresse de messagerie du nouvel administrateur de service. ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-## Modifier l’administrateur de compte (transfert de la propriété du compte Azure vers un autre compte)
+## Changer d’administrateur de compte
 
-Pour transférer la propriété du compte Azure vers un autre compte, consultez [Transfert d’un abonnement Azure](../billing-subscription-transfer.md).
+Pour transférer la propriété du compte Azure vers un autre, consultez [Transfert d’un abonnement Azure](../billing-subscription-transfer.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

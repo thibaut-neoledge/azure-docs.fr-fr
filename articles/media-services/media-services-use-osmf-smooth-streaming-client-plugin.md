@@ -398,17 +398,18 @@ Le plug-in dynamique Smooth Streaming pour OSMF est compatible avec [Strobe Medi
 
 Pour plus d'informations sur le développement avec OSMF, consultez la page officielle [sur le développement pour OSMF](http://osmf.org/resources.html).
 
-
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ##Voir aussi
 
 [Plug-in de diffusion en continu adaptative Microsoft pour la mise à jour OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

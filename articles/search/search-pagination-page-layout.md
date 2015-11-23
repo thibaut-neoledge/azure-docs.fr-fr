@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Navigation dans les résultats de recherche d'Azure Search | Microsoft Azure" 
+	pageTitle="Navigation dans les résultats de recherche d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Pagination dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -114,4 +114,4 @@ Consultez [Recherche de documents (API Azure Search)](http://msdn.microsoft.co
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

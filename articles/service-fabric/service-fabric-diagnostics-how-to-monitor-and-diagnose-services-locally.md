@@ -75,8 +75,7 @@ Le même code de suivi que vous avez ajouté à votre application ci-dessus pour
 ## Étapes suivantes
 
 * [Présentation de l'intégrité de Service Fabric](service-fabric-health-introduction.md)
-* [Configuration d'Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Diagnostics et surveillance des performances pour Azure Service Fabric Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnostics de service fiable avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

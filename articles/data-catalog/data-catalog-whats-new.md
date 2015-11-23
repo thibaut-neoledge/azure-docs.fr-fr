@@ -13,18 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/30/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Nouveautés d'Azure Data Catalog
 
 Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Comme certaines versions portent sur les fonctionnalités du service principal, chaque version ne contient pas nécessairement de nouvelles fonctionnalités orientées utilisateur. Cette page présente de nouvelles fonctionnalités orientées utilisateur ajoutées au service **Azure Data Catalog**.
 
+## Nouveautés de la version de la semaine du 6 novembre 2015
+
+À compter de la semaine du 6 novembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
+
+- Prise en charge de l’aperçu des sources de données Teradata. Lors de l'enregistrement des tables et vues Teradata, les utilisateurs peuvent choisir d'inclure les enregistrements d’instantané avec les métadonnées extraites de la source de données.
+- Prise en charge de la commande « Ouvrir avec Excel » pour les sources de données Azure SQL Data Warehouse.
+- Prise en charge de la définition et la modification des schémas de niveau colonne pour les ressources de données inscrites. Après avoir créé manuellement une ressource de données à l’aide du portail **Azure Data Catalog**, les utilisateurs peuvent ajouter des définitions de colonne dans les propriétés des ressources de données.
+- Prise en charge des requêtes « has » lors de la recherche dans **Azure Data Catalog** afin d’activer la découverte des ressources de données inscrites possédant des métadonnées spécifiques. La syntaxe des requêtes **Azure Data Catalog** comprend à présent ce qui suit :
+
+| Syntaxe de requête | Objectif |
+|-------------------------|---------|
+| has:previews | Recherche les ressources de données qui comprennent une version préliminaire |
+| has:documentation | Recherche les ressources de données pour lesquelles une documentation a été fournie |
+| has:tableDataProfiles | Recherche des ressources de données avec des informations de profil des données de niveau table |
+| has:columnsDataProfiles | Recherche des ressources de données avec des informations de profil des données de niveau colonne |
+
+
 ## Nouveautés de la version de la semaine du 30 octobre 2015
 
 À compter de la semaine du 30 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Prise en charge de chiffrement au repos d'aperçus et de profils de données pour des sources de données enregistrées. Azure Data Catalog chiffre de façon transparente les sources de données d'enregistrements d'aperçu et de profils de données inscrits auprès du service, sans aucun besoin de gestion de clés par des administrateurs du catalogue.
+- Prise en charge de chiffrement au repos d'aperçus et de profils de données pour des sources de données enregistrées. **Azure Data Catalog** chiffre de façon transparente les sources de données d'enregistrements d'aperçu et de profils de données inscrits auprès du service, sans que les administrateurs du catalogue ne doivent gérer les clés.
 
 ## Nouveautés de la version de la semaine du 23 octobre 2015
 
@@ -39,7 +56,7 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 À compter de la semaine du 16 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de sources de données Hive locales. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données locales.
-- Prise en charge des recherches enregistrées dans le portail **Azure Data Catalog**. Les utilisateurs peuvent enregistrer des termes de recherche et filtrer les sélections pour répéter facilement des recherches précédentes et définir des vues utiles du contenu du catalogue. L’utilisateur peut également définir une recherche enregistrée comme recherche par défaut. Quand un utilisateur clique sur l'icône de recherche en forme de loupe dans la page d'accueil du portail **Azure Data Catalog** ou dans la page de démarrage, il accède directement à la recherche enregistrée définie comme recherche par défaut.
+- Prise en charge des recherches enregistrées dans le portail **Azure Data Catalog**. Les utilisateurs peuvent enregistrer des termes de recherche et filtrer les sélections pour répéter facilement des recherches précédentes et définir des vues utiles du contenu du catalogue. L’utilisateur peut également définir une recherche enregistrée comme recherche par défaut. Lorsqu'un utilisateur clique sur l'icône de recherche en forme de loupe sur la page d’accueil du portail **Azure Data Catalog** ou sur la page de démarrage, il accède directement à la recherche enregistrée définie comme recherche par défaut.
 
 
 ## Nouveautés de la version de la semaine du 9 octobre 2015
@@ -52,8 +69,8 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 
 À compter de la semaine du 2 octobre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Prise en charge de l'enregistrement manuel de types de sources de données connus. Les utilisateurs peuvent saisir manuellement les informations d'une source de données à l'aide du portail **Azure Data Catalog** pour tous les types de source de données pris en charge par **Azure Data Catalog**.
-- Prise en charge de l’autorisation des groupes de sécurité Azure Active Directory. Les administrateurs du catalogue peuvent autoriser l'accès au catalogue à des groupes de sécurité et à des comptes d'utilisateurs, facilitant ainsi la gestion de l'accès à **Azure Data Catalog**.
+- Prise en charge de l'enregistrement manuel de types de sources de données connus. Les utilisateurs peuvent saisir manuellement les informations d’une source de données à l'aide du portail **Azure Data Catalog** pour tous les types de source de données pris en charge par **Azure Data Catalog**.
+- Prise en charge de l’autorisation des groupes de sécurité Azure Active Directory. Les administrateurs du catalogue peuvent autoriser l’accès au catalogue à des groupes de sécurité et à des comptes d'utilisateurs, facilitant la gestion de l'accès à **Azure Data Catalog**.
 - Prise en charge de l'ouverture de sources de données Hive dans Excel à partir du portail **Azure Data Catalog**.
 
 > [AZURE.NOTE]Pour pouvoir utiliser la fonctionnalité « Ouvrir dans Excel » avec des sources de données Hive, les utilisateurs doivent avoir installé le pilote ODBC pour Hive.
@@ -63,25 +80,25 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 À compter de la semaine du 25 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
 - Prise en charge de l’inclusion des profils de données lors de l’inscription des sources de données Hive.
-- Prise en charge de la découverte par programmation de l'API du catalogue, facilitant ainsi l'intégration des applications à **Azure Data Catalog**.
+- Prise en charge de la découverte par programmation de l’API du catalogue, facilitant ainsi l’intégration des applications à **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 18 Septembre 2015
 
 À compter de la semaine du 18 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Une nouvelle expérience de prise en main de la détection de source de données dans le portail **Azure Data Catalog**. Quand les utilisateurs accèdent à la page de détection du portail **Azure Data Catalog** sans entrer un terme de recherche, une vue d'ensemble du contenu du catalogue s'affiche, notamment les balises fréquemment utilisées, ainsi que les experts, les types de sources de données et les types d'objets.
-- Prise en charge de l’inscription et de la découverte des bases de données et des objets Azure SQL Data Warehouse. Pour plus d'informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
-- Prise en charge de l’inscription et de la découverte des modèles SQL Server Analysis Services et des serveurs SQL Server Reporting Services en tant que conteneurs. Au moment de l'inscription d'objets SSAS et SSRS, **Azure Data Catalog** crée une entrée pour le modèle SSAS et le serveur SSRS, ainsi que pour les rapports et d'autres objets. Les conteneurs peuvent être détectés et annotés à l'aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’un modèle ou serveur en plus de la recherche et du filtrage du contenu du catalogue.
+- Une nouvelle expérience d’initiation à la découverte de source de données dans le portail **Azure Data Catalog**. Quand les utilisateurs accèdent à la page de découverte du portail **Azure Data Catalog** sans entrer un terme de recherche, une vue d’ensemble du contenu du catalogue s’affiche, notamment les balises fréquemment utilisées, ainsi que les experts, les types de sources de données et les types d’objets.
+- Prise en charge de l’inscription et de la découverte des bases de données et des objets Azure SQL Data Warehouse. Pour plus d’informations sur Azure SQL Data Warehouse, consultez [SQL Data Warehouse](http://azure.microsoft.com/services/sql-data-warehouse/).
+- Prise en charge de l’inscription et de la découverte des modèles SQL Server Analysis Services et des serveurs SQL Server Reporting Services en tant que conteneurs. Au moment de l’inscription d’objets SSAS et SSRS, **Azure Data Catalog** crée une entrée pour le modèle SSAS et le serveur SSRS, ainsi que pour les rapports et d’autres objets. Les conteneurs peuvent être détectés et annotés à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’un modèle ou serveur en plus de la recherche et du filtrage du contenu du catalogue.
 
-> [AZURE.NOTE]Les objets SSAS et SSRS qui ont été inscrits avant la version du 18 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de modèle ou de serveur soit ajoutée au catalogue. La réinscription d'une source de données n'affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
+> [AZURE.NOTE]Les objets SSAS et SSRS qui ont été inscrits avant la version du 18 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de modèle ou de serveur soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 11 Septembre 2015
 
 À compter de la semaine du 11 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Prise en charge de l’inscription et de la détection d’objets SQL Server Analysis Services via HTTP/HTTPS. Les utilisateurs peuvent désormais se connecter à des serveurs SSAS à l'aide d'une URL (telle que https://servername/olap/msmdpump.dll) au lieu d'un nom de serveur, et peuvent utiliser une authentification de base et des connexions anonymes en plus de l'authentification Windows. Pour plus d'informations sur les connexions HTTP/HTTPS à SSAS, consultez [Configuration de l'accès HTTP à Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
-- Prise en charge de sources de données Hive sur HDInsight. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données HDInsight. Pour plus d'informations sur Hive dans HDInsight, consultez le [Centre de documentation HDInsight](../hdinsight-use-hive/).
-- Prise en charge de l’inscription et de la détection de bases de données Oracle et de clusters HDFS en tant que conteneurs. Pendant l'inscription de tables et de vues Oracle ou de HDFS, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être détectée et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’une base de données ou d’un cluster, en plus de la recherche et du filtrage du contenu du catalogue.
+- Prise en charge de l’inscription et de la détection d’objets SQL Server Analysis Services via HTTP/HTTPS. Les utilisateurs peuvent désormais se connecter à des serveurs (SSAS) à l’aide d’une URL (telle que https://servername/olap/msmdpump.dll) au lieu d’un nom de serveur, et peuvent utiliser une authentification de base et des connexions anonymes en plus de l’authentification Windows. Pour plus d’informations sur les connexions HTTP/HTTPS à SSAS, consultez [Configuration de l’accès HTTP à Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+- Prise en charge de sources de données Hive sur HDInsight. Les utilisateurs peuvent désormais inscrire et détecter des tables Hive pour Apache Hive dans Hadoop sur des sources de données HDInsight. Pour plus d’informations sur Hive sur HDInsight, consultez le [Centre de documentation HDInsight](../hdinsight-use-hive/).
+- Prise en charge de l’inscription et de la détection de bases de données Oracle et de clusters HDFS en tant que conteneurs. Pendant l’inscription de tables et de vues Oracle, ou de HDFS, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être détectée et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d’une base de données ou d’un cluster, en plus de la recherche et du filtrage du contenu du catalogue.
 
 
 > [AZURE.NOTE]Les tables et vues Oracle, ainsi que les fichiers et répertoires HDFS, qui ont été inscrits avant la version du 11 septembre, doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données ou de cluster soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
@@ -90,10 +107,10 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 
 À compter de la semaine du 4 septembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- Prise en charge de l'enregistrement manuel de types de sources de données inconnus. Les utilisateurs peuvent entrer manuellement des informations sur les sources de données à l'aide du portail **Azure Data Catalog**, afin que les sources de données non prises en charge explicitement par l'outil d'inscription de sources de données puissent être annotées et détectées.
-- Prise en charge de l'enregistrement et de la découverte des bases de données SQL Server en tant que conteneurs. Pendant l'enregistrement des tables et des vues SQL Server, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et les vues. La base de données peut être détectée et annotée à l'aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d'une base de données en plus de la recherche et du filtrage du contenu du catalogue.
+- Prise en charge de l'enregistrement manuel de types de sources de données inconnus. Les utilisateurs peuvent entrer manuellement des informations sur les sources de données à l’aide du portail **Azure Data Catalog**, afin que les sources de données non prises en charge explicitement par l’outil d’inscription de sources de données puissent être annotées et découvertes.
+- Prise en charge de l'enregistrement et de la découverte des bases de données SQL Server en tant que conteneurs. Pendant l’enregistrement des tables et des vues SQL Server, **Azure Data Catalog** crée une entrée pour la base de données, ainsi que pour les tables et vues. La base de données peut être détectée et annotée à l’aide du portail **Azure Data Catalog**. Les utilisateurs peuvent également rechercher et filtrer le contenu d'une base de données en plus de la recherche et du filtrage du contenu du catalogue.
 
-> [AZURE.NOTE]Les tables et vues SQL Server qui ont été inscrits avant la version du 4 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données soit ajoutée au catalogue. La réinscription d'une source de données n'affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
+> [AZURE.NOTE]Les tables et vues SQL Server qui ont été inscrits avant la version du 4 septembre doivent être inscrits de nouveau à l’aide de l’outil d’inscription de sources de données avant que l’entrée de base de données soit ajoutée au catalogue. La réinscription d’une source de données n’affecte pas les annotations qui ont été ajoutées par des utilisateurs dans le portail **Azure Data Catalog**.
 
 ## Nouveautés de la version de la semaine du 28 août 2015
 
@@ -108,8 +125,8 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 
 - Prise en charge de la fourniture d’informations de demande d’accès pour les sources de données inscrites. Pour toute ressource de données inscrite, les utilisateurs peuvent maintenant fournir des instructions de demande d’accès, y compris des liens de messagerie ou des URL, en vue d’une intégration aisée aux outils et processus existants.
 - Info-bulles pour balises et experts, pour savoir facilement quels utilisateurs ont fourni quelles métadonnées pour les ressources de données inscrites.
-- Nous avons ajouté un nouveau bouton « Utilisateur » et un menu à notre barre de navigation supérieure. Ce menu indique à l'utilisateur le compte avec lequel il se connecte à **Azure Data Catalog** (et éventuellement s'en déconnecte). Ce menu affiche également le nom du catalogue, qui est une information utile pour les développeurs qui utilisent l'API REST **Azure Data Catalog**.
-- Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d'utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
+- Nous avons ajouté un nouveau bouton « Utilisateur » et un menu à notre barre de navigation supérieure. Ce menu indique à l’utilisateur le compte avec lequel il se connecte à **Azure Data Catalog** (et éventuellement s’en déconnecte). Ce menu affiche également le nom du catalogue, qui est une information utile pour les développeurs qui utilisent l’API REST **Azure Data Catalog**.
+- Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

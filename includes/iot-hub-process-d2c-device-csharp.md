@@ -20,7 +20,7 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
             }
         }
 
-    Cette méthode est très similaire à la méthode `SendDeviceToCloudMessagesAsync()` qui a été créée dans [Prise en main d’IoT Hub], les seules différences étant que la propriété système `MessageId` et une propriété de l’utilisateur appelée `messageType` sont maintenant définies. La propriété `MessageId` est définie sur un identificateur global unique (guid), qui permet de dédupliquer les réceptions de messages. La propriété `messageType` est utilisée pour distinguer les messages interactifs et les messages de point de données. Ces informations sont transmises dans les propriétés du message, plutôt que dans le corps du message, afin que le processeur d’événements du serveur principal ne soit pas obligé de désérialiser le message entier simplement pour effectuer le routage.
+    Cette méthode est très similaire à la méthode `SendDeviceToCloudMessagesAsync()` qui a été créée dans [Prise en main d’IoT Hub], les seules différences étant que la propriété système `MessageId` et une propriété de l’utilisateur appelée `messageType` sont maintenant définies. La propriété `MessageId` est définie sur un identificateur global unique (guid), qui permet de dédupliquer les réceptions de messages. La propriété `messageType` est utilisée pour distinguer les messages interactifs et les messages de point de données. Ces informations sont transmises dans les propriétés (plutôt que dans le corps) du message afin que le processeur d’événements du serveur principal ne soit pas obligé de désérialiser le message entier simplement pour effectuer le routage.
 
 > [AZURE.NOTE]Il est important que `MessageId`, utilisé pour dédupliquer les messages interactifs, soit créé dans l’appareil, car les communications réseau intermittentes (ou d’autres défaillances) pourraient alors entraîner plusieurs retransmissions du même message à partir de l’appareil. Un id de message sémantique (par exemple, un hachage des champs de données de message appropriés) peut également être utilisé, par opposition à un identificateur global unique.
 
@@ -42,4 +42,4 @@ Dans cette section, vous allez modifier l’application de l’appareil simulé 
 [21]: ./media/iot-hub-getstarted-cloud-csharp/create-storage2.png
 [22]: ./media/iot-hub-getstarted-cloud-csharp/create-storage3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

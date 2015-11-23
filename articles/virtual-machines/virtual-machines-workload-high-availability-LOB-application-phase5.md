@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Charge de travail des applications métier, phase 5 : création du groupe de disponibilité et ajout des bases de données d'application
@@ -83,7 +83,7 @@ Après la préparation d’au moins une base de données (à l’aide de la mét
 1.	Revenez à la session Bureau à distance pour le serveur de bases de données principal.
 2.	Dans le volet gauche de **SQL Server Management Studio**, cliquez avec le bouton droit sur **Haute disponibilité AlwaysOn**, puis cliquez sur **Assistant Nouveau groupe de disponibilité**.
 3.	Dans la page **Introduction**, cliquez sur **Suivant**. 
-4.	Dans la page **Spécifier le nom du groupe de disponibilité**, tapez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
+4.	Sur la page **Spécifier le nom du groupe de disponibilité**, entrez le nom de votre groupe de disponibilité dans **Nom du groupe de disponibilité** (par exemple, AG1), puis cliquez sur **Suivant**.
 5.	Dans la page **Sélectionner des bases de données**, sélectionnez les bases de données de l’application qui ont été sauvegardées, puis cliquez sur **Suivant**. Ces bases de données répondent à la configuration requise pour un groupe de disponibilité, car vous avez effectué au moins une sauvegarde complète sur le réplica principal prévu.
 6.	Dans la page **Spécifier les réplicas**, cliquez sur **Ajouter un réplica**.
 7.	Sous **Se connecter au serveur**, tapez le nom du serveur de base de données secondaire, puis cliquez sur **Connecter**. 
@@ -128,4 +128,4 @@ Une fois l'écouteur configuré, vous devez configurer toutes les machines virtu
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

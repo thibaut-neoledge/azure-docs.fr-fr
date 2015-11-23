@@ -69,7 +69,7 @@ Le modèle de service de jetons est la méthode recommandée pour implémenter u
 
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
-- [Prise en main d’IoT Hub (didacticiel)][lnk-get-started]
+- [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
 - [Qu’est-ce qu’Azure IoT Hub ?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

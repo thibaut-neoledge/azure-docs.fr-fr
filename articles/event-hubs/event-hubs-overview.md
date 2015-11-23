@@ -132,7 +132,7 @@ La capacité de débit des hubs d'événements est contrôlée par les unités d
 
 - Sortie : jusqu'à 2 Mo par seconde.
 
-L'entrée est limitée à la quantité de capacité offerte par le nombre d'unités de débit achetées. L'envoi de données au-delà de cette quantité résulte en une exception de « quota dépassé ». Cette quantité est soit 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier. La sortie ne produit pas d'exceptions de limitation, mais elle est limitée à la quantité de transfert de données prévu par les unités de débit achetées : 2 Mo par seconde par unité de débit. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d'unités de débit achetées pour l'espace de noms dans lequel le hub d'événements a été créé. Pour obtenir plus d’unités de débit, vous pouvez ajuster le paramètre dans la page **Espaces de noms** sous l’onglet **Mettre à l’échelle** du portail de gestion Azure. Vous pouvez également modifier ce paramètre à l'aide des API Azure.
+L'entrée est limitée à la quantité de capacité offerte par le nombre d'unités de débit achetées. L'envoi de données au-delà de cette quantité résulte en une exception de « quota dépassé ». Cette quantité est soit 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier. La sortie ne produit pas d'exceptions de limitation, mais elle est limitée à la quantité de transfert de données prévu par les unités de débit achetées : 2 Mo par seconde par unité de débit. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d'unités de débit achetées pour l'espace de noms dans lequel le hub d'événements a été créé. Pour obtenir plus d’unités de débit, vous pouvez ajuster le paramètre dans la page **Espaces de noms** sous l’onglet **Mettre à l’échelle** du portail Azure. Vous pouvez également modifier ce paramètre à l'aide des API Azure.
 
 Les partitions sont un concept d'organisation de données, alors que les unités de débit sont purement un concept de capacité. Les unités de débit sont facturées par heure et sont préalablement acquises. Une fois achetées, les unités de débit sont facturées au moins une heure. Il est possible d'acheter jusqu'à 20 unités de débit pour un espace de noms Service Bus. Un compte Azure est limité à 20 unités de débit. Ces unités de débit sont partagées par tous les hubs d'événements dans un espace de noms donné.
 
@@ -167,4 +167,4 @@ Les hubs d'événements Azure fournissent un service évolutif de traitement de 
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

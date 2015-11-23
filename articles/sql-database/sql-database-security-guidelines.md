@@ -96,7 +96,7 @@ Pour plus d’informations sur les connexions et les utilisateurs, voir [Gestion
 
 Considérez les points suivants pour réduire la vulnérabilité de vos applications Azure SQL Database aux menaces de sécurité :
 
-- Utilisez toujours les dernières mises à jour : lors de la connexion à votre base de données SQL, utilisez systématiquement la version la plus récente des outils et des bibliothèques afin d’éviter les points de vulnérabilité. Pour plus d’informations sur les bibliothèques et outils pris en charge, voir [Instructions et limitations générales de Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ee336245.aspx).
+- Utilisez toujours les dernières mises à jour : lors de la connexion à votre base de données SQL, utilisez systématiquement la version la plus récente des outils et des bibliothèques afin d’éviter les points de vulnérabilité.
 - Bloquez les connexions entrantes sur le port TCP 1433 : seules les connexions sortantes sur le port TCP 1433 sont nécessaires aux applications pour communiquer avec SQL Database. Si les communications entrantes ne sont pas requises par d’autres applications sur cet ordinateur, veillez à ce que votre pare-feu continue de bloquer les connexions entrantes sur le port TCP 1433.
 - Évitez les vulnérabilités d’injection : pour protéger vos applications contre l’injection SQL, utilisez des requêtes paramétrées dans la mesure du possible. En outre, examinez soigneusement le code et effectuez un test de pénétration avant de déployer votre application.
 
@@ -107,8 +107,6 @@ Considérez les points suivants pour réduire la vulnérabilité de vos applicat
 
 [Configuration des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md)
 
-[Consignes et limitations générales de base de données Azure SQL](https://msdn.microsoft.com/library/azure/ee336245.aspx)
-
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

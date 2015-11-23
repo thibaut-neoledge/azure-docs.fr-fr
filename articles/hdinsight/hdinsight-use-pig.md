@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Utilisation de Pig avec Hadoop sur HDInsight
@@ -43,7 +43,9 @@ Pour plus d'informations sur Pig Latin, consultez les pages [Manuel de référen
 
 Pour obtenir un exemple d'utilisation des fonctions définies par l’utilisateur (UDF) avec Pig, consultez les documents suivants :
 
-* [Utilisation de Python avec Pig et Hive dans HDInsight](hdinsight-python.md)
+* [Utilisation de DataFu avec Pig dans HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) : DataFu est une collection de fonctions définies par l’utilisateur utiles gérées par Apache
+
+* [Utilisation de Python avec Hive et Pig dans HDInsight](hdinsight-python.md)
 
 * [Utilisation de C# avec Hive et Pig dans HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
@@ -144,4 +146,4 @@ Maintenant que vous avez vu comment utiliser Pig avec HDInsight, utilisez les li
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

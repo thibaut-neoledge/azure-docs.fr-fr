@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/09/2015"
 	ms.author="spelluru"/>
 
 # Déplacer des données vers et depuis Azure Data Lake Store à l’aide d’Azure Data Factory
-Cet article explique comment vous pouvez utiliser l’activité de copie dans la fabrique Azure Data pour déplacer des données vers Azure Data Lake Store depuis autre un magasin de données et déplacer des données depuis un autre magasin de données et vice-versa. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
+Cet article explique comment vous pouvez utiliser l’activité de copie dans la fabrique de données Azure pour déplacer des données vers Azure Data Lake Store depuis autre un magasin de données et déplacer des données depuis un magasin Azure Data Lake Store vers un autre magasin de données. Cet article s'appuie sur l'article des [activités de déplacement des données](data-factory-data-movement-activities.md) qui présente une vue d'ensemble du déplacement des données avec l'activité de copie et les combinaisons de magasin de données prises en charge.
 
 > [AZURE.NOTE]Vous devez créer un compte Azure Data Lake Store avant de créer un pipeline avec l’activité de copie pour déplacer des données vers/depuis Azure Data Lake Store. Pour plus d’informations sur Azure Data Lake Store, consultez [Prise en main d’Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
 >  
@@ -553,7 +553,7 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Spécifie le comportement de copie. | <p>**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</p><p>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cible auront un nom généré automatiquement.</p><p>**MergeFiles :** fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier ou d'objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</p> | Non |
+| copyBehavior | Spécifie le comportement de copie. | <p>**PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</p><p>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles ont un nom généré automatiquement. </p><p>**MergeFiles:** (cette fonctionnalité sera bientôt disponible) fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier ou d'objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</p> | Non |
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -562,4 +562,4 @@ Par contre, les propriétés disponibles dans la section typeProperties de l'act
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

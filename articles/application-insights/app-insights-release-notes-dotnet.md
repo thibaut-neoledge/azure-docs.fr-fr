@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="sergkanz"/>
  
 # Notes de publication pour le Kit de développement logiciel (SDK) Application Insights pour .NET
@@ -109,4 +109,4 @@ Aucune note de publication pour des versions antérieures.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@ Avant, pour gérer une ressource (par exemple un serveur de base de données, un
 
 En général, un groupe de ressources contient des ressources associées à une application spécifique. Par exemple, un groupe peut contenir une application web qui héberge votre site web public, une base de données SQL qui stocke les données relationnelles utilisées par le site et un compte de stockage qui stocke les ressources non relationnelles. Chaque ressource d’un groupe de ressources doit partager le même cycle de vie. Pour plus d’informations sur Resource Manager, consultez la page [Présentation d’Azure Resource Manager](../resource-group-overview.md).
 
-Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans la version préliminaire du portail Azure.
+Cette rubrique fournit un aperçu de la façon dont vous pouvez utiliser les groupes de ressources dans la version préliminaire du portail Azure. Actuellement, certaines services ne prennent pas en charge la version préliminaire du portail ou Resource Manager. Pour ces services, vous devez utiliser le [portail](https://manage.windowsazure.com). Pour l’état de chaque service, consultez [Prise en charge de Resource Manager pour les services, les régions et les versions API](resource-manager-supported-services.md).
 
 ## Création d’un groupe de ressources et des ressources
 
@@ -147,11 +147,11 @@ Après avoir lancé le déploiement du modèle, vous pouvez créer le modèle pe
 Mise en route
 
 - Pour une introduction aux concepts de Resource Manager, consultez [Vue d'ensemble d’Azure Resource Manager](../resource-group-overview.md).  
-- Pour plus d’informations sur l’utilisation d’Azure PowerShell pendant le déploiement de ressources, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
+- Pour plus d'informations sur l'utilisation d’Azure PowerShell lors du déploiement de ressources, consultez la rubrique [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 - Si vous n’avez jamais utilisé Azure CLI pour le déploiement de ressources, consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](../xplat-cli-azure-resource-manager.md). 
   
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

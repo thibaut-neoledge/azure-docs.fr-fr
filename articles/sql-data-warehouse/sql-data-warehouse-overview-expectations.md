@@ -62,7 +62,7 @@ Selon les données de télémétrie, nous estimons que la fiabilité actuelle d�
 
 ### Disponibilité du service
 
-Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenance par mois, dédiés à l’installation des correctifs critiques. Chaque événement peut entraîner un échec des requêtes jusqu’à 2 heures au plus. Le temps dépend du nombre de DWU alloué au service. Nous nous efforcerons de notifier ces événements 48 heures à l’avance.
+Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenance par mois, dédiés à l’installation des correctifs critiques. Chaque événement peut entraîner un échec des requêtes jusqu’à 2 heures au plus. Le temps dépend du nombre de DWU alloué au service.
 
 
 ## Étapes suivantes
@@ -78,4 +78,4 @@ Azure SQL Data Warehouse peut présenter jusqu’à 4 événements de maintenan
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

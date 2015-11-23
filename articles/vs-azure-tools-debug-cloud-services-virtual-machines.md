@@ -3,7 +3,7 @@
    description="Débogage d’un service cloud ou d’une machine virtuelle dans Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
    ms.date="10/28/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Débogage d'un service cloud ou d'une machine virtuelle Azure dans Visual Studio
 
@@ -190,4 +190,4 @@ Les projets Visual Studio ASP.NET permettent de créer une machine virtuelle que
 - Utilisez **IntelliTrace** pour collecter un journal des appels et des événements d’un serveur de publication. Consultez [Débogage d’un service cloud publié avec IntelliTrace et Visual Studio](http://go.microsoft.com/fwlink/?LinkID=623016).
 - Utilisez les **Diagnostics Azure** pour collecter des informations détaillées du code actuellement exécuté dans des rôles qui sont eux-mêmes exécutés dans l’environnement de développement ou dans Azure. Consultez [Collecter des données de journalisation avec les diagnostics Azure](http://go.microsoft.com/fwlink/p/?LinkId=400450).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

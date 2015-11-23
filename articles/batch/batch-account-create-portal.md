@@ -26,7 +26,7 @@ Cet article vous montre comment utiliser le [portail Azure en version prélimina
 
 ## Création d’un compte Batch
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
 
 2. Cliquez sur **Nouveau** > **Calcul** > **Service Batch**.
 
@@ -80,4 +80,4 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

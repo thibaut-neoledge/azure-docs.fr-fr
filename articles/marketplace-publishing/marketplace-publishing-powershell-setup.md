@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,4 +30,4 @@ La première commande associe un compte de stockage par défaut à l’abonnemen
 - [Mise en route : publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
 - [Création d’une image de machine virtuelle pour Marketplace](marketplace-publishing-vm-image-creation.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

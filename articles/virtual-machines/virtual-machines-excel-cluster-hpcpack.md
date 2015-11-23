@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager"/>
+ tags="azure-resource-manager,hpc-pack"/>
 
 <tags
  ms.service="virtual-machines"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="08/18/2015"
+ ms.date="11/11/2015"
  ms.author="danlep"/>
 
 # Prise en main d’un cluster HPC Pack dans Azure pour exécuter des charges de travail Excel et SOA
@@ -43,7 +43,7 @@ Nous allons vous montrer deux méthodes de configuration du cluster : tout d'a
 
 
 ### Utilisation d’un modèle de démarrage rapide
-Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et facilement un cluster HPC Pack dans le portail Azure en version préliminaire. Lorsque vous ouvrez le modèle dans le portail, vous obtenez une interface utilisateur simple vous permettant de saisir les paramètres pour votre cluster. Voici la procédure à suivre.
+Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et facilement un cluster HPC Pack dans le portail Azure en version préliminaire. Lorsque vous ouvrez le modèle dans le portail en version préliminaire, vous obtenez une interface utilisateur simple vous permettant de saisir les paramètres pour votre cluster. Voici la procédure à suivre.
 
 1. Consultez [Create HPC Cluster template page on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Si vous le souhaitez, examinez les informations sur le modèle et le code source.
 
@@ -51,7 +51,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
 
     ![Modèle de déploiement vers Azure][github]
 
-3. Dans le portail, procédez comme suit pour saisir les paramètres du modèle de cluster HPC.
+3. Dans le portail en version préliminaire, procédez comme suit pour saisir les paramètres du modèle de cluster HPC.
 
     a. Sur la page **Modifier le modèle**, cliquez sur **Enregistrer**.
 
@@ -65,7 +65,7 @@ Utilisez un modèle de démarrage rapide Azure pour déployer rapidement et faci
     >
     >Les machines virtuelles du nœud de calcul sont créées à partir de la dernière image de la famille de nœuds de calcul sélectionnée. Sélectionnez l'option **ComputeNode** pour l'image de calcul à des fins générales HPC Pack 2012 R2 Update 2 la plus récente. Sélectionnez l'option **ComputeNodeWithExcel** pour la dernière image de nœud de calcul HPC Pack comprenant une version d'évaluation de Microsoft Excel Professional Plus 2013. Si vous souhaitez déployer un cluster pour les sessions SOA générales ou pour le déchargement Excel UDF, choisissez l'option **ComputeNode** (sans Excel installé).
     >
-    >En cas d'utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Dans le cas contraire, la version d'évaluation de Microsoft Excel pourrait expirer dans les 30 jours et l'exécution du classeur Excel échouerait en permanence avec l’exception COMExeption (0x800AC472). Dans ce cas, vous pouvez connecter le nœud principal à clusrun « % ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe » sur tous les nœuds de calcul Excel via la console HPC Cluster Manager pour rallonger la période d’évaluation d’Excel de 30 jours. Le nombre de renouvellements de la période de gratuité est de 2, ensuite vous devrez peut-être fournir une licence Excel valide.
+    >En cas d’utilisation de **ComputeNodeWithExcel** pour les charges de travail de production, vous devez fournir une licence Excel valide pour activer Excel sur les nœuds de calcul. Dans le cas contraire, la version d'évaluation de Microsoft Excel pourrait expirer dans les 30 jours et l'exécution du classeur Excel échouerait en permanence avec l’exception COMExeption (0x800AC472). Dans ce cas, vous pouvez connecter le nœud principal à clusrun « % ProgramFiles(x86)%\\Microsoft Office\\Office15\\OSPPREARM.exe » sur tous les nœuds de calcul Excel via la console HPC Cluster Manager pour rallonger la période d’évaluation d’Excel de 30 jours. Le nombre de renouvellements de la période de gratuité est de 2, ensuite vous devrez peut-être fournir une licence Excel valide.
 
     c. Choisissez l’abonnement.
 
@@ -101,7 +101,7 @@ Le script de déploiement du HPC Pack IaaS fournit une autre façon polyvalente 
 
 **Création du fichier de configuration**
 
- Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d'informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
+ Le script de déploiement de HPC Pack IaaS utilise un fichier de configuration XML comme entrée, qui décrit l’infrastructure du cluster HPC. Pour déployer un cluster constitué d’un nœud principal et de 18 nœuds de calcul créés depuis l’image de nœuds de calcul comprenant Microsoft Excel, remplacez les valeurs par celles convenant à votre environnement dans l’exemple de fichier de configuration suivant. Pour plus d’informations sur le fichier de configuration, consultez le fichier Manual.rtf dans le dossier de script et la rubrique [Créer un cluster HPC avec le script de déploiement HPC Pack IaaS](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -355,7 +355,7 @@ Pour ce faire, vous devez définir explicitement l’indicateur UseAzureQueue su
 
 ### Utilisation de la liaison NetTcp
 
-Pour utiliser une liaison NetTcp, la configuration est semblable à la connexion à un cluster local. Vous devrez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Dans le portail de gestion Azure, procédez comme suit.
+Pour utiliser une liaison NetTcp, la configuration est semblable à la connexion à un cluster local. Vous devrez ouvrir quelques points de terminaison sur la machine virtuelle du nœud principal. Dans le portail Azure, procédez comme suit :
 
 
 1. Arrêtez la machine virtuelle.
@@ -389,4 +389,4 @@ L'application cliente SOA ne nécessite aucune modification à l'exception de la
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

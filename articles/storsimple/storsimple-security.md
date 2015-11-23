@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/29/2015"
+   ms.date="11/11/2015"
    ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
@@ -167,7 +167,6 @@ Pour garantir la sécurité et l'intégrité des données déplacées vers le cl
 - Lorsque vous entrez la clé de chiffrement de stockage cloud dans le service StorSimple Manager, la clé est chiffrée à l’aide de la partie publique de la clé de chiffrement des données de service, puis envoyée à l’appareil.
 - La clé de chiffrement de stockage cloud n’est pas stockée dans le service et est connue uniquement de l’appareil.
 - La spécification d’une clé de chiffrement de stockage cloud est facultative. Vous pouvez envoyer des données chiffrées à l’hôte et à l’appareil.
-- Nous vous recommandons d’effectuer une rotation de la clé de chiffrement du stockage cloud tous les trimestres. Cependant, la rotation de ces clés n'est pas obligatoire.
 
 ### Meilleures pratiques supplémentaires en matière de sécurité
 
@@ -212,44 +211,44 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 - [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 - [Rotation des clés de comptes de stockage](storsimple-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
-**Q :** J'ai un nouvel appareil StorSimple qui demande la clé d'inscription. Comment la récupérer ?
+**Q :** J’ai un nouvel appareil StorSimple qui demande la clé d’inscription. Comment la récupérer ?
 
 **R :** Cette clé a été créée lorsque vous avez créé le service StorSimple Manager. Si vous utilisez le service StorSimple Manager pour vous connecter à l’appareil, vous pouvez utiliser la page de démarrage rapide du service pour afficher ou régénérer la clé d’inscription. La génération d’une nouvelle clé d’inscription n’affecte pas les appareils déjà inscrits. Pour obtenir des instructions, consultez :
 
 - [Affichage ou régénération de la clé d’inscription au service](storsimple-service-dashboard.md#view-or-regenerate-the-service-registration-key)
 
-**Q :** J'ai perdu ma clé de chiffrement des données du service. Que faire ?
+**Q :** J’ai perdu ma clé de chiffrement des données du service. Que faire ?
 
 **R :** Contactez le support technique Microsoft. Il peut ouvrir une session de support sur votre appareil et vous aider à récupérer la clé (à condition qu’au moins un appareil soit connecté) Dès que vous avez obtenu la clé de chiffrement des données du service, vous devez la modifier pour vous assurer que vous seul la connaissez. Pour obtenir des instructions, consultez :
 
 - [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 
-**Q :** J'ai autorisé un appareil pour la modification de la clé de chiffrement des données du service, mais n'ai pas démarré le processus de modification de la clé. Que dois-je faire ?
+**Q :** J’ai autorisé un appareil pour la modification de la clé de chiffrement des données du service, mais n’ai pas démarré le processus de modification de la clé. Que dois-je faire ?
 
-**R :** Si le délai d'expiration est dépassé, vous devez autoriser l'appareil à nouveau pour la modification de la clé de chiffrement des données du service et redémarrer le processus.
+**R :** Si le délai d’expiration est dépassé, vous devez autoriser l’appareil à nouveau pour la modification de la clé de chiffrement des données du service et redémarrer le processus.
 
-**Q :** J'ai modifié la clé de chiffrement des données du service, mais je n'ai pas pu mettre à jour les autres appareils dans un délai de 4 heures. Dois-je recommencer ?
+**Q :** J’ai modifié la clé de chiffrement des données du service, mais je n’ai pas pu mettre à jour les autres appareils dans un délai de 4 heures. Dois-je recommencer ?
 
-**R :** Le délai de 4 heures s'applique uniquement au démarrage de la modification. Une fois que vous avez démarré la mise à jour sur l’appareil StorSimple autorisé, l’autorisation est valide jusqu’à ce que tous les appareils soient mis à jour.
+**R :** Le délai de 4 heures s’applique uniquement au démarrage de la modification. Une fois que vous avez démarré la mise à jour sur l’appareil StorSimple autorisé, l’autorisation est valide jusqu’à ce que tous les appareils soient mis à jour.
 
-**Q :** Notre administrateur StorSimple a quitté l'entreprise. Que dois-je faire ?
+**Q :** Notre administrateur StorSimple a quitté l’entreprise. Que dois-je faire ?
 
-**R :** Modifiez et réinitialisez les mots de passe qui permettent l'accès à l'appareil StorSimple, puis changez la clé de chiffrement des données du service pour vous assurer que les nouvelles informations ne seront pas accessibles au personnel non autorisé. Pour obtenir des instructions, consultez :
+**R :** Modifiez et réinitialisez les mots de passe qui permettent l’accès à l’appareil StorSimple, puis changez la clé de chiffrement des données du service pour vous assurer que les nouvelles informations ne seront pas accessibles au personnel non autorisé. Pour obtenir des instructions, consultez :
 
 - [Utilisation du service StorSimple Manager pour modifier vos mots de passe StorSimple](storsimple-change-passwords.md)
 - [Modification de la clé de chiffrement des données du service](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
 - [Configuration de CHAP pour votre appareil StorSimple](storsimple-configure-chap.md)
 
-**Q :** Je souhaite fournir le mot de passe du gestionnaire d'instantanés StorSimple à un hôte qui se connecte à l'appareil StorSimple, mais le mot de passe n'est pas disponible. Que puis-je faire ?
+**Q :** Je souhaite fournir le mot de passe du gestionnaire d’instantanés StorSimple à un hôte qui se connecte à l’appareil StorSimple, mais le mot de passe n’est pas disponible. Que puis-je faire ?
 
 **R :** Si vous avez oublié le mot de passe, vous devez en créer un. Veillez ensuite à informer tous les utilisateurs existants que le mot de passe a été modifié et qu’ils doivent mettre à jour leur client pour utiliser le nouveau mot de passe. Pour obtenir des instructions, consultez :
 
 - [Modification du mot de passe du Gestionnaire d’instantanés StorSimple](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
 - [Authentification d’un appareil](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**Q :** Le certificat pour l'accès à distance à Windows PowerShell pour StorSimple a été modifié sur l'appareil. Comment mettre à jour mes clients d’accès à distance ?
+**Q :** Le certificat pour l’accès à distance à Windows PowerShell pour StorSimple a été modifié sur l’appareil. Comment mettre à jour mes clients d’accès à distance ?
 
-**R :** Vous pouvez télécharger le nouveau certificat à partir du service StorSimple Manager, puis l'installer dans le magasin de certificats de vos clients d'accès à distance. Pour obtenir des instructions, consultez :
+**R :** Vous pouvez télécharger le nouveau certificat à partir du service StorSimple Manager, puis l’installer dans le magasin de certificats de vos clients d’accès à distance. Pour obtenir des instructions, consultez :
 
 - [Applet de commande Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
 
@@ -257,17 +256,17 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Les données de configuration du service sont toujours chiffrées avec votre clé publique lorsque vous les affichez dans un navigateur web. Comme le service n’a pas accès à la clé privée, il n’est pas en mesure d’accéder aux données. Si le service StorSimple Manager est compromis, il n’y a aucun impact, car aucune clé n’est stockée dans ce service.
 
-**Q :** Si quelqu'un a accès au certificat de chiffrement de données, mes données seront-elles compromises ?
+**Q :** Si quelqu’un a accès au certificat de chiffrement de données, mes données seront-elles compromises ?
 
 **R :** Microsoft Azure stocke la clé de chiffrement des données du client (fichier .pfx) dans un format chiffré. Comme le fichier .pfx est chiffré et que le service StorSimple ne dispose pas de la clé de chiffrement des données du service nécessaire pour déchiffrer le fichier .pfx, l’accès au fichier .pfx ne met pas vos données en danger.
 
 **Q :** Que se passe-t-il si une entité gouvernementale demande mes données à Microsoft ?
 
-**R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée dans l'appareil, l'entité gouvernementale doit demander les données au client.
+**R :** Comme toutes les données sont chiffrées dans le service et que la clé privée est conservée dans l’appareil, l’entité gouvernementale doit demander les données au client.
 
 ## Étapes suivantes
 
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

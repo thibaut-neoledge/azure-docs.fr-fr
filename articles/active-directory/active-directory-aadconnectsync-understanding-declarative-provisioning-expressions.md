@@ -13,36 +13,61 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
-	ms.author="markusvi"/>
+	ms.date="11/10/2015"
+	ms.author="markusvi;andkjell"/>
 
 
 # Azure AD Connect Sync : présentation des expressions d’approvisionnement déclaratif
 
-Le service Azure Active Directory Connect Synchronization (Azure AD Connect Sync) s’appuie sur l’approvisionnement déclaratif introduit dans Forefront Identity Manager 2010 pour vous permettre d’implémenter votre logique d’entreprise d’intégration des identités complète sans avoir à écrire de code.
+Azure AD Connect Sync s'appuie sur l'approvisionnement déclaratif introduit dans Forefront Identity Manager 2010 pour vous permettre d'implémenter votre logique d’entreprise d'intégration des identités complète sans avoir à écrire de code compilé.
 
 Le langage d’expression utilisé dans les flux d’attributs constitue une partie essentielle de l’approvisionnement déclaratif. Le langage utilisé est un sous-ensemble de Microsoft® Visual Basic® pour Applications (VBA). Ce langage est utilisé dans Microsoft Office et les utilisateurs qui ont une certaine expérience de VBScript le reconnaîtront également. Le langage d’expression de l’approvisionnement déclaratif utilise uniquement des fonctions. Il ne s’agit pas d’un langage structuré et il ne contient ni méthodes ni instructions. Les fonctions sont imbriquées pour exprimer le déroulement du programme.
 
-Pour plus d’informations, consultez [Bienvenue dans la référence linguistique Visual Basic pour Applications pour Office 2013] (https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
+Pour plus d'informations, consultez [Bienvenue dans la référence linguistique Visual Basic pour Applications pour Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
 
 Les attributs sont fortement typés. Une fonction qui attend un attribut de chaîne à valeur unique n’accepte pas les attributs à valeurs multiples ou ceux d’un type différent. Elle respecte également la casse. Les noms des fonctions et les noms des attributs doivent avoir une casse appropriée, sinon une erreur est levée.
 
-
-
-
-
 ## Définitions linguistiques et identificateurs
 
-- Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction(<<argument 1>>,<<argument N>>).
+- Les fonctions ont un nom suivi d’arguments entre parenthèses : NomFonction (argument 1, argument N).
 - Les attributs sont identifiés par des crochets : [NomAttribut]
 - Les paramètres sont identifiés par des signes de pourcentage : %NomParamètre%
-- Les constantes de chaîne sont placées entre des guillemets doubles, par exemple : “Contoso”
+- Les constantes de chaîne sont placées entre des guillemets doubles, par exemple : « Contoso » (Remarque : utiliser des chevrons « », pas des guillemets doubles "")
 - Les valeurs numériques sont exprimées sans guillemets et les valeurs attendues sont décimales. Les valeurs hexadécimales sont précédées de &H. Par exemple, 98052, &HFF
 - Les valeurs booléennes sont exprimées avec des constantes : True, False.
 - Les constantes intégrées sont exprimées uniquement par leur nom : NULL, CRLF, IgnoreThisFlow
 
+### Fonctions
+L'approvisionnement déclaratif utilise de nombreuses fonctions pour permettre de transformer les valeurs d'attribut. Elles peuvent être imbriquées. Le résultat d'une fonction alors transmis à une autre fonction.
 
-## Opérateurs
+Les fonctions peuvent également fonctionner sur un attribut à valeurs multiples. Dans ce cas, la fonction fonctionnera sur chaque valeur individuelle et appliquera la même fonction à chaque valeur. Par exemple, `Trim([proxyAddresses])` supprimerait les espaces de gauche à droite dans chaque valeur de l'attribut proxyAddress.
+
+Vous trouverez la liste complète des fonctions dans la [référence de fonction](active-directory-aadconnectsync-functions-reference.md).
+
+### Paramètres
+
+Un paramètre est défini par un connecteur ou par un administrateur à l’aide de PowerShell. Les paramètres contiennent généralement des valeurs qui diffèrent d’un système à un autre, par exemple le nom du domaine où se trouve l’utilisateur. Vous pouvez les utiliser dans des flux d’attributs.
+
+Le connecteur Active Directory fournissait les paramètres suivants pour les règles de synchronisation entrantes :
+
+| Nom du paramètre | Commentaire |
+| --- | --- |
+| Domain.Netbios | Format NetBIOS du domaine en cours d'importation, par exemple, FABRIKAMSALES |
+| Domain.FQDN | Format NetBIOS du domaine en cours d'importation, par exemple, sales.fabrikam.com |
+| Domain.LDAP | Format LDAP du domaine en cours d'importation, par exemple, DC=sales,DC=fabrikam,DC=com |
+| Forest.Netbios | Format NetBIOS du nom de forêt en cours d'importation, par exemple, FABRIKAMCORP |
+| Forest.FQDN | Format FQDN du nom de forêt en cours d'importation, par exemple, fabrikam.com |
+| Forest.LDAP | Format LDAP du nom de forêt en cours d'importation, par exemple, DC=fabrikam,DC=com |
+
+Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :
+
+`Connector.ID`
+
+Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur.
+
+`domain <- %Domain.Netbios%`
+
+### Opérateurs
 
 Vous pouvez utiliser les opérateurs suivants :
 
@@ -52,31 +77,7 @@ Vous pouvez utiliser les opérateurs suivants :
 - **Logiques** : && (et), || (ou)
 - **Ordre d’évaluation** : ( )
 
-
-
-Les opérateurs sont évalués de gauche à droite. 2*(5+3) n’est pas la même chose que 2*5+3.<br> Les parenthèses () servent à modifier l’ordre d’évaluation.
-
-
-
-
-
-## Paramètres
-
-Un paramètre est défini par un connecteur ou par un administrateur à l’aide de PowerShell. Les paramètres contiennent généralement des valeurs qui diffèrent d’un système à un autre, par exemple le nom du domaine où se trouve l’utilisateur. Vous pouvez les utiliser dans des flux d’attributs.
-
-Le connecteur Active Directory fournissait les paramètres suivants pour les règles de synchronisation entrantes :
-
-
-| Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
-
-
-Le système fournit le paramètre suivant :
-
-Connector.ID
-
-Voici un exemple qui remplit le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur.
-
-domain <- %Domain.Netbios%
+Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le * (multiplication) n'est pas évaluée avant - (soustraction). 2*(5+3) n’est pas la même chose que 2*5+3. Les crochets ( ) sont utilisés pour modifier l'ordre d'évaluation lorsqu'un ordre d'évaluation de la gauche vers la droite n'est pas approprié.
 
 ## Scénarios courants
 
@@ -88,21 +89,19 @@ Les attributs de chaîne sont par défaut définis pour être indexables et la l
 
 ### Modification de userPrincipalSuffix
 
-L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. Le guide d’installation d’AAD Sync permet de choisir un autre attribut, par exemple mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AAD, un pour la production et un pour les tests. Elle souhaite que les utilisateurs de son client test modifient simplement le suffixe dans l’ID de connexion userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"
+L’attribut userPrincipalName dans Active Directory n’est pas toujours connu des utilisateurs et peut ne pas convenir comme ID de connexion. L'Assistant d’installation d'Azure AD Connect Sync permet de choisir un autre attribut, par exemple un e-mail, mais dans certains cas l’attribut doit être calculé. Par exemple, la société Contoso possède deux annuaires AD, un pour la production et un pour les tests. Elle veut que les utilisateurs de son client test aient juste à modifier le suffixe dans l'ID de connexion.
+
+`userPrincipalName <- Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 Dans cette expression, nous prenons tout ce qui figure à gauche du premier signe @ (Word) et concaténons avec une chaîne fixe.
-
-
-
-
 
 ### Convertir un attribut à valeurs multiples en attribut à valeur unique
 
 Certains attributs dans Active Directory sont à valeurs multiples dans le schéma, même s’ils semblent être à valeur unique dans Utilisateurs et ordinateurs Active Directory. L’attribut description constitue un exemple.
 
+`description <- IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+
 Dans cette expression, au cas où l’attribut a une valeur, nous prenons le premier élément (Item) dans l’attribut, nous supprimons les espaces à gauche et à droite (Trim), puis nous conservons les 448 premiers caractères (Left) dans la chaîne.
-
-
 
 ## Concept avancé
 
@@ -112,8 +111,6 @@ Pour les règles de synchronisation entrantes, vous devez toujours utiliser la c
 
 Pour les règles de synchronisation sortantes, il existe deux constantes différentes à utiliser : NULL et IgnoreThisFlow. Toutes deux indiquent que le flux d’attributs n’a rien à contribuer, mais la différence est ce qui se produit quand aucune autre règle n’a rien à contribuer non plus. Si l’annuaire connecté contient une valeur, une valeur NULL provoque une suppression de l’attribut, tandis qu’IgnoreThisFlow conserve la valeur existante.
 
-
-
 #### ImportedValue
 
 La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets : ImportedValue(“proxyAddresses”).
@@ -122,10 +119,9 @@ Généralement lors de la synchronisation, un attribut utilise la valeur attendu
 
 Un exemple se trouve dans la règle de synchronisation par défaut In from AD – User Common d’Exchange où, dans la version hybride d’Exchange, la valeur ajoutée par Exchange Online doit être synchronisée uniquement s’il a été confirmé que la valeur avait été exportée avec succès :
 
+`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues("proxyAddresses")))`
 
-`proxyAddresses <- RemoveDuplicates(Trim(ImportedValues(“proxyAddresses”)))`
-
-Pour obtenir une liste complète de fonctions, consultez [Azure AD Connect Sync : référence des fonctions](active-directory-aadconnectsync-functions-reference.md)
+Pour obtenir une liste complète des fonctions, consultez [Azure AD Connect Sync : référence des fonctions](active-directory-aadconnectsync-functions-reference.md)
 
 
 ## Ressources supplémentaires
@@ -135,4 +131,4 @@ Pour obtenir une liste complète de fonctions, consultez [Azure AD Connect Sync�
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

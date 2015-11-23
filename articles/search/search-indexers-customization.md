@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Personnalisation de l'indexeur Azure Search | Microsoft Azure" 
+	pageTitle="Personnalisation des indexeurs Azure Search | Microsoft Azure | Service de recherche cloud hébergé" 
 	description="Apprenez à personnaliser les paramètres et les stratégies des indexeurs dans Azure Search, un service de recherche cloud hébergé sur Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -117,4 +117,4 @@ Même si vous choisissez de tolérer certains échecs, les informations indiquan
 C'est tout pour le moment. Si vous avez des idées ou des suggestions de contenu, vous pouvez nous envoyer un tweet en utilisant le hashtag #AzureSearch ou les soumettre via notre [page UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
    description="Ajouter le stockage Azure à votre application à l’aide de la boîte de dialogue Ajouter des services connectés de Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="patshea123"
+   authors="TomArcher"
    manager="douge"
    editor="tlee" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
    ms.date="08/12/2015"
-   ms.author="patshea" />
+   ms.author="tarcher" />
 
 # Ajout de stockage Azure à l’aide des services connectés de Visual Studio
 
@@ -94,4 +94,4 @@ Quand vous avez terminé la boîte de dialogue, Visual Studio ajoute des référ
 
      - [Documentation du stockage sur azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

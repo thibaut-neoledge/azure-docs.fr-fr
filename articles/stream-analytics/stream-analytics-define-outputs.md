@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/14/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 # Présentation des sorties Stream Analytics
@@ -143,6 +143,8 @@ Une fois le compte Power BI authentifié, vous pouvez configurer les propriét�
 | Nom de la table | Fournissez un nom de table sous le jeu de données de la sortie Power BI. Actuellement, la sortie Power BI des tâches Stream Analytics peut avoir une table uniquement dans un jeu de données. |
 | Nom du groupe | Pour activer le partage de données avec d’autres utilisateurs de Power BI, écrivez des données dans les groupes. Vous pouvez sélectionner des groupes à l’intérieur de votre compte Power BI ou choisir « Mon espace de travail » si vous ne souhaitez pas écrire dans un groupe. La mise à jour d’un groupe existant nécessite le renouvellement de l’authentification Power BI. |
 
+Pour une vue d'ensemble de la configuration d'un tableau de bord et d’une sortie Power BI, consultez l’article [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md).
+
 > [AZURE.NOTE]Ne créez pas explicitement le jeu de données et la table dans le tableau de bord Power BI. Le jeu de données et la table seront automatiquement remplis au démarrage de la tâche et lorsque celle-ci se mettra à extraire des sorties dans Power BI. Notez que si la requête de tâche ne génère aucun résultat, le jeu de données et la table ne seront pas créés. De même, veuillez noter que si Power BI dispose déjà d’un jeu de données et d’une table portant le même nom que celui saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
 
 ### Renouvellement de l’autorisation Power BI
@@ -265,4 +267,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

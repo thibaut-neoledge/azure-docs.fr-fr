@@ -60,6 +60,8 @@ Les considérations ci-dessous peuvent vous aider à choisir une taille :
 
 *   Les séries Dv2 et D sont idéales pour les applications qui exigent des processeurs plus rapides, de meilleures performances de disque local, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 
+
+
 ## Limites générales
 
 Ce tableau indique les limites qui s’appliquent, quelle que soit la taille d’une machine virtuelle, pour les machines virtuelles créées en utilisant le modèle de déploiement de gestion des services.
@@ -76,7 +78,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 >[AZURE.NOTE]La capacité de stockage est représentée avec 1024^3 octets comme unité de mesure pour les Go. Cette unité est parfois appelée gibioctet ou définition en base 2. Quand vous comparez des tailles qui utilisent des systèmes en base différente, n’oubliez pas que les tailles en base 2 peuvent paraître plus petites que celles en base 10, mais que pour une taille spécifique (par exemple, 1 Go), un système en base 2 offre une capacité plus élevée qu’un système en base 10, car 1 024^3 est supérieur à 1 000^3.
 
-### Niveau de base
+## Niveau de base
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
 |---|---|---|---|---|---|---|
@@ -86,7 +88,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |A3\\Basic\_A3|4|7 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 120 Go</p>|8|8 x 300|
 |A4\\Basic\_A4|8|14 Go|1|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 240 Go</p>|16|16 x 300|
 
-### Niveau standard : série A
+## Niveau standard : série A
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
@@ -103,7 +105,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |A10\\identique|8|56 Go|2|<p><p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 382 Go</p><blockquote><p>Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de cette taille, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</p></blockquote>|16|16 x 500|
 |A11\\identique|16|112 Go|4|<p><p>Système d’exploitation = 1 023 Go</p><p>Temporaire = 382 Go</p><blockquote><p>Remarque : pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de cette taille, consultez <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">À propos des instances de calcul intensif A8, A9, A10 et A11</a>.</p></blockquote>|16|16 x 500|
 
-### Niveau standard : série D
+## Niveau standard : série D
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
@@ -116,7 +118,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_D13\\identique|8|56 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 400 Go</p>|16|16 x 500|
 |Standard\_D14\\identique|16|112 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
 
-### Niveau standard : série Dv2
+## Niveau standard : série Dv2
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
@@ -130,7 +132,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_D13\_v2\\same|8|56 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 400 Go</p>|16|16 x 500|
 |Standard\_D14\_v2\\same|16|112 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Temporaire (SSD) = 800 Go</p>|32|32 x 500|
 
-### Niveau standard : série DS*
+## Niveau standard : série DS*
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
 |---|---|---|---|---|---|---|---|
@@ -145,7 +147,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 ** Le nombre maximal d’opérations d’entrée/sortie par seconde (IOPS) et le débit (bande passante) possibles avec une machine virtuelle de la série DS sont affectés par la taille du disque. Pour plus d’informations, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../storage-premium-storage-preview-portal.md).
 
-### Niveau standard : série G
+## Niveau standard : série G
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (500 par disque)|
 |---|---|---|---|---|---|---|
@@ -155,7 +157,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 |Standard\_G4\\identique|16|224 Go|8|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 3 072 Go</p>|32|32 x 500|
 |Standard\_G5\\identique|32|448 Go|16|<p>Système d’exploitation = 1 023 Go</p><p>Disque SSD local = 6 144 Go</p>|64|<p>64 x 500</p>|
 
-### Niveau standard : série GS
+## Niveau standard : série GS
 
 |Taille – Portail Azure\\applets de commande et API|Cœurs d’unité centrale|Mémoire|Cartes réseau (max)|Tailles de disque maximales – Machine virtuelle|Nombre maximal de disques de données (1 023 Go chacun)|Taille de cache (Go)|Nombre maximal d’opérations d’E/S par seconde du disque et bande passante|
 |---|---|---|---|---|---|---|---|
@@ -172,4 +174,4 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 
 [À propos des instances de calcul intensif A8, A9, A10 et A11](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

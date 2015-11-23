@@ -200,13 +200,15 @@ Voici une implémentation recommandée pour les pistes audio redondantes :
 2. Utilisez des flux distincts pour envoyer les deux débits binaires vidéo les plus bas. Chacun de ces flux DOIT également contenir une copie de chaque piste audio unique. Par exemple, quand plusieurs langues sont prises en charge, ces flux DOIVENT contenir des pistes audio pour chaque langue.
 3. Utilisez des instances de serveur (encodeur) distinctes pour encoder et envoyer les flux redondants mentionnés dans (1) et (2). 
 
+
+
 ##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
@@ -219,4 +221,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

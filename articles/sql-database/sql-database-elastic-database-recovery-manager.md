@@ -1,0 +1,160 @@
+<properties 
+	pageTitle="Utilisation du Gestionnaire de récupération pour résoudre les problèmes de mappage de partition | Microsoft Azure" 
+	description="Utiliser la classe RecoveryManager pour résoudre les problèmes des mappages de partition" 
+	services="sql-database" 
+	documentationCenter=""  
+	manager="jeffreyg"
+	authors="ddove"/>
+
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/09/2015" 
+	ms.author="ddove"/>
+
+# Utilisation de la classe RecoveryManager pour résoudre les problèmes de correspondance de partitionnement
+
+La classe [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) permet aux applications ADO.Net de détecter et corriger facilement les incohérences entre le mappage de partitionnement global (GSM) et le mappage de partition local (LSM) dans un environnement de base de données partitionné.
+
+Le GSM et LSM assurent le suivi de mappage de chaque base de données dans un environnement partitionné. Parfois, une interruption se produit entre le GSM et le LSM. Dans ce cas, utilisez la classe RecoveryManager pour détecter et réparer le l’interruption.
+
+La classe RecoveryManager fait partie de la [Bibliothèque de client de base de données élastique](sql-database-elastic-database-client-library).
+
+
+![Mappage de partition][1]
+
+
+Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md). Pour comprendre comment **ShardMapManager** est utilisé pour gérer les données dans une solution partitionnée, voir [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
+
+
+## Pourquoi utiliser le gestionnaire de récupération ?
+
+Dans un environnement de base de données partitionnée, il existe un certain nombre de serveurs de base de données. Chaque serveur contient plusieurs bases de données, une par un utilisateur dans une solution mutualisée. Chaque base de données doit être mappée afin que les appels puissent être acheminés de façon adéquate vers le serveur et la base de données corrects. Les bases de données sont suivies en selon une clé de partitionnement, et chaque serveur se voit affecter une plage de valeurs clés. Par exemple, une clé de partitionnement peut représenter les noms de clients, de « D » à « F ». Le mappage de tous les serveurs et leurs plages de clés sont contenus dans le mappage de partition global. Chaque serveur contient également un mappage des bases de données contenues dans la partition. Il est connu comme le mappage de partition locale. Le LSM est utilisé pour valider des données placées en mémoire cache. (Lorsqu’une application se connecte à une partition, le mappage est mis en cache avec l’application pour une récupération rapide. Le LSM valide le mappage.)
+
+Vous pouvez déplacer des données d’une seule partition vers une autre en utilisant un outil tel que la bibliothèque d’outils de base de données élastique cliente. Si un arrêt se produit lors du déplacement, le GSM et LSM peuvent se désynchroniser. Les autres raisons incluent :
+
+1. une incohérence provoquée par la suppression d’un partitionnement dont on pense que la gamme n’est plus utilisée, ou par l’attribution d’un nouveau nom au partitionnement. La suppression d’une partition se traduit par un **mappage de partition orphelin**. Une base de données renommée peut elle aussi causer un mappage de partition orpheline. Dans ce cas, l’emplacement de la partition doit simplement être mis à jour. 
+2. Un événement de géo-basculement se produit. Pour continuer, il faut mettre à jour le nom du serveur, le nom de la base de données et/ou les détails de mappage de partition pour toutes les partitions d’un mappage de la partition. En cas de basculement géographique, cette logique de récupération doit être automatisée au sein du flux de travail de basculement. 
+3. Une partition ou une base de données ShardMapManager est restaurée vers une version antérieure. 
+ 
+L’automatisation des actions de récupération offre des possibilités de gestion sans friction pour les bases de données géolocalisées et évite les interventions manuelles. Elle s’avère également utile avec les scénarios de récupération dans lesquels les données sont supprimées accidentellement.
+
+Pour plus d’informations sur les outils de base de données élastique de base de données SQL Azure, la géo-réplication et la restauration, veuillez voir ce qui suit :
+
+* [Fonctions de base de données élastique pour la base de données SQL Azure](sql-database-elastic-scale-introduction.md) 
+* [Continuité de l’activité des bases de données SQL Azure](sql-database-business-continuity.md) 
+* [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md)  
+* [Gestion de ShardMap](sql-database-elastic-scale-shard-map-management.md)
+
+## Récupération RecoveryManager à partir d’un ShardMapManager 
+
+Cette première sert à créer une instance de RecoveryManager. La [méthode GetRecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) retourne le gestionnaire de récupération de l’instance [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) en cours. Pour résoudre les incohérences dans le mappage du partitionnement, vous devez d’abord récupérer RecoveryManager pour ce mappage de partition particulier.
+
+	ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+             ShardMapManagerLoadPolicy.Lazy);
+             RecoveryManager rm = smm.GetRecoveryManager(); 
+
+Dans cet exemple, RecoveryManager est initialisé à partir de ShardMapManager. Le ShardMapManager contenant un ShardMap également déjà initialisé.
+
+Comme ce code d’application manipule la correspondance de mappage de partitionnement, les informations d’identification utilisées dans la méthode de fabrique (dans l’exemple ci-dessus smmConnectionString) doivent être des informations d’identification disposant des autorisations en lecture/écriture dans la base de données GSM référencée par la chaîne de connexion. Ces informations d’identification sont généralement différentes des informations d’identification utilisées pour ouvrir des connexions pour l’acheminement dépendant des données. Pour plus d’informations, voir [Utilisation des informations d’identification dans le client de base de données élastique](sql-database-elastic-scale-manage-credentials.md).
+
+## Suppression d’une partition du ShardMap après la suppression d’une partition
+
+La [méthode DetachShard](https://msdn.microsoft.com/library/azure/dn842083.aspx) détache la partition donnée du mappage de partition et supprime les mappages associés à la partition.
+
+* Le paramètre d’emplacement est l’emplacement de partition, en particulier le nom du serveur et nom de la base de données de la partition qui est détachée. 
+* Le paramètre shardMapName correspond au nom de mappage de partition. Il est requis uniquement lorsque plusieurs mappages de partition sont gérés par le même gestionnaire de mappage de partition. facultatif. 
+
+**Important** : utilisez cette technique seulement si vous êtes certain que la plage de la carte mise à jour est vide. Les méthodes ci-dessus ne vérifient pas les données de la plage déplacée, il est donc préférable d’inclure des vérifications dans votre code.
+
+L’exemple ci-dessous utilise RecoveryManager pour supprimer les partitions de mappage de partition ; le mappage de partition reflète l’emplacement de la partition dans le GSM avant la suppression de cette dernière. Étant donné que la partition a été supprimée, on suppose que c’est intentionnel et la plage de clés de partitionnement n’est plus en cours d’utilisation. Si ce n’est pas le cas, vous pouvez exécuter la restauration à un moment donné pour restaurer la partition à partir d’une restauration précédente. (Dans ce cas, consultez la section ci-dessous pour détecter les incohérences de partition.) Si la suppression de base de données est intentionnelle, l’opération de nettoyage administratif final consiste à supprimer l’entrée de la partition dans le gestionnaire de table de partition. L’application évite ainsi d’écrire par inadvertance des informations pour une plage non prévue.
+	
+	rm.DetachShard(s.Location, customerMap); 
+
+## Pour détecter les différences de mappage 
+
+La [méthode DetectMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) sélectionne et retourne un des mappages de partition (local ou global) comme source de vérité et rapproche les mappages sur les deux mappages de partition (GSM et LSM).
+
+	rm.DetectMappingDifferences(location, shardMapName);
+
+* Le paramètre d’*emplacement* est l’emplacement de partition, en particulier le nom du serveur et le nom de la base de données de la partition qui est détachée. 
+* Le paramètre *shardMapName* correspond au nom de mappage de partition. Il est requis uniquement si plusieurs mappages de partition sont gérés par le même gestionnaire de mappage de partition. facultatif. 
+
+## Pour solutionner les différences de mappage
+
+La [méthode ResolveMappingDifferences](https://msdn.microsoft.com/fr-FR/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) sélectionne l’un des mappages de partition (local ou global) en tant que source de vérité et rapproche les mappages sur les deux cartes de partitionnement (GSM et LSM).
+
+	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
+   
+* Le paramètre *RecoveryToken* énumère les différences de mappage entre le GSM et le LSM pour la partition spécifique. 
+
+* L’[énumération MappingDifferenceResolution](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) est utilisée pour indiquer la méthode de résolution de la différence entre les mappages de partition. L’élément **MappingDifferenceResolution.KeepShardMapping** est recommandé dans l’éventualité où LSM contient les correspondances exactes et donc, le mappage de la partition doit être utilisé. C’est généralement le cas en cas de basculement : la partition se trouve maintenant sur un nouveau serveur. Comme la partition doit d’abord être supprimée du GSM (à l’aide de la méthode RecoveryManager.DetachShard), il n’existe plus de mappage sur le GSM. Par conséquent, le LSM doit être utilisé pour rétablir le mappage de partition.
+
+## Attachez une partition au ShardMap une fois la partition restaurée 
+
+La [méthode AttachShard](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attache la partition donnée à la table de partition. Il détecte des incohérences de mappage de partition et met à jour les mappages pour qu’ils correspondent à la partition au moment de la restauration de la partition. On suppose que la base de données est également renommée pour reprendre le nom de la base de données d’origine (avant la restauration de la partition), car la restauration à un point donné revient par défaut à une nouvelle base de données ajoutée avec un horodatage.
+
+	rm.AttachShard(location, shardMapName) 
+
+* Le paramètre d’*emplacement* est le nom du serveur et le nom de la base de données de la partition qui est attachée. 
+
+* Le paramètre *shardMapName* correspond au nom de mappage de partition. Il est requis uniquement lorsque plusieurs mappages de partition sont gérés par le même gestionnaire de mappage de partition. facultatif.
+
+Cet exemple ajoute une partition pour le mappage de la partition venant d’être restaurée à partir d’une restauration antérieure. Dans la mesure où la partition (à savoir le mappage pour la partition dans le LSM) a été restaurée, il est potentiellement incompatible avec l’entrée de partition dans le GSM. Hors de cet exemple de code, la partition a été restaurée et renommée avec le nom d’origine de la base de données. Comme elle a été restaurée, on suppose que le mappage présent dans le gestionnaire LSM est le mappage approuvé.
+
+	rm.AttachShard(s.Location, customerMap); 
+	var gs = rm.DetectMappingDifferences(s.Location); 
+	  foreach (RecoveryToken g in gs) 
+	   { 
+	   rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
+	   } 
+
+## Mise à jour des emplacements de partition après un basculement géographique (restauration) des partitions
+
+En cas de basculement géographique, la base de données secondaire est accessible en lecture et devient la nouvelle base de données primaire. Le nom du serveur et éventuellement la base de données (selon votre configuration), peut être différent de celui du site principal d’origine. Par conséquent, les entrées de mappage de la partition dans le GSM et LSM doivent être corrigées. De même, si la base de données est restaurée avec un autre nom ou un emplacement, ou un point antérieur dans le temps, ceci peut entraîner des incohérences dans les mappages de partition. Le Gestionnaire de mappage de partition gère la distribution des connexions ouvertes sur la base de données. La distribution est basée sur les données dans le mappage de partition et la valeur de la clé de partitionnement est la cible de la demande d’application. Après un basculement géographique, cette information doit être mise à jour avec le bon nom de serveur, nom de base de données et mappage de partition de la base de données récupérée.
+
+## Meilleures pratiques
+
+Basculement géographique et restauration sont des opérations généralement gérées par un administrateur de cloud de l’application intentionnellement en utilisant une des fonctionnalités de continuité d’activité de bases de données SQL Azure. La planification de la continuité des activités requiert des processus, des procédures et des mesures garantissant que les opérations de l’entreprise peuvent continuer sans interruption. Les méthodes disponibles en tant que partie de la classe RecoveryManager doivent être utilisées dans ce flux de travail pour s’assurer que le GSM et LSM sont actualisés en fonction de l’opération de récupération exécutée. Il existe 5 opérations de base pour s’assurer que GSM et LSM reflètent bien les informations précises après un événement de basculement. Le code d’application servant à exécuter ces opérations peut être intégré dans des outils et de flux de travail existants.
+
+1. Récupérer le Gestionnaire de récupération à partir de ShardMapManager. 
+2. Détacher la partition ancienne du mappage de partition.
+3. Attacher la nouvelle partition au mappage de partition, y compris le nouvel emplacement de la partition.
+4. Détecter des incohérences dans le mappage entre le GSM et LSM. 
+5. Résoudre les différences entre le GSM et le LSM et approuver le LSM. 
+
+Cet exemple effectue les étapes suivantes : 1 Supprimer les partitions du mappage de partition qui reflètent les emplacements des partitions avant l’événement de basculement. 2. Joint des partitions au mappage de partition qui reflètent les nouveaux emplacements des partitions (le paramètre « Configuration.SecondaryServer » est le nouveau nom de serveur, mais le même nom de base de données). 3. Extrait des jetons de récupération en détectant des différences de mappage entre le GSM et le LSM pour chaque partition. 4. Résout les incohérences en approuvant le mappage LSM de chaque partition.
+
+	var shards = smm.GetShards(); 
+	foreach (shard s in shards) 
+	{ 
+	 if (s.Location.Server == Configuration.PrimaryServer) 
+		 { 
+		  ShardLocation slNew = new ShardLocation(Configuration.SecondaryServer, s.Location.Database); 
+		
+		  rm.DetachShard(s.Location); 
+		
+		  rm.AttachShard(slNew); 
+		
+		  var gs = rm.DetectMappingDifferences(slNew); 
+	
+		  foreach (RecoveryToken g in gs) 
+			{ 
+			   rm.ResolveMappingDifferences(g, 						MappingDifferenceResolution.KeepShardMapping); 
+			} 
+		} 
+	} 
+
+
+
+[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
+ 
+
+<!---HONumber=Nov15_HO3-->

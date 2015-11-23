@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-  ms.service="marketplace-publishing"
+  ms.service="marketplace"
   ms.devlang="na"
   ms.topic="article"
   ms.tgt_pltfrm="Azure"
@@ -35,11 +35,11 @@ Recherchez l’URL d’objet blob à partir du nouveau [portail Microsoft Azure]
 3.	Sélectionnez **Disque de système d’exploitation**. Un autre panneau s’ouvre affichant les propriétés du disque, y compris l’emplacement de disque dur virtuel.
 4.	Copiez cette URL d’objet blob.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img02.png)
 
 5.	Supprimez la machine virtuelle déployée, sans supprimer les disques de stockage. Vous pouvez également choisir d’arrêter la machine virtuelle, au lieu de la supprimer. Ne téléchargez pas le disque dur virtuel de système d’exploitation quand la machine virtuelle est en cours d’exécution.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img03.png)
 
 ### Télécharger le disque dur virtuel
 Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger le disque dur virtuel à l’aide du [portail de gestion Azure](http://manage.windowsazure.com/) ou de PowerShell.
@@ -51,20 +51,20 @@ Une fois que vous connaissez l’URL d’objet blob, vous pouvez télécharger l
 2.	Cliquez sur l’onglet **Stockage**.
 3.	Sélectionnez le **compte de stockage** dans lequel est stocké le disque dur virtuel.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img04.png)
 
 4.	Les propriétés du compte de stockage s’affichent. Sélectionnez l’onglet Conteneurs.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img05.png)
 
 5.	Sélectionnez le conteneur dans lequel est stocké le disque dur virtuel. Par défaut, quand il est créé à partir du portail, le disque dur virtuel est stocké dans un conteneur de disques durs virtuels.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img06.png)
 
 6.	Sélectionnez le disque dur virtuel de système d’exploitation approprié en comparant l’URL à celle que vous avez enregistrée.
 7.	Cliquez sur **Télécharger**.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img07.png)
 
 ### Télécharger le disque dur virtuel à l’aide de PowerShell
 Outre le portail de gestion Azure, vous pouvez utiliser l’applet de commande [Save-AzureVhd](http://msdn.microsoft.com/library/dn495297.aspx) pour télécharger le disque dur virtuel de système d’exploitation :
@@ -90,19 +90,19 @@ Pour créer un compte de stockage, vous pouvez utiliser le [portail Microsoft Az
 2.	Sélectionnez **Stockage**.
 3.	Renseignez le nom du compte de stockage et sélectionnez un emplacement.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img08.png)
 
 4.	Cliquez sur **Create**.
 5.	Le panneau du compte de stockage créé doit être ouvert. Dans le cas contraire, sélectionnez **Parcourir > Comptes de stockage**. Dans le panneau **Compte de stockage**, sélectionnez le compte de stockage créé.
 6.	Sélectionnez **Conteneurs**.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img09.png)
 
 7.	Dans le panneau **Conteneurs**, sélectionnez **Ajouter** et entrez un nom de conteneur et les autorisations du conteneur. Sélectionnez **Privé** pour les autorisations du conteneur.
 
 > [AZURE.TIP]Nous vous recommandons de créer un conteneur par référence que vous envisagez de publier.
 
-  ![drawing](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
+  ![dessin](media/marketplace-publishing-vm-image-creation-on-premise/img10.png)
 
 ### Création d’un compte de stockage à l’aide de PowerShell
 À l’aide de PowerShell, créez un compte de stockage au moyen de l’applet de commande [New-AzureStorageAccount](http://msdn.microsoft.com/library/dn495115.aspx) :
@@ -138,4 +138,4 @@ Avec l’[outil de ligne de commande Linux](../virtual-machines/command-line-too
 - [Création d’une image de machine virtuelle pour Azure Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Configuration d’Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

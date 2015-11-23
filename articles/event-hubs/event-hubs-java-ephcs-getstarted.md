@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Prise en main des concentrateurs d’événements"
+	pageTitle="Prise en main d’Event Hubs dans Java | Microsoft Azure"
 	description="Suivez ce didacticiel pour commencer à utiliser Azure Event Hubs, à envoyer des événements en Java et à en recevoir en C# à l’aide d’EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
 	ms.service="event-hubs"
 	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Prise en main des concentrateurs d’événements
@@ -24,21 +24,21 @@
 
 Les concentrateurs d’événements représentent un système d’ingestion à l’extensibilité élevée en mesure d’absorber des millions d’événements par seconde, ce qui permet à une application de traiter et d’analyser les quantités énormes de données produites par vos périphériques connectés et vos applications. Une fois collectés dans des concentrateurs d’événements, vous pouvez transformer et stocker des données à l’aide de n’importe quel fournisseur d’analyses en temps réel ou d’un cluster de stockage.
 
-Pour plus d’informations, consultez la rubrique [Vue d’ensemble des concentrateurs d’événements].
+Pour plus d'informations, consultez la [Vue d'ensemble d’Event Hubs][].
 
-Dans ce didacticiel, vous allez apprendre à traiter la réception des messages dans un concentrateur d’événements à l’aide d’une application console en Java et à les récupérer en parallèle à l’aide de la bibliothèque de l’[hôte du processeur d’événements] en C#.
+Ce didacticiel explique comment recevoir les messages dans un hub d’événements à l’aide d’une application console en Java et les récupérer en parallèle à l’aide de la bibliothèque de l’[hôte du processeur d’événements][] en C#.
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour effectuer ce didacticiel, vous devrez disposer des éléments suivants :
 
 + Un environnement de développement Java. Pour ce didacticiel, nous partons du principe que la solution utilisée est [Eclipse](https://www.eclipse.org/).
 
-+ Microsoft Visual Studio Express 2013 pour Windows ;
++ Microsoft Visual Studio Express pour Windows
 
 + Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Version d’évaluation gratuite d’Azure</a>.
 
-## Création d'un concentrateur d'événements
+## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail de gestion Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
+1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l'écran.
 
 2. Cliquez successivement sur **App Services**, **Service Bus**, **Concentrateur d’événements**, puis sur **Création rapide**.
 
@@ -91,11 +91,11 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 Vous avez conçu une application opérationnelle qui crée un concentrateur d’événements et envoie et reçoit des données. Vous pouvez à présent passer aux scénarios suivants :
 
-- Un [exemple d'application complet qui utilise des hubs d’événements].
-- L’exemple de [montée en puissance du traitement des événements avec Event Hubs].
-- Une [solution de messages de file d'attente] utilisant les files d'attente Service Bus.
+- Un [exemple d'application complet qui utilise des hubs d’événements][].
+- L’exemple de [montée en puissance du traitement des événements avec Event Hubs][].
+- Une [solution de messages de file d'attente][] utilisant les files d'attente Service Bus.
 
-Pour plus d’informations, consultez également le [Centre pour développeurs Java](/develop/java/).
+Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -111,12 +111,12 @@ Pour plus d’informations, consultez également le [Centre pour développeurs J
 [22]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Vue d’ensemble des concentrateurs d’événements]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Vue d'ensemble d’Event Hubs]: event-hubs-overview.md
+[exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[montée en puissance du traitement des événements avec Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[solution de messages de file d'attente]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

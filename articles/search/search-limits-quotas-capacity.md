@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Limites de service d’Azure Search | Microsoft Azure"
+	pageTitle="Limites de service d’Azure Search | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Limites de service permettant de planifier la capacité et les limites maximales des requêtes et réponses pour Azure Search, un service de recherche cloud hébergé."
 	services="search"
 	documentationCenter=""
@@ -133,4 +133,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

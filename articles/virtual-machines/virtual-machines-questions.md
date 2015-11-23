@@ -58,7 +58,7 @@ Si elles ressemblent sur de nombreux points aux machines virtuelles Hyper-V de p
 
 - Azure ne fournit pas un accès console à une machine virtuelle.
 - Les machines virtuelles Azure de la plupart des [tailles](virtual-machines-size-specs.md) ont uniquement une carte réseau virtuelle, ce qui signifie qu’elles peuvent n’avoir qu’une seule adresse IP externe. (Dans certains scénarios limités, les tailles A8 et A9 utilisent une deuxième carte réseau pour la communication des applications entre les instances.)
-- Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, voir [Spécifications des machines virtuelles pour Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
+- Les machines virtuelles Azure ne prennent pas en charge les fonctionnalités des machines virtuelles Hyper-V de deuxième génération. Pour plus d’informations sur ces fonctionnalités, consultez la page [Spécifications des machines virtuelles pour Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## Ces machines virtuelles peuvent-elles utiliser mon infrastructure réseau existante locale ?
 
@@ -104,7 +104,7 @@ Si vous avez oublié le nom d’utilisateur ou le mot de passe et que vous avez 
 
 Informations supplémentaires :
 
-- Pour les images Linux, si vous utilisez le Portail de gestion, le nom d’utilisateur par défaut est « azureuser » mais vous pouvez le modifier en utilisant la méthode de création « À partir de la galerie » au lieu de « Création rapide ». La méthode « À partir de la galerie » vous permet également de décider si vous souhaitez un mot de passe, une clé SSH ou les deux pour vous connecter. Le compte « user » est un utilisateur sans privilège ayant un accès « sudo » pour exécuter des commandes privilégiées. Le compte « root » est désactivé.
+- Pour les images Linux, si vous utilisez le portail Azure, le nom d’utilisateur par défaut est « azureuser » mais vous pouvez le modifier en utilisant la méthode de création « À partir de la galerie » au lieu de « Création rapide ». La méthode « À partir de la galerie » vous permet également de décider si vous souhaitez un mot de passe, une clé SSH ou les deux pour vous connecter. Le compte « user » est un utilisateur sans privilège ayant un accès « sudo » pour exécuter des commandes privilégiées. Le compte « root » est désactivé.
 - Pour les images Windows, vous devez fournir un nom d’utilisateur et un mot de passe lorsque vous créez la machine virtuelle. Le compte est ajouté au groupe Administrateurs.
 
 ## Azure peut-il exécuter un antivirus sur mes machines virtuelles ?
@@ -127,11 +127,11 @@ Azure facture un prix horaire basé sur la taille et le système d’exploitatio
 
 Vous êtes facturé quand l’état de la machine virtuelle est « En cours d’exécution » ou « Arrêté », mais pas quand elle est en état « Arrêté (désalloué) ». Pour mettre une machine virtuelle en état « Arrêté (désalloué) », effectuez l’une des opérations suivantes :
 
-- Arrêtez ou supprimez la machine virtuelle à partir du Portail de gestion.
+- Arrêtez ou supprimez la machine virtuelle à partir du portail Azure.
 - Utilisez l’applet de commande Stop-AzureVM disponible dans le module Azure PowerShell.
 - Utilisez l’opération Shutdown Role dans l’API REST de gestion des services et spécifiez StoppedDeallocated pour l’élément PostShutdownAction.
 
-Pour plus d’informations, voir [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Pour plus d’informations, consultez la page [Tarification des machines virtuelles](http://azure.microsoft.com/pricing/details/virtual-machines/).
 
 ## Dois-je m’attendre à ce qu’Azure redémarre ma machine virtuelle aux fins de maintenance ?
 
@@ -151,4 +151,4 @@ Pour assurer la redondance, placez au moins deux machines virtuelles configurée
 
 [Les différentes façons de créer une machine virtuelle Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -67,13 +67,64 @@ Double-cliquez sur **PartitionedProductsUsageTable** dans la vue schématique po
 
 Voici la liste des différents états possibles des tranches d’un jeu de données d’une fabrique de données :
 
-État | État secondaire | Description
------- | ---------- | -----------
-En attente | ScheduledTime<br/>DatasetDependencies<br/>ComputeResources<br/>ConcurrencyLimit<br/>ActivityResume<br/>Retry<br/>Validation<br/>ValidationRetry | En attente de conditions préalables devant être réunies avant l'exécution. Reportez-vous à l'état secondaire pour déterminer les attentes associées à la tranche.
-In-Progress | Starting<br/>Configuring<br/>Allocating Resources<br/>Running<br/>Validating | Actuellement, l'activité est en cours d'exécution et produit/valide les données d’une tranche spécifique.
-Échec | | Échec du traitement de la tranche. Consultez les journaux d'erreur pour déterminer la cause de cet échec
-Ready | | Traitement de la tranche réussi. La tranche est prête en vue de la consommation.
-Skip | | Ne traitez pas cette tranche.
+<table>
+<tr>
+	<th align="left">État</th><th align="left">Sous-état</th><th align="left">Description</th>
+</tr>
+<tr>
+	<td rowspan="8">En attente</td><td>ScheduleTime</td><td>L'heure n’est pas venue pour l’exécution de la tranche.</td>
+</tr>
+<tr>
+<td>DatasetDependencies</td><td>Les dépendances en amont ne sont pas prêtes.</td>
+</tr>
+<tr>
+<td>ComputeResources</td><td>Les ressources de calcul ne sont pas disponibles.</td>
+</tr>
+<tr>
+<td>ConcurrencyLimit</td> <td>Toutes les instances d'activité sont occupées par l'exécution d'autres tranches.</td>
+</tr>
+<tr>
+<td>ActivityResume</td><td>L’activité est suspendue et ne peut pas exécuter les tranches jusqu'à sa reprise.</td>
+</tr>
+<tr>
+<td>Retry</td><td>L’exécution de l’activité sera retentée.</td>
+</tr>
+<tr>
+<td>Validation</td><td>La validation n’a pas encore démarré.</td>
+</tr>
+<tr>
+<td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
+</tr>
+<tr>
+&lt;tr
+<td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
+</tr>
+<td></td>
+<td>La tranche est en cours de traitement.</td>
+</tr>
+<tr>
+<td rowspan="4">Échec</td><td>TimedOut</td><td>L'exécution a pris plus de temps que l’activité ne l’autorise.</td>
+</tr>
+<tr>
+<td>Canceled</td><td>Annulé par l’action de l’utilisateur.</td>
+</tr>
+<tr>
+<td>Validation</td><td>La validation a échoué.</td>
+</tr>
+<tr>
+<td></td><td>Impossible de générer ou de valider la tranche.</td>
+</tr>
+<td>Ready</td><td></td><td>La tranche est prête à être consommée.</td>
+</tr>
+<tr>
+<td>Ignoré</td><td></td><td>La tranche n’est pas traitée.</td>
+</tr>
+<tr>
+<td>Aucun</td><td></td><td>Tranche qui a été réinitialisée alors qu’elle existait avec un état différent.</td>
+</tr>
+</table>
+
+
 
 Vous pouvez afficher les détails relatifs à une tranche de données en cliquant sur une entrée de tranche dans le panneau **Tranches mises à jour récemment**.
 
@@ -471,8 +522,4 @@ Le message suivant devrait s’afficher après la réussite du déploiement :
 	Parameters        :
 	Outputs           
 
-
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [courrier électronique](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

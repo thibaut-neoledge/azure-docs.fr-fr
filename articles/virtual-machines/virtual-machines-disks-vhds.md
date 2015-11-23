@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="11/04/2015"
 	ms.author="cynthn"/>
 
 # À propos des disques et des VHD pour les machines virtuelles Azure
@@ -22,19 +22,24 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Toutes les machines virtuelles dans Azure sont configurées avec au moins deux disques lorsque vous créez la machine virtuelle : l’un est un disque de système d’exploitation et l’autre est un disque local temporaire, parfois appelé disque de ressources. Le disque de système d’exploitation est créé à partir d’une image. Le disque de système d’exploitation et l’image sont en fait des disques durs virtuels (VHD) stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer de disques de données, également stockés sur les VHD.
+
+Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation et un disque temporaire. Le disque de système d’exploitation est créé à partir d’une image. Le disque de système d’exploitation et l’image sont en fait des disques durs virtuels (VHD) stockés dans un compte de stockage Azure. Les machines virtuelles peuvent également disposer d’un ou plusieurs disques de données, également stockés sur les VHD.
+
+## Disque de système d’exploitation
+
+Chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte le nom de lecteur C:. Ce disque a une capacité maximale de 1 023 gigaoctets. Quand Azure crée un disque de système d’exploitation, trois copies du disque sont créées pour assurer une durabilité élevée. En outre, si vous configurez la machine virtuelle pour la géo-réplication, votre VHD est également répliqué sur différents sites distants de plus de 640 kilomètres.
+
+##Disque temporaire
+
+Le disque temporaire est automatiquement créé pour vous. Sur les machines virtuelles Windows, ce disque porte le nom de lecteur D:. Sur les machines virtuelles Linux, le disque se nomme généralement /dev/sdb et il est formaté et monté sur /mnt/resource par l’agent Linux Azure.
 
 >[AZURE.WARNING]Ne stockez pas de données sur le disque temporaire. Il assure un stockage temporaire pour les applications et les processus et est destiné à stocker uniquement des données telles que les fichiers d’échange. Pour remapper ce disque pour une machine virtuelle Windows, consultez la page [Modifier la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md).
 
-## À propos des disques
+## Disque de données
 
-Comme tout autre ordinateur, les machines virtuelles dans Azure utilisent des disques comme emplacement de stockage pour un système d’exploitation, des applications et des données. Toutes les machines virtuelles Azure possèdent au moins deux disques : un disque de système d’exploitation et un disque temporaire. Elles peuvent également disposer d’un ou de plusieurs disques de données.
+Un disque de données est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
-- **Disque de système d’exploitation** : chaque machine virtuelle dispose d’un disque de système d’exploitation attaché. Il est enregistré comme disque SATA et porte le nom de lecteur C:. Ce disque a une capacité maximale de 1 023 gigaoctets. Quand Azure crée un disque de système d’exploitation, trois copies du disque sont créées pour assurer une durabilité élevée. En outre, si vous configurez la machine virtuelle pour la géo-réplication, votre VHD est également répliqué sur différents sites distants de plus de 640 kilomètres.
-- Le **disque temporaire** est automatiquement créé pour vous. Sur les machines virtuelles Windows, ce disque porte le nom de lecteur D:. Sur les machines virtuelles Linux, le disque se nomme généralement /dev/sdb et il est formaté et monté sur /mnt/resource par l’agent Linux Azure.
-- Un **disque de données** est un VHD attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous souhaitez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données possède une capacité maximale de 1 023 gigaoctets. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
-
-	Pour plus d’informations sur les fonctionnalités des machines virtuelles, consultez la page [Tailles des machines virtuelles](virtual-machines-size-specs.md).
+	For more details about virtual machines capacities, see [Sizes for virtual machines](virtual-machines-size-specs.md).
 
 Lorsque vous créez une machine virtuelle à partir d’une image, Azure crée un disque de système d’exploitation. Si vous utilisez une image incluant des disques de données, Azure crée également ces derniers lors de la création de la machine virtuelle. (Vous pouvez utiliser une image d’Azure, d’un partenaire ou vous appartenant.) Vous pouvez également ajouter des disques de données après avoir créé la machine virtuelle.
 
@@ -65,7 +70,8 @@ Machines virtuelles Linux :
 Machines virtuelles Windows :
 
 -  [Attachement d’un disque et préparation pour l’utilisation](storage-windows-attach-disk.md)
+- [Modification de la lettre de lecteur du disque temporaire Windows](virtual-machines-windows-change-drive-letter.md)
 -  [Capture d’une machine virtuelle Windows](virtual-machines-capture-image-windows-server.md)
 -  [Détachement d’un disque](storage-windows-detach-disk.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/11/2015"
    ms.author="jgao"/>
 
 
@@ -603,10 +603,10 @@ Résultats :
 Il existe 6 lignes dans la partition dont la clé de partition est « Web » (4 lignes et vers le bas) :
 
 - Il existe des 6 lignes avec une valeur égale ou inférieure à 500, donc le CUME\_DIST est égal à 6/6 = 1
-- Il existe des 5 lignes avec une valeur égale ou inférieure à 500, et donc CUME\_DIST est égal à 5/6 = 0,83
-- Il existe des 4 lignes avec une valeur égale ou inférieure à 500, et donc CUME\_DIST est égal à 5/6 = 0,66
-- Il existe des 3 lignes avec une valeur égale ou inférieure à 500, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
-- Il existe 1 ligne avec une valeur égale ou inférieure à 500, et donc CUME\_DIST est égal à 1/6 = 1. 
+- Il existe 5 lignes avec une valeur égale ou inférieure à 400, et donc CUME\_DIST est égal à 5/6 = 0.83.
+- Il existe 4 lignes avec une valeur égale ou inférieure à 300, et donc CUME\_DIST est égal à 5/6 = 0,66.
+- Il existe 3 lignes avec une valeur égale ou inférieure à 200, et donc CUME\_DIST est égal à 3/6 = 0,5. Il existe deux lignes avec la même valeur de latence.
+- Il existe 1 ligne avec une valeur égale ou inférieure à 100, et donc CUME\_DIST est égal à 1/6 = 0,16. 
 
 
 **Notes d’utilisation :**
@@ -743,4 +743,4 @@ PERCENTILE\_DISC n’interpole pas les valeurs, et par conséquent, la valeur m�
 - [Gestion de l’analytique Data Lake Azure l’aide d’Azure PowerShell](data-lake-analytics-use-powershell.md)
 - [Surveiller et résoudre les problèmes des travaux Data Lake Azure à l’aide du portail Azure Preview](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

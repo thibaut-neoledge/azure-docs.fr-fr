@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
@@ -99,11 +99,11 @@ Fournissez les valeurs suivantes :
 * **Nom du jeu de données** - Fournissez un nom de jeu de données que vous souhaitez donner à votre sortie de Power BI. Par exemple, utilisons « pbidemo ».
 *	**Nom de la table** - Fournissez un nom de table dans le jeu de données de la sortie de Power BI. Appelons-la par exemple « pbidemo ». Actuellement, la sortie Power BI des travaux Stream Analytics peut avoir seulement une table dans un jeu de données.
 
->	[AZURE.NOTE] Il n'est pas recommandé de créer de façon explicite ce groupe de données et ce tableau dans votre compte Power BI. Ceux-ci seront créés de façon automatique lorsque vous commencez une tâche Stream Analytics et que cette tâche se met à injecter des résultats dans Power BI. Si la requête de votre tâche ne renvoie aucun résultat, le groupe de données et le tableau ne seront pas créés.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Cliquez sur **OK**, puis **Tester la connexion** . Votre configuration de sortie est terminée.
 
->	[AZURE.WARNING] De même, veuillez noter que si Power BI dispose déjà d'un groupe de données et d'un tableau portant le même nom que celui que vous avez saisi dans la tâche Stream Analytics, alors ces données seront écrasées.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Écriture d’une requête ##
@@ -161,7 +161,7 @@ Lorsque vous affichez le tableau de bord avec ce rapport épinglé, vous constat
 
 Notez que ce didacticiel ne vous a montré la création que d’un seul type de graphique pour un jeu de données. Power BI peut vous aider à créer d’autres outils d’analyse décisionnelle clients pour votre organisation. Pour un autre exemple de tableau de bord Power BI, visionnez la vidéo de [prise en main de Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
-Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
+Pour plus d'informations sur la configuration d'une sortie Power BI et pour utiliser des groupes Power BI, passez en revue la [section Power BI](stream-analytics-define-outputs.md#power-bi) dans [Présentation des sorties Stream Analytics](stream-analytics-define-outputs.md "Présentation des sorties Stream Analytics"). Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
 ## Limites et meilleures pratiques ##
 Power BI utilise des contraintes d’accès concurrentiel et de débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
@@ -221,4 +221,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

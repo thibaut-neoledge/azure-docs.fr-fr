@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -58,7 +58,7 @@ Voici les étapes principales pour créer une machine virtuelle Azure pour le n�
 
     * Pour une démonstration simple du déploiement du concept, vous pouvez ignorer cette étape et promouvoir ultérieurement la machine virtuelle du nœud principal comme contrôleur de domaine.
 
-3. Dans le portail de gestion Azure ou le portail Azure en version préliminaire, créez une machine virtuelle classique en sélectionnant l’image du HPC Pack 2012 R2 dans Azure Marketplace. (Consultez les étapes pour le portail de gestion [ici](virtual-machines-windows-tutorial-classic-portal.md).)
+3. Dans le portail Azure ou le portail Azure en version préliminaire, créez une machine virtuelle classique en sélectionnant l’image du HPC Pack 2012 R2 dans Azure Marketplace. (Consultez les étapes pour le portail Azure [ici](virtual-machines-windows-tutorial-classic-portal.md).)
 
     **Considérations**
 
@@ -102,4 +102,4 @@ Voici les étapes principales pour créer une machine virtuelle Azure pour le n�
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

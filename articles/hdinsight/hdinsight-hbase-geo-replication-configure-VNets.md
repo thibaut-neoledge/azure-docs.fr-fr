@@ -38,7 +38,7 @@ Pour voir la vidéo associée :
 Ce didacticiel fait partie de la [série][hdinsight-hbase-replication] portant sur la création d'une géo-réplication HBase.
 
 - Configurer une connexion VPN entre deux réseaux virtuels (ce didacticiel)
-- [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-geo-replication-DNS]
+- [Configurer des serveurs DNS pour les réseaux virtuels][hdinsight-hbase-geo-replication-dns]
 - [Configurer la géo-réplication HBase][hdinsight-hbase-geo-replication]
 
 Le diagramme suivant illustre les deux réseaux virtuels que vous allez créer dans ce didacticiel :
@@ -249,7 +249,7 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -270,4 +270,4 @@ Dans ce didacticiel, vous avez vu comment configurer une connexion VPN entre deu
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

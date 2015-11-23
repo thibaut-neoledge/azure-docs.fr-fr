@@ -54,7 +54,7 @@ Depuis la machine virtuelle sur laquelle le système d’exploitation a été in
 
 	![Démarrer Sysprep](./media/virtual-machines-create-upload-vhd-windows-server/sysprepgeneral.png)
 
-4.  Dans **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case **Généraliser** est cochée.
+4.  Dans **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** et vérifiez que la case à cocher **Généraliser** est activée.
 
 5.  Dans **Shutdown Options**, sélectionnez **Shutdown**.
 
@@ -66,7 +66,7 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
 ### Option 1 : Création d’un compte de stockage
 
-1. Connectez-vous au [portail](http://manage.windowsazure.com).
+1. Connectez-vous au portail Azure.
 
 2. Dans la barre de commandes, cliquez sur **New**.
 
@@ -102,7 +102,7 @@ Vous avez besoin d’un compte de stockage dans Azure afin d’avoir un emplacem
 
 ### Option 2 : Obtention des informations du compte de stockage
 
-1.	Connectez-vous au [portail](http://manage.windowsazure.com).
+1.	Connectez-vous au portail Azure.
 
 2.	Dans le volet de navigation, cliquez sur **Stockage**.
 
@@ -150,7 +150,7 @@ Lorsque vous téléchargez le fichier .vhd, vous pouvez le placer n'importe où 
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	Où :- **BlobStorageURL** est l’URL correspondant au compte de stockage - **YourImagesFolder** est le conteneur de stockage d’objets blob où vous souhaitez stocker vos images - **VHDName** est le nom que vous souhaitez que le portail affiche pour identifier le disque dur virtuel - **PathToVHDFile** est le chemin d’accès complet et le nom du fichier .vhd
+	Où :- **BlobStorageURL** est l’URL correspondant au compte de stockage - **YourImagesFolder** est le conteneur de stockage d’objets blob où vous souhaitez stocker vos images - **VHDName** est le nom que vous souhaitez que le portail Azure affiche pour identifier le disque dur virtuel - **PathToVHDFile** est le chemin d’accès complet et le nom du fichier .vhd
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -158,11 +158,11 @@ Pour plus d'informations sur la cmdlet Add-AzureVhd, consultez [Add-AzureVhd](ht
 
 ## Étape 5 : Ajout de l’image à votre liste d’images personnalisées
 
-> [AZURE.TIP]Pour utiliser Azure PowerShell et non le portail pour ajouter l’image, utilisez l’applet de commande **Add-AzureVMImage**. Par exemple :
+> [AZURE.TIP]Pour utiliser Azure PowerShell et non le portail Azure pour ajouter l’image, utilisez l’applet de commande **Add-AzureVMImage**. Par exemple :
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
-1. Dans le portail, sous **Tous les éléments**, cliquez sur **Machines virtuelles**.
+1. Dans le portail Azure, sous **Tous les éléments**, cliquez sur **Machines virtuelles**.
 
 2. Sous Machines virtuelles, cliquez sur **Images**.
 
@@ -192,7 +192,7 @@ Pour plus d'informations sur la cmdlet Add-AzureVhd, consultez [Add-AzureVhd](ht
 
 	![créer un disque dur virtuel à partir d'une image personnalisée](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
-	> [AZURE.TIP]Si vous recevez une erreur lorsque vous tentez de créer une machine virtuelle, avec ce message, "The VHD https://XXXXX.. has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)" [« Le disque dur virtuel https://XXXXX... a une taille virtuelle non supportée de YYYY octets. La taille doit être un chiffre rond (en Mo) »], cela signifie que votre disque dur virtuel n’a pas un nombre rond en Mo et doit être à taille fixe. Essayez d’utiliser l’applet de commande PowerShell **Add-AzureVMImage** plutôt que le portail pour ajouter l’image (voir l’étape 5 ci-dessus). Les cmdlets Azure garantissent que le disque dur virtuel répond aux exigences d’Azure.
+	> [AZURE.TIP]Si vous recevez une erreur lorsque vous tentez de créer une machine virtuelle, avec ce message, "The VHD https://XXXXX.. has an unsupported virtual size of YYYY bytes. The size must be a whole number (in MBs)" [« Le disque dur virtuel https://XXXXX... a une taille virtuelle non supportée de YYYY octets. La taille doit être un chiffre rond (en Mo) »], cela signifie que votre disque dur virtuel n’a pas un nombre rond en Mo et doit être à taille fixe. Essayez d’utiliser l’applet de commande PowerShell **Add-AzureVMImage** plutôt que le portail Azure pour ajouter l’image (voir l’étape 5 ci-dessus). Les cmdlets Azure garantissent que le disque dur virtuel répond aux exigences d’Azure.
 
 ## Étapes suivantes ##
 
@@ -203,4 +203,4 @@ Une fois que vous avez créé une machine virtuelle, essayez de créer une machi
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

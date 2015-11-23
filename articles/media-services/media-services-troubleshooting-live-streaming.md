@@ -67,4 +67,12 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 	
 >[AZURE.NOTE]Si, après avoir suivi les étapes de dépannage, vous ne pouvez toujours pas diffuser en flux continu, envoyez un ticket de support à l’aide du portail de gestion Azure.
 
-<!---HONumber=Oct15_HO3-->
+##Parcours d’apprentissage de Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

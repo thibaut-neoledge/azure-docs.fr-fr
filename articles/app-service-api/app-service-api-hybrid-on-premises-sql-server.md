@@ -361,7 +361,7 @@ La fenêtre **Activité d’Azure App Service** affiche la progression du déplo
 
 4. Dans le panneau **API Apps**, localisez votre application API et cliquez dessus.
 
-5. Dans le panneau API Apps, cliquez sur la valeur sous **Hôte d’application API**.
+5. Dans le panneau API Apps, cliquez sur la valeur sous **Hôte d’application d’API**.
  
 	![Panneau Application API](./media/app-service-api-hybrid-on-premises-sql-server/api-app-blade-api-app-host.png)
 
@@ -430,4 +430,4 @@ Maintenant que l’infrastructure de connexion hybride est terminée, il est tem
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

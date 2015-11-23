@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connexion à une machine virtuelle | Microsoft Azure"
-	description="Utilisez le portail pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique"
+	description="Utilisez le portail Azure pour vous connecter à une machine virtuelle Windows créée avec le modèle de déploiement classique."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -38,7 +38,7 @@ Voici une vidéo de procédure pas à pas de ce didacticiel. Elle couvre égalem
 
 ## Connectez-vous à la machine virtuelle.
 
-1. Connectez-vous au [portail Azure](http://manage.windowsazure.com).
+1. Connectez-vous au portail Azure.
 
 2. Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle.
 
@@ -61,4 +61,4 @@ Vous pouvez essayer les opérations suivants :
 
 Si ces conseils ne donnent aucun résultat ou ne vous sont pas utiles, consultez la rubrique [Résolution des problèmes de connexion du Bureau à distance à une machine virtuelle Azure sous Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). Cet article vous guide tout au long des opérations de diagnostic et de résolution des problèmes courants.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

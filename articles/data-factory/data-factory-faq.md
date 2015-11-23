@@ -126,10 +126,6 @@ Si vous utilisez un cluster à la demande créé par le service Data Factory, vo
 
 Dans l'exemple ci-dessus, otherLinkedServiceName1 et otherLinkedServiceName2 représentent les services liés dont les définitions contiennent des informations d'identification nécessaires au cluster HDInsight pour accéder aux comptes de stockage secondaires.
 
-## Activité de procédure stockée - Forum Aux Questions
-### Quelles sources de données sont prises en charge par l'activité de procédure stockée ?
-Actuellement, l'activité de procédure stockée prend uniquement en charge la base de données SQL Azure.
-
 ## Tranches - Forum Aux Questions
 
 ### Comment puis-je réexécuter une tranche ?
@@ -181,4 +177,4 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

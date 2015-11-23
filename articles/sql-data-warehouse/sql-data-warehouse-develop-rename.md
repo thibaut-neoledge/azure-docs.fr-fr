@@ -1,6 +1,6 @@
 <properties
    pageTitle="Changements de noms dans SQL Data Warehouse | Microsoft Azure"
-   description="Conseils relatifs au changement de nom d’un objet ou d’une base de données dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
+   description="Conseils relatifs à la modification de noms de tables dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
@@ -13,53 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/05/2015"
    ms.author="twounder;JRJ@BigBangData.co.uk;barbkess"/>
 
 # Changements de noms dans SQL Data Warehouse
-SQL Server prend en charge le changement de nom de base de données via la procédure stockée ```sp_renamedb```. Pour atteindre cet objectif, le logiciel SQL Data Warehouse utilise quant à lui la syntaxe DDL. La commande DDL est ```RENAME DATABASE```.
+SQL Server prend en charge le changement de nom de base de données à l'aide de la procédure stockée ```sp_renamedb```. Pour atteindre cet objectif, SQL Data Warehouse utilise quant à lui la syntaxe DDL. La commande DDL est ```RENAME OBJECT```.
 
-## Renommer une base de données
+## Renommer une table
 
-Pour renommer une base de données, exécutez la commande suivante.
-
-```
-RENAME DATABASE AdventureWorks TO Contoso;
-```
-
-N’oubliez pas que vous ne pouvez pas renommer un objet ou une base de données si d’autres utilisateurs sont connectés à ces derniers ou en tirent parti. Vous devrez peut-être arrêter toutes les sessions ouvertes au préalable. Pour arrêter une session, vous devez utiliser la commande [KILL](https://msdn.microsoft.com/library/ms173730.aspx). Soyez prudent quand vous utilisez ```KILL```. Une fois cette commande exécutée, la session ciblée est arrêtée ; toute tâche non validée est annulée.
-
-> [AZURE.NOTE]Dans SQL Data Warehouse, les sessions se voient octroyer le préfixe « SID ». Vous devez l’inclure, ainsi que le numéro de session, lorsque vous appelez la commande KILL. Par exemple, la commande ```KILL 'SID1234'``` arrête la session 1234 (il faut cependant que vous disposiez des autorisations requises).
-
-## Exécutions de commandes KILL sur des sessions
-Pour renommer une base de données, vous devrez peut-être arrêter les sessions connectées à votre instance SQL Data Warehouse. La requête suivante génère une liste distincte de commandes KILL pour effacer les connexions (sauf pour la session en cours).
+Actuellement, seules les tables peuvent être renommées. La syntaxe permettant de renommer une table est la suivante :
 
 ```
-SELECT
-    'KILL ''' + session_id + ''''
-FROM
-    sys.dm_pdw_exec_requests r
-WHERE
-    r.session_id <> SESSION_ID()
-    AND EXISTS
-    (
-        SELECT
-            *
-        FROM
-            sys.dm_pdw_lock_waits w
-        WHERE
-            r.session_id = w.session_id
-    )
-GROUP BY
-    session_id;
+RENAME OBJECT Customer TO NewCustomer;
 ```
 
-## Basculement de schémas
-Si vous voulez modifier le schéma auquel appartient un objet, vous pouvez utiliser `ALTER SCHEMA` :
+Lorsque vous renommez une table, tous les objets et les propriétés associés à cette table sont mises à jour pour référencer le nouveau nom de table. Par exemple, les définitions de table, les index, les contraintes et les autorisations sont mis à jour. Les vues ne sont pas mises à jour.
+
+## Renommer une table externe
+
+La modification du nom d'une table externe modifie le nom de la table dans SQL Server PDW. Elle n'affecte pas l'emplacement des données externes pour la table.
+
+## Modifier un schéma de table
+Si vous voulez modifier le schéma auquel un objet appartient, vous pouvez utiliser MODIFIER LE SCHÉMA :
 
 ```
 ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 ```
+
+## Le changement de nom de table requiert un verrouillage exclusif de la table
+
+N'oubliez pas qu'il est impossible de renommer une table en cours d'utilisation. Le changement de nom d'une table requiert un verrouillage exclusif de la table. Si la table est en cours d'utilisation, vous devrez peut-être fermer la session utilisant la table. Pour arrêter une session, vous devez utiliser la commande [KILL](https://msdn.microsoft.com/library/ms173730.aspx). N'oubliez pas que, lorsque vous utilisez ```KILL```, toute tâche non validée sera annulée si une session est fermée. Dans SQL Data Warehouse, les sessions se voient octroyer le préfixe « SID ». Vous devez l'inclure, ainsi que le numéro de session, lorsque vous appelez la commande KILL. Par exemple, ```KILL 'SID1234'```
+
 
 ## Étapes suivantes
 Pour obtenir des conseils supplémentaires en matière de développement, voir la [vue d’ensemble sur le développement][].
@@ -69,4 +53,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, voir l
 <!--Article references-->
 [vue d’ensemble sur le développement]: sql-data-warehouse-overview-develop.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

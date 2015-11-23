@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Déplacement de données vers et depuis le système de fichiers local à l’aide d’Azure Data Factory
@@ -52,7 +52,7 @@ Dans un premier temps, configurez la passerelle de gestion des données en suiva
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -273,7 +273,7 @@ L'exemple copie toutes les heures des données appartenant à une série horaire
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -427,7 +427,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 Propriété | Description | Requis
 -------- | ----------- | --------
 type | La propriété Type doit être définie sur **OnPremisesFileServer**. | Oui 
-host | Nom d'hôte du serveur. Utilisez ’\\’ comme caractère d’échappement dans l’exemple suivant : si le partage est \\servername, spécifiez \\\servername.<p>Si le système de fichiers est local sur l’ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l’ordinateur de passerelle, utilisez \\\servername.</p> | Oui
+host | Nom d'hôte du serveur. Utilisez ’\\’ comme caractère d’échappement dans l’exemple suivant : si le partage est \\servername, spécifiez \\servername.<p>Si le système de fichiers est local sur l’ordinateur de passerelle, utilisez Local ou localhost. Si le système de fichiers figure sur un serveur différent de l’ordinateur de passerelle, utilisez \\servername.</p> | Oui
 userid | Spécifiez l'ID de l'utilisateur qui a accès au serveur | Non (si vous choisissez encryptedcredential)
 password | Spécifiez le mot de passe de l’utilisateur (userid). | Non (si vous choisissez encryptedcredential) 
 Encryptedcredential | Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzureDataFactoryEncryptValue<p>**Remarque :** vous devez utiliser Azure PowerShell version 0.8.14 ou supérieure pour utiliser des applets de commande telles que New-AzureDataFactoryEncryptValue avec le paramètre de type OnPremisesFileSystemLinkedService</p> | Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut)
@@ -442,7 +442,7 @@ Pour plus d’informations sur la définition des informations d’identificatio
 	  "properties": {
 	    "type": "OnPremisesFileServer",
 	    "typeProperties": {
-	      "host": "\\\Contosogame-Asia",
+	      "host": "\\Contosogame-Asia",
 	      "userid": "Admin",
 	      "password": "123456",
 	      "gatewayName": "mygateway"
@@ -571,7 +571,7 @@ Pour utiliser AvroFormat dans une table Hive ultérieure, vous pouvez faire réf
 
 | Propriété | Description | Valeurs autorisées | Requis |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li> **PreserveHierarchy :** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>**FlattenHierarchy :** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>**MergeFiles :** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
+| copyBehavior | Cette propriété définit le comportement de copie lorsque la source est BlobSource ou FileSystem. | <p>Il existe trois valeurs possibles pour la propriété copyBehavior. </p><ul><li>** PreserveHierarchy : ** conserve la hiérarchie des fichiers dans le dossier cible, par exemple : le chemin d'accès relatif du fichier source vers le dossier source est identique au chemin d'accès relatif du fichier cible vers le dossier cible.</li><li>** FlattenHierarchy : ** tous les fichiers du dossier source sont dans le premier niveau du dossier cible. Les fichiers cibles auront un nom généré automatiquement. </li><li>** MergeFiles : ** fusionne tous les fichiers du dossier source vers un seul fichier. Si le nom de fichier/d’objet blob est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, le nom de fichier est généré automatiquement.</li></ul> | Non |
 
 ### exemples de valeurs recursive et copyBehavior
 Cette section décrit le comportement résultant de l’opération de copie pour différentes combinaisons de valeurs recursive et copyBehavior.
@@ -599,4 +599,4 @@ false | mergeFiles | <p>Pour un dossier source nommé Dossier1 et structuré com
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

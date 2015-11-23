@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/04/2015"
+	ms.date="11/06/2015"
 	ms.author="awills"/>
 
 # Détection, tri et diagnostic avec Application Insights
@@ -20,28 +20,29 @@
 *Application Insights est à l'état de version préliminaire.*
 
 
-Une fois que vous avez publié votre application, Application Insights vous permet de vous assurer qu'elle fonctionne correctement. S'il y a un problème, vous souhaitez le savoir rapidement et savoir ce qu'il faut faire.
+Application Insights vous permet de connaître les performances et l'utilisation de votre application active. Il vous informe en cas de problème, vous permet d'évaluer son impact et vous aide à déterminer la cause.
+
+Voici le compte d'une équipe qui développe des applications web :
 
 * *« Il y a quelques jours, nous avons déployé un correctif secondaire. Nous n'avons pas effectué de tests complets, mais malheureusement certaines modifications inattendues ont été ajoutées à la charge utile, ce qui a créé une incompatibilité entre le début et la fin. Immédiatement, des exceptions sont apparues sur le serveur, nos alertes se sont déclenchées et nous avons été mis au fait de la situation. En quelques clics sur le portail Application Insights, nous avons obtenu suffisamment d'informations dans la pile des appels d'exception pour cerner le problème. Nous avons immédiatement restauré la version précédente et limité les dégâts. Application Insights facilite et simplifie cette partie du cycle des opérations de développement. »*
 
-On peut considérer cette partie du cycle des opérations de développement comme un pipeline :
-
-![Détection-tri-diagnostic](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
-
-
-Une fois que vous avez diagnostiqué le problème, vous savez où vous devez concentrer vos efforts : effectuer un débogage de votre code, allouer davantage de mémoire ou vérifier une dépendance. Enfin, vous pouvez vérifier si votre correction a fonctionné :
-
-
-
-![Réparer et valider](./media/app-insights-detect-triage-diagnose/02-pipe2.png)
-
-
-Voyons comment Application Insights fonctionne à chaque étape de ce pipeline.
-
-Application Insights fonctionne pour les applications mobiles et les applications web. Dans cette procédure pas à pas, nous allons parler des applications web. Nous allons suivre l'équipe OBS de la banque Fabrikam, chargée du système des opérations bancaires en ligne. Ils ont ajouté Application Insights à leurs projets web.
-
+Nous allons voir comment une équipe de développement web classique utilise Application Insights pour surveiller les performances. Nous allons suivre l'équipe de la banque Fabrikam qui développe le système de banque électronique.
 
 ![Exemple de site web d'une banque](./media/app-insights-detect-triage-diagnose/03-bank.png)
+
+L'équipe travaille selon un cycle comme celui-ci :
+
+![Cycle DevOps](./media/app-insights-detect-triage-diagnose/00-devcycle.png)
+
+Les exigences alimentent leur backlog de développement (liste des tâches). Ils travaillent en sprints courts, qui permettent souvent de livrer des logiciels fonctionnels, généralement sous la forme d'améliorations et d'extensions d'une application existante. L'application active est fréquemment mise à jour avec de nouvelles fonctionnalités. Lorsqu'elle est active, l'équipe analyse ses performances et son utilisation à l'aide d'Application Insights. Cette analyse alimente leur backlog de développement.
+
+L'équipe utilise Application Insights pour surveiller de près l'application web active : * Performances. Elle cherche à comprendre comment varient les temps de réponse en fonction du nombre de requêtes, quelles ressources d'UC, de réseau, de disque et autres sont utilisées et où se trouvent les goulots d'étranglement. * Défaillances. S'il existe des exceptions ou des requêtes ayant échoué, ou si un compteur de performances dépasse sa plage de confort, l'équipe doit en être rapidement informée pour pouvoir prendre des mesures. * Utilisation. Lorsqu'une nouvelle fonctionnalité est disponible, l'équipe souhaite savoir dans quelle mesure elle est utilisée et si les utilisateurs rencontrent des difficultés avec elle.
+
+
+
+Penchons-nous à présent sur la partie rétroaction du cycle :
+
+![Détection-tri-diagnostic](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 
 
 
@@ -70,7 +71,7 @@ Mais surtout, une alerte est envoyée à l'équipe de développement pour toute 
 ## Analyser les mesures de performances
 
 
-Sur la page Vue d’ensemble dans Application Insights, un graphique montre une série de [métriques essentiels][perf].
+Dans la page Vue d’ensemble dans Application Insights, un graphique montre une série de [métriques essentielles][perf].
 
 ![Différentes mesures](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
 
@@ -260,4 +261,4 @@ Voici donc une équipe qui utilise Application Insights non seulement pour réso
 [usage]: app-insights-web-track-usage.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

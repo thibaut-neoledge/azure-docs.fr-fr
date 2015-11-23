@@ -3,7 +3,7 @@
 	description="Comment prendre en main le stockage d'objets blob Azure dans un projet ASP.NET dans Visual Studio après s'être connecté à un compte de stockage à l'aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Prise en main du stockage d'objets blob et des services connectés de Visual Studio (ASP.NET)
 
@@ -246,4 +246,4 @@ Comme l'exemple de méthode appelle une méthode asynchrone, il doit être préc
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

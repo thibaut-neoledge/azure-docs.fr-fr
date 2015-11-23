@@ -24,7 +24,7 @@ En tant que service Azure, IoT Hub offre la haute disponibilité à l’aide de 
 
 Un traitement complet des topologies de déploiement dans les solutions IoT est hors du propos de cette section,mais, pour les besoins de la haute disponibilité et de la récupération d’urgence, nous allons prendre en compte le modèle de déploiement *basculement régional*.
 
-Dans un modèle de basculement régional, le serveur principal de solution s’exécute principalement sur un site de centre de données, mais un concentrateur IoT et le serveur principal supplémentaire seront déployés dans une autre région de centre de données à des fins de basculement, au cas où le concentrateur IoT du centre de données principal subirait une panne ou si la connectivité réseau du centre de données principal était coupée. Les périphériques utilisent un point de terminaison secondaire à chaque fois que la passerelle principale ne peut pas être atteinte. Grâce à la capacité de basculement entre régions, il est possible d’améliorer la disponibilité de la solution au-delà de la haute disponibilité au niveau d’une seule région.
+Dans un modèle de basculement régional, le serveur principal de solution s’exécute principalement sur un seul site de centre de données, mais un concentrateur IoT et le serveur principal supplémentaire seront déployés dans une autre région de centre de données à des fins de basculement, au cas où le concentrateur IoT du centre de données principal subirait une panne ou si la connectivité réseau du centre de données principal était coupée. Les périphériques utilisent un point de terminaison secondaire à chaque fois que la passerelle principale ne peut pas être atteinte. Grâce à la capacité de basculement entre régions, il est possible d’améliorer la disponibilité de la solution au-delà de la haute disponibilité au niveau d’une seule région.
 
 À un niveau élevé, pour implémenter un modèle de basculement régional IoT Hub, vous aurez besoin des éléments suivants.
 
@@ -48,4 +48,4 @@ Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

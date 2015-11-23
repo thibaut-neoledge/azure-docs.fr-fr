@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Notes de publication sur Microsoft Stream Analytics
+
+## Notes relatives à la version du 12/11/2015 de Stream Analytics ##
+
+Cette version contient la mise à jour suivante.
+
+Intitulé | Description
+---|---
+Nouveau comportement de SELECT | Dans Stream Analytics, SELECT a été étendu pour autoriser * comme accesseur de propriété d’un enregistrement imbriqué. Pour plus d'informations, consultez [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Types de données complexes").
 
 ## Notes relatives à la version du 22/10/2015 de Stream Analytics ##
 
@@ -37,10 +45,10 @@ Cette version contient les mises à jour suivantes.
 Intitulé | Description
 ---|---
 Version préliminaire publique d’IoT Azure Suite | Stream Analytics est inclus dans la version préliminaire publique d’IoT Azure Suite.
-Intégration du portail Azure en version préliminaire | En plus de sa présence constante sur le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
+Intégration du portail Azure en version préliminaire | En plus de sa présence continue dans le portail de gestion Azure, Stream Analytics est maintenant intégré dans le [portail Azure en version préliminaire](http://azure.microsoft.com/overview/preview-portal/). Notez que la fonctionnalité Stream Analytics dans le portail en version préliminaire correspond actuellement à un sous-ensemble des fonctionnalités fournies dans le portail de gestion Azure, sans prise en charge du test de requête dans un navigateur, de la configuration Power BI et de la possibilité d’accès aux ressources d’entrée et de sortie ou de création de ces ressources dans vos abonnements.
 Prise en charge de la sortie DocumentDB | Les tâches Stream Analytics peuvent à présent générer une sortie vers [DocumentDB](http://azure.microsoft.com/services/documentdb/).
 Prise en charge de l’entrée IoT Hub | Les tâches Stream Analytics peuvent à présent recevoir des données à partir d’IoT Hub.
-TIMESTAMP BY pour les événements hétérogènes | Quand un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez maintenant utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas.
+TIMESTAMP BY pour les événements hétérogènes | Lorsqu’un flux de données unique contient plusieurs types d’événements ayant des horodatages dans différents champs, vous pouvez maintenant utiliser [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) avec des expressions pour spécifier différents champs d’horodatage pour chaque cas.
 
 ## Notes relatives à la version du 10/09/2015 de Stream Analytics ##
 
@@ -67,7 +75,7 @@ Cette version contient les mises à jour suivantes.
 Intitulé|Description
 ---|---
 ID d'organisation Power BI dissocié de l'ID Azure|Cette fonctionnalité permet la [sortie Power BI](stream-analytics-power-bi-dashboard.md) pour les tâches ASA dans tout type de compte Azure (Live ID ou ID d’organisation). En outre, vous pouvez avoir un ID d'organisation pour votre compte Azure et en utiliser un autre pour autoriser la sortie de Power BI.
-Prise en charge de la sortie de files d'attente de Service Bus|Les sorties de [files d’attente Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sont maintenant disponibles dans les tâches Stream Analytics.
+Prise en charge de la sortie de files d'attente de Service Bus|Les sorties de [files d'attente Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-queues) sont maintenant disponibles dans les tâches Stream Analytics.
 Prise en charge de la sortie de rubriques de Service Bus|Les sorties de [rubriques Service Bus](stream-analytics-connect-data-event-outputs.md#service-bus-topics) sont maintenant disponibles dans les tâches Stream Analytics.
 
 ## Notes relatives à la version du 09/07/2015 de Stream Analytics ##
@@ -116,4 +124,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

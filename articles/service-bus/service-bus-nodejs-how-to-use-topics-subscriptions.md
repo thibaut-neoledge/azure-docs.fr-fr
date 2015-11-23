@@ -69,7 +69,7 @@ Le module Azure lit les variables d'environnement AZURE\_SERVICEBUS\_NAMESPACE e
 
 Pour consulter un exemple de paramétrage de variables d'environnement dans un fichier de configuration pour un service cloud Azure, consultez la page [Service cloud Node.js avec stockage][].
 
-Pour obtenir un exemple de configuration des variables d’environnement dans le portail de gestion pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][].
+Pour obtenir un exemple de configuration des variables d’environnement dans le portail Azure pour un site web Azure, consultez la rubrique [Application web Node.js avec stockage][].
 
 ## Création d'une rubrique
 
@@ -292,7 +292,7 @@ Si l'application subit un incident après le traitement du message, mais avant l
 
 ## Suppression de rubriques et d'abonnements
 
-Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du portail de gestion Azure ou par programme. L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
+Les rubriques et les abonnements sont persistants et doivent être supprimés de façon explicite par le biais du portail Azure ou par programme. L’exemple suivant montre comment supprimer la rubrique `MyTopic` :
 
     serviceBusService.deleteTopic('MyTopic', function (error) {
         if (error) {
@@ -327,4 +327,4 @@ Maintenant que vous avez appris les principes de base des rubriques Service Bus,
   [Application web Node.js avec stockage]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -22,8 +22,6 @@ ms.service="virtual-machines"
 
 
 Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructure Azure pour créer et gérer un cluster HPC sur le cloud. [HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) est la solution HPC gratuite de Microsoft construite autour des technologies Microsoft Azure et Windows Server, prenant en charge des charges de travail HPC Windows et Linux. Un cluster HPC Pack cloud fournit à un administrateur de cluster ou un éditeur de logiciels indépendant (ISV) une plateforme flexible et évolutive pour exécuter des applications exigeantes tout en réduisant l’investissement dans une infrastructure de cluster de calcul locale.
-
-<!-- Take advantage of automated tools for HPC Pack cluster deployment in Azure VMs, including an HPC Pack image that can be used with either Azure quickstart templates or Azure PowerShell scripts, or deploy your cluster manually in the Azure portal.-->
 
 
 ## Configuration d’un cluster HPC Pack dans Azure
@@ -95,4 +93,4 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

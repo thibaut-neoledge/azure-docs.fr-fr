@@ -26,7 +26,7 @@ Ce didacticiel s’appuie sur le code présenté dans [Prise en main d’IoT Hub
 
 Le premier modèle est le stockage fiable des messages des appareils vers le cloud dans des [objets blob Azure]. Ce scénario est très courant lors de l’implémentation de l’analyse *de chemin d’accès à froid*, où les données stockées dans des objets blob sont utilisées comme entrée pour l’analyse pilotée par des outils tels que [Azure Data Factory] ou la pile [Hadoop].
 
-Le second modèle est le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages des appareils vers le cloud sont considérés comme *interactifs* quand il s’agit de déclencheurs immédiats pour un ensemble d’actions sur le serveur d’applications principal, par opposition à un message de *point de données* qui est chargé dans un moteur d’analyse. Par exemple, une alerte provenant d’un appareil qui doit déclencher l’insertion d’un ticket dans un système CRM est un message *interactif* de l’appareil vers le cloud, contrairement à un message de télémétrie contenant des exemples de température, qui est un message de *point de données*.
+Le second modèle est le traitement fiable des messages *interactifs* des appareils vers le cloud. Les messages d’appareils vers le cloud sont considérés comme *interactifs* quand il s’agit de déclencheurs immédiats pour un ensemble d’actions sur le serveur d’applications principal, par opposition à un message de *point de données* qui est chargé dans un moteur d’analyse. Par exemple, une alerte provenant d’un appareil qui doit déclencher l’insertion d’un ticket dans un système CRM est un message *interactif* de l’appareil vers le cloud, contrairement à un message de télémétrie contenant des exemples de température, qui est un message de *point de données*.
 
 Étant donné qu’IoT Hub expose un point de terminaison compatible avec Event Hubs pour recevoir des messages des appareils vers le cloud, ce didacticiel utilise [EventProcessorHost] pour héberger une classe de processeurs d’événements qui :
 
@@ -105,7 +105,7 @@ Informations supplémentaires sur IoT Hub :
 [Azure Storage]: https://azure.microsoft.com/fr-FR/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/fr-FR/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
@@ -119,4 +119,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -97,9 +97,8 @@ Cette API est asynchrone. Après son retour, utilisez l'API [Obtenir la copie de
 
 ##Comment choisir la configuration de basculement ? 
 
-Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions cloud pour la récupération d'urgence à l'aide de la géo-réplication active](https://msdn.microsoft.com/library/azure/dn741328.aspx) pour obtenir des instructions.
-
+Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

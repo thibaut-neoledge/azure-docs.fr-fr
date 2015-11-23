@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/19/2015"
-    ms.author="torsteng" />
+    ms.date="11/09/2015"
+    ms.author="torsteng;sidneyh" />
 
 # Requête de base de données élastique pour les requêtes de base de données croisée (partitionnement vertical)
 
@@ -44,7 +44,7 @@ Les informations d’identification sont constituées de l’ID utilisateur et d
     SECRET = ‘<password>’
     [;]
     
-ou pour la supprimer :
+Pour supprimer les informations d'identification :
     
     DROP DATABASE SCOPED CREDENTIAL <credential_name>;  
     DROP MASTER KEY;   
@@ -184,4 +184,4 @@ Vous pouvez utiliser des chaînes de connexion SQL Server standard pour connecte
 <!--Image references-->
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

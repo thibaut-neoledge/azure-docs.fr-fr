@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,hpc-pack"/>
 
 <tags
 	ms.service="cloud-services"
@@ -85,7 +86,7 @@ Vous devez tout d'abord installer Microsoft HPC Pack sur un ordinateur qui exéc
 	![Terminer][install_hpc7]
 
 ## Préparation de l'abonnement à Azure
-Utilisez le [portail de gestion Azure](https://manage.windowsazure.com) pour réaliser les étapes suivantes avec votre abonnement Azure. Ces instructions doivent être suivies afin de pouvoir par la suite déployer les nœuds Azure à partir du nœud principal local.
+Utilisez le [portail Azure](https://manage.windowsazure.com) pour réaliser les étapes suivantes avec votre abonnement Azure. Ces instructions doivent être suivies afin de pouvoir par la suite déployer les nœuds Azure à partir du nœud principal local.
 
 - Téléchargement d'un certificat de gestion (requis pour les connexions sécurisées entre le nœud principal et les services Azure)
 
@@ -106,7 +107,7 @@ HPC Pack installe un certificat auto-signé sur le nœud principal, nommé « D
 
 	![Paramètres de certificat][upload_cert1]
 
-4. Sur le nœud principal, accédez au fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
+4. Sur le nœud principal, accédez au fichier C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
 
 	![Télécharger le certificat][install_hpc10]
 
@@ -296,7 +297,7 @@ Après avoir testé le cluster, utilisez HPC Cluster Manager pour arrêter les n
 
 	![Nœuds non déployés][stop_node4]
 
-4. Pour confirmer que les instances de rôle ne sont plus exécutées dans Azure, dans la [version classique du portail](https://manage.windowsazure.com), cliquez sur **Cloud Services**, sur le nom de votre service cloud, puis sur **Instances**. Aucune instance n'est déployée dans l'environnement de production.
+4. Pour confirmer que les instances de rôle ne sont plus exécutées dans Azure, dans le [portail](https://manage.windowsazure.com), cliquez sur **Cloud Services**, sur le nom de votre service cloud, puis sur **Instances**. Aucune instance n'est déployée dans l'environnement de production.
 
 	![Aucune instance][view_instances2]
 
@@ -347,4 +348,4 @@ Après avoir testé le cluster, utilisez HPC Cluster Manager pour arrêter les n
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

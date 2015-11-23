@@ -37,9 +37,9 @@ Vous pouvez placer des machines virtuelles dans un groupe à haute disponibilit�
 
 Pour cela, vous pouvez utiliser le portail Azure ou des commandes Azure PowerShell.
 
-Pour utiliser le portail :
+Pour utiliser le portail Azure :
 
-1. Si ce n'est pas déjà fait, connectez-vous au [portail](http://manage.windowsazure.com).
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
 
 2. Dans la barre de commandes, cliquez sur **New**.
 
@@ -72,9 +72,9 @@ Pour utiliser des commandes Azure PowerShell afin de créer une machine virtuell
 
 ## <a id="addmachine"> </a>Option 2 : Ajouter une machine virtuelle existante à un groupe à haute disponibilité##
 
-Dans le portail, vous pouvez ajouter des machines virtuelles existantes à un groupe à haute disponibilité existant ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
+Dans le portail Azure, vous pouvez ajouter des machines virtuelles existantes à un groupe à haute disponibilité existant ou en créer un pour ces machines. (N’oubliez pas que les machines virtuelles dans un même groupe à haute disponibilité doivent appartenir au même service cloud). Les opérations à effectuer sont pratiquement identiques. Avec Azure PowerShell, vous pouvez ajouter la machine virtuelle à un groupe à haute disponibilité existant.
 
-1. Si ce n'est pas déjà fait, connectez-vous au [portail](http://manage.windowsazure.com).
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
 
 2. Dans la barre de commandes, cliquez sur **Machines virtuelles**.
 
@@ -112,4 +112,4 @@ Pour utiliser les commandes Azure PowerShell, ouvrez une session Azure PowerShel
 [Vue d’ensemble d’Azure Virtual Network]: virtual-networks-overview.md
 [Articles pour les machines virtuelles dans la gestion des services]: virtual-machines-service-management-articles.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

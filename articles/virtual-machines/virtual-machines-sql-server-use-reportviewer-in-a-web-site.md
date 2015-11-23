@@ -93,7 +93,7 @@ ReportViewer doit utiliser les informations d’identification appropriées pour
 
 ## Publier l’application web ASP.NET sur Azure
 
-Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, voir [Procédure : Migration et publication d’une application web vers un Service Cloud Azure depuis Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) et [Prise en main de Web Apps et ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Pour obtenir des instructions sur la publication d’une application web ASP.NET sur Azure, voir [Procédure : Migration et publication d’une application web vers un Service Cloud Azure depuis Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) et [Prise en main de Web Apps et ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Si la commande permettant d’ajouter un projet de déploiement Azure ou d’ajouter un projet de service cloud Azure n’apparaît pas dans le menu contextuel, vous devez remplacer la version cible de .NET Framework du projet par .NET Framework 4.
 >
@@ -109,4 +109,4 @@ Pour obtenir des instructions sur la publication d’une application web ASP.NET
 
 [Contrôle de la visionneuse de rapports Reporting Services et serveurs de rapports de machine virtuelle Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

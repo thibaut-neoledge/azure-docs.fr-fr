@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Déployer une application métier à haute disponibilité dans Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique
-
 
 Cette rubrique contient des liens vers des instructions détaillées pour le déploiement d'une application métier basée sur le Web spécialement conçue pour l’Intranet, avec des groupes de haute disponibilité SQL Server AlwaysOn dans des services d'infrastructure Azure. L'application est hébergée sur ces ordinateurs :
 
@@ -69,4 +68,4 @@ Pour démarrer la configuration de cette charge de travail, passez à la [Phase�
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

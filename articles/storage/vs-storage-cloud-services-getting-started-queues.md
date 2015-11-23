@@ -3,7 +3,7 @@
 	description="Comment prendre en main le stockage de files d’attente Azure dans un projet service cloud dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio"
 	services="storage" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets services cloud)
 
@@ -37,7 +37,7 @@ L’opération **Ajouter des services connectés** installe les packages NuGet 
 
  - Pour plus d’informations sur la manipulation de files d’attente par programme, consultez la page [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md).
  - Pour des informations générales sur le stockage Azure, consultez la [documentation du stockage](https://azure.microsoft.com/documentation/services/storage/).
- - Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](http://azure.microsoft.com/documentation/services/cloud-services/).
+ - Pour des informations générales sur les services cloud Azure, consultez la [documentation des services cloud](http://azure.microsoft.com/documentation/services/cloud-services/).
  - Pour plus d’informations sur la programmation d’applications ASP.NET, consultez la page [ASP.NET](http://www.asp.net).
 
 
@@ -202,4 +202,4 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, appelez
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -5,6 +5,8 @@ Azure DNS est un service d'hébergement pour les domaines DNS et qui offre une 
 
 | Propriété | Description | Exemple de valeur |
 |---|---|---|
+| Zones DNS | Informations relatives à la zone du domaine pour l'hébergement des enregistrements DNS d'un domaine particulier | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | Zones DNS | Informations relatives à la zone du domaine pour l'hébergement des enregistrements DNS d'un domaine particulier | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -16,7 +18,7 @@ Les zones DNS ont un objet enfant appelé jeu d'enregistrements. Les jeux d'enre
 |---|---|---|
 | Une | Type d'enregistrement IPv4 | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | AAAA | Type d'enregistrement IPv6| /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/AAAA/hostrecord |
-| CNAME | type d'enregistrement nom canonique <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
+| CNAME | Type d'enregistrement de nom canonique <sup>1</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/CNAME/www |
 | MX | type d'enregistrement messagerie | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/MX/mail |
 | NS | type d'enregistrement serveur nom | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/NS/ |
 | SOA | Type d'enregistrement « SOA » (Start of Authority) <sup>2</sup> | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com/SOA |
@@ -87,4 +89,4 @@ Lisez la [documentation API REST pour les zones DNS](https://msdn.microsoft.com/
 
 Lisez la [documentation API REST pour les jeux d'enregistrements DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx) pour plus d'informations.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,18 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/04/2015"
+   ms.date="11/06/2015"
    ms.author="maroche"/>
 
 # Notes de publication sur Azure Data Catalog
 
-## Notes pour la version du 4 septembre 2015 d’Azure Data Catalog
 
-### Profilage des données éventuellement manquant pour certaines ressources de données inscrites
+## Notes pour la version du 6 novembre 2015 d’Azure Data Catalog
 
-Au moment de l’inscription de sources de données avec l’option de profilage des données sélectionnée dans l’outil d’inscription de la source des données, les informations de profil des données peuvent ne pas être incluses pendant l’inscription de tables et de vues Oracle dont les noms de colonne contiennent des caractères multioctets.
+### Les utilisateurs peuvent rencontrer des erreurs lors du lancement de l'outil d'inscription de source de données
 
-Ces restrictions sont dues à un problème connu dans la version du 4 septembre et seront résolues dans une mise à jour future d’Azure Data Catalog.
+Lors du lancement de l’outil d’inscription de source de données **Azure Data Catalog** à partir du portail **Azure Data Catalog**, les utilisateurs qui avaient précédemment installé une version plus ancienne de l’outil peuvent recevoir le message « Impossible de démarrer l’application. Contactez le fournisseur de l’application. »
+
+Les utilisateurs qui reçoivent ce message doivent utiliser le panneau de configuration Windows pour supprimer l'application « Azure Data Catalog » existante, puis relancer l’outil à partir du portail **Azure Data Catalog**.
 
 ## Notes pour la version du 13 juillet 2015 d’Azure Data Catalog
 
@@ -43,7 +44,7 @@ La prise en charge des sources de données SQL Server Reporting Services (SSR
 
 ### Ouverture des ressources de données dans Excel
 
-Au moment de l’ouverture des ressources de données dans Microsoft Excel à partir du portail Azure Data Catalog, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu standard et les utilisateurs peuvent sélectionner **Activer** pour continuer.
+Au moment de l’ouverture des ressources de données dans Microsoft Excel à partir du portail **Azure Data Catalog**, les utilisateurs peuvent voir apparaître la boîte de dialogue **Avis de sécurité Microsoft Excel**. Il s’agit là d’un comportement attendu standard et les utilisateurs peuvent sélectionner **Activer** pour continuer.
 
 Pour plus d’informations, consultez [Activer ou désactiver les alertes de sécurité relatives aux liens et aux fichiers de sites web suspects](https://support.office.com/fr-FR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
@@ -77,4 +78,4 @@ Pour plus d’informations, consultez [Configuration des stratégies d’authent
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

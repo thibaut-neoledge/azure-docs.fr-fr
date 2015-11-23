@@ -21,8 +21,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d’essai gratuite d’Azure</a>.
+>[AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d’essai gratuite d’Azure</a>.
 
 Ce document de démarrage rapide vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec les API REST Azure Media Services (AMS).
 
@@ -82,8 +81,7 @@ Les étapes suivantes décrivent le flux de travail habituel lors de l’utilisa
 1. Obtention d’un jeton d’accès 
 2. Connexion à l’URI Media Services 
 	
-	>[AZURE.NOTE]
-	Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
+	>[AZURE.NOTE]Après vous être connecté à https://media.windows.net, vous recevrez une redirection 301 spécifiant un autre URI Media Services. Vous devez faire d’autres appels au nouvel URI.
 	> 
 	> Vous pouvez également recevoir une réponse HTTP/1.1 200 qui contient la description des métadonnées de l’API ODATA.
 3. Envoi de vos appels d’API suivants vers la nouvelle URL. 
@@ -147,8 +145,7 @@ L’exemple suivant montre la réponse HTTP qui contient le jeton d’accès dan
 	}
 	
 
->[AZURE.NOTE]
-Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
+>[AZURE.NOTE]Il est recommandé de mettre en cache les valeurs « access\_token » et « expires\_in » sur un stockage externe. Les données du jeton peuvent être récupérées ultérieurement à partir du stockage et réutilisées dans vos appels d’API REST Media Services. Ceci est particulièrement utile pour les scénarios où le jeton peut être partagé en toute sécurité entre plusieurs processus ou ordinateurs.
 
 Veillez à analyser la valeur « expires\_in » du jeton d’accès et à mettre à jour vos appels d’API REST avec de nouveaux jetons le cas échéant.
 
@@ -499,8 +496,7 @@ Maintenant que vous avez téléchargé votre fichier, mettez à jour les informa
 
 **Réponse HTTP**
 
-Si l’opération réussit, l’élément suivant est retourné : 
-	HTTP/1.1 204 No Content
+Si l’opération réussit, l’élément suivant est retourné : HTTP/1.1 204 No Content
 
 ## Suppression du localisateur et d’AcessPolicy 
 
@@ -1012,8 +1008,7 @@ L’exemple suivant montre comment spécifier AccessPolicy pour les autorisation
 
 Si l’opération réussit, un code de succès 201 est renvoyé et décrit l’entité AccessPolicy que vous avez créée. Vous utiliserez ensuite l’ID de l’AccessPolicy et l’ID de la ressource contenant le fichier que vous souhaitez remettre (par exemple, une ressource de sortie) pour créer l’entité de localisateur.
 
->[AZURE.NOTE]
-Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
+>[AZURE.NOTE]Ce flux de travail de base est le même que pour le téléchargement d’un fichier lors de la réception d’une ressource (comme expliqué précédemment dans cette rubrique). En outre, comme pour le téléchargement de fichiers, si vous (ou vos clients) devez accéder à vos fichiers immédiatement, définissez la valeur StartTime cinq minutes avant l’heure actuelle. Cela vient du fait qu’il peut exister un décalage horaire entre le client et Media Services. La valeur de StartTime doit être au format DateTime suivant : AAAA-MM-JJTHH:mm:ssZ (par exemple, « 2014-05-23T17:53:50Z »).
 
 
 ###Création d’une URL SAS pour le téléchargement de contenu 
@@ -1079,8 +1074,7 @@ Si l’opération réussit, la réponse suivante est retournée :
 
 La propriété **Path** retournée contient l’URL SAS.
 
->[AZURE.NOTE]
-Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
+>[AZURE.NOTE]Si vous téléchargez du contenu avec chiffrement de stockage, vous devez le déchiffrer manuellement avant de le restituer ou utiliser le processeur multimédia de déchiffrement de stockage dans une tâche de traitement pour obtenir une sortie de fichiers traités en clair vers un OutputAsset et le télécharger à partir de cette ressource. Pour plus d’informations sur le traitement, consultez la page Création d’une tâche d’encodage avec l’API REST Media Services En outre, les localisateurs d’URL SAS ne peuvent pas être mis à jour après leur création. Par exemple, vous ne pouvez pas réutiliser le même localisateur avec une valeur StartTime mise à jour. Cela est dû au mode de création des URL SAS. Si vous souhaitez accéder à une ressource pour la télécharger après l’expiration d’un localisateur, vous devez en créer un nouveau, avec une nouvelle valeur StartTime.
 
 ###Téléchargement de fichiers
 
@@ -1189,16 +1183,15 @@ Pour tester votre vidéo, utilisez le [lecteur Azure Media Services](http://amsp
 Pour tester le téléchargement progressif, collez l’URL dans un navigateur (par exemple, Internet Explorer, Chrome ou Safari).
 
 
-##Étapes suivantes
+##Étapes suivantes : Parcours d’apprentissage Media Services
 
-###Parcours d’apprentissage de Media Services
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+##Fournir des commentaires
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Vous recherchez quelque chose d’autre ?
+## Vous recherchez quelque chose d’autre ?
 
 Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas les informations recherchées, faites-nous part de vos commentaires à l’aide du fil de discussion Disqus ci-dessous.
 
@@ -1214,4 +1207,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

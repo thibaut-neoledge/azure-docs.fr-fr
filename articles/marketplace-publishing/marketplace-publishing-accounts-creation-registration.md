@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="marketplace-publishing"
+   ms.service="marketplace"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -19,12 +19,12 @@
 # Création d’un compte de vendeur Microsoft
 Cet article décrit la procédure de création de compte et d’enregistrement que vous devez suivre pour devenir vendeur Microsoft agréé sur Azure Marketplace.
 
-## 1. Créer un compte Microsoft (MSA)
-> [AZURE.WARNING] Pour finaliser le processus de publication, vous devez créer un compte Microsoft. Celui-ci vous permettra de vous enregistrer et de vous connecter au Portail de publication et au Tableau de bord du vendeur. Vous ne devez utiliser qu’un compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres spécifiques.
+## 1\. Créer un compte Microsoft (MSA)
+> [AZURE.WARNING]Pour finaliser le processus de publication, vous devez créer un compte Microsoft. Celui-ci vous permettra de vous enregistrer et de vous connecter au Portail de publication et au Tableau de bord du vendeur. Vous ne devez utiliser qu’un compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres spécifiques.
 
-L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@yourcompany.com). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
+L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine et être contrôlée par votre équipe informatique (par exemple, publishing@yourcompany.com)). Les paiements, informations fiscales et rapports seront envoyés via ce compte.
 
-  >[AZURE.WARNING] Les termes tels qu’« Azure » ou « Microsoft » ne sont pas pris en charge pour l’enregistrement d’un compte MSA. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
+  >[AZURE.WARNING]Les termes tels qu’« Azure » ou « Microsoft » ne sont pas pris en charge pour l’enregistrement d’un compte MSA. Évitez de les utiliser si vous souhaitez finaliser le processus de création du compte et d’enregistrement.
 
 1. Créez une liste de distribution (DL) ou un groupe de sécurité (SG) dans le domaine de votre société.
   - Ajoutez votre équipe d’intégration à la liste de distribution
@@ -45,12 +45,12 @@ L’adresse correspondant au nom d’utilisateur doit figurer dans votre domaine
 
 6. Vous êtes maintenant prêt à utiliser votre nouveau compte MSA dans le Tableau de bord du vendeur.
 
-> [AZURE.IMPORTANT] L’utilisation de la liste de distribution permet à plusieurs utilisateurs de recevoir des notifications par e-mail signalant des informations de paiement importantes. Elle permet également d’éviter que la propriété du compte MSA ne soit transférée et qu’elle soit liée à un seul individu.
+> [AZURE.IMPORTANT]L’utilisation de la liste de distribution permet à plusieurs utilisateurs de recevoir des notifications par e-mail signalant des informations de paiement importantes. Elle permet également d’éviter que la propriété du compte MSA ne soit transférée et qu’elle soit liée à un seul individu.
 
-## 2. Créer votre compte Tableau de bord du vendeur
+## 2\. Créer votre compte Tableau de bord du vendeur
 Le Tableau de bord du vendeur Microsoft est utilisé pour enregistrer les informations de la société en une seule opération. Pour pouvoir vous inscrire, vous devez agir en tant que représentant agréé de l’entreprise ; vous aurez à fournir des informations personnelles afin de valider votre identité. Vous devrez également utiliser un compte Microsoft (MSA) partagé pour l’ensemble de l’entreprise et utiliser le même compte dans le Portail de publication Azure. Vérifiez que votre entreprise ne possède pas déjà de compte Tableau de bord du vendeur avant d’essayer d’en créer un. Dans le cadre de ce processus, nous recueillons vos informations bancaires et fiscales, ainsi que l’adresse de votre entreprise. Vous pouvez généralement obtenir ces informations auprès du service financier ou commercial.
 
-> [AZURE.IMPORTANT] Les éléments de profil vendeur suivants doivent être renseignés afin de progresser dans les différentes phases de création et de déploiement d’offres.
+> [AZURE.IMPORTANT]Les éléments de profil vendeur suivants doivent être renseignés afin de progresser dans les différentes phases de création et de déploiement d’offres.
 
 
 | Profil du vendeur | Pour démarrer le projet | Staging | Publier un produit gratuit et un modèle de solution | Publier un produit commercial |
@@ -60,7 +60,7 @@ Le Tableau de bord du vendeur Microsoft est utilisé pour enregistrer les inform
 |Compte bancaire | Facultatif | Facultatif | Facultatif | Obligatoire |
 
 
-> [AZURE.NOTE] Le modèle BYOL est uniquement pris en charge pour les machines virtuelles et est considéré comme une offre **GRATUITE**.
+> [AZURE.NOTE]Le modèle BYOL est uniquement pris en charge pour les machines virtuelles et est considéré comme une offre **GRATUITE**.
 
 
 ### Enregistrer votre compte de société
@@ -142,7 +142,7 @@ Si vous préférez mettre à jour vos données bancaires et fiscales ultérieure
 
 > [AZURE.WARNING]Vous ne pourrez pas mettre en production vos offres commerciales si vous n’avez pas renseigné vos informations fiscales et bancaires dans votre compte du tableau de bord vendeur.
 
-## 3. Enregistrer votre compte dans le Portail de publication
+## 3\. Enregistrer votre compte dans le Portail de publication
 Le Portail de publication Azure permet de publier et gérer vos offres. Il contient des informations utiles qui vous guideront tout au long de la création de votre offre.
 
 > [AZURE.WARNING]Vous devez utiliser ici le même compte société Microsoft que celui qui a servi à vous enregistrer dans le tableau de bord vendeur. Il est possible d’ajouter des utilisateurs supplémentaires une fois que le compte de l’éditeur principal a été créé.
@@ -152,18 +152,13 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 3.	 Connectez-vous avec votre compte Microsoft (MSA) utilisé pour l’enregistrement de la société (c’est-à-dire AZStore@yourcompany.com) et ajoutez des co-administrateurs si vous le souhaitez.
 4.	Lisez et acceptez les conditions du contrat de publication (lors de la première connexion au Portail de publication).
 
-  >[AZURE.TIP] Les règles de participation sont mentionnées [ici](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+  >[AZURE.TIP]Les règles de participation sont mentionnées [ici](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si vous rencontrez des problèmes pendant l’enregistrement du vendeur, ouvrez un ticket de support comme indiqué ci-dessous :
-  1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975)
-  2. Choisissez **Seller Dashboard registration and your account**
-  3. Choisissez **Registering for a developer account**
-  4. Choisissez une **méthode de contact**
+  > Si vous rencontrez des problèmes pendant l’enregistrement du vendeur, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975) 2. Choisissez **Inscription au Tableau de bord vendeur et votre compte** 3. Choisissez **Inscription pour un compte de développeur** 4. Choisissez une **méthode de contact**
 
 ### Pays à partir duquel vous vendez
 
-> [AZURE.WARNING]
-Avant de pouvoir vendre vos services sur Microsoft Azure Marketplace, l’entité enregistrée doit résider dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de paiements et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, reportez-vous à la section 1 b du document au lien [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
+> [AZURE.WARNING]Avant de pouvoir vendre vos services sur Microsoft Azure Marketplace, l’entité enregistrée doit résider dans l’un des pays autorisés. Cette restriction s’applique pour des raisons de revenus et de taxes. Nous cherchons activement à étendre cette liste de pays dans un avenir proche, donc restez connecté. Pour obtenir la liste complète, reportez-vous à la section 1 b du document au lien [http://go.microsoft.com/fwlink/?LinkID=526833](http://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 
@@ -171,12 +166,7 @@ Avant de pouvoir vendre vos services sur Microsoft Azure Marketplace, l’entit�
 ## Étapes suivantes
 Maintenant que votre compte est créé et enregistré, cliquez sur le type d’artefact (machine virtuelle, service de développeur, service de données, modèle de solution) que vous souhaitez publier sur Azure Marketplace. Visitez l’un des articles suivants pour apprendre à publier votre offre :
 
-|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution |
-|----|-----|-----|-----|-----|
-|**Étape 2 : Créer votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)|
-|| [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | Conditions techniques requises pour les services de données | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
-|| [Guide de publication d’images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | Guide de publication de services de données | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
-|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
+|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution | |----|-----|-----|-----|-----| |**Étape 2 : Créer votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| || [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | Conditions techniques requises pour les services de données | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guide de publication d’images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | Guide de publication de services de données | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) | || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
 
 ## Voir aussi
 - [Mise en route : publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)
@@ -208,4 +198,4 @@ Maintenant que votre compte est créé et enregistré, cliquez sur le type d’a
 [link-devsvc-prereq]: marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

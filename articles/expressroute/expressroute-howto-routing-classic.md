@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Configuration du routage pour un circuit ExpressRoute | Microsoft Azure"
+   pageTitle="Configuration du routage pour un circuit ExpressRoute pour le modèle de déploiement classique à l’aide de PowerShell | Microsoft Azure"
    description="Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit."
    documentationCenter="na"
    services="expressroute"
@@ -13,23 +13,22 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Création et modification de la configuration du routage ExpressRoute
+# Créer et modifier le routage pour un circuit ExpressRoute à l’aide de PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-routing-classic.md)
-[PowerShell Resource Manager](expressroute-howto-routing-arm.md)
+[PowerShell - Classic](expressroute-howto-routing-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
 
 Cet article vous guide tout au long des étapes de création et de gestion d’une configuration de routage d'un circuit ExpressRoute à l'aide des applets de commande PowerShell et du modèle de déploiement classique. Les étapes ci-dessous vous montreront également comment vérifier l'état, mettre à jour ou supprimer et annuler l’approvisionnement des homologations d'un circuit ExpressRoute.
 
->[AZURE.IMPORTANT]Il est important de comprendre qu’Azure fonctionne actuellement avec deux modèles de déploiement : Resource Manager et classique. Avant de commencer votre configuration, assurez-vous que vous comprenez les modèles de déploiement et les outils. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
-
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Conditions préalables à la configuration
 
-- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le module PowerShell le plus récent à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d'Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d'utiliser les modules Azure PowerShell. 
+- Vous devez utiliser la dernière version des modules Azure PowerShell. Vous pouvez télécharger et installer le dernier module PowerShell à partir de la section PowerShell de la [page de téléchargements Azure](http://azure.microsoft.com/downloads). Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md) pour savoir comment configurer votre ordinateur afin d’utiliser les modules Azure PowerShell. 
 - Veillez à consulter les pages relatives aux [conditions préalables](expressroute-prerequisites.md), à la [configuration requise pour le routage](expressroute-routing.md) et aux [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 - Vous devez disposer d’un circuit ExpressRoute actif. Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le activer par votre fournisseur de connectivité avant de poursuivre. Le circuit ExpressRoute doit être dans un état approvisionné et activé pour être en mesure d'exécuter les applets de commande décrites ci-dessous.
 
@@ -41,7 +40,7 @@ Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publ
 
 Cette section fournit des instructions sur la façon de créer, obtenir, mettre à jour et supprimer la configuration d'homologation privée Azure pour un circuit ExpressRoute.
 
-### Création d’une homologation privée Azure
+### Pour créer une homologation privée Azure
 
 1. **Importez le module PowerShell pour ExpressRoute.**
 	
@@ -52,7 +51,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 2. **Créez un circuit ExpressRoute.**
 	
-	Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
+	Suivez les instructions permettant de créer [un circuit ExpressRoute](expressroute-howto-circuit-classic.md) et faites-le approvisionner par le fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
 
 3. **Vérifiez que le circuit ExpressRoute est approvisionné.**
 
@@ -95,7 +94,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
-### Obtenir les détails d’une homologation privée Azure
+### Pour obtenir les détails d’une homologation privée Azure
 
 Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de commande suivante
 
@@ -115,25 +114,26 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 	VlanId                         : 100
 
 
-### Mise à jour de la configuration d'homologation privée Azure
+### Pour mettre à jour la configuration d'homologation privée Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante. Dans l'exemple ci-dessous, l'ID VLAN du circuit est mis à jour de 100 à 500.
 
 	Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
-### Suppression d’une homologation privée Azure
+### Pour supprimer une homologation privée Azure
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante.
 
+>[AZURE.WARNING]Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
+
 	Remove-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
->[AZURE.IMPORTANT]Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d'exécuter cette applet de commande.
 
 ## Homologation publique Azure
 
 Cette section fournit des instructions sur la façon de créer, obtenir, mettre à jour et supprimer la configuration d'homologation publique Azure pour un circuit ExpressRoute.
 
-### Création d’une homologation publique Azure
+### Pour créer une homologation publique Azure
 
 1. **Importez le module PowerShell pour ExpressRoute.**
 	
@@ -188,7 +188,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 	>[AZURE.IMPORTANT]Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
 
-### Obtenir les détails d’une homologation publique Azure
+### Pour obtenir les détails d’une homologation publique Azure
 
 Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de commande suivante
 
@@ -208,7 +208,7 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 	VlanId                         : 200
 
 
-### Mise à jour de la configuration d'homologation publique Azure
+### Pour mettre à jour la configuration d'homologation publique Azure
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante
 
@@ -216,7 +216,7 @@ Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’app
 
 L'ID VLAN du circuit est mis à jour de 200 à 600 dans l’exemple ci-dessus.
 
-### Suppression d’une homologation publique Azure
+### Pour supprimer une homologation publique Azure
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante
 
@@ -226,7 +226,7 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 
 Cette section fournit des instructions sur la façon de créer, obtenir, mettre à jour et supprimer la configuration d'homologation Microsoft pour un circuit ExpressRoute.
 
-### Création d’une homologation Microsoft
+### Pour créer une homologation Microsoft
 
 1. **Importez le module PowerShell pour ExpressRoute.**
 	
@@ -278,7 +278,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 		New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
 
-### Obtenir des détails sur l’homologation Microsoft
+### Pour obtenir des détails sur l’homologation Microsoft
 
 Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de commande suivante.
 
@@ -298,13 +298,13 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 	VlanId                         : 300
 
 
-### Mise à jour de la configuration d’homologation Microsoft
+### Pour mettre à jour la configuration d’homologation Microsoft
 
 Vous pouvez mettre à jour toute partie de la configuration à l'aide de l’applet de commande suivante.
 
 		Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### Suppression d’une homologation Microsoft
+### Pour supprimer une homologation Microsoft
 
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante.
 
@@ -312,8 +312,10 @@ Vous pouvez supprimer votre configuration d’homologation en exécutant l’app
 
 ## Étapes suivantes
 
--  Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md).
--  Pour plus d'informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
--  Pour plus d'informations sur l'homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
+Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-<!---HONumber=Nov15_HO2-->
+
+-  Pour plus d’informations sur les workflows, consultez [Workflows ExpressRoute](expressroute-workflows.md).
+-  Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
+
+<!---HONumber=Nov15_HO3-->

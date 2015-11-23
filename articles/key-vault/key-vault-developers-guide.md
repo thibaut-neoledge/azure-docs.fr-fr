@@ -5,15 +5,15 @@
    documentationCenter=""
    authors="BrucePerlerMS"
    manager="mbaldwin"
-   editor="mbaldwin" />
+   editor="bruceper" />
 <tags
    ms.service="key-vault"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="mbaldwin" />
+   ms.date="11/06/2015"
+   ms.author="bruceper" />
 
 # Guide du développeur de coffre de clés Azure
 
@@ -33,21 +33,11 @@ Les opérations sur des coffres de clés sont authentifiées et autorisées à l
 
 ## Programmation de coffre de clés
 
-Le système de gestion de coffre de clés pour les programmeurs se compose de plusieurs interfaces, avec REST comme base. Cet article de la référence REST présente les concepts fondamentaux, [À propos des clés et des secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx)
+Le système de gestion de coffre de clés pour les programmeurs se compose de plusieurs interfaces, avec REST comme base. [Référence sur l'API REST Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-### REST
-
-L'API REST est le fondement de toute interaction par programme avec le coffre de clés.
-
-Le coffre de clés possède son propre point de terminaison REST qui est décrit dans la [référence API REST de coffre de clés](https://msdn.microsoft.com/library/azure/dn903609.aspx)
-
-### .NET
-
-L'API .NET est un ensemble de wrappers qui permet la mise en œuvre via le modèle de programmation C# sans avoir besoin d'interagir directement avec le point de terminaison REST. Ici, vous pouvez trouver la [référence d'API client .NET de coffre de clés](https://msdn.microsoft.com/library/azure/dn903301.aspx).
-
-### Node.js
-
-L'API Node.js est un ensemble de wrappers qui permet la mise en œuvre via le modèle de programmation node.js sans avoir besoin d'interagir directement avec le point de terminaison REST. Vous trouverez ici le [Microsoft Azure SDK pour Node.js - Gestionnaire de clés de coffre](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/).
+|[![.NET](./media/key-vault-developers-guide/net.png)](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[![Node.js](./media/key-vault-developers-guide/nodejs.png)](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+|:--:|:--:|
+|[.NET](https://msdn.microsoft.com/library/azure/dn903301.aspx)|[Node.JS](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
 
 ## Gestion des coffres de clés
 
@@ -67,5 +57,12 @@ Les articles suivants fournissent des conseils spécifiques à des tâches :
 ## Exemples
 
 - Ce téléchargement contient l'exemple d'application HelloKeyVault et un exemple de service web Azure. [Exemples coffre de clés Azure](http://www.microsoft.com/download/details.aspx?id=45343)
+- Utilisez ce didacticiel pour vous aider à comprendre comment utiliser Azure Key Vault à partir d'une application web. [Utilisation d'Azure Key Vault à partir d'une application web](key-vault-use-from-web-application.md)
 
-<!---HONumber=Nov15_HO2-->
+## Bibliothèques connexes
+
+- [Microsoft Azure Key Vault Core Library](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/1.0.0) fournit les interfaces IKey et IKeyResolver pour localiser les clés des identificateurs et effectuer des opérations avec des clés.
+
+- [Microsoft Azure Key Vault Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/1.0.0) fournit des fonctionnalités étendues pour Azure Key Vault.
+
+<!---HONumber=Nov15_HO3-->

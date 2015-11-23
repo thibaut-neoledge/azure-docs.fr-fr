@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Utilisation du connecteur File dans des applications logiques | Microsoft Azure App Service"
 	description="Comment créer et configurer le connecteur File ou une application API et l'utiliser dans une application logique d’Azure App Service"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur File dans votre application logique
 Connectez-vous à un système de fichiers pour, entre autres, charger, télécharger vos fichiers sur un ordinateur hôte. Les applications logiques peuvent se déclencher selon diverses sources de données et proposent des connecteurs pour obtenir et traiter les données. Vous pouvez ajouter le connecteur File à votre flux d’entreprise et traiter les données dans le cadre de ce flux de travail dans une application logique.
@@ -85,4 +85,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [Définition des API du connecteur File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Utilisation du Gestionnaire de connexion hybride]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

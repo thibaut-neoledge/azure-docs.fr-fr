@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-Cet article décrit comment utiliser l’interface de ligne de commande Azure (interface CLI Azure) dans le mode Azure Resource Manager pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l’aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell, et dans le portail Azure en version préliminaire.
+Cet article décrit comment utiliser l’interface de ligne de commande Azure (interface CLI Azure) dans le mode Azure Resource Manager pour créer, gérer et supprimer des services sur la ligne de commande des ordinateurs Mac, Linux et Windows. Vous pouvez effectuer la plupart de ces tâches à l’aide des différentes bibliothèques des Kits de développement logiciel (SDK) Azure, avec Azure PowerShell et dans le portail Azure en version préliminaire.
 
 Azure Resource Manager vous permet de créer un groupe de ressources (machines virtuelles, sites web, bases de données, etc.) en tant qu’unité déployable unique. Vous pouvez ensuite déployer, mettre à jour ou supprimer toutes les ressources de votre application en une opération unique et coordonnée. Vous décrivez vos ressources de groupe dans un modèle JSON pour le déploiement et pouvez ensuite utiliser ce modèle pour les différents environnements (test, intermédiaire et de production).
 
@@ -1742,4 +1742,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 # Utilisation et ajout du connecteur Box dans votre application logique 
 Connectez-vous à votre compte Box pour, entre autres, afficher, télécharger, supprimer vos fichiers. Les connecteurs sont utilisés dans les applications logiques dans le cadre d’un « flux de travail ».
@@ -66,8 +66,7 @@ Un connecteur peut être créé dans une application logique ou directement à p
 
 1. Dans le tableau d'accueil Azure, sélectionnez **Marketplace**.
 2. Recherchez « Connecteur Box », sélectionnez-le et sélectionnez **Créer**.
-3. Entrez le nom, le plan App Service et d'autres propriétés :
-![][1]
+3. Entrez le nom, le plan App Service et d'autres propriétés : ![][1]
 4. Sélectionnez **Créer**.
 
 
@@ -81,21 +80,18 @@ Une fois votre application API créée, vous pouvez utiliser le connecteur Box c
 
 2. Authentifier et autoriser des applications logiques pour effectuer des opérations en votre nom. Sélectionnez **Autoriser** sur le connecteur Box : ![][2]
 
-3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations :
-![][3]
+3. Entrez les détails de connexion du compte Box sur lequel vous voulez effectuer les opérations : ![][3]
 
-4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom :
-![][4]
+4. Octroyez aux applications logiques l'accès à votre compte pour effectuer l'opération en votre nom : ![][4]
 
-5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter :
-![][5]
+5. Une liste des actions s'affiche dans laquelle vous pouvez choisir l'opération appropriée à exécuter : ![][5]
 
 ## En faire plus avec votre connecteur
 Maintenant que le connecteur est créé, vous pouvez l'ajouter à un flux d'entreprise à l'aide d'une application logique. Voir [Que sont les applications logiques ?](app-service-logic-what-are-logic-apps.md).
 
 >[AZURE.NOTE]Si vous voulez vous familiariser avec Azure Logic Apps avant d'ouvrir un compte Azure, accédez à la page [Essayer Logic App](https://tryappservice.azure.com/?appservice=logic), où vous pourrez créer immédiatement une application logique temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
-Affichez la référence d'API REST Swagger sur [Référence de connecteurs et d'applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Affichez la référence d’API REST Swagger sur [Référence de connecteurs et d’applications API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Vous pouvez également consulter les statistiques de performances et contrôler la sécurité du connecteur. Consultez la page [Gestion et contrôle de vos connecteurs et applications API intégrés](app-service-logic-monitor-your-connectors.md).
 
@@ -106,4 +102,4 @@ Vous pouvez également consulter les statistiques de performances et contrôler 
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

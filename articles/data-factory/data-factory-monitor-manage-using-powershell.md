@@ -414,8 +414,6 @@ Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller c
 
 Consultez la [référence des applets de commande Data Factory][cmdlet-reference] pour obtenir une documentation complète sur les applets de commande Data Factory.
 
-## Envoyer des commentaires
-Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez quelques minutes pour nous envoyer vos commentaires par [e-mail](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -437,4 +435,4 @@ Nous souhaiterions vraiment obtenir vos commentaires sur cet article. Prenez que
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

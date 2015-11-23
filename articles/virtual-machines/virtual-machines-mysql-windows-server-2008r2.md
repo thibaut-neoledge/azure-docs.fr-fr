@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/10/2015"
+	ms.date="11/09/2015"
 	ms.author="cynthn"/>
 
 
@@ -25,7 +25,7 @@
 
 [MySQL](http://www.mysql.com) est une base de données SQL open source connue. Vous pouvez créer une machine virtuelle exécutant Windows Server 2012 R2 à partir de la bibliothèque d’images du [portail Azure](http://manage.windowsazure.com). Vous pouvez ensuite l'installer et la configurer en tant que serveur MySQL Server.
 
-Pour obtenir des instructions sur l’installation de MySQL sur Linux, voir [Installation de MySQL sur Azure](virtual-machines-linux-install-mysql.md).
+Pour obtenir des instructions sur l’installation de MySQL sur Linux, consultez [Installation de MySQL sur Azure](virtual-machines-linux-install-mysql.md).
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -59,8 +59,8 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 1.	Une fois connecté à la machine virtuelle à l’aide du Bureau à distance, cliquez sur **Internet Explorer** dans l’écran d’accueil.
 2.	Sélectionnez le bouton **Outils** dans l’angle supérieur droit (icône en forme de roue dentée), puis cliquez sur **Options Internet**. Cliquez successivement sur l’onglet **Sécurité**, sur l’icône **Sites de confiance**, puis sur le bouton **Sites**. Ajoutez http://*.mysql.com à la liste des sites de confiance. Cliquez sur **Fermer**, puis sur **OK**.
 3.	Dans la barre d’adresse d’Internet Explorer, tapez http://dev.mysql.com/downloads/mysql/.
-4.	Utilisez le site MySQL pour rechercher et télécharger la dernière version du programme d'installation de MySQL pour Windows. Lorsque vous choisissez le programme d'installation de MySQL, téléchargez la version qui comporte le jeu de fichiers complet (par exemple, le fichier mysql-installer-community-5.6.23.0.msi d'une taille de 282,4 Mo) et enregistrez le fichier d'installation sur le Bureau Windows.
-5.	Sur le Bureau, double-cliquez sur le fichier pour lancer l'installation.
+4.	Utilisez le site MySQL pour rechercher et télécharger la dernière version du programme d'installation de MySQL pour Windows. Lorsque vous choisissez le programme d'installation de MySQL, téléchargez la version qui comporte le jeu de fichiers complet (par exemple, le fichier mysql-installer-community-5.6.23.0.msi d'une taille de 282,4 Mo) et enregistrez le fichier d'installation.
+5.	Lorsque le programme d'installation est téléchargé, cliquez sur **Exécuter** pour le lancer.
 6.	Sur la page **Contrat de licence**, acceptez le contrat de licence, puis cliquez sur **Suivant**.
 7.	Sur la page **Choix du type de configuration**, cliquez sur le type souhaité, puis sur **Suivant**. Les étapes suivantes reposent sur l’hypothèse que vous avez sélectionné le type **Serveur uniquement**.
 8.	Sur la page **Installation**, cliquez sur **Exécuter**. Une fois l’installation terminée, cliquez sur **Suivant**.
@@ -91,6 +91,7 @@ Pour installer, configurer et exécuter la version Community de MySQL Server, pr
 
 19.	Vous pouvez également configurer les paramètres par défaut de la configuration serveur, tels que les lecteurs et les répertoires de base et de données, avec les entrées du fichier C:\\Program Files (x86) \\MySQL\\MySQL Server 5.6\\my-default.ini. Pour plus d’informations, consultez la section [5\.1.2 Paramètres par défaut de la configuration serveur](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html) (en anglais).
 
+## Configuration des points de terminaison
 
 Si vous souhaitez que le service MySQL Server soit disponible pour les ordinateurs du client MySQL sur Internet, vous devez configurer un point de terminaison pour le port TCP sur lequel le service MySQL Server écoute et créer une nouvelle règle de pare-feu Windows. Il s’agit du port TCP 3306, sauf si vous en spécifiez un autre sur la page **Type et réseau** (étape 10 de la procédure précédente).
 
@@ -106,9 +107,16 @@ Pour configurer un point de terminaison pour le service MySQL Server :
 4.	Si vous utilisez le port TCP MySQL 3306 par défaut, cliquez sur **MySQL** dans le champ **Nom**, puis sur la coche.
 5.	Si vous utilisez un autre port TCP, tapez un nom unique dans le champ **Nom**. Sélectionnez **TCP** dans le protocole, tapez le numéro du port dans **Port public** et **Port privé**, puis cliquez sur la coche.
 
-Pour ajouter une règle de pare-feu Windows qui autorise le trafic MySQL à partir d’Internet, exécutez la commande suivante dans une invite de commandes Windows PowerShell de niveau administrateur sur l’ordinateur serveur MySQL.
+## Ajouter une règle de Pare-feu Windows pour autoriser le trafic MySQL
+
+Pour ajouter une règle de Pare-feu Windows qui autorise le trafic MySQL à partir d’Internet, exécutez la commande suivante dans une invite de commandes Windows PowerShell avec élévation de privilèges sur la machine virtuelle du serveur MySQL.
 
 	New-NetFirewallRule -DisplayName "MySQL56" -Direction Inbound –Protocol TCP –LocalPort 3306 -Action Allow -Profile Public
+
+
+	
+## Tester votre connexion à distance
+
 
 Pour tester votre connexion à distance au service MySQL Server exécuté sur la machine virtuelle Azure, vous devez d'abord déterminer le nom DNS correspondant au service cloud qui contient la machine virtuelle exécutant MySQL Server.
 
@@ -130,4 +138,4 @@ Pour tester votre connexion à distance au service MySQL Server exécuté sur l
 
 Pour plus d’informations sur MySQL, consultez la [Documentation MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

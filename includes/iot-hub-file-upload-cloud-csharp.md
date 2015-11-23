@@ -3,7 +3,7 @@
 
 ## Envoi d’un URI d’objet blob Azure à l’appareil simulé
 
-Dans cette section, vous allez modifier l’application console **SendCloudtoDevice** que vous avez créée dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] pour inclure un URI d’objet blob Azure avec une signature d’accès partagé. Cela permet au serveur principal d’accorder l’accès en écriture à l’objet blob uniquement au destinataire du message de cloud vers des appareils.
+Dans cette section, vous allez modifier l’application console **SendCloudtoDevice** que vous avez créée dans [Envoyer des messages du cloud vers des appareils avec IoT Hub] pour inclure un URI d’objet blob Azure avec une signature d’accès partagé. Cela permet au serveur principal d’accorder l’accès en écriture à l’objet blob uniquement au destinataire du message du cloud vers l’appareil.
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet **SendCloudtoDevice**, puis sur **Gérer les packages NuGet**. 
 
@@ -70,4 +70,4 @@ Dans cette section, vous allez modifier l’application console **SendCloudtoDev
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

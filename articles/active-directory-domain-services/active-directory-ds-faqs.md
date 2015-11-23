@@ -30,7 +30,7 @@ Reportez-vous à notre [Guide de résolution des problèmes](active-directory-ds
 Non. Vous ne pouvez créer qu’un seul domaine pris en charge par les services de domaine Azure AD par annuaire Azure AD.
 
 #### Puis-je rendre les services de domaine Azure AD disponibles dans plusieurs réseaux virtuels au sein de mon abonnement ?
-Le service lui-même ne prend pas directement en charge ce scénario. Les services de domaine Azure AD sont disponibles dans un seul réseau virtuel à la fois. Toutefois, vous pouvez configurer la connectivité entre plusieurs réseaux virtuels afin d’exposer les services de domaine Azure AD à d’autres réseaux virtuels. Cet article décrit comment vous pouvez [connecter des réseaux virtuels dans Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnetconnection.md).
+Le service lui-même ne prend pas directement en charge ce scénario. Les services de domaine Azure AD sont disponibles dans un seul réseau virtuel à la fois. Toutefois, vous pouvez configurer la connectivité entre plusieurs réseaux virtuels afin d’exposer les services de domaine Azure AD à d’autres réseaux virtuels. Cet article décrit comment vous pouvez [connecter des réseaux virtuels dans Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Puis-je activer les services de domaine Azure AD à l’aide de PowerShell ?
 Le déploiement à l’aide de PowerShell ou automatisé des services de domaine Azure AD n’est pas disponible actuellement.
@@ -68,4 +68,4 @@ Pour obtenir la liste des régions Azure où les services de domaine Azure AD s
 #### Quand les services de domaine Azure AD seront-ils mis à la disposition générale ?
 Nous ne pouvons actuellement fournir aucun calendrier quant à la mise à disposition générale du service.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

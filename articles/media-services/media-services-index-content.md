@@ -281,12 +281,14 @@ autres | Erreurs internes | Veuillez contacter l’équipe du support technique.
 Les langues prises en charge pour le moment sont l’anglais et l’espagnol. Pour plus d’informations, consultez [ce billet de blog de v1.2](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 
-## Parcours d’apprentissage de Media Services
+##Parcours d’apprentissage de Media Services
 
-Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Workflow de vidéo en flux continu AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Workflow de streaming à la demande AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 
 ## Liens connexes
@@ -299,4 +301,4 @@ Vous pouvez afficher les parcours d’apprentissage d’AMS ici :
 
 <!-- URLs. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

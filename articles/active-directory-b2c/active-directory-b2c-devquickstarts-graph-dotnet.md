@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Version préliminaire d'Azure AD B2C | Microsoft Azure"
+	pageTitle="Version préliminaire d’Azure AD B2C : utilisation de l’API Graph | Microsoft Azure"
 	description="Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -249,7 +249,7 @@ Pour voir cette requête en action, essayez d'exécuter une des commandes suivan
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-La commande `Create-User` prend un fichier `.json` comme paramètre d’entrée, qui contient la représentation JSON d’un objet utilisateur. L’exemple de code contient deux exemples de fichiers `.json` : `usertemplate-email.json` et `usertemplate-username.json` que vous pouvez modifier pour répondre à vos besoins. Outre les champs obligatoires ci-dessus, il existe plusieurs champs facultatifs inclus dans ces fichiers que vous pouvez utiliser. Vous trouverez plus d’informations sur ces champs dans la [référence d’entité API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
+La commande `Create-User` prend un fichier `.json` comme paramètre d’entrée, qui contient la représentation JSON d’un objet utilisateur. L’exemple de code contient deux exemples de fichiers `.json` : `usertemplate-email.json` et `usertemplate-username.json` que vous pouvez modifier pour répondre à vos besoins. Outre les champs obligatoires ci-dessus, il existe plusieurs champs facultatifs inclus dans ces fichiers que vous pouvez utiliser. Vous trouverez plus d'informations sur ces champs dans la [référence d'entité API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
 
 Vous pouvez voir comment cette requête POST est conçue dans `B2CGraphClient.SendGraphPostRequest(...)`, qui :
 
@@ -349,4 +349,4 @@ Et c'est terminé ! Avec B2CGraphClient, vous disposez maintenant d’une appli
 
 Si vous avez des questions ou des demandes d’action que vous souhaitez exécuter avec l’API Graph dans votre client B2C, nous sommes à votre écoute ! Entrez un commentaire sur l’article ou enregistrez un problème dans le référentiel GitHub d’exemple de code.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

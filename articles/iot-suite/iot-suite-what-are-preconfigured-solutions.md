@@ -58,7 +58,7 @@ Un hub IoT reçoit les données de télémétrie en provenance des refroidisseur
 
 Le hub IoT expose les données de télémétrie qu’il reçoit via un point de terminaison de groupe de consommateurs.
 
-L’instance d’IoT Hub dans cette solution préconfigurée correspond à l’**application principale IoT** dans une architecture de solution IoT classique.
+L’instance IoT Hub de cette solution préconfigurée correspond à une **passerelle cloud** dans une architecture de solution IoT classique.
 
 ### Azure Stream Analytics
 
@@ -91,4 +91,4 @@ Explorez ces ressources pour en savoir plus sur les solutions IoT préconfiguré
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

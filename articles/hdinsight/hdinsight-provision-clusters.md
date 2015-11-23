@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/29/2015"
+   ms.date="11/07/2015"
    ms.author="jgao"/>
 
 # Création de clusters Hadoop dans HDInsight
@@ -168,20 +168,25 @@ Les clusters ne peuvent pas conserver les modifications lorsqu’ils ont été r
 Voici un exemple de script Azure PowerShell de personnalisation d'une configuration Hive :
 
 	# hive-site.xml configuration
-	$hiveConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightHiveConfiguration'
-	$hiveConfigValues.Configuration = @{ "hive.metastore.client.socket.timeout"="90" } #default 60
-
-	$config = New-AzureHDInsightClusterConfig `
-	            -ClusterSizeInNodes $clusterSizeInNodes `
-	            -ClusterType $clusterType `
-	          | Set-AzureHDInsightDefaultStorage `
-	            -StorageAccountName $defaultStorageAccount `
-	            -StorageAccountKey $defaultStorageAccountKey `
-	            -StorageContainerName $defaultBlobContainer `
-	          | Add-AzureHDInsightConfigValues `
-	            -Hive $hiveConfigValues
-
-	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $credential -OSType Windows -Config $config
+	$hiveConfigValues = @{ "hive.metastore.client.socket.timeout"="90" }
+	
+	$config = New-AzureRmHDInsightClusterConfig `
+		| Set-AzureRmHDInsightDefaultStorage `
+			-StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+			-StorageAccountKey $defaultStorageAccountKey `
+		| Add-AzureRmHDInsightConfigValues `
+			-HiveSite $hiveConfigValues 
+	
+	New-AzureRmHDInsightCluster `
+		-ResourceGroupName $existingResourceGroupName `
+		-ClusterName $clusterName `
+		-Location $location `
+		-ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop `
+		-OSType Windows `
+		-Version "3.2" `
+		-HttpCredential $httpCredential `
+		-Config $config 
 
 Et d’autres exemples sur la personnalisation d’autres fichiers de configuration :
 
@@ -192,12 +197,10 @@ Et d’autres exemples sur la personnalisation d’autres fichiers de configurat
 	$CoreConfigValues = @{ "ipc.client.connect.max.retries"="60" } #default 50
 
 	# mapred-site.xml configuration
-	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
-	$MapRedConfigValues.Configuration = @{ "mapreduce.task.timeout"="1200000" } #default 600000
+	$MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 
 	# oozie-site.xml configuration
-	$OozieConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightOozieConfiguration'
-	$OozieConfigValues.Configuration = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
+	$OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 
 Pour plus d’informations, consultez le blog d’Azim Uddin, intitulé[Personnalisation de la création d’un cluster HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
 
@@ -264,10 +267,10 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 
    		![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
-  		* **Méthode de sélection**: affectez la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez la valeur **Clé d’accès** si vous souhaitez entrer le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
-  		* **Sélectionner le compte de stockage/Créer un compte**: cliquez sur **Sélectionner le compte de stockage** pour rechercher et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer** pour créer un compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
-  		* **Choisir le conteneur par défaut**: utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
-  		* **Emplacement**: région géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé. Cet emplacement détermine l'emplacement du cluster.  Le cluster et le compte de stockage par défaut doit se situer dans le même datacenter Azure.
+  		* **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+  		* **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+  		* **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+  		* **Location**: The geographic region that the storage account is in, or will be created in. This location will determine the cluster location.  The cluster and its default storage account must co-locate in the same Azure data center.
   	
   * **Niveaux de tarification du nœud** : définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé du cluster s'affiche dans le panneau.
   
@@ -277,33 +280,33 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 
   * **Configuration facultative** sert à sélectionner la version de cluster et à configurer d’autres paramètres facultatifs, par exemple ajouter un **Réseau virtuel**, définir un **Metastore externe** pour conserver les données Hive et Oozie, utilisez des Actions de Script pour personnaliser un cluster et installer des composants personnalisés ou utiliser des comptes de stockage supplémentaires avec le cluster.
 
-  		* **Version HDInsight**: sélectionnez la version que vous souhaitez utiliser pour le cluster. Pour plus d’informations, consultez la rubrique [Versions de clusters HDInsight](hdinsight-component-versioning.md).
-  		* **Réseau virtuel**: sélectionnez un réseau virtuel Azure et le sous-réseau si vous souhaitez placer le cluster dans un réseau virtuel.  
+  		* **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+  		* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
 
 			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-			>[AZURE.NOTE] Le cluster HDInsight Windows ne peut être placé que sur un réseau virtuel classique.
+			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
   
 
   		
-		* **Metastores externes**: permet de spécifier la base de données SQL 
+		* **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
  
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
 
-			Pour **Utiliser une base de données SQL existante pour les métadonnées Hive**, cliquez sur **Oui**, sélectionnez une base de données SQL, puis indiquez le nom d’utilisateur/mot de passe pour la base de données. Répétez ces étapes si vous souhaitez **utiliser une base de données SQL existante pour les métadonnées Oozie**. Cliquez sur **Sélectionner** jusqu’à ce que vous reveniez au panneau **Configuration facultative**.
+			For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
 
 
-			>[AZURE.NOTE] La base de données SQL Azure utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, y compris Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL, cliquez sur le nom du serveur.  Il s'agit du serveur sur lequel l'instance de base de données SQL est exécutée. Une fois sur l’écran du serveur, cliquez sur **Configurer**, puis pour **Services Azure**, cliquez sur **Oui**, puis sur **Enregistrer**.
+			>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 		
-  		* **Actions de script** vous permet d’utiliser un script personnalisé pour personnaliser un cluster au moment de sa création. Pour plus d’informations sur les actions de script, consultez l’article [Personnaliser des clusters HDInsight à l’aide d’une d’action de script](hdinsight-hadoop-customize-cluster.md). Dans le panneau Actions de script, saisissez les informations requises, comme illustré dans la capture d’écran ci-dessous.
+  		* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
   	
 
 			![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
 
 
-    	* **Clés de stockage Azure**: permet de spécifier des comptes de stockage supplémentaire à associer au cluster. Dans le panneau **Clés de stockage Azure**, cliquez sur **Ajouter une clé de stockage**, puis sélectionnez un compte de stockage existant ou créez-en un.
+    	* **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
     
 
 			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
@@ -344,42 +347,46 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
 	* **Balises** (![icône de balise](./media/hdinsight-provision-clusters/tags.png)) : permettent de spécifier des paires clé/valeur pour définir une classification personnalisée de vos services cloud. Vous pouvez par exemple créer une clé nommée __projet__, puis utiliser une valeur commune pour tous les services associés à un projet spécifique.
 
 
-## Création à l’aide du modèle Azure Resource Manager
+## Créer à l’aide d’un modèle ARM
 
-Le modèle Azure Resource Manager (ARM) facilite le déploiement et le redéploiement du cluster. La procédure qui suit crée un cluster Hadoop sur le système d’exploitation Linux dans le centre de données Europe du Nord avec 4 nœuds Workerl.
+Le modèle Azure Resource Manager (ARM) facilite le déploiement et le redéploiement du cluster. La procédure suivante crée un cluster HDInsight sous Linux.
 
 **Pour déployer un cluster à l’aide du modèle ARM**
 
-1. Enregistrez le fichier json dans l’annexe A de votre station de travail.
+1. Enregistrez le fichier json dans l’[annexe A](#appendix-a---arm-template) de votre poste de travail.
 2. Vérifiez les paramètres si nécessaire.
 3. Exécutez le modèle à l’aide du script PowerShell suivant.
 
-		$resourceGroupName = "<ResourceGroupName>"
-		$Location = "<ResourceGroupLocation>"
+		$subscriptionId = "<Azure Subscription ID"
 		
-		$armDeploymentName = "<ARMDeploymentName>"
-		$clusterName = "<ClusterName>"
-		$clusterStorageAccountName = "<DefaultStorageAccountName>"
-		
+		$newResourceGroupName = "<Azure Resource Group Name>"
+		$Location = "EAST US 2" # for creating ARM group
+				
+		$armDeploymentName = "New-HDInsigt-Cluster-" + (Get-Date -Format MMdd)
+		$newClusterName = "<HDInsight Cluster Name>"
+		$clusterStorageAccountName = "<Default Storage Account Name>"
+				
 		# Connect to Azure
-		Switch-AzureMode -Name AzureResourceManager
-		Add-AzureAccount
-		
+		#Login-AzureRmAccount
+		#Select-AzureRmSubscription -SubscriptionId $subscriptionId
+				
 		# Create a resource group
-		New-AzureResourceGroup -Name $resourceGroupName -Location $Location
-		
+		New-AzureRmResourceGroup -Name $newResourceGroupName -Location $Location
+				
 		# Create cluster and the dependent storage accounge
-		$parameters = @{clusterName="$clusterName";clusterStorageAccountName="$clusterStorageAccountName"}
-		
-		New-AzureResourceGroupDeployment `
-		    -Name $armDeploymentName `
-		    -ResourceGroupName $resourceGroupName `
-		    -TemplateFile E:\Tutorials\HDIARMTemplates\ARMTemplate-create-hadoop-cluster-with-storage.json `
-		    -TemplateParameterObject $parameters
-		
+		$parameters = @{clusterName="$newClusterName";clusterStorageAccountName="$clusterStorageAccountName"}
+				
+		New-AzureRmResourceGroupDeployment `
+			-Name $armDeploymentName `
+			-ResourceGroupName $newResourceGroupName `
+			-TemplateFile E:\HDITutorials-ARM\Create-clusters\hdinsight-arm-template.json `
+			-TemplateParameterObject $parameters
+				
 		# List cluster
-		Get-AzureHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+		Get-AzureRmHDInsightCluster -ResourceGroupName $newResourceGroupName -ClusterName $newClusterName 
 
+	Le script PowerShell configure uniquement le nom du cluster et le nom du compte de stockage. Vous pouvez définir d'autres valeurs dans le modèle ARM.
+	
 Pour déployer un modèle ARM en utilisant les autres méthodes, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
 
@@ -394,64 +401,33 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
 - Création d'un conteneur d'objets blob Azure
 - Création d'un cluster HDInsight
 
+	$subscriptionId = "<Azure Subscription ID>"
+	
+	$newResourceGroupName = "<Azure Resource Group Name>" $location = "<Azure Location>" # for example, "East US 2" $newDefaultStorageAccountName = "<Azure Storage Account Name>" $newClusterName = "<Azure HDInsight Cluster Name>" $clusterSizeInNodes = 1
+	
+	###########################################
+	# login Azure
+	########################################### Login-AzureRmAccount Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	###########################################
+	# Créer le groupe de ressources
+	########################################### New-AzureRmResourceGroup -Name $newRresourceGroupName -Location $location
+	
+	###########################################
+	# Préparer le conteneur et le compte de stockage par défaut
+	########################################### New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
+	
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName | %{ $\_.Key1 } $defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey New-AzureStorageContainer -Name $newClusterName -Context $defaultStorageContext #use the cluster name as the container name
+		
+	###########################################
+	# Création du cluster
+	########################################### $httpCredential =Get-Credential -Message "Enter the HTTP account credential:" New-AzureRmHDInsightCluster `
+		-ResourceGroupName $newResourceGroupName ` -ClusterName $newClusterName `
+		-Location $location ` -ClusterSizeInNodes $clusterSizeInNodes `
+		-ClusterType Hadoop ` -OSType Windows `
+		-Version "3.2" ` -HttpCredential $httpCredential
 
-		# Sign in
-		Add-AzureAccount
 
-		###########################################
-		# Create required items, if none exist
-		###########################################
-
-		# Select the subscription to use
-		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
-		Select-AzureSubscription -SubscriptionName $subscriptionName
-
-		# Create an Azure Resource Group
-		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
-		$location = "<Location>"                        # For example, "West US"
-		New-AzureResourceGroup -Name $resourceGroupName -Location $location
-
-		# Create an Azure Storage account
-		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
-		New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
-
-		# Create an Azure Blob Storage container
-		$containerName = "<ContainerName>"              # Provide a container name
-		$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
-		New-AzureStorageContainer -Name $containerName -Context $destContext
-
-		###########################################
-		# Create an HDInsight Cluster
-		###########################################
-
-		# Skip these variables if you just created them
-		$resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
-		$storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
-		$containerName = "<ContainerName>"              # Provide the container name
-		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
-
-		# Set these variables
-		$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
-		$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
-		$credentials = Get-Credential
-
-		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
-
-		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
-									-ClusterName $clusterName `
-									-Location $location `
-									-ClusterSizeInNodes $clusterNodes `
-									-ClusterType Hadoop `
-									-OSType Windows `
-									-HttpCredential $credentials `
-									-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
-									-DefaultStorageAccountKey $storageAccountKey `
-									-DefaultStorageContainer $containerName  
-
-	![HDI.CLI.Provision](./media/hdinsight-provision-clusters/HDI.ps.provision.png)
 
 ## Création à l’aide du Kit de développement logiciel (SDK) HDInsight .NET
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation de HDInsight à partir d'une application .NET. Suivez les instructions ci-dessous pour créer une application de console Visual Studio et collez le code pour la création d’un cluster.
@@ -461,113 +437,111 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 1. Créez une application console C# dans Visual Studio.
 2. Exécutez la commande Nuget suivante dans la console de gestion des packages NuGet.
 
+		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
 6. Dans l’Explorateur de solutions, double-cliquez sur **Program.cs** pour l’ouvrir, collez le code suivant et fournissez des valeurs pour les variables :
 
-
-        using System;
-		using System.Collections.Generic;
-		using System.Diagnostics;
-		using System.Linq;
+		using System;
 		using System.Security;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Hyak.Common;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Newtonsoft.Json;
-
-		namespace CreateHDICluster
+		
+		namespace CreateHDInsightCluster
 		{
-		    internal class Program
-		    {
-		        private static ProfileClient _profileClient;
-		        private static SubscriptionCloudCredentials _cloudCredentials;
-		        private static HDInsightManagementClient _hdiManagementClient;
-
-		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
-		        private const string ResourceGroupName = "<ResourceGroupName>";
-		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
-		        private const string ExistingStorageKey = "<account key>";
-		        private const string ExistingContainer = "<container name>";
-		        private const string NewClusterName = "<cluster name>";
-		        private const int NewClusterNumNodes = <number of nodes>;
-		        private const string NewClusterLocation = "<location>";		//must be same as the storage account
-		        private const OSType NewClusterOsType = OSType.Windows;
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-		        private const string NewClusterVersion = "3.2";
-		        private const string NewClusterUsername = "admin";
-		        private const string NewClusterPassword = "<password>";
-
-		        private static void Main(string[] args)
-		        {
-		            System.Console.WriteLine("Start cluster creation");
-
-		            _profileClient = GetProfile();
-		            _cloudCredentials = GetCloudCredentials();
-		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-
-		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
-		            CreateCluster();
-		            System.Console.WriteLine("Done. Press any key to continue.");
-		            System.Console.ReadKey(true);
-		        }
-
-		        private static void CreateCluster()
-		        {
-		            var parameters = new ClusterCreateParameters
-		            {
-		                ClusterSizeInNodes = NewClusterNumNodes,
-		                UserName = NewClusterUsername,
-		                Password = NewClusterPassword,
-		                Location = NewClusterLocation,
-		                DefaultStorageAccountName = ExistingStorageName,
-		                DefaultStorageAccountKey = ExistingStorageKey,
-		                DefaultStorageContainer = ExistingContainer,
-		                ClusterType = NewClusterType,
-		                OSType = NewClusterOsType
-		            };
-
-		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
-		        }
-
-		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
-		        {
-		            var profileClient = new ProfileClient(new AzureProfile());
-		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-		            if (username != null && password != null)
-		                acct.Id = username;
-
-		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-
-		            return profileClient;
-		        }
-
-		        private static SubscriptionCloudCredentials GetCloudCredentials()
-		        {
-		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-
-		            Debug.Assert(sub != null, "subscription != null");
-		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-
-		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
-		        }
-
-		    }
+			class Program
+			{
+				private static HDInsightManagementClient _hdiManagementClient;
+		
+				private static Guid SubscriptionId = new Guid("<Azure Subscription ID");
+				private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
+				private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
+				private const string ExistingStorageKey = "<Default Storage Account Key>";
+				private const string ExistingBlobContainer = "<Default Blob Container Name>";
+				private const string NewClusterName = "<HDInsight Cluster Name>";
+				private const int NewClusterNumNodes = 1;
+				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+				private const OSType NewClusterOsType = OSType.Windows;
+				private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+				private const string NewClusterVersion = "3.2";
+				private const string NewClusterUsername = "admin";
+				private const string NewClusterPassword = "<HTTP User password";
+		
+				static void Main(string[] args)
+				{
+					System.Console.WriteLine("Running");
+		
+					var tokenCreds = GetTokenCloudCredentials();
+					var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+					_hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+				
+					var parameters = new ClusterCreateParameters
+					{
+						ClusterSizeInNodes = NewClusterNumNodes,
+						UserName = NewClusterUsername,
+						Password = NewClusterPassword,
+						Location = NewClusterLocation,
+						DefaultStorageAccountName = ExistingStorageName,
+						DefaultStorageAccountKey = ExistingStorageKey,
+						DefaultStorageContainer = ExistingBlobContainer,
+						ClusterType = NewClusterType,
+						OSType = NewClusterOsType
+					};
+		
+					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+				}
+				private static void CreateCluster()
+				{
+					var parameters = new ClusterCreateParameters
+					{
+						ClusterSizeInNodes = NewClusterNumNodes,
+						UserName = NewClusterUsername,
+						Password = NewClusterPassword,
+						Location = NewClusterLocation,
+						DefaultStorageAccountName = ExistingStorageName,
+						DefaultStorageAccountKey = ExistingStorageKey,
+						DefaultStorageContainer = ExistingBlobContainer,
+						ClusterType = NewClusterType,
+						OSType = NewClusterOsType
+					};
+		
+					_hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
+				}
+		
+				public static TokenCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+				{
+					var authFactory = new AuthenticationFactory();
+		
+					var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+					if (username != null && password != null)
+						account.Id = username;
+		
+					var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+					var accessToken =
+						authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+							.AccessToken;
+		
+					return new TokenCloudCredentials(accessToken);
+				}
+		
+				public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(TokenCloudCredentials creds, Guid subId)
+				{
+					return new TokenCloudCredentials(subId.ToString(), creds.Token);
+		
+				}
+			}
 		}
 
 7. Appuyez sur **F5** pour exécuter l'application. Une fenêtre de console doit s'ouvrir et afficher l'état de l'application. Vous êtes invité à saisir les informations d’identification de votre compte Azure. La création d'un cluster HDInsight peut prendre plusieurs minutes.
 
-
-## Création d’un cluster HDInsight à l’aide des services SQL Server Integration Services locaux
+## Création en local à l’aide des services SQL Server Integration Services
 
 Vous pouvez également utiliser les services SQL Server Integration Services (SSIS) pour créer ou supprimer un cluster HDInsight. Le pack de fonctionnalités Azure pour SSIS fournit les composants suivants, compatibles avec les clusters HDInsight.
 
@@ -579,7 +553,7 @@ Vous pouvez également utiliser les services SQL Server Integration Services (SS
 Pour en savoir plus sur le pack de fonctionnalités Azure pour SSIS, cliquez [ici][ssispack].
 
 
-##<a id="nextsteps"></a>Étapes suivantes
+##Étapes suivantes
 Cet article vous a présenté différentes méthodes pour créer un cluster HDInsight. Pour en savoir plus, consultez les articles suivants :
 
 * [Prise en main d’Azure HDInsight](hdinsight-get-started.md) : apprenez à utiliser votre cluster HDInsight
@@ -752,9 +726,9 @@ Le modèle Azure Resource Manager suivant crée un cluster Hadoop avec le compte
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/fr-FR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/fr-FR/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/fr-FR/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/fr-FR/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

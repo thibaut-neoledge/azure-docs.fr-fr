@@ -3,7 +3,7 @@
 	description="Comment prendre en main le stockage de tables Azure dans un projet WebJobs Azure dans Visual Studio après s'être connecté à un compte de stockage à l'aide des services connectés de Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Prise en main d’Azure Storage (projets de tâche web Azure)
 
@@ -165,4 +165,4 @@ Pour en savoir plus sur la gestion du traitement de tables déclenché par un me
 
 Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure Webjobs et du Kit de développement logiciel (SDK) WebJobs Azure, consultez la rubrique [Azure Webjobs - Ressources recommandées](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

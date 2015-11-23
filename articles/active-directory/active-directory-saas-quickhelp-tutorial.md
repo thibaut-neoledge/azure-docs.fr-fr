@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/06/2015"
 	ms.author="markusvi"/>
 
 
@@ -70,14 +70,13 @@ Pour configurer l’intégration de QuickHelp à Azure AD, vous devez ajouter Q
 ##  Configuration et test de l’authentification unique Azure AD
 L’objectif de cette section est de vous montrer comment configurer et tester l’authentification unique Azure AD avec QuickHelp au moyen d’un utilisateur de test appelé « Britta Simon ».
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur QuickHelp équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur QuickHelp associé doit être établie.<br> Pour cela, affectez la valeur de **nom d’utilisateur** dans Azure AD comme valeur de **nom d’utilisateur** dans QuickHelp.
- 
+
 Pour configurer et tester l’authentification unique Azure AD avec QuickHelp, vous devez suivre les indications des sections suivantes :
 
 1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Création d’un utilisateur de test QuickHelp](#creating-a-halogen-software-test-user)** pour avoir un équivalent de Britta Simon dans QuickHelp lié à la représentation Azure AD associée.
-5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Création d’un utilisateur de test QuickHelp](#creating-a-quickhelp-test-user)** pour avoir un équivalent de Britta Simon dans QuickHelp lié à la représentation Azure AD associée.
+5. **[Affectation d’un utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
 5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
 ### Configuration de l’authentification unique Azure AD
@@ -92,13 +91,12 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
 
 3. Dans la page **Configurer les paramètres d’application**, procédez comme suit : <br><br>![Configurer les paramètres d’application][8] <br>
  
-     a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site QuickHelp (par ex. : * https://quickhelp.com/bsiazure/#/home/assignedContent*).
+     a. Dans la zone de texte **URL d’authentification**, tapez l’URL utilisée par vos utilisateurs pour se connecter à votre site QuickHelp (par ex. : * https://quickhelp.com/bsiazure/*).
 
      >[AZURE.NOTE]Contactez votre équipe de support QuickHelp si vous ignorez la valeur de l’URL d’authentification.
 
      b. Cliquez sur **Next**.
 
-4. Téléchargez le fichier de métadonnées **QuickHelp** et enregistrez-le sur votre ordinateur : [https://quickhelp.blob.core.windows.net/metadata/QuickhelpSamlMetadataBS.xml](https://quickhelp.blob.core.windows.net/metadata/QuickhelpSamlMetadataBS.xml).
  
 4. Dans la page **Configurer l’authentification unique sur QuickHelp**, procédez comme suit : cliquez sur **Télécharger les métadonnées**, puis enregistrez le fichier de métadonnées en local sur votre ordinateur. <br><br>![Qu’est-ce qu’Azure AD Connect ?][9] <br>
 
@@ -120,6 +118,18 @@ L’objectif de cette section est d’activer l’authentification unique Azure�
     b. Pour charger votre fichier de métadonnées Azure téléchargé, cliquez sur **Browse**, accédez au fichier, puis cliquez sur **Upload Metadata**.
 
     d. Dans la zone de texte **Adresse de messagerie**, entrez ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+
+    e. Dans la zone de texte **First Name**, **tapez http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+
+    f. Dans la zone de texte **Last Name**, tapez **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+
+    g. Dans la **barre d’actions**, cliquez sur **Enregistrer**.
+
+
+
+
+
+
 
 6. Dans le portail Azure AD, sélectionnez la confirmation de la configuration de l’authentification unique, puis cliquez sur **Suivant**. <br><br>![Qu’est-ce qu’Azure AD Connect ?][10]<br>
 
@@ -171,39 +181,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
  
 ### Création d’un utilisateur de test QuickHelp
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans QuickHelp.
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans QuickHelp. Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur QuickHelp équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur QuickHelp associé doit être établie.
 
-Dans ce didacticiel, les nouveaux utilisateurs sont importés à partir d’un fichier CSV qui présente la structure suivante :
+QuickHelp prend en charge l’approvisionnement juste-à-temps. Cela signifie que, si nécessaire, un compte d’utilisateur est automatiquement créé dans QuickHelp et qu’il est lié au compte Azure AD.
 
-|FirstName|LastName|Email|Department|Intitulé|
-|---|---|---|---|---|
-|Britta|Simon|BritaSimon@Fabrikam.com|||
-
-<br><br>![Créer un utilisateur de test QuickHelp][26]<br>
-
-Vous devez créer un fichier CSV qui possède cette structure et qui reprend les valeurs de **Britta Simon** dans votre environnement de test Azure Active Directory.
-
-
-
-**Pour créer un utilisateur appelé Britta Simon dans QuickHelp, procédez comme suit :**
-
-1. Créez un fichier CSV en suivant les instructions ci-dessus. 
- 
-2. Connectez-vous à votre site d’entreprise QuickHelp en tant qu’administrateur. <br><br>![Créer un utilisateur de test QuickHelp][21]<br>
-
-
-3. Dans le menu **QuickHelp Admin**, cliquez sur **Users**, puis sur **New**. <br><br>![Créer un utilisateur de test QuickHelp][24]<br>
-
-
-4. Pour **Content**, sélectionnez **User**, puis cliquez sur **Import**. <br><br>![Créer un utilisateur de test QuickHelp][25]<br>
-
-5. Pour importer votre fichier CSV, cliquez sur **Browse**, accédez à votre fichier, puis cliquez sur **Next**. <br><br>![Créer un utilisateur de test QuickHelp][26]<br>
-
-6. Dans la page de synthèse, vérifiez l’état, puis cliquez sur **Finish**. <br><br>![Créer un utilisateur de test QuickHelp][27]<br>
-
-
-Si les données de Britta ont été correctement importées, celle-ci apparaît dans la liste des utilisateurs. <br><br>![Créer un utilisateur de test QuickHelp][28]<br>
-
+Vous n’avez aucune opération à effectuer dans cette section.
 
 
 ### Affectation de l’utilisateur de test Azure AD
@@ -273,4 +255,4 @@ L’objectif de cette section est de tester la configuration de l’authentifica
 [401]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_401.png
 [402]: ./media/active-directory-saas-QuickHelp-tutorial/tutorial_QuickHelp_402.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

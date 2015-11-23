@@ -3,7 +3,7 @@
 	description="Décrit les premières étapes que vous pouvez suivre une fois votre projet Cordova connecté à Azure Mobile Services à l'aide de services connectés de Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Prise en main de Mobile Services (Projets Cordova)
 
@@ -94,4 +94,4 @@ Supprimez une ligne d'une table de données à l'aide de la méthode **del**. Ap
 
 [En savoir plus sur Mobile Services](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -83,6 +83,8 @@ D’autres solutions VPN logicielles fonctionnent avec notre passerelle tant qu'
 
 ## Connectivité de point à site
 
+Actuellement, les connexions de point à site sont disponibles uniquement pour le modèle de déploiement classique (également appelé Service Management). Nous travaillons actuellement sur une solution de point à site pour le modèle de déploiement Azure Resource Manager. Lorsque cette solution sera disponible, cette page sera mise à jour.
+
 ### Quels systèmes d'exploitation puis-je utiliser avec une connexion de point à site ?
 
 Les systèmes d’exploitation pris en charge sont les suivants :
@@ -97,7 +99,7 @@ Les systèmes d’exploitation pris en charge sont les suivants :
 
 ### Puis-je utiliser un client VPN logiciel pour une connexion de point à site qui prend en charge SSTP ?
 
-Non. La prise en charge est limitée aux versions de système d'exploitation Windows répertoriées ci-dessus.
+Non. La prise en charge est limitée aux versions de système d'exploitation Windows répertoriées ci-dessus. Le client Windows 10 est actuellement en cours de vérification.
 
 ### Combien de points de terminaison clients VPN puis-je avoir dans ma configuration de point à site ?
 
@@ -105,7 +107,7 @@ Nous prenons en charge jusqu'à 128 clients VPN pouvant se connecter à un rés
 
 ### Puis-je utiliser ma propre AC racine PKI interne pour une connectivité de point à site ?
 
-À ce stade, seuls les certificats racines autosignés sont pris en charge.
+Oui. Auparavant, seuls les certificats racines autosignés pouvaient être utilisés. Vous pouvez toujours télécharger 20 certificats racine.
 
 ### Puis-je parcourir les serveurs proxy et les pare-feu à l'aide de la fonctionnalité de point à site ?
 
@@ -177,7 +179,7 @@ Oui, vous pouvez déployer vos propres serveurs ou passerelles VPN dans Azure de
 
 ### Plus d'informations sur les types de passerelle, la configuration requise et le débit
 
-Pour plus d’informations, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
+Pour plus d'informations, consultez [À propos des passerelles VPN](vpn-gateway-about-vpngateways.md).
 
 ## Connectivité multisite et de réseau virtuel à réseau virtuel
 
@@ -232,9 +234,9 @@ Pour le trafic entre différents réseaux virtuels Azure, seul le trafic passant
 
 ### Puis-je me connecter à un réseau virtuel avec les VPN IPsec sur mon circuit ExpressRoute ?
 
-Oui, cette méthode est prise en charge. Pour plus d’informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](../expressroute/expressroute-coexist.md).
+Oui, cette méthode est prise en charge. Pour plus d'informations, consultez [Configurer des connexions ExpressRoute et VPN de site à site coexistantes](../expressroute/expressroute-coexist.md).
 
-## Connectivité et machines virtuelles
+## Connectivité entre locaux et machines virtuelles
 
 ### Si ma machine virtuelle est dans un réseau virtuel et que j'ai une connexion entre différents locaux, comment dois-je me connecter à la machine virtuelle ?
 
@@ -246,14 +248,15 @@ Si vous avez un réseau virtuel avec une connectivité entre différents locaux 
 
 Non. Seul le trafic qui possède une IP de destination contenue dans les plages d'adresse IP du réseau local du réseau virtuel que vous avez spécifié passera par la passerelle de réseau virtuel. Le trafic avec un IP de destination qui se trouve dans le réseau virtuel restera dans le réseau virtuel. Tout autre trafic est envoyé via l'équilibrage de charge aux réseaux publics, ou si le tunneling forcé est utilisé, il est envoyé via la passerelle VPN Azure. Si vous résolvez un problème, il est important de s'assurer que vous disposez de toutes les plages répertoriées dans votre réseau local et que vous souhaitez envoyer via la passerelle. Vérifiez que les plages d'adresses du réseau local ne se chevauchent pas avec les plages d'adresses du réseau virtuel. Par ailleurs, vérifiez que le serveur DNS que vous utilisez résout le nom à l'adresse IP appropriée.
 
+
+## FAQ Virtual Network
+
+Des informations supplémentaires sur les réseaux virtuels sont disponibles dans le [Forum Aux Questions sur le réseau virtuel](../virtual-network/virtual-networks-faq.md).
+
 ## Étapes suivantes
 
-Afficher plus de FAQ relatifs à la mise en réseau pour plus de détails :
-
-- [FAQ sur le réseau virtuel](../virtual-network/virtual-networks-faq.md)
-
-- [FAQ sur ExpressRoute](../expressroute/expressroute-faqs.md)
+Pour plus d’informations sur les passerelles VPN, consultez la [page de documentation sur la passerelle VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/).
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/20/2015"
+   ms.date="11/09/2015"
    ms.author="elfish"/>
 
 # Récupération d’une base de données SQL Microsoft Azure suite à une erreur de l’utilisateur
@@ -35,7 +35,7 @@ Les bases de données de niveau de base proposent une période de rétention de 
 > [AZURE.NOTE]La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portail Azure
-Pour utiliser la limite de restauration dans le temps dans le portail Azure, procédez comme suit ou [visionnez une vidéo de cette procédure](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/) :
+Pour utiliser la limite de restauration dans le temps dans le portail Azure, procédez comme suit.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l’écran, sélectionnez l’option **PARCOURIR**, puis choisissez **Bases de données SQL**
@@ -43,8 +43,6 @@ Pour utiliser la limite de restauration dans le temps dans le portail Azure, pro
 4. Sur la partie supérieure du volet de votre base de données, sélectionnez **Restaurer**.
 5. Indiquez un nom de base de données et un moment donné, puis cliquez sur **Créer**.
 6. Le processus de restauration de base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**, sur le côté gauche de l’écran.
-
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
 
 ###PowerShell
 Utilisez PowerShell pour exécuter par programme une limite de restauration dans le temps avec l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez la vidéo de cette procédure](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
@@ -55,7 +53,6 @@ Utilisez PowerShell pour exécuter par programme une limite de restauration dans
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
 
 ###API REST 
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -66,17 +63,15 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 	
 3.	Suivez la demande de restauration en suivant la procédure de suivi de l’[état du fonctionnement de la base de données](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
-
 ##restauration d’une base de données supprimée.
 En cas de suppression d’une base de données, la base de données SQL Microsoft Azure permet de la restaurer au moment de cette suppression. La base de données SQL Microsoft Azure stocke la sauvegarde de base de données supprimée pendant la période de rétention de la base de données.
 
 La période de rétention d’une base de données supprimée est déterminée par le niveau de service de la base de données pendant sa période d’existence, ou le nombre de jours d’existence de la base de données. La valeur la plus faible est choisie. Pour en savoir plus sur la rétention de base de données, consultez notre [vue d’ensemble de la fonction de continuité d’activité](sql-database-business-continuity.md).
 
-> [AZURE.NOTE]La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support technique](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
+> [AZURE.NOTE]La restauration d'une base de données crée une nouvelle base de données. Il est important de s'assurer que le serveur sur lequel vous effectuez la restauration a une capacité DTU suffisante pour la nouvelle base de données. Vous pouvez demander une augmentation de ce quota en [contactant le support](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/).
 
 ###Portail Azure
-Pour restaurer une base de données supprimée à l’aide du portail Azure, procédez comme suit ou [visionnez une vidéo de cette procédure](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/) :
+Pour restaurer une base de données supprimée à l’aide du portail Azure, procédez comme suit.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.Azure.com).
 2. Sur le côté gauche de l’écran, sélectionnez l’option **PARCOURIR**, puis choisissez **Serveur SQL Server**.
@@ -85,8 +80,6 @@ Pour restaurer une base de données supprimée à l’aide du portail Azure, pro
 5. Sélectionnez la base de données supprimée que vous souhaitez restaurer.
 6. Spécifiez un nom de base de données, puis cliquez sur **Créer**.
 7. Le processus de restauration de base de données commence. Vous pouvez le surveiller à l’aide du volet **NOTIFICATIONS**, sur le côté gauche de l’écran.
-
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
 
 ###PowerShell
 Pour restaurer une base de données supprimée à l’aide de PowerShell, utilisez l’applet de commande [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Pour obtenir une procédure pas à pas, [visionnez une vidéo de cette procédure](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
@@ -101,7 +94,6 @@ Pour restaurer une base de données supprimée à l’aide de PowerShell, utilis
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
 
 ###API REST 
 Utilisez REST pour exécuter par programmation la restauration des bases de données.
@@ -114,7 +106,4 @@ Utilisez REST pour exécuter par programmation la restauration des bases de donn
 	
 4.	Surveillez l’état de la restauration en suivant la procédure de suivi de l’[état de fonctionnement de base de données](http://msdn.microsoft.com/library/azure/dn720371.aspx).
 
-Une fois la restauration terminée, vous pouvez configurer la base de données récupérée à utiliser, en suivant le guide de [finalisation d’une base de données récupérée](sql-database-recovered-finalize.md).
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

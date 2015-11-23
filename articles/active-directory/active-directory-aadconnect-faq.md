@@ -13,10 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/10/2015"
 	ms.author="billmath"/>
 
 # FAQ Azure Active Directory Connect
+
+## Installation générale
+**Q : L’installation fonctionnera-t-elle si l’option 2FA est activée pour l’administrateur global AD Azure ?**
+
+L’installation ne fonctionnera pas dans ce cas. MFA ne doit pas être activé pour l’administrateur global installant Azure AD Connect. Nous sommes conscients de cette limitation et nous la prendrons en charge à l’avenir.
+
+**Q : Existe-t-il une manière d'installer Azure AD Connect sans assistance ?**
+
+L’installation d’Azure AD n’est possible qu’à partir de l’Assistant Installation. Une installation automatique et silencieuse n’est pas prise en charge.
 
 ## Installation Express
 
@@ -26,7 +35,6 @@
 **Q : J'ai un pare-feu, un périphérique réseau ou autre chose qui limite la durée maximale pendant laquelle les connexions peuvent rester ouvertes sur mon réseau. Quel doit être le seuil de délai côté client lors de l’utilisation d’Azure AD Connect ?**
 
 Tous les logiciels réseau, périphériques physiques ou autres limitant la durée maximale pendant laquelle les connexions peuvent rester ouvertes doivent utiliser un seuil d'au moins 5 minutes (300 secondes) pour la connectivité entre le serveur où est installé le client Azure AD Connect et Azure Active Directory. Cela s'applique également à tous les outils de synchronisation de Microsoft Identity précédemment publiés.
-
 
 **Q : Que faire si je reçois un message électronique me demandant de renouveler mon certificat Office 365 ?**
 
@@ -49,4 +57,4 @@ Utilisez les instructions décrites [ici](active-directory-aadconnect-o365-certs
 
 - Cliquez sur ce lien pour bénéficier du support par le biais du portail Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

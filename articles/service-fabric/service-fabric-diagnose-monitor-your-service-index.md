@@ -20,7 +20,7 @@
 L'analyse, la détection, le diagnostic et la résolution des problèmes permettent aux services de fonctionner avec une interruption minimale de l'expérience utilisateur. Pour plus d'informations, consultez les articles suivants :
 
 - [Comment analyser et diagnostiquer des services localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Configuration d'Application Insights pour votre application Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
+- [Configuration d'Application Insights pour votre application Service Fabric](../app-insights-windows-desktop.md)
 - [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md)
 - [Diagnostics et surveillance des performances pour les Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 - [Diagnostics et surveillance des performances pour les Reliable Services](service-fabric-reliable-services-diagnostics.md)
@@ -38,4 +38,4 @@ Service Fabric introduit un modèle d'intégrité qui fournit une fonctionnalit�
 - [Utilisation des rapports d'intégrité système pour la résolution des problèmes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Ajout de rapports d'intégrité de Service Fabric personnalisés](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
