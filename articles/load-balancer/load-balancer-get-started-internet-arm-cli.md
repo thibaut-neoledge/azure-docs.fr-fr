@@ -23,7 +23,8 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Si vous recherchez un modèle de déploiement classique Azure, accédez à la page [Prise en main de la création d'un équilibreur de charge accessible sur Internet à l'aide d'un modèle de déploiement classique (en anglais)](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+Cet article traite du modèle de déploiement de Resource Manager. Si vous recherchez un modèle de déploiement classique Azure, accédez à la page [Prise en main de la création d'un équilibreur de charge accessible sur Internet à l'aide d'un modèle de déploiement classique (en anglais)](load-balancer-get-started-internet-classic-portal.md)
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -322,4 +323,4 @@ Pour supprimer un équilibreur de charge, utilisez la commande suivante
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
