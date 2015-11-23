@@ -18,7 +18,7 @@
 
 # Présentation d'Azure Search #
 
-**Résumé :** découvrez comment vous pouvez utiliser Azure Search, un service cloud entièrement géré pour effectuer des recherches avancées dans des applications web et mobiles. La recherche est typiquement le genre d'interaction que vous pouvez avoir avec les données sur le web. Elle est de plus en plus attendue dans toutes les situations de chaque application.
+**Résumé :** découvrez Azure Search, service de recherche entièrement géré sur Azure qui vous permet d'effectuer des recherches avancées dans les applications web et mobiles. La recherche est typiquement le genre d'interaction que vous pouvez avoir avec les données sur le web. Elle est de plus en plus attendue dans toutes les situations de chaque application.
 
 **Sommaire :**
 

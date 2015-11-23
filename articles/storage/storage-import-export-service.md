@@ -222,7 +222,8 @@ Dans le cas des tâches d'exportation, vous pouvez afficher et copier les clés 
 
 - Non. Tous les lecteurs doivent être préparés avec BitLocker.
  
-**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?** - Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
+**Ai-je besoin d’effectuer la préparation du disque lors de la création d'une tâche d'exportation ?**
+- Non, mais certaines vérifications préalables sont recommandées. Vérifiez le nombre de disques requis à l'aide de la commande [Aperçu de l’exportation](https://msdn.microsoft.com/library/azure/dn722414.aspx) de l’outil Azure Import/Export. Celle-ci vous permet d'afficher un aperçu de l'utilisation du disque pour les objets BLOB que vous avez sélectionnés, en fonction de la taille des disques que vous voulez utiliser. Vérifiez également que vous pouvez lire/modifier le contenu du disque dur qui sera utilisé pour la tâche d'exportation.
 
 ### Expédition
 

@@ -110,7 +110,7 @@ Les initialiseurs standard sont tous définis par les packages NuGet web ou Wind
 
 
 * `AccountIdTelemetryInitializer` définit la propriété AccountId.
-* `AuthenticatedUserIdTelemetryInitializer` définit la propriété AuthenticatedUserId déterminée par le Kit de développement logiciel (SDK) JavaScript.
+* `OperationNameTelemetryInitializer` met à jour la propriété de contexte `Operation.Id` de tous les éléments de télémétrie suivis pendant le traitement d'une demande avec l'élément `RequestTelemetry.Id` généré automatiquement.
 * `AzureRoleEnvironmentTelemetryInitializer` met à jour les propriétés `RoleName` et `RoleInstance` du contexte `Device` pour tous les éléments de télémétrie avec des informations extraites de l'environnement d’exécution Azure.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` met à jour la propriété `Version` du contexte `Component` pour tous les éléments de télémétrie avec la valeur extraite du fichier `BuildInfo.config` produit par MSBuild.
 * `ClientIpHeaderTelemetryInitializer` met à jour la propriété `Ip` du contexte `Location` de tous les éléments de télémétrie à partir de l’en-tête HTTP `X-Forwarded-For` de la demande.

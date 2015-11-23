@@ -42,7 +42,9 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Insérez ensuite le code suivant dans le corps de la classe :
 
-	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
+		class SimpleEventProcessor : IEventProcessor
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {

@@ -60,7 +60,8 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 <tr><td>Nom de connexion de la base de données&#160;SQL&#160;Azure.</td><td>$sqlDatabaseLogin</td><td></td><td>Votre nom de connexion pour la base de données SQL&#160;Azure.</td></tr>
 <tr><td>Le mot de passe de connexion pour la base de données&#160;SQL&#160;Azure</td><td>$sqlDatabasePassword</td><td></td><td>Votre mot de passe de connexion pour la base de données SQL&#160;Azure.</td></tr>
 <tr><td>Nom de la base de données SQL&#160;Azure</td><td>$sqlDatabaseName</td><td></td><td>La base de données&#160;SQL&#160;Azure vers laquelle Sqoop va exporter des données et depuis laquelle il va en importer. </td></tr>
-</table>> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis la version préliminaire du portail Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
+</table>
+	> [AZURE.NOTE]Par défaut, une base de données SQL Azure autorise des connexions aux services Azure tels que Azure HDinsight. Si ce paramètre de pare-feu est désactivé, vous devez l'activer depuis la version préliminaire du portail Azure. Pour obtenir des instructions sur la création d'une base de données SQL Azure et la configuration des règles de pare-feu, consultez la rubrique [Création et configuration d'une base de données SQL][sqldatabase-create-configue].
 	
 	* **SQL Server** : si votre cluster HDInsight se trouve sur le même réseau virtuel que SQL Server dans Azure, vous pouvez utiliser les étapes décrites dans cet article pour importer et exporter des données vers une base de données SQL Server.
 	
