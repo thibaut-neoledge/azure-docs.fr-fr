@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/27/2015"
+	ms.date="11/16/2015"
 	ms.author="sdanie"/>
 
 # Gérer votre première API dans Gestion des API Azure
@@ -116,7 +116,7 @@ Une fois l’API importée, la page Résumé de l’API s’affiche dans le port
 
 ![Résumé des API][api-management-imported-api-summary]
 
-La section API comporte plusieurs onglets. L’onglet **Résumé** affiche les mesures de base et les informations concernant l’API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification du proxy pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md) et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md). L’onglet **Problèmes** est utilisé pour afficher les problèmes signalés par les développeurs qui utilisent votre API. L’onglet **Produits** permet de configurer les produits qui contiennent cette API.
+La section API comporte plusieurs onglets. L’onglet **Résumé** affiche les mesures de base et les informations concernant l’API. L’onglet [Paramètres](api-management-howto-create-apis.md#configure-api-settings) permet d’afficher et de modifier la configuration d’une API. L’onglet [Opérations](api-management-howto-add-operations.md) permet de gérer les opérations de l’API. L’onglet **Sécurité** permet de configurer l’authentification de la passerelle pour le serveur principal à l’aide de l’authentification de base ou de [l’authentification mutuelle des certificats](api-management-howto-mutual-certificates.md) et de configurer l’[autorisation de l’utilisateur à l’aide d’OAuth 2.0](api-management-howto-oauth2.md). L’onglet **Problèmes** est utilisé pour afficher les problèmes signalés par les développeurs qui utilisent votre API. L’onglet **Produits** permet de configurer les produits qui contiennent cette API.
 
 Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits :
 
@@ -243,4 +243,4 @@ La section **Analyse** comporte les quatre onglets suivants :
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

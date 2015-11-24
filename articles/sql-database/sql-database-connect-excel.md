@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Se connecter à une base de données SQL Azure avec Excel"
-	description="Feuille de calcul Excel pour Base de données SQL Azure pour la création de rapports et l’exploration de données."
+	pageTitle="Connectez Excel à la base de données SQL | Microsoft Azure"
+	description="Découvrez comment connecter Microsoft Excel à la base de données SQL Azure dans le cloud. Importez des données dans Excel pour les rapports et l’exploration des données."
 	services="sql-database"
+	keywords="connecter excel à sql, importer des données vers excel"
 	documentationCenter=""
 	authors="joseidz"
 	manager="jeffreyg"
@@ -18,24 +19,26 @@
 	ms.author="joseidz"/>
 
 
-# Se connecter à une base de données SQL Azure avec Excel
+# Connectez Excel à une base de données SQL Azure et créez un rapport 
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Cet article vous montre comment connecter Excel à une base de données SQL Azure et créer un rapport sur les données dans la base de données. Vous avez d’abord besoin d’une base de données SQL. Si vous n’en avez pas, consultez [Créer votre première base de données SQL](sql-database-get-started.md) pour obtenir une base de données avec des données exemple opérationnelle en quelques minutes. Cet article est basé sur les exemples de données à partir de cet article, mais vous pouvez suivre des étapes similaires sur vos propres données.
+Apprenez comment connecter Excel à une base de données SQL afin d’importer des données dans Excel. Ensuite, créez un rapport sur les données.
+
+Vous avez d’abord besoin d’une base de données SQL. Si vous n’en avez pas, consultez [Créer votre première base de données SQL](sql-database-get-started.md) pour obtenir une base de données avec des données exemple opérationnelle en quelques minutes. Dans cet article, vous allez importer des données d’exemple dans Excel à partir de cet article, mais vous pouvez suivre des étapes similaires sur vos propres données.
 
 Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel 2016](https://products.office.com/fr-FR/).
 
-## Se connecter et créer un rapport
+## Connectez Excel à une base de données SQL et créez un rapport
 
-1.	Ouvrez Excel et créez un nouveau classeur ou ouvrez le classeur auquel vous souhaitez vous connecter.
+1.	Pour la connexion d’Excel à la base de données SQL, ouvrez Excel, puis créez un nouveau classeur. Ou bien, ouvrez un classeur Excel existant que vous souhaitez vous connecter à la base de données SQL.
 
 2.	Dans la barre de menus en haut de la page, cliquez sur **Données**, cliquez sur **À partir d’autres sources**, puis cliquez sur **À partir de SQL Server**.
-	
-	![Sélectionnez la source de données](./media/sql-database-connect-excel/excel_data_source.png)
+
+	![Sélectionner les données source : Connecter Excel à la base de données SQL.](./media/sql-database-connect-excel/excel_data_source.png)
 
 	L’Assistant Connexion de données s’ouvre.
 
@@ -53,19 +56,19 @@ Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel�
 
 7. Dans la boîte de dialogue **Importer des données**, sélectionnez **PivotChart**, puis cliquez sur **OK**.
 
-	![Sélectionner Importer des données][2]
+	![Importer des données dans Excel : dans la boîte de dialogue Importer des données, sélectionnez Graphique croisé dynamique.][2]
 
 8. Dans la boîte de dialogue **Champs de tableau croisé dynamique**, sélectionnez la configuration suivante pour créer un rapport correspondant au nombre de produits par catégorie.
 
-	![Configuration][3]
+	![Configurez le rapport de base de données.][3]
 
 	Vous devez obtenir le résultat suivant :
 
-	![réussi][4]
+	![Réussite : Excel connecté à la base de données SQL.][4]
 
 ## Étapes suivantes
 
-Si vous êtes développeur de SaaS (Software as a Service), découvrez les [pools de bases de données élastiques](sql-database-elastic-pool.md). Vous pouvez gérer facilement de grandes collections de bases de données à l’aide des [tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
+Si vous êtes développeur de SaaS (Software as a Service), découvrez les [Pools de bases de données élastiques](sql-database-elastic-pool.md). Vous pouvez gérer facilement de grandes collections de bases de données à l’aide des [Tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-connect-excel/connect-to-database-server.png
@@ -74,4 +77,4 @@ Si vous êtes développeur de SaaS (Software as a Service), découvrez les [poo
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

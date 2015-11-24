@@ -112,7 +112,7 @@ Recherchez **Memcached Object Cache** dans la liste, puis cliquez sur **Installe
 
 ### Activer le plug-in Memcache WordPress
 
->[AZURE.NOTE]Suivez les instructions de ce blog pour savoir [comment activer une extension de site dans Web Apps][8], afin d’installer Visual Studio Online.
+>[AZURE.NOTE]Suivez les instructions de ce blog pour savoir [comment activer une extension de site dans Web Apps][8], afin d’installer Visual Studio Team Services.
 
 Dans le fichier `wp-config.php`, ajoutez le code suivant avant le commentaire d’arrêt de la modification, vers la fin du fichier.
 
@@ -198,4 +198,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

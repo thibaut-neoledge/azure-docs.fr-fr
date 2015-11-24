@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="11/18/2015"
 	ms.author="glenga"/>
 
 
 #Créer une page HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
 &nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+
+>[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Nous vous remercions pour votre patience pendant que nous terminons la version d’évaluation de Mobile Apps.
 
 ##Vue d'ensemble
 
-Ce didacticiel montre comment ajouter un backend cloud à une application web HTML5/JavaScript à l'aide d'un backend Azure Mobile App. Vous allez créer un backend Mobile App et une simple application web *To do list* qui stocke les données d’application dans Azure.
+Ce didacticiel montre comment ajouter un backend cloud à une application web HTML5/JavaScript. Pour plus d’informations, consultez [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md).
 
 Voici une capture d'écran de l'application terminée :
 
@@ -41,7 +43,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application Mobile App temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d'un backend Mobile App
 
@@ -51,15 +53,15 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 1. Dans le [portail Azure], cliquez sur **Parcourir tout** > **Web Apps**, puis sur le backend Mobile App que vous venez de créer. 
 
-2. Dans le backend Mobile App, cliquez sur **Tous les paramètres** et sous **Mobile App** cliquez sur **Démarrage rapide** > **HTML/JavaScript**.
+2. Dans le backend Mobile App, cliquez sur **Tous les paramètres** et sous **Mobile App**, cliquez sur **Démarrage rapide** > **HTML/JavaScript**.
 
-3. Sous **Télécharger et exécuter votre projet de serveur** dans **Création d'une application**, cliquez sur **Télécharger**, extrayez les fichiers du projet compressés sur votre ordinateur local et ouvrez la solution dans Visual Studio.
+3. Sous **Télécharger et exécuter votre projet de serveur** dans **Création d’une application**, cliquez sur **Télécharger**, extrayez les fichiers du projet compressés sur votre ordinateur local et ouvrez la solution dans Visual Studio.
 
 4. Développez le projet pour restaurer les packages NuGet.
 
 ##Activez les CORS dans le projet de serveur
 
-Le partage des ressources cross-origin (CORS) est un moyen pour votre application web d’indiquer dans quels domaines les demandes sont sécurisées et doivent être autorisées par le navigateur. Vous devez ajouter une entrée CORS pour chaque site web qui accède à votre backend Mobile App. Vous contrôlez vos paramètres CORS en utilisant les comportements standard de l'API web ASP.NET. Pour plus d'informations, consultez la section [Activation des demandes cross-origin dans l'API web ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
+Le partage des ressources cross-origin (CORS) est un moyen pour votre application web d’indiquer dans quels domaines les demandes sont sécurisées et doivent être autorisées par le navigateur. Vous devez ajouter une entrée CORS pour chaque site web qui accède à votre backend Mobile App. Vous contrôlez vos paramètres CORS en utilisant les comportements standard de l'API web ASP.NET. Pour plus d’informations, consultez la section [Activation des demandes multi-origines dans l’API web ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors).
 
 Par défaut, le projet de démarrage rapide du client que vous allez télécharger à partir du portail s'exécute sur localhost sur le port 8000. Par conséquent, vous allez ensuite activer CORS pour `http://localhost:8000` dans le projet de serveur.
 
@@ -89,7 +91,7 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 
 1. Revenez dans le panneau du backend Mobile App, cliquez sur **Tous les paramètres** et sous **Mobile App** cliquez sur **Démarrage rapide** > **HTML/JavaScript**. 
 
-2.  Sous **Télécharger et exécuter votre projet HTML/Javascript** dans **Création d'une application**, cliquez sur **Télécharger** et enregistrez les fichiers du projet compressés sur votre ordinateur local.
+2.  Sous **Télécharger et exécuter votre projet HTML/Javascript** dans **Création d’une application**, cliquez sur **Télécharger** et enregistrez les fichiers du projet compressés sur votre ordinateur local.
 
 3. Accédez à l'emplacement sur lequel vous avez enregistré les fichiers du projet compressés, décompressez-les sur votre ordinateur, puis exécutez l'un des fichiers de commandes suivants à partir du sous-dossier **serveur**.
 
@@ -121,4 +123,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO4-->

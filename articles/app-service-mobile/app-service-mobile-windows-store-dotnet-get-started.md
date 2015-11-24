@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="11/16/2015"
 	ms.author="glenga"/>
 
 #Créer une application Windows
@@ -24,7 +24,7 @@
 
 ##Vue d'ensemble
 
-Ce didacticiel montre comment ajouter un backend cloud à une application universelle Windows Runtime 8.1 à l'aide d'un backend d'applications mobiles Azure. Les solutions d'application Windows universelles incluent des projets pour Windows Store 8.1 et Windows Phone Store 8.1, en plus d'un projet partagé commun.
+Ce didacticiel présente l’ajout d’un service principal cloud à une application Windows universelle. Pour plus d’informations, consultez [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md).
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started](../../includes/app-service-mobile-windows-universal-get-started.md)]
 
@@ -36,41 +36,27 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
->[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+>[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ##Créer un serveur principal d'applications mobiles Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Télécharger le projet de serveur
+## Configurer le projet de serveur
 
-1. Dans le [portail Azure], cliquez sur **Parcourir tout** > **Web Apps**, puis cliquez sur le backend Mobile App que vous venez de créer.
-
-2. Dans le backend Mobile App, cliquez sur **Tous les paramètres**, puis sous **Mobile App** cliquez sur **Démarrage rapide** > **Windows (C#)**.
-
-3. Sous **Télécharger et exécuter votre projet de serveur** dans **Création d'une application**, cliquez sur **Télécharger**, extrayez les fichiers du projet compressés sur votre ordinateur local et ouvrez la solution dans Visual Studio.
-
-4. Développez le projet pour restaurer les packages NuGet.
-
-##Publier le projet de serveur sur Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-Configure-New-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ##Télécharger et exécuter le projet client
 
-Une fois que vous avez créé votre backend d'application mobile, vous pouvez suivre un Démarrage rapide facile dans le portail Azure pour créer une application ou modifier une application existante à connecter à votre backend d'application mobile.
+Une fois que vous avez configuré le serveur principal de votre application Mobile App, vous pouvez créer une application cliente ou modifier une application existante pour se connecter à Azure. Dans cette section, vous téléchargez un projet de modèle d’application Windows universelle, personnalisé pour se connecter à votre serveur principal Mobile App.
 
-Dans cette section, vous téléchargez un projet de modèle d’application Windows universelle, personnalisé pour se connecter à votre backend Azure Mobile App.
-
-1. Revenez dans le panneau de votre backend Mobile App, cliquez sur **Tous les paramètres**, puis sous **Mobile App** cliquez sur **Démarrage rapide** > **Windows (C#)**.
-
-2.  Sous **Télécharger et exécuter votre projet Windows** dans **Création d'une application**, cliquez sur **Télécharger**, et extrayez les fichiers du projet compressés sur votre ordinateur local.
+1. De retour dans le panneau **Mise en route** pour votre serveur principal Mobile App, cliquez sur **Créer une application** > **Télécharger**, puis extrayez les fichiers de projet compressés sur votre ordinateur local.
 
 3. (Facultatif) Ajoutez le projet d'application Windows universelle à la solution avec le projet de serveur. Cela rend plus facile le débogage et les tests de l'application et du backend dans la même solution Visual Studio, si vous choisissez de le faire.
 
 4. Une fois l’application Windows Store définie comme projet de démarrage, appuyez sur la touche F5 pour régénérer le projet et démarrer l’application Windows Store.
 
-5. Dans l'application, tapez un texte explicite, comme *Suivre le didacticiel*, dans la zone de texte **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
+5. Dans l’application, tapez un texte explicite, comme *Suivre le didacticiel*, dans la zone de texte **Insérer un TodoItem**, puis cliquez sur **Enregistrer**.
 
 	![](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
@@ -84,7 +70,7 @@ Dans cette section, vous téléchargez un projet de modèle d’application Wind
 
 ##Étapes suivantes
 
-* [Ajouter l’authentification à votre application](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajouter l’authentification à votre application ](app-service-mobile-windows-store-dotnet-get-started-users.md) <br/> Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
 * [Ajouter les notifications push à votre application](app-service-mobile-windows-store-dotnet-get-started-push.md) <br/>En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
@@ -92,7 +78,7 @@ Dans cette section, vous téléchargez un projet de modèle d’application Wind
 <!-- Images. -->
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

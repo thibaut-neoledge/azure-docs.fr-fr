@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="11/16/2015"
 	ms.author="juliako"/>
 
 
@@ -27,11 +27,13 @@ Microsoft Azure Media Services vous permet de fournir des flux MPEG-DASH chiffr�
 
 Media Services fournit un service pour la distribution de licences Microsoft PlayReady. Media Services fournit également des API qui vous permettent de configurer les droits et les restrictions que vous souhaitez pour le runtime DRM PlayReady, qui s’appliquent lorsqu’un utilisateur lit un contenu protégé. Lorsqu’un utilisateur demande un contenu protégé par PlayReady, l’application de lecteur demande une licence du service de licence AMS. Le service de licence AMS émet une licence pour le lecteur s’il est autorisé. Une licence PlayReady contient la clé de déchiffrement qui peut être utilisée par le lecteur client pour déchiffrer et diffuser le contenu.
 
->[AZURE.NOTE]Actuellement, Media Services ne fournit pas de serveur de licences Widevine. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
->
-> Pour plus d’informations, consultez : Intégration à [Axinom](media-services-axinom-integration.md) et [castLabs](media-services-castlabs-integration.md).
+En commençant par le kit de développement logiciel Media Services .NET version 3.5.2, Media Services vous pouvez également configurer le modèle de licence Widevine et d’obtenir des licences Widevine.
 
-Media Services prend en charge plusieurs méthodes d’autorisation des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : ouverte ou restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats SWT ([Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) et JWT ([JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)). Pour plus d'informations, consultez Configurer la stratégie d'autorisation de la clé de contenu.
+>[AZURE.NOTE]Les services de livraison Widevine fournis par Azure Media Services sont en mode Aperçu. Pour plus d’informations, consultez [ce blog](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/).
+
+Vous pouvez également utiliser les partenaires AMS suivants pour vous aider à distribuer des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). Pour plus d’informations, consultez : Intégration à [Axinom](media-services-axinom-integration.md) et [castLabs](media-services-castlabs-integration.md).
+
+Media Services prend en charge plusieurs méthodes d’autorisation des utilisateurs effectuant des demandes de clé. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : ouverte ou restriction à jeton. La stratégie de restriction à jeton doit être accompagnée d’un jeton émis par un service de jeton sécurisé (STS). Media Services prend en charge les jetons aux formats [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) et [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Pour plus d'informations, consultez Configurer la stratégie d'autorisation de la clé de contenu.
 
 Pour tirer parti du chiffrement dynamique, vous devez avoir un élément multimédia qui contient un ensemble de fichiers MP4 à débit binaire multiple ou de fichiers sources de diffusion en continu lisse (Smooth Streaming) à débit binaire multiple. Vous devez également configurer les stratégies de remise pour l’élément multimédia (décrite plus loin dans cette rubrique). Ensuite, en fonction du format spécifié dans l'URL de diffusion, le serveur de streaming à la demande s'assure que le flux est livré conformément au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Media Services se charge de créer et de fournir la réponse HTTP appropriée à chaque demande des clients.
 
@@ -39,22 +41,25 @@ Cette rubrique peut être utile aux développeurs travaillant sur des applicatio
 
 >[AZURE.NOTE]Pour utiliser le chiffrement dynamique, vous devez d'abord obtenir au moins une unité d'échelle (également appelée unité de diffusion en continu). Pour plus d'informations, consultez [Mise à l'échelle d'un service de média](media-services-manage-origins.md#scale_streaming_endpoints).
 
+
+##Charger l’exemple
+
+Vous pouvez télécharger l’exemple décrit dans cet article à partir d’[ici](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
+
 ##Configuration de Dynamic Common Encryption et services de distribution de licences DRM
 
 Voici les étapes générales que vous aurez à exécuter lors de la protection de vos éléments multimédias avec PlayReady, en utilisant le service de distribution des licences Media Services, ainsi que le chiffrement dynamique.
 
 1. Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia. 
 1. Encoder l'élément multimédia contenant le fichier selon le débit binaire MP4 défini.
-1. Créer une clé de contenu et l'associer à l'élément multimédia encodé. Dans Media Services, la clé de contenu contient la clé de chiffrement de l’élément multimédia.
-1. Configurer la stratégie d'autorisation de la clé de contenu. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client afin que la clé de contenu soit remise au client. 
+1. Créer une clé de contenu et l'associer à l'élément multimédia encodé. Dans Media Services, la clé de contenu contient la clé de chiffrement de l'élément multimédia. 
+1. Configurer la stratégie d'autorisation de la clé de contenu. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client afin que la clé de contenu soit remise au client.
+
+	Lorsque vous créez la stratégie d’autorisation de clé de contenu, vous devez spécifier les éléments suivants : méthode de livraison (PlayReady ou Widevine), restrictions de remise (ouvertes ou jeton) et informations spécifiques au type de remise de clé qui définit comment la clé est fournie au client (modèle de licence [PlayReady](media-services-playready-license-template-overview.md) ou [Widevine](media-services-widevine-license-template-overview.md)). 
 1. Configurer la stratégie de remise pour un élément multimédia. La configuration de la stratégie de remise inclut : le protocole de remise (par exemple, MPEG DASH, HLS, HDS, Smooth Streaming ou tous), le type de chiffrement dynamique (par exemple, Common Encryption), l’URL d’acquisition de licence PlayReady ou Widevine. 
  
 	Vous pouvez appliquer des stratégies différentes à chaque protocole dans le même élément multimédia. Par exemple, vous pouvez appliquer le chiffrement PlayReady à Smooth/DASH et AES Envelope à HLS. Tous les protocoles qui ne sont pas définis dans une stratégie de remise (par exemple, en cas d’ajout d’une stratégie unique qui spécifie uniquement TLS comme protocole) seront bloqués de la diffusion en continu. Cela ne s’applique toutefois pas si vous n’avez défini aucune stratégie de remise de ressources. Tous les protocoles seront alors autorisés.
 1. Créer un localisateur à la demande afin d'obtenir une URL de diffusion en continu.
-
->[AZURE.NOTE]Actuellement, Media Services ne fournit pas de serveur de licences Widevine. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
->
-> Pour plus d’informations, consultez : Intégration à [Axinom](media-services-axinom-integration.md) et [castLabs](media-services-castlabs-integration.md).
 
 Vous trouverez un exemple .NET complet à la fin de la rubrique.
 
@@ -67,6 +72,8 @@ Le reste de cette rubrique fournit des explications détaillées, des exemples d
 ##Limitations actuelles
 
 Si vous ajoutez ou mettez à jour une stratégie de remise de ressource, vous devez supprimer le localisateur associé (le cas échéant) et en créer un nouveau.
+
+Limites lors du chiffrement Widevine avec Azure Media Services : actuellement, plusieurs clés de contenu ne sont pas prises en charge.
 
 ##Créer un élément multimédia et télécharger des fichiers dans l'élément multimédia
 
@@ -88,9 +95,9 @@ Dans Media Services, la clé de contenu contient la clé que vous souhaitez util
 Pour plus d’informations, consultez [Créer une clé de contenu](media-services-dotnet-create-contentkey.md).
 
 
-##<a id="configure_key_auth_policy"></a>Configurer la stratégie d’autorisation de clé de contenu
+##<a id="configure_key_auth_policy"></a>Configurez la stratégie d’autorisation de la clé de contenu.
 
-Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client (lecteur) afin que la clé soit remise au client. La stratégie d’autorisation des clés de contenu peut avoir une ou plusieurs restrictions d’autorisations : ouvert, restriction par jeton ou restriction IP.
+Media Services prend en charge plusieurs méthodes d’authentification des utilisateurs effectuant des demandes de clé. La stratégie d'autorisation de la clé de contenu doit être configurée par vous et respectée par le client (lecteur) afin que la clé soit remise au client. La stratégie d’autorisation des clés de contenu peut comporter une ou plusieurs restrictions d’autorisation : ouverte ou restriction à jeton.
 
 Pour plus d’informations, consultez [Configurer la stratégie d’autorisation de clé de contenu](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
@@ -132,11 +139,16 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 
 ##<a id="example"></a>Exemple
 
-1. Créez un projet Console.
-1. Utilisez NuGet pour installer et ajouter les extensions du Kit de développement logiciel (SDK) .NET Azure Media Services. L’installation de ce package installe également le Kit de développement logiciel (SDK) Media Services pour .NET et ajoute toutes les autres dépendances requises.
-2. Ajoutez des références : System.Runtime.Serialization et System.Configuration.
-2. Ajoutez le fichier de configuration qui contient le nom du compte et les informations sur la clé :
 
+L’exemple suivant illustre la fonctionnalité présentée dans le kit de développement logiciel Azure Media Services pour .Net-Version 3.5.2 (en particulier, la possibilité de définir un modèle de licence Widevine et de demander une licence Widevine Azure Media Services). La commande de package Nuget suivante a été utilisée pour installer le package :
+
+	PM> Install-Package windowsazure.mediaservices -Version 3.5.2
+
+
+1. Créez un projet Console.
+1. Utilisez NuGet pour installer et ajouter les extensions du kit de développement logiciel .NET Azure Media Services.
+2. Ajouter des références : System.Configuration.
+2. Ajoutez le fichier de configuration qui contient le nom du compte et les informations sur la clé :
 	
 		<?xml version="1.0" encoding="utf-8"?>
 		<configuration>
@@ -153,6 +165,8 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 			  </appSettings>
 		</configuration>
 
+1. Obtenir au moins une unité de diffusion pour le point de terminaison de diffusion à partir duquel vous envisagez de distribuer votre contenu. Pour plus d’informations, consultez [configurer les points de terminaison de diffusion en continu](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+
 1. Remplacez le code dans votre fichier Program.cs par le code présenté dans cette section.
 	
 	Veillez à mettre à jour les variables pour pointer vers les dossiers où se trouvent vos fichiers d'entrée.
@@ -162,14 +176,14 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		using System.Configuration;
 		using System.IO;
 		using System.Linq;
-		using System.Text;
 		using System.Threading;
-		using System.Threading.Tasks;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
-		
-		namespace CommonDynamicEncryptAndKeyDeliverySvc
+		using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
+		using Newtonsoft.Json;
+
+		namespace DynamicEncryptionWithDRM
 		{
 		    class Program
 		    {
@@ -216,7 +230,7 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            Console.WriteLine("Created key {0} for the asset {1} ", key.Id, encodedAsset.Id);
 		            Console.WriteLine("PlayReady License Key delivery URL: {0}", key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense));
 		            Console.WriteLine();
-		    
+		
 		            if (tokenRestriction)
 		                tokenTemplateString = AddTokenRestrictedAuthorizationPolicy(key);
 		            else
@@ -240,21 +254,20 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		                // Note, you need to pass the key id Guid because we specified 
 		                // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
 		                Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
-		
-		                //The GenerateTestToken method returns the token without the word “Bearer” in front
-		                //so you have to add it in front of the token string. 
 		                string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey, DateTime.UtcNow.AddDays(365));
 		                Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 		                Console.WriteLine();
 		            }
 		
-
+		            // You can use the http://amsplayer.azurewebsites.net/azuremediaplayer.html player to test streams.
+		            // Note that DASH works on IE 11 (via PlayReady), Edge (via PlayReady), Chrome (via Widevine).
+		             
 		            string url = GetStreamingOriginLocator(encodedAsset);
-		            Console.WriteLine("Encrypted MPEG-DASH URL: {0}/Manifest(format=mpd-time-csf) ", url);
-		
+		            Console.WriteLine("Encrypted DASH URL: {0}/manifest(format=mpd-time-csf)", url);
 		
 		            Console.ReadLine();
 		        }
+		
 		
 		        static public IAsset UploadFileAndCreateAsset(string singleFilePath)
 		        {
@@ -265,7 +278,7 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            }
 		
 		            var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-		            IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
+		            IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.None);
 		
 		            var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
 		
@@ -289,41 +302,38 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            return inputAsset;
 		        }
 		
-	
-				static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-				{
-				    // Declare a new job.
-				    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-				    // Get a media processor reference, and pass to it the name of the 
-				    // processor to use for the specific task.
-				    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-				
-				    // Create a task with the encoding details, using a string preset.
-				    // In this case "H264 Multiple Bitrate 720p" preset is used.
-				    ITask task = job.Tasks.AddNew("My encoding task",
-				        processor,
-				        "H264 Multiple Bitrate 720p",
-				        TaskOptions.None);
-				
-				    // Specify the input asset to be encoded.
-				    task.InputAssets.Add(asset);
-				    // Add an output asset to contain the results of the job. 
-				    // This output is specified as AssetCreationOptions.None, which 
-				    // means the output asset is not encrypted. 
-				    task.OutputAssets.AddNew("Output asset",
-				        AssetCreationOptions.None);
-				
-				    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-				    job.Submit();
-				    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-				
-				    return job.OutputMediaAssets[0];
-				}
-
+		
+		        static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
+		        {
+		            var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
+		
+		            IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
+		                                    inputAsset.Name,
+		                                    encodingPreset));
+		
+		            var mediaProcessors =
+		                _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
+		
+		            var latestMediaProcessor =
+		                mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
+		
+		
+		
+		            ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
+		            encodeTask.InputAssets.Add(inputAsset);
+		            encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
+		
+		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+		            job.Submit();
+		            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+		
+		            return job.OutputMediaAssets[0];
+		        }
+		
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create Common Encryption content key
+		            // Create envelope encryption content key
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -339,78 +349,86 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            return key;
 		        }
 		
-		    static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
-		    {
-		
-		        // Create ContentKeyAuthorizationPolicy with Open restrictions 
-		        // and create authorization policy          
-		
-		        List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
+		        static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
 		        {
-		            new ContentKeyAuthorizationPolicyRestriction 
-		            { 
-		                Name = "Open", 
-		                KeyRestrictionType = (int)ContentKeyRestrictionType.Open, 
-		                Requirements = null
-		            }
-		        };
 		
-		        // Configure PlayReady license template.
-		        string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
-		
-		        IContentKeyAuthorizationPolicyOption policyOption =
-		            _context.ContentKeyAuthorizationPolicyOptions.Create("",
-		                ContentKeyDeliveryType.PlayReadyLicense,
-		                    restrictions, newLicenseTemplate);
-		
-		        IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
-		                    ContentKeyAuthorizationPolicies.
-		                    CreateAsync("Deliver Common Content Key with no restrictions").
-		                    Result;
-		
-		
-		        contentKeyAuthorizationPolicy.Options.Add(policyOption);
-		
-		        // Associate the content key authorization policy with the content key.
-		        contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
-		        contentKey = contentKey.UpdateAsync().Result;
-		    }
-		
-		        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
-		        {
-		            string tokenTemplateString = GenerateTokenRequirements();
-		
-		            IContentKeyAuthorizationPolicy policy = _context.
-		                                    ContentKeyAuthorizationPolicies.
-		                                    CreateAsync("HLS token restricted authorization policy").Result;
+		            // Create ContentKeyAuthorizationPolicy with Open restrictions 
+		            // and create authorization policy          
 		
 		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
 		            {
-		                new ContentKeyAuthorizationPolicyRestriction 
-		                { 
-		                    Name = "Token Authorization Policy", 
-		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
-		                    Requirements = tokenTemplateString, 
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Open",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.Open,
+		                    Requirements = null
 		                }
 		            };
 		
-		            // Configure PlayReady license template.
-		            string newLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		            // Configure PlayReady and Widevine license templates.
+		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
 		
-		            IContentKeyAuthorizationPolicyOption policyOption =
-		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+		            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
+		
+		            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("",
 		                    ContentKeyDeliveryType.PlayReadyLicense,
-		                        restrictions, newLicenseTemplate);
+		                        restrictions, PlayReadyLicenseTemplate);
+		
+		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("", 
+		                    ContentKeyDeliveryType.Widevine, 
+		                    restrictions, WidevineLicenseTemplate);
 		
 		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
 		                        ContentKeyAuthorizationPolicies.
 		                        CreateAsync("Deliver Common Content Key with no restrictions").
 		                        Result;
-		            
-		            policy.Options.Add(policyOption);
 		
-		            // Add ContentKeyAutorizationPolicy to ContentKey
-		            contentKeyAuthorizationPolicy.Options.Add(policyOption);
+		
+		            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+		            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
+		            // Associate the content key authorization policy with the content key.
+		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
+		            contentKey = contentKey.UpdateAsync().Result;
+		        }
+		
+		        public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
+		        {
+		            string tokenTemplateString = GenerateTokenRequirements();
+		
+		            List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
+		            {
+		                new ContentKeyAuthorizationPolicyRestriction
+		                {
+		                    Name = "Token Authorization Policy",
+		                    KeyRestrictionType = (int)ContentKeyRestrictionType.TokenRestricted,
+		                    Requirements = tokenTemplateString,
+		                }
+		            };
+		
+		            // Configure PlayReady and Widevine license templates.
+		            string PlayReadyLicenseTemplate = ConfigurePlayReadyLicenseTemplate();
+		
+		            string WidevineLicenseTemplate = ConfigureWidevineLicenseTemplate();
+		
+		            IContentKeyAuthorizationPolicyOption PlayReadyPolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+		                    ContentKeyDeliveryType.PlayReadyLicense,
+		                        restrictions, PlayReadyLicenseTemplate);
+		
+		            IContentKeyAuthorizationPolicyOption WidevinePolicy =
+		                _context.ContentKeyAuthorizationPolicyOptions.Create("Token option",
+		                    ContentKeyDeliveryType.Widevine,
+		                        restrictions, WidevineLicenseTemplate);
+		
+		            IContentKeyAuthorizationPolicy contentKeyAuthorizationPolicy = _context.
+		                        ContentKeyAuthorizationPolicies.
+		                        CreateAsync("Deliver Common Content Key with token restrictions").
+		                        Result;
+		
+		            contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
+		            contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 		
 		            // Associate the content key authorization policy with the content key
 		            contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
@@ -430,7 +448,7 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            template.RequiredClaims.Add(TokenClaim.ContentKeyIdentifierClaim);
 		
 		            return TokenRestrictionTemplateSerializer.Serialize(template);
-		        } 
+		        }
 		
 		        static private string ConfigurePlayReadyLicenseTemplate()
 		        {
@@ -450,12 +468,11 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            //Configure whether the license is persistent (saved in persistent storage on the client) 
 		            //or non-persistent (only held in memory while the player is using the license).  
 		            licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
-		           
+		
 		            // AllowTestDevices controls whether test devices can use the license or not.  
 		            // If true, the MinimumSecurityLevel property of the license
 		            // is set to 150.  If false (the default), the MinimumSecurityLevel property of the license is set to 2000.
 		            licenseTemplate.AllowTestDevices = true;
-		
 		
 		            // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
 		            // It grants the user the ability to playback the content subject to the zero or more restrictions 
@@ -478,31 +495,58 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		
 		            return MediaServicesLicenseTemplateSerializer.Serialize(responseTemplate);
 		        }
-
 		
-				static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-				{
-				    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-				
-				    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-				        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-				    {
-				        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-				        {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl,"http://testurl"},
-				        
-				    };
-				
-				    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-				            "AssetDeliveryPolicy",
-				        AssetDeliveryPolicyType.DynamicCommonEncryption,
-				        AssetDeliveryProtocol.Dash,
-				        assetDeliveryPolicyConfiguration);
-				
-				   
-				    // Add AssetDelivery Policy to the asset
-				    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-				
-				}
+		
+		        private static string ConfigureWidevineLicenseTemplate()
+		        {
+		            var template = new WidevineMessage
+		            {
+		                allowed_track_types = AllowedTrackTypes.SD_HD,
+		                content_key_specs = new[]
+		                {
+		                    new ContentKeySpecs
+		                    {
+		                        required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+		                        security_level = 1,
+		                        track_type = "SD"
+		                    }
+		                },
+		                policy_overrides = new
+		                {
+		                    can_play = true,
+		                    can_persist = true,
+		                    can_renew = false
+		                }
+		            };
+		
+		            string configuration = JsonConvert.SerializeObject(template);
+		            return configuration;
+		        }
+		
+		        static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
+		        {
+		            Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+		            Uri widevineURl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
+		            Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+		                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+		                {
+		                    {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+		                    {AssetDeliveryPolicyConfigurationKey.WidevineLicenseAcquisitionUrl, widevineURl.ToString()},
+		
+		                };
+		
+		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+		                    "AssetDeliveryPolicy",
+		                AssetDeliveryPolicyType.DynamicCommonEncryption,
+		                AssetDeliveryProtocol.Dash,
+		                assetDeliveryPolicyConfiguration);
+		
+		
+		            // Add AssetDelivery Policy to the asset
+		            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+		
+		        }
+		
 		
 		        /// <summary>
 		        /// Gets the streaming origin locator.
@@ -533,6 +577,14 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		            return originLocator.Path + assetFile.Name;
 		        }
 		
+		        static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
+		        {
+		            Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
+		                ((IJob)sender).Name,
+		                e.CurrentState,
+		                DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
+		        }
+		
 		        static private byte[] GetRandomBuffer(int length)
 		        {
 		            var returnValue = new byte[length];
@@ -545,52 +597,8 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 		
 		            return returnValue;
 		        }
-
-
-				static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-				{
-				    Console.WriteLine("Job state changed event:");
-				    Console.WriteLine("  Previous state: " + e.PreviousState);
-				    Console.WriteLine("  Current state: " + e.CurrentState);
-				    switch (e.CurrentState)
-				    {
-				        case JobState.Finished:
-				            Console.WriteLine();
-				            Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-				            break;
-				        case JobState.Canceling:
-				        case JobState.Queued:
-				        case JobState.Scheduled:
-				        case JobState.Processing:
-				            Console.WriteLine("Please wait...\n");
-				            break;
-				        case JobState.Canceled:
-				        case JobState.Error:
-				
-				            // Cast sender as a job.
-				            IJob job = (IJob)sender;
-				
-				            // Display or log error details as needed.
-				            break;
-				        default:
-				            break;
-				    }
-				}
-				
-				
-				static private IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-				{
-				    var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-				    ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-				
-				    if (processor == null)
-				        throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-				
-				    return processor;
-				}
 		    }
 		}
-
 
 
 ##Parcours d’apprentissage de Media Services
@@ -606,4 +614,6 @@ Vous pouvez utiliser le [Lecteur AMS](http://amsplayer.azurewebsites.net/azureme
 
 [Configurer l’empaquetage Widevine avec AMS](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-<!---HONumber=Nov15_HO3-->
+[Annonce d’une version préliminaire publique des services de livraison de licence Google Widevine dans Azure Media Services](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)
+
+<!---HONumber=Nov15_HO4-->

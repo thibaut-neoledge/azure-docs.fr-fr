@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="Créer une base de données SQL Azure à l’aide de PowerShell" 
-    description="Créer une base de données SQL Azure à l’aide de PowerShell" 
-    services="sql-database" 
+    pageTitle="Nouvelle configuration de base de données SQL avec PowerShell | Microsoft Azure" 
+    description="Apprenez dès maintenant à créer une base de données SQL avec PowerShell. Les tâches courantes d’installation de base de données peuvent être gérées via les applets de commande PowerShell." 
+    keywords="créer une base de données sql, configuration de base de données"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# Créer une base de données SQL à l’aide de PowerShell
+# Créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell 
 
 **Base de données unique**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## Vue d’ensemble
-
-Cet article vous montre comment créer une base de données SQL à l’aide de PowerShell.
+Découvrez comment créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell
 
 > [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, Azure PowerShell doit être installé et en cours d’exécution. En raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 - Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 
@@ -57,7 +56,7 @@ Pour sélectionner l’abonnement, vous avez besoin de votre ID d’abonnement. 
 
 Après avoir exécuté **Select-AzureRMSubscription**, vous êtes redirigé vers l’invite PowerShell. Si vous avez plusieurs abonnements, vous pouvez exécuter **Get-AzureRMSubscription** et vérifier que l’abonnement que vous voulez utiliser affiche **IsCurrent: True**.
 
-## Créer un groupe de ressources, un serveur et une règle de pare-feu
+## Configuration de la base de données : Créer un groupe de ressources, un serveur et une règle de pare-feu
 
 Vous disposez maintenant d’un accès pour exécuter des applets de commande pour votre abonnement Azure. L’étape suivante consiste donc à établir le groupe de ressources qui contient le serveur où la base de données sera créée. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
 
@@ -136,12 +135,13 @@ Les détails de la base de données apparaissent une fois la base de données cr
 
 
 ## Étapes suivantes
+Une fois que vous avez créé une base de données SQL et effectué les tâches courantes d’installation de base de données, vous êtes prêt pour les opérations suivantes :
 
 - [Se connecter avec SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 
 
 ## Ressources supplémentaires
 
-- [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

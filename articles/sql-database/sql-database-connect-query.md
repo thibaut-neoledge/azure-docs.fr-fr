@@ -1,7 +1,8 @@
 <properties
-	pageTitle="Interroger la base de données SQL avec le code C# | Microsoft Azure"
-	description="Détails sur les adresses IP, les chaînes de connexion, le fichier de configuration pour une connexion sécurisée et Visual Studio gratuit, afin de permettre à votre programme C# de se connecter à votre base de données SQL Azure dans le cloud, à l’aide d’ADO.NET."
+	pageTitle="Se connecter à la base de données SQL avec une requête C# | Microsoft Azure"
+	description="Écrivez un programme en C# pour interroger et vous connecter à une base de données SQL. Informations sur les adresses IP, chaînes de connexion, connexion sécurisée et Visual Studio gratuit."
 	services="sql-database"
+	keywords="requête de base de données c#, requête c#, connexion à une base de données"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
@@ -17,22 +18,22 @@
 	ms.author="genemi"/>
 
 
-# Connexion et interrogation de votre base de données SQL avec C&#x23;
+# Écrire un programme en C&#x23; pour interroger et se connecter à une base de données SQL
 
 > [AZURE.SELECTOR]
 - [C#](sql-database-connect-query.md)
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Vous souhaitez écrire un programme C# qui utilise ADO.NET pour vous connecter à une base de données SQL Azure dans le cloud.
+Apprenez à écrire un programme en C# pour interroger et vous connecter à une base de données SQL Azure dans le cloud.
 
-Cette rubrique décrit chaque étape pour les utilisateurs qui découvrent la base de données SQL Azure et le code C#. Les utilisateurs ayant de l’expérience avec Microsoft SQL Server et le code C# peuvent ignorer certaines étapes et se concentrer sur celles qui sont spécifiques à la base de données SQL.
+Cet article décrit chaque étape pour les utilisateurs qui découvrent la base de données SQL Azure, C# et ADO.NET. Les utilisateurs ayant de l’expérience avec Microsoft SQL Server et le code C# peuvent ignorer certaines étapes et se concentrer sur celles qui sont spécifiques à la base de données SQL.
 
 
 ## Composants requis
 
 
-Pour exécuter l’exemple de code C#, vous devez disposer des éléments suivants :
+Pour exécuter l’exemple de code de requête C#, vous devez disposer des éléments suivants :
 
 
 - Un compte et un abonnement Azure. Vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
@@ -45,7 +46,7 @@ Pour exécuter l’exemple de code C#, vous devez disposer des éléments suivan
 - Visual Studio 2013 Update 4 (ou version ultérieure). Microsoft propose désormais Visual Studio Community *gratuitement*.
  - [Visual Studio Community, téléchargement](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Plus d’options gratuites Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure en version préliminaire](http://portal.azure.com/) vous guide dans l’installation de Visual Studio.
+ - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure en version préliminaire](http://portal.azure.com/) vous guide dans l’installation de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -58,7 +59,7 @@ Pour exécuter l’exemple de code C#, vous devez disposer des éléments suivan
 Si vous devez installer Visual Studio, vous pouvez :
 
 - Installer Visual Studio Community gratuitement en accédant dans votre navigateur aux pages web de produit Visual Studio qui fournissent des téléchargements gratuits et d’autres options
-- Laisser le [portail Azure en version préliminaire](http://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après
+- Laisser le [portail Azure en version préliminaire](http://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
 
 
 ### Visual Studio via le portail Azure en version préliminaire
@@ -75,16 +76,16 @@ Si vous devez installer Visual Studio, vous pouvez :
 5. Pour des raisons pratiques, cliquez sur la commande de réduction sur chacun des volets précédents.
 
 6. Cliquez sur le bouton **Ouvrir dans Visual Studio** vers le haut sur le volet de votre base de données. Un nouveau volet à propos de Visual Studio s’ouvre avec des liens vers des emplacements d’installation pour Visual Studio.
- 
+
 	![Bouton Ouvrir dans Visual Studio][20-OpenInVisualStudioButton]
 
 7. Cliquez sur le lien **Community (gratuit)** ou sur un lien similaire. Une nouvelle page web est ajoutée.
 
 8. Utilisez les liens de la nouvelle page web pour installer Visual Studio.
 
-9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
+9. Une fois que Visual Studio est installé, sur le panneau **Ouvrir dans Visual Studio**, cliquez sur le bouton **Ouvrir dans Visual Studio**. Visual Studio s’ouvre.
 
-10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
+10. Dans l’intérêt de son volet **Explorateur d’objets SQL Server **, Visual Studio vous demande de renseigner les champs de chaîne de connexion dans une boîte de dialogue.
  - Sélectionnez **Authentification SQL Server** et non **Authentification Windows**.
  - N’oubliez pas de spécifier votre base de données **AdventureWorksLT** (**Options** > **Propriétés de connexion** dans la boîte de dialogue).
 
@@ -94,7 +95,7 @@ Si vous devez installer Visual Studio, vous pouvez :
 ## Étape 2 : Créer un projet dans Visual Studio
 
 
-Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le code C# > Windows > **Application console**.
+Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le code C# > Windows > **Application console**.
 
 
 1. Cliquez sur **Fichier** > **Nouveau** > **Projet**. La boîte de dialogue *** s’affiche.
@@ -103,7 +104,7 @@ Dans Visual Studio, créez un projet basé sur le modèle de démarrage pour le 
 
 	![Boîte de dialogue Nouveau projet][30-VSNewProject]
 
-2. Pour le **Nom**, saisissez **ConnectAndQuery\_Example**. Cliquez sur **OK**.
+2. Pour le **nom**, saisissez **ConnectAndQuery\_Example**. Cliquez sur **OK**.
 
 
 ## Étape 3 : Ajouter une référence d’assembly pour le processus de configuration
@@ -126,9 +127,9 @@ Notre exemple de code C# utilise l’assembly .NET Framework **System.Configurat
 ## Étape 4 : Obtenir la chaîne de connexion
 
 
-Utilisez le [portail Azure en version préliminaire](http://portal.azure.com/) pour copier la chaîne de connexion de votre base de données.
+Utilisez le [portail Azure en version préliminaire](http://portal.azure.com/) pour copier la chaîne de connexion à la base de données SQL.
 
-Votre première utilisation permettra de connecter Visual Studio à votre base de données SQL Azure **AdventureWorksLT**.
+Votre première utilisation permettra de connecter Visual Studio à votre base de données SQL Azure **AdventureWorksLT**.
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
@@ -140,15 +141,15 @@ Votre première utilisation permettra de connecter Visual Studio à votre base d
 1. Dans Visual Studio, ouvrez le fichier App.config à partir du volet Explorateur de solutions.
 
 2. Ajoutez l’élément **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;**, comme indiqué dans l’exemple de code App.config suivant.
- - Remplacez *{vos\_espaces\_réservés}* par vos valeurs réelles :
+ - Remplacez *{your\_placeholders}* par vos valeurs réelles :
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
-	    <startup> 
+	    <startup>
 	        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	    </startup>
-	
+
 		<connectionStrings>
 			<clear />
 			<add name="ConnectionString4NoUserIDNoPassword"
@@ -172,9 +173,9 @@ Votre première utilisation permettra de connecter Visual Studio à votre base d
 ## Étape 6 : Coller dans l’exemple de code C#
 
 
-1. Dans Visual Studio, utilisez le volet **Explorateur de solutions** pour ouvrir votre fichier **Program.cs**. 
+1. Dans Visual Studio, utilisez le volet **Explorateur de solutions** pour ouvrir votre fichier **Program.cs**.
 
-	![Coller dans notre exemple de code de programme C#][40-VSProgramCsOverlay]
+	![Collez l’exemple de code de requête C#.][40-VSProgramCsOverlay]
 
 2. Remplacez l’ensemble du code de démarrage dans Program.cs en collant l’exemple de code C# suivant.
  - Si vous souhaitez un exemple de code plus court, vous pouvez affecter l’ensemble de la chaîne de connexion en tant que littéral pour la variable **SQLConnectionString**. Ensuite, vous pouvez effacer les deux méthodes **GetConnectionStringFromExeConfig** et **GatherPasswordFromConsole**.
@@ -186,7 +187,7 @@ using G = System.Configuration;   // System.Configuration.dll
 using D = System.Data;            // System.Data.dll
 using C = System.Data.SqlClient;  // System.Data.dll
 using T = System.Text;
-	
+
 namespace ConnectAndQuery_Example
 {
 	class Program
@@ -195,7 +196,7 @@ namespace ConnectAndQuery_Example
 		{
 			string connectionString4NoUserIDNoPassword,
 				password, userName, SQLConnectionString;
-	
+
 			// Get most of the connection string from ConnectAndQuery_Example.exe.config
 			// file, in the same directory where ConnectAndQuery_Example.exe resides.
 			connectionString4NoUserIDNoPassword = Program.GetConnectionStringFromExeConfig
@@ -205,17 +206,17 @@ namespace ConnectAndQuery_Example
 			userName = Console.ReadLine();
 			// Get the password from keyboard input.
 			password = Program.GatherPasswordFromConsole();
-	
+
 			SQLConnectionString = "Password=" + password + ';' +
 				"User ID=" + userName + ";" + connectionString4NoUserIDNoPassword;
-	
+
 			// Create an SqlConnection from the provided connection string.
 			using (C.SqlConnection connection = new C.SqlConnection(SQLConnectionString))
 			{
 				// Formulate the command.
 				C.SqlCommand command = new C.SqlCommand();
 				command.Connection = connection;
-	
+
 				// Specify the query to be executed.
 				command.CommandType = D.CommandType.Text;
 				command.CommandText = @"
@@ -224,7 +225,7 @@ namespace ConnectAndQuery_Example
 					";
 				// Open a connection to database.
 				connection.Open();
-	
+
 				// Read data returned for the query.
 				C.SqlDataReader reader = command.ExecuteReader();
 				while (reader.Read())
@@ -237,12 +238,12 @@ namespace ConnectAndQuery_Example
 			Console.ReadKey(true);
 		}
 		//----------------------------------------------------------------------------------
-	
+
 		static string GetConnectionStringFromExeConfig(string connectionStringNameInConfig)
 		{
 			G.ConnectionStringSettings connectionStringSettings =
 				G.ConfigurationManager.ConnectionStrings[connectionStringNameInConfig];
-	
+
 			if (connectionStringSettings == null)
 			{
 				throw new ApplicationException(String.Format
@@ -251,7 +252,7 @@ namespace ConnectAndQuery_Example
 			}
 				return connectionStringSettings.ConnectionString;
 		}
-	
+
 		static string GatherPasswordFromConsole()
 		{
 			T.StringBuilder passwordBuilder = new T.StringBuilder(32);
@@ -284,7 +285,7 @@ namespace ConnectAndQuery_Example
 ### Compilation de votre programme
 
 
-1. Dans Visual Studio, compilez votre programme en cliquant sur le menu **Générer** > **Générer la solution**.
+1. Dans Visual Studio, compilez votre programme en cliquant sur le menu **Générer** > **Générer la solution**.
 
 
 ### Résumé des actions dans l’exemple de programme
@@ -294,7 +295,7 @@ namespace ConnectAndQuery_Example
 
 2. Collecte du nom d’utilisateur et du mot de passe à partir du clavier et ajout de ces derniers afin de compléter la chaîne de connexion.
 
-3. Utilisation de la chaîne de connexion et des classes ADO.NET pour se connecter à la base de données de démonstration **AdventureWorksLT** sur la base de données SQL Azure.
+3. Utilisation de la chaîne de connexion et des classes ADO.NET pour se connecter à la base de données de démonstration **AdventureWorksLT** sur la base de données SQL.
 
 4. Émission d’une instruction SQL **SELECT** pour lire les éléments de la table **SalesLT**.
 
@@ -312,7 +313,7 @@ Nous essayons de préserver la concision de l’exemple de code C#. Toutefois, n
 ## Étape 7 : Ajouter une plage d’adresses IP autorisées dans le pare-feu du serveur
 
 
-Votre programme C# client ne peut pas se connecter à la base de données SQL Azure avant que l’adresse IP de l’ordinateur client ait été ajoutée dans le pare-feu de la base de données SQL. Votre programme échouera avec un message d’erreur pratique indiquant l’adresse IP nécessaire.
+Votre programme C# client ne peut pas se connecter à la base de données SQL avant que l’adresse IP de l’ordinateur client ait été ajoutée dans le pare-feu de la base de données SQL. Votre programme échouera avec un message d’erreur pratique indiquant l’adresse IP nécessaire.
 
 
 Vous pouvez utiliser le [portail Azure en version préliminaire](http://portal.azure.com/) pour ajouter l’adresse IP.
@@ -323,14 +324,14 @@ Vous pouvez utiliser le [portail Azure en version préliminaire](http://portal.a
 
 
 
-Pour plus d’informations, consultez <br/> [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
+Pour plus d’informations, voir <br/> [Procédure : configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md).
 
 
 
 ## Étape 8 : Exécuter le programme
 
 
-1. Dans Visual Studio, exécutez votre programme en cliquant sur le menu **DÉBOGUER** > **Démarrer le débogage**. Une fenêtre de console s’affiche.
+1. Dans Visual Studio, exécutez votre programme de requête C# en cliquant sur le menu **DÉBOGUER** > **Démarrer le débogage**. Une fenêtre de console s’affiche.
 
 2. Entrez votre nom d’utilisateur et un mot de passe, comme indiqué.
  - Quelques outils de connexion nécessitent l’ajout de la mention "@{votre\_Nomserveur\_ici}" à votre nom d’utilisateur mais, pour ADO.NET, ce suffixe est facultatif. Ne vous embêtez pas à taper le suffixe.
@@ -357,4 +358,4 @@ Pour plus d’informations, consultez <br/> [Procédure : configuration des par
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

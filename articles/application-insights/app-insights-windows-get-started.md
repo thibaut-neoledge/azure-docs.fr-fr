@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Application Insights pour Windows Phone et les applications du Windows Store | Microsoft Azure"
-	description="Analysez l'utilisation et les performances de votre application pour appareil Windows avec Application Insights."
+	pageTitle="Analyse des applications du Windows Phone et du Windows Store | Microsoft Azure"
+	description="Analysez l’utilisation et les performances de votre application pour appareil Windows."
 	services="application-insights"
     documentationCenter="windows"
 	authors="alancameronwills"
@@ -12,92 +12,45 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="awills"/>
 
-# Application Insights pour Windows Phone et les applications du Windows Store
+# Analyse des applications du Windows Phone et du Windows Store
 
-*Application Insights est à l'état de version préliminaire.*
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Visual Studio Application Insights vous permet d'analyser les points suivants de vos applications publiées :
+Visual Studio Application Insights vous permet d’analyser les points suivants de vos applications publiées pour l’utilisation et les performances.
 
-* [**Utilisation**][windowsUsage] : découvrez le nombre de vos utilisateurs et ce qu'ils font avec votre application.
-* [**Incidents**][windowsCrash] : obtenez des rapports de diagnostics des incidents et comprenez leur impact sur les utilisateurs.
+
+> [AZURE.NOTE]Nous vous recommandons [HockeyApp](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-store-apps-and-windows-phone-store-apps) pour obtenir des rapports d’incident, des analyses, ainsi que des données sur la distribution et la gestion des commentaires.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
-Pour de nombreux types d'application, [Visual Studio peut ajouter Application Insights à votre application](#ide) sans que vous remarquiez quoi que ce soit. Mais puisque vous lisez ceci pour mieux comprendre ce que cet ajout entraîne, nous vous proposons de suivre cette procédure, étape par étape.
+
+## Configuration d’Application Insights pour votre projet d’appareils Windows
 
 Vous devez avoir :
 
 * Un abonnement à [Microsoft Azure][azure].
 * Visual Studio 2013 ou une version ultérieure.
 
-## 1\. Création d’une ressource Application Insights dans Azure
+**Applications C++ UAP** - Consultez le [guide de configuration en C++ d’Application Insights](https://github.com/Microsoft/ApplicationInsights-CPP)
 
-Dans le [portail Azure][portal], créez une ressource Application Insights.
+### <a name="new"></a> Si vous créez un projet d’application Windows...
 
-![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Application Insights**.
 
-Dans Azure, une [ressource][roles] correspond à l’instance d'un service. Cette ressource correspond à l’emplacement où les données de télémétrie de votre application sont analysées avant de vous être présentées.
+Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
 
-#### Copie de la clé d'instrumentation
-
-Cette clé identifie la ressource. Vous en aurez besoin pour configurer le Kit de développement logiciel (SDK) pour envoyer les données à la ressource.
-
-![Ouvrez le tiroir de liste déroulante Essentials et sélectionnez la clé d'instrumentation](./media/app-insights-windows-get-started/02-props.png)
+![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-## 2\. Ajout du Kit de développement logiciel (SDK) Application Insights à votre application
+### <a name="existing"></a>ou s’il s’agit d’un projet existant
 
-Dans Visual Studio, ajoutez le Kit de développement logiciel (SDK) approprié à votre projet.
+Ajoutez Application Insights à partir de l'Explorateur de solutions.
 
-S’il s’agit d’une application Windows Universal, répétez les étapes pour le projet Windows Phone et le projet Windows.
 
-1. Cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, puis sélectionnez **Gérer les packages NuGet**.
-
-    ![](./media/app-insights-windows-get-started/03-nuget.png)
-
-2. Recherchez "Application Insights".
-
-    ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
-
-3. Sélectionnez **Application Insights pour les applications Windows**.
-
-4. Ajoutez un fichier ApplicationInsights.config à la racine de votre projet et insérez la clé d’instrumentation copiée à partir du portail. Un exemple xml de ce fichier de configuration est présenté ci-dessous.
-
-	```xml
-
-		<?xml version="1.0" encoding="utf-8" ?>
-		<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings>
-			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
-		</ApplicationInsights>
-	```
-
-    Définissez les propriétés du fichier ApplicationInsights.config : **Action de génération** == **Contenu** et **Copier dans le répertoire de sortie** == **Toujours copier**.
-
-	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
-
-5. Ajoutez le code d’initialisation suivant. Il est préférable d’ajouter ce code au constructeur `App()`. Si vous le faites ailleurs, vous risquez de manquer la collecte automatique des premières pageviews.
-
-```C#
-
-    using Microsoft.ApplicationInsights;
-    ...
-
-	public App()
-	{
-	   // Add this initilization line.
-	   WindowsAppInitializer.InitializeAsync();
-
-	   this.InitializeComponent();
-	   this.Suspending += OnSuspending;
-	}  
-```
-
-**Applications Windows universelles** : répétez les étapes pour les projets Windows Phone et Windows Store. [Exemple d’application universelle Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
+![](./media/app-insights-windows-get-started/appinsights-d22-add.png) **Applications Windows universelles** : répétez les étapes pour les projets Windows Phone et Windows Store. [Exemple d’application universelle Windows 8.1](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. Activation de l'accès réseau pour votre application
 
@@ -176,29 +129,11 @@ Pour plus d’informations, consultez [Présentation de l’API : événements 
 * [En savoir plus sur Diagnostic Search][diagnostic]
 
 
-## <a name="ide"></a>Configuration automatisée
 
-Si vous préférez utiliser Visual Studio pour effectuer les étapes de configuration, vous pouvez le faire avec Windows Phone, le Windows Store et de nombreux autres types d’application.
-
-### <a name="new"></a> Si vous créez un projet d’application Windows...
-
-Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Application Insights**.
-
-Si vous êtes invité à vous connecter, utilisez les informations d'identification de votre compte Azure.
-
-![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
-
-
-### <a name="existing"></a>ou s’il s’agit d’un projet existant...
-
-Ajoutez Application Insights à partir de l'Explorateur de solutions.
-
-
-![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
 ## Mettre à niveau vers une nouvelle version du Kit de développement logiciel (SDK)
 
-Quand un nouveau [Kit de développement logiciel (SDK) et publié](app-insights-release-notes-windows.md) :
+Quand un nouveau [Kit de développement logiciel (SDK) est publié](app-insights-release-notes-windows.md) :
 
 * Cliquez avec le bouton droit sur votre projet et choisissez Gérer les packages NuGet.
 * Sélectionnez les packages d’Application Insights installés et choisissez **Action : Mettre à niveau**.
@@ -232,4 +167,4 @@ Quand un nouveau [Kit de développement logiciel (SDK) et publié](app-insights-
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

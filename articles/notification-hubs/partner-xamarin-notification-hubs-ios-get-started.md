@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Prise en main de Notification Hubs
@@ -331,4 +331,4 @@ Dans cet exemple simple, vous avez envoyé des notifications à tous vos apparei
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

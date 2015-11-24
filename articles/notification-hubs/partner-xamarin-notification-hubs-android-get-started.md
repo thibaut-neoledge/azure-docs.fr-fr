@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="11/17/2015"
 	ms.author="wesmc"/>
 
 # Prise en main de Notification Hubs
@@ -514,4 +514,4 @@ Dans cet exemple simple, vous avez diffusé des notifications à tous vos appare
 [Composant Client Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Composant Azure Messaging]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

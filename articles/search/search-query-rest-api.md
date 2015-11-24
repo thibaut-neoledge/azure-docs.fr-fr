@@ -14,10 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
-#Générer des requêtes dans Azure Search à l’aide d’appels REST 
+# Générer des requêtes dans Azure Search à l’aide d’appels REST
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
@@ -29,32 +29,42 @@ Cet article explique comment construire une requête sur un index à l’aide de
 
 Avant l’importation, vous devez disposer d’un index existant associé à des documents qui fournissent des données de recherche.
 
-Lorsque vous utilisez l’API REST, les requêtes sont basées sur une requête HTTP GET. Les extraits de code sont dérivés de l’[exemple de profils de score](search-get-started-scoring-profiles.md).
+Pour faire une recherche sur votre index à l’aide de l’API REST, vous devez émettre une requête HTTP GET. Vos paramètres de requête seront définis au sein de l’URL de la requête HTTP.
 
-        static JObject ExecuteRequest(string action, string query = "")
-        {
-            // original:  string url = serviceUrl + indexName + "/" + action + "?" + ApiVersion; 
-            string url = serviceUrl + indexName + "/docs?" + action ;
-            if (!String.IsNullOrEmpty(query))
-            {
-                url += query + "&" + ApiVersion;
-            }
+**Demande et en-têtes de demande** :
 
-            string response = ExecuteGetRequest(url);
-            return JObject.Parse(response);
+Dans l’URL, vous devrez fournir le nom de votre service, le nom d’index, ainsi que la version appropriée de l’API. La chaîne de requête à la fin de l’URL sera à l’endroit où vous fournissez les paramètres de requête. L’un des paramètres de la chaîne de requête doit être la version API appropriée (la version actuelle de l’API est « 2015-02-28 » au moment de la publication de ce document).
 
-        }
+Dans les en-têtes de demande, vous devez définir le Type de contenu et de fournir la clé d’administration primaire ou secondaire de votre service.
 
-        static string ExecuteGetRequest(string requestUri)
-        {
-            //This will execute a get request and return the response
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.GetAsync(requestUri).Result;        // Searches are done over port 80 using Get
-                return response.Content.ReadAsStringAsync().Result;
-            }
+	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
 
-        }
+Azure Search propose de nombreuses options pour créer des requêtes extrêmement performantes. Pour en savoir plus sur les différents paramètres d’une chaîne de requête, visitez [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO3-->
+**Exemples :**
+
+Voici quelques exemples avec différentes chaînes de requête. Ces exemples utilisent un index factice nommé « hôtels » :
+
+recherche le terme « qualité » dans l’ensemble de l’index :
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Rechercher dans l’ensemble de l’index :
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Rechercher la totalité de l’index et ordonner en fonction d’un champ spécifique (lastRenovationDate) :
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Une demande de requête réussie entraîne un Code d’état « 200 OK » et les résultats de recherche se trouvent au format JSON dans le corps de réponse. Pour plus d’informations, consultez la section « Réponse » de [cette page](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+
+<!---HONumber=Nov15_HO4-->

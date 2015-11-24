@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="11/17/2015"
    ms.author="alkohli" />
 
 # Déploiement de votre appareil StorSimple local
@@ -93,7 +93,7 @@ La liste de contrôle de configuration du déploiement suivante présente les in
 | **Création d’un volume** | Détails de chaque volume | Nom du volume : | |
 | | | Taille : | |
 | | | Type d'utilisation : | |
-| | | Nom ACR : | |
+| | | Nom ACR : | |
 | | | Stratégie de sauvegarde par défaut : | |
 | | | | |
 | **Monter, initialiser et formater un volume** | Détails pour chaque serveur hôte se connectant au stockage | Nom du serveur Windows : | |
@@ -290,4 +290,4 @@ Procédez comme suit dans le portail Azure pour créer une sauvegarde manuelle �
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Rediriger d’un domaine Internet d’entreprise vers un domaine Azure Traffic Manager
@@ -29,12 +29,10 @@ L’intégralité des demandes de trafic pour *www.contoso.com* est alors rediri
 
 ## Étapes suivantes
 
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md)
 
 [Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

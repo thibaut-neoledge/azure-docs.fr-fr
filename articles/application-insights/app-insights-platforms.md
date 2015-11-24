@@ -70,6 +70,11 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 +   [Journalisation sémantique](https://github.com/fidmor89/SLAB_AppInsights) : s’intègre au [bloc applicatif de journalisation sémantique](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Tests de charge basés sur le cloud](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
+## Exportation
+
++ [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
++ [Stream Analytics](app-insights-export-power-bi.md)
+
 ## <a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home)
@@ -83,4 +88,4 @@ S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre 
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

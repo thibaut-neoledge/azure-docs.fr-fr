@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 Une passerelle Application Gateway est un équilibreur de charge de couche 7. Elle assure le basculement, l’exécution des requêtes HTTP de routage des performances entre serveurs locaux ou dans le cloud. Une passerelle Application Gateway offre les fonctionnalités de livraison d’applications suivantes : équilibrage de charge HTTP, affinité de session basée sur les cookies et déchargement SSL.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@ Dans ce scénario, vous allez créer :
 
 Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel et deux sous-réseaux sur GitHub, apporter les modifications souhaitées, puis le réutiliser. Pour ce faire, procédez comme suit :
 
-1. Accédez à https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+1. Accédez à https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
 2. Cliquez sur **azuredeploy.json**, puis sur **RAW**.
 3. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 4. Si vous connaissez déjà les modèles ARM, passez à l’étape 7.
@@ -76,8 +75,8 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
 	| **skuname** | Taille de l’instance SKU |
 	| **capacité** | Nombre d'instances |
 	| **backendaddress1** | Adresse IP du premier serveur web |
-	| **backendaddress2** | Adresse IP du deuxième serveur web|
-
+	| **backendaddress2** | Adresse IP du deuxième serveur web |
+	
 
 >[AZURE.IMPORTANT]Les modèles ARM de GitHub sont susceptibles d’évoluer. Vérifiez le modèle avant de l’utiliser.
 	
@@ -87,37 +86,35 @@ Vous pouvez télécharger le modèle ARM existant pour créer un réseau virtuel
 	- **name**. Nom de la ressource. Remarquez l’utilisation de **[parameters(’applicationGatewayName’)]**, ce qui signifie que le nom sera fourni par l’utilisateur ou par un fichier de paramètres au cours du déploiement.
 	- **properties**. Liste des propriétés de la ressource. Ce modèle utilise le réseau virtuel et une adresse IP publique lors de la création de la passerelle Application Gateway.
 
-7. Revenez à https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+7. Revenez à https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Cliquez sur **azuredeploy-paremeters.json**, puis cliquez sur **RAW**.
 9. Enregistrez le fichier dans un dossier local sur votre ordinateur.
 10. Ouvrez le fichier que vous venez d’enregistrer et modifiez les valeurs des paramètres. Utilisez les valeurs ci-dessous pour déployer la passerelle Application Gateway décrite dans notre scénario.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. Enregistrez le fichier. Vous pouvez tester le modèle Json et le modèle de paramètres à l’aide des outils de validation json en ligne comme [JSlint.com](http://www.jslint.com/)
@@ -150,7 +147,7 @@ Sortie attendue :
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Exécutez l’applet de commande New-AzureResourceGroupDeployment pour déployer le nouveau réseau virtuel à l’aide du modèle et des fichiers de paramètres que vous avez téléchargés et modifiés plus haut.
 
@@ -175,7 +172,7 @@ La sortie générée par la ligne de commande est la suivante :
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@ Cliquer pour déployer est une autre manière d’utiliser les modèles ARM. C�
 
 
 ### Étape 1 
-Le lien [Cliquez pour déployer la passerelle Application Gateway](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
+Le lien [Cliquez pour déployer la passerelle Application Gateway](https://azure.microsoft.com/fr-FR/documentation/templates/101-application-gateway-public-ip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
 
 
 ### Étape 2 
@@ -276,4 +273,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

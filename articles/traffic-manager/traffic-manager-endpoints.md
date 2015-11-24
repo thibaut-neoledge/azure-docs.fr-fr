@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Ajouter, désactiver, activer ou supprimer des points de terminaison
@@ -62,20 +62,17 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 >[AZURE.NOTE]Vous ne pouvez pas supprimer des emplacements externes ou des profils Traffic Manager en tant que points de terminaison à l’aide du portail Azure. Vous devez utiliser Windows PowerShell. Pour plus d’informations, consultez [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[Vue d’ensemble de Traffic Manager](traffic-manager-overview.md)
 
-[À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
+[Configurer la méthode de routage par basculement](traffic-manager-configure-failover-routing-method.md)
 
-[Traffic Manager : désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+[Configurer la méthode de routage du trafic en tourniquet (round robin)](traffic-manager-configure-round-robin-routing-method.md)
 
-[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
+[Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
+
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

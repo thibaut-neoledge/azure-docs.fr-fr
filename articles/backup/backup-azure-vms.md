@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Sauvegarde des machines virtuelles Azure | Microsoft Azure"
-	description="Procédures de sauvegarde d’une machine virtuelle Azure."
+	description="Découvrez, inscrivez et sauvegardez vos machines virtuelles avec ces procédures pour la sauvegarde de la machine virtuelle Azure."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
-	editor=""/>
+	editor=""
+	keywords="sauvegarde de machine virtuelle ; sauvegarder la machine virtuelle ; sauvegarde et récupération d’urgence"/>
 
 <tags
 	ms.service="backup"
@@ -13,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/29/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 
 # Sauvegarde des machines virtuelles Azure
-Cet article fournit les procédures de sauvegarde des machines virtuelles existantes, pour les protéger conformément aux stratégies de rétention et de sauvegarde de votre société.
+Cet article fournit les procédures de sauvegarde des machines virtuelles Azure existantes, pour protéger vos VM conformément aux stratégies de sauvegarde et de récupération d’urgence.
 
 Tout d’abord, vous devez prendre en compte certains éléments avant de sauvegarder une machine virtuelle Azure. Si vous ne l’avez pas déjà fait, effectuez la [configuration requise](backup-azure-vms-prepare.md) pour préparer votre environnement pour la sauvegarde de machines virtuelles avant de continuer.
 
-Si vous recherchez des informations sur la [planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](backup-azure-vms-introduction.md) ou sur les [machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/), vous pouvez suivre ces liens pour obtenir ces informations.
+Si vous recherchez des informations sur la [planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](backup-azure-vms-introduction.md) ou sur les [machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/), vous pouvez suivre ces liens pour obtenir ces informations.
 
 Les trois principales étapes de la sauvegarde des machines virtuelles sont les suivantes :
 
-![Trois étapes de sauvegarde d’une machine virtuelle Azure](./media/backup-azure-vms/3-steps-for-backup.png)
+![Trois étapes pour sauvegarder une machine virtuelle IaaS Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
 >[AZURE.NOTE]La sauvegarde de machine virtuelle est locale. Vous ne pouvez pas sauvegarder les machines virtuelles d’une région donnée vers un archivage de sauvegarde d’une autre région. Par conséquent, au moins 1 archivage de sauvegarde doit être créé dans cette région pour chaque région Azure équipée de machines virtuelles nécessitant une sauvegarde.
 
@@ -88,7 +89,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
 
     ![Sélectionner la charge de travail dans le portail](./media/backup-azure-vms/select-workload.png)
 
-3. En bas de la page, cliquez sur **CONNECT**.
+3. En bas de la page, cliquez sur **PROTÉGER**.
 
     L’Assistant **Protection des éléments** s’affiche. Cet Assistant ne répertorie que les machines virtuelles qui sont inscrites et non protégées. Il permet de sélectionner les machines virtuelles que vous souhaitez protéger.
 
@@ -128,7 +129,7 @@ Les archivages Azure Backup créés après mai 2015 sont livrés avec une strat
     ![Configurer le travail de protection](./media/backup-azure-vms/protect-configureprotection.png)
 
 ## Sauvegarde initiale
-Une fois la machine virtuelle protégée par une politique, elle apparaît sous l’onglet **Éléments protégés**, à l’état *Protégé* (sauvegarde initiale en attente). Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
+Une fois la machine virtuelle protégée par une stratégie, elle apparaît sous l’onglet **Éléments protégés** avec l’état *Protégé (sauvegarde initiale en attente)*. Par défaut, la première sauvegarde planifiée est la *sauvegarde initiale*.
 
 Pour déclencher la sauvegarde initiale immédiatement après la configuration de la protection :
 
@@ -161,4 +162,4 @@ Si vous rencontrez des problèmes pendant la sauvegarde de votre machine virtuel
 - [Gestion et surveillance de vos machines virtuelles](backup-azure-manage-vms.md)
 - [Restauration des machines virtuelles](backup-azure-restore-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

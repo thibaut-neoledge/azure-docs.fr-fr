@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="11/10/2015"
+	ms.date="11/16/2015"
 	ms.author="jodebrui"/>
 
 
-# Utiliser In-Memory (version préliminaire) pour améliorer les performances de votre application SQL Azure
+# Utiliser In-Memory (version préliminaire) pour améliorer les performances de votre base de données SQL
 
-Procédez comme suit pour optimiser les performances transactionnelles de votre base de données SQL Azure [Premium](sql-database-service-tiers.md) existante à l’aide de [In-Memory](sql-database-in-memory.md).
+Procédez comme suit pour optimiser les performances transactionnelles de votre base de données SQL Azure [Premium](sql-database-service-tiers.md) existante à l’aide de la fonctionnalité [In-Memory](sql-database-in-memory.md).
 
 
 ## Étape 1 : vérifiez que votre base de données Premium prend en charge In-Memory
@@ -69,7 +69,7 @@ SSMS inclut un rapport de **présentation d’analyse des performances des trans
 
 Dans SSMS, pour générer le rapport : - dans **Explorateur d’objets**, cliquez avec le bouton droit sur votre nœud de base de données. Cliquez sur **Rapports** > **Rapports Standard** > **Présentation analyse de performances des transactions**.
 
-Pour plus d’informations, voir [Déterminer si un tableau ou une procédure stockée doit être déplacée vers In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+Pour plus d’informations, voir [Déterminer si une table ou une procédure stockée doit être déplacée vers In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
 
 
 ## Étape 3 : Créer une base de données de test comparable
@@ -154,7 +154,7 @@ Une procédure stockée compilée en mode natif doit avoir les options suivantes
 - SCHEMABINDING : les tables significatives figurant dans la procédure stockée ne peuvent voir leurs définitions modifiées de quelque manière que ce soit susceptible d’affecter la procédure stockée, à moins que vous ne glissiez la procédure stockée.
 
 
-Un module natif doit utiliser un grand [bloc ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) pour la gestion de transaction. Il n’existe aucun rôle pour une instruction BEGIN TRANSACTION explicite.
+Un module natif doit utiliser un grand [bloc ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) pour la gestion de transaction. Il n’existe aucun rôle pour une instruction BEGIN TRANSACTION ou ROLLBACK TRANSACTION explicite. Si votre code détecte une violation de règle métier, il peut terminer le bloc atomique avec une instruction [THROW](http://msdn.microsoft.com/library/ee677615.aspx).
 
 
 ### En général, CREATE PROCEDURE compilée en mode natif
@@ -182,9 +182,9 @@ CREATE PROCEDURE schemaname.procedurename
 - La valeur LANGUAGE doit être présente dans la vue sys.languages.
 
 
-### Procédez comme suit pour migrer une procédure stockée
+### Comment migrer une procédure stockée
 
-Les étapes de la migration sont :
+Les étapes de la migration sont les suivantes :
 
 
 1. Obtenir le script CREATE PROCEDURE pour la procédure stockée régulière interprétée.
@@ -192,7 +192,7 @@ Les étapes de la migration sont :
 2. Réécrire son en-tête pour qu’il corresponde au modèle précédent.
 
 3. Déterminer si le code TSQL de procédure stocké utilise les fonctions non prises en charge pour les procédures stockées compilées en mode natif. Mettre en œuvre des solutions de contournement si nécessaire.
- - Pour plus d’informations, consultez la section [Problèmes de migration pour les procédures stockées compilées natives](http://msdn.microsoft.com/library/dn296678.aspx).
+ - Pour plus d’informations, voir [Problèmes de migration pour les procédures stockées compilées natives](http://msdn.microsoft.com/library/dn296678.aspx).
 
 4. Renommez l’ancienne procédure stockée en utilisant SP\_RENAME. Ou FAITES-LE SIMPLEMENT GLISSER (DROP).
 
@@ -233,4 +233,4 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 
 - [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->
