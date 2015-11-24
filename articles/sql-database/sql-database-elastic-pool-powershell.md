@@ -1,7 +1,8 @@
 <properties 
-    pageTitle="Créer un pool élastique de bases de données SQL Azure avec PowerShell | Microsoft Azure" 
-    description="Créez un pool élastique de base de données pour partager des ressources sur plusieurs bases de données de Azure SQL Azure." 
-    services="sql-database" 
+    pageTitle="Mettre à l’échelle les ressources grâce aux pools de base de données élastique| Microsoft Azure" 
+    description="Découvrez comment utiliser PowerShell pour mettre à l’échelle la base de données SQL Azure en créant un pool de base de données élastique pour gérer plusieurs bases de données." 
+	keywords="bases de données multiples, mise à l’échelle"    
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
@@ -16,26 +17,27 @@
     ms.date="11/06/2015"
     ms.author="adamkr; sstein"/>
 
-# Créer un pool élastique de bases de données
+# Créer un pool de base de données élastique avec PowerShell pour mettre à l’échelle les ressources sur plusieurs bases de données SQL 
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-elastic-pool-csharp.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
-
-Cet article vous montre comment créer un pool élastique de bases de données avec la [version préliminaire du portail](sql-database-elastic-pool.md).
+Découvrez comment gérer plusieurs bases de données en créant un [pool de base de données élastique](sql-database-elastic-pool.md) à l’aide des applets de commande PowerShell.
 
 > [AZURE.NOTE]Les pools élastiques de bases de données sont actuellement en version préliminaire et uniquement disponibles avec des serveurs de base de données SQL V12. Si vous disposez d’un serveur de base de données SQL V11, vous pouvez [utiliser PowerShell pour effectuer une mise à niveau vers V12 et créer un pool](sql-database-upgrade-server.md) en une seule étape.
 
-Cet article vous explique comment créer tout ce dont vous avez besoin (notamment le serveur V12) pour générer et configurer un pool élastique de bases de données, à l’exception de l’abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
+Les pools de base de données élastique permettent de mettre à l’échelle les ressources et la gestion sur plusieurs bases de données SQL.
+
+Cet article vous explique comment créer tout ce dont vous avez besoin (notamment le serveur V12) pour générer et configurer un pool de bases de données élastique, à l’exception de l’abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 
 
 
 
 Les différentes étapes de la création d'un pool élastique avec Azure PowerShell sont expliquées séparément à des fins de clarté. Pour obtenir une liste concise des commandes, consultez la section **Exemple complet** en bas de cet article.
 
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d’Azure PowerShell 1.0, l’applet de commande Switch-AzureMode n’est plus disponible, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d’affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, voir [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
@@ -60,7 +62,7 @@ Pour sélectionner l’abonnement, vous avez besoin de votre identifiant ou de v
 
 ## Créer un groupe de ressources, un serveur et une règle de pare-feu
 
-Vous disposez maintenant d'un accès pour exécuter des applets de commande en fonction de votre abonnement Azure. L'étape suivante consiste donc à établir le groupe de ressources qui contient le serveur dans lequel le pool de base de données élastique est créé. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
+Vous disposez maintenant d’un accès pour exécuter des applets de commande en fonction de votre abonnement Azure. L’étape suivante consiste donc à établir le groupe de ressources qui contient le serveur dans lequel le pool de base de données élastique est créé pour contenir plusieurs bases de données. Vous pouvez modifier la commande suivante pour utiliser l'emplacement valide de votre choix. Exécutez **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** pour obtenir la liste des emplacements autorisés.
 
 Si vous disposez déjà d'un groupe de ressources, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter la commande suivante pour créer un groupe de ressources :
 
@@ -68,7 +70,7 @@ Si vous disposez déjà d'un groupe de ressources, vous pouvez accéder à l’�
 
 ### Créer un serveur 
 
-Les pools élastiques de bases de données sont créés dans des serveurs Base de données SQL Azure. Si vous disposez déjà d’un serveur, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter l’applet de commande suivante [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) pour créer un nouveau serveur V12 : Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser l'emplacement valide de votre choix.
+Les pools élastiques de bases de données sont créés dans des serveurs Base de données SQL Azure. Si vous disposez déjà d’un serveur, vous pouvez accéder à l’étape suivante, ou vous pouvez exécuter l’applet de commande suivante [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) pour créer un serveur V12 : Remplacer le nom du serveur (ServerName) par le nom de votre serveur. Il doit être unique pour les serveurs SQL Azure. Vous recevez donc une erreur si le nom du serveur est déjà utilisé. Il est également à noter que l'exécution de cette commande peut prendre plusieurs minutes. Les détails du serveur et l'invite PowerShell apparaîtront une fois le serveur créé. Vous pouvez modifier la commande pour utiliser l'emplacement valide de votre choix.
 
 	New-AzureRmSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -77,7 +79,7 @@ Lorsque vous exécutez cette commande, une fenêtre s'ouvre dans laquelle vous d
 
 ### Configurer une règle de pare-feu de serveur pour autoriser l'accès au serveur
 
-Établissez une règle de pare-feu pour accéder au serveur. Exécutez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
+Établissez une règle de pare-feu pour accéder au serveur. Exécutez la commande [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586.aspx) en remplaçant les adresses IP de début et de fin par des valeurs autorisées pour votre ordinateur.
 
 Si votre serveur doit autoriser l'accès à d'autres services Azure, ajoutez le commutateur **-AllowAllAzureIPs** qui insère une règle de pare-feu spéciale et autorise le trafic Azure complet à accéder au serveur.
 
@@ -88,7 +90,7 @@ Pour en savoir plus, consultez [Pare-feu de la base de données SQL Azure](https
 
 ## Créer un pool élastique de bases de données et des bases de données élastiques
 
-Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crée le pool élastique de la base de données. Cette commande crée un pool qui partage un total de 400 eDTU. Chaque base de données dans le pool a toujours 10 eDTU garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 eDTU (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
+Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle de pare-feu configurés pour vous permettre un accès au serveur. L’applet de commande [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) crée le pool de base de données élastique. Cette commande crée un pool qui partage un total de 400 eDTU. Chaque base de données dans le pool a toujours 10 eDTU garanties disponibles (DatabaseDtuMin). Les différentes bases de données dans le pool peuvent consommer un maximum de 100 eDTU (DatabaseDtuMax). Pour une explication détaillée des paramètres, consultez [Pools élastiques de bases de données SQL Azure](sql-database-elastic-pool.md).
 
 
 	New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
@@ -98,11 +100,11 @@ Vous disposez maintenant d'un groupe de ressources, d'un serveur et d'une règle
 
 Le pool créé à l'étape précédente est vide. Il ne comporte aucune base de données élastique. Les sections suivantes indiquent comment créer des bases de données élastiques dans le pool et comment ajouter des bases de données existantes au pool.
 
-*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de nouvelles bases de données élastiques dans le pool et le déplacement de bases de données existantes dans ou hors d’un pool. Pour plus d’informations, consultez [Référence des pools de base de données élastiques - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Après la création d’un pool, vous pouvez également utiliser Transact-SQL pour la création de bases de données élastiques dans le pool et le déplacement de bases de données existantes dans ou hors d’un pool. Pour plus d’informations, voir [Référence du pool de base de données élastique - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Créer une base de données élastique dans un pool élastique de bases de données
 
-Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande [New-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) et définissez le paramètre **ElasticPoolName**.
+Pour créer une base de données directement à l’intérieur d’un pool, utilisez l’applet de commande [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) et définissez le paramètre **ElasticPoolName**.
 
 
 	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
@@ -129,6 +131,8 @@ Déplacez la base de données existante vers le pool de bases de données élast
 
 
 ## Surveiller des bases de données et des pools élastiques de bases de données
+Les pools de base de données élastique fournissent des rapports sur les mesures pour vous aider à mettre à l’échelle les efforts pour la gestion de plusieurs bases de données.
+
 
 ### Obtenir l'état d'opérations de pools élastiques de bases de données
 
@@ -232,4 +236,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

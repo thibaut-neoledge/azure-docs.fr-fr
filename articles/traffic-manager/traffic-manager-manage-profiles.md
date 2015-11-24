@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Gestion d’un profil Azure Traffic Manager
@@ -73,22 +73,16 @@ Vous pouvez afficher l’historique des modifications de votre profil Traffic Ma
    - Pour afficher les détails de chaque modification, sélectionnez la ligne contenant la modification à afficher, puis cliquez sur **Détails** en bas de la page. Dans la fenêtre **Détails de l’opération**, vous pouvez afficher la représentation XML de l’objet API qui a été créé ou mis à jour dans le cadre de l’opération et copier le code XML dans le Presse-papiers.
 
 
-## Ressources supplémentaires
+## Étapes suivantes
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
+[Ajout d’un point de terminaison](traffic-manager-endpoints.md)
 
-[Gérer des points de terminaison dans Traffic Manager](traffic-manager-endpoints.md)
+[Configurer la méthode de routage par basculement](traffic-manager-configure-failover-routing-method.md)
 
-[À propos de la surveillance avec Traffic Manager](traffic-manager-monitoring.md)
+[Configurer la méthode de routage du trafic en tourniquet (round robin)](traffic-manager-configure-round-robin-routing-method.md)
 
-[Traffic Manager : désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+[Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
 
-[Traffic Manager : désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-[Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Services cloud](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

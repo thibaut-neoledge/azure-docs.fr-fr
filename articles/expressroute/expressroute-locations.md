@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
 |**Cloud du gouvernement des États-Unis**|Gouvernement américain|Iowa, Virginie|Ashburn, Chicago|
-|**Cloud de Chine**|Chine|Moyen-Orient, nord|
+|**Cloud de Chine**|Chine|Pékin, Shanghai +|
 
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
@@ -67,7 +67,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Pris en charge | Non pris en charge | Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Pris en charge | Pris en charge | Amsterdam, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** | Pris en charge | Pris en charge | Amsterdam, Londres |
-| **Interxion** | Pris en charge | Non pris en charge | Amsterdam |
+| **Interxion** | Pris en charge | Pris en charge | Amsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Amsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
 | **Megaport** | Pris en charge | Non pris en charge | Melbourne, Sydney |
 | **MTN** | Pris en charge | Non pris en charge | Londres |
@@ -83,7 +83,7 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **Vodafone** | Pris en charge | Non pris en charge | Londres | 
 | **[Zayo Group](http://www.zayo.com/)** | Pris en charge | Non pris en charge | Chicago, Silicon Valley, Washington DC |
 
- **+** = bientôt disponible
+ **+** = bientôt disponible
 
 ### Environnements de cloud national
 
@@ -137,4 +137,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

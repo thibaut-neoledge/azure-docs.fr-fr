@@ -100,11 +100,11 @@ Si vous souhaitez déployer le mappage réseau, les conditions suivantes doivent
 
 Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléchargé et installé le fournisseur Azure Site Recovery sur le serveur VMM, vous utiliserez cette clé pour inscrire le serveur VMM dans le coffre.
 
-1. Sur la page *Recovery Services*, cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l’icône.
+1. Sur la page *Recovery Services*, cliquez sur le coffre pour ouvrir la page Démarrage rapide. Vous pouvez aussi ouvrir cette page à tout moment au moyen de l'icône.
 
 	![Icône Quick Start](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. Dans la liste déroulante, sélectionnez **Entre un site Hyper-V local et Microsoft Azure**.
+2. Dans la liste déroulante, sélectionnez **Entre un site VMM local et Azure**.
 3. Dans **Prepare VMM Servers**, cliquez sur le fichier **Generate registration key**. Le fichier de clé est généré automatiquement et est valide pendant cinq jours après sa création. Si vous n'accédez pas au portail Azure à partir du serveur VMM, vous devez copier ce fichier sur le serveur.
 
 	![Clé d'enregistrement](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
@@ -347,4 +347,4 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

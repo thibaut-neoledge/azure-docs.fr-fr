@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Actions permettant de remédier aux pertes de connexion temporaires| Microsoft Azure"
-	description="Actions permettant d’éviter, de diagnostiquer et de corriger des erreurs de connexion et d’autres erreurs temporaires lors de l’interaction avec la base de données SQL Azure."
+	description="Actions permettant de dépanner, de diagnostiquer et d’éviter des erreurs de connexion et d’autres erreurs temporaires lors de l’interaction avec la base de données SQL Azure."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="genemi"/>
 
 
-# Actions servant à corriger les erreurs de connexion et les erreurs temporaires dans la base de données SQL
+# Résoudre les erreurs transitoires et de connexion à la base de données SQL
 
 
-Cette rubrique décrit comment empêcher, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre programme client rencontre lorsqu’il interagit avec la base de données SQL Azure.
+Cette rubrique décrit comment empêcher, dépanner, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre programme client rencontre lorsqu’il interagit avec la base de données SQL Azure.
 
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

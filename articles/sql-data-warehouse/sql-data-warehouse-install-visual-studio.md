@@ -29,7 +29,7 @@ Si vous choisissez d’installer Visual Studio, vous pouvez utiliser Visual Stud
 
 Pour installer Visual Studio 2015 :
 
-1. [Télécharger Visual Studio 2015](https://www.visualstudio.com/downloads) à partir de Visual Studio en ligne. 
+1. [Télécharger Visual Studio 2015](https://www.visualstudio.com/downloads) à partir de Visual Studio Team Services. 
 2. Procédez à l’installation en suivant le guide d’[installation de Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) sur MSDN et sélectionnez les configurations par défaut
 
 ## Étape 2 : Téléchargez et installez la version préliminaire de SQL Server Data Tools (SSDT) 
@@ -49,4 +49,4 @@ Maintenant que vous disposez de la dernière version de SSDT, vous êtes prêt �
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

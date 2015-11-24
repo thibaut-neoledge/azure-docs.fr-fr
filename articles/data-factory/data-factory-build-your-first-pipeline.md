@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Concevez votre premier pipeline en utilisant Azure Data Factory"
+	pageTitle="Prise en main d'Azure Data Factory"
 	description="Ce didacticiel vous montre comment créer un pipeline de données d'exemple qui transforme des données à l'aide d'Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
@@ -16,19 +16,19 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Concevez votre premier pipeline en utilisant Azure Data Factory
+# Prise en main d'Azure Data Factory
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
-Cet article va vous aider à vous familiariser avec la création de votre premier pipeline et son déploiement vers Azure Data Factory.
+Cet article va vous aider à vous familiariser avec la création de votre première fabrique de données Azure.
 
 > [AZURE.NOTE]Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Data Factory. Pour obtenir une présentation détaillée de ce service, consultez l'article [Présentation d’Azure Data Factory](data-factory-introduction.md).
 
 ## Vue d'ensemble du didacticiel
-Ce didacticiel présente les étapes nécessaires pour préparer et exécuter votre premier pipeline. Vous allez créer des pipelines et indiquer toutes les ressources nécessaires depuis le début.
+Ce didacticiel présente les étapes nécessaires pour obtenir votre première fabrique de données avec un pipeline. Vous allez créer un pipeline et indiquer toutes les ressources nécessaires depuis le début.
 
 Si vous souhaitez explorer rapidement les différentes fonctionnalités de la fabrique de données, sans partir de zéro, vous pouvez utiliser les exemples que nous mettons à disposition dans le portail Azure en version préliminaire. Voir [Mise à jour d’Azure Data Factory : exemple de déploiement simplifié](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) pour connaître la procédure à suivre pour déployer un exemple de projet concret à l'aide du portail Azure en version préliminaire.
 
@@ -172,4 +172,4 @@ Effectuez les actions suivantes :
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio. 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

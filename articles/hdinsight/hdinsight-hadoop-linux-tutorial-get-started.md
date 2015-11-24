@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="11/16/2015"
    	ms.author="nitinme"/>
 
 # Didacticiel Hadoop : prise en main de Hadoop avec Hive dans HDInsight sur Linux
@@ -70,9 +70,7 @@ Procédez comme suit pour créer un cluster :
 
 	![Fournir les informations d’identification du cluster](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.3.png "Fournir les informations d’identification du cluster")
 
-    > [AZURE.NOTE]SSH permet d’accéder à distance au cluster HDInsight à l’aide d’une ligne de commande. Le nom d’utilisateur et le mot de passe que vous employez ici sont utilisés pour la connexion au cluster via SSH. Par ailleurs, le nom d’utilisateur SSH doit être unique, car il crée un compte d’utilisateur sur tous les nœuds du cluster HDInsight. Voici quelques-uns des noms de compte dont l’usage est réservé aux services sur le cluster et qui ne peuvent pas être utilisés en tant que nom d’utilisateur SSH :
-    >
-    > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
+    > [AZURE.NOTE]SSH permet d’accéder à distance au cluster HDInsight à l’aide d’une ligne de commande. Le nom d’utilisateur et le mot de passe que vous employez ici sont utilisés pour la connexion au cluster via SSH.
 
 	Pour plus d’informations sur l’utilisation de SSH avec HDInsight, consultez l’un des articles suivants :
 
@@ -84,25 +82,25 @@ Procédez comme suit pour créer un cluster :
 
 	![Panneau Source de données](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.4.png "Fournir la configuration de la source de données")
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Utilisez les informations suivantes pour comprendre les entrées du panneau **Source de données**.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau **Source de données**.
 
-	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Attribuez la valeur **Clé d’accès** si vous souhaitez entrer le **Nom de stockage** et la **Clé d’accès** d’un compte de stockage existant.
+	- **Méthode de sélection** : définissez cette propriété sur la valeur **De tous les abonnements** pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur **Clé d’accès** si vous souhaitez entrer le **nom de stockage** et la **clé d’accès** d’un compte de stockage existant.
 
-	- **Sélectionner un compte de stockage/Créer un nouveau** : cliquez sur **Sélectionner un compte de stockage** pour parcourir les comptes de stockage et en sélectionner un existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- **Sélectionner le compte de stockage/Créer un compte** : cliquez sur **Sélectionner le compte de stockage** pour rechercher et sélectionner un compte de stockage existant à associer au cluster. Vous pouvez également cliquer sur **Créer un nouveau** pour créer un nouveau compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
 	- **Choisir un conteneur par défaut** : utilisez cette option pour entrer le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
-	- **Emplacement** : zone géographique où se trouve le compte de stockage ou dans laquelle il est créé.
+	- **Emplacement** : zone géographique où se trouve le compte de stockage ou dans laquelle il sera créé.
 
 		> [AZURE.IMPORTANT]La sélection de l’emplacement de la source de données par défaut définira également l’emplacement du cluster HDInsight. Le cluster et la source de données par défaut doivent se trouver dans la même région.
 
 	Cliquez sur **Sélectionner** pour enregistrer la configuration de la source de données.
 
-8. Sélectionnez **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds Worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
+8. Cliquez sur **Niveaux tarifaires de nœud** pour afficher des informations sur les nœuds qui seront créés pour ce cluster. Définissez le nombre de nœuds worker dont vous avez besoin pour le cluster. Le coût estimé du cluster s’affiche dans le panneau.
 
 	![Panneau Niveaux de tarification du nœud](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Spécification du nombre de nœuds de cluster")
     
-    > [AZURE.IMPORTANT]Si vous envisagez d’utiliser plus de 32 nœuds de travail lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
+    > [AZURE.IMPORTANT]Si vous envisagez d’utiliser plus de 32 nœuds worker lors de la création du cluster ou en faisant évoluer le cluster après sa création, vous devez sélectionner une taille de nœud principal avec au moins 8 cœurs et 14 Go de RAM.
     >
     > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez la rubrique [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -114,11 +112,11 @@ Pendant l’approvisionnement|Approvisionnement terminé
 ------------------|---------------------
 	![Indicateur d’approvisionnement sur le tableau d'accueil](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Vignette de cluster approvisionné](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée **Notifications** à gauche de la page pour suivre la progression du processus d’approvisionnement.
+> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du Tableau d’accueil, ou l’entrée **Notifications** à gauche de la page pour vérifier le processus d’approvisionnement.
 
 Une fois la configuration terminée, cliquez sur la vignette du cluster dans le tableau d'accueil pour lancer le panneau du cluster.
 
-## <a name="connect"></a> Pour se connecter au cluster
+## <a name="connect"></a> Pour vous connecter au cluster
 
 Vous pouvez vous connecter à un cluster HDInsight sous Linux à partir d'un ordinateur Linux ou Windows à l'aide de SSH.
 
@@ -128,14 +126,13 @@ Vous pouvez vous connecter à un cluster HDInsight sous Linux à partir d'un ord
 
 		ssh <username>@<clustername>-ssh.azurehdinsight.net
 
-	Étant donné que vous avez approvisionné un cluster avec l'option Création rapide, le nom d'utilisateur SSH par défaut est **hdiuser**. Ainsi, la commande doit être :
-
-		ssh hdiuser@myhdinsightcluster-ssh.azurehdinsight.net
+	Remplacez &lt;username> par le nom d’utilisateur SSH que vous avez utilisé lors de la création du cluster. Remplacez &lt;clustername> par le nom de votre cluster.
 
 2. À l'invite, entrez le mot de passe que vous avez donné lors de l'approvisionnement du cluster. Lorsque vous êtes bien connecté, l'invite sera modifiée comme suit :
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
+    > [AZURE.NOTE]La partie `@hn0-clustername` de l’invite de commandes peut être différente sur votre cluster.
 
 ###Pour se connecter à partir d'un ordinateur Windows
 
@@ -147,9 +144,9 @@ Vous pouvez vous connecter à un cluster HDInsight sous Linux à partir d'un ord
 
 3. Pour enregistrer les identifiants de connexion en vue d’une utilisation future, entrez un nom pour cette connexion sous **Sessions enregistrées**, puis cliquez sur **Enregistrer**. La connexion sera ajoutée à la liste des sessions enregistrées.
 
-4. Cliquez sur **Ouvrir** pour vous connecter au cluster. Lorsque le nom d’utilisateur vous est demandé, entrez **hdiuser**. Pour le mot de passe, entrez le mot de passe que vous avez spécifié lors de l’approvisionnement du cluster. Lorsque vous êtes bien connecté, l'invite sera modifiée comme suit :
+4. Cliquez sur **Ouvrir** pour vous connecter au cluster. Lorsque vous êtes invité à indiquer le nom d’utilisateur, entrez le nom d’utilisateur SSH utilisé lors de la création du cluster. Pour le mot de passe, entrez le mot de passe que vous avez spécifié lors de la création du cluster. Lorsque vous êtes bien connecté, l'invite sera modifiée comme suit :
 
-		hdiuser@headnode-0:~$
+		hdiuser@hn0-clustername:~$
 
 ##<a name="hivequery"></a>Exécution d’une requête Hive
 
@@ -179,7 +176,7 @@ Une fois que vous êtes connecté au cluster via SSH, utilisez les commandes sui
 
 	Cet exemple renvoie la sortie suivante :
 
-		Query ID = hdiuser_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
+		Query ID = username_20150116000202_cceb9c6b-4356-4931-b9a7-2c373ebba493
 		Total jobs = 1
 		Launching Job 1 out of 1
 		Number of reduce tasks not specified. Estimated from input data size: 1
@@ -286,4 +283,4 @@ Si vous voulez en savoir plus sur la création ou la gestion d’un cluster HDIn
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

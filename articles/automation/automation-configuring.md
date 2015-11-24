@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/02/2015"
+   ms.date="11/10/2015"
    ms.author="bwren" />
 
 # Configuration d’Azure Automation
@@ -52,6 +52,33 @@ Lorsque vous accédez aux ressources Azure à l’aide des [applets de commande 
 10. Déconnectez-vous d’Azure et puis reconnectez-vous avec le compte que vous venez de créer. Vous serez invité à modifier le mot de passe de l’utilisateur.
 11. Créez une nouvelle [Ressource d’informations d’identification Azure Automation](http://msdn.microsoft.com/library/dn940015.aspx) pour le compte d’utilisateur que vous avez créé. Le **Type d’informations d’identification** doit être **Informations d’identification Windows PowerShell**.
 
+## Créer un compte Automation
+
+Un compte Automation est un conteneur pour vos ressources Azure Automation. Il fournit un moyen de séparer vos environnements ou de mieux organiser vos flux de travail. Si vous avez déjà créé un compte Automation, vous pouvez ignorer cette étape.
+
+1. Connectez-vous au [Portail Azure en version préliminaire](https://portal.azure.com/).
+
+2. Dans le portail Azure en version préliminaire, cliquez sur **Nouveau** > **Gestion** > **Compte Automation**
+
+3. Dans le panneau **Ajouter un compte Automation**, configurez les détails de votre compte Automation.
+
+>[AZURE.NOTE]Lorsqu’un compte Automation est créé avec le portail Azure en version préliminaire, le compte et toutes ses ressources associées ne sont pas ramenés au portail de gestion classique.
+
+Vous trouverez ci-dessous la liste des paramètres à configurer :
+
+|Paramètre |Description |
+|:---|:---|
+| Nom | Nom de votre compte Automation ; il doit s’agir d’une valeur unique. |
+| Groupe de ressources | Les groupes de ressources facilitent l’affichage et la gestion des ressources Azure connexes. Dans le portail Azure en version préliminaire, vous pouvez choisir un groupe de ressources existant ou en créer un nouveau pour votre compte Automation, tandis que dans le portail de gestion Azure, tous les comptes Automation sont placés dans un groupe de ressources par défaut. |
+| Abonnement | Choisissez un abonnement dans la liste des abonnements disponibles. |
+| Région | La région spécifie où sont stockées les ressources Automation du compte. Vous pouvez choisir n’importe quelle région dans la liste : les fonctionnalités de votre compte n’en sont pas affectées, mais vos Runbooks peuvent s’exécuter plus rapidement si la région de votre compte est proche de l’emplacement où sont stockées vos autres ressources Azure. |
+| Options de compte | Cette option vous permet de choisir quelles ressources seront créées dans votre nouveau compte Automation ; la sélection de l’option **Oui** crée un Runbook didacticiel. |
+
+![Créer un compte](media/automation-configuration/automation-01-create-automation-account.png)
+
+>[AZURE.NOTE]Lorsqu’un compte Automation créé à l’aide du portail de gestion classique est [déplacé vers un groupe de ressources différent](../resource-group-move-resources.md) à l’aide du portail Azure en version préliminaire, le compte Automation ne sera plus disponible dans le portail Azure classique, car les comptes Azure Resource Manager ne sont pas pris en charge dans le portail de gestion classique.
+
+
 
 ## Utilisation des informations d’identification dans un Runbook
 
@@ -67,4 +94,4 @@ Vous devez répéter ces lignes après tout [point de contrôle](http://technet.
 - [Azure Automation : authentification auprès d’Azure à l’aide d’Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

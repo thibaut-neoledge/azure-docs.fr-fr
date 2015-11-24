@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/18/2015"
+	ms.date="11/16/2015"
 	ms.author="jgao"/>
 
 
@@ -47,9 +47,10 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 	- **Nom du cluster** : entrez un nom permettant d’identifier ce cluster.
 	- **Type de cluster**: sélectionnez **HBase**.
 	- **Système d’exploitation de cluster** : sélectionnez **Ubuntu**.
-	- **Abonnement** : sélectionnez l’abonnement Azure utilisé pour approvisionner ce cluster.
-	- **Groupe de ressources** : ajoutez ou sélectionnez un groupe de ressources Azure. Pour plus d’informations, consultez la page [Présentation d’Azure Resource Manager](resource-group-overview.md).
-	- **Informations d'identification**. Entrez un mot de passe pour l’utilisateur du service web HTTP. Le nom d’utilisateur par défaut est **admin**. Vous devez également saisir un **nom d’utilisateur SSH** et un **MOT DE PASSE** ou une **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l’utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
+	- **Version** : sélectionnez la version de cluster que vous souhaitez utiliser. Pour plus d’informations sur les éléments inclus dans les différentes versions d’HDInsight, consultez [Versions du cluster HDInsight](hdinsight-component-versioning.md).
+    - **Abonnement** : si vous avez plusieurs abonnements Azure, sélectionnez celui que vous souhaitez utiliser pour ce cluster.
+	- **Groupe de ressources** : ajoutez ou sélectionnez un groupe de ressources Azure. Pour plus d’informations, consultez la page [Présentation du gestionnaire des ressources Azure](resource-group-overview.md).
+	- **Informations d’identification**. Entrez un mot de passe pour l’utilisateur du service web HTTP. Le nom d’utilisateur par défaut est **admin**. Vous devez également entrer un **Nom d’utilisateur SSH** et un **MOT DE PASSE** ou une **CLÉ PUBLIQUE**, qui seront utilisés pour authentifier l’utilisateur SSH. L'utilisation d'une clé publique est l'approche recommandée. Pour plus d'informations sur l'utilisation de SSH avec HDInsight, consultez l'un des articles suivants :
 
 		- [Utilisation de SSH avec Hadoop Linux sur HDInsight à partir de Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 		- [Utilisation de SSH avec un cluster Hadoop Linux sur HDInsight à partir de Windows](hdinsight-hadoop-linux-use-ssh-windows.md) Cliquez sur **Sélectionner** pour enregistrer les modifications.
@@ -58,7 +59,7 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 
 		> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez configurer un cluster qui contient au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
-	- **Configuration facultative** : sélectionnez la version de cluster, configurez un réseau virtuel Azure, configurez le metastore Hive/Oozie, configurez des actions de script et ajoutez des comptes de stockage supplémentaires.
+	- **Configuration facultative** : sélectionnez la version de cluster, configurez un réseau virtuel Azure, configurez des actions de script et ajoutez des comptes de stockage supplémentaires.
 
 4. Cliquez sur **Create**.
 
@@ -114,7 +115,7 @@ Cela deviendra plus clair une fois la procédure suivante terminée.
 
 	Comme il n’y a qu’une seule ligne, les résultats sont les mêmes que lors de l’utilisation de la commande d’analyse.
 
-	Pour plus d'informations sur le schéma de la table Hbase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
+	Pour plus d’informations sur le schéma de la table Hbase, consultez [Introduction à la conception de schéma HBase][hbase-schema]. Pour plus de commandes HBase, voir [Guide de référence Apache HBase][hbase-quick-start].
 
 
 6. Quittez l’interpréteur de commandes.
@@ -233,13 +234,13 @@ Vous pouvez aussi utiliser SSH pour transférer des requêtes locales, telles qu
 
 	- **Host Name** : adresse SSH de votre serveur HDInsight dans le champ Nom d’hôte (ou Adresse IP). L’adresse SSH est le nom de votre cluster, elle est ensuite suivie de **-ssh.azurehdinsight.net**. Par exemple *mycluster-ssh.azurehdinsight.net*
 	- **Port** : 22. Le port SSH sur le nœud principal 0 est 22.  
-5. Dans la section **Category** située à gauche de la boîte de dialogue, développez **Connection** et **SSH**, puis cliquez sur **Tunnels**.
+5. Dans la section **Catégorie** située à gauche de la boîte de dialogue, développez **Connexion** et **SSH**, puis cliquez sur **Tunnels**.
 6. Indiquez les informations suivantes dans le formulaire des options de contrôle de transfert du port SSH.
 
 	- **Port source** : le port sur le client que vous souhaitez transférer. Par exemple, 9876.
 	- **Dynamique** : active le routage dynamique du proxy SOCKS.
-7. Cliquez sur **Add** pour ajouter les paramètres.
-8. Cliquez sur **Open** en bas de la boîte de dialogue pour ouvrir une connexion SSH.
+7. Cliquez sur **Ajouter** pour ajouter les paramètres.
+8. Cliquez sur **Ouvrir** en bas de la boîte de dialogue pour ouvrir une connexion SSH.
 9. Quand vous y êtes invité, connectez-vous au serveur à l’aide d’un compte SSH. Cela permettra d'établir une session SSH et d'activer le tunnel.
 
 **Pour rechercher le nom de domaine complet des Zookeeper à l’aide d’Ambari**
@@ -305,4 +306,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

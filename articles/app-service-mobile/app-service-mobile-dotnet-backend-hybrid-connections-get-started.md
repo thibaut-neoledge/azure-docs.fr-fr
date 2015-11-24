@@ -131,7 +131,7 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 
 	Au lieu d'utiliser Visual Studio, vous pouvez également [utiliser Git pour publier votre serveur principal](mobile-services-dotnet-backend-store-code-source-control.md).
 
-2. Connectez-vous avec les informations d'identification Azure et sélectionnez votre service sous **Sélectionner les site Web existants**.
+2. Connectez-vous avec les informations d'identification Azure et sélectionnez votre service sous **Sélectionner les sites Web existants**.
 
 	Visual Studio télécharge vos paramètres de publication depuis Azure.
 
@@ -139,13 +139,11 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 
 	Une fois la publication terminée, le service redémarre et la page de démarrage principale s'affiche.
 
-4. À l’aide du <!--- either the **Try it now** button on the start page as before or using --> d’une application cliente connectée à votre application mobile, appelez des opérations permettant de générer des modifications dans la base de données.
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. Dans SQL Server Management Studio, connectez-vous à votre instance SQL Server, ouvrez l'Explorateur d'objets, développez la base de données **OnPremisesDB** et développez les **Tables**.
+4. À l’aide d’une application cliente connectée à votre application mobile, appelez des opérations permettant de générer des modifications dans la base de données.
 
-5. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
+5. Dans SQL Server Management Studio, connectez-vous à votre instance SQL Server, ouvrez l'Explorateur d'objets, développez la base de données **OnPremisesDB** et développez les **Tables**.
+
+6. Cliquez avec le bouton droit sur la table **hybridService1.TodoItems** et choisissez **Sélectionner les 1 000 premières lignes** pour afficher les résultats.
 
 	Notez que les modifications générées dans votre application client sont enregistrées par le serveur principal de votre application mobile dans votre base de données locale à l'aide de la connexion hybride.
 
@@ -164,4 +162,4 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->
