@@ -500,6 +500,7 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 
 [Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Utilisation de Notification Hubs pour transmettre les notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
 
 [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
