@@ -30,7 +30,7 @@ Ce didacticiel montre comment utiliser le portail Azure en version préliminaire
 * **ReadDeviceToCloudMessages**, qui lit les messages de l’appareil vers le cloud et affiche leur contenu ; et
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de l’appareil vers le cloud chaque seconde.
 
-> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT][]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
+> [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT][]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -119,6 +119,7 @@ Informations supplémentaires sur IoT Hub :
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Traiter les messages des appareils vers cloud]: iot-hub-csharp-csharp-process-d2c.md
+[Traiter les messages des appareils vers le cloud]: iot-hub-csharp-csharp-process-d2c.md
 [Téléchargement de fichiers à partir d’appareils]: iot-hub-csharp-csharp-file-upload.md
 
 [Vue d’ensemble d’IoT Hub]: iot-hub-what-is-iot-hub.md

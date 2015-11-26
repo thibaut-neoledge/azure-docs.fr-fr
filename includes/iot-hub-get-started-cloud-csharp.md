@@ -55,7 +55,7 @@ Dans cette section, vous écrirez une application console Windows qui crée une 
 
     ![][12]
 
-> [AZURE.NOTE]Il est important de noter que le Registre d’identité du concentrateur IoT est uniquement utilisé pour stocker les identités des appareils en vue d’un accès sécurisé, par exemple, stocker les informations d’identification de sécurité et activer/désactiver l’accès à l’appareil individuel. Les métadonnées de l’application de l’appareil doivent être stockées dans un magasin spécifique à l’application. Reportez-vous au [Guide du développeur IoT Hub][IoT Hub Developer Guide - Identity Registry] pour plus d’informations.
+> [AZURE.NOTE] Il est important de noter que le Registre d’identité du concentrateur IoT est uniquement utilisé pour stocker les identités des appareils en vue d’un accès sécurisé, par exemple, stocker les informations d’identification de sécurité et activer/désactiver l’accès à l’appareil individuel. Les métadonnées de l’application de l’appareil doivent être stockées dans un magasin spécifique à l’application. Reportez-vous au [Guide du développeur IoT Hub][IoT Hub Developer Guide - Identity Registry] pour plus d’informations.
 
 ## Recevoir des messages des appareils vers le cloud
 
@@ -134,4 +134,4 @@ Dans cette section, vous allez créer une application console Windows qui lit le
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
