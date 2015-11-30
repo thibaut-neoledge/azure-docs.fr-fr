@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/11/2015" 
 	ms.author="awills"/>
 
 # Modèle d’exportation de données Application Insights
@@ -314,7 +314,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     string context.application.version      Max: 100
 * 
-    Version de l’application cliente 
+    Version de l’application cliente Non disponible si la valeur est définie sur Unknown. 
 
     *Exemples*<br/> 2015.5.21.3<br/>NokiaMailBye\_CD\_20150227.4
 
@@ -374,39 +374,12 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Identificateur de déploiement du serveur 
 
-**deviceId**
-
-    string context.device.id      Max: 100
-* 
-    Identificateur unique du client. Identificateur généré qui doit être stocké au niveau local sur l’appareil et ne doit pas correspondre aux informations d’identification personnelle telles que l’adresse MAC ou un identificateur non modifiable similaire.   
-
-**deviceModel**
-
-    string context.device.devicemodel      Max: 100
-* 
-    Modèle d’appareil du client matériel mobile 
-
-    *Exemples*<br/> Autre<br/>iPad<br/>Nokia 503s
 
 **deviceName**
 
     string context.device.name      Max: 100
 * 
     Nom de l’appareil sur lequel s’exécute l’application 
-
-**deviceType**
-
-    string context.device.type      Max: 100
-* 
-    Type d’appareil du matériel client 
-
-    *Exemples*<br/> PC<br/>Mobile<br/>Tablette
-
-**language**
-
-    string context.device.language      Max: 100
-* 
-    Langue de l’application sur le client. Si cette valeur n’est pas fournie explicitement sur l’élément de télémétrie, elle découle du traitement du champ de l’agent utilisateur. 
 
 **locale**
 
@@ -422,17 +395,6 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * 
     Nom d’ordinateur du serveur. Dans le cas d’un calcul virtualisé, cet élément de données correspond à l’hôte sous-jacent. Dans le cas d’un calcul dédié, cet élément est le nom de l’ordinateur. 
 
-**networkType**
-
-    string context.device.network      Max: 100
-* 
-    Type de réseau du client 
-
-**oemName**
-
-    string context.device.oemname      Max: 100
-* 
-    Nom de fabricant d’ordinateurs OEM du client matériel mobile 
 
 **operatingSystem**
 
@@ -474,7 +436,7 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
     *Dérivation :* valeur analysée à partir de context.device.screenresolution si cet élément est présent.
 
-    *Exemples*<br/> 360<br/>1280<br/>1920
+    *Exemples*<br/> 360<br/>1 280<br/>1 920
 
 **screenResolution**
 
@@ -590,7 +552,8 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 
 **accountAcquisitionDate**
 
-    datetime context.user.accountAcquisitionDate      
+    datetime context.user.accountAcquisitionDate  
+    
 **anonUserId**
 
     string context.user.anonId      Max: 100
@@ -602,9 +565,11 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 **anonymousUserAcquisitionDate**
 
     datetime context.user.anonAcquisitionDate      
+
 **authenticatedUserAcquisitionDate**
 
-    datetime context.user.authAcquisitionDate      
+    datetime context.user.authAcquisitionDate     
+ 
 **authUserId**
 
     string context.user.authId      Max: 100
@@ -1024,4 +989,4 @@ Le « &lt;telemetryType&gt; » de la première section est un espace réservé
 * [Exportation continue](app-insights-export-telemetry.md)
 * [Exemples de code](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

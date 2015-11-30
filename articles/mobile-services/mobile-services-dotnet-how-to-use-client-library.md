@@ -44,9 +44,9 @@ Le type .NET côté client typé correspondant est le suivant :
 		public bool Complete { get; set; }
 	}
 
-L’attribut [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) est utilisé pour définir le mappage entre le mappage PropertyName entre le client et la table.
+L’attribut [JsonPropertyAttribute](http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm) est utilisé pour définir le mappage entre le mappage PropertyName entre le type de client et la table.
 
-Lorsqu'un schéma dynamique est activé dans un service mobile principal JavaScript, Azure Mobile Services génère automatiquement de nouvelles colonnes basées sur l'objet des requêtes d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://go.microsoft.com/fwlink/?LinkId=296271). Dans un service mobile principal .NET, la table est définie dans le modèle de données du projet.
+Lorsqu'un schéma dynamique est activé dans un service mobile principal JavaScript, Azure Mobile Services génère automatiquement de nouvelles colonnes conformément à l'objet des requêtes d'insertion ou de mise à jour. Pour plus d'informations, consultez la page [Schéma dynamique](http://go.microsoft.com/fwlink/?LinkId=296271). Dans un service mobile principal .NET, la table est définie dans le modèle de données du projet.
 
 ##<a name="create-client"></a>Procédure : création du client Mobile Services
 
@@ -292,24 +292,36 @@ Notez qu'il s'agit d'un appel de méthode typé pour lequel le type de renvoi de
 
 Le client Mobile Services permet de s'inscrire aux notifications push avec Azure Notification Hubs. Lors de l'inscription, vous obtenez un handle à partir de spécifique à la plate-forme Push Notification Service (PNS). Vous fournissez ensuite cette valeur, ainsi que toutes les balises lorsque vous créez l'inscription. Le code suivant inscrit votre application Windows aux notifications push avec le service de notification Windows (Windows Notification Service, WNS) :
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
-Notez que dans cet exemple, deux balises sont incluses dans l'inscription. Pour plus d'informations sur les applications Windows, consultez [Ajout de notifications push à votre application](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Notez que dans cet exemple, deux balises sont incluses dans l'inscription. Pour plus d'informations sur les applications Windows, consultez [Ajout de notifications Push à votre application](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
-Les applications Xamarin nécessitent du code supplémentaire pour pouvoir enregistrer une application Xamarin s'exécutant respectivement sur une application iOS ou Android avec le Apple Push Notification Service et les services Google Cloud Messaging (GCM). Pour plus d'informations, consultez **Ajout de notifications push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Les applications Xamarin nécessitent du code supplémentaire pour pouvoir enregistrer une application Xamarin s'exécutant respectivement sur une application iOS ou Android avec le Apple Push Notification Service et les services Google Cloud Messaging (GCM). Pour plus d'informations, consultez **Ajout de notifications Push à votre application** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]Lorsque vous devez envoyer des notifications à des utilisateurs inscrits spécifiques, il est important d'exiger une authentification avant l'inscription, puis de vérifier que l'utilisateur est autorisé à s'inscrire avec une balise spécifique. Par exemple, vous devez vous assurer qu'un utilisateur ne s'inscrit pas avec une balise qui est l'ID utilisateur d'une autre personne. Pour plus d'informations, consultez [Envoyer des notifications push aux utilisateurs authentifiés](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>Procédure : utilisation de notifications périodiques dans une application Windows
+
+Windows prend en charge les notifications périodiques (notifications pull) pour mettre à jour les vignettes dynamiques. Lorsque les notifications périodiques sont activées, Windows accède régulièrement à un point de terminaison de l'API personnalisée pour mettre à jour la vignette dans le menu Démarrer. Pour utiliser des notifications périodiques, vous devez [définir une API personnalisée](mobile-services-javascript-backend-define-custom-api.md) qui renvoie des données XML dans un format spécifique à la vignette. Pour plus d'informations, consultez la page [Notifications périodiques](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+L’exemple suivant active les notifications périodiques pour demander les données du modèle de vignette au nouveau point de terminaison personnalisé *tiles* :
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+Sélectionnez la valeur [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx) qui correspond le mieux à la fréquence de mise à jour de vos données.
 
 ##<a name="optimisticconcurrency"></a>Procédure : utilisation de l'accès concurrentiel optimiste
 
@@ -418,7 +430,7 @@ Cette section montre comment afficher des objets de données renvoyés à l'aide
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Certains contrôles dans le runtime géré prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Il existe une prise en charge intégrée de cette interface pour les applications Windows 8.1 via `MobileServiceIncrementalLoadingCollection`, qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
+Certains contrôles dans le runtime géré prennent en charge une interface appelée [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Cette interface permet aux contrôles de demander des données supplémentaires lorsque l'utilisateur fait défiler l'écran. Il existe une prise en charge intégrée de cette interface pour les applications Windows 8.1 via `MobileServiceIncrementalLoadingCollection`, qui traite automatiquement les appels en provenance des contrôles. Pour utiliser `MobileServiceIncrementalLoadingCollection` dans des applications Windows, procédez comme suit :
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -428,7 +440,7 @@ Certains contrôles dans le runtime géré prennent en charge une interface appe
 		lb.ItemsSource = items;
 
 
-Pour utiliser la nouvelle collection sur Windows Phone 8 et « Silverlight », utilisez les méthodes d'extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
+Pour utiliser la nouvelle collection sur Windows Phone 8 et « Silverlight », utilisez les méthodes d'extension `ToCollection` au niveau de `IMobileServiceTableQuery<T>` et `IMobileServiceTable<T>`. Pour charger réellement les données, appelez `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -518,7 +530,7 @@ Dans la forme la plus simple, vous pouvez utiliser le flux client comme indiqué
 
 ####Authentification unique à l’aide d’un compte Microsoft avec le Kit de développement logiciel (SDK) Live
 
-Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès du Centre des développeurs de compte Microsoft. Vous devez ensuite connecter cette inscription à votre service mobile. Effectuez les étapes décrites dans la rubrique [Inscrire votre application pour utiliser les informations de connexion d’un compte Microsoft](mobile-services-how-to-register-microsoft-authentication.md) pour créer une inscription de compte Microsoft et la connecter à votre service mobile. Si vous disposez des versions Windows Store et Windows Phone 8/Silverlight de votre application, inscrivez d'abord la version Windows Store.
+Pour pouvoir authentifier les utilisateurs, vous devez inscrire votre application auprès du Centre des développeurs de compte Microsoft. Vous devez ensuite connecter cette inscription à votre service mobile. Effectuez les étapes décrites dans la rubrique [Inscrire votre application pour utiliser un compte Microsoft pour l'authentification](mobile-services-how-to-register-microsoft-authentication.md) pour créer une inscription de compte Microsoft et la connecter à votre service mobile. Si vous disposez des versions Windows Store et Windows Phone 8/Silverlight de votre application, inscrivez d'abord la version Windows Store.
 
 Le code suivant s’authentifie à l’aide du SDK Live et utilise le jeton retourné pour se connecter à votre service mobile.
 
@@ -752,4 +764,4 @@ Cette propriété convertit toutes les propriétés en minuscules lors de la sé
 [API personnalisée dans les kits de développement logiciel (SDK) clients pour Azure Mobile Services]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

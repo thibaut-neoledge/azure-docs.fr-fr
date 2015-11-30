@@ -1,9 +1,9 @@
 
-L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d'utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur.
+L'exemple précédent montrait une connexion standard, qui nécessite que le client contacte le fournisseur d'identité et le service mobile à chaque démarrage de l'application. Cette méthode est non seulement inefficace, mais vous pouvez rencontrer des problèmes d’utilisation si de nombreux clients tentent de lancer votre application en même temps. Une meilleure approche consiste à mettre en cache le jeton d'autorisation renvoyé par Mobile Services et à l'utiliser en premier avant de faire appel à la connexion via un fournisseur.
 
 >[AZURE.NOTE]Vous pouvez mettre en cache le jeton émis par Mobile Services, que vous utilisiez l'authentification gérée par un client ou gérée par un service. Ce didacticiel utilise cette dernière.
 
-1. Ouvrez le fichier de projet MainPage.xaml.cs et ajoutez les instructions **using** suivantes :
+1. Ouvrez le fichier de projet MainPage.cs et ajoutez les instructions **using** suivantes :
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
@@ -91,4 +91,4 @@ L'exemple précédent montrait une connexion standard, qui nécessite que le cli
 
 	Notez que lors du premier démarrage, la connexion avec le fournisseur est à nouveau requise. Cependant, lors du second redémarrage, les informations d'identification mises en cache sont utilisées et l'étape de connexion est ignorée.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

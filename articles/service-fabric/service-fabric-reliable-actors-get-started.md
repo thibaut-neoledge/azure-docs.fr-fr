@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Acteurs fiables : scénario canonique HelloWorld étape par étape
@@ -26,7 +26,7 @@ Avant de commencer, assurez-vous d'avoir configuré l'environnement de développ
 Pour prendre en main les acteurs fiables, il vous suffit de comprendre 4 concepts de base :
 
 * **Service d'acteur**. Les acteurs fiables sont empaquetés dans des services qui peuvent être déployés dans l'infrastructure Service Fabric. Un service peut héberger un ou plusieurs acteurs. Nous verrons plus tard plus en détail les avantages d'avoir un ou plusieurs acteurs par service. Pour l'instant, supposons que nous devons implémenter un seul acteur.
-* **Interface d'acteur**. L'interface d'acteur est utilisée pour définir l'interface publique d'un acteur. Dans la terminologie des modèles d'acteur, elle définit le type de messages dont l'acteur est en mesure de comprendre le processus. L'interface d'acteur est utilisée par d'autres acteurs ou applications clientes pour « envoyer » (de façon asynchrone) des messages à l'acteur. Les acteurs fiables peuvent implémenter plusieurs interfaces, comme nous le verrons, un acteur HelloWorld peut implémenter l'interface IHelloWorld, mais également une interface ILogging qui définit différents messages/fonctionnalités.
+* **Interface d'acteur**. L'interface d'acteur est utilisée pour définir l'interface publique d'un acteur. Dans la terminologie des modèles d'acteur, elle définit le type de messages que l'acteur est en mesure de comprendre et de traiter. L'interface d'acteur est utilisée par d'autres acteurs ou applications clientes pour « envoyer » (de façon asynchrone) des messages à l'acteur. Les acteurs fiables peuvent implémenter plusieurs interfaces, comme nous le verrons, un acteur HelloWorld peut implémenter l'interface IHelloWorld, mais également une interface ILogging qui définit différents messages/fonctionnalités.
 * **Enregistrement d'acteur**. Dans le service d'acteur, le type d'acteur doit être enregistré pour que Fabric Service ait connaissance du nouveau type et puisse l'utiliser pour créer de nouveaux acteurs.
 * **Classe ActorProxy**. La classe ActorProxy est utilisée pour effectuer une liaison à un acteur et appeler les méthodes exposées via ses interfaces. La classe ActorProxy fournit deux fonctionnalités importantes :
 	* Résolution de noms : elle est en mesure de localiser l'acteur dans le cluster (rechercher le nœud du cluster dans lequel il est hébergé).
@@ -58,18 +58,14 @@ Une solution standard d'acteurs fiables est composée de trois projets :
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld.Interfaces
+namespace MyActor.Interfaces
 {
-    public interface IHelloWorld : IActor
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+
+    public interface IMyActor : IActor
     {
-        Task<string> SayHello(string greeting);
+        Task<string> HelloWorld();
     }
 }
 
@@ -79,22 +75,18 @@ namespace HelloWorld.Interfaces
 
 ```csharp
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using HelloWorld.Interfaces;
-using Microsoft.ServiceFabric;
-using Microsoft.ServiceFabric.Actors;
-
-namespace HelloWorld
+namespace MyActor
 {
-    public class HelloWorld : Actor, IHelloWorld
+    using System;
+    using System.Threading.Tasks;
+    using Interfaces;
+    using Microsoft.ServiceFabric.Actors;
+
+    internal class MyActor : StatelessActor, IMyActor
     {
-        public Task<string> SayHello(string greeting)
+        public Task<string> HelloWorld()
         {
-            return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
+            throw new NotImplementedException();
         }
     }
 }
@@ -105,26 +97,34 @@ Le projet de service d'acteur contient le code pour créer un service Service Fa
 
 ```csharp
 
-public class Program
+namespace MyActor
 {
-    public static void Main(string[] args)
-    {
-        try
-        {
-            using (FabricRuntime fabricRuntime = FabricRuntime.Create())
-            {
-                fabricRuntime.RegisterActor(typeof(HelloWorld));
+    using System;
+    using System.Fabric;
+    using System.Threading;
+    using Microsoft.ServiceFabric.Actors;
 
-                Thread.Sleep(Timeout.Infinite);
+    internal static class Program
+    {
+        private static void Main()
+        {
+            try
+            {
+                using (FabricRuntime fabricRuntime = FabricRuntime.Create())
+                {
+                    fabricRuntime.RegisterActor<MyActor>();
+
+                    Thread.Sleep(Timeout.Infinite);  // Prevents this host process from terminating so services keeps running.
+                }
+            }
+            catch (Exception e)
+            {
+                ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
+                throw;
             }
         }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e);
-            throw;
-        }
     }
-}  
+}
 
 ```
 
@@ -132,7 +132,7 @@ Si vous démarrez à partir d'un nouveau projet dans Visual Studio et que vous n
 
 ```csharp
 
-fabricRuntime.RegisterActor(typeof(MyNewActor));
+fabricRuntime.RegisterActor<MyActor>();
 
 
 ```
@@ -158,4 +158,4 @@ Service Fabric Tools pour Visual Studio prend en charge le débogage sur l'ordin
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

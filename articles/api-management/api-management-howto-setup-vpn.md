@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="11/16/2015"
 	ms.author="antonba"/>
 
 # Comment configurer des connexions VPN dans Gestion des API Azure
 
-La prise en charge du VPN par Gestion des API vous permet de connecter votre proxy Gestion des API à un réseau virtuel Azure. Ceci permet aux clients Gestion des API de se connecter de façon sécurisée à leurs services web principaux, qu’ils soient locaux ou qu’il s’agisse de services inaccessibles via l’internet public.
+La prise en charge du VPN par Gestion des API vous permet de connecter votre passerelle Gestion des API à un réseau virtuel Azure. Ceci permet aux clients Gestion des API de se connecter de façon sécurisée à leurs services web principaux, qu’ils soient locaux ou qu’il s’agisse de services inaccessibles via l’internet public.
 
 ## <a name="enable-vpn"> </a>Activer les connexions VPN
 
@@ -36,9 +36,9 @@ Sélectionnez un VPN et un sous-réseau pour chaque région. La liste des VPN co
 
 ![Sélectionner le VPN][api-management-setup-vpn-select]
 
-Cliquez sur **Enregistrer** au bas de la page. Vous ne pouvez pas effectuer d’autres opérations sur le service Gestion des API à partir du portail de gestion Azure pendant la mise à jour. Le proxy de service reste disponible et les appels d’exécution ne sont pas affectés.
+Cliquez sur **Enregistrer** au bas de la page. Vous ne pouvez pas effectuer d’autres opérations sur le service Gestion des API à partir du portail de gestion Azure pendant la mise à jour. La passerelle de service reste disponible et les appels d’exécution ne sont pas affectés.
 
-Notez que l’adresse IP virtuelle du proxy change chaque fois que le VPN est activé ou désactivé.
+Notez que l’adresse IP virtuelle de passerelle change chaque fois que le VPN est activé ou désactivé.
 
 ## <a name="connect-vpn"> </a>Se connecter à un service web derrière un VPN
 
@@ -67,4 +67,4 @@ Une fois que votre service Gestion des API est connecté au VPN, l’accès aux 
 [Utilisation de l’inspecteur d’API pour le suivi des appels dans Gestion des API Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

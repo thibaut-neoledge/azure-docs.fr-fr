@@ -3,7 +3,7 @@
 	description="Découvrez comment déployer un bloc-notes Jupyter/IPython Notebook sur une machine virtuelle Linux créée avec le modèle de déploiement du Gestionnaire de ressources Azure."
 	services="virtual-machines"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="crwilcox"
 	manager="wpickett"
 	editor=""
 	tags=“azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/20/2015"
-	ms.author="huvalo"/>
+	ms.date="11/10/2015"
+	ms.author="crwilcox"/>
 
 # Jupyter Notebook sur Azure
 
@@ -41,7 +41,7 @@ La première étape consiste à créer une machine virtuelle s’exécutant sur 
 
 Suivez les instructions fournies [ici][portal-vm-linux] pour créer une machine virtuelle de la distribution *Ubuntu*. Ce didacticiel utilise Ubuntu Server 14.04 LTS. Nous présumerons que le nom d’utilisateur est *azureuser*.
 
-Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, ***** pour le port source (public) et **9999** pour le port de destination (privé).
+Après le déploiement de la machine virtuelle, nous devons activer une règle de sécurité sur le groupe de sécurité réseau. À partir du portail Azure en version préliminaire, accédez à **Groupes de sécurité réseau** et ouvrez l’onglet du groupe de sécurité correspondant à votre machine virtuelle. Vous devez ajouter une règle de sécurité de trafic entrant avec les paramètres suivants : **TCP** pour le protocole, ***** pour le port source (public) et **9999** pour le port de destination (privé).
 
 ![Capture d'écran](./media/virtual-machines-python-ipython-notebook/azure-add-endpoint.png)
 
@@ -199,4 +199,4 @@ Pour plus d’informations, consultez le [Centre de développement Python](/deve
 [référentiel]: https://github.com/ipython/ipython
 [outils Python pour Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

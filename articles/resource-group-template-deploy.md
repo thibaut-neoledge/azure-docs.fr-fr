@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/14/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # Déployer une application avec un modèle Azure Resource Manager
@@ -213,13 +213,19 @@ Si vous n’avez pas déjà utilisé Azure CLI avec Azure Resource Manager, cons
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## Déployer avec Visual Studio
+
+Avec Visual Studio, vous pouvez créer un projet de groupe de ressources et le déployer vers Azure via l’interface utilisateur. Vous sélectionnez le type de ressources à inclure dans votre projet et ces ressources sont automatiquement ajoutées au modèle de gestionnaire de ressources. Le projet fournit également un script PowerShell pour déployer le modèle.
+
+Pour voir une présentation de l’utilisation de Visual Studio avec les groupes de ressources, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
 ## Déployer avec la version préliminaire du portail
 
-Devinez quoi ? Chaque application que vous créez avec la [version préliminaire du portail](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager. En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** et vous pourrez progresser vers le déploiement d’une application avec Azure Resource Manager.
+Devinez quoi ? Chaque application que vous créez avec le [portail en version préliminaire](https://portal.azure.com/) est soutenue par un modèle Azure Resource Manager ! En créant simplement une machine virtuelle, un réseau virtuel, un compte de stockage, un service d’application ou une base de données via le portail, vous profitez déjà des avantages d’Azure Resource Manager sans rien faire de plus. Sélectionnez simplement l’icône **Nouveau** et vous pourrez progresser vers le déploiement d’une application avec Azure Resource Manager.
 
 ![Nouveau](./media/resource-group-template-deploy/new.png)
 
-Pour plus d'informations sur l'utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
+Pour plus d’informations sur l’utilisation du portail avec Azure Resource Manager, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](azure-portal/resource-group-portal.md).
 
 
 ## Fichier de paramètres
@@ -245,12 +251,12 @@ Si vous utilisez un fichier de paramètres pour passer les valeurs de paramètre
 La taille du fichier de paramètre ne peut pas être supérieure à 64 Ko.
 
 ## Étapes suivantes
-- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l'aide de bibliothèques .NET et d'un modèle](arm-template-deployment.md).
-- Pour obtenir un exemple détaillé de déploiement d'une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Pour obtenir un exemple de déploiement de ressources par le biais de la bibliothèque cliente .NET, consultez [Déployer des ressources à l’aide de bibliothèques .NET et d’un modèle](arm-template-deployment.md).
+- Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour obtenir des instructions sur le déploiement de votre solution dans des environnements différents, consultez [Environnements de développement et de test dans Microsoft Azure](solution-dev-test-environments-preview-portal.md).
 - Pour en savoir plus sur les sections du modèle Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md).
 - Pour obtenir la liste des fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager, consultez [Fonctions de modèle](resource-group-template-functions.md).
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

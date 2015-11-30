@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Requêtes SQL sur une base de données DocumentDB – Requête SQL | Microsoft Azure" 
-	description="Découvrez comment DocumentDB prend en charge les requêtes SQL sur les documents JSON hiérarchiques pour l’indexation automatique. Découvrez un environnement de base de données compatible avec les requêtes SQL et véritablement exempt de schéma." 
-	keywords="Interroger la base de données, requêtes sql, requête sql, langage de requête structuré, documentdb, azure, Microsoft azure"
+	pageTitle="Requête SQL sur DocumentDB, une base de données NoSQL | Microsoft Azure" 
+	description="Apprenez à utiliser les instructions de requête SQL pour une requête DocumentDB, une base de données NoSQL. Comme pour un langage de requête JSON, les requêtes SQL peuvent être utilisées pour l’analyse Big Data (données volumineuses)." 
+	keywords="requête SQL, requêtes sql, syntaxe sql, langage de requête json, concepts de base de données et requêtes sql"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.date="11/18/2015" 
 	ms.author="arramac"/>
 
 # Requête SQL dans DocumentDB
-Microsoft Azure DocumentDB prend en charge l'interrogation de documents à l'aide du langage SQL sur les documents JSON hiérarchiques. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires.
+Microsoft Azure DocumentDB prend en charge l’interrogation de documents à l’aide du langage SQL en tant que langage de requête JSON. DocumentDB n'utilise pas de schéma. En raison de son engagement dans le modèle de données JSON directement au sein du moteur de base de données, il fournit l'indexation automatique des documents JSON sans nécessiter un schéma explicite ou la création d'index secondaires.
 
 Lors de la conception du langage de requête pour DocumentDB, nous avions deux objectifs à l'esprit :
 
--	**Exploiter SQL** : au lieu d’inventer un langage de requête, nous voulions exploiter SQL. Après tout, le SQL est l'un des langages de requête les plus conviviaux et populaires. SQL de DocumentDB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
--	**Étendre SQL** : étant donné qu’une base de données documentaire JSON peut exécuter JavaScript directement dans le moteur de base de données, nous avons voulu utiliser le modèle de programmation de JavaScript comme base pour notre langage de requête. SQL de DocumentDB est inclus dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives et l'appel de fonctions définies par l'utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
+-	Au lieu d’inventer un langage de requête, nous voulions prendre en charge SQL. SQL est l’un des langages de requête les plus conviviaux et populaires. SQL de DocumentDB fournit un modèle de programmation formel pour créer des requêtes élaborées sur les documents JSON.
+-	Comme une base de données de documents JSON peut exécuter JavaScript directement dans le moteur de base de données, nous avons voulu utiliser le modèle de programmation de JavaScript comme base pour notre langage de requête. SQL de DocumentDB est inclus dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
 
 Nous pensons que ces capacités sont la clé pour réduire la friction entre l'application et la base de données et sont cruciales pour la productivité des développeurs.
 
@@ -31,7 +31,7 @@ Nous vous recommandons de commencer par visionner la vidéo suivante, dans laque
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-Revenez ensuite à cet article où nous commencerons par vous montrer quelques documents JSON et commandes SQL simples.
+Revenez ensuite à cet article où nous commencerons avec un didacticiel sur les requêtes SQL pour vous montrer quelques documents JSON et commandes SQL simples.
 
 ## Prise en main des commandes du langage SQL (Structured Query Language) dans DocumentDB
 Pour voir comment le langage SQL de DocumentDB fonctionne, nous allons commencer par quelques documents JSON simples sur lesquels nous allons appliquer certaines requêtes simples. Prenez ces deux documents JSON relatifs à deux familles. Notez qu'avec DocumentDB, nous n'avons pas besoin de créer de schéma ou d'index secondaire de façon explicite. Nous devons simplement insérer les documents JSON dans une collection DocumentDB et ensuite les interroger. Nous avons ici un document JSON simple pour la famille Andersen, les parents, les enfants (et leurs animaux), l'adresse et les informations d'enregistrement. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées.
@@ -164,7 +164,7 @@ Nous aimerions attirer votre attention sur quelques aspects importants du langag
 
 ## Indexation DocumentDB
 
-Avant d’aborder la grammaire SQL de DocumentDB, nous allons présenter la conception de l’indexation de DocumentDB.
+Avant d’aborder la syntaxe SQL de DocumentDB, nous allons présenter la conception de l’indexation de DocumentDB.
 
 L'objectif des index de base de données est de servir les requêtes dans leurs différents formulaires et formes tout en consommant un minimum de ressources (comme le temps processeur ou les E/S) et en fournissant un bon débit et une faible latence. Souvent, le choix des index adéquats pour l'interrogation d'une base de données requiert une planification et une expérimentation importantes. Cette approche constitue un défi pour les bases de données sans schéma, où les données ne sont pas conformes à un schéma strict et évoluent rapidement.
 
@@ -180,7 +180,7 @@ C'est pourquoi, lorsque nous avons conçu le sous-système d'indexation de Docum
 
 -	Efficacité du stockage : Pour des raisons économiques, la surcharge de stockage sur disque de l’index est limitée et prévisible. Ceci est très important, car DocumentDB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d'index et les performances des requêtes.
 
-Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la grammaire SQL de DocumentDB.
+Reportez-vous aux [exemples DocumentDB](https://github.com/Azure/azure-documentdb-net) sur MSDN pour obtenir des exemples montrant comment configurer la stratégie d’indexation d’une collection. Nous allons à présent détailler davantage la syntaxe SQL de DocumentDB.
 
 
 ## Principes de base d’une requête SQL DocumentDB
@@ -188,7 +188,8 @@ Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facul
     
     SELECT <select_list> 
     [FROM <from_specification>] 
-    [WHERE <filter_condition>]    
+    [WHERE <filter_condition>]
+    [ORDER BY <sort_specification]    
 
 
 ## Clause FROM
@@ -322,7 +323,7 @@ Pour les autres opérateurs de comparaison tels que >, >=,! =, < et <=, les règ
 Si le résultat de l'expression scalaire dans le filtre est Undefined, le document correspondant ne doit pas être inclus dans le résultat, car Undefined n'équivaut pas logiquement à « true ».
 
 ### Mot clé BETWEEN
-Vous pouvez également utiliser le mot clé BETWEEN pour exprimer des requêtes sur des plages de valeurs, comme dans SQL ANSI. Vous pouvez utiliser BETWEEN sur n'importe quel type de primitive JSON (nombres, chaînes, valeurs booléennes et valeurs nulles).
+Vous pouvez également utiliser le mot clé BETWEEN pour exprimer des requêtes sur des plages de valeurs, comme dans SQL ANSI. Vous pouvez utiliser BETWEEN sur des chaînes ou des nombres.
 
 Par exemple, cette requête retourne tous les documents de la famille dans lesquels la note du premier enfant est comprise entre 1 et 5 (tous deux inclus).
 
@@ -390,7 +391,7 @@ Vous pouvez également imbriquer les appels à l'opérateur, comme dans la requ�
 
 Comme avec d'autres opérateurs de requête, si les propriétés référencées dans l'expression conditionnelle sont manquantes dans un document, ou si les types comparés sont différents, ces documents sont exclus dans les résultats de requête.
 
-Vous pouvez utiliser l'opérateur Coalesce (?) pour vérifier la présence d'une propriété dans un document (c'est-à-dire vérifier si elle est définie). Cela est utile lors de l'interrogation de données semi-structurées ou de types différents. Par exemple, cette requête retourne « lastName » s'il est présent ou « surname » dans le cas contraire.
+Vous pouvez utiliser l’opérateur Coalesce (?) pour vérifier la présence d’une propriété dans un document (c’est-à-dire vérifier si elle est définie). Cela est utile lors de l'interrogation de données semi-structurées ou de types différents. Par exemple, cette requête retourne « lastName » s'il est présent ou « surname » dans le cas contraire.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
@@ -661,7 +662,7 @@ L'opérateur spécial (*) est pris en charge pour projeter le document tel quel.
 	}]
 
 ## Clause ORDER BY
-Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur la clause Order by, consultez la [Procédure pas à pas relative à Order By de DocumentDB ](documentdb-orderby.md).
+Comme dans ANSI-SQL, vous pouvez désormais inclure une clause Order By facultative lors d’une interrogation. La clause peut inclure un argument ASC/DESC facultatif pour spécifier l'ordre dans lequel les résultats doivent être récupérés. Pour plus d’informations sur la clause Order by, consultez la [Procédure pas à pas relative à Order By de DocumentDB](documentdb-orderby.md).
 
 Par exemple, voici une requête qui récupère les familles dans l'ordre de la ville de résidence.
 
@@ -705,7 +706,7 @@ Et voici une requête qui récupère les familles suivant l'ordre de la date de 
 	  }
 	]
 	
-## Concepts avancés de base de données - Requêtes SQL
+## Concepts avancés de base de données et requêtes SQL
 ### Itération
 Une nouvelle construction a été ajoutée via le mot clé **IN** de SQL DocumentDB pour prendre en charge l’itération sur les tableaux JSON. La source FROM fournit une prise en charge pour l'itération. Commençons par l'exemple suivant :
 
@@ -943,7 +944,7 @@ DocumentDB fournit un modèle de programmation pour l'exécution de la logique d
 ###Fonctions définies par l'utilisateur
 En plus des types déjà définis dans cet article, SQL de DocumentDB prend en charge les fonctions définies par l'utilisateur. En particulier, les fonctions définies par l'utilisateur scalaires sont prises en charge pour que les développeurs puissent transmettre de nombreux arguments ou aucun, puis renvoyer un seul argument en retour. La légalité des valeurs JSON de chacun de ces arguments est vérifiée.
 
-La syntaxe du langage SQL de DocumentDB est étendue pour prendre en charge la logique d'application personnalisée à l'aide de ces fonctions définies par l'utilisateur. Ces dernières peuvent être enregistrées avec DocumentDB, puis référencées dans le cadre d'une requête SQL. En fait, les fonctions définies par l'utilisateur sont conçues avec soin pour pouvoir être appelées par des requêtes. En conséquence, les fonctions définies par l'utilisateur ne peuvent pas accéder à l'objet de contexte que possèdent les autres types JavaScript (procédures stockées, déclencheurs). Comme les requêtes s'exécutent en lecture seule, elles peuvent démarrer sur des réplicas principaux ou secondaires. Par conséquent, les fonctions définies par l'utilisateur sont conçues pour être exécutées sur des réplicas secondaires, contrairement à d'autres types JavaScript.
+La syntaxe du langage SQL de DocumentDB est étendue pour prendre en charge la logique d’application personnalisée à l’aide de ces fonctions définies par l’utilisateur. Ces dernières peuvent être enregistrées avec DocumentDB, puis référencées dans le cadre d'une requête SQL. En fait, les fonctions définies par l'utilisateur sont conçues avec soin pour pouvoir être appelées par des requêtes. En conséquence, les fonctions définies par l'utilisateur ne peuvent pas accéder à l'objet de contexte que possèdent les autres types JavaScript (procédures stockées, déclencheurs). Comme les requêtes s'exécutent en lecture seule, elles peuvent démarrer sur des réplicas principaux ou secondaires. Par conséquent, les fonctions définies par l'utilisateur sont conçues pour être exécutées sur des réplicas secondaires, contrairement à d'autres types JavaScript.
 
 Voici un exemple de méthode d'enregistrement de fonction définie par l'utilisateur sur la base de données DocumentDB, plus précisément sous une collection de documents.
 
@@ -1386,8 +1387,6 @@ Voici un autre exemple dans lequel la fonction ARRAY\_LENGTH est utilisée pour 
       "numberOfChildren": 1
     }]
 
-Cela encapsule les fonctions intégrées et la grammaire SQL pour DocumentDB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la grammaire que nous avons vue jusqu’à présent.
-
 ### Fonctions spatiales
 
 DocumentDB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales. Pour plus d’informations sur la prise en charge géospatiale dans DocumentDB, consultez [Utilisation de données géospatiales dans Azure DocumentDB](documentdb-geospatial.md).
@@ -1429,7 +1428,7 @@ Les fonctions spatiales peuvent être utilisées pour effectuer des requêtes de
       "id": "WakefieldFamily"
     }]
 
-Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n’avez pas d’index spatial pour les chemins d’accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
+Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les « requêtes à distance » seront servies efficacement dans l'index. Pour plus d'informations sur l'indexation spatiale, consultez la section ci-dessous. Si vous n’avez pas un index spatial pour les chemins d’accès spécifiés, vous pouvez quand même effectuer des requêtes spatiales en spécifiant l’en-tête de requête `x-ms-documentdb-query-enable-scan` avec la valeur définie sur « true ». Dans .NET, cela est possible en passant l’argument facultatif **FeedOptions** aux requêtes avec [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) défini sur true.
 
 ST\_WITHIN peut être utilisé pour vérifier si un point se trouve dans un polygone. Généralement, les polygones sont utilisés pour représenter des limites comme les codes postaux, les frontières d'États ou les formations naturelles. Si vous incluez l'indexation spatiale dans votre stratégie d'indexation, les requêtes « within » seront servies efficacement dans l'index.
 
@@ -1450,7 +1449,7 @@ Les arguments de polygone dans ST\_WITHIN peuvent contenir un seul cercle, cela
       "id": "WakefieldFamily",
     }]
     
->[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l’emplacement spécifié dans un argument est incorrecte ou non valide, elle prend la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
+>[AZURE.NOTE]Tout comme pour les types non correspondants dans une requête DocumentDB, si la valeur de l’emplacement spécifié dans un argument est incorrecte ou non valide, elle prend alors la valeur **indéfinie** et le document évalué est ignoré des résultats de requête. Si votre requête ne retourne aucun résultat, exécutez ST\_ISVALIDDETAILED afin de déboguer l’absence de validité du type spatial.
 
 ST\_ISVALID et ST\_ISVALIDDETAILED peuvent être utilisés pour vérifier si un objet spatial est valide. Par exemple, la requête suivante vérifie la validité d'un point avec une valeur de latitude hors limites (-132.8). ST\_ISVALID retourne simplement une valeur booléenne et ST\_ISVALIDDETAILED renvoie la valeur booléenne et une chaîne contenant la raison pour laquelle il est non valide.
 
@@ -1481,7 +1480,7 @@ Ces fonctions peuvent également être utilisées pour valider des polygones. Pa
       	}
     }]
     
-Cela encapsule les fonctions intégrées et la grammaire SQL pour DocumentDB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la grammaire que nous avons vue jusqu’à présent.
+Cela inclut les fonctions spatiales et la syntaxe SQL pour DocumentDB. Maintenant, examinons le fonctionnement de l’interrogation LINQ et voyons comment elle interagit avec la syntaxe que nous avons vue jusqu’à présent.
 
 ## LINQ vers le langage SQL de DocumentDB
 LINQ est un modèle de programmation .NET qui exprime un calcul en tant que requête sur des flux d'objets. DocumentDB fournit une bibliothèque côté client pour interagir avec LINQ en facilitant la conversion entre les objets JSON et .NET et un mappage à partir d'un sous-ensemble de requêtes LINQ vers des requêtes DocumentDB.
@@ -2089,4 +2088,4 @@ L'exemple suivant illustre l'utilisation de queryDocuments dans l'API JavaScript
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

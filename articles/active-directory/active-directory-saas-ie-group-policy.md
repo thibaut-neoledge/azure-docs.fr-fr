@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/28/2015"
+   ms.date="11/18/2015"
    ms.author="liviodlc"/>
 
 #Déploiement de l’extension Volet d’accès pour Internet Explorer à l’aide de la stratégie de groupe
@@ -128,7 +128,36 @@ Outre l’exécution du programme d’installation, toutes les extensions pour I
 
 L’extension doit désormais être activée pour les ordinateurs dans l’UO sélectionnée. [En savoir plus sur l’utilisation de la stratégie de groupe pour activer ou désactiver les modules complémentaires d’Internet Explorer.](https://technet.microsoft.com/library/dn454941.aspx)
 
-##Étape 5 : Tester le déploiement
+##Étape 5 (Facultatif) : Désactiver l’invite « Mémoriser le mot de passe »
+
+Lorsque les utilisateurs se connectent à des sites Web à l'aide de l'Extension Volet d'accès, Internet Explorer peut afficher le message suivant : « Souhaitez-vous enregistrer votre mot de passe ? »
+
+![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+
+Si vous ne souhaitez pas que les utilisateurs puissent accéder à ce message, suivez les étapes mentionnées ci-dessous pour que la saisie semi-automatique ne procède pas à la mémorisation de mots de passe :
+
+1. Dans la fenêtre **Éditeur de gestion des stratégies de groupe**, accédez au chemin d'accès ci-dessous. Notez que ce paramètre de configuration n’est disponible que sous **Configuration utilisateur**.
+	- `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/`
+
+2. Recherchez le paramètre nommé **Activer la saisie semi-automatique des noms d'utilisateur et des mots de passe dans les formulaires**.
+
+	> [AZURE.NOTE]Les versions précédentes d'Active Directory peuvent répertorier ce paramètre via le nom **Ne pas autoriser la saisie semi-automatique à enregistrer des mots de passe**. La configuration de ce paramètre diffère du paramètre décrit dans ce didacticiel.
+
+	![N'oubliez pas de le rechercher sous Paramètres utilisateur.](./media/active-directory-saas-ie-group-policy/disable-auto-complete.png)
+
+3. Cliquez avec le bouton droit sur le paramètre ci-dessus, puis sélectionnez **Modifier**.
+
+4. Dans la fenêtre intitulée **Activer la saisie semi-automatique des noms d'utilisateur et des mots de passe dans les formulaires**, sélectionnez **Désactivé**.
+
+	![Sélectionner Désactiver](./media/active-directory-saas-ie-group-policy/disable-passwords.png)
+
+5. Cliquez sur **OK** pour appliquer ces modifications et fermer la fenêtre.
+
+Les utilisateurs ne seront plus en mesure d’enregistrer leurs informations d'identification ou d’utiliser la saisie semi-automatique pour accéder aux informations d'identification enregistrées précédemment. Toutefois, cette stratégie permet aux utilisateurs de continuer à utiliser la saisie semi-automatique pour les autres types de champs de formulaire, tels que les champs de recherche.
+
+> [AZURE.WARNING]Si cette stratégie est activée après que les utilisateurs aient choisi de stocker certaines informations d'identification, cette stratégie n’effacera *pas* les informations d'identification qui ont déjà été enregistrées.
+
+##Étape 6 : tester le déploiement
 
 Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension a réussi :
 
@@ -138,7 +167,7 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 
 3. Vous devez redémarrer l’ordinateur pour lancer l’installation. Le démarrage peut prendre beaucoup plus de temps que d’habitude lors de l’installation de l’extension.
 
-4. Après avoir redémarré, ouvrez **Internet Explorer**. Dans le coin supérieur droit de la fenêtre, cliquez sur **Outils** (l’icône d’engrenage), puis sélectionnez **Gérer les modules complémentaires**.
+4. Après avoir redémarré, ouvrez **Internet Explorer**. Dans le coin supérieur droit de la fenêtre, cliquez sur **Outils** (l’icône d’engrenage), puis sélectionnez **Gérer les modules complémentaires**.
 
 	![Accéder à Outils > Gérer les modules complémentaires](./media/active-directory-saas-ie-group-policy/manage-add-ons.png)
 
@@ -148,4 +177,4 @@ Suivez les étapes ci-dessous pour vérifier si le déploiement de l’extension
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

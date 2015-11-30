@@ -29,7 +29,7 @@ Configurez votre première ou prochaine batterie de serveurs SharePoint de déve
 
 L'environnement créé automatiquement se compose de trois serveurs sur un réseau virtuel Azure cloud uniquement : un contrôleur de domaine, un serveur SQL et le serveur SharePoint.
 
-Consultez l'élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs de développement/test de base pour un site web SharePoint sur Internet. Consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) pour plus de détails.
+Consultez l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace du portail Azure en version préliminaire. Cela crée une batterie de serveurs de développement/test de base pour un site web SharePoint sur Internet. Consultez [Création de batteries de serveurs SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) pour plus de détails.
 
 Vous pouvez également utiliser un modèle Azure Resource Manager. Consultez [Déployer une batterie de serveurs SharePoint à trois serveurs](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
@@ -69,4 +69,4 @@ Cette configuration utilise le modèle de déploiement classique.
 
 [Déploiement de la synchronisation d’annuaires (DirSync) d’Office 365 dans Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

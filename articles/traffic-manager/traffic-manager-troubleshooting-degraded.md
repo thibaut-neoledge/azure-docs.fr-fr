@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="kwill-MSFT"
-   manager="adinah"
+   manager="carmonm"
    editor="joaoma" />
 
 <tags 
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
-Cette page décrit comment résoudre le problème du profil Azure Traffic Manager qui affiche un état détérioré et fournit quelques points importants à connaître sur les sondes du gestionnaire de trafic.
 
+Cette page décrit comment résoudre le problème du profil Azure Traffic Manager qui affiche un état détérioré et fournit quelques points importants à connaître sur les sondes du gestionnaire de trafic.
 
 Vous avez configuré un profil Traffic Manager pointant vers certains de vos services hébergés .cloudapp.net et après quelques secondes, l’état s’affiche comme dégradé.
 
@@ -80,4 +80,4 @@ Si votre sonde utilise le protocole HTTPs, vous devez ajouter le paramètre « 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

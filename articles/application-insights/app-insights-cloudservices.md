@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Application Insights pour Azure Cloud Services
@@ -58,7 +58,7 @@ Vous pouvez également envoyer des données à partir de tous les rôles à une 
 
     ![Cliquez avec le bouton droit sur le projet et sélectionnez Gérer les packages NuGet](./media/app-insights-cloudservices/03-nuget.png)
 
-2. Ajoutez le package NuGet [Application Insights pour le Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Cette version du Kit de développement logiciel (SDK) inclut des modules qui ajoutent du contexte de serveur tel que des informations de rôle.
+2. Ajoutez le package NuGet [Application Insights pour le Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Cette version du Kit de développement logiciel (SDK) inclut des modules qui ajoutent du contexte de serveur tel que des informations de rôle. Pour les rôles de travail, utilisez Application Insights pour les services Windows.
 
     ![Recherchez « Application Insights »](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +69,9 @@ Vous pouvez également envoyer des données à partir de tous les rôles à une 
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     Dans une fonction de démarrage appropriée, définissez la clé d'instrumentation à partir du paramètre de configuration :
@@ -90,6 +90,20 @@ Vous pouvez également envoyer des données à partir de tous les rôles à une 
 4. Définissez le fichier ApplicationInsights.config pour que celui-ci soit toujours copié dans le répertoire de sortie. 
 
     (Dans le fichier .config, vous verrez des messages vous demandant de placer la clé d'instrumentation là. Toutefois, pour les applications cloud, il est préférable de la définir à partir du fichier .cscfg. Ceci garantit que le rôle est identifié correctement dans le portail.)
+
+## Activer les diagnostics Azure
+
+Les diagnostics Azure envoient des compteurs de performances, des journaux des événements Windows et des journaux de suivi de votre application à Application Insights.
+
+Dans l’Explorateur de solutions, ouvrez les propriétés de chaque rôle. Activez **Envoyer des diagnostics à Application Insights**.
+
+![Dans les propriétés, sélectionnez Activer les diagnostics, puis Envoyer à Application Insights.](./media/app-insights-cloudservices/05-wad.png)
+
+Faites de même pour les autres rôles.
+
+### Activer les diagnostics Azure dans une application en ligne ou une machine virtuelle Azure
+
+Vous pouvez également activer les diagnostics lorsque l’application est déjà en cours d’exécution sur Azure en ouvrant ses propriétés dans l’Explorateur de serveurs ou Cloud Explorer dans Visual Studio.
 
 
 ## Utilisez le Kit de développement logiciel (SDK) pour signaler la télémétrie
@@ -208,4 +222,4 @@ Pour obtenir une vue à 360 degrés de votre application, vous devez faire cert
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

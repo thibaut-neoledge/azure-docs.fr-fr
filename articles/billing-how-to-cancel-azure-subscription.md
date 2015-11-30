@@ -19,6 +19,9 @@
 	ms.author="genli"/>
 
 # Annulation de votre abonnement Azure
+
+>[AZURE.NOTE]Si vous annulez votre abonnement par erreur et devez le réactiver, vous pouvez contacter le [support Microsoft](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) pour obtenir une assistance.
+
 Si vous annulez votre abonnement, tous vos services sont immédiatement supprimés. Assurez-vous de sauvegarder les données que vous souhaitez enregistrer avant de procéder à l’annulation.
 
 1. Connectez-vous au [portail des comptes Azure](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
@@ -27,4 +30,4 @@ Si vous annulez votre abonnement, tous vos services sont immédiatement supprim�
 4. Sélectionnez **Oui, annulez mon abonnement**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Cliquez sur ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png) pour fermer la boîte de dialogue et revenir à votre page d’abonnement.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

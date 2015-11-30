@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/17/2015"
 	ms.author="glenga"/>
 
 # Ajout de l'authentification à votre application Windows
@@ -25,10 +25,6 @@
 Cette rubrique montre comment authentifier les utilisateurs d'une application App Service Mobile App à partir de votre application cliente. Dans ce didacticiel, vous allez ajouter l'authentification au projet de démarrage rapide à l'aide d'un fournisseur d'identité pris en charge par App Service. Une fois l'utilisateur authentifié et autorisé par votre application Mobile App, la valeur de l'ID utilisateur s'affiche.
 
 Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez commencer par suivre le didacticiel [Prise en main de votre application mobile].
-
-##<a name="create-gateway"></a>Créer une passerelle App Service
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
 
 ##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 
@@ -42,7 +38,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile App. Vous devez comm
 
 &nbsp;&nbsp;5. Avec l’un des projets d’application Windows défini en tant que projet de démarrage, appuyez sur la touche F5 pour exécuter l'application, et vérifiez qu'une exception non prise en charge avec le code d'état 401 (Non autorisé) est déclenchée après le démarrage de l'application.
 
-&nbsp;&nbsp;Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié alors que la table *TodoItem* requiert désormais une authentification.
+Cette exception se produit, car l’application tente d’accéder à votre code Mobile App en tant qu’utilisateur non authentifié alors que la table *TodoItem* requiert désormais une authentification.
 
 Ensuite, vous allez mettre à jour l'application pour authentifier les utilisateurs avant de demander des ressources à partir de votre service App Service.
 
@@ -62,4 +58,4 @@ Ensuite, vous allez mettre à jour l'application pour authentifier les utilisate
 [Prise en main de votre application mobile]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

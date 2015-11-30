@@ -1,9 +1,9 @@
 <properties
- pageTitle="Rubriques de conseils pour l’utilisation d’Azure IoT Hub | Microsoft Azure"
- description="Un ensemble de rubriques d’aide pour le développement de solutions utilisant Azure IoT Hub."
+ pageTitle="Guide de la solution IoT Hub | Microsoft Azure"
+ description="Rubriques d'aide sur les passerelles, l'approvisionnement des appareils et l'authentification pour développer des solutions IoT avec Azure IoT Hub."
  services="iot-hub"
  documentationCenter=""
- authors="fsautomata"
+ authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
@@ -13,79 +13,110 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/29/2015"
- ms.author="elioda"/>
+ ms.date="11/10/2015"
+ ms.author="dobett"/>
 
-# IoT Hub Azure - Guide
+# Conception de votre solution
+
+Cet article vous explique comment concevoir les fonctionnalités suivantes dans votre solution Internet des Objets (IoT) :
+
+- Approvisionnement des appareils
+- Passerelles de champ
+- Authentification des appareils
 
 ## Approvisionnement des appareils
 
-Les solutions IoT assurent la mise à jour des informations d’appareil dans de nombreux systèmes et magasins de stockage. Le [registre d'identité IoT Hub][IoT Hub Developer Guide - identity registry] est un magasin parmi d’autres et gère les informations des appareils spécifiques à l’application. Nous appelons *approvisionnement* le processus de création des informations obligatoires relatives à l’appareil dans tous ces systèmes.
+Les solutions IoT stockent des données sur les appareils individuels, telles que :
 
-Il existe de nombreuses exigences et stratégies d’approvisionnement d’appareils (voir [Guide de gestion d’un appareil IoT Hub] pour plus d’informations). Le [registre d’identité IoT Hub][IoT Hub Developer Guide - identity registry] fournit les API dont vous avez besoin pour intégrer IoT Hub à votre processus d’approvisionnement.
+- Clés d'authentification et identité de l'appareil
+- Version et type de matériel de l'appareil
+- État de l'appareil
+- Fonctionnalités et versions des logiciels
+- Historique des commandes de l'appareil
+
+Les données d'appareil qu'une solution IoT donnée stocke dépendent des exigences spécifiques de cette solution, mais une solution doit au minimum stocker les clés d'authentification et les identités des appareils. IoT Hub inclut un [registre d'identité][lnk-devguide-identityregistry] qui peut stocker des valeurs pour chaque appareil, comme les ID, les clés d'authentification et les codes d'état. Une solution peut utiliser d'autres services Azure, tels que des tables, des objets Blob ou DocumentDB pour stocker des données supplémentaires sur les appareils.
+
+L'*approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour autoriser un nouvel appareil à se connecter à votre concentrateur, vous devez ajouter un nouvel ID et de nouvelles clés d'appareil dans le [registre d'identité IoT Hub][lnk-devguide-identityregistry]. Dans le cadre du processus d'approvisionnement, vous devrez peut-être initialiser les données spécifiques à l'appareil dans d'autres magasins de la solution.
+
+L'article [Guide de gestion d'un appareil IoT Hub][lnk-device-management] décrit quelques stratégies courantes d'approvisionnement d'appareil. Les [API du registre identité IoT Hub][lnk-devguide-identityregistry] vous permettent d'intégrer IoT Hub dans votre processus d'approvisionnement.
 
 ## Passerelles de champ
 
-Une passerelle de champ est un équipement ou matériel spécial ou un logiciel à usage général qui agit en tant que qu’activateur de communication, mais peut également servir de système de contrôle d’appareil local et de concentrateur de traitement de données de l’appareil. Une passerelle de champ peut d’une part exécuter les fonctions de traitement et de contrôle vers les appareils et, d’autre part, filtrer ou agréger les mesures de la télémétrie de l’appareil et réduire la quantité de données transférée vers le serveur principal.
+Dans une solution IoT, une *passerelle de champ* se situe entre vos appareils et votre concentrateur IoT, et se trouve généralement proche de vos appareils. Vos appareils communiquent directement avec la passerelle de champ à l'aide d'un protocole pris en charge par les appareils et la passerelle de champ communique avec IoT Hub à l'aide d'un protocole pris en charge par IoT Hub. Une passerelle de champ peut être un appareil ou logiciel autonome spécialisé qui s'exécute sur du matériel existant.
 
-La portée d’une passerelle de champ inclut la passerelle de champ elle-même et tous les appareils qui lui sont associés. Comme son nom l’indique, les passerelles de champ fonctionnent hors des installations de traitement des données et sont généralement associées à un site. Une passerelle de champ est différente d’un routeur de trafic simple, car elle joue un rôle actif dans la gestion des accès et des flux d’information. Cela signifie qu’il s’agit d’une entité adressée à une application et d’une connexion réseau ou d’un terminal de session (par exemple, les passerelles dans ce contexte peuvent aider à la configuration de l’appareil, la transformation des données, la conversion de protocole et le traitement des règles d’événement). Les périphériques NAT ou les pare-feu, au contraire, ne sont pas qualifiés de passerelles de champ, car il ne s’agit pas de terminaux de connexion ou de session. Ils acheminent (ou refusent) les connexions ou les sessions qui transitent par eux.
+Une passerelle de champ est différente d'un appareil de routage de trafic simple (par exemple un pare-feu ou un appareil NAT) car elle a généralement un rôle actif dans la gestion de l'accès et du flux des informations dans votre solution. Par exemple, une passerelle de champ peut :
 
-### Passerelle de champ transparente ou opaque
+- Gérer les appareils locaux. Par exemple, une passerelle de champ peut effectuer le traitement de règle d'événement et envoyer des commandes aux appareils en réponse à des données de télémétrie spécifiques.
+- Filtrer ou regrouper des données de télémétrie avant de les transmettre à IoT Hub. Ceci peut réduire la quantité de données qui sont envoyées à IoT Hub et réduire les coûts de votre solution.
+- Aider à l'approvisionnement des appareils.
+- Transformer les données de télémétrie pour faciliter le traitement de votre back-end de solution.
+- Effectuer la traduction de protocole pour permettre aux appareils de communiquer avec IoT Hub, même lorsqu'ils n'utilisent pas les protocoles de transport pris en charge par IoT Hub.
 
-En ce qui concerne les identités d’appareils, les passerelles de champ sont *transparentes* si d’autres appareils à leur portée ont des entrées d’identité d’appareil dans le registre d’identités du hub IoT. Elles sont qualifiées d’*opaque* lorsque la seule identité présente dans le registre d’identités d’IoT Hub est celle de la passerelle de champ.
+> [AZURE.NOTE]En général, vous déployez une passerelle de champ de façon locale pour vos appareils, mais dans certains scénarios vous pouvez déployer une [passerelle de protocole][lnk-gateway] dans le cloud.
 
-Il est important de noter que l’utilisation d’une passerelle *opaque* empêche IoT Hub d’offrir le [dispositif anti-usurpation d’identité d’appareil][IoT Hub Developer Guide - Anti-spoofing]. En outre, comme tous les appareils de la portée de la passerelle de champ sont représentés comme un appareil unique dans le hub IoT, ils sont soumis à des seuils et des quotas en tant qu’appareil unique.
+### Types de passerelles de champ
+
+Une passerelle de champ peut être *transparente* ou *opaque* :
+
+| &nbsp; | Transparente | Opaque |
+|--------|-------------|--------|
+| Identités stockées dans le registre d'identité IoT Hub | Tous les appareils connectés | Uniquement l'identité de la passerelle de champ |
+| IoT Hub peut fournir un [dispositif anti-usurpation d'identité d'appareil][lnk-devguide-antispoofing] | Oui | Non |
+| [Quotas et limitations][lnk-throttles-quotas] | Appliquer à chaque périphérique | Appliquer à la passerelle de champ |
 
 ### Autres considérations
 
-Lors de l’implémentation d’une passerelle de champ, vous pouvez utiliser les [kits de développement logiciels d’appareil Azure IoT][]. Certains kits de développement logiciels fournissent des fonctionnalités de passerelle de champ spécifiques, notamment la possibilité de multiplexer plusieurs périphériques de communication sur la même connexion vers IoT Hub. Comme l’explique le [Guide du développeur IoT Hub - Choisir votre protocole de communication][], évitez d’utiliser HTTP/1 comme protocole de transport pour les passerelles de champ.
+Vous pouvez utiliser les [kits de développement logiciels d'appareil Azure IoT][lnk-device-sdks] pour implémenter une passerelle de champ. Certains kits de développement logiciels d'appareil offrent des fonctionnalités spécifiques qui vous aident à implémenter une passerelle de champ, comme la possibilité de multiplexer la communication à partir de plusieurs appareils sur la même connexion à IoT Hub. Comme l'explique le [Guide du développeur IoT Hub - Choisir votre protocole de communication][lnk-devguide-protocol], évitez d'utiliser HTTP/1 comme protocole de transport pour les passerelles de champ.
 
-## Utilisation de schémas/services d’authentification d’appareil personnalisés
+## Authentification d'appareil personnalisée
 
-IoT Hub vous permet de configurer les informations d’identification de sécurité et le contrôle d’accès par appareil à l’aide du [Registre d’identité d’appareil][IoT Hub Developer Guide - identity registry].
+Vous pouvez utiliser le [registre d'identité d'appareil][lnk-devguide-identityregistry] pour configurer les informations d'identification de sécurité et le contrôle d'accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un registre d'identité d'appareil personnalisé et/ou un schéma d'authentification, vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un *service de jeton*. De cette façon, vous pouvez utiliser d'autres fonctionnalités IoT dans votre solution.
 
-Si une solution IoT représente déjà un investissement significatif dans un registre d’identité de périphérique personnalisé et/ou un schéma d’authentification, elle peut encore utiliser d’autres fonctionnalités IoT Hub en créant un *service de jeton* pour IoT Hub.
-
-Le service de jeton est un service cloud à déploiement automatique, qui utilise une *stratégie d’accès partagé* IoT Hub avec des autorisations **DeviceConnect** et qui permet de créer des jetons inclus dans l’*étendue de l’appareil*.
+Un service de jeton est un service cloud personnalisé, qui utilise une *stratégie d'accès partagé* IoT Hub avec des autorisations **DeviceConnect** et qui permet de créer des jetons inclus dans l'*étendue de l'appareil* pour la connexion à votre concentrateur IoT.
 
   ![][img-tokenservice]
 
-Voici les principales étapes du schéma de service de jeton.
+Voici les principales étapes du modèle de service de jeton :
 
-1. Créez une [stratégie d’accès partagé IoT Hub][IoT Hub Developer Guide - Security] avec des autorisations **DeviceConnect** pour votre hub IoT. Cette stratégie sera utilisée par le service de jetons pour signer les jetons.
-2. Lorsqu’un périphérique souhaite accéder au hub IoT, il demande à votre service de jetons un jeton signé. Le périphérique peut utiliser votre schéma de registre d’identité/d’authentification personnalisé.
-3. Ce service de jetons renvoie un jeton créé conformément à la section [Guide du développeur IoT Hub - Sécurité][], en utilisant `/devices/{deviceId}` comme `resourceURI`, `deviceId` étant l’appareil en cours d’authentification.
+1. Créez une [stratégie d'accès partagé IoT Hub][lnk-devguide-security] avec des autorisations **DeviceConnect** pour votre concentrateur IoT. Vous pouvez créer cette stratégie dans la [version préliminaire du portail][lnk-preview-portal] ou par programme. Le service de jetons utilise cette stratégie pour signer les jetons qu'elle crée.
+2. Lorsqu'un appareil doit accéder à votre concentrateur IoT, il demande à votre service de jetons un jeton signé. L'appareil peut s'authentifier avec votre registre d'identité d'appareil personnalisé/schéma d'authentification pour déterminer l'identité d'appareil que le service de jeton utilise pour créer le jeton.
+3. Le service de jeton renvoie un jeton créé conformément à la section [Guide du développeur IoT Hub - Sécurité][lnk-devguide-security], en utilisant `/devices/{deviceId}` comme `resourceURI`, `deviceId` étant l'appareil en cours d'authentification. Le service de jeton utilise la stratégie d'accès partagé pour construire le jeton.
 4. Le périphérique utilise le jeton directement avec le hub IoT.
 
-Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. À expiration, le hub IoT interrompt la connexion et l’appareil doit demander un nouveau jeton au service de jetons. Il est clair qu’un délai d’expiration court accroît la charge de l’appareil et du service de jetons.
+> [AZURE.NOTE]Vous pouvez utiliser la classe .NET [SharedAccessSignatureBuilder][lnk-dotnet-sas] ou la classe Java [IotHubServiceSasToken][lnk-java-sas] pour créer un jeton dans votre service de jeton.
 
-Il faut préciser que l’identité de l’appareil doit être créée dans le hub IoT pour que l’appareil puisse se connecter. Cela signifie également que ce contrôle d’accès par appareil (en désactivant les identités des appareils conformément au [Guide du développeur IoT Hub - Registre identité][]), est toujours en service, même si l’appareil s’authentifie avec un jeton. Cela réduit l’existence de jetons de longue durée.
+Le service de jetons peut définir l’expiration du jeton comme vous le souhaitez. Lorsque le jeton expire, le concentrateur IoT interrompt la connexion et l'appareil doit demander un nouveau jeton au service de jeton. Si vous utilisez un délai d'expiration court, cela accroît la charge de l'appareil et du service de jeton.
+
+Pour qu'un appareil se connecte à votre concentrateur, vous devez l'ajouter au Registre identité d'appareil IoT Hub, même si l'appareil utilise un jeton et non une clé d'appareil pour se connecter. Par conséquent, vous pouvez continuer à utiliser le contrôle d'accès par périphérique en activant ou désactivant les identités des appareils dans le [registre d'identité IoT Hub][lnk-devguide-identityregistry] lorsque l'appareil s'authentifie avec un jeton. Cela réduit les risques liés à l'utilisation de jetons avec des délais d'expiration longs.
 
 ### Comparaison avec une passerelle personnalisée
 
-Le modèle de service de jetons est la méthode recommandée pour implémenter un schéma de registre d’identité/d’authentification avec IoT Hub, car il laisse IoT Hub gérer la plus grande partie du trafic de la solution. Il existe des cas, cependant, où le schéma d’authentification personnalisé est si étroitement couplé au protocole (par exemple, [TLS-PSK][]) qu’un service traitant l’ensemble du trafic (*passerelle personnalisée*) est requis. Pour plus d’informations, consultez la rubrique [Passerelle de protocole][].
+Le modèle de service de jeton est la méthode recommandée pour implémenter un schéma de registre d'identité/d'authentification avec IoT Hub, car IoT Hub continue de gérer la plus grande partie du trafic de la solution. Cependant , il existe des cas où le schéma d'authentification personnalisé est si étroitement couplé au protocole (par exemple, [TLS-PSK][lnk-tls-psk]) qu'un service traitant l'ensemble du trafic (*passerelle personnalisée*) est requis. Pour plus d'informations, consultez la rubrique [Passerelle de protocole][lnk-gateway].
 
 ## Étapes suivantes
 
 Suivez ces liens pour en savoir plus sur Azure IoT Hub :
 
 - [Prise en main d'IoT Hub (didacticiel)][lnk-get-started]
-- [Qu’est-ce qu’Azure IoT Hub ?][]
+- [Qu’est-ce qu’Azure IoT Hub ?][lnk-what-is-hub]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
 
-[IoT Hub Developer Guide - identity registry]: iot-hub-devguide.md#identityregistry
-[Guide du développeur IoT Hub - Registre identité]: iot-hub-devguide.md#identityregistry
-[Guide de gestion d’un appareil IoT Hub]: iot-hub-device-management.md
-[IoT Hub Developer Guide - Anti-spoofing]: iot-hub-devguide.md#antispoofing
-[kits de développement logiciels d’appareil Azure IoT]: iot-hub-sdks-summary.md
-[Guide du développeur IoT Hub - Choisir votre protocole de communication]: iot-hub-devguide.md#amqpvshttp
-[IoT Hub Developer Guide - Security]: iot-hub-devguide.md#security
-[Guide du développeur IoT Hub - Sécurité]: iot-hub-devguide.md#security
-[TLS-PSK]: https://tools.ietf.org/html/rfc4279
-[Passerelle de protocole]: iot-hub-protocol-gateway.md
+[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
+[lnk-device-management]: iot-hub-device-management.md
+
+[lnk-device-sdks]: iot-hub-sdks-summary.md
+[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
+[lnk-gateway]: iot-hub-protocol-gateway.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[Qu’est-ce qu’Azure IoT Hub ?]: iot-hub-what-is-iot-hub.md
+[lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
+[lnk-preview-portal]: https://portal.azure.com
+[lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
+[lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
+[lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
+[lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
+[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

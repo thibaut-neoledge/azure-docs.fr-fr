@@ -1,28 +1,25 @@
 <properties 
-   pageTitle="Extension de groupes de disponibilité AlwaysOn locaux à Azure | Microsoft Azure"
-   description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité AlwaysOn dans Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-service-management"/>
+	pageTitle="Extension de groupes de disponibilité AlwaysOn locaux à Azure | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et explique comment utiliser l’Assistant Ajout d’un réplica dans SQL Server Management Studio (SSMS) pour ajouter un réplica de groupe de disponibilité AlwaysOn dans Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-service-management"/>
 
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Étendre des groupes de disponibilité AlwaysOn locaux à Azure
 
 Les groupes de disponibilité AlwaysOn fournissent une haute disponibilité pour les groupes de bases de données en ajoutant des réplicas secondaires. Ces réplicas autorisent le basculement des bases de données en cas de défaillance. Ils permettent en outre de décharger les charges de travail de lecture ou les tâches de sauvegarde.
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
- 
 
 Pour étendre les groupes de disponibilité locaux à Microsoft Azure, vous pouvez approvisionner une ou plusieurs machines virtuelles Azure avec SQL Server et les ajouter en tant que réplicas à vos groupes de disponibilité locaux.
 
@@ -30,9 +27,11 @@ Ce didacticiel part du principe que vous disposez des éléments suivants :
 
 - Un abonnement Azure actif. Vous pouvez vous inscrire à un [essai gratuit](http://azure.microsoft.com/pricing/free-trial).
 
-- Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, voir [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
+- Un groupe de disponibilité AlwaysOn local existant. Pour plus d’informations sur les groupes de disponibilité, consultez la page [Groupes de disponibilité AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d’informations sur la création de ce réseau virtuel, voir [Créer un VPN de site à site en utilisant le portail de gestion](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- Connectivité entre le réseau local et votre réseau virtuel Azure. Pour plus d’informations sur la création de ce réseau virtuel, consultez la page [Créer un réseau virtuel de site à site en utilisant le portail de gestion](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 ## assistant Add Azure Replica
 
@@ -104,4 +103,4 @@ En plus d’utiliser l’**Assistant Ajout d’un réplica Azure** pour étendre
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

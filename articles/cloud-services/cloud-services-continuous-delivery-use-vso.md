@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Livraison continue avec Visual Studio Online dans Azure"
-	description="Découvrez comment configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des services cloud."
+	pageTitle="Livraison continue avec Visual Studio Team Services dans Azure"
+	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,16 +16,16 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# Livraison continue sur Azure au moyen de Visual Studio Online
+# Diffusion continue sur Azure au moyen de Visual Studio Team Services
 
-Vous pouvez configurer vos projets d'équipe Visual Studio Online afin de les générer et de les déployer automatiquement sur des applications web Azure ou des services cloud. (Pour plus d'informations sur la procédure à suivre pour configurer un système de génération et de déploiement continus au moyen d'un serveur TFS *local*, consultez la rubrique [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md).)
+Vous pouvez configurer vos projets Visual Studio Team Services afin de les générer et de les déployer automatiquement sur des applications Web Azure ou des Cloud Services. (Pour plus d'informations sur la procédure à suivre pour configurer un système de génération et de déploiement continus au moyen d'un serveur TFS *local*, consultez la rubrique [Remise continue pour Cloud Services dans Azure](cloud-services-dotnet-continuous-delivery.md).)
 
 Ce didacticiel part du principe que vous avez déjà installé Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 > [AZURE.NOTE]Vous avez besoin d’un compte en ligne Visual Studio pour suivre ce didacticiel:
 > vous pouvez [ouvrir un compte Visual Studio Online gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
-Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Online, procédez comme suit.
+Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
 
 ## Étape 1 : création d'un projet d'équipe
 
@@ -39,7 +39,7 @@ Si vous voulez créer une solution, créez un projet de service cloud Azure ou A
 et si vous créez un projet de service cloud, ajoutez un rôle Web ASP.NET MVC et un rôle de travail, et choisissez Application Internet pour le rôle Web. Lorsque vous y êtes invité, choisissez **Application Internet**.
 Si vous voulez créer une application Web, choisissez le modèle de projet Application Web ASP.NET, puis sélectionnez MVC. Consultez la rubrique [Création d’une application Web ASP.NET dans Azure App Service](../web-sites-dotnet-get-started.md).
 
-	> [AZURE.NOTE]Actuellement, Visual Studio Online ne prend en charge que les déploiements CI des applications web Visual Studio. Les projets de site web n’entrent pas dans ce cadre.
+	> [AZURE.NOTE]Actuellement, Visual Studio Team Services ne prend en charge que les déploiements CI des applications web Visual Studio. Les projets de site web n’entrent pas dans ce cadre.
 
 1. Ouvrez le menu contextuel pour la solution et sélectionnez **Ajouter la solution au contrôle de code source**.
 
@@ -63,23 +63,23 @@ Si vous voulez créer une application Web, choisissez le modèle de projet Appli
 
 ## Étape 3 : connexion du projet à Azure
 
-1. Maintenant que vous disposez d'un projet d'équipe VSO contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application Web, ou créez-en un en sélectionnant l'icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Online**.
+1. Maintenant que vous disposez d'un projet d'équipe VSTS contenant du code source, vous êtes prêt à connecter votre projet d'équipe à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application Web, ou créez-en un en sélectionnant l'icône **+** en bas à gauche et en choisissant **Service cloud** ou **Application Web**, puis **Création rapide**. Choisissez le lien **Configurer la publication avec Visual Studio Team Services**.
 
 	![][10]
 
-1. Dans l'Assistant, tapez le nom de votre compte Visual Studio Online dans la zone de texte et cliquez sur le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
+1. Dans l'Assistant, tapez le nom de votre compte Visual Studio Team Services dans la zone de texte et cliquez sur le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
 
 	![][11]
 
-1. Dans la boîte de dialogue contextuelle **Demande de connexion**, choisissez le bouton **Accepter** pour configurer votre projet d'équipe dans VSO.
+1. Dans la boîte de dialogue contextuelle **Demande de connexion**, choisissez le bouton **Accepter** pour configurer votre projet d'équipe dans VSTS.
 
 	![][12]
 
-1. Si le processus d'autorisation aboutit, une zone déroulante affiche une liste de vos projets d'équipe Visual Studio Online. Choisissez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
+1. Si le processus d'autorisation aboutit, une zone déroulante affiche une liste de vos projets Visual Studio Team Services. Choisissez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
 
 	![][13]
 
-1. Une fois votre projet lié, des instructions s'affichent pour vous permettre d'archiver les modifications dans votre projet d'équipe Visual Studio Online. Lors du prochain archivage, Visual Studio Online générera et déploiera votre projet sur Azure. Essayez maintenant en cliquant sur le lien **Archiver depuis Visual Studio**, puis sur le lien **Lancer Visual Studio** (ou le bouton **Visual Studio** équivalent en bas de l'écran du portail).
+1. Une fois votre projet lié, des instructions s'affichent pour vous permettre d'archiver les modifications dans votre projet d'équipe Visual Studio Team Services. Lors du prochain archivage, Visual Studio Team Services générera et déploiera votre projet sur Azure. Essayez maintenant en cliquant sur le lien **Archiver depuis Visual Studio**, puis sur le lien **Lancer Visual Studio** (ou le bouton **Visual Studio** équivalent en bas de l'écran du portail).
 
 	![][14]
 
@@ -269,7 +269,7 @@ Cette étape s'applique uniquement aux applications Web, et non aux services clo
 	![][50]
 
 ## Étapes suivantes
-Pour en savoir plus sur le test unitaire dans Visual Studio Online, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu à l'aide de GIT dans Azure App Service](../web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Online, consultez [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour en savoir plus sur le test unitaire dans Visual Studio Team Services, consultez [Exécuter des tests unitaires dans votre build](http://go.microsoft.com/fwlink/p/?LinkId=510474). Si vous utilisez Git, consultez les rubriques [Partager votre code dans Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) et [Déploiement continu à l'aide de GIT dans Azure App Service](../web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
@@ -322,4 +322,4 @@ Pour en savoir plus sur le test unitaire dans Visual Studio Online, consultez [E
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

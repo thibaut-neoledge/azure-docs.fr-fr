@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
+	ms.date="11/12/2015" 
 	ms.author="byvinyal"/>
 
 #Journaux en continu et console
@@ -58,7 +58,7 @@ console.log("My trace statement").
 
 Cliquez sur le nom de l’application web que vous souhaitez configurer pour y accéder.
   
-![][DiagnosticsLogs] Puis cliquez sur **Paramètres (1)** > **Journaux de diagnostic (2)** et **activez** le **Journal des applications (système de fichiers) (3)**. L'option **Niveau** vous permet de changer le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront ajoutées.
+![][DiagnosticsLogs] Puis cliquez sur **Paramètres (1)** > **Journaux de diagnostic (2)** et **activez** le **Journal des applications (système de fichiers) (3)**. L’option **Niveau** vous permet de changer le niveau de gravité des suivis à capturer. Si vous souhaitez simplement vous familiariser avec la fonctionnalité, définissez-la sur **Verbose** pour être sûr que toutes vos instructions de suivi seront ajoutées.
 
 Cliquez sur **SAVE** en haut du volet pour afficher les journaux.
 
@@ -92,4 +92,4 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

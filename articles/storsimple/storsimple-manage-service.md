@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Déployer le service StorSimple Manager | Microsoft Azure"
-   description="Explique comment créer et supprimer le service StorSimple Manager dans le portail de gestion et décrit comment gérer la clé d’inscription du service."
+   description="Explique comment créer et supprimer le service StorSimple Manager dans le portail Azure et décrit comment gérer la clé d’inscription du service."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/14/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Déployer le service StorSimple Manager
 
 ## Vue d’ensemble
 
-Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer les appareils à partir du portail de gestion Microsoft Azure s’exécutant dans un navigateur. Vous pouvez ainsi surveiller tous les appareils qui sont connectés au service StorSimple Manager à partir d’un emplacement central et unique, ce qui réduit la charge administrative.
+Le service StorSimple Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Après avoir créé le service, vous pouvez l’utiliser pour gérer les appareils à partir du portail Microsoft Azure s’exécutant dans un navigateur. Vous pouvez ainsi surveiller tous les appareils qui sont connectés au service StorSimple Manager à partir d’un emplacement central et unique, ce qui réduit la charge administrative.
 
 La page d’accueil StorSimple Manager répertorie tous les services StorSimple Manager que vous pouvez utiliser pour gérer vos dispositifs de stockage StorSimple. Pour chaque service StorSimple Manager, les informations suivantes s’affichent sur la page StorSimple Manager :
 
@@ -115,4 +115,4 @@ Procédez comme suit pour régénérer une clé d’inscription du service.
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

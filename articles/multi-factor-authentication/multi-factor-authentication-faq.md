@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Forum Aux Questions d’Azure Multi-Factor Authentication
@@ -125,12 +125,6 @@ Le service Azure Multi-Factor Authentication envoie des messages via des agréga
 
 Les vérifications de SMS sont également plus fiables dans certains pays comme les États-Unis et le Canada. Les utilisateurs qui rencontrent des difficultés pour recevoir des messages lors de l'utilisation de l'authentification multifacteur Azure sont invités à sélectionner les méthodes d'application ou de téléphone mobiles à la place. L'application mobile est formidable, car les notifications de l'application mobile peuvent être reçues via les connexions cellulaires et Wi-Fi, et le mot de passe d'application mobile s'affiche même si le périphérique n'a aucun signal. L'application Azure Authenticator est disponible pour [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) et [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-**Q : puis-je utiliser des jetons matériels avec le serveur MFA Azure ?**
-
-Si vous utilisez le serveur MFA Azure, les jetons OATH TOTP tiers peuvent être importés et utilisés pour l'authentification Multifacteur (MFA). Nous prenons actuellement en charge l'importation de jetons OATH TOTP tiers dans un format PSKC plus ancien que Gemalto peut produire pour leurs jetons et l'importation de jetons au format CSV. Lorsque vous importez des jetons au format CSV, le fichier CSV doit contenir un numéro de série, la clé secrète au format Base32 et un intervalle de temps (généralement 30 secondes).
-
-Par conséquent, si les jetons ActiveIdentity sont des jetons OATH TOTP, et si vous pouvez obtenir le fichier de clé de secrète dans un fichier CSV qui peut être importé dans le serveur MFA Azure, vous pourrez les utiliser. Les jetons OATH peuvent être utilisés avec AD FS, avec RADIUS lorsque le système client peut traiter les réponses de challenge d'accès et avec l'authentification basée sur les formulaires IIS.
-
 
 ## Erreurs
 
@@ -151,4 +145,4 @@ Actuellement, une vérification de sécurité supplémentaire est utilisable uni
 
 La solution consiste à disposer d'un compte d'utilisateur distinct pour les opérations liées aux administrateurs et les autres. Vous pouvez ultérieurement lier les boîtes de réception de votre compte d'administrateur et d’un compte non administrateur pour vous connecter à Outlook à l'aide de votre compte non administrateur. Pour plus d'informations, consultez [Permettre à un administrateur d'ouvrir et d'afficher le contenu de la boîte aux lettres d'un utilisateur] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

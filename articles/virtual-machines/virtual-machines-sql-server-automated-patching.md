@@ -1,33 +1,34 @@
 <properties
-   pageTitle="Mise à jour corrective automatisée de SQL Server dans les machines virtuelles | Microsoft Azure"
-   description="Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server s’exécutant dans Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-resource-manager" />
+	pageTitle="Mise à jour corrective automatisée de SQL Server dans les machines virtuelles | Microsoft Azure"
+	description="Décrit la fonctionnalité de mise à jour corrective automatisée pour les machines virtuelles SQL Server s’exécutant dans Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-resource-manager" />
 <tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/12/2015"
+	ms.author="jroth" />
 
 # Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
-
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server 2012 ou 2014. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, les mises à jour système et les redémarrages associés ont ainsi lieu au meilleur moment possible pour la base de données. Cela dépend de l’agent IaaS de SQL Server.
 
->[AZURE.NOTE]La mise à jour corrective automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [Extensions et agent de machine virtuelle](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 ## Configurer une mise à jour corrective automatisée dans le portail
 
-Vous pouvez utiliser le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) pour configurer une mise à jour corrective automatisée lorsque vous créez une machine virtuelle SQL Server. La capture d’écran suivante présente ces options sous **CONFIGURATION FACULTATIVE** | **MISE À JOUR CORRECTIVE AUTOMATISÉE SQL**.
+Vous pouvez utiliser le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409) pour configurer une mise à jour corrective automatisée lorsque vous créez une machine virtuelle SQL Server.
+
+>[AZURE.NOTE]La mise à jour corrective automatisée utilise l’agent IaaS de SQL Server. Pour installer et configurer l’agent, vous devez disposer de l’agent Azure VM s’exécutant sur la machine virtuelle cible. Par défaut, cette option est activée dans les nouvelles images de galerie de machines virtuelles Azure, mais l’agent Azure VM peut être manquant sur les machines virtuelles existantes. Si vous utilisez votre propre image de machine virtuelle, vous devez également installer l’agent IaaS de SQL Server. Pour plus d’informations, consultez la page [Extensions et agent de machine virtuelle](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
+
+La capture d’écran du portail suivante présente ces options sous **CONFIGURATION FACULTATIVE** | **MISE À JOUR CORRECTIVE AUTOMATISÉE SQL**.
 
 ![Mise à jour corrective automatique SQL dans le portail Azure](./media/virtual-machines-sql-server-automated-patching/IC778484.jpg)
 
@@ -88,8 +89,8 @@ Les produits suivants sont compatibles avec les fonctionnalités de l’agent I
 
 ## Étapes suivantes
 
-La [sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-automated-backup.md) est une fonctionnalité associée pour les machines virtuelles SQL Server dans Azure.
+La [sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-automated-backup.md) est une fonctionnalité associée pour SQL Server dans des machines virtuelles Azure.
 
-Passez en revue les autres [ressources liées à l'exécution de SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
+Passez en revue les autres [ressources liées à l’exécution de SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

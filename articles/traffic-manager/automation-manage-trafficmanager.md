@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="adinah" 
+ manager="carmonm" 
  editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="08/12/2015" 
+ ms.date="11/12/2015" 
  ms.author="joaoma"/>
 
 
-#Gestion d'Azure Traffic Manager à l'aide d'Azure Automation
+# Gestion d'Azure Traffic Manager à l'aide d'Azure Automation
 
 Ce guide vous présente le service Azure Automation et décrit comment l'utiliser pour simplifier la gestion des API Azure.
 
@@ -42,4 +42,4 @@ Maintenant que vous connaissez les bases d'Azure Automation et que vous savez l'
 * Consultez le [Guide de prise en main](http://go.microsoft.com/fwlink/?LinkId=390560) d'Azure Automation.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

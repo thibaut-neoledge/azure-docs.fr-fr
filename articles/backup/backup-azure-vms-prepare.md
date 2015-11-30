@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/17/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Préparer votre environnement pour la sauvegarde des machines virtuelles Azure
@@ -173,10 +173,7 @@ L’extension de sauvegarde est installée si la machine virtuelle est en cours 
 - La sauvegarde de machines virtuelles basées sur Azure Resource Manager (ou « IaaS V2 ») n'est pas prise en charge.
 - La sauvegarde de machines virtuelles ayant plus de 16 disques de données n'est pas prise en charge.
 - La sauvegarde de machines virtuelles à l'aide du stockage Premium n'est pas prise en charge.
-- La sauvegarde de machines virtuelles ayant plusieurs adresses IP réservées n'est pas prise en charge.
 - La sauvegarde de machines virtuelles avec une adresse IP réservée et aucun point de terminaison défini n'est pas prise en charge.
-- La sauvegarde de machines virtuelles à l'aide de plusieurs cartes réseau n'est pas prise en charge.
-- La sauvegarde de machines virtuelles dans une configuration à charge équilibrée (interne ou accessible via Internet) n'est pas prise en charge.
 - Le remplacement d’une machine virtuelle existante pendant la restauration n’est pas pris en charge. Commencez par supprimer la machine virtuelle existante et tous les disques associés, puis restaurez les données de sauvegarde.
 - La sauvegarde et la restauration entre différentes régions ne sont pas prises en charge.
 - La sauvegarde de machines virtuelles à l'aide du service Azure Backup n'est pas prise en charge dans toutes les régions publiques d'Azure. Voici la [liste](http://azure.microsoft.com/regions/#services) des régions prises en charge. Si la région que vous recherchez n’est pas prise en charge aujourd’hui, elle n’apparaît pas dans la liste déroulante lors de la création de l’archivage.
@@ -194,4 +191,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

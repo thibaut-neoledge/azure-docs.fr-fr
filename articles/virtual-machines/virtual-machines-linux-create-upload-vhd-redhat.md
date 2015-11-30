@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Création et téléchargement d'un disque dur virtuel RedHat Linux dans Azure" 
+	pageTitle="Création et téléchargement d’un disque dur virtuel Red Hat Enterprise Linux pour une utilisation dans Azure" 
 	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation RedHat Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -24,18 +24,21 @@ Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Ha
 
 
 ##Préparation d'une image à partir du Gestionnaire Hyper-V 
-###Configuration requise
-Cette section suppose que vous avez déjà installé une image RHEL à partir d'un fichier ISO obtenu depuis le site Web RedHats sur un disque dur virtuel (VHD). Pour plus d'informations sur l'utilisation du Gestionnaire Hyper-V pour installer une image de système d'exploitation, consultez [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
+###Composants requis
+Cette section suppose que vous avez déjà installé une image RHEL à partir d'un fichier ISO obtenu depuis le site web Red Hat sur un disque dur virtuel (VHD). Pour plus d'informations sur l'utilisation du Gestionnaire Hyper-V pour installer une image de système d'exploitation, consultez [Installer le rôle Hyper-V et configurer une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation de RHEL**
 
-- Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l'applet de commande Powershell convert-vhd.
+- Azure ne prend pas en charge le nouveau format VHDX. Vous pouvez convertir le disque au format VHD à l'aide du Gestionnaire Hyper-V ou de l'applet de commande Powershell convert-vhd.
 
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou RAID peuvent être utilisées sur des disques de données si vous préférez.
 
 - Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire. Les étapes ci-dessous fournissent plus d'informations à ce sujet.
 
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
+
+- Lorsque vous utilisez qemu-img pour convertir les images de disque au format VHD, notez qu'un bogue connu touche la version 2.2.1 et versions supérieures de qemu-img. Celui-ci entraîne un formatage incorrect du disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures.
+
 
 ###RHEL 6.6/6.7
 
@@ -74,11 +77,11 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # sudo chkconfig network on
 
-8.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+8.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-9.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6 :
+9.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -109,9 +112,9 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
 
-    **Remarque** : l'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
+    **Remarque :** l'installation du package WALinuxAgent entraîne la suppression des packages NetworkManager et NetworkManager-gnome, s'ils n'avaient pas déjà été supprimés comme indiqué à l'étape 2.
 
-13.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après un provisionnement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
+13.	Ne créez pas d'espace swap sur le disque du système d'exploitation. L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après un approvisionnement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier /etc/waagent.conf :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -130,9 +133,10 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # logout
 
 16.	Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
+
 ###RHEL 7.0/7.1
 
-1.	Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
 2.	Cliquez sur Connecter pour ouvrir une fenêtre de console de la machine virtuelle.
 
@@ -155,7 +159,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # sudo chkconfig network on
 
-6.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+6.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -174,11 +178,11 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour inclure la ligne suivante :
+9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
         ClientAliveInterval 180
 
-10.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 7.
+10.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -256,7 +260,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # chkconfig network on
 
-8.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+8.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -289,7 +293,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 		# service sshd restart
 
-12.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel **Fedora EPEL 6** :
+12.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -299,7 +303,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         # yum install WALinuxAgent
         # chkconfig waagent on
 
-14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez en conséquence les paramètres suivants dans le fichier **/etc/waagent.conf** :
+14.	L'agent Linux Azure peut configurer automatiquement un espace swap à l'aide du disque local de ressources connecté à la machine virtuelle après déploiement sur Azure. Notez que le disque de ressources local est un disque temporaire et qu'il peut être vidé lors de l'annulation de l'approvisionnement de la machine virtuelle. Après avoir installé l'agent Linux Azure (voir l'étape précédente), modifiez les paramètres suivants dans le fichier **/etc/waagent.conf** :
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -324,23 +328,31 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
          # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
          # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
  
+
+
 ###RHEL 7.0/7.1
 
 1.	Téléchargez l'image KVM de RHEL 7.0 depuis le site web Red Hat.
 
 2.	Définissez un mot de passe racine
 
-    Générez un mot de passe chiffré et copiez la sortie de la commande
+    Générez un mot de passe chiffré et copiez la sortie de la commande.
 
         # openssl passwd -1 changeme
 
-    Définissez un mot de passe racine avec guestfish
+    Définissez un mot de passe racine avec guestfish.
 
         # guestfish --rw -a <image-name>
         ><fs> run
@@ -349,7 +361,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
         ><fs> vi /etc/shadow
         ><fs> exit
 
-    Modifiez le second champ de l'utilisateur racine en remplaçant « !! » par le mot de passe chiffré
+    Modifiez le second champ de l'utilisateur racine en remplaçant « !! » par le mot de passe chiffré.
 
 3.	Créez une machine virtuelle dans KVM à partir de l'image qcow2, définissez le type de disque sur **qcow2**, définissez le modèle de périphérique de l'interface réseau virtuelle sur **virtio**. Démarrez ensuite la machine virtuelle, puis connectez-vous en tant que racine.
 
@@ -372,7 +384,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         # chkconfig network on
 
-7.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+7.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # subscription-manager register –auto-attach --username=XXX --password=XXX
 
@@ -409,7 +421,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
         systemctl restart sshd	
 
-12.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel **Fedora EPEL 7** :
+12.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
@@ -450,6 +462,11 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
+         # MB=$((1024*1024))
+         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+         # rounded_size=$((($size/$MB + 1)*$MB))
+
          # qemu-img resize rhel-7.0.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
@@ -458,7 +475,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 
 ##Préparation d'une image à partir de VMWare
-###Configuration requise
+###Composants requis
 Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d'informations sur la manière d'installer un système d'exploitation dans VMWare, consultez le [Guide d'Installation de système d'exploitation invité VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou RAID peuvent être utilisées sur des disques de données si vous préférez.
@@ -499,11 +516,11 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
         # sudo chkconfig network on
 
-6.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+6.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
-7.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6 :
+7.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
         # wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
         # rpm -ivh epel-release-6-8.noarch.rpm
@@ -521,7 +538,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
     Le démarrage graphique et transparent n'est pas utile dans un environnement cloud où nous voulons que tous les journaux soient envoyés au port série. L'option crashkernel peut rester configurée le cas échéant, mais notez que ce paramètre réduit d'au moins 128 Mo la mémoire disponible dans la machine virtuelle, ce qui peut poser un problème sur les plus petites machines virtuelles.
 
-9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour inclure la ligne suivante :
+9.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
         ClientAliveInterval 180
 
@@ -558,11 +575,17 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+                gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
+
         # qemu-img resize rhel-6.6.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+
 
 ###RHEL 7.0/7.1
 
@@ -585,7 +608,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
         # sudo chkconfig network on
 
-4.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL :
+4.	Inscrivez l'abonnement Red Hat pour permettre l'installation des packages à partir du référentiel RHEL. Pour ce faire, exécutez la commande suivante :
 
         # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
 
@@ -607,7 +630,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 7.	Ajoutez des modules de Hyper-V dans initramfs :
 
-    Modifiez `/etc/dracut.conf`, ajouter le contenu suivant :
+    Modifiez `/etc/dracut.conf`, ajoutez le contenu suivant :
 
         add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
 
@@ -615,11 +638,11 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
         # dracut –f -v
 
-8.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour inclure la ligne suivante :
+8.	Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu. C'est généralement le cas par défaut. Modifiez `/etc/ssh/sshd_config` pour y inclure la ligne suivante :
 
         ClientAliveInterval 180
 
-9.	Activez le référentiel epel, car le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 7.
+9.	Le package WALinuxAgent `WALinuxAgent-<version>` a été transmis au référentiel Fedora EPEL 6. Activez le référentiel epel en exécutant la commande suivante :
 
 
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
@@ -655,6 +678,11 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
         # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
+
+        # MB=$((1024*1024))
+        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
+        # rounded_size=$((($size/$MB + 1)*$MB))
 
         # qemu-img resize rhel-7.0.raw $rounded_size
 
@@ -820,4 +848,4 @@ le problème est aléatoire. Toutefois, il se produit plus souvent lors d'opéra
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

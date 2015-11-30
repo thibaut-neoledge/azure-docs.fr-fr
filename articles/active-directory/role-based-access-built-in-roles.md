@@ -27,7 +27,7 @@ Cliquez sur le lien correspondant pour voir les propriétés **actions** et **no
 
 | Nom de rôle | Description |
 | --------- | ----------- |
-| [Collaborateur du service de gestion des API](#api-management-service-contributor) | Gérer les composants Application Insights |
+| [Collaborateur du service de gestion des API](#api-management-service-contributor) | Gérer les services de gestion des API |
 | [Collaborateur de composants Application Insights](#application-insights-component-contributor) | Gérer les composants Application Insights |
 | [Opérateur Automation](#automation-operator) | Démarrer, arrêter, suspendre et reprendre les travaux |
 | [Collaborateur BizTalk](#biztalk-contributor) | Gérer BizTalk Services |
@@ -53,7 +53,7 @@ Cliquez sur le lien correspondant pour voir les propriétés **actions** et **no
 | [Administrateur de l'accès utilisateur](#user-access-administrator) | Gérer l’accès utilisateur aux ressources Azure |
 | [Collaborateur de machine virtuelle classique](#classic-virtual-machine-contributor) | Gérer les machines virtuelles classiques, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées |
 | [Collaborateur de machine virtuelle](#virtual-machine-contributor) | Gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées |
-| [Collaborateur de réseau classique](#classic-network-contributor) | Gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées |
+| [Collaborateur de réseau classique](#classic-network-contributor) | Gérer les réseaux virtuels classiques et les adresses IP réservées |
 | [Collaborateur de plan web](#web-plan-contributor) | Gérer les plans web |
 | [Collaborateur de site web](#website-contributor) | Gérer les sites web, mais pas les plans web auxquels ils sont connectés |
 
@@ -480,4 +480,4 @@ Gérer les sites web, mais pas les plans web auxquels ils sont connectés
 ## Rubriques RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

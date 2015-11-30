@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/11/2015"
+   ms.date="11/20/2015"
    ms.author="derrickv"/>
 
 # Prise en main d’Azure Data Catalog
@@ -38,7 +38,7 @@ Dans cet exercice, vous installez l’exemple Adventure Works pour le moteur de
 
 La base de données Adventure Works OLTP prend en charge les scénarios de traitement des transactions en ligne standard pour un fabricant fictif de bicyclettes (Adventure Works Cycles), y compris la fabrication, les ventes et les achats. La base de données Adventure Works DW montre comment construire un entrepôt de données.
 
-Les bases de données se trouvent dans http://msftdbprodsamples.codeplex.com/ et peuvent être installées en suivant les étapes décrites dans [Installation des exemples de bases de données Adventure Works 2014].
+Les bases de données se trouvent dans [CodePlex.com](http://msftdbprodsamples.codeplex.com/) et peuvent être installées en suivant les étapes décrites dans le fichier [LisezMoi des exemples de bases de données Adventure Works 2014](https://msftdbprodsamples.codeplex.com/downloads/get/880669).
 
 Dans cet exercice, vous avez installé les exemples de bases de données Adventure Works qui sont utilisés dans les exercices restants. Si vous avez choisi d’ignorer cet exercice et d’utiliser vos propres sources de données d’entreprise, préparez-vous à mémoriser des noms, des étiquettes et d’autres métadonnées.
 
@@ -81,7 +81,7 @@ Dans cet exercice, vous allez utiliser l’outil d’inscription d’Azure Data 
 
     ![register6][6]
 
-    g. Pour afficher les objets de source de données que vous avez inscrits, cliquez sur **Afficher le portail**. Sur le portail Azure Data Catalog, vous pouvez afficher les objets de source de données sous forme de **vignettes** ou de **liste**.
+    g. Pour afficher les objets de source de données que vous avez inscrits, cliquez sur **Afficher le portail**. Sur le portail Azure Data Catalog, vous pouvez afficher les objets de source de données sous forme de **mosaïques** ou de **liste**.
 
     ![register7][7]
 
@@ -111,16 +111,16 @@ Dans cet exemple, vous allez utiliser une recherche par mot clé. Dans **Azure D
 
 **Techniques de requête**<table><tr><td><b>Technique</b></td><td><b>Utilisation</b></td><td><b>Exemple</b></td></tr><tr><td>Étendue de propriété</td><td>Renvoie uniquement les sources de données pour lesquelles le terme de recherche correspond à la propriété spécifiée</td><td>name:product</td></tr><tr><td>Opérateurs logiques</td><td>Élargit ou restreint une recherche à l’aide d’opérations booléennes, comme décrit sur cette même page dans la section Opérateurs booléens</td><td>finance NOT corporate</td></tr><tr><td>Regroupement avec parenthèses</td><td>Permet de regrouper des éléments de la requête entre parenthèses pour les isoler de manière logique, notamment avec les opérateurs booléens</td><td>name:product AND (tags:illustration OR tags:photo)</td></tr><tr><td>Opérateurs de comparaison</td><td>Utilisent des comparaisons autres que l’égalité pour les propriétés associées à des données de type numérique et date</td><td>creationTime:&gt;11/05/14</td></tr></table>
 
-Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les étiquettes correspondent à « illustration » ou les étiquettes correspondent à « photo ».
+Dans cet exemple, vous effectuez un **regroupement** pour rechercher des ressources de données pour lesquelles le nom correspond à « product » et les étiquettes correspondent à « illustration » ou à « photo ».
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Dans la zone **Rechercher**, entrez une requête de type **Regroupement** : (tags:description OR tags:photo).
 4.	Cliquez sur l’icône de recherche ou appuyez sur Entrée. **Azure Data Catalog** affichera les ressources de données correspondant à cette requête de recherche.
 
     ![search][8]
 
-Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour détecter et afficher les ressources de données inscrites dans le catalogue.
+Dans cet exercice, vous avez utilisé le portail **Azure Data Catalog** pour découvrir et afficher les ressources de données inscrites dans le catalogue.
 
 ## Exercice 4 : annotation des sources de données inscrites
 
@@ -128,7 +128,7 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour a
 
 ### Voici comment annoter les ressources de données
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Choisissez une ou plusieurs **ressources de données**. Dans cet exemple, choisissez **ProductPhoto** puis entrez « Photos de produit pour documents de marketing ».
 4.	Entrez une **Description** qui aidera les autres utilisateurs à découvrir et comprendre pourquoi et comment utiliser la ressource de données sélectionnée. Par exemple, entrez « Images du produit ». Vous pouvez également ajouter des étiquettes supplémentaires et afficher les colonnes.
@@ -163,7 +163,7 @@ Dans cet exercice, vous allez utiliser le portail **Azure Data Catalog** pour v
 
 ### Voici comment se connecter à une source de données à partir d’Excel
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Choisissez une ressource de données. Dans cet exemple, choisissez ProductCategory.
 4.	Choisissez **Ouvrir dans** > **Excel**.
@@ -187,7 +187,7 @@ Dans **Azure Data Catalog**, vous pouvez supprimer l’aperçu de la suppressio
 
 ### Voici comment supprimer plusieurs ressources de données
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Choisissez une ou plusieurs ressources de données.
 4.	Cliquez sur **Supprimer**.
@@ -196,13 +196,13 @@ Dans cet exercice, vous avez supprimé des ressources de données inscrites dans
 
 ## Exercice 8 : gestion des sources de données inscrites
 
-Dans cet exercice, vous allez utiliser les fonctionnalités de gestion d’**Azure Data Catalog** pour vous approprier des ressources de données et contrôler les utilisateurs qui peuvent détecter et gérer ces ressources.
+Dans cet exercice, vous allez utiliser les fonctionnalités de gestion d’**Azure Data Catalog** pour vous approprier des ressources de données et contrôler les utilisateurs qui peuvent découvrir et gérer ces ressources.
 
 Remarque : les fonctionnalités de gestion décrites dans cet exercice sont disponibles uniquement dans l’édition Standard d’Azure Data Catalog, pas dans l’édition gratuite. Dans **Azure Data Catalog**, vous pouvez vous approprier des ressources de données, ajouter des copropriétaires aux ressources de données et définir la visibilité de ces ressources.
 
 ### Voici comment s’approprier les ressources de données et restreindre leur visibilité
 
-1.	Connectez-vous au portail **Azure Data Catalog**.
+1.	Connectez-vous au portail **Azure Data Catalog**.
 2.	Cliquez sur **Découvrir**.
 3.	Choisissez une ou plusieurs ressources de données.
 4.	Dans le panneau **Propriétés**, section **Gestion**, cliquez sur **Prendre possession**.
@@ -214,7 +214,7 @@ Dans cet exercice, vous avez exploré les fonctionnalités de gestion du catalog
 
 ## Résumé
 
-Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la version d’évaluation d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
+Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la version préliminaire d’**Azure Data Catalog**, notamment l’inscription, l’annotation, la découverte et la gestion des sources de données d’entreprise. Maintenant que vous avez terminé ce didacticiel, il est temps de passer à la pratique. Vous pouvez commencer dès aujourd’hui en enregistrant les sources de données que vous et votre équipe utilisez, et en invitant vos collègues à utiliser le catalogue.
 
 
 <!--Image references-->
@@ -232,4 +232,4 @@ Dans ce didacticiel, vous avez exploré les fonctionnalités essentielles de la 
 [12]: ./media/data-catalog-get-started/ownership.png
 [13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="11/16/2015"
 	ms.author="curtand"/>
 
 
@@ -51,10 +51,10 @@ Pour utiliser des applets de commande Windows PowerShell, vous devez commencer p
 2.  Effectuez l’une des actions suivantes :
 
 	- Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez l’applet de commande suivante en utilisant le nom d’utilisateur principal (UPN) ou l’identifiant utilisateur de l’utilisateur : `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires \$false`
-  	
+
 	- Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils expirent, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$false`
 
-## Définir un mot de passe pour qu’il n’expire pas
+## Définir un mot de passe pour qu’il n’expire jamais
 
 1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur de la société.
 
@@ -64,4 +64,4 @@ Pour utiliser des applets de commande Windows PowerShell, vous devez commencer p
 
 	- Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez l’applet de commande suivante : `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires \$true`
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

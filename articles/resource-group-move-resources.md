@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
@@ -57,7 +57,8 @@ Les services qui prennent en charge le déplacement des ressources vers un nouve
 Les services qui ne prennent actuellement pas en charge le déplacement d’une ressource sont les suivants :
 
 - Machines virtuelles
-- Réseaux virtuels
+- Virtual Network
+- Storage
 
 Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications web, les options disponibles sont :
 
@@ -88,7 +89,7 @@ Pour déplacer des ressources existantes vers un autre groupe de ressources ou u
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Dans le corps de la requête, vous indiquez le groupe de ressources cible et les ressources à déplacer. Pour plus d'informations sur l’opération REST de déplacement, consultez [Déplacement de ressources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
+Dans le corps de la requête, vous indiquez le groupe de ressources cible et les ressources à déplacer. Pour plus d’informations sur l’opération REST de déplacement, consultez [Déplacement de ressources](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## Étapes suivantes
 - [Utilisation d’Azure PowerShell avec Azure Resource Manager](./powershell-azure-resource-manager.md)
@@ -96,4 +97,4 @@ Dans le corps de la requête, vous indiquez le groupe de ressources cible et les
 - [Utilisation du portail Azure en version préliminaire pour gérer les ressources Azure](azure-portal/resource-group-portal.md)
 - [Organisation des ressources Azure à l’aide de balises](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

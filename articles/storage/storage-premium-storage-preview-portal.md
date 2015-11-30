@@ -23,7 +23,7 @@
 
 Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d'E/S. Les disques de machine virtuelle qui utilisent Premium Storage stockent les données sur des disques SSD. Vous pouvez migrer les disques de machine virtuelle de votre application dans Azure Premium Storage pour tirer parti de la vitesse et des performances de ces disques.
 
-Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu’à 80,000 IOPS (opérations d’E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
+Une machine virtuelle Azure prend en charge l’association de plusieurs disques Premium Storage afin que vos applications puissent avoir jusqu'à 64 To de stockage par machine virtuelle. Avec Premium Storage, vos applications peuvent atteindre jusqu'à 80 000 IOPS (opérations d'E/S par seconde) par machine virtuelle et un débit de disque de 2 000 Mo par seconde, avec une latence extrêmement faible pour les opérations de lecture.
 
 >[AZURE.NOTE]Nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’IOPS dans Azure Premium Storage pour que votre application bénéficie de performances optimales. Si votre disque ne nécessite pas un nombre élevé d'IOPS, vous pouvez limiter les coûts en le conservant dans le stockage Standard qui stocke les données de disque de machine virtuelle sur des disques durs et non des disques SSD.
 
@@ -43,7 +43,7 @@ Voici une liste des points importants à prendre en compte avant ou pendant l'ut
 
 - Un compte de stockage Premium est localement redondant (LRS) et conserve trois copies des données dans une même région. Concernant la géo-réplication pendant l'utilisation du stockage Premium, consultez la section [Captures instantanées et copie d'objets blob avec le stockage Premium](#snapshots-and-copy-blob-whfr-FRing-premium-storage) dans cet article.
 
-- Si vous souhaitez utiliser un compte de stockage Premium pour vos disques de machine virtuelle, vous devez utiliser des machines virtuelles de série DS ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS. Pour plus d'informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles de machine virtuelle et de service cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+- Si vous souhaitez utiliser un compte de stockage Premium pour vos disques de machine virtuelle, vous devez utiliser des machines virtuelles de série DS ou GS. Vous pouvez utiliser des disques de stockage Standard et Premium avec les machines virtuelles de série DS ou GS. Vous ne pouvez cependant pas utiliser de disques de stockage Premium avec des machines virtuelles qui ne sont pas de série DS ou GS. Pour plus d'informations sur les tailles et les types de disque de machine virtuelle Azure disponibles, consultez [Tailles de machine virtuelle et de service cloud pour Azure](../virtual-machines/virtual-machines-size-specs.md).
 
 - Le processus de configuration des disques de stockage Premium pour une machine virtuelle est semblable aux disques de stockage Standard. Vous devez choisir l'option de stockage Premium qui convient le mieux à vos disques et votre machine virtuelle Azure. La taille de la machine virtuelle doit être adaptée à votre charge de travail en fonction des caractéristiques de performances de l'offre Premium. Pour plus d'informations, consultez [Objectifs d'extensibilité et de performances avec le stockage Premium](#scalability-and-performance-targets-whfr-FRing-premium-storage).
 
@@ -71,7 +71,7 @@ Pour bénéficier des avantages du stockage Premium, créez d'abord un compte de
 
 	Notez que ces limites ne valent que pour le trafic de disques, pas pour les présences dans le cache ou le trafic réseau. Une bande passante distincte est disponible pour le trafic réseau des machines virtuelles. Il ne s’agit pas de la bande passante dédiée aux disques de stockage Premium.
 	
-	Pour obtenir les informations les plus récentes sur le nombre maximal d’opérations d’E/S par seconde et le débit (bande passante) maximal pour les machines virtuelles de série DS et GS, consultez [Tailles des machines virtuelles et des services cloud pour Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Pour en savoir plus sur les disques de stockage Premium et leurs limites d’E/S par seconde et de débit, consultez le tableau de la section [Objectifs de performances et d’évolutivité lors de l’utilisation du stockage Premium](#scalability-and-performance-targets-whfr-FRing-premium-storage) dans cet article.
+	Pour obtenir les informations les plus récentes sur le nombre maximal d’opérations d’E/S par seconde et le débit (bande passante) maximal pour les machines virtuelles de série DS et GS, consultez [Tailles des machines virtuelles et des services cloud pour Azure](../virtual-machines/virtual-machines-size-specs.md). Pour en savoir plus sur les disques de Premium Storage et leurs limites d’E/S par seconde et de débit, consultez le tableau de la section [Objectifs de performances et d’évolutivité lors de l’utilisation de Premium Storage](#scalability-and-performance-targets-whfr-FRing-premium-storage) dans cet article.
 
 > [AZURE.NOTE]Les présences dans le cache ne sont pas limitées par l’IOPS et le débit du disque. Autrement dit, quand vous utilisez un disque de données avec le paramètre de cache ReadOnly sur une machine virtuelle de série DS ou GS, les lectures effectuées dans le cache ne sont pas soumises aux limites des disques de stockage Premium. Il est donc possible d’obtenir un très haut débit à partir d'un disque, si la charge de travail concerne essentiellement des lectures. Notez que le cache est soumis à des limites IOPS/Débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4000 IOPS et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local.
 
@@ -333,11 +333,11 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 - [Utilisation des opérations de service blob avec le stockage Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
 - [Migration vers Azure Premium Storage](storage-migration-to-premium-storage.md).
 - [Créer une machine virtuelle exécutant Windows](../virtual-machines-windows-tutorial-azure-preview.md)
-- [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
+- [Tailles de machines virtuelles et services cloud pour Windows Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Documentation du stockage](http://azure.microsoft.com/documentation/services/storage/)
 - [Référence MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

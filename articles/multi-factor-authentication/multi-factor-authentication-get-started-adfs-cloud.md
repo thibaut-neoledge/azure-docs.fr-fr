@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
@@ -93,4 +93,4 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 
 Et voilà ! À ce stade, les utilisateurs fédérés d'Office 365 doivent pouvoir utiliser uniquement MFA lorsqu'une revendication provient de l'extérieur de l'intranet de l'entreprise.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Présentation d’Azure Backup | Microsoft Azure"
-	description="Cet article fournit une vue d’ensemble du service Azure Backup qui permet aux clients de sauvegarder des données au niveau local et dans Azure."
+	pageTitle="Qu’est-ce qu’Azure Backup ? | Microsoft Azure"
+	description="Avec Azure Backup et les services de récupération, vous pouvez sauvegarder et restaurer des données et des applications à partir de serveurs Windows, d’ordinateurs clients Windows, de serveurs SCDPM ou de machines virtuelles Azure."
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
@@ -16,11 +16,10 @@
 	ms.date="10/01/2015"
 	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-# Présentation d’Azure Backup
-Cet article fournit une vue d’ensemble générale de la solution de sauvegarde intégrée au cloud de Microsoft qui permet aux clients de sauvegarder leurs données présentes au niveau local ou dans Azure.
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
-## Qu’est-ce qu’Azure Backup ?
-Azure Backup est un service Azure mutualisé qui vous permet de sauvegarder vos données où qu’elles se trouvent : au niveau local ou dans Azure. Il remplace votre solution de sauvegarde locale ou hors site par une offre basée dans le cloud, fiable, sécurisée et économiquement compétitive. Ce service vous offre également la possibilité de protéger les ressources qui s’exécutent dans le cloud. Azure Backup repose sur une infrastructure de classe mondiale extensible, durable et hautement disponible. À l’aide de cette solution, vous pouvez sauvegarder des données et des applications à partir de serveurs System Center Data Protection Manager (SCDPM), de serveurs Windows, d’ordinateurs clients Windows ou de machines virtuelles IaaS (infrastructure as a service) Azure. Azure Backup et SCDPM sont les technologies fondamentales qui composent la solution de sauvegarde intégrée au cloud de Microsoft.
+# Qu’est-ce qu’Azure Backup ?
+Azure Backup est un service Azure mutualisé qui vous permet de sauvegarder et restaurer vos données où qu’elles se trouvent : au niveau local ou dans Azure. Il remplace votre solution de sauvegarde locale ou hors site par une solution de sauvegarde basée dans le cloud, fiable, sécurisée et économiquement compétitive. Ce service vous offre également la possibilité de protéger les ressources qui s’exécutent dans le cloud. Azure Backup repose sur une infrastructure de classe mondiale extensible, durable et hautement disponible. À l’aide de cette solution, vous pouvez sauvegarder des données et des applications à partir de serveurs System Center Data Protection Manager (SCDPM), de serveurs Windows, d’ordinateurs clients Windows ou de machines virtuelles IaaS (infrastructure as a service) Azure. Azure Backup et SCDPM sont les technologies fondamentales qui composent la solution de sauvegarde intégrée au cloud de Microsoft.
 
 > [AZURE.VIDEO what-is-azure-backup]
 
@@ -78,4 +77,4 @@ Les fonctionnalités clés de cette solution sont les suivantes :
 - Le Forum Aux Questions sur le service Azure Backup se trouve [ici](backup-azure-backup-faq.md).
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

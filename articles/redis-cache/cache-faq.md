@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2015" 
+	ms.date="11/18/2015" 
 	ms.author="sdanie"/>
 
 # Forum aux questions sur le Cache Redis Azure
@@ -49,7 +49,7 @@ De ce tableau, nous pouvons tirer les conclusions suivantes.
 
 | Niveau tarifaire | Taille | Bande passante disponible | Taille de clé de 1 Ko |
 |----------------------|--------|----------------------------|--------------------------------|
-| **Tailles de cache Standard** | &nbsp; | **(Mbits/s)** | **Demandes par seconde (RPS)** |
+| **Tailles de cache Standard** | &nbsp; |**Mégabits par seconde (Mbits/s)** | **Demandes par seconde (RPS)** |
 | C0 | 250 Mo | 5 | 600 |
 | C1 | 1 Go | 100 | 12 200 |
 | C2 | 2,5 Go | 200 | 24 000 |
@@ -157,7 +157,7 @@ Pour obtenir des instructions sur le téléchargement des outils Redis, consulte
 <a name="cache-benchmarking"></a>
 ## Comment puis-je évaluer et tester les performances de mon cache ?
 
--	[Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache. Vous pouvez afficher les mesures dans le portail Azure en version préliminaire, et vous pouvez également les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
+-	[Activez les diagnostics du cache](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) afin de pouvoir [surveiller](https://msdn.microsoft.com/library/azure/dn763945.aspx) l’intégrité de votre cache. Vous pouvez afficher les mesures dans le portail Azure en version préliminaire et vous pouvez également les [télécharger et les analyser](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) à l’aide des outils de votre choix.
 -	Vous pouvez utiliser redis-benchmark.exe pour tester la charge de votre serveur Redis.
 	-	Assurez-vous que le client de test de la charge et le cache Redis se trouvent dans la même région.
 -	Utilisez redis-cli.exe et surveillez le cache à l’aide de la commande INFO.
@@ -189,7 +189,7 @@ Vous pouvez utiliser les commandes répertoriées dans [Commandes Redis](http://
 
 Le Cache Redis Microsoft Azure est basé sur le logiciel open source Cache Redis, ce qui vous donne accès à un cache Redis sécurisé et dédié, géré par Microsoft. Plusieurs [clients Redis](http://redis.io/clients) sont disponibles pour de nombreux langages de programmation. Chaque client possède sa propre API qui effectue des appels à l’instance de cache Redis à l’aide de [commandes Redis](http://redis.io/commands).
 
-Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
+Étant donné que chaque client est différent, il n’y a pas de référence centralisée au sujet des classes sur MSDN. Chaque client a sa propre documentation de référence. En plus de la documentation de référence, il existe plusieurs didacticiels sur Azure.com qui montrent comment débuter avec le Cache Redis Azure avec plusieurs langages et clients de cache sur la page [Documentation Cache Redis](http://azure.microsoft.com/documentation/services/redis-cache/).
 
 
 ## Quelle est l'offre Azure Cache qui me convient ?
@@ -204,7 +204,7 @@ Le Cache Azure propose actuellement trois offres :
 
 
 ### Cache Redis Azure
-Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau Premium](cache-premium-tier.md) est en version préliminaire ; il propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, le réseau virtuel et la persistance.
+Le Cache Redis Azure fait l’objet d’une disponibilité générale dans des tailles pouvant aller jusqu’à 53 Go et son contrat SLA de disponibilité atteint 99,9 %. Le nouveau [niveau Premium](cache-premium-tier.md) est en version préliminaire. Il propose des tailles pouvant aller jusqu’à 530 Go et prend en charge le clustering, le réseau virtuel et la persistance.
 
 Le Cache Redis Azure permet aux clients d’utiliser un cache Redis sécurisé et dédié, géré par Microsoft. Avec cette offre, vous pouvez exploiter toutes les fonctionnalités et l’écosystème fournis par Redis, ainsi que la fiabilité des services d’hébergement et de surveillance Microsoft.
 
@@ -220,4 +220,4 @@ Si vous êtes un client existant du service de cache géré Azure, vous pouvez c
 ### In-Role Cache
 Si vous auto-hébergez le cache à l’aide d’In-Role Cache, vous pouvez également continuer ainsi. In-Role Cache étant un composant logiciel auto-hébergé et non un service hébergé de Microsoft, aucun contrat SLA n’est proposé. Les utilisateurs d’In-Role Cache peuvent choisir de migrer vers le Cache Redis Azure pour tirer parti de son ensemble de fonctionnalités enrichies et obtenir un contrat SLA.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

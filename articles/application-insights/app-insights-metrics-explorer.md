@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -196,7 +196,7 @@ Si vous souhaitez mettre en place une exportation continue des données pour les
 
 ### Power BI
 
-Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [exporter vers Power BI](app-insights-export-power-bi.md).
+Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [exporter vers Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Étapes suivantes
 
@@ -212,4 +212,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/16/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -44,6 +44,8 @@ Les mots de passe sont synchronisés plus fréquemment que la fenêtre de synchr
 Quand vous activez pour la première fois la fonctionnalité de synchronisation de mot de passe, elle effectue une synchronisation initiale des mots de passe de tous les utilisateurs dans la portée de votre annuaire Active Directory local vers Azure Active Directory. Vous ne pouvez pas définir explicitement l’ensemble des utilisateurs dont les mots de passe seront synchronisés vers le cloud. Par la suite, quand un mot de passe a été modifié par un utilisateur local, la fonctionnalité de synchronisation de mot de passe détecte et synchronise le mot de passe modifié, le plus souvent en quelques minutes. La fonctionnalité de synchronisation de mot de passe tente automatiquement de réeffectuer une synchronisation de mot de passe utilisateur ayant échoué. Si une erreur se produit lors d’une tentative de synchronisation de mot de passe, l’erreur est enregistrée dans l’Observateur d’événements.
 
 La synchronisation d’un mot de passe n’a aucun impact sur les utilisateurs actuellement connectés. Si un utilisateur connecté à un service cloud modifie également le mot de passe local, la session de service cloud se poursuit sans interruption. Toutefois, dès que le service cloud exige de l’utilisateur qu’il se réauthentifie, le nouveau mot de passe doit être fourni. À ce stade, l’utilisateur doit fournir le nouveau mot de passe (celui qui a récemment été synchronisé de l’annuaire Active Directory local vers le cloud).
+
+> [AZURE.NOTE]La synchronisation de mot de passe est uniquement prise en charge pour l'utilisateur de type d'objet dans Active Directory. Elle n'est pas prise en charge pour le type d'objet iNetOrgPerson.
 
 ### Fonctionnement de la synchronisation de mot de passe avec les services de domaine Azure AD.
 
@@ -91,7 +93,7 @@ Si vous utilisez la configuration rapide lorsque vous installez Azure AD Connect
 
 Si vous utilisez des paramètres personnalisés lors de l'installation d'Azure AD Connect, ils activent la synchronisation de mot de passe sur la page de connexion utilisateur. ![usersignin](./media/active-directory-aadsync-implement-password-synchronization/usersignin.png)
 
-Si vous choisissez d'utiliser **Fédération avec AD FS** vous pouvez éventuellement activer la synchronisation de mot de passe comme sauvegarde en cas d'échec de votre infrastructure AD FS. Vous pouvez également l'activer si vous prévoyez d'utiliser les Services de domaine Azure AD.
+Si vous choisissez d'utiliser **Fédération avec AD FS**, vous pouvez éventuellement activer la synchronisation de mot de passe comme sauvegarde en cas d'échec de votre infrastructure AD FS. Vous pouvez également l'activer si vous prévoyez d'utiliser les Services de domaine Azure AD.
 
 ### Synchronisation du mot de passe et FIPS
 
@@ -156,4 +158,4 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

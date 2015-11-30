@@ -16,21 +16,21 @@
    ms.date="10/09/2015"
    ms.author="hascipio" />
 
-# Comment publier une offre dans Microsoft Azure Marketplace
-Cet article a pour but d’aider un vendeur à créer et déployer sa solution, par ex., une image de machine virtuelle unique, un modèle de solution, un service de développement ou un service de données dans Azure Marketplace, que d’autres clients et partenaires Azure peuvent acheter et utiliser.
+# Publier une offre dans Azure Marketplace
+Cet article est fourni pour aider les vendeurs à créer et déployer une solution sur Azure Marketplace afin de la proposer à d’autres clients et partenaires Azure.
 
-La première étape en tant qu’éditeur est de définir le type de solution offert par votre entreprise. Azure Marketplace prend en charge plusieurs types de solutions. Leur publication dans le Marketplace demande des étapes légèrement différentes.
+La première étape en tant qu’éditeur est de définir le type de solution offert par votre entreprise. Azure Marketplace prend en charge plusieurs solutions. Leur publication dans le Marketplace demande des étapes légèrement différentes.
 
-**Types de solutions :**
+Types de solutions :
 
-- Services de données
-- Services de développement
-- Machines virtuelles
-- Modèles de solution
+- Image de machine virtuelle
+- Service de développement
+- Service de données
+- Modèle de solution
 
-Certaines étapes sont communes aux différents types de solutions. Cette section présente brièvement la procédure que vous devez suivre pour tous les types de solutions.
+Certaines étapes sont communes aux différents types de solutions. Cet article présente brièvement la procédure que vous devez suivre pour tous les types de solutions.
 
-**Avant de commencer à publier dans Azure Marketplace, vous devez être préapprouvé. Ce n’est pas le cas pour les éditeurs de service de données.**
+> [AZURE.NOTE]Avant de commencer à publier dans Azure Marketplace, vous devez être pré-approuvé. Ce n’est pas le cas pour les éditeurs de service de données.
 
 || Image de machine virtuelle | Service de développement | Service de données | Modèle de solution |
 |---|---|---|---|---|
@@ -47,10 +47,10 @@ Certaines étapes sont communes aux différents types de solutions. Cette sectio
 - [Obtenir de l’aide en tant qu’éditeur][suppt-general]
 - [Présentation du rapport Informations du vendeur][suppt-rpt-insights]
 - [Présentation du rapport Revenus][suppt-rpt-payouts]
-- [Résolution des problèmes courants de publication dans le Marketplace][suppt-common]
+- [Résolution des problèmes de publication courants dans le Marketplace][suppt-common]
 
 ## Ressources supplémentaires
-- Pour en savoir plus sur les portails utilisés, consultez [Portails dont vous avez besoin](marketplace-publishing-portals.md)
+- Pour en savoir plus sur les portails utilisés, voir [Portails dont vous avez besoin](marketplace-publishing-portals.md)
 
 **Machines virtuelles**
 
@@ -75,4 +75,4 @@ Certaines étapes sont communes aux différents types de solutions. Cette sectio
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

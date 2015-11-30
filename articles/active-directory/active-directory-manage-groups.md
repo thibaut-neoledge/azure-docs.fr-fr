@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Gestion de l’accès aux ressources avec les groupes Azure Active Directory | Microsoft Azure" 
-	description="Rubrique qui explique comment utiliser des groupes de gestion des accès dans Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
+<properties
+	pageTitle="Gestion de l’accès aux ressources avec les groupes Azure Active Directory | Microsoft Azure"
+	description="Explique comment utiliser des groupes dans Azure Active Directory pour la gestion de l’accès aux applications et ressources locales et cloud."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor=""
-	tags="azure-classic-portal"/>
+/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/14/2015" 
-	ms.author="femila"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Gestion de l’accès aux ressources avec les groupes Azure Active Directory
 
-Azure Active Directory est une solution complète de gestion des identités et de gestion des accès qui offre un ensemble de fonctions de gestion de l’accès aux applications et ressources locales et cloud, dont les services en ligne Microsoft comme Office 365 et tout un ensemble d’applications SaaS non-Microsoft.
+Azure Active Directory (Azure AD) est une solution complète de gestion des identités et de gestion des accès qui offre un ensemble de fonctions de gestion de l’accès aux applications et ressources locales et cloud, dont les services en ligne Microsoft comme Office 365 et tout un ensemble d’applications SaaS non-Microsoft.
 
 
 > [AZURE.NOTE]Pour utiliser Azure Active Directory, vous avez besoin d'un compte Azure. Si vous ne possédez pas encore un compte Azure, vous pouvez [vous inscrire pour en obtenir un gratuitement](http://azure.microsoft.com/pricing/free-trial/).
@@ -45,17 +45,19 @@ Le propriétaire de la ressource peut utiliser une règle pour définir les util
 
 L’accès à une ressource est dérivé d’une source externe, par exemple, un groupe synchronisé à partir d’une source faisant autorité comme un annuaire local ou une application SaaS, par exemple WorkDay. Le propriétaire de la ressource affecte au groupe l’accès à la ressource et la source externe gère les membres du groupe.
 
-  ![](./media/active-directory-access-management-groups/access-management-overview.png)
+  ![Présentation du diagramme de gestion des accès](./media/active-directory-access-management-groups/access-management-overview.png)
 
 
-###Regardez une vidéo qui explique la gestion des accès
+## Regardez une vidéo qui explique la gestion des accès
 
-Vous pouvez regarder une courte vidéo qui explique en détail ceci, [ici](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups).
+Vous pouvez regarder une courte vidéo qui explique en détail ceci :
 
-##Comment fonctionne la gestion des accès dans Azure Active Directory ?
+> [AZURE.VIDEO azure-ad--introduction-to-dynamic-memberships-for-groups]
+
+## Comment fonctionne la gestion des accès dans Azure Active Directory ?
 Les groupes de sécurité sont le cœur de la solution de gestion des accès Azure Active Directory. L’utilisation d’un groupe de sécurité pour gérer l’accès aux ressources est une situation connue, qui offre un moyen flexible et facilement compréhensible de fournir l’accès à une ressource au groupe d’utilisateurs voulu. Le propriétaire de la ressource (ou l’administrateur de l’annuaire) peut affecter un groupe pour fournir un certain droit d’accès aux ressources dont il dispose. Les membres de groupe se voient fournir l’accès et le propriétaire de la ressource peut déléguer le droit de gérer la liste des membres d’un groupe à quelqu’un d’autre, comme le chef de service ou l’administrateur du support technique.
 
-![](./media/active-directory-access-management-groups/active-directory-access-management-works.png) Le propriétaire d’un groupe peut également rendre ce groupe disponible pour les demandes libre-service. De cette manière, l’utilisateur final peut rechercher le groupe et demander à en faire partie, demandant ainsi l’autorisation à accéder aux ressources qui sont gérées via ce groupe. Le propriétaire du groupe peut configurer le groupe de façon à ce que les demandes d’appartenance soient automatiquement approuvées ou exigent une approbation par le propriétaire du groupe. Lorsqu’un utilisateur fait une demande d’appartenance à un groupe, cette demande est transmise aux propriétaires du groupe. Si un des propriétaires approuve la demande, l’utilisateur en est informé et il est ajouté au groupe. Si un des propriétaires refuse la demande, l’utilisateur en est averti, mais il n’est pas ajouté au groupe.
+![Diagramme de gestion des accès Azure Active Directory](./media/active-directory-access-management-groups/active-directory-access-management-works.png) Le propriétaire d’un groupe peut également rendre ce groupe disponible pour les demandes libre-service. De cette manière, l’utilisateur final peut rechercher le groupe et demander à en faire partie, demandant ainsi l’autorisation à accéder aux ressources qui sont gérées via ce groupe. Le propriétaire du groupe peut configurer le groupe de façon à ce que les demandes d’appartenance soient automatiquement approuvées ou exigent une approbation par le propriétaire du groupe. Lorsqu’un utilisateur fait une demande d’appartenance à un groupe, cette demande est transmise aux propriétaires du groupe. Si un des propriétaires approuve la demande, l’utilisateur en est informé et il est ajouté au groupe. Si un des propriétaires refuse la demande, l’utilisateur en est averti, mais il n’est pas ajouté au groupe.
 
 
 ## Prise en main de la gestion des accès
@@ -76,7 +78,7 @@ Vous êtes prêt à commencer ? Testez certaines des tâches de base que vous p
 ## Étapes suivantes de la gestion des accès
 Maintenant que vous avez compris les principes fondamentaux de la gestion des accès, voici d’autres fonctionnalités avancées disponibles dans Azure Active Directory pour gérer l’accès à vos applications et à vos ressources.
 
-* [Utilisation d’une règle simple pour créer un groupe](active-directory-accessmanagement-simplerulegroup.md) 
+* [Utilisation d’une règle simple pour créer un groupe](active-directory-accessmanagement-simplerulegroup.md)
 
 * [Utilisation d’attributs pour créer des règles avancées](active-directory-accessmanagement-groups-with-advanced-rules.md)
 
@@ -86,7 +88,7 @@ Maintenant que vous avez compris les principes fondamentaux de la gestion des ac
 
 
 ## En savoir plus
-Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory
+Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 
@@ -94,4 +96,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Référence de l’API Graph pour les groupes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

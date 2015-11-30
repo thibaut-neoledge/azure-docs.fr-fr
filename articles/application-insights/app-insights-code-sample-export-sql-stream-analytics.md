@@ -21,7 +21,7 @@ Cet article explique comment déplacer vos données de télémétrie à partir d
 
 L’exportation continue déplace vos données de télémétrie vers le stockage Azure au format JSON. Nous analyserons les objets JSON à l’aide d’Azure Stream Analytics et créerons des lignes dans une table de base de données.
 
-(Plus généralement, l’exportation continue est la méthode qui vous permet de réaliser votre propre analyse des données de télémétrie que vos applications transmettent à Application Insights. Vous pouvez adapter cet exemple de code pour effectuer d’autres opérations à l’aide des données de télémétrie exportées, comme agréger les données et les publier dans la suite de visualisation PowerBI.)
+(Plus généralement, l’exportation continue est la méthode qui vous permet de réaliser votre propre analyse des données de télémétrie que vos applications transmettent à Application Insights. Vous pourriez adapter cet exemple de code pour effectuer d’autres actions à l’aide des données de télémétrie exportées, comme agréger les données.)
 
 Nous allons partir du principe que vous disposez déjà de l’application que vous voulez analyser.
 
@@ -300,6 +300,7 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 ## Articles connexes
 
 * [Exportation vers SQL à l’aide d’un rôle de travail](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Exporter vers PowerBI à l’aide de Stream Analytics](app-insights-export-power-bi.md)
 * [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](app-insights-export-data-model.md)
 * [Exportation continue dans Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
@@ -314,4 +315,4 @@ Après quelques minutes, revenez aux Outils d’administration SQL Server et obs
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

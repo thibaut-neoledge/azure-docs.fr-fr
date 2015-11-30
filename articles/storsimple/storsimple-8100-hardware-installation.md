@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="10/13/2015"
+   ms.date="11/16/2015"
    ms.author="alkohli" />
 
 # Déballer, monter en rack et câbler votre appareil StorSimple 8100
@@ -248,14 +248,14 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 Lors du câblage de l’appareil, la configuration minimale requiert les éléments suivants :
 
 
-- Au moins deux interfaces réseau connectées sur chaque contrôleur : l’une pour l’accès au cloud et l’autre pour iSCSI. Le port de données DATA 0 est automatiquement activé et configuré via la console série de l’appareil. Hormis DATA 0, un autre port de données doit également être configuré via le portail de gestion. Dans ce cas, connectez le port DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
+- Au moins deux interfaces réseau connectées sur chaque contrôleur : l’une pour l’accès au cloud et l’autre pour iSCSI. Le port de données DATA 0 est automatiquement activé et configuré via la console série de l’appareil. Hormis DATA 0, un autre port de données doit également être configuré via le portail Azure. Dans ce cas, connectez le port DATA 0 au LAN principal (réseau avec accès à Internet). Les autres ports de données peuvent être connectés au segment SAN/iSCSI LAN (VLAN) du réseau, en fonction du rôle prévu.
 
 - Interfaces identiques sur chaque contrôleur avec une connexion au même réseau pour garantir la disponibilité en cas de basculement d’un contrôleur. Par exemple, si vous choisissez de connecter DATA 0 et DATA 3 pour l’un des contrôleurs, vous devez connecter les ports de données correspondants DATA 0 et DATA 3 sur l’autre contrôleur.
 	
 Gardez à l’esprit la disponibilité et les performances élevées :
 
 
-- Dans la mesure du possible, configurez deux interfaces réseau pour l'accès au cloud (1 GbE) et deux autres pour iSCSI (10 GbE recommandé) sur chaque contrôleur. 
+- Dans la mesure du possible, configurez une paire d’interface réseau pour l’accès au cloud (1 GbE) et une autre paire pour iSCSI (10 GbE recommandé) sur chaque contrôleur. 
 
 - Dans la mesure du possible, connectez les interfaces réseau de chaque contrôleur à deux commutateurs différents afin de garantir la disponibilité en cas de défaillance d’un commutateur. La figure illustre les deux interfaces réseau 10 GbE, DATA 2 et DATA 3, de chaque contrôleur connecté à deux commutateurs différents.
 
@@ -291,4 +291,4 @@ Votre appareil est désormais branché à l’alimentation, au réseau et au por
 
 Découvrez comment [déployer et configurer votre appareil StorSimple local](storsimple-deployment-walkthrough.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

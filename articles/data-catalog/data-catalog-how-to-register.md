@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 
@@ -95,4 +95,4 @@ La réinscription d’une source de données déjà inscrite aboutit à une opé
 ## Résumé
 L’inscription d’une source de données avec **Azure Data Catalog** facilite la détection et la compréhension. Cette étape consiste à copier les métadonnées descriptives et structurelles à partir de la source de données dans le service de catalogue. Une fois qu’une source de données a été inscrite, elle peut ensuite être annotée, gérée et détectée à l’aide du portail **Azure Data Catalog**.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

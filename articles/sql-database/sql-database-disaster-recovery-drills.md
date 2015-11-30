@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/15/2015"
+   ms.date="11/16/2015"
    ms.author="mihaelab"/>
 
 #Exécution d'un exercice de récupération d'urgence
@@ -26,7 +26,7 @@ L'exécution d'un exercice de récupération d'urgence comprend :
 - la récupération 
 - la validation de l'intégrité des applications après la récupération
 
-Le flux de travail à exécuter peut varier en fonction de votre [conception pour la continuité des activités](sql-database-business-continuity.md). Ci-dessous, vous trouverez une description des meilleures pratiques en matière d'exécution d'un exercice de récupération d'urgence dans le contexte de bases de données Azure SQL.
+Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Ci-dessous, vous trouverez une description des meilleures pratiques en matière d'exécution d'un exercice de récupération d'urgence dans le contexte de bases de données Azure SQL.
 
 ##Restauration géographique
 
@@ -34,51 +34,33 @@ Pour éviter une perte de données potentielle lors d'un exercice de récupérat
  
 ####Simulation d'une défaillance
 
-- Simulez la défaillance en supprimant ou en renommant la base de données source pour provoquer l'échec de la connectivité des applications. De cette manière, vous pouvez valider la détection / l'alerte de défaillances et mesurer le RTO pour la durée de la récupération.
+Pour simuler la défaillance, vous pouvez supprimer ou renommer la base de données source. Cela entraîne l'échec de la connexion de l'application.
 
-####Récupération
+####Récupérer
 
 - Effectuez la restauration géographique de la base de données dans un autre serveur comme décrit [ici](sql-database-disaster-recovery.md). 
-- Modifiez la configuration de l'application pour établir une connexion aux bases de données récupérées, puis suivez le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md) (en anglais) pour terminer la récupération.
+- Modifiez la configuration de l'application pour établir une connexion aux bases de données récupérées, puis suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour terminer la récupération.
 
 ####Validation
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-##Géo-réplication standard
+##Utiliser la géo-réplication
 
-Une base de données protégée à l'aide de la géo-réplication Standard ne peut avoir qu'une seule base de données secondaire non lisible. L'exercice implique l'arrêt forcé de la liaison, après quoi la base de données ne sera pas protégée. En outre, une perte de données n'étant pas à exclure, nous déconseillons aux clients d'effectuer ce test sur des bases de données de production. Au lieu de cela, nous recommandons la création d'une copie de l'environnement de production et son utilisation pour vérifier le flux de travail de basculement de l'application.
+Pour une base de données protégée à l'aide de la géo-réplication, l’exercice implique un basculement planifié vers la base de données secondaire. Le basculement planifié garantit que les bases de données principale et secondaire restent synchronisées lorsque les rôles sont permutés. À la différence du basculement non planifié, cette opération n'implique pas de perte de données, l'exercice peut donc être exécuté dans l'environnement de production.
 
 ####Simulation d'une défaillance
 
-- Simulez des charges de travail sur la base de données primaire. Si la base de données primaire est active au moment de l'arrêt, une perte de données peut se produire, ce qui rend l'exercice plus réaliste.
-- Supprimez la base de données primaire ou [forcez l'arrêt](sql-database-disaster-recovery.md) de la liaison dans la base de données secondaire.
+Pour simuler la défaillance, vous pouvez désactiver l'application Web ou un ordinateur virtuel connecté à la base de données. Cela entraîne un échec de connectivité pour les clients web.
 
-####Récupération
+####Récupérer
 
-- Modifiez la configuration de l'application pour établir une connexion à l'ancienne base de données secondaire en lecture seule qui sera alors accessible pour que l'application puisse l'utiliser en tant que nouvelle base de données primaire. 
-- Suivez le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md) (en anglais) pour terminer la récupération.
-
-####Validation
-
-- Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
-
-##Géo-réplication active
-
-L'exercice de récupération d'urgence est effectué en utilisant un serveur cible parallèle et en y créant un autre ensemble de bases de données secondaires en lecture seule. Une version test de la couche d'application doit être utilisée pour vérifier l'intégrité de l'opération et des données grâce à des tests sur ce serveur après l'arrêt forcé.
-
-####Simulation d'une défaillance
-
-- [Créez une liaison de géo-réplication active](sql-database-business-continuity-design.md) depuis la base de données primaire vers un serveur test secondaire. Si la base de données primaire est active au moment de l'arrêt, une perte de données peut se produire, ce qui rend l'exercice plus réaliste.
-- [Exécutez un arrêt forcé](sql-database-disaster-recovery.md) de la liaison dans la base de données secondaire qui se trouve dans le serveur test.
-
-####Récupération
-
-- Modifiez la configuration de l'application pour établir une connexion à l'ancienne base de données en lecture seule qui sera disponible pour des opérations d'écritures après l'arrêt.
-- Suivez le guide [Finaliser une base de données récupérée](sql-database-recovered-finalize.md) (en anglais) pour terminer la récupération.
+- Vérifiez que le la configuration de l'application dans la région de récupération d'urgence pointe vers le premier secondaire qui deviendra le nouveau principal entièrement accessible. 
+- Exécutez un [basculement planifié](sql-database-geo-replication-powershell.md#initiate-a-planned-failover) pour que la base de données secondaire devienne la nouvelle base de données primaire.
+- Suivez le guide [Configure a database after recovery](sql-database-disaster-recovery.md) pour effectuer la restauration.
 
 ####Validation
 
 - Terminez l'exercice de récupération en vérifiant l'intégrité des applications après la récupération (chaînes de connexion, connexions, test des fonctionnalités de base ou autres validations faisant partie de procédures d'approbations d'applications standard).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

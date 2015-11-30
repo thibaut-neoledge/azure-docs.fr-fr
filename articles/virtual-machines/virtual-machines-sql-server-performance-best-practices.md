@@ -14,21 +14,20 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
- 
-
-## Vue d'ensemble
+## Vue d’ensemble
 
 Cette rubrique présente les meilleures pratiques pour optimiser les performances de SQL Server dans Microsoft Azure Virtual Machines. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
 
-Lorsque vous créez des images SQL Server, envisagez d’utiliser le [nouveau portail](https://manage.windowsazure.com) pour tirer parti des fonctionnalités, telles que l’utilisation par défaut de Premium Storage et d’autres options, telles que les configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
+Lorsque vous créez des images SQL Server, envisagez d’utiliser le [nouveau portail](https://manage.windowsazure.com) pour tirer parti des fonctionnalités, telles que l’utilisation par défaut de Premium Storage et d’autres options, comme les configurations de la mise à jour corrective automatisée, de la sauvegarde automatisée et AlwaysOn.
 
->[AZURE.NOTE]Ce document se concentre sur l’obtention de meilleures performances pour SQL Server sur des machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
+Ce document se concentre sur l’obtention de meilleures performances pour SQL Server sur des machines virtuelles Azure. Si votre charge de travail est moindre, vous n’aurez peut-être pas besoin de toutes les optimisations suivantes. Tenez compte de vos besoins de performances et de vos modèles de charges de travail lors de l’évaluation de ces recommandations.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Liste de vérification rapide
 
@@ -54,7 +53,7 @@ Pour les applications sensibles aux performances, il est recommandé d’utilise
 
 Pour obtenir des informations actualisées sur les tailles de machine virtuelle prises en charge, consultez [Tailles de machines virtuelles](virtual-machines-size-specs.md).
 
-Par ailleurs, nous vous recommandons de créer votre compte de stockage Azure dans le même centre de données que vos machines virtuelles SQL Server afin de réduire les délais de transfert. Lors de la création d’un compte de stockage, désactivez la géo-réplication, étant donné que la cohérence de l’ordre d’écriture sur différents disques n’est pas garantie. Envisagez plutôt de configurer une technologie de récupération d’urgence de SQL Server entre deux centres de données Azure. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
+Par ailleurs, nous vous recommandons de créer votre compte de stockage Azure dans le même centre de données que vos machines virtuelles SQL Server afin de réduire les délais de transfert. Lors de la création d’un compte de stockage, désactivez la géo-réplication, étant donné que la cohérence de l’ordre d’écriture sur différents disques n’est pas garantie. Envisagez plutôt de configurer une technologie de récupération d’urgence de SQL Server entre deux centres de données Azure. Pour plus d’informations, consultez [Haute disponibilité et récupération d’urgence pour SQL Server sur des machines virtuelles Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Éléments à prendre en considération pour les disques et les performances
 
@@ -68,9 +67,9 @@ La stratégie de mise en cache par défaut sur le disque du système d’exploit
 
 ### Disque temporaire
 
-Le disque de stockage temporaire, désigné par la lettre de **D**:, n’est pas persistant dans le stockage d’objets blob Azure. Ne stockez pas vos données ou fichiers journaux sur le lecteur **D**:.
+Le disque de stockage temporaire, désigné par la lettre de **D**:, n’est pas persistant dans Azure Blob Storage. Ne stockez pas vos données ou fichiers journaux sur le lecteur **D**:.
 
-Stockez uniquement tempdb et/ou les extensions du pool de mémoires tampons sur le lecteur **D** quand vous utilisez les machines virtuelles de la série D ou G. Contrairement aux autres séries de machines virtuelles, le lecteur **D** des machines virtuelles des séries D et G est basé sur un stockage SSD. Cela peut améliorer les performances des charges de travail qui utilisent intensivement les objets temporaires ou qui disposent de plages de travail qui ne tiennent pas en mémoire. Pour plus d’informations, consultez [Utilisation des disques SSD dans les machines virtuelles Azure pour stocker TempDB et les extensions des pool de mémoires tampons de SQL Server](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
+Stockez uniquement tempdb et/ou les extensions du pool de mémoires tampons sur le lecteur **D** quand vous utilisez les machines virtuelles de la série D ou G. Contrairement aux autres séries de machines virtuelles, le lecteur **D** des machines virtuelles des séries D et G est basé sur un stockage SSD. Cela peut améliorer les performances des charges de travail qui utilisent intensivement les objets temporaires ou qui disposent de plages de travail qui ne tiennent pas en mémoire. Pour plus d’informations, consultez [Utilisation des disques SSD dans les machines virtuelles Azure pour stocker TempDB et les extensions des pools de mémoires tampons de SQL Server](http://blogs.technet.com/b/dataplatforminsider/archive/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions.aspx).
 
 ### Disque de données
 
@@ -120,7 +119,7 @@ Stockez uniquement tempdb et/ou les extensions du pool de mémoires tampons sur 
 
 Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
 
-- **Sauvegarde vers le stockage Azure** : lorsque vous créez des sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis le stockage Azure, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
+- **Sauvegarde vers le stockage Azure** : lorsque vous créez des sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis le stockage Azure, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-sql-server-automated-backup.md).
 
 	Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’[outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
 
@@ -128,10 +127,10 @@ Certains déploiements peuvent bénéficier de plus grands avantages en termes d
 
 ## Étapes suivantes
 
-Si vous voulez obtenir davantage d’informations sur SQL Server et Premium Storage, consultez l’article [Utilisation d’Azure Premium Storage avec SQL Server sur Virtual Machines](virtual-machines-sql-server-use-premium-storage.md).
+Si vous voulez obtenir davantage d’informations sur SQL Server et Premium Storage, consultez l’article [Utilisation de Premium Storage Azure avec SQL Server sur les machines virtuelles](virtual-machines-sql-server-use-premium-storage.md).
 
-Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-security-considerations.md).
+Pour les meilleures pratiques de sécurité, consultez [Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-security-considerations.md).
 
-Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md).
+Consultez d’autres rubriques relatives aux machines virtuelles avec SQL Server à la page [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

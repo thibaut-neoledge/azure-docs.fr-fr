@@ -155,9 +155,9 @@ Si vous êtes un utilisateur SMA existant, vous pouvez déplacer vos Runbooks ve
 
 Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation avec la fonctionnalité Runbook Worker hybride ou Service Management Automation est plus adapté à vos besoins.
 
-- SMA requiert une installation locale de Windows Azure Pack qui a des ressources plus locales et des coûts de maintenance plus élevés qu'Azure Automation qui nécessite uniquement qu'un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operations Management Suite, ce qui favorise la réduction des coûts de maintenance.
+- SMA requiert une installation locale de Windows Azure Pack avec des ressources plus locales et des coûts de maintenance plus élevés qu’Azure Automation, qui nécessite uniquement qu’un agent soit installé sur des Runbooks Workers locaux. Les agents sont gérés par Operations Management Suite, ce qui favorise la réduction des coûts de maintenance.
 - Azure Automation stocke ses Runbooks dans le cloud et les remet à des Runbooks Workers hybrides locaux. Si votre stratégie de sécurité n'autorise pas ce comportement, vous devez utiliser SMA.
-- Windows Azure Pack est un téléchargement gratuit tandis qu'Azure Automation peut entraîner des frais d'abonnement. Azure. Plusieurs bases de données doivent être tenues à jour pour SMA.
+- Windows Azure Pack est un téléchargement gratuit tandis qu'Azure Automation peut entraîner des frais d'abonnement.
 - Azure Automation avec la fonctionnalité Runbook Worker hybride vous permet de gérer les Runbooks pour les ressources cloud et les ressources locales dans un seul et même emplacement, plutôt que de gérer à la fois Azure Automation et SMA.
 - Azure Automation dispose de fonctionnalités avancées, comme la création de graphiques qui ne sont pas disponibles dans SMA.
 
@@ -168,4 +168,4 @@ Vous pouvez utiliser les critères suivants pour déterminer si Azure Automation
 - [Modification d'un Runbook dans Azure Automation](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

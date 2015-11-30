@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Prise en main d'Azure Data Lake Store avec l'interface de ligne de commande Azure
@@ -24,12 +24,12 @@
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
 - [Using Azure CLI](data-lake-store-get-started-cli.md)
 
-Apprenez à utiliser l'interface de ligne de commande Azure PowerShell pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme la création de dossiers, le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble de Data Lake Store](data-lake-store-overview.md).
+Apprenez à utiliser l'interface de ligne de commande Azure pour créer un compte Azure Data Lake Store et effectuer des opérations de base comme la création de dossiers, le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d'informations sur Data Lake Store, consultez [Vue d'ensemble de Data Lake Store](data-lake-store-overview.md).
 
 L’interface de ligne de commande Azure est implémentée dans Node.js. Elle peut être utilisée sur toute plateforme prenant en charge Node.js, y compris Windows, Mac et Linux. L’interface de ligne de commande Azure est open source. Le code source est géré dans GitHub sur <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a>. Cet article aborde uniquement l'utilisation de l'interface de ligne de commande Azure dans Data Lake Store. Pour une aide générale sur l’utilisation de l’interface de ligne de commande Azure, consultez la rubrique [Utiliser l’interface de ligne de commande Azure][azure-command-line-tools].
 
 
-##Configuration requise
+##Composants requis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -44,7 +44,7 @@ Suivez les étapes décrites dans [Se connecter à un abonnement Azure à partir
 
 ## Créer un compte Azure Data Lake Store
 
-Ouvrez une invite de commandes, un shell ou une Session Terminal Server et exécutez les commandes suivantes.
+Ouvrez une invite de commande, un shell ou une session de terminal et exécutez les commandes suivantes.
 
 1. Connectez-vous à votre abonnement Azure :
 
@@ -62,7 +62,7 @@ Ouvrez une invite de commandes, un shell ou une Session Terminal Server et exéc
 		azure account list
 
 
-4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l'abonnement que les commandes de l'interface de ligne de commande Azure utiliseront.
+4. Si vous possédez plusieurs abonnements Azure, utilisez la commande suivante pour définir l'abonnement que les commandes de l'interface de ligne de commande Azure utiliseront :
 
 		azure account set <subscriptionname>
 
@@ -72,7 +72,7 @@ Ouvrez une invite de commandes, un shell ou une Session Terminal Server et exéc
 
 	Si le nom de l'emplacement contient des espaces, entourez-le de guillemets. Par exemple, « East US 2 ».
 
-5. Créez le compte Azure Data Lake Store.
+5. Créez le compte Data Lake Store.
 
 		azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
@@ -90,7 +90,7 @@ Par exemple :
 
 Vous pouvez charger vos données dans Data Lake Store directement à la racine ou dans un dossier que vous avez créé dans le compte. Les extraits de code ci-dessous montrent comment charger des exemples de données dans le dossier (**mynewfolder**) que vous avez créé dans la section précédente.
 
-Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
+Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Téléchargez le fichier et stockez-le dans un répertoire local sur votre ordinateur, comme C:\\sampledata.
 
 	azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
@@ -135,7 +135,7 @@ Le résultat doit ressembler à ceci :
 
 		azure datalake store filesystem move mynewdatalakestore /mynewfolder/vehicle1_09142014.csv /mynewfolder/vehicle1_09142014_copy.csv
 
-* Utilisez la commande suivante **pour charger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
+* Utilisez la commande suivante **pour télécharger un fichier** : Assurez-vous que le chemin de destination que vous spécifiez existe.
 
 		azure datalake store filesystem export <dataLakeStoreAccountName> <source_path> <destination_path>
 
@@ -164,7 +164,7 @@ Par exemple :
 	azure datalake store permissions show mynewdatalakestore /
 
 
-## Suppression de votre Azure Data Lake Store
+## Suppression de votre compte Data Lake Store
 
 Utilisez la commande suivante pour supprimer un compte Data Lake Store.
 
@@ -192,4 +192,4 @@ Lorsque vous y êtes invité, entrez **Y** pour supprimer le compte.
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

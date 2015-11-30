@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Mise à niveau à partir de l'ancienne version de Visual Studio Online d'Application Insights" 
+	pageTitle="Mise à niveau à partir de l’ancienne version de Visual Studio Team Services d’Application Insights" 
 	description="Mise à niveau des projets existants"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Mise à niveau à partir de l'ancienne version de Visual Studio Online d'Application Insights
+# Mise à niveau à partir de l’ancienne version de Visual Studio Team Services d’Application Insights
 
-Ce document est susceptible de vous intéresser uniquement si vous avez un projet qui utilise encore l'ancienne version d'Application Insights, qui faisait partie de Visual Studio Online. Cette version sera désactivée en temps voulu, et par conséquent nous vous encourageons effectuer une mise à niveau vers la nouvelle version, qui est un service dans Microsoft Azure.
+Ce document est susceptible de vous intéresser uniquement si vous avez un projet qui utilise encore l’ancienne version d’Application Insights, qui faisait partie de Visual Studio Team Services. Cette version sera désactivée en temps voulu, et par conséquent nous vous encourageons effectuer une mise à niveau vers la nouvelle version, qui est un service dans Microsoft Azure.
 
 ## Quelle est la version que j'utilise ?
 
@@ -73,4 +73,4 @@ Sinon, examinez votre projet dans l'Explorateur de solutions Visual Studio et so
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

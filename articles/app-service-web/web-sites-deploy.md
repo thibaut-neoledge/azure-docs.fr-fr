@@ -24,9 +24,9 @@ Cet article répertorie les méthodes disponibles pour le déploiement de votre 
 
 La meilleure méthode pour déployer une application Web consiste à configurer un [flux de diffusion continu](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) intégré dans votre [système de contrôle du code source](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control). L'automatisation renforce l'efficacité du processus de développement, ainsi que la gestion et la fiabilité de vos processus de sauvegarde et de restauration.
 
-##### Déploiement à partir de systèmes de contrôle du code source hébergé sur le cloud
+##### Déploiement à partir de systèmes de contrôle du code source hébergés sur le cloud
 
-* [Livraison continue au moyen de Visual Studio Online](#vso)
+* [Livraison continue au moyen de Visual Studio Team Services](#vsts)
 * [Sites Web référentiels avec Git](#git)
 * [Sites Web référentiels avec Mercurial](#mercurial)
 * [Automatiser le déploiement avec Dropbox](#dropbox)
@@ -36,7 +36,7 @@ La meilleure méthode pour déployer une application Web consiste à configurer 
 * [Livraison continue avec Team Foundation Server (TFS)](#tfs)
 * [Référentiels Git ou Mercurial locaux](#onpremises)
 
-##### Automatiser le déploiement à l'aide d’outils en ligne de commande
+##### Automatiser le déploiement à l’aide d’outils en ligne de commande
 
 * [Automatiser le déploiement avec MSBuild](#msbuild)
 * [Copier des fichiers avec des scripts et des outils FTP](#ftp)
@@ -52,14 +52,14 @@ La meilleure méthode pour déployer une application Web consiste à configurer 
 
 Une autre option de déploiement consiste à utiliser un service basé sur le cloud comme [Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy). Pour plus d'informations, consultez la page [Déploiement d’applications ASP.NET sur des sites web Azure](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites).
 
-##<a name="vso"></a>Livraison continue au moyen de Visual Studio Online
+##<a name="vso"></a>Diffusion continue au moyen de Visual Studio Team Services
 
-[Visual Studio Online](http://www.visualstudio.com/) (anciennement Team Foundation Service) est une solution Microsoft basée sur le cloud pour le contrôle du code source et la collaboration d'équipe. Ce service est gratuit pour une équipe allant jusqu'à 5 développeurs. Vous pouvez effectuer une diffusion continue vers une application Web dans App Services, et votre référentiel peut utiliser [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
+[Visual Studio Online](http://www.visualstudio.com/) (anciennement Team Foundation Service) est une solution Microsoft basée sur le cloud pour le contrôle du code source et la collaboration d’équipe. Ce service est gratuit pour une équipe allant jusqu'à 5 développeurs. Vous pouvez effectuer une diffusion continue vers une application Web dans App Services, et votre référentiel peut utiliser [Git ou TFVC](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#gittfs).
 
 Pour plus d'informations, consultez les ressources suivantes :
 
-* [Diffusion continue sur Azure au moyen de Visual Studio Online et TFVC](../cloud-services-continuous-delivery-use-vso.md). Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Online vers une application web, en utilisant TFVC. TFVC est l’option de contrôle du code source centralisée, contrairement à Git, qui est l’option de contrôle du code source distribuée.
-* [Diffusion continue sur Azure au moyen de Visual Studio Online et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
+* [Livraison continue Azure au moyen de Visual Studio Team Services et TFVC](../cloud-services-continuous-delivery-use-vso.md) Didacticiel pas à pas montrant comment configurer des livraisons continues de Visual Studio Team Services et TFVC vers une application web, en utilisant TFVC. TFVC est l’option de contrôle du code source centralisée, contrairement à Git, qui est l’option de contrôle du code source distribuée.
+* [Livraison continue sur Azure au moyen de Visual Studio Team Services et Git](../cloud-services-continuous-delivery-use-vso-git.md). Semblable au didacticiel précédent, si ce n'est qu'il utilise Git et non TFVC.
 
 ##<a name="git"></a>Sites Web référentiels avec Git
 
@@ -142,7 +142,7 @@ Pour plus d'informations sur le déploiement en ligne de commande avec MSBuild, 
 
 ##<a name="ftp"></a>Copier des fichiers avec des scripts et des outils FTP
 
-Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application Web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
+Vous pouvez déployer le contenu sur votre application en utilisant [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) pour copier des fichiers. Vous pouvez facilement créer des informations d’identification FTP pour une application web, puis les utiliser dans des scripts ou des applications fonctionnant avec le FTP, comme les navigateurs tels qu’Internet Explorer et les utilitaires gratuits et complets tels que [FileZilla](https://filezilla-project.org/). Web Apps prend également en charge le protocole FTPS, plus sécurisé.
 
 Bien que les utilitaires FTP permettent de copier facilement vos fichiers d’application web dans Azure, ils n’effectuent ou ne coordonnent pas automatiquement de tâches de déploiement telles que le déploiement d’une base de données ou la modification de chaînes de connexion. De même, de nombreux outils FTP ne comparent pas les fichiers source et de destination afin d'ignorer la copie des fichiers qui n'ont pas été modifiés. Pour des applications volumineuses, le fait de toujours copier tous les fichiers peut allonger la durée des déploiements, même dans le cas d’une mise à jour mineure, puisque tous les fichiers sont toujours copiés.
 
@@ -180,7 +180,7 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 ##<a name="webdeploy"></a>Déploiement à partir de la ligne de commande Web Deploy
 
-[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) est un logiciel Microsoft pour le déploiement dans IIS qui fournit des fonctionnalités de synchronisation des fichiers intelligentes et effectue ou coordonne également de nombreuses autres tâches liées au déploiement qui ne peuvent pas être automatisées lorsque vous utilisez le FTP. Par exemple, Web Deploy peut déployer une nouvelle base de données ou mettre à jour une base de données existante avec votre application web. Web Deploy peut également réduire le délai de mise à jour d'un site existant, en copiant uniquement les fichiers modifiés. Microsoft WebMatrix, Visual Studio, Visual Studio Online et Team Foundation Server prennent en charge le logiciel Web Deploy intégré, mais vous pouvez également utiliser Web Deploy directement depuis la ligne de commande pour automatiser le déploiement. Les commandes Web Deploy sont très efficaces, mais leur apprentissage peut être long.
+[Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) est un logiciel Microsoft pour le déploiement dans IIS qui fournit des fonctionnalités de synchronisation des fichiers intelligentes et effectue ou coordonne également de nombreuses autres tâches liées au déploiement qui ne peuvent pas être automatisées lorsque vous utilisez le FTP. Par exemple, Web Deploy peut déployer une nouvelle base de données ou mettre à jour une base de données existante avec votre application web. Web Deploy peut également réduire le délai de mise à jour d'un site existant, en copiant uniquement les fichiers modifiés. Microsoft WebMatrix, Visual Studio, Visual Studio Team Services et Team Foundation Server prennent en charge le logiciel Web Deploy intégré, mais vous pouvez également utiliser Web Deploy directement depuis la ligne de commande pour automatiser le déploiement. Les commandes Web Deploy sont très efficaces, mais leur apprentissage peut être long.
 
 Pour plus d'informations, consultez les ressources suivantes :
 
@@ -205,4 +205,4 @@ Pour plus d’informations concernant d’autres rubriques de déploiement, cons
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="10/15/2015"
+   ms.date="11/11/2015"
    ms.author="mcoskun"/>
 
 # Introduction aux Collections fiable dans les services avec état de Service Fabric
@@ -108,6 +108,7 @@ Voici quelques points à retenir :
 
 - Le délai d'attente par défaut est de 4 secondes pour toutes les API de Collections fiables. La plupart des utilisateurs ne doivent pas remplacer ce délai.
 - Le jeton d'annulation par défaut est `CancellationToken.None` dans toutes les API de Collections fiables.
+- Le paramètre de type de clé (TKey) pour un dictionnaire fiable doit implémenter correctement GetHashCode() et Equals(). Les clés doivent être immuables.
 - Les énumérations sont un instantané cohérent au sein d'une collection. Toutefois, les énumérations de plusieurs collections ne sont pas cohérentes d'une collection à l'autre.
 - Pour obtenir un haut niveau de disponibilité pour les Collections fiables, chaque service doit avoir au moins une taille de jeu de réplicas cible minimum égale à 3.
 
@@ -118,4 +119,4 @@ Voici quelques points à retenir :
 - [Utilisation avancée du modèle de programmation de services fiables](service-fabric-reliable-services-advanced-usage.md)
 - [Référence du développeur pour les Collections fiables](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

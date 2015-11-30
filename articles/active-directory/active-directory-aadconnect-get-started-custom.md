@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/02/2015"
+	ms.date="11/16/2015"
 	ms.author="billmath;andkjell"/>
 
 # Installation personnalisée d’Azure AD Connect
@@ -46,7 +46,7 @@ Lorsque vous installez les services de synchronisation, vous pouvez laisser la s
 Configuration facultative | Description
 ------------- | ------------- |
 Nom du serveur SQL Server | Permet de spécifier le nom du serveur SQL et le nom de l’instance. Choisissez cette option si vous souhaitez utiliser un serveur de base de données existant.
-Compte de service | Par défaut, Azure AD Connect crée le compte de service local qu’utilisent les services de synchronisation. Le mot de passe est généré automatiquement et n’est pas connu de la personne qui installe Azure AD Connect. Si vous utilisez un serveur SQL distant, vous avez besoin d’un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte de service à utiliser. |
+Compte de service | Par défaut, Azure AD Connect crée le compte de service local qu’utilisent les services de synchronisation. Le mot de passe est généré automatiquement et n’est pas connu de la personne qui installe Azure AD Connect. Si vous utilisez un serveur SQL distant, vous avez besoin d’un compte de service dans le domaine et devez connaître le mot de passe. Dans ce cas, entrez le compte de service à utiliser. Assurez-vous que l’utilisateur qui exécute l’installation est une association de sécurité dans SQL pour qu’il soit possible de créer une session pour le compte de service. Consultez [Autorisations et comptes Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#custom-settings-installation). |
 Autorisations | Par défaut, Azure AD Connect crée quatre groupes locaux vers le serveur lorsque les services de synchronisation sont installés. Ces groupes sont Administrateurs, Opérateurs, Parcourir et Réinitialisation du mot de passe. Si vous souhaitez spécifier vos propres groupes, vous pouvez le faire ici. Les groupes doivent être locaux sur le serveur et ne peuvent pas être situés dans le domaine. |
 
 
@@ -121,10 +121,10 @@ Fonctionnalités facultatives | Description
 -------------------    | ------------- |
 Déploiement Exchange hybride |La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange locales et dans Azure grâce à la synchronisation d’un jeu d’[attributs](active-directory-aadconnectsync-attributes-synchronzied.md#exchange-hybrid-writeback) spécifique d’Azure AD Connect dans votre annuaire local.
 Application Azure AD et filtrage des attributs|En activant l’application Azure AD et le filtrage des attributs, l’ensemble des attributs synchronisés peut être adapté à un ensemble spécifique dans une page à venir de l’Assistant. Deux pages de configuration supplémentaires s’ouvrent dans l’Assistant.  
-Synchronisation du mot de passe | Vous pouvez activer cette option si vous avez sélectionné la fédération comme solution de connexion. La synchronisation de mot de passe peut ensuite servir d’option de sauvegarde. Pour plus d’informations, consultez [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
+Synchronisation du mot de passe | Vous pouvez activer cette option si vous avez sélectionné la fédération comme solution de connexion. La synchronisation de mot de passe peut ensuite servir d’option de sauvegarde. Pour davantage d’informations, consultez [Synchronisation de mot de passe](active-directory-aadconnectsync-implement-password-synchronization.md).
 Écriture différée du mot de passe|En activant l’écriture différée du mot de passe, les modifications de mot de passe provenant d’Azure AD Connect sont réécrites dans votre annuaire local. Pour plus d’informations, consultez [Prise en main de la gestion de mot de passe](active-directory-passwords-getting-started.md).
 Écriture différée de groupe |Si vous utilisez la fonctionnalité **Groupes dans Office 365**, ces groupes peuvent servir de groupes de distribution dans votre annuaire Active Directory local. Cette option n’est disponible que si Exchange est présent dans votre annuaire Active Directory local. Pour plus d’informations, consultez [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback).
-Écriture différée des appareils | Permet d’écrire de façon différée des objets d’appareil dans Azure AD, au sein de l’annuaire Active Directory local, dans le cadre de scénarios à accès conditionnel. Pour plus d’informations, consultez [Activation de l’écriture différée d’appareils dans Azure Connect AD](active-directory-aadconnect-get-started-custom-device-writeback.md).
+Écriture différée des appareils | Permet d’écrire de façon différée des objets d’appareil dans Azure AD, au sein de l’annuaire Active Directory local, dans le cadre de scénarios à accès conditionnel. Pour plus d’informations, consultez [Activation de l’écriture différée d’appareils dans Azure AD Connect](active-directory-aadconnect-get-started-custom-device-writeback.md).
 Synchronisation des attributs des extensions d’annuaire|En activant la synchronisation des attributs des extensions d’annuaire, les attributs supplémentaires spécifiés seront synchronisés avec Azure AD. Pour plus d’informations, consultez [Extensions d’annuaire](active-directory-aadconnect-feature-preview.md#directory-extensions).
 
 ### Application Azure AD et filtrage des attributs
@@ -242,8 +242,8 @@ Veuillez également vérifier les points suivants :
 
 
 ## Étapes suivantes
-Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences ](active-directory-aadconnect-whats-next.md)
+Azure AD Connect étant installé, vous pouvez passer à [Vérification de l’installation et affectation des licences](active-directory-aadconnect-whats-next.md).
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Ajout de notifications Push à votre application Windows Runtime 8.1 universelle
@@ -79,14 +79,13 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs`, et cliquez enfin sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
 
-3. Dans le serveur de projet, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+2. Dans le serveur de projet, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
-	
 
-2. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l'appel à **InsertAsync** :
+3. Dans la méthode **PostTodoItem**, ajoutez le code suivant après l'appel à **InsertAsync** :
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -130,32 +129,24 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 
 ##<a id="update-service"></a>Ajout de notifications Push à votre application
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur la solution, puis cliquez sur **Manage NuGet Packages**. 
-
-    La boîte de dialogue Gérer les packages NuGet s'affiche.
-
-2. Recherchez le kit de développement logiciel (SDK) du client App Service Mobile App et cliquez sur **Installer**, puis sélectionnez tous les projets clients de la solution et acceptez les conditions d'utilisation.
-
-    Cette opération lance le téléchargement, l'installation et l'ajout d'une référence dans tous les projets clients à la bibliothèque Azure Mobile Push pour Windows.
-
-3. Ouvrez le fichier de projet partagé **App.xaml.cs** et ajoutez les instructions `using` suivantes :
+1. Ouvrez le fichier projet partagé **App.xaml.cs** et ajoutez les instructions `using` suivantes :
 
 		using System.Threading.Tasks;  
         using Windows.Networking.PushNotifications;       
 
-4. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
+2. Dans le même fichier, ajoutez la définition de la méthode **InitNotificationsAsync** à la classe **App** :
     
         private async Task InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Ce code récupère l'URI de canal ChannelURI pour l'application dans WNS et l'inscrit avec votre application App Service Mobile App.
     
-5. En haut du gestionnaire d'événements **OnLaunched** dans **App.xaml.cs**, ajoutez le modificateur **async** à la définition de méthode et ajoutez l'appel suivant à la nouvelle méthode **InitNotificationsAsync**, comme dans l'exemple suivant :
+3. En haut du gestionnaire d’événements **OnLaunched** dans **App.xaml.cs**, ajoutez le modificateur **async** à la définition de méthode et ajoutez l’appel suivant à la nouvelle méthode **InitNotificationsAsync**, comme dans l’exemple suivant :
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -166,17 +157,22 @@ Maintenant que les notifications push sont activées dans l'application, vous de
 
     Cela garantit l'inscription de l'URI de canal ChannelURI de courte durée chaque fois que l'application est lancée.
 
-6. Dans l’Explorateur de solutions, double-cliquez sur **Package.appxmanifest** de l’application Windows Store, dans **Notifications**, définissez **Compatible toast** sur **Oui** :
+4. Dans l’Explorateur de solutions, double-cliquez sur **Package.appxmanifest** de l’application Windows Store, dans **Notifications**, définissez **Compatible toast** sur **Oui** :
 
     Dans le menu **Fichier**, cliquez sur **Enregistrer tout**.
 
-7. Répétez l'étape précédente dans le projet d'application Windows Phone Store.
+5. Répétez l'étape précédente dans le projet d'application Windows Phone Store.
 
 Votre application est maintenant prête à recevoir des notifications toast.
 
 ##<a id="test"></a>Tester les notifications push dans votre application
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
+
+##<a id="more"></a>En savoir plus
+
+* Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) vous montre comment enregistrer des modèles.
+* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l’installation d’un périphérique.
 
 <!-- Anchors. -->
 
@@ -185,4 +181,4 @@ Votre application est maintenant prête à recevoir des notifications toast.
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

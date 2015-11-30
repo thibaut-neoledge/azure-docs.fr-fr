@@ -13,24 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # Prise en main des services fiables Service Fabric de Microsoft Azure
 
-Une application Service Fabric contient un ou plusieurs services qui exécutent votre code. Ce didacticiel vous guide tout au long des étapes de création d'applications Service Fabric « Hello World » avec et sans état à l'aide du [modèle de programmation *Reliable Services*](service-fabric-reliable-services-introduction.md).
-
-Un service sans état est le type de service qui existe principalement dans des applications cloud actuelles. Le service est considéré comme étant sans état car le service proprement dit ne contient pas de données devant être stockées de manière fiable ou rendues hautement disponibles. En d'autres termes, si une instance d'un service sans état s'arrête, l'intégralité de son état interne est perdue. Dans ces types de services, l'état doit être conservé dans un magasin externe, comme les Tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
-
-Service Fabric présente un nouveau type de service avec état : un service qui peut gérer l'état de manière fiable dans le service lui-même, colocalisé avec le code qui l'utilise. Votre état est rendu hautement disponible par Service Fabric sans avoir besoin de conserver l'état dans un magasin externe.
-
-Dans ce didacticiel, vous allez implémenter un service sans état et un service avec état conservant un compteur interne. Dans le service sans état, la valeur du compteur est perdue lorsque le service redémarre ou se déplace. Toutefois, dans le service avec état, l'état du compteur est rendu fiable par Service Fabric. Ainsi, si l'exécution du service est interrompue pour une raison quelconque au milieu du comptage, elle peut reprendre là où elle s'était arrêtée.
+Une application Service Fabric contient un ou plusieurs services qui exécutent votre code. Ce guide vous montre comment créer des applications Service Fabric avec et sans état à l'aide de [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Création d'un service sans état
 
-Commençons par un service sans état.
+Un service sans état est le type de service qui existe principalement dans des applications cloud actuelles. Le service est considéré comme étant sans état car le service proprement dit ne contient pas de données devant être stockées de manière fiable ou rendues hautement disponibles. En d'autres termes, si une instance d'un service sans état s'arrête, l'intégralité de son état interne est perdue. Dans ces types de services, l'état doit être conservé dans un magasin externe, comme les Tables Azure ou une base de données SQL, pour être hautement disponible et fiable.
 
-Lancez Visual Studio 2015 RC comme **Administrateur** et créez un projet **Application Service Fabric** nommé *HelloWorld* :
+Lancez Visual Studio 2015 RC en tant qu’**Administrateur** et créez un projet **Application Service Fabric** nommé *HelloWorld* :
 
 ![Utiliser la boîte de dialogue Nouveau projet pour créer une application Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
@@ -46,7 +40,7 @@ Votre solution contient maintenant 2 projets :
 
 ## Mettre en œuvre le service
 
-Ouvrez le fichier **HelloWorld.cs** dans le projet de service. Dans Service Fabric, un service peut exécuter n'importe quelle logique métier. L'API de service fournit deux points d'entrée pour votre code :
+Ouvrez le fichier **HelloWorldStateless.cs** dans le projet de service. Dans Service Fabric, un service peut exécuter n'importe quelle logique métier. L'API de service fournit deux points d'entrée pour votre code :
 
  - Une méthode de point d'entrée de durée indéterminée appelée *RunAsync* avec laquelle vous pouvez commencer l'exécution de toute charge de travail, comme les charges de travail de calcul de longue durée.
 
@@ -60,7 +54,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - Un point d'entrée de communication où vous pouvez connecter la pile de communication de votre choix, comme l'API Web, vous permettant de recevoir des requêtes d'utilisateurs ou d'autres services.
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -74,15 +68,20 @@ Dans ce didacticiel, nous allons nous concentrer sur la méthode de point d'entr
 ### RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -102,6 +101,8 @@ Dans cet exemple de service sans état, le décompte est stocké dans une variab
 
 ## Création d'un service avec état
 
+Service Fabric présente un nouveau type de service avec état : un service qui peut gérer l'état de manière fiable dans le service lui-même, colocalisé avec le code qui l'utilise. Votre état est rendu hautement disponible par Service Fabric sans avoir besoin de conserver l'état dans un magasin externe.
+
 Pour convertir notre valeur de compteur de sans état à hautement disponible et persistante même lorsque le service se déplace ou redémarre, nous avons besoin d'un service avec état.
 
 Dans la même application **HelloWorld**, ajoutez un nouveau service en cliquant avec le bouton droit de la souris sur le projet d'application et en sélectionnant **Nouveau Service Fabric**.
@@ -117,27 +118,40 @@ Votre application doit maintenant contenir deux services : le service sans éta
 Ouvrez **HelloWorldStateful.cs** dans *HelloWorldStateful* qui contient la méthode `RunAsync` suivante :
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -204,4 +218,4 @@ Une fois que les services sont en cours d'exécution, vous pouvez voir les évé
 
 [Référence du développeur pour les services fiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

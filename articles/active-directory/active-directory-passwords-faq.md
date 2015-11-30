@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Forum aux questions - Gestion des mots de passe
@@ -187,21 +187,20 @@ Ce Forum Aux Questions est organisé de la manière suivante :
 
 <br/> <br/> <br/>
 
-**Ressources supplémentaires**
+## Liens vers la documentation de réinitialisation du mot de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-
-* [Définition de la gestion des mots de passe](active-directory-passwords.md)
-* [Fonctionnement de la gestion des mots de passe](active-directory-passwords-how-it-works.md)
-* [Prise en main de la gestion des mots de passe](active-directory-passwords-getting-started.md)
-* [Personnalisation de la gestion des mots de passe](active-directory-passwords-customize.md)
-* [Meilleures pratiques de gestion des mots de passe](active-directory-passwords-best-practices.md)
-* [Obtention d’informations grâce aux rapports sur la gestion des mots de passe](active-directory-passwords-get-insights.md)
-* [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
-* [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
+* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

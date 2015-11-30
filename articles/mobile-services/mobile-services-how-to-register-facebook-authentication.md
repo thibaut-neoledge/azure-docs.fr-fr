@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/25/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Inscription des applications pour l'authentification Facebook avec Mobile Services
@@ -48,12 +48,15 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 	
     >[AZURE.IMPORTANT]La clé secrète de l'application est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application. &nbsp;
 
-8. Cliquez sur l'onglet **Advanced**, tapez l'URL de votre service mobile suivie du chemin _/login/facebook_ dans **URI de redirection valide OAuth**, puis cliquez sur **Enregistrer les modifications**. &nbsp;
+8. Cliquez sur l’onglet **Avancé** onglet, entrez l’un des formats d’URL suivants dans **URI de redirection OAuth valides**, puis cliquez sur **Enregistrer les modifications** :
+ 
+	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-facebook`
+	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/facebook` 
 
-     >[AZURE.NOTE]Pour un service mobile principal .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-facebook_ de votre service mobile en tant que service .NET, par exemple `https://todolist.azure-mobile.net/signin-facebook`.
+	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera.
+
        
-
-9. Cliquez sur **Status & Review** > **Yes** pour activer l’accès du public à votre application.
+9. Cliquez sur **Statut et révision** > **Oui** pour ouvrir l’accès à votre application au public.
 
 	Le compte Facebook que vous avez utilisé pour inscrire la nouvelle application est un compte d’administrateur de l’application et peut y accéder en tant que tel. Cette étape accorde l’accès au public, pour que l’application puisse effectuer une authentification à l’aide d’autres comptes Facebook.
 
@@ -73,4 +76,4 @@ Vous pouvez désormais utiliser une connexion Facebook pour l'authentification d
 [Azure Mobile Services]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

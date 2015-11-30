@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="11/15/2015" 
 	ms.author="glenga"/>
 
 # Inscription des applications pour la connexion Google avec Mobile Services
@@ -34,11 +34,14 @@ Pour effectuer la procédure de cette rubrique, vous devez disposer d'un compte 
 
 6. Dans l’onglet **Informations d'identification**, cliquez sur **Ajouter des informations d'identification** > **ID client OAuth 2.0**, puis sélectionnez **Application Web**.
 
-7. Tapez l'URL de votre service mobile dans **Origines JavaScript autorisées**, remplacez l'URL générée dans **URI de redirection autorisé** par l'URL de votre service mobile suivie de `/login/google`, puis cliquez sur **Créer un ID de client**.
+7. Entrez l’URL de votre service mobile dans **Origines JavaScript autorisées**, remplacez l’URL générée dans **URI de redirection autorisée** par l’un des formats d’URL suivants, puis cliquez sur **Créer un ID de client** :
+ 
+	+ **Service principal .NET** : `https://<mobile_service>.azure-mobile.net/signin-google`
+	+ **Service principal JavaScript** : `https://<mobile_service>.azure-mobile.net/login/google` 
 
-	>[AZURE.NOTE]Pour un service mobile principal .NET publié sur Azure avec Visual Studio, l'URL de redirection est l'URL de votre service mobile, suivie du chemin _signin-google_ de votre service mobile en tant que service .NET, par exemple `https://todolist.azure-mobile.net/signin-google`.
-	
-8. Sur l’écran suivant, notez les valeurs de l'ID du client et de la clé secrète client.
+	 >[AZURE.NOTE]Assurez-vous d’utiliser le format de chemin d’accès d’URL de redirection correct pour votre type de serveur principal Mobile Services. Si ce n’est pas le cas, l’authentification échouera.
+
+8. Sur l'écran suivant, notez les valeurs de l'ID du client et de la clé secrète client.
 
     > [AZURE.IMPORTANT]La clé secrète client est une information d'identification de sécurité importante. Ne partagez cette clé secrète avec personne et ne la distribuez pas dans une application cliente.
 
@@ -56,4 +59,4 @@ Vous êtes désormais prêt à configurer votre service mobile pour utiliser l'a
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

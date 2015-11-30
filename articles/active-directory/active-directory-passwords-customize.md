@@ -13,15 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Personnalisation de la gestion des mots de passe en fonction des besoins de votre organisation
 Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous recommandons d’explorer et de tester les options de configuration de la gestion de mot de passe qui sont à votre disposition. De fait, vous pouvez de suite commencer cette exploration en ouvrant l’onglet de configuration de l’**extension Active Directory** dans le [portail de gestion Azure](https://manage.windowsazure.com). Cette rubrique vous présente toutes les possibilités de personnalisation de la gestion des mots de passe que vous appliquez en tant qu’administrateur depuis l’onglet **Configurer** de votre annuaire, sur le [portail de gestion Azure](https://manage.windowsazure.com). Par exemple :
 
-- [**Personnalisation de l’interface de gestion des mots de passe**](#password-managment-look-and-feel)
-- [**Personnalisation du comportement de gestion des mots de passe des utilisateurs**](#password-management-behavior)
-- [**Personnalisation des notifications de gestion des mots de passe**](#password-management-notifications)
+| Rubrique | |
+| --------- | --------- |
+| Comment activer ou désactiver la réinitialisation des mots de passe ? | [Paramétrage : utilisateurs autorisés à réinitialiser leur mot de passe](#users-enabled-for-password-reset) |
+| Comment appliquer la réinitialisation de mot de passe à un ensemble spécifique d’utilisateurs ? | [Restreindre la réinitialisation de mot de passe à certains utilisateurs](#restrict-access-to-password-reset) |
+| Comment modifier la liste des méthodes d’authentification prises en charge ? | [Paramétrage : méthodes d’authentification accessibles aux utilisateurs](#authentication-methods-available-to-users) |
+| Comment modifier le nombre de méthodes d’authentification requises ? | [Paramétrage : nombre de méthodes d’authentification requises](#number-of-authentication-methods-required) |
+| Comment configurer les questions de sécurité personnalisées ? | [Paramétrage : questions de sécurité personnalisées](#custom-security-questions) |
+| Comment définir des questions de sécurité localisées préenregistrées ? | [Paramétrage : questions de sécurité basées sur des informations](#knowledge-based-security-questions) |
+| Comment modifier le nombre de questions de sécurité requis ? | [Paramétrage : nombre de questions de sécurité pour l’inscription ou la réinitialisation](#number-of-questions-required-to-register) |
+| Comment obliger les utilisateurs à s’inscrire lorsqu’ils se connectent ? | [Inscription obligatoire lors de la réinitialisation de mot de passe](#require-users-to-register-when-signing-in) |
+| Comment obliger les utilisateurs à confirmer périodiquement qu’ils sont bien inscrits ? | [Paramétrage : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Comment personnaliser la façon dont un utilisateur contacte un administrateur ? | [Paramétrage : personnaliser le lien « Contactez votre administrateur »](#customize-the-contact-your-administrator-link) |
+| Comment autoriser les utilisateurs à déverrouiller les comptes Active Directory sans réinitialiser un mot de passe ? | [Paramétrage : autoriser les utilisateurs à déverrouiller leurs comptes Active Directory sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? | [Paramétrage : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? | [Paramétrage : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramétrage : nom, marque et logo de l’entreprise](#password-managment-look-and-feel) |
+
 
 ## Interface de gestion des mots de passe
 Le tableau suivant décrit comment chaque contrôle affecte l’expérience des utilisateurs qui s’inscrivent pour réinitialiser leur mot de passe. Vous pouvez configurer ces options dans la section **Propriétés de l’annuaire** de l’onglet **Configurer**, sur le [portail de gestion Azure](https://manage.windowsazure.com).
@@ -46,7 +60,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Nom de l’annuaire</p>
+                <div id="directory-name">
+                  <p>Nom de l’annuaire</p>
+                </div>
               </td>
               <td>
                 <p>Détermine le nom que voient les utilisateurs et les administrateurs dans les différentes communications relatives à la réinitialisation du mot de passe.</p>
@@ -72,7 +88,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Apparence de la page de connexion et de la page du panneau d’accès</p>
+                <div id="sign-in-and-access-panel-page-appearance">
+                  <p>Apparence de la page de connexion et de la page du panneau d’accès</p>
+                </div>
               </td>
               <td>
                 <p>Détermine si les utilisateurs qui accèdent à la page de réinitialisation du mot de passe voient le logo Microsoft ou votre propre logo. Cet élément de configuration ajoute également votre marque au panneau d’accès et à la page de connexion.</p>
@@ -134,7 +152,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Utilisateurs autorisés à réinitialiser leur mot de passe</p>
+                <div id="users-enabled-for-password-reset">
+                  <p>Utilisateurs autorisés à réinitialiser leur mot de passe</p>
+                </div>
               </td>
               <td>
                 <p>Détermine si la réinitialisation du mot de passe est activée pour les utilisateurs de cet annuaire. </p>
@@ -166,7 +186,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Limiter l’accès à la réinitialisation des mots de passe</p>
+                <div id="restrict-access-to-password-reset">
+                  <p>Limiter l’accès à la réinitialisation des mots de passe</p>
+                </div>
               </td>
               <td>
                 <p>Détermine si seul un groupe d’utilisateurs en particulier est autorisé à utiliser la réinitialisation du mot de passe. (Visible uniquement si <strong>Utilisateurs autorisés à réinitialiser leur mot de passe</strong> est défini sur <strong>Oui</strong>).</p>
@@ -194,7 +216,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Groupe pouvant effectuer la réinitialisation des mots de passe</p>
+                <div id="group-that-can-perform-password-reset">
+                  <p>Groupe pouvant effectuer la réinitialisation des mots de passe</p>
+                </div>
               </td>
               <td>
                 <p>Détermine quel groupe d’utilisateurs est autorisé à utiliser la réinitialisation du mot de passe. </p>
@@ -231,7 +255,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Méthodes d’authentification accessibles aux utilisateurs</p>
+                <div id="authentication-methods-available-to-users">
+                  <p>Méthodes d’authentification accessibles aux utilisateurs</p>
+                </div>
               </td>
               <td>
                 <p>Détermine les vérifications que les utilisateurs sont autorisés à utiliser pour réinitialiser leur mot de passe.</p>
@@ -295,7 +321,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Nombre de méthodes d’authentification requises</p>
+                <div id="number-of-authentication-methods-required">
+                  <p>Nombre de méthodes d’authentification requises</p>
+                </div>
               </td>
               <td>
                 <p>Détermine le nombre minimal de méthodes d’authentification disponibles que l’utilisateur doit appliquer pour réinitialiser son mot de passe.</p>
@@ -332,7 +360,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Nombre de questions requises pour l’inscription</p>
+                <div id="number-of-questions-required-to-register">
+                  <p>Nombre de questions requises pour l’inscription</p>
+                </div>
               </td>
               <td>
                 <p>Détermine le nombre minimal de questions auxquelles un utilisateur doit répondre lors de l’inscription pour l’option des questions de sécurité.</p>
@@ -361,7 +391,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Nombre de questions requises pour la réinitialisation </p>
+                <div id="number-of-questions-required-to-reset">
+                  <p>Nombre de questions requises pour la réinitialisation </p>
+                </div>
               </td>
               <td>
                 <p>Détermine le nombre minimal de questions auxquelles un utilisateur doit répondre lors de la réinitialisation du mot de passe.</p>
@@ -393,7 +425,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Questions de sécurité basées sur des informations</p>
+                <div id="knowledge-based-security-questions">
+                  <p>Questions de sécurité basées sur des informations</p>
+                </div>
               </td>
               <td>
                 <p>Définit les questions préconçues de sécurité que vos utilisateurs peuvent choisir au moment de l’inscription à la réinitialisation du mot de passe et au moment de la réinitialisation de leur mot de passe.</p>
@@ -442,7 +476,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Questions de sécurité personnalisées</p>
+                <div id="custom-security-questions">
+                  <p>Questions de sécurité personnalisées</p>
+                </div>
               </td>
               <td>
                 <p>Définit les questions de sécurité que vos utilisateurs peuvent choisir lors de l’inscription à la réinitialisation du mot de passe et lors de la réinitialisation de leur mot de passe.</p>
@@ -493,13 +529,22 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent au panneau d’accès&#160;?</p>
+                <div id="require-users-to-register-when-signing-in">
+                  <p>Obliger les utilisateurs à s’inscrire durant la connexion ?</p>
+                </div>
                 <p>
                   
                 </p>
               </td>
               <td>
-                <p>Détermine si les utilisateurs doivent fournir leurs coordonnées pour la réinitialisation du mot de passe la prochaine fois qu’ils se connecteront au panneau d’accès.</p>
+                <p>Détermine si les utilisateurs doivent fournir leurs coordonnées pour la réinitialisation du mot de passe la prochaine fois qu’ils se connecteront.  
+                </p>
+                <p>Cette fonctionnalité fonctionne sur n’importe quelle page de connexion qui utilise un compte professionnel ou scolaire. Ces pages incluent toutes les applications Office&#160;365, le portail de gestion Azure, le panneau d’accès et toutes les applications fédérées ou personnalisées qui utilisent Azure AD pour se connecter.
+                </p>
+                <p>
+                  
+                </p>
+                <p>L’inscription obligatoire s’applique uniquement aux utilisateurs qui sont autorisés à réinitialiser le mot de passe, ce qui signifie que vous avez utilisé la fonctionnalité «&#160;Limiter l’accès à la réinitialisation des mots de passe&#160;» et étendu la réinitialisation des mots de passe à certains utilisateurs, qui devront donc s’inscrire à la réinitialisation de mot de passe lors de la connexion.</p>
                 <p>
                   
                 </p>
@@ -534,7 +579,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Nombre de jours avant que les utilisateurs ne doivent confirmer leurs coordonnées</p>
+                <div id="number-of-days-before-users-must-confirm-their-contact-data">
+                  <p>Nombre de jours avant que les utilisateurs ne doivent confirmer leurs coordonnées</p>
+                </div>
               </td>
               <td>
                 <p>Lorsque <strong>Demander aux utilisateurs de s’inscrire</strong> est activé, ce paramètre détermine le temps qui peut s’écouler avant que l’utilisateur ne doive reconfirmer ses coordonnées. </p>
@@ -568,7 +615,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Personnaliser le lien «&#160;Contactez votre administrateur&#160;»</p>
+                <div id="customize-the-contact-your-administrator-link">
+                  <p>Personnaliser le lien «&#160;Contactez votre administrateur&#160;»</p>
+                </div>
               </td>
               <td>
                 <p>Contrôle si le lien Contactez votre administrateur (illustré à gauche) apparaît sur le portail de réinitialisation du mot de passe lorsqu’une erreur se produit, lorsque l’utilisateur attend trop longtemps ou lorsqu’une opération pointe vers une URL ou une adresse électronique personnalisée.</p>
@@ -612,7 +661,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Adresse électronique ou URL personnalisée</p>
+                <div id="custom-email-address-or-URL">
+                  <p>Adresse électronique ou URL personnalisée</p>
+                </div>
               </td>
               <td>
                 <p>Contrôle l’adresse électronique ou l’URL à laquelle renvoie le lien <strong>Contactez votre administrateur</strong>. </p>
@@ -644,14 +695,16 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Écriture différée des mots de passe dans l’annuaire local</p>
+                <div id="write-back-passwords-to-on-premises-directory">
+                  <p>Écriture différée des mots de passe dans l’annuaire local</p>
+                </div>
               </td>
               <td>
                 <p>Contrôle si l’écriture différée de mot de passe est activée ou non pour cet annuaire. Si elle l’est, indique l’état du service d’écriture différée local.</p>
                 <p>
                   
                 </p>
-                <p>C’est utile si vous voulez désactiver temporairement le service en cas de panne.</p>
+                <p>C’est utile si vous voulez désactiver temporairement le service sans reconfigurer Azure AD Connect.</p>
               </td>
               <td>
                 <p>
@@ -688,6 +741,41 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
                 </ul>
               </td>
             </tr>
+             <tr>
+              <td>
+                <div id="allow-users-to-unlock-accounts-without-resetting-their-password">
+                  <p>Autoriser les utilisateurs à déverrouiller les comptes sans réinitialiser leur mot de passe</p>
+                </div>
+              </td>
+              <td>
+              
+              <p>Indique si les utilisateurs qui visitent le portail de réinitialisation de mot de passe doivent ou non avoir la possibilité de déverrouiller leurs comptes Active Directory locaux sans réinitialiser leur mot de passe. Par défaut, Azure AD déverrouille toujours les comptes sans procéder à la réinitialisation de mot de passe. Ce paramétrage permet donc de différencier ces deux opérations.</p>
+              
+              <p>Si la valeur est «&#160;Oui&#160;», les utilisateurs auront la possibilité de réinitialiser leur mot de passe et de déverrouiller le compte ou de déverrouiller celui-ci sans réinitialiser le mot de passe. </p>
+              
+              <p>Si la valeur est «&#160;Non&#160;», les utilisateurs devront réinitialiser leur mot de passe lorsqu’ils déverrouilleront leur compte.</p>
+
+              </td>
+              <td>
+                <p>
+                  <strong>Remarque&#160;:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Pour utiliser cette fonctionnalité, vous devez installer la version d’août&#160;2015 ou une version postérieure d’Azure AD Connect (version 1.0.8667.0.x ou supérieure).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Cliquez ici pour télécharger la dernière version d’Azure AD Connect</a>.</li>
+                        
+                  <li class="unordered">
+                    <strong>Remarque :</strong> pour tester cette fonctionnalité, vous devez activer l’écriture différée du mot de passe et utiliser un compte provenant d’un utilisateur du site local (comme un utilisateur fédéré ou un utilisateur à mot de passe synchronisé) et possédant un compte verrouillé. Les utilisateurs qui ne proviennent pas du site local et qui n’ont pas de compte verrouillé ne verront pas l’option de déverrouillage de leurs comptes.</li>
+                </ul>
+                <p>
+                  <strong>Portail de réinitialisation du mot de passe&#160;:</strong>
+                </p>
+                <ul>
+                  <li class="unordered">
+												Une fois cette option activée, lorsqu’un utilisateur avec un compte local verrouillé accède au portail de réinitialisation du mot de passe, il a la possibilité de déverrouiller son compte sans réinitialiser son mot de passe.<br><br>Notez que si vous utilisez l’écriture différée du mot de passe, les comptes sont déjà déverrouillés automatiquement lorsque le mot de passe est réinitialisé et que cette option dissocie simplement ces opérations.<br><br>Il s’agit d’une option particulièrement utile à activer si vous constatez que beaucoup de vos appels au support technique sont générés par des demandes de déverrouillage de compte.</li>
+                </ul>
+              </td>
+            </tr>
           </tbody></table>
 
 ## Notifications de gestion du mot de passe
@@ -713,7 +801,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Avertir les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe</p>
+                <div id="notify-admins-when-other-admins-reset-their-own-passwords">
+                  <p>Avertir les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe</p>
+                </div>
               </td>
               <td>
                 <p>Détermine si tous les généraux sont informés par courrier électronique à leur adresse électronique principale lorsqu’un autre administrateur de n’importe quel type réinitialise son mot de passe.</p>
@@ -741,7 +831,9 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
             </tr>
             <tr>
               <td>
-                <p>Avertir les utilisateurs et les administrateurs quand leur mot de passe a été réinitialisé</p>
+                <div id="notify-users-and-admins-when-their-own-password-has-been-reset">
+                  <p>Avertir les utilisateurs et les administrateurs quand leur mot de passe a été réinitialisé</p>
+                </div>
               </td>
               <td>
                 <p>Détermine si les utilisateurs et les administrateurs qui ont réinitialisé leur mot de passe doivent recevoir une notification les informant que leur mot de passe a été réinitialisé.</p>
@@ -765,17 +857,19 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
 
 <br/> <br/> <br/>
 
-**Ressources supplémentaires**
+## Liens vers la documentation sur la réinitialisation des mots de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation des mots de passe :
+
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : en savoir plus sur la procédure de réinitialisation ou la modification de votre mot de passe en tant qu’utilisateur du système
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
+* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 
-* [Définition de la gestion des mots de passe](active-directory-passwords.md)
-* [Fonctionnement de la gestion des mots de passe](active-directory-passwords-how-it-works.md)
-* [Prise en main de la gestion des mots de passe](active-directory-passwords-getting-started.md)
-* [Meilleures pratiques de gestion des mots de passe](active-directory-passwords-best-practices.md)
-* [Obtention d’informations grâce aux rapports sur la gestion des mots de passe](active-directory-passwords-get-insights.md)
-* [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
-* [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
-* [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+[001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

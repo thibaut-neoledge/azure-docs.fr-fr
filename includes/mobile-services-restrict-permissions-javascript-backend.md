@@ -7,4 +7,4 @@ Pour sécuriser vos points de terminaison, vous devez limiter l’accès aux cli
 
 	 Cela permet de s’assurer que toutes les opérations effectuées sur la table nécessitent un utilisateur authentifié, ce qui est requis pour ce didacticiel. Vous pouvez définir différentes autorisations sur chaque opération pour prendre en charge votre scénario spécifique.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

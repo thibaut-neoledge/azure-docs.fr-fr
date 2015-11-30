@@ -1,0 +1,213 @@
+<properties 
+	pageTitle="Vue d'ensemble du modèle de licence Widevine" 
+	description="Cette rubrique donne un aperçu d'un modèle de licence Widevine utilisé pour configurer des licences Widevine." 
+	authors="juliako" 
+	manager="dwrede" 
+	editor="" 
+	services="media-services" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/11/2015"
+	ms.author="juliako"/>
+
+#Vue d'ensemble du modèle de licence Widevine
+
+##Vue d'ensemble
+
+Azure Media Services vous permet désormais de configurer et de demander des licences Widevine. Lorsque le lecteur de l'utilisateur final tente de lire votre contenu Widevine protégé, une demande est envoyée au service de remise de licence pour obtenir une licence. Si le service de licence approuve la demande, il émet la licence, qui est envoyée au client et peut être utilisée pour déchiffrer et lire le contenu spécifié.
+
+La demande de licence Widevine se présente sous forme de message JSON.
+
+Notez que vous pouvez choisir de créer un message vide sans valeur, simplement « {} », et un modèle de licence sera créé avec les paramètres par défaut.
+
+	{  
+	   “payload”:“<license challenge>”,
+	   “content_id”: “<content id>” 
+	   “provider”: ”<provider>”
+	   “allowed_track_types”:“<types>”,
+	   “content_key_specs”:[  
+	      {  
+	         “track_type”:“<track type 1>”
+	      },
+	      {  
+	         “track_type”:“<track type 2>”
+	      },
+	      …
+	   ],
+	   “policy_overrides”:{  
+	      “can_play”:<can play>,
+	      “can persist”:<can persist>,
+	      “can_renew”:<can renew>,
+	      “rental_duration_seconds”:<rental duration>,
+	      “playback_duration_seconds”:<playback duration>,
+	      “license_duration_seconds”:<license duration>,
+	      “renewal_recovery_duration_seconds”:<renewal recovery duration>,
+	      “renewal_server_url”:”<renewal server url>”,
+	      “renewal_delay_seconds”:<renewal delay>,
+	      “renewal_retry_interval_seconds”:<renewal retry interval>,
+	      “renew_with_usage”:<renew with usage>
+	   }
+	}
+
+##Message JSON
+
+Nom | Valeur | Description
+---|---|---
+payload |Chaîne encodée Base64 |La demande de licence envoyée par un client. 
+content\_id | Chaîne encodée Base64|Identificateur utilisé pour dériver KeyId(s) et Content Key(s) pour chaque content\_key\_specs.track\_type.
+provider |string |Utilisé pour rechercher les stratégies et les clés de contenu. Obligatoire.
+policy\_name | string |Nom d'une stratégie précédemment enregistrée. Facultatif
+allowed\_track\_types | enum | SD\_ONLY ou SD\_HD. Contrôle les clés de contenu à inclure dans une licence
+content\_key\_specs | tableau de structures JSON, consultez **Spécifications de clé de contenu** ci-dessous | Un contrôle plus fin sur les clés de contenu à retourner. Pour plus d'informations, consultez Spécifications de clé de contenu ci-dessous. Une seule valeur allowed\_track\_types et content\_key\_specs peut être spécifiée. 
+use\_policy\_overrides\_exclusively | booléen. true ou false | Utiliser les attributs de la stratégie spécifiés par policy\_overrides et ignorer toutes les stratégies stockées précédemment.
+policy\_overrides | Structure JSON, consultez **Remplacements de stratégies** ci-dessous | Paramètres de stratégie pour cette licence. Si cet actif comporte une stratégie prédéfinie, les valeurs spécifiées seront utilisées. 
+session\_init | Structure JSON, consultez **Initialisation de la session** ci-dessous | Données facultatives transmises à la licence.
+parse\_only | booléen. true ou false | La demande de licence est analysée, mais aucune licence n'est émise. Toutefois, les valeurs de la demande de licence sont retournées dans la réponse.  
+
+##Spécifications de clé de contenu 
+
+Si une stratégie préexistante existe, il est inutile de spécifier des valeurs dans la Spécification de clé de contenu. La stratégie préexistante associée à ce contenu sera utilisée pour déterminer la protection de la sortie en tant que HDCP et CGMS. Si aucune stratégie préexistante n'est enregistrée avec le serveur de licences Widevine, le fournisseur de contenu peut injecter les valeurs dans la demande de licence.
+
+
+Chaque valeur content\_key\_specs doit être spécifiée pour toutes les pistes, quelle que soit l'option use\_policy\_overrides\_exclusively.
+
+
+Nom | Valeur | Description
+---|---|---
+content\_key\_specs. track\_type | string | Un nom de type de piste. Si la valeur content\_key\_specs est spécifiée dans la demande de licence, assurez-vous de spécifier tous les types de pistes de façon explicite. Dans le cas contraire, vous serez confronté à un échec de lecture des 10 dernières secondes. 
+content\_key\_specs <br/> security\_level | uint32 | Définit la configuration requise de robustesse du client pour la lecture. <br/> 1 - Chiffrement whitebox logiciel requis. <br/> 2 - Chiffrement logiciel et décodeur masqué requis. <br/> 3 - Le matériel de clé et les opérations de chiffrement doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel. <br/> 4 - Le chiffrement et le décodage du contenu doivent être effectués dans un environnement d'exécution approuvé soutenu par le matériel. <br/> 5 - Le chiffrement, le décodage et le traitement du support (compressé et décompressé) doivent être gérés dans un environnement d'exécution approuvé soutenu par le matériel.  
+content\_key\_specs <br/> required\_output\_protection.hdc | string - une des options : HDCP\_NONE, HDCP\_V1, HDCP\_V2 | Indique si HDCP est requis
+content\_key\_specs <br/>key | Chaîne <br/>encodée Base64|Clé de contenu à utiliser pour cette piste. Si spécifié, track\_type ou key\_id est requis. Cette option permet au fournisseur de contenu d'injecter la clé de contenu de cette piste, au lieu de laisser le serveur de licences Widevine générer ou rechercher une clé.
+content\_key\_specs.key\_id| Chaîne binaire encodée Base64, 16 octets | Identificateur unique pour la clé. 
+
+
+##Remplacements de stratégies 
+
+Nom | Valeur | Description
+---|---|---
+policy\_overrides. can\_play | booléen. true ou false | Indique que la lecture du contenu est autorisée. La valeur par défaut est false.
+policy\_overrides. can\_persist | booléen. true ou false |Indique que la licence peut être rendue persistante dans le stockage non volatile pour une utilisation hors connexion. La valeur par défaut est false.
+policy\_overrides. can\_renew | booléen, true ou false |Indique que le renouvellement de cette licence est autorisé. Si la valeur est true, la durée de la licence peut être étendue par pulsation. La valeur par défaut est false. 
+policy\_overrides. license\_duration\_seconds | int64 | Indique la fenêtre de temps pour cette licence spécifique. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. 
+policy\_overrides. rental\_duration\_seconds | int64 | Indique la fenêtre de temps où la lecture est autorisée. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. 
+policy\_overrides. playback\_duration\_seconds | int64 | La fenêtre d'affichage du temps une fois la lecture démarrée dans la durée de la licence. La valeur 0 indique qu'il n'existe aucune limite de durée. La valeur par défaut est 0. 
+policy\_overrides. renewal\_server\_url |string | Toutes les demandes de pulsation (renouvellement) de cette licence sont dirigées vers l'URL spécifiée. Ce champ est utilisé uniquement si can\_renew a la valeur true.
+policy\_overrides. renewal\_delay\_seconds |int64 |Nombre de secondes après license\_start\_time avant la première tentative de renouvellement. Ce champ est utilisé uniquement si can\_renew a la valeur true. La valeur par défaut est 0 
+policy\_overrides. renewal\_retry\_interval\_seconds | int64 | Spécifie le délai en secondes entre les demandes de renouvellement de licence suivantes, en cas d'échec. Ce champ est utilisé uniquement si can\_renew a la valeur true. 
+policy\_overrides. renewal\_recovery\_duration\_seconds | int64 | La fenêtre de temps pendant laquelle la lecture est autorisée à se poursuivre pendant la tentative de renouvellement, malgré l'échec en raison de problèmes de back-end avec le serveur de licences. La valeur 0 indique qu'il n'existe aucune limite de durée. Ce champ est utilisé uniquement si can\_renew a la valeur true.
+policy\_overrides. renew\_with\_usage | booléen, true ou false |Indique que la licence est envoyée pour renouvellement lorsque l'utilisation est démarrée. Ce champ est utilisé uniquement si can\_renew a la valeur true. 
+
+##Initialisation de la session
+
+Nom | Valeur | Description
+---|---|---
+provider\_session\_token | Chaîne encodée Base64 |Ce jeton de session est passé à la licence et se trouvera dans les renouvellements suivants. Le jeton de session n'est pas persistante au-delà des sessions. 
+provider\_client\_token | Chaîne encodée Base64 | Jeton client à renvoyer dans la réponse de la licence. Si la demande de licence contient un jeton client, cette valeur est ignorée. Le jeton client persistera au-delà des sessions de la licence.
+override\_provider\_client\_token | booléen. true ou false |Si la valeur est false et si la demande de licence contient un jeton client, utilisez le jeton de la demande même si un jeton client a été spécifié dans cette structure. Si la valeur est true, utilisez toujours le jeton spécifié dans cette structure.
+
+##Configuration de vos licences Widevine à l'aide des types .NET
+
+Media Services propose des API .NET qui vous permettent de configurer vos licences Widevine.
+
+###Les classes sont définies dans le Kit de développement logiciel (SDK) .NET de Media Services
+
+Les définitions de ces types sont les suivantes.
+
+	public class WidevineMessage
+	{
+	    public WidevineMessage();
+	
+	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+	    public AllowedTrackTypes? allowed_track_types { get; set; }
+	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+	    public ContentKeySpecs[] content_key_specs { get; set; }
+	    [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+	    public object policy_overrides { get; set; }
+	}
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum AllowedTrackTypes
+    {
+        SD_ONLY = 0,
+        SD_HD = 1
+    }
+    public class ContentKeySpecs
+    {
+        public ContentKeySpecs();
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string key_id { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public RequiredOutputProtection required_output_protection { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int? security_level { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string track_type { get; set; }
+    }
+
+    public class RequiredOutputProtection
+    {
+        public RequiredOutputProtection();
+
+        public Hdcp hdcp { get; set; }
+    }
+
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum Hdcp
+    {
+        HDCP_NONE = 0,
+        HDCP_V1 = 1,
+        HDCP_V2 = 2
+    }
+
+###Exemple
+
+L'exemple suivant montre comment utiliser les API .NET pour configurer une licence Widevine simple.
+
+    private static string ConfigureWidevineLicenseTemplate()
+    {
+        var template = new WidevineMessage
+        {
+            allowed_track_types = AllowedTrackTypes.SD_HD,
+            content_key_specs = new[]
+            {
+                new ContentKeySpecs
+                {
+                    required_output_protection = new RequiredOutputProtection { hdcp = Hdcp.HDCP_NONE},
+                    security_level = 1,
+                    track_type = "SD"
+                }
+            },
+            policy_overrides = new
+            {
+                can_play = true,
+                can_persist = true,
+                can_renew = false
+            }
+        };
+
+        string configuration = JsonConvert.SerializeObject(template);
+        return configuration;
+    }
+
+
+##Parcours d’apprentissage de Media Services
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Fournir des commentaires
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+##Voir aussi
+
+[Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine](media-services-protect-with-drm.md)
+
+<!---HONumber=Nov15_HO4-->

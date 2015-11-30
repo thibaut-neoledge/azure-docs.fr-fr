@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 # FAQ sur la continuité des activités
@@ -48,7 +48,7 @@ Pour une récupération après panne : utilisez [Obtenir une base de données r
 
 ## 7\. Comment puis-je restaurer en bloc des bases de données sur mon serveur ?
 
-Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Vous pouvez utiliser le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) pour accomplir cette tâche.
+Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le script [Base de données SQL Azure : récupération de serveur complète](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) est un exemple d'une façon d'accomplir cette tâche.
 
 ## 8\. Quelle est la différence entre la géo-réplication standard et la géo-réplication active ?
 
@@ -58,11 +58,6 @@ Pour la géo-réplication active, toutes les bases de données secondaires sont 
 
 ## 9\. Quel est le délai de réplication lors de l'utilisation de la géo-réplication standard ou de la géo-réplication active ?
 
-La géo-réplication utilise la copie continue. Par conséquent, utilisez la vue de gestion dynamique (DMV) [sys.dm\_continuous\_copy\_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) pour obtenir la dernière réplication et d'autres informations.
+Utilisez la vue de gestion dynamique (DMV) [sys.dm\_geo\_replication\_link\_status](https://msdnstage.redmond.corp.microsoft.com/library/mt575504.aspx) pour obtenir l’heure de la dernière réplication, le dernier décalage de la réplication et d’autres informations sur le lien de réplication.
 
-
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

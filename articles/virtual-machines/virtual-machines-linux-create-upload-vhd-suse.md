@@ -14,14 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="szarkos"/>
+	ms.date="11/13/2015"
+	ms.author="szark"/>
 
 # Préparation d'une machine virtuelle SLES ou openSUSE pour Azure
-
-
-- [Préparation d’une machine virtuelle SLES 11 SP3 pour Azure](#sles11)
-- [Préparation d’une machine virtuelle openSUSE 13.1+ pour Azure](#osuse)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,13 +25,16 @@
 
 Cet article suppose que vous avez déjà installé un système d'exploitation SUSE ou openSUSE Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](http://technet.microsoft.com/library/hh846766.aspx).
 
-
-**Notes d’installation SLES/openSUSE**
-
  - [SUSE Studio](http://www.susestudio.com) peut facilement créer et gérer vos images SLES/openSUSE pour Azure et Hyper-V. Cette approche est recommandée pour personnaliser vos images SUSE et openSUSE. Les images officielles suivantes dans SUSE Studio Gallery peuvent être téléchargées ou clonées dans votre SUSE Studio :
 
   - [SLES 11 SP3 pour Azure dans SUSE Studio Gallery](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 pour Azure dans SUSE Studio Gallery](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
+
+
+- Comme alternative à la création de votre propre disque dur virtuel, SUSE publie également des images BYOS (« Apportez votre propre abonnement ») pour SLES sur [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
+
+
+**Notes d’installation SLES/openSUSE**
 
 - Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**. Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de la cmdlet convert-vhd.
 
@@ -46,9 +45,9 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 - La taille des disques durs virtuels doit être un multiple de 1 Mo.
 
 
-## <a id="sles11"> </a>Préparation de SUSE Linux Enterprise Server 11 SP3 ##
+## Préparation de SUSE Linux Enterprise Server 11 SP3 ##
 
-1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
+1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
 
 2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 
@@ -100,7 +99,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 ----------
 
-## <a id="osuse"> </a>Préparation de openSUSE 13.1+ ##
+## Préparation de openSUSE 13.1+ ##
 
 1. Dans le volet central du Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -180,4 +179,4 @@ Cet article suppose que vous avez déjà installé un système d'exploitation S
 
 13. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

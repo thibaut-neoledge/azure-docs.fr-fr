@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Adresse IP réservée"
-   description="Fonctionnement et gestion des adresses IP réservées, virtuelles et publiques de niveau d’instance"
+   pageTitle="IP réservée | Microsoft Azure"
+   description="Fonctionnement et gestion des adresses IP réservées"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP réservées
@@ -27,7 +27,7 @@ Pour empêcher la modification des adresses IP, vous pouvez réserver une adress
 
 ## Forum Aux Questions
 1. Puis-je utiliser une adresse IP réservée pour tous les services Azure ?  
-  - Les adresses IP réservées peuvent être utilisées uniquement pour les machines virtuelles et les rôles d'instance de service cloud.
+  - Les adresses IP réservées peuvent être utilisées uniquement pour les machines virtuelles et les rôles d'instance de service cloud exposés par une adresse IP virtuelle.
 1. Combien d’adresses IP réservées puis-je avoir ?  
   - Pour le moment, tous les abonnements Azure peuvent utiliser 20 adresses IP réservées. Toutefois, vous pouvez demander à obtenir des adresses IP réservées supplémentaires. Pour en savoir plus, consultez la page [Abonnement Azure et limites du service](../azure-subscription-service-limits/).
 1. L’obtention d’adresses IP réservées est-elle payante ? 
@@ -119,4 +119,4 @@ Vous pouvez aussi associer une IP réservée à un service cloud à l’aide d�
 
 - Consultez les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

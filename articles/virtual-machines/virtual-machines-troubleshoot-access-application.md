@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/05/2015"
+	ms.date="11/17/2015"
 	ms.author="dkshir"/>
 
 # Résolution des problèmes d’accès à une application exécutée sur une machine virtuelle Azure
@@ -100,9 +100,21 @@ Si vous pouvez accéder à l’application, assurez-vous que votre périphériqu
 - Le trafic des demandes des applications sortantes, de votre ordinateur client à la machine virtuelle Azure.
 - Le trafic des réponses des applications entrantes, de la machine virtuelle Azure.
 
+## Résolution des problèmes de connectivité de point de terminaison
+
+Si vous rencontrez des problèmes lors de la connexion à un point de terminaison comme un point de terminaison Bureau à distance, vous pouvez essayer les étapes de dépannage générales suivantes :
+
+- Redémarrer la machine virtuelle
+- Recréer un point de terminaison
+- Se connecter à partir d’un autre emplacement
+- Redimensionner la machine virtuelle
+- Recréer une machine virtuelle
+
+Pour plus d'informations, consultez [Résolution des problèmes de connectivité de point de terminaison (échecs RDP/SSH/HTTP, etc.)](https://social.msdn.microsoft.com/Forums/azure/fr-FR/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+
 ## Étapes suivantes
 
-Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez besoin d’une aide supplémentaire pour corriger le problème, vous pouvez :
+Si vous avez suivi les étapes ci-dessus dans cet article et que vous avez besoin d’une aide supplémentaire pour corriger le problème, vous pouvez :
 
 - Obtenir l’aide des experts Azure dans le monde entier. Soumettre votre problème sur les forums MSDN Azure ou Stack Overflow. Pour plus d’informations, consultez les [forums Microsoft Azure](http://azure.microsoft.com/support/forums/).
 - Signaler un incident au support Azure Accédez au [site de support Azure](http://azure.microsoft.com/support/options/) et cliquez sur **Obtenir un support** dans la section **Support technique et sur la facturation**.
@@ -113,4 +125,4 @@ Si vous avez effectué les étapes 1 à 3 dans cet article et que vous avez bes
 
 [Résolution des problèmes des connexions SSH avec une machine virtuelle Azure Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

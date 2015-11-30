@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Création d'API dans Gestion des API Azure
@@ -55,7 +55,7 @@ L'onglet **Paramètres** permet de vérifier et de modifier la configuration d'u
 
 ![API settings][api-management-api-settings]
 
-Pour configurer **Authentification proxy** pour le service web avec implémentation de l’API, sélectionnez l’onglet **Sécurité**. La liste déroulante **Avec informations d’identification** peut servir à configurer l’**Authentification de base** ou l’authentification **Certificats mutuels**. Pour utiliser l’authentification de base, entrez simplement les informations d’identification de votre choix. Pour plus d’informations sur l’utilisation de l’authentification avec certificats mutuels, consultez la page [Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure][].
+Pour configurer **Authentification passerelle** pour le service web avec implémentation de l’API, sélectionnez l’onglet **Sécurité**. La liste déroulante **Avec informations d’identification** peut servir à configurer l’**Authentification de base** ou l’authentification **Certificats mutuels**. Pour utiliser l’authentification de base, entrez simplement les informations d’identification de votre choix. Pour plus d’informations sur l’utilisation de l’authentification avec certificats mutuels, consultez la page [Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure][].
 
 L’onglet **Sécurité** peut également être utilisé pour configurer **Autorisation utilisateur** avec OAuth 2.0. Pour plus d’informations, consultez la page [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure][].
 
@@ -98,4 +98,4 @@ Une fois l'API créée et les paramètres configurés, l'étape suivante consist
 [Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
 [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

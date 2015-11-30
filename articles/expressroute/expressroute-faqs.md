@@ -59,7 +59,7 @@ La plupart des services Azure sont pris en charge via ExpressRoute.
 	**Les services suivants ne sont pas pris en charge :**
 
 	- CDN
-	- Test de charge de Visual Studio Online
+	- Test de charge Visual Studio Team Services
 	- Multi-Factor Authentication
 
 ## Données et connexions
@@ -258,4 +258,4 @@ Consultez la rubrique [Partenaires et emplacements ExpressRoute](expressroute-lo
 Oui. Les points de terminaison du service Office 365 sont accessibles via Internet même si ExpressRoute a été configuré pour votre réseau. Si votre emplacement est configuré pour vous connecter aux services Office 365 via ExpressRoute, vous vous connectez via ExpressRoute.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

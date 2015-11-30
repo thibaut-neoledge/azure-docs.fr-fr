@@ -20,7 +20,7 @@
 # Création de batteries de serveurs SharePoint
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]modèle classique.
- 
+
 Avec Microsoft Azure Marketplace du portail Azure en version préliminaire, vous pouvez créer rapidement des batteries de serveurs SharePoint Server 2013 préconfigurées. Cela peut vous faire gagner un temps précieux lorsque vous avez besoin d'une batterie de serveurs SharePoint de base ou à haute disponibilité pour un environnement de test et de développement ou si vous envisagez l'adoption de SharePoint Server 2013 comme solution de collaboration pour votre entreprise.
 
 > [AZURE.NOTE]L'élément **Batterie de serveurs SharePoint** dans Azure Marketplace du portail Azure en version préliminaire a été supprimé.
@@ -59,7 +59,7 @@ Vous pouvez gérer les serveurs de ces batteries par le biais de connexions Bure
 
 Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes sites, des applications SharePoint, ainsi que d'autres fonctionnalités. Pour plus d'informations, consultez la page [Configurer SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]La version préliminaire du portail Azure crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
+> [AZURE.NOTE]Le portail Azure en version préliminaire crée ces deux batteries de serveurs dans un réseau virtuel sur le cloud uniquement avec une présence Web accessible sur Internet. Il n’existe pas de connexion VPN de site à site ou ExpressRoute en amont vers le réseau de votre organisation.
 
 ## Ressources supplémentaires
 
@@ -69,4 +69,4 @@ Sur le site d'administration centrale de SharePoint, vous pouvez configurer Mes 
 
 [Architectures Microsoft Azure pour SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

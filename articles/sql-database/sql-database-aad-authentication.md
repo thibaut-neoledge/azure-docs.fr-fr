@@ -147,14 +147,16 @@ Chaque serveur SQL Azure démarre avec un compte d’administrateur de serveur u
 
 	La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaîtra dans la zone **Administrateur Active Directory**.
 
+> [AZURE.NOTE]Lors de la configuration de l'administrateur Azure AD, le nouveau nom d'administrateur (utilisateur ou groupe) ne peut pas déjà être présent dans la base de données master en tant que connexion d'authentification SQL Server. Si tel est le cas, la configuration de l’administrateur d’Azure AD échoue, annulant sa création et indiquant que cet administrateur (ce nom) existe déjà. Dans la mesure où une connexion d'authentification SQL Server ne fait pas partie d’Azure AD, tout effort pour se connecter au serveur à l'aide de l'authentification Azure AD échouera.
+
 Pour supprimer un administrateur, en haut du panneau **Administrateur Active Directory**, cliquez sur **Supprimer l’administrateur**.
 
 ### Configurez un administrateur Azure AD pour le serveur SQL Azure à l’aide de PowerShell 
 
-> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d'Azure PowerShell 1.0, l'applet de commande Switch-AzureMode n'est plus requis, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d'affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d'informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+> [AZURE.IMPORTANT]À compter de la publication de la version préliminaire d'Azure PowerShell 1.0, l'applet de commande Switch-AzureMode n'est plus requis, et les applets de commande présentes dans le module Azure ResourceManger ont été renommées. Les exemples de cet article utilisent les nouvelles conventions d'affectation de noms de la version préliminaire de PowerShell 1.0. Pour plus d’informations, consultez [Désapprobation de Switch-AzureMode dans Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Pour exécuter les applets de commande PowerShell, vous devez disposer d'Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d'Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
+Pour exécuter les applets de commande PowerShell, vous devez disposer d’Azure PowerShell. De plus, en raison de la suppression de Switch-AzureMode, vous devez télécharger et installer la dernière version d’Azure PowerShell en exécutant [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
 
 Pour configurer un administrateur Azure AD, vous devez exécuter les commandes Azure PowerShell suivantes :
 
@@ -198,7 +200,7 @@ L’exemple suivant renvoie des informations sur l’administrateur Azure AD adm
 Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
-L'exemple suivant supprime un administrateur Azure AD : ```
+L'exemple suivant supprime un administrateur Azure AD : ```
 Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
@@ -214,7 +216,7 @@ Sur toutes les machines clientes à partir desquelles vos applications ou les ut
 - L'installation de [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ou de [SQL Server Data Tools pour Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) est conforme à la configuration requise de .NET Framework 4.6. 
 - SSMS installe la version x86 de **ADALSQL. DLL**. (À ce stade, SSMS ne parvient pas à demander le redémarrage requis après l'installation. Ce problème devrait être résolu dans une prochaine version CTP.)
 - SSDT installe la version amd64 de **ADALSQL. DLL**. L’authentification Azure AD n’est prise en charge que partiellement par SSDT.
-- La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n'installe pas la version requise amd64 de **ADALSQL. DLL**.
+- La dernière version de Visual Studio de [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) respecte la configuration requise de .NET Framework 4.6, mais n'installe pas la version requise amd64 de **ADALSQL.DLL**.
 
 ## 6\. Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD 
 
@@ -243,7 +245,7 @@ Utilisez cette méthode si vous êtes connecté à Windows à l’aide des infor
 
 1. Démarrez Management Studio et dans la boîte de dialogue **Se connecter au moteur de base de données** (ou **Se connecter à la base de données**), dans la zone **Authentification**, sélectionnez **Authentification par mot de passe Active Directory**.
 2. Dans la zone **Nom d'utilisateur** saisissez votre nom d'utilisateur Azure Active Directory au format ****username@domain.com**. Il soit s’agir d’un compte Azure Active Directory ou d’un compte de domaine fédéré avec Azure Active Directory.
-3. Dans la zone **Mot de passe**, tapez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
+3. Dans la zone **Mot de passe**, saisissez votre mot de passe utilisateur pour le compte Azure Active Directory ou le compte de domaine fédéré.
 4. Cliquez sur le bouton **Options** puis, sur la page **Propriétés de connexion**, dans la zone **Se connecter à la base de données**, saisissez le nom de la base de données utilisateur à laquelle vous souhaitez vous connecter.
 
 
@@ -257,7 +259,7 @@ Pour créer un utilisateur de base de données à relation contenant-contenu Azu
 
 *Azure\_AD\_principal\_name* peut être le nom d'utilisateur principal d'un utilisateur Azure AD ou le nom d'affichage d'un groupe Azure AD.
 
-**Exemples :** pour créer une base de données à relation contenant-contenu représentant un utilisateur de domaine fédéré ou géré Azure AD :
+**Exemples :** pour créer une base de données à relation contenant-contenu représentant un utilisateur de domaine fédéré ou géré Azure AD :
 
 	CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
 	CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
@@ -302,7 +304,7 @@ Pour vous connecter à une base de données à l’aide de l’authentification 
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-Pour obtenir des exemples de code spécifiques associés à l'authentification Azure AD, consulter la section [Blog de sécurité de SQL Server](http://blogs.msdn.com/b/sqlsecurity/) sur MSDN.
+Pour obtenir des exemples de code spécifiques associés à l'authentification Azure AD, consultez la section [Blog de sécurité de SQL Server](http://blogs.msdn.com/b/sqlsecurity/) sur MSDN.
 
 ## Voir aussi
 
@@ -325,4 +327,4 @@ Pour obtenir des exemples de code spécifiques associés à l'authentification A
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

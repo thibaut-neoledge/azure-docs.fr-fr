@@ -67,6 +67,6 @@ Bien que l'authentification et l'autorisation soient des éléments essentiels p
 [Déterminer les exigences de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

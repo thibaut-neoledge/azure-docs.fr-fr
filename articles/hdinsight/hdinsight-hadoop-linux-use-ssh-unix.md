@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X :
@@ -44,10 +44,6 @@ SSH est un utilitaire permettant de se connecter et d'exécuter à distance des 
 ###Nom d'utilisateur du SSH
 
 Un nom d’utilisateur SSH est le nom que vous utilisez pour vous authentifier auprès du cluster HDInsight. Quand vous spécifiez un nom d’utilisateur SSH lors de la création du cluster, cet utilisateur est créé sur tous les nœuds du cluster. Une fois le cluster créé, vous pouvez utiliser ce nom d’utilisateur pour vous connecter aux nœuds principaux du cluster HDInsight. À partir des nœuds principaux, vous pouvez ensuite vous connecter aux nœuds de travail individuels.
-
-> [AZURE.NOTE]Un nom d’utilisateur SSH doit être unique. Dans la mesure où un nom d’utilisateur SSH crée un compte d’utilisateur sur le cluster HDInsight, il ne doit pas être en conflit avec des utilisateurs existants créés par HDInsight. Voici la liste des noms dont l’usage est réservé aux services exécutés sur le cluster HDInsight et qui ne peuvent pas être utilisés en tant que nom d’utilisateur SSH :
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###Clé publique ou mot de passe SSH
 
@@ -93,13 +89,13 @@ Utilisez les informations suivantes si vous envisagez d'utiliser les clés SSH a
 
 * **Interface de ligne de commande Azure pour Mac, Linux et Windows** : utilise des commandes de ligne de commande pour créer le cluster.
 
-Chacune de ces méthodes nécessite un mot de passe ou une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sur Linux, voir [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
+Chacune de ces méthodes nécessite un mot de passe ou une clé publique. Pour plus d’informations sur la création d’un cluster HDInsight sous Linux, consultez [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
 ###Portail Azure en version préliminaire
 
 Quand vous utilisez le [portail Azure en version préliminaire][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez saisir un **NOM D’UTILISATEUR SSH**, puis sélectionner cette option pour entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
 
-Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez soit coller la clé publique (contenue dans le fichier avec l’extension **.pub**) dans le champ __SSH PublicKey__, ou choisir __Sélectionner un fichier__ pour parcourir et sélectionner le fichier de clé publique.
+Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique (contenue dans le fichier avec l’extension **.pub**) dans le champ __SSH PublicKey__ ou choisir __Sélectionner un fichier__ pour parcourir et sélectionner le fichier de clé publique.
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
@@ -135,7 +131,7 @@ Si vous avez utilisé une clé SSH sécurisée avec une phrase secrète, vous de
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Si aucun port n’est spécifié, SSH est par défaut connecté au port 22, qui se connecte au nœud principal 0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud principal 1. Pour plus d’informations sur les nœuds principaux, voir [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
+Si aucun port n’est spécifié, SSH est par défaut connecté au port 22, qui se connecte au nœud principal 0 sur le cluster HDInsight. Si vous utilisez le port 23, vous allez vous connecter au nœud principal 1. Pour plus d’informations sur les nœuds principaux, consultez [Disponibilité et fiabilité des clusters Hadoop dans HDInsight](hdinsight-high-availability-linux.md).
 
 ###Connexion à des nœuds de travail
 
@@ -160,7 +156,7 @@ Si vous utilisez une clé SSH pour authentifier votre compte d’utilisateur, vo
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Si aucun élément n’est renvoyé, **ssh-agent** ne doit pas être en cours d’exécution. Pour connaître les étapes spécifiques d’installation et de configuration de **ssh-agent**, voir la documentation de votre système d’exploitation ou la page [Utilisation de ssh-agent avec ssh](http://mah.everybody.org/docs/ssh).
+    Si aucun élément n’est renvoyé, **ssh-agent** ne doit pas être en cours d’exécution. Pour connaître les étapes spécifiques d’installation et de configuration de **ssh-agent** ou afficher la page [Utilisation de ssh-agent avec ssh](http://mah.everybody.org/docs/ssh), consultez la documentation de votre système d’exploitation.
 
 4. Après avoir vérifié que **ssh agent** est en cours d’exécution, utilisez la commande suivante pour ajouter votre clé privée SSH à l’agent :
 
@@ -190,9 +186,9 @@ Utilisez les étapes suivantes pour vous connecter aux nœuds de travail de votr
 
     > [AZURE.NOTE]Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
 
-4. Une fois la session établie, l’invite de commandes du terminal passe de `username@headnode` à `username@workernode` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
+4. Une fois la session établie, l’invite de commandes du terminal passe de `username@hn0-clustername` à `username@wk0-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
 
-4. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@headnode`.
+4. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn0-clustername`.
 
 ##Ajout d’autres comptes
 
@@ -228,7 +224,7 @@ Vous pouvez utiliser SSH pour transférer des requêtes locales, telles que des 
 
 > [AZURE.IMPORTANT]Un tunnel SSH est requis pour accéder à l’interface utilisateur web de certains services Hadoop. Par exemple, l'interface utilisateur de l'historique des travaux ou de l'interface utilisateur du Gestionnaire de ressources est uniquement accessible à l'aide d'un tunnel SSH.
 
-Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, voir [Utilisation de SSH Tunneling pour accéder à l’interface Web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces Web](hdinsight-linux-ambari-ssh-tunnel.md).
+Pour plus d’informations sur la création et l’utilisation d’un tunnel SSH, consultez [Utiliser le tunneling SSH pour accéder à l’interface utilisateur web Ambari, ResourceManager, JobHistory, NameNode, Oozie et d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Étapes suivantes
 
@@ -242,4 +238,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

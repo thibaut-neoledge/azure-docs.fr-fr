@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Livraison continue avec Git et Visual Studio Online dans Azure" 
-	description="Découvrez comment configurer vos projets d’équipe Visual Studio Online pour utiliser Git afin de les générer et de les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des services cloud."
+	pageTitle="Livraison continue avec Git et Visual Studio Team Services dans Azure" 
+	description="Découvrez comment configurer vos projets d'équipe Visual Studio Team Services afin d’utiliser Git pour les générer et les déployer automatiquement vers la fonctionnalité Web App d’Azure App Service ou des Cloud Services."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="kempb"
@@ -16,20 +16,20 @@
 	ms.date="09/02/2015"
 	ms.author="kempb"/>
 
-# Livraison continue sur Azure au moyen de Visual Studio Online et de Git
+# Diffusion continue sur Azure au moyen de Visual Studio Team Services et Git
 
-Vous pouvez utiliser et déployer des projets d'équipe Visual Studio Online pour héberger un référentiel Git pour votre code source, et créer et déployer automatiquement dans des applications Web ou des services cloud Azure lorsque vous placez une validation dans le référentiel.
+Vous pouvez utiliser des projets d'équipe Visual Studio Team Services pour héberger un référentiel Git pour votre code source, et pour les créer et déployer automatiquement dans des applications Web ou des Cloud Services Azure lorsque vous placez une validation dans le référentiel.
 
 Visual Studio 2013 et le Kit de développement logiciel (SDK) Azure doivent être installés sur votre système. Si Visual Studio 2013 n'est pas déjà installé, téléchargez-le en choisissant le lien **Test gratuit de Visual Studio** sur [www.visualstudio.com](http://www.visualstudio.com). Pour installer le Kit de développement logiciel (SDK) Azure, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Vous avez besoin d’un compte en ligne Visual Studio pour suivre ce didacticiel : vous pouvez [ouvrir un compte Visual Studio Online gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Vous avez besoin d’un compte Visual Studio Team Services pour suivre ce didacticiel : vous pouvez [ouvrir un compte Visual Studio Team Services gratuit](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
-Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Online, procédez comme suit :
+Pour configurer un service cloud permettant de générer et de déployer automatiquement sur Azure au moyen de Visual Studio Team Services, suivez ces étapes.
 
 ## Étape 1 : création d’un référentiel Git
 
-1. Si vous ne disposez pas d’un compte Visual Studio Online, vous pouvez en obtenir un [ici](http://go.microsoft.com/fwlink/?LinkId=397665). Lorsque vous créez un projet d'équipe, choisissez Git comme système de contrôle de code source. Suivez les instructions de connexion de Visual Studio à votre projet d'équipe.
+1. Si vous ne disposez pas de compte Visual Studio Team Services, vous pouvez en obtenir un [ici](http://go.microsoft.com/fwlink/?LinkId=397665). Lorsque vous créez un projet d'équipe, choisissez Git comme système de contrôle de code source. Suivez les instructions de connexion de Visual Studio à votre projet d'équipe.
 
 2. Dans **Team Explorer**, sélectionnez le lien **Cloner ce référentiel**.
 
@@ -49,7 +49,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][7]
 
-4. Si vous utilisez Git dans Visual Studio Online pour la première fois, vous devez fournir des informations pour vous identifier dans Git. Dans la zone **Modifications en attente** de **Team Explorer**, entrez votre nom d’utilisateur et votre adresse de messagerie. Entrez un commentaire pour la validation, puis sélectionnez le bouton **Valider**.
+4. Si vous utilisez Git dans Visual Studio Team Services pour la première fois, vous devez fournir des informations pour vous identifier dans Git. Dans la zone **Modifications en attente** de **Team Explorer**, entrez votre nom d’utilisateur et votre adresse de messagerie. Entrez un commentaire pour la validation, puis sélectionnez le bouton **Valider**.
 
 	![][8]
 
@@ -59,27 +59,27 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 ## Étape 3 : connexion du projet à Azure
 
-1. Vous avez maintenant un référentiel Git dans Visual Studio Online contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
+1. Vous avez maintenant un référentiel Git dans Visual Studio Team Services contenant du code source : vous êtes prêt à connecter votre référentiel Git à Azure. Dans le [portail de gestion Azure](http://manage.windowsazure.com), sélectionnez votre service cloud ou application web, ou créez-en un en sélectionnant l’icône + en bas à gauche et en choisissant **Service cloud** ou **Application web**, puis **Création rapide**.
 
 	![][9]
 
-3. Pour les services cloud, sélectionnez le lien **Configurer la publication avec Visual Studio Online**. Pour les applications web, cliquez sur le lien **Configurer le déploiement à partir du contrôle de code source**.
+3. Pour les Cloud Services, sélectionnez le lien **Configurer la publication avec Visual Studio Team Services**. Pour les applications web, cliquez sur le lien **Configurer le déploiement à partir du contrôle de code source**.
 
 	![][10]
 
-2. Dans l'Assistant, tapez le nom de votre compte Visual Studio Online dans la zone de texte et sélectionnez le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
+2. Dans l'Assistant, tapez le nom de votre compte Visual Studio Team Services dans la zone de texte et choisissez le lien **Autoriser maintenant**. Vous serez peut-être invité à vous connecter.
 
 	![][11]
 
-3. Dans la boîte de dialogue contextuelle **Demande de connexion**, sélectionnez **Accepter** pour autoriser Azure à configurer votre projet d’équipe dans Visual Studio Online.
+3. Dans la boîte de dialogue contextuelle **Demande de connexion**, sélectionnez **Accepter** pour autoriser Azure à configurer votre projet d’équipe dans Visual Studio Team Services.
 
 	![][12]
 
-4. Si la procédure d’autorisation réussit, une zone déroulante affiche la liste de vos projets d’équipe Visual Studio Online. Sélectionnez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
+4. Si la procédure d’autorisation réussit, une zone déroulante affiche la liste de vos projets d’équipe Visual Studio Team Services. Sélectionnez le nom du projet d'équipe que vous avez créé aux étapes précédentes et choisissez la coche de l'Assistant.
 
 	![][13]
 
-	La prochaine fois que vous placerez une validation dans votre référentiel, Visual Studio Online génèrera et déploiera votre projet dans Azure.
+	La prochaine fois que vous placerez une validation dans votre référentiel, Visual Studio Team Services génèrera et déploiera votre projet dans Azure.
 
 ## Étape 4 : déclenchement d’une régénération et d’un redéploiement de votre projet
 
@@ -101,7 +101,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][38]
 
-6. Sélectionnez le lien **Pousser** pour placer votre validation dans le référentiel dans Visual Studio Online. (Vous pouvez également utiliser le bouton **Synchronisation** pour copier vos validations dans le référentiel. La différence est que **Synchronisation** extrait également les dernières modifications du référentiel).
+6. Sélectionnez le lien **Pousser** pour placer votre validation dans le référentiel dans Visual Studio Team Services. (Vous pouvez également utiliser le bouton **Synchronisation** pour copier vos validations dans le référentiel. La différence est que **Synchronisation** extrait également les dernières modifications du référentiel).
 
 	![][39]
 
@@ -123,7 +123,7 @@ Pour configurer un service cloud permettant de générer et de déployer automat
 
 	![][25]
 
-11. Sous l’onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Online génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site Web en activité. Pour une application web qui ne comporte pas d’environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.
+11. Sous l’onglet **Déclencher**, vous allez voir que la définition de build prévoit par défaut un processus de génération pour chaque archivage. (Pour un service cloud, Visual Studio Team Services génère et déploie automatiquement la branche principale dans l'environnement intermédiaire. Vous devez quand même effectuer une opération manuelle pour le déploiement dans le site Web en activité. Pour une application web qui ne comporte pas d’environnement intermédiaire, elle déploie la branche principale directement dans le site en activité.
 
 	![][26]
 
@@ -216,7 +216,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 
 	![][43]
 
-10. Sélectionnez le lien **Validations non synchronisées**, puis le bouton **Synchronisation** ou le lien **Pousser** pour copier les modifications dans la copie de la branche en cours d'utilisation dans Visual Studio Online.
+10. Sélectionnez le lien **Validations non synchronisées**, puis le bouton **Synchronisation** ou le lien **Pousser** pour copier les modifications dans la copie de la branche en cours d'utilisation dans Visual Studio Team Services.
 
 	![][45]
 
@@ -224,7 +224,7 @@ Lorsque vous utilisez Git, vous apportez généralement des modifications à un
 
 ## Étapes suivantes
 
-Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Online, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Online pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../web-sites-publish-source-control.md). Pour plus d’informations sur Visual Studio Online, consultez [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861).
+Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visual Studio Team Services, consultez la page [Développer et partager votre code dans Git à l’aide de Visual Studio](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) ; pour en savoir plus sur l’utilisation d’un référentiel Git qui n’est pas géré par Visual Studio Team Services pour la publication dans Azure, consultez la page [Déploiement continu à l’aide de Git dans Azure App Service](../web-sites-publish-source-control.md). Pour en savoir plus sur Visual Studio Team Services, consultez [Visual Studio Team Services](http://go.microsoft.com/fwlink/?LinkId=253861).
 
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso-git/CreateTeamProjectInGit.PNG
@@ -272,4 +272,4 @@ Pour obtenir des conseils supplémentaires sur l’utilisation de Git avec Visu
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -30,7 +31,7 @@ Alors que la jonction au domaine classique vous offre toujours une expérience l
 
 ## Pourquoi les entreprises doivent-elles adopter Azure AD Join ? 
 
- * **Si l’activité de votre entreprise a lieu en grande partie dans le cloud** : si vous migrez ou prévoyez de migrer vers un modèle où vous réduisez votre empreinte locale et souhaitez passer par le cloud, Azure AD Join peut constituer un avantage certain. Vous avez peut-être créé des comptes Azure AD manuellement ou via la synchronisation de votre annuaire Active Directory local. Dans ce cas, vous avez un compte dans Azure AD et vous pouvez l’utiliser pour vous connecter à Windows 10. Vos utilisateurs peuvent joindre leurs ordinateurs à Azure AD via le processus OOBE (introduction de l'interface logicielle lors de la première utilisation ) ou via les paramètres. Ils bénéficient ainsi d’un accès via l’authentification unique à leurs ressources cloud comme Office 365 soit dans le navigateur soit dans les applications Office. 
+* **Si l’activité de votre entreprise a lieu en grande partie dans le cloud** : si vous migrez ou prévoyez de migrer vers un modèle où vous réduisez votre empreinte locale et souhaitez passer par le cloud, Azure AD Join peut constituer un avantage certain. Vous avez peut-être créé des comptes Azure AD manuellement ou via la synchronisation de votre annuaire Active Directory local. Dans ce cas, vous avez un compte dans Azure AD et vous pouvez l’utiliser pour vous connecter à Windows 10. Vos utilisateurs peuvent joindre leurs ordinateurs à Azure AD via le processus OOBE (introduction de l'interface logicielle lors de la première utilisation ) ou via les paramètres. Ils bénéficient ainsi d’un accès via l’authentification unique à leurs ressources cloud comme Office 365 soit dans le navigateur soit dans les applications Office. 
 * **Établissements d'enseignement** : l'un des scénarios principaux connu est celui des établissements d'enseignement qui ont deux types d'utilisateur : les enseignants et les étudiants. Les enseignants sont des membres à plus long terme de l’organisation et la création de comptes locaux pour eux est souhaitée. À l’inverse, les étudiants sont des membres à plus court terme de l'organisation et peuvent être gérés dans Azure AD afin que la mise à l'échelle de l’annuaire puisse être effectuée dans le cloud plutôt que localement. Ces étudiants peuvent maintenant se connecter à Windows avec leur compte Azure AD et accéder aux ressources Office 365 dans les applications Office. 
 * **Entreprises de vente au détail** : les clients nous ont fait part de leur souhait de pouvoir gérer plus facilement les travailleurs saisonniers. Comme indiqué plus haut, les employés à plein temps qui restent plus longtemps au sein de l’entreprise sont créés en tant que comptes locaux et utilisent généralement des ordinateurs joints au domaine. À l’inverse, les saisonniers sont présents pour une période plus courte et sont donc gérés là où les licences utilisateur peuvent être plus facilement déplacées. La création de ces utilisateurs dans le cloud avec des licences Office 365 leur permet de bénéficier des avantages de la connexion à Windows et aux applications Office avec un compte Azure AD, tout en conservant la mobilité de leurs licences une fois qu’ils ont quitté l’établissement. 
 * **Autres entreprises** : d’un point de vue plus large, vous pouvez remarquer que, même si vous tenez à jour les utilisateurs dans votre annuaire AD local, il peut être avantageux pour les utilisateurs de rejoindre Azure AD pour les raisons suivantes : jonction simplifiée, gestion des appareils dans Azure AD, inscription GPM automatique et authentification unique à Azure AD et aux ressources locales.  
@@ -67,8 +68,12 @@ Azure AD Join a les caractéristiques suivantes :
 | Authentification unique du Bureau aux sites web/applications/ressources d’entreprise, à la fois localement et dans le cloud. Applications qui utilisent Azure AD pour l'authentification. | Inscription automatique dans l'annuaire d'entreprise (Azure AD) et inscription automatique dans GPM. (fonctionnalité Azure AD Premium) | Fournit l'authentification unique sur les appareils et aux applications/sites web/ressources avec ce compte professionnel. |
 | Les utilisateurs peuvent ajouter leur MSA personnel pour accéder à leurs images/fichiers personnels sans incidence sur les données d'entreprise (les paramètres d'itinérance continuent de fonctionner avec un compte professionnel). Le compte MSA permet l'authentification unique et ne fait plus appel à l’itinérance des paramètres. | Réinitialisation de mot de passe libre-service sur winlogon (possibilité de réinitialiser un mot de passe oublié) (Azure AD Premium est requis). | Fournit l'accès au Store de l’entreprise afin que les utilisateurs puissent acquérir et utiliser des applications métier sur leurs appareils personnels. | |
 
-## Étapes suivantes
-* [En savoir plus sur les scénarios d'utilisation et les considérations relatives au déploiement pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+## Informations supplémentaires
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -52,7 +52,7 @@ Dans la méthode `Configuration()` de votre classe de démarrage OWIN, définiss
 	    app.UseWebApi(config);
 	}
 
-Pour activer des fonctionnalités, vous devez appeler les méthodes d’extension sur l’objet **MobileAppConfiguration** avant d’appeler **ApplyTo**. Par exemple, le code suivant ajoute les itinéraires par défaut à tous les contrôleurs d’API lors de l’initialisation :
+Pour activer des fonctionnalités spécifiques, vous devez appeler les méthodes d’extension sur l’objet **MobileAppConfiguration** avant d’appeler **ApplyTo**. Par exemple, le code suivant ajoute les itinéraires par défaut à tous les contrôleurs d’API lors de l’initialisation :
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
@@ -95,7 +95,7 @@ Les packages d’extension NuGet suivants fournissent différentes fonctionnalit
 
 Le contrôleur d’API personnalisé fournit les fonctionnalités de base au serveur principal de votre application mobile en exposant un point de terminaison. Le contrôleur d’API personnalisé
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Controllers, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **Web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le dossier Contrôleurs, puis cliquez sur **Ajouter** > **Contrôleur**, sélectionnez **Web API 2 Controller&mdash;Empty** et cliquez sur **Ajouter**.
 
 2. Spécifiez un **nom de contrôleur**, tel que `CustomController`, puis cliquez sur **Ajouter**. Cette opération crée une classe **CustomController** qui hérite d’**ApiController**.
 
@@ -119,7 +119,7 @@ Le contrôleur d’API personnalisé fournit les fonctionnalités de base au ser
     
 	Notez que vous n’avez pas besoin d’appeler **MapApiControllers** si à la place vous appelez **UseDefaultConfiguration**, ce qui initialise toutes les fonctionnalités.
 
-Tous les contrôleurs auxquels **MobileAppControllerAttribute** n’est pas appliqué restent accessibles aux clients, mais ils ne peuvent pas être utilisés correctement par les clients à l’aide de n’importe quel Kit de développement logiciel (SDK) de client d’application mobile.
+Tous les contrôleurs auxquels **MobileAppControllerAttribute** n’est pas appliqué restent accessibles aux clients, mais ils ne peuvent pas être utilisés correctement par les clients à l’aide d’un Kit de développement logiciel (SDK) client d’application mobile.
 
 ## Définir un contrôleur de table
 
@@ -153,7 +153,7 @@ Vous pouvez ajouter l’authentification à votre projet de serveur en étendant
 
 3. Ajoutez l’attribut `[Authorize]` à tous les contrôleurs ou méthodes nécessitant l’authentification. Les utilisateurs doivent maintenant s’authentifier pour accéder à ce point de terminaison ou à ceux d’API spécifiques.
 
-Pour découvrir comment authentifier les clients auprès de votre serveur principal Mobile Apps, consultez la page [Ajout de l’authentification à votre application](app-service-mobile-dotnet-backend-ios-get-started-users.md).
+Pour découvrir comment authentifier les clients auprès de votre serveur principal Mobile Apps, consultez la page [Ajout de l’authentification à votre application](app-service-mobile-ios-get-started-users.md).
 
 ## Ajouter des notifications Push à un projet de serveur
 
@@ -195,6 +195,29 @@ Vous pouvez ajouter des notifications Push à votre projet de serveur en étenda
 
 À ce stade, vous pouvez utiliser le client Notification Hubs pour envoyer des notifications Push aux appareils inscrits. Pour plus d’informations, consultez [Ajout de notifications push à votre application](app-service-mobile-ios-get-started-push.md). Pour plus d’informations sur ce que Notification Hubs vous permet de faire, consultez [Vue d’ensemble de Notification Hubs](../notification-hubs/notification-hubs-overview.md).
 
+## Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises
+
+Après avoir suivi la **procédure de définition d’un contrôleur d’APi personnalisé**, vous souhaiterez configurer une API personnalisée sur votre serveur principal pour travailler avec Notification Hubs afin d’ajouter des balises à une installation de périphérique spécifique. Assurez-vous de transmettre l’ID d’installation enregistré sur l’espace de stockage local client et les balises que vous souhaitez ajouter (facultatif, étant donné que vous pouvez également spécifier des balises directement sur votre serveur principal). L’extrait de code suivant doit être ajouté à votre contrôleur pour utiliser Notification Hubs afin d’ajouter une balise à un ID d’installation de périphérique.
+
+Utilisation de [Nuget – Azure Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)([référence](https://msdn.microsoft.com/library/azure/mt414893.aspx)) :
+
+		var hub = NotificationHubClient.CreateClientFromConnectionString("my-connection-string", "my-hub");
+
+		hub.PatchInstallation("my-installation-id", new[]
+		{
+		    new PartialUpdateOperation
+		    {
+		        Operation = UpdateOperationType.Add,
+		        Path = "/tags",
+		        Value = "{my-tag}"
+		    }
+		});
+	
+
+Pour envoyer des notifications Push à ces balises, utilisez les [API Notification Hubs](https://msdn.microsoft.com/library/azure/dn495101.aspx).
+
+Vous pouvez également utiliser votre API personnalisé pour enregistrer les installations de périphériques avec Notification Hubs directement sur votre serveur principal.
+
 ## Publier le projet de serveur
 
 Pour publier votre projet de serveur vers Azure, procédez comme suit :
@@ -207,4 +230,4 @@ Pour publier votre projet de serveur vers Azure, procédez comme suit :
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

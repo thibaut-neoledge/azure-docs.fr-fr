@@ -751,7 +751,7 @@ __.chain()
 </table>
 
 ## Prise en charge du runtime
-Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](documentdb-interactions-with-resources.md).
+Le [Kit de développement logiciel (SDK) côté serveur JavaScript DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) offre la prise en charge de la plupart des fonctionnalités de langage JavaScript répondant à la norme [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Sécurité
 Les déclencheurs et les procédures stockées JavaScript sont exécutés dans le bac à sable (sandbox) de façon à ce que les effets d'un script ne soient divulgués à un autre sans passer par l'isolement de transaction de capture instantanée au niveau de la base de données. Les environnements d'exécution sont regroupés mais leur contexte est nettoyé après chaque exécution. Par conséquent, ils sont assurés d'être préservés de tout effet secondaire inattendu les uns des autres.
@@ -760,7 +760,7 @@ Les déclencheurs et les procédures stockées JavaScript sont exécutés dans l
 Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur sont précompilés de façon implicite en format de code d'octet afin d'éviter les frais de compilation à chaque appel de script. Cela permet de s'assurer que les appels de procédures stockées sont rapides et présentent un encombrement réduit.
 
 ## Prise en charge du Kit de développement logiciel (SDK) client
-Outre le client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB prend en charge les Kits de développement logiciel (SDK) [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) et [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être créés et exécutés au moyen de l'un de ces Kits de développement logiciel (SDK) également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
+Outre le client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB prend en charge les Kits de développement logiciel (SDK) [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) et [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Les procédures stockées, les déclencheurs et les fonctions définies par l'utilisateur peuvent être créés et exécutés au moyen de l'un de ces Kits de développement logiciel (SDK) également. Voici un exemple de la façon de créer et d'exécuter une procédure stockée au moyen du client .NET. Notez la façon dont les types .NET sont transmis dans la procédure stockée au format JSON et lus.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -793,7 +793,7 @@ Outre le client [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), Docu
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn783362.aspx) pour créer un pré-déclencheur et un document dans lequel le déclencheur est activé.
+Cet exemple illustre l’utilisation du [Kit de développement logiciel (SDK) .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx) pour créer un pré-déclencheur et un document dans lequel le déclencheur est activé.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -921,4 +921,4 @@ Pour en savoir plus sur la programmation DocumentDB côté serveur, vous pouvez 
 -	[Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hébergement du Runtime .NET dans Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # Utilisation de la synchronisation des données hors connexion dans Mobile Services
@@ -38,7 +38,7 @@ Ce didacticiel requiert les éléments suivants :
 * Achèvement du didacticiel [Prise en main de Mobile Services].
 * [Kit de développement logiciel (SDK) Azure Mobile Services version 1.3.0 (ou version ultérieure)][Mobile Services SDK Nuget]
 * [Azure Mobile Services SQLite Store version 1.0.0 (ou version ultérieure)][SQLite store nuget]
-* [SQLite pour Windows 8.1](www.sqlite.org/downloads)
+* [SQLite pour Windows 8.1](http://www.sqlite.org/download.html)
 * Un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Mettre à jour l'application pour prendre en charge les fonctionnalités hors connexion
@@ -278,4 +278,4 @@ Dans cette section, vous allez reconnecter l'application au service mobile. Cett
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

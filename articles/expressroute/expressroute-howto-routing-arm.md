@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
 # Créer et modifier le routage pour un circuit ExpressRoute à l’aide d’Azure Resource Manager et de PowerShell
@@ -68,7 +68,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 
 2. **Créez un circuit ExpressRoute.**
 	
-	Suivez les instructions permettant de créer [un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par le fournisseur de connectivité.
+	Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité.
 
 	Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l'homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, suivez les instructions ci-dessous.
 
@@ -133,7 +133,7 @@ Vous pouvez obtenir les détails de la configuration à l'aide de l'applet de co
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### Pour mettre à jour la configuration d'homologation privée Azure
@@ -349,7 +349,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
 	- Préfixes publiés : vous devez fournir une liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Vous pouvez envoyer une liste séparée par des virgules si vous prévoyez d'envoyer un jeu de préfixes. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
 	- ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés. **Cette étape est facultative**.
 	- Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auxquels le numéro AS et les préfixes sont enregistrés.
-	- Utilisez un hachage MD5, le cas échéant. **Cette étape est facultative**.
+	- Utilisez un hachage MD5, le cas échéant. **Cette étape est facultative.**
 	
 	Vous pouvez exécuter l'applet de commande suivante afin de configurer l’homologation Microsoft pour votre circuit
 
@@ -395,4 +395,4 @@ Ensuite, liez un réseau virtuel à un circuit ExpressRoute. Vous pouvez utilise
 
 -  Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

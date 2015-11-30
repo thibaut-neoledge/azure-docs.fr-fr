@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="11/15/2015" 
 	ms.author="ricksal"/>
 
 # Inscription de vos applications à des fins d'utilisation d'une connexion via un compte Azure Active Directory
@@ -66,4 +66,4 @@ Vous êtes maintenant prêt à utiliser Azure Active Directory pour l'authentifi
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

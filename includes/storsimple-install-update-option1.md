@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 11/16/15-->
 
 #### Pour installer Update 1.2 à partir de Windows PowerShell pour StorSimple
 
@@ -23,7 +23,7 @@
 
     6. Cliquez sur **Télécharger**. Spécifiez ou **accédez** à un emplacement local où vous souhaitez que le téléchargement s'affiche. La mise à jour est téléchargée dans le dossier **StorSimple Update 1.2 Appliance Update** (KB3063418) de l'emplacement choisi. Ce dossier peut également être copié sur un partage réseau accessible à partir de l’appareil.
     
-	Cette procédure décrit comment installer la mise à jour de périphérique logicielle en tant que correctif, les mises à jour du microprogramme de disque à partir du serveur Microsoft Update, ainsi que le pilote LSI et les mises à jour Windows à partir du portail de gestion. Toutefois, vous pouvez choisir d'installer les mises à jour du logiciel, du pilote et du microprogramme de disque en tant que correctifs. Vous devrez alors télécharger StorSimple 1.2 SAS Controller Update (KB3043005) et StorSimple 1.2 Disk Firmware Update (KB3063416) et les copier dans le dossier partagé. Pour installer les mises à jour du microprogramme de disque en tant que correctif logiciel, suivez les instructions dans [Installation des correctifs logiciels du mode maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
+	Cette procédure décrit comment installer la mise à jour de périphérique logicielle en tant que correctif, les mises à jour du microprogramme de disque à partir du serveur Microsoft Update, ainsi que le pilote LSI et les mises à jour Windows à partir du portail Azure. Toutefois, vous pouvez choisir d'installer les mises à jour du logiciel, du pilote et du microprogramme de disque en tant que correctifs. Vous devrez alors télécharger StorSimple 1.2 SAS Controller Update (KB3043005) et StorSimple 1.2 Disk Firmware Update (KB3063416) et les copier dans le dossier partagé. Pour installer les mises à jour du microprogramme de disque en tant que correctif logiciel, suivez les instructions dans [Installation des correctifs logiciels du mode maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-hotfixes-via-windows-powershell-for-storsimple).
     
 	> [AZURE.NOTE]Le correctif doit être accessible depuis les deux contrôleurs pour détecter les messages d'erreur potentiels à partir du contrôleur homologue.
             
@@ -99,9 +99,9 @@
     
 	Si les numéros de version ne changent pas après la mise à jour, cela indique que le correctif n'a pas pu s'appliquer. Dans ce cas, contactez le [Support Microsoft](storsimple-contact-microsoft-support.md) pour obtenir une assistance supplémentaire.
     
-9. Vous allez maintenant installer les mises à jour du microprogramme de disque qui entraînent des temps d'arrêt et prennent environ 30 à 45 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série du périphérique. Pour installer les mises à jour du microprogramme de disque, suivez les instructions sous [Installation des mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+9. Vous allez maintenant installer les mises à jour du microprogramme de disque qui entraînent des temps d'arrêt et prennent environ 30 à 45 minutes. Vous pouvez choisir de les installer dans une fenêtre de maintenance planifiée en vous connectant à la console série du périphérique. Pour installer les mises à jour du microprogramme de disque, suivez les instructions sous [Installer les mises à jour en mode Maintenance via Windows PowerShell pour StorSimple](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
-10. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que le périphérique a quitté le mode Maintenance, revenez au portail de gestion. Les mises à jour du mode Maintenance ne sont mises à jour sur le portail que 24 heures plus tard. Vous devrez peut-être patienter avant d'appliquer les autres mises à jour sans interruption depuis le portail de gestion.
+10. Une fois que les mises à jour du microprogramme de disque ont été appliquées avec succès et que l’appareil a quitté le mode Maintenance, revenez au portail Azure. Les mises à jour du mode Maintenance ne sont mises à jour sur le portail que 24 heures plus tard. Vous devrez peut-être patienter avant d'appliquer les autres mises à jour sans interruption depuis le portail Azure.
 
 11. Lorsque vous êtes prêt à appliquer les mises à jour, accédez à la page **Maintenance** et cliquez sur **Rechercher les mises à jour** en bas de la page. Vous serez averti que des mises à jour sont disponibles, notamment les mises à jour du pilote et les mises à jour Windows. Cliquez sur **Installer les mises à jour** pour commencer le processus d'installation. Vous avez terminé une fois que toutes les mises à jour sont installées correctement.
 
@@ -112,4 +112,4 @@
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

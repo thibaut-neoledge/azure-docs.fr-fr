@@ -55,6 +55,8 @@ Pour ce faire, dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=52
 Vous pouvez ensuite sélectionner ou créer le plan App Service pour la nouvelle application.
   
  ![][createASP]
+
+Pour créer un nouveau plan App Service, cliquez sur **+ Créer nouveau**, saisissez le nom du **plan App Service**, puis sélectionnez un **emplacement**. Cliquez sur **Niveau de tarification** et sélectionnez un niveau de tarification approprié pour le service. Sélectionnez **Afficher tout** pour afficher davantage d’options de tarification, telles que **Gratuit** et **Partagé**. Une fois que vous avez sélectionné le niveau de tarification, cliquez sur le bouton **Sélectionner**.
  
 ## Déplacer une application vers un autre plan App Service
 
@@ -98,4 +100,4 @@ Les plans App Service représentent un ensemble de fonctionnalités et de capac
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

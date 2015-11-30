@@ -3,9 +3,9 @@
    description="Présentation du modèle de communication Reliable Service, notamment l'ouverture d'écouteurs sur les services, la résolution des points de terminaison et la communication entre les services."
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman"
+   authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="BharatNarasimman"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,34 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="11/17/2015"
+   ms.author="vturecek@microsoft.com"/>
 
-# Présentation du modèle de communication Reliable Service
+# Modèle de communication Reliable Service
 
-Le modèle de programmation de services fiables permet aux auteurs de services de spécifier le mécanisme de communication qu'ils souhaitent utiliser pour présenter leurs points de terminaison de service et il fournit des abstractions que les clients peuvent utiliser pour détecter et communiquer avec le point de terminaison de service.
+Service Fabric, en tant que plateforme, est totalement indépendant de la communication entre les services. Toutes les piles et tous les protocoles sont possibles, de l’UDP au HTTP. C'est au développeur de services de choisir comment les services doivent communiquer. L'infrastructure d'application Reliable Services fournit quelques piles de communication prédéfinies ainsi que des outils pour déployer votre pile de communication personnalisée, comme des abstractions que les clients peuvent utiliser pour détecter des points de terminaison de service et communiquer avec.
 
-## Configuration de la pile de communication du service
+## Configuration de la communication de service
 
-L'API de services fiables permet aux auteurs de services d'intégrer la pile de communication de leur choix dans le service en implémentant la méthode suivante dans leur service.
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
-{
-    ...
-}
-
-```
-
-L'interface `ICommunicationListener` définit l'interface qui doit être implémentée par l'écouteur de communication pour un service.
+L'API Reliable Services utilise une interface simple pour la communication de service. Afin d’ouvrir un point de terminaison pour votre service, il vous suffit d’implémenter l’interface suivante :
 
 ```csharp
 
 public interface ICommunicationListener
 {
-    void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-
     Task<string> OpenAsync(CancellationToken cancellationToken);
 
     Task CloseAsync(CancellationToken cancellationToken);
@@ -49,7 +36,46 @@ public interface ICommunicationListener
 }
 
 ```
-Les points de terminaison qui sont requis pour le service sont décrits via le [manifeste de service](service-fabric-application-model.md), dans la section consacrée aux points de terminaison.
+
+Ajoutez ensuite votre implémentation d'écouteur de communication en la retournant dans une substitution de méthode de classe de base de services.
+
+Sans état :
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+```
+
+Avec état :
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+```
+
+Dans les deux cas, vous retournez une collection d'écouteurs qui permet à votre service d'utiliser facilement plusieurs écouteurs ; par exemple, vous pouvez avoir un écouteur HTTP et un écouteur WebSocket distinct. Chaque écouteur obtient un nom, et la collection résultante du nom : paires d'adresses est représentée comme un objet JSON lorsqu'un client demande les adresses d'écoute pour une instance de service ou une partition.
+
+Dans un service sans état, la substitution retourne une collection de ServiceInstanceListeners. Un ServiceInstanceListener contient simplement une fonction pour créer votre ICommunicationListener et lui attribuer un nom. Pour les services avec état, la substitution retourne une collection de ServiceReplicaListener. Cela diffère légèrement de son homologue sans état, car ServiceReplicaListener a une option pour ouvrir un ICommunicationListener sur des réplicas secondaires. Ainsi, non seulement vous pouvez utiliser plusieurs écouteurs de communication dans un service, mais vous pouvez également spécifier ceux qui acceptent les demandes sur les réplicas secondaires, et ceux qui écoutent uniquement sur les réplicas principaux.
+
+Par exemple, nous pouvons avoir un ServiceRemotingListener qui ne prend les appels RPC que sur les réplicas primaires, et un deuxième écouteur personnalisé qui prend les demandes de lecture sur les réplicas secondaires :
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new[]
+    {
+        new ServiceReplicaListener(initParams =>
+            new MyCustomListener(initParams),
+            "customReadonlyEndpoint",
+            true),
+
+        new ServiceReplicaListener(initParams =>
+            new ServiceRemotingListener<IMyStatefulInterface2>(initParams, this),
+            "rpcPrimaryEndpoint",
+            false)
+    };
+}
+```
+
+Pour terminer, décrivez les points de terminaison qui sont requis pour le service dans le [manifeste de service](service-fabric-application-model.md), dans la section consacrée aux points de terminaison.
 
 ```xml
 
@@ -100,13 +126,13 @@ var listenAddress = new Uri(
 
 ```
 
+Pour une description complète de l’écriture d’un `ICommunicationListener`, consultez la rubrique [Prise en main des services d'API Web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN](service-fabric-reliable-services-communication-webapi.md)
+
 ## Communication du client au service
 L'API de services fiables fournit les abstractions suivantes qui facilitent l'écriture des clients pour la communication avec les services.
 
-## ServicePartitionResolver
-La classe ServicePartitionResolver permet au client d'identifier le système d'extrémité d'un service Service Fabric lors de l'exécution.
-
-> [AZURE.TIP]Le processus permettant de déterminer le point de terminaison d'un service est appelé résolution de point de terminaison dans la terminologie Service Fabric.
+### ServicePartitionResolver
+Cette classe d’utilitaires permet aux clients d'identifier le point de terminaison d'un service Service Fabric lors de l'exécution. Le processus permettant de déterminer le point de terminaison d'un service est appelé résolution de point de terminaison dans la terminologie Service Fabric.
 
 ```csharp
 
@@ -129,7 +155,7 @@ Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp
 
 Généralement, le code client ne doit pas fonctionner directement avec `ServicePartitionResolver`. Il est créé et transmis à d'autres classes d'assistance dans l'API de services fiables, qui utilisent le résolveur interne et aident le client à communiquer avec le service.
 
-## CommunicationClientFactory
+### CommunicationClientFactory
 `ICommunicationClientFactory` définit l'interface de base implémentée par une usine de clients de communication qui produit des clients capables de communiquer avec un service Service Fabric. L'implémentation de CommunicationClientFactory dépend de la pile de communication utilisée par le service Service Fabric avec lequel le client souhaite communiquer. L'API de services fiables fournit une classe CommunicationClientFactoryBase<TCommunicationClient> qui offre une implémentation de base de cette interface `ICommunicationClientFactory` et effectue des tâches communes à toutes les piles de communication (semblable à l'utilisation d'un `ServicePartitionResolver` pour déterminer le point de terminaison du service). Les clients implémentent généralement la classe abstraite CommunicationClientFactoryBase pour gérer la logique spécifique de la pile de communication.
 
 ```csharp
@@ -152,30 +178,30 @@ public class MyCommunicationClient : ICommunicationClient
 
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
 {
-   protected override void AbortClient(MyCommunicationClient1 client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override void AbortClient(MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override Task<MyCommunicationClient> CreateClientAsync(ResolvedServiceEndpoint endpoint, CancellationToken cancellationToken)
-   {
-      throw new NotImplementedException();
-   }
+    protected override Task<MyCommunicationClient> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(MyCommunicationClient clientChannel)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(MyCommunicationClient clientChannel)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(ResolvedServiceEndpoint endpoint, MyCommunicationClient client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(string endpoint, MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 ```
 
-## ServicePartitionClient
+### ServicePartitionClient
 `ServicePartitionClient` utilise le CommunicationClientFactory (et en interne le ServicePartitionResolver) et permet de communiquer avec le service en gérant les tentatives de communication courante et des exceptions temporaires de Fabric Service.
 
 ```csharp
@@ -222,11 +248,12 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Étapes suivantes
-* [Pile de communication par défaut fournie par l'infrastructure de services fiables](service-fabric-reliable-services-communication-default.md)
+* [Appel de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
 
-* [Pile de communication WCF fournie par l'infrastructure de services fiables](service-fabric-reliable-services-communication-wcf.md)
+* [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Écriture d'un service à l'aide de l'API de services fiables qui utilise la pile de communication WebAPI](service-fabric-reliable-services-communication-webapi.md)
+* [Communication WCF avec Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -24,10 +24,6 @@
 
 Dans ce didacticiel, vous allez ajouter l’authentification au projet de [Démarrage rapide iOS] en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Démarrage rapide iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension d’authentification à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-##<a name="create-gateway"></a>Créer une passerelle App Service
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -36,7 +32,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de [Déma
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exception se déclenche, car l'application essaye d'accéder au serveur principal en tant qu'utilisateur non authentifié alors que la table _TodoItem_ requiert désormais l'authentification.
+Dans Xcode, appuyez sur **Exécuter** pour démarrer l’application. Une exception se déclenche, car l’application essaye d’accéder au serveur principal en tant qu’utilisateur non authentifié alors que la table _TodoItem_ requiert désormais l’authentification.
 
 ##<a name="add-authentication"></a>Ajout de l'authentification à l'application
 
@@ -50,4 +46,4 @@ Dans Xcode, appuyez sur **Exécuter** pour démarrer l'application. Une exceptio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

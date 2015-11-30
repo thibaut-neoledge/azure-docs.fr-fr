@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Utiliser le service StorSimple Manager pour gérer votre compte de stockage
@@ -113,7 +113,7 @@ Lorsque vous créez un compte de stockage, Microsoft Azure génère deux clés d
 
 En règle générale, les applications utilisent une seule clé pour accéder à vos données. Après un certain temps, vous pouvez faire en sorte que vos applications utilisent la deuxième clé. Une fois que vos applications utilisent la clé secondaire, vous pouvez mettre la première clé hors service et générer une nouvelle clé. En utilisant les deux clés de cette manière, vous permettez à vos applications d’accéder aux données sans provoquer de temps d’arrêt.
 
-Les clés de compte de stockage sont toujours stockées dans le service sous forme chiffrée. Toutefois, elles peuvent être réinitialisées via le service StorSimple Manager. Le service peut obtenir la clé primaire et la clé secondaire de tous les comptes de stockage d’un abonnement, y compris les comptes créés dans le service de stockage, ainsi que les comptes de stockage par défaut générés lors de la création du service StorSimple Manager. Le service StorSimple Manager obtient toujours ces clés à partir du portail de gestion et les stocke sous forme chiffrée.
+Les clés de compte de stockage sont toujours stockées dans le service sous forme chiffrée. Toutefois, elles peuvent être réinitialisées via le service StorSimple Manager. Le service peut obtenir la clé primaire et la clé secondaire de tous les comptes de stockage d’un abonnement, y compris les comptes créés dans le service de stockage, ainsi que les comptes de stockage par défaut générés lors de la création du service StorSimple Manager. Le service StorSimple Manager obtient toujours ces clés à partir du portail Azure et les stocke sous forme chiffrée.
 
 ## Workflow de rotation
 
@@ -151,4 +151,4 @@ Pour informer le service StorSimple Manager de la modification, vous devez accé
 - En savoir plus sur la [sécurité StorSimple](storsimple-security.md).
 - En savoir plus sur [l’utilisation du service StorSimple Manager pour gérer votre appareil StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

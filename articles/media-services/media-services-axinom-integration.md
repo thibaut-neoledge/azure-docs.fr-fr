@@ -26,7 +26,7 @@
 
 Azure Media Services (AMS) a ajouté la protection dynamique Google Widevine (voir le [blog de Mingfei](https://azure.microsoft.com/fr-FR/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) pour plus de détails). En outre, Azure Media Player (AMP) a ajouté la prise en charge de Widevine (voir [Document AMP](http://amp.azure.net/libs/amp/latest/docs/) pour plus d’informations). Il s’agit d’un succès majeur en matière de diffusion en continu de contenu DASH protégé par CENC avec DRM multi-natif (PlayReady et Widevine) sur les navigateurs modernes équipés de MSE et EME.
 
->[AZURE.NOTE]Actuellement, Media Services ne fournit pas de serveur de licences Widevine. Vous pouvez utiliser les partenaires AMS suivants pour vous aider à fournir des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+En commençant par le kit de développement logiciel (SDK) Media Services .NET version 3.5.2, Media Services vous permet de configurer le modèle de licence Widevine et d’obtenir des licences Widevine. Vous pouvez également utiliser les partenaires AMS suivants pour vous aider à distribuer des licences Widevine : [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Cet article décrit comment intégrer et tester le serveur de licences Widevine géré par Axinom. Il aborde plus précisément :
 
@@ -56,11 +56,11 @@ Veuillez consulter la rubrique [Génération de jetons JWT](media-services-axino
 
 ##Préparation d’Azure Media Player
 
-AMP 1.4.0 prend en charge la lecture de contenu AMS qui est empaqueté dynamiquement avec les DRM de PlayReady et Widevine. Si le serveur de licences Widevine n’exige pas l’authentification de jeton, vous n’avez besoin de rien d’autre pour tester un contenu DASH protégé par Widevine. Par exemple, l’équipe AMP fournit un [exemple](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html) simple, dans lequel vous pouvez voir qu’il fonctionne dans Edge et IE11 avec PlayReady et Chrome avec Widevine. Le serveur de licences Widevine fourni par Axinom requiert l’authentification des jetons JWT. Le jeton JWT doit être soumis avec la demande de licence par le biais d’un en-tête HTTP « X-AxDRM-Message ». Pour ce faire, vous devez ajouter le code javascript suivant dans la page web d’hébergement AMP avant de définir la source :
+AMP 1.4.0 prend en charge la lecture de contenu AMS qui est empaqueté dynamiquement avec les DRM de PlayReady et Widevine. Si le serveur de licences Widevine n’exige pas l’authentification de jeton, vous n’avez besoin de rien d’autre pour tester un contenu DASH protégé par Widevine. Par exemple, l’équipe AMP fournit un [exemple](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html) simple, dans lequel vous pouvez voir qu’il fonctionne sous Edge et IE11 avec PlayReady et Chrome avec Widevine. Le serveur de licences Widevine fourni par Axinom requiert l’authentification des jetons JWT. Le jeton JWT doit être soumis avec la demande de licence par le biais d’un en-tête HTTP « X-AxDRM-Message ». Pour ce faire, vous devez ajouter le code javascript suivant dans la page web d’hébergement AMP avant de définir la source :
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-Le reste du code AMP est en API AMP standard, comme pour le document AMP [ici](http://amp.azure.net/libs/amp/latest/docs/).
+Le reste du code AMP est en API AMP standard, comme pour le document AMP [suivant](http://amp.azure.net/libs/amp/latest/docs/).
 
 Notez que le code javascript qui permet de configurer l’en-tête d’autorisation personnalisé obéit toujours à une approche à court terme, et ce, avant que l’approche officielle AMP à long terme soit émise.
 
@@ -71,7 +71,7 @@ Le serveur de licences Axinom Widevine fourni par Axinom requiert l’authentifi
 Malheureusement, Azure AD ne peut émettre que des jetons JWT avec des types primitifs. De même, API .NET Framework (System.IdentityModel.Tokens.SecurityTokenHandler et JwtPayload) permet d’entrer seulement des revendications avec type d’objet complexe. Toutefois, les revendications sont toujours sérialisées en tant que chaîne. Par conséquent, nous ne pouvons utiliser aucun des deux pour générer le jeton JWT pour la demande de licence Widevine.
 
 
-Le [package Nuget JWT](https://www.nuget.org/packages/JWT) de John Sheehan répond à ces besoins, et nous allons utiliser ce package Nuget.
+Le [package Nuget JWT](https://www.nuget.org/packages/JWT) de John Sheehan répond à ces besoins. Nous allons donc l’utiliser.
 
 Vous trouverez ci-dessous le code permettant de générer un jeton JWT avec les revendications nécessaires, comme l’exige le serveur de licences Axinom Widevine pour le test :
 
@@ -193,7 +193,7 @@ Paramètre|Utilisation
 ID de clé de communication|Doit être inclus en tant que valeur de revendication « com\_key\_id » dans le jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section).
 Clé de communication|Doit être utilisé comme clé de signature de jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section).
 Amorce de clé|Doit être utilisé pour générer la clé de contenu avec un ID de clé de contenu donné (consultez [cette](media-services-axinom-integration.md#content-protection) section).
-URL d’acquisition de licence Widevine.|Doit être utilisé dans la configuration de la stratégie de remise de l’élément multimédia de diffusion en continu DASH (consultez [cette](media-services-axinom-integration.md#content-protection) section).
+URL d’acquisition de licence Widevine.|Doit être utilisé dans la configuration de la stratégie de remise de l’élément multimédia pour la diffusion en continu DASH (consultez [cette](media-services-axinom-integration.md#content-protection) section).
 ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendication Entitlement Message du jeton JWT (consultez [cette](media-services-axinom-integration.md#jwt-token-generation) section). 
 
 
@@ -209,4 +209,4 @@ ID de clé de contenu|Doit être inclus dans le cadre de la valeur de la revendi
 
 Nous aimerions remercier les personnes suivantes qui ont contribué à la création de ce document : Kristjan Jõgi of Axinom, Mingfei Yan et Amit Rajput.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

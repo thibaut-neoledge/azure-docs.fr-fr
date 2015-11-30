@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="11/11/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos"/>
 
 # Sécurité et protection des données StorSimple
@@ -36,7 +36,7 @@ Les sections suivantes décrivent les fonctionnalités de sécurité StorSimple 
 
 ## Protection du service StorSimple Manager
 
-Le service StorSimple Manager est un service de gestion hébergé dans Microsoft Azure, qui permet de gérer tous les appareils StorSimple de votre organisation. Vous pouvez accéder au service StorSimple Manager en vous connectant au portail de gestion Azure via un navigateur web, à l’aide de vos informations d’identification professionnelles.
+Le service StorSimple Manager est un service de gestion hébergé dans Microsoft Azure, qui permet de gérer tous les appareils StorSimple de votre organisation. Vous pouvez accéder au service StorSimple Manager en vous connectant au portail Azure via un navigateur Web, à l’aide de vos informations d’identification professionnelles.
 
 L’accès au service StorSimple Manager requiert que votre organisation dispose d’un abonnement Azure incluant StorSimple. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure. Si votre organisation ne dispose pas d’un abonnement Azure et que vous souhaitez en savoir plus à ce sujet, consultez [Inscription à Azure en tant qu’organisation](../sign-up-organization.md).
 
@@ -46,7 +46,7 @@ L’accès au service StorSimple Manager requiert que votre organisation dispose
 
 L’appareil StorSimple est un appareil de stockage hybride local qui contient des disques SSD et des disques durs, ainsi que des contrôleurs redondants et des fonctionnalités de basculement automatique. Les contrôleurs gèrent la hiérarchisation du stockage en plaçant les données actuellement (ou souvent) utilisées sur le stockage local (sur l’appareil StorSimple ou les serveurs locaux), tout en déplaçant les données moins fréquemment utilisées sur le cloud.
 
-Seuls les appareils autorisés par StorSimple peuvent rejoindre le service StorSimple Manager que vous avez créé dans votre abonnement Azure. Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimple Manager en fournissant la clé d’inscription. La clé d’inscription est une clé aléatoire de 128 bits, générée dans le portail.
+Seuls les appareils autorisés par StorSimple peuvent rejoindre le service StorSimple Manager que vous avez créé dans votre abonnement Azure. Pour autoriser un appareil, vous devez l’inscrire auprès du service StorSimple Manager en fournissant la clé d’inscription. La clé d’inscription est une clé aléatoire de 128 bits, générée dans le portail Azure.
 
 ![Clé d'inscription du service](./media/storsimple-security/ServiceRegistrationKey.png)
 
@@ -131,7 +131,7 @@ Comme mentionné dans les sections précédentes, les mots de passe sont utilis�
 
 ## Protection des données transitant par le service
 
-L’objectif principal du service StorSimple Manager est de gérer et de configurer l’appareil StorSimple. Le service StorSimple Manager s’exécute dans Microsoft Azure. Le portail de gestion Azure vous permet d’entrer des données de configuration d’appareil, puis Microsoft Azure utilise le service StorSimple Manager pour envoyer ces données vers l’appareil. StorSimple utilise un système de paires de clés asymétriques pour garantir que la compromission du service Azure ne compromette pas les informations stockées.
+L’objectif principal du service StorSimple Manager est de gérer et de configurer l’appareil StorSimple. Le service StorSimple Manager s’exécute dans Microsoft Azure. Le portail Azure vous permet d’entrer des données de configuration d’appareil, puis Microsoft Azure utilise le service StorSimple Manager pour envoyer ces données vers l’appareil. StorSimple utilise un système de paires de clés asymétriques pour garantir que la compromission du service Azure ne compromette pas les informations stockées.
 
 ![Chiffrement des données à la volée](./media/storsimple-security/DataEncryption.png)
 
@@ -183,7 +183,7 @@ Lorsque vous créez un compte de stockage, Microsoft Azure génère deux clés d
 Nous vous recommandons de suivre ces méthodes recommandées pour la rotation des clés :
 
 - Utilisez la rotation des clés de compte de stockage régulièrement pour vous assurer que votre compte de stockage n’est pas accessible aux utilisateurs non autorisés.
-- Votre administrateur Azure doit changer ou régénérer régulièrement la clé primaire ou secondaire à l’aide de la section Stockage du portail de gestion pour accéder directement au compte de stockage.
+- Votre administrateur Azure doit changer ou régénérer régulièrement la clé primaire ou secondaire à l’aide de la section Stockage du portail Azure pour accéder directement au compte de stockage.
 
 
 ## Protection des données par chiffrement
@@ -192,8 +192,8 @@ StorSimple utilise les algorithmes de chiffrement suivants pour protéger les do
 
 | Algorithme | Longueur de clé | Protocoles/applications/commentaires |
 | --------- | ---------- | ------------------------------- |
-| RSA | 2 048 | RSA PKCS 1 v1.5 est utilisé par le portail de gestion pour chiffrer les données de configuration envoyées à l’appareil : par exemple, les informations d’identification du compte de stockage, la configuration de l’appareil StorSimple et les clés de chiffrement du stockage cloud. |
-| AES | 256 | AES avec CBC est utilisé pour chiffrer la partie publique de la clé de chiffrement des données du service avant son envoi au portail de gestion à partir de l’appareil StorSimple. Il est également utilisé par l’appareil StorSimple pour chiffrer les données avant qu’elles ne soient envoyées au compte de stockage cloud. |
+| RSA | 2 048 | RSA PKCS 1 v1.5 est utilisé par le portail Azure pour chiffrer les données de configuration envoyées à l’appareil : par exemple, les informations d’identification du compte de stockage, la configuration de l’appareil StorSimple et les clés de chiffrement du stockage cloud. |
+| AES | 256 | AES avec CBC est utilisé pour chiffrer la partie publique de la clé de chiffrement des données du service avant son envoi au portail Azure à partir de l’appareil StorSimple. Il est également utilisé par l’appareil StorSimple pour chiffrer les données avant qu’elles ne soient envoyées au compte de stockage cloud. |
 
 
 ## Sécurité de l'appareil virtuel StorSimple
@@ -254,7 +254,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **Q :** Mes données sont-elles protégées si le service StorSimple Manager est compromis ?
 
-**R :** Les données de configuration du service sont toujours chiffrées avec votre clé publique lorsque vous les affichez dans un navigateur web. Comme le service n’a pas accès à la clé privée, il n’est pas en mesure d’accéder aux données. Si le service StorSimple Manager est compromis, il n’y a aucun impact, car aucune clé n’est stockée dans ce service.
+**R :** Les données de configuration du service sont toujours chiffrées avec votre clé publique lorsque vous les affichez dans un navigateur Web. Comme le service n’a pas accès à la clé privée, il n’est pas en mesure d’accéder aux données. Si le service StorSimple Manager est compromis, il n’y a aucun impact, car aucune clé n’est stockée dans ce service.
 
 **Q :** Si quelqu’un a accès au certificat de chiffrement de données, mes données seront-elles compromises ?
 
@@ -269,4 +269,4 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 [Déploiement de votre appareil StorSimple](storsimple-deployment-walkthrough.md).
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

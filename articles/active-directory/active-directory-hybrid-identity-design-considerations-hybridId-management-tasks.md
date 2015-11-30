@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Considérations relatives à la conception d’identités hybrides Azure Active Directory : déterminer les tâches de gestion des identités hybrides | Microsoft Azure"
-	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l'authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
+	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 	documentationCenter=""
 	services="active-directory"
 	authors="femila"
@@ -62,6 +62,6 @@ Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre t
 
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

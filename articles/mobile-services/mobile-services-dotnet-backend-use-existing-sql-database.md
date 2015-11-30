@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@ Le modèle de données que vous souhaitez utiliser avec votre service mobile peu
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. Ensuite, ajoutez ces propriétés supplémentaires à chacune des classes :
@@ -469,7 +468,7 @@ L'étape suivante consiste à implémenter un [**MappedEntityDomainManager**](ht
             }
         }
 
-    Dans ce cas, les méthodes **InsertAsync** et **UpdateAsync** sont intéressantes : c'est là que nous appliquons la relation selon laquelle chaque classe **Order** doit être associée à une classe **Customer** valide. Dans **InsertAsync**, vous noterez que nous remplissons la propriété **MobileOrder.CustomerId**, qui effectue le mappage à la propriété **Order.CustomerId**. Nous obtenons cette valeur en observant la classe **Customer** avec le **MobileOrder.MobileCustomerId** correspondant. En effet, par défaut, le client ne connaît que l'ID Mobile Services (**MobileOrder.MobileCustomerId**) de la classe **Customer**, qui est différent de sa clé primaire réelle, nécessaire pour définir la clé étrangère (**MobileOrder.CustomerId**) d'**Order** à **Customer**. Ceci n'est utilisé qu'en interne dans le service, pour faciliter l'opération d'insertion.
+    Dans ce cas, les méthodes **InsertAsync** et **UpdateAsync** sont intéressantes : c'est là que nous appliquons la relation selon laquelle chaque classe **Order** doit être associée à une classe **Customer** valide. Dans **InsertAsync**, vous noterez que nous remplissons la propriété **MobileOrder.CustomerId**, qui effectue le mappage à la propriété **Order.CustomerId**. Nous obtenons cette valeur en observant l’élément **Client** avec l’élément **MobileOrder.MobileCustomerId** correspondant. En effet, par défaut, le client ne connaît que l'ID Mobile Services (**MobileOrder.MobileCustomerId**) de la classe **Customer**, qui est différent de sa clé primaire réelle, nécessaire pour définir la clé étrangère (**MobileOrder.CustomerId**) d'**Order** à **Customer**. Ceci n'est utilisé qu'en interne dans le service, pour faciliter l'opération d'insertion.
 
 Nous pouvons désormais créer des contrôleurs pour exposer nos objets de transfert de données à nos clients.
 
@@ -585,7 +584,7 @@ Nous pouvons désormais créer des contrôleurs pour exposer nos objets de trans
 
 3. Vous pouvez désormais exécuter votre service. Appuyez sur **F5** et utilisez le client de test intégré dans la page d'aide pour modifier les données.
 
-Veuillez noter que les deux implémentations de contrôleur exercent une utilisation exclusive des objets de transfert de données **MobileCustomer** et **MobileOrder** et ignorent le modèle sous-jacent. Ces objets de transfert de données sont immédiatement sérialisés en JSON et peuvent être utilisés pour échanger des données avec le Kit de développement logiciel (SDK) client Mobile Services sur toutes les plateformes. Par exemple, en cas de génération d'une application Windows Store, le type côté client correspondant sera semblable à celui présenté ci-dessous. Le type sera analogue sur les autres plateformes client.
+Veuillez noter que les deux implémentations de contrôleur exercent une utilisation exclusive des objets de transfert de données **MobileCustomer** et **MobileOrder** et ignorent le modèle sous-jacent. Ces objets de transfert de données sont immédiatement sérialisés en JSON et peuvent être utilisés pour échanger des données avec le Kit de développement logiciel (SDK) client Mobile Services sur toutes les plateformes. Par exemple, en cas de génération d’une application Windows Store, le type côté client correspondant sera semblable à celui présenté ci-dessous. Le type sera analogue sur les autres plateformes client.
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -615,4 +614,4 @@ Veuillez noter que les deux implémentations de contrôleur exercent une utilisa
 
 Vous pouvez ensuite créer l'application cliente pour accéder au service.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -79,7 +79,7 @@ La communication avec Reliable Services et les abstractions que les clients peuv
 
 - [Communication avec les services](service-fabric-connect-and-communicate-with-services.md)
 - [Modèle de communication de service](service-fabric-reliable-services-communication.md)
-- [Pile de communication par défaut fournie par l'infrastructure de Reliable Services](service-fabric-reliable-services-communication-default.md)
+- [Pile de communication par défaut fournie par l'infrastructure des services fiables](service-fabric-reliable-services-communication-remoting.md)
 - [Pile de communication WCF pour Reliable Services](service-fabric-reliable-services-communication-wcf.md)
 - [Prise en main des services d'API web de Microsoft Azure Service Fabric avec l'auto-hébergement OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
@@ -87,4 +87,4 @@ Reliable Services émet des événements et des compteurs de performance, qui pe
 
 - [Diagnostics de Reliable Service avec état](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

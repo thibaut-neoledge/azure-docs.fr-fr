@@ -13,12 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="10/18/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # SE invité d'Azure 
 
 Les tableaux suivants indiquent les mises à jour de Microsoft Security Response Center (MSRC) appliquées au SE invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au SE invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## SE invité novembre
+
+| ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-112 | [3104517] | Mise à jour de sécurité cumulative pour Internet Explorer | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-114 | [3100213] | Mise à jour de sécurité pour Windows Journal pour résoudre l’exécution de code à distance | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-115 | [3105864] | Mise à jour de sécurité pour Microsoft Windows pour résoudre l’exécution de code à distance | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-117 | [3101722] | Mise à jour de sécurité pour NDIS pour résoudre une élévation de privilèges | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-118 | [3104507] | Mise à jour de sécurité pour .NET Framework pour résoudre une élévation de privilèges | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-119 | [3104521] | Mise à jour de sécurité pour Winsock pour résoudre une élévation de privilèges | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-120 | [3102939] | Mise à jour de sécurité pour IPSec pour résoudre un déni de Service | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-121 | [3081320] | Mise à jour de sécurité pour Schannel pour résoudre une usurpation d’identité | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| MS15-122 | [3105256] | Mise à jour de sécurité pour Kerberos pour résoudre un moyen de contournement de fonctionnalité de sécurité | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+| Avis de sécurité Microsoft | [3097966] | Des certificats numériques divulgués par inadvertance pourraient permettre une usurpation d’identité | 4\.26, 3.33, 2.45 | 10 novembre 2015 |
+
 
 ## SE invité octobre
 
@@ -182,6 +198,16 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 | N/A | [2999802][2999802] | Des lignes pleines sont imprimées dans Windows au lieu de lignes en pointillés | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 | N/A | [2896881][2896881] | Durée d'ouverture de session importante lorsque vous utilisez la commande AddPrinterConnection VBScript pour mapper des imprimantes pour les utilisateurs lors du processus d'ouverture de session dans Windows | 4\.15, 3.22, 2.34 | 13 janvier 2015 |
 
+[3104517]: http://support.microsoft.com/kb/3104517
+[3100213]: http://support.microsoft.com/kb/3100213
+[3105864]: http://support.microsoft.com/kb/3105864
+[3101722]: http://support.microsoft.com/kb/3101722
+[3104507]: http://support.microsoft.com/kb/3104507
+[3104521]: http://support.microsoft.com/kb/3104521
+[3102939]: http://support.microsoft.com/kb/3102939
+[3081320]: http://support.microsoft.com/kb/3081320
+[3105256]: http://support.microsoft.com/kb/3105256
+[3097966]: http://support.microsoft.com/kb/3097966
 
 [3096441]: http://support.microsoft.com/kb/3096441
 [3089659]: http://support.microsoft.com/kb/3089659
@@ -305,4 +331,4 @@ Les tableaux suivants indiquent les mises à jour de Microsoft Security Response
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

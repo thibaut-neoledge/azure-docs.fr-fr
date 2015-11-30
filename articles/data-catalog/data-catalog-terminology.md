@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="08/20/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Terminologie d’Azure Data Catalog
@@ -55,6 +55,12 @@ Des métadonnées descriptives d'une ressource de données peuvent inclure des i
 
 Une version préliminaire d’Azure Data Catalog est un instantané de maximum 20 enregistrements qui peuvent être extraits de la source de données pendant l'inscription et stockés dans le catalogue avec les métadonnées de ressources de données. La version préliminaire peut permettre aux utilisateurs, qui découvrent une ressource de données, de mieux comprendre son fonctionnement et son rôle. En d'autres termes, les exemples de données peuvent être plus utiles que les noms de colonnes et les types de données. Les versions préliminaires sont uniquement prises en charge par les tables et les vues et doivent être explicitement sélectionnées par l'utilisateur pendant l'inscription.
 
+## Profil de données
+
+Un profil de données d’Azure Data Catalog est un instantané de métadonnées de niveau colonne et table sur des ressources de données inscrites, qui peuvent être extraites de la source de données pendant l’inscription et stockées dans le catalogue avec les métadonnées de ressources de données. Le profil de données peut permettre aux utilisateurs qui découvrent une ressource de données de mieux comprendre son fonctionnement et son rôle. Comme pour les versions préliminaires, les profils de données doivent être explicitement sélectionnés par l’utilisateur pendant l’inscription.
+
+> [AZURE.NOTE]L’extraction d’un profil de données peut être une opération coûteuse pour les grandes tables et vues, et peut augmenter considérablement le temps nécessaire pour inscrire une source de données.
+
 ## Point de vue de l’utilisateur
 
 Dans Azure Data Catalog, tout utilisateur peut fournir des métadonnées descriptives pour une ressource de données inscrite. Chaque utilisateur a un point de vue différent sur les données et leurs utilisations. L'administrateur responsable d'un serveur peut, par exemple, fournir les détails de son contrat de niveau de service (SLA) ou de sa sauvegarde Windows ; un administrateur de données peut fournir des liens vers la documentation des processus d’entreprise que les données prennent en charge ; et un analyste peut fournir aux autres analystes une description des informations les plus pertinentes, qui peuvent être utiles aux utilisateurs qui ont besoin de découvrir et de comprendre les données.
@@ -76,8 +82,8 @@ L'inscription représente le fait d’extraire des métadonnées de ressources d
 
 ## Voir aussi
 
-- [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md) : cet article fournit une vue d'ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
+- [Présentation d’Azure Data Catalog](data-catalog-what-is-data-catalog.md) : cet article fournit une vue d’ensemble du service Azure Data Catalog, de sa valeur ajoutée et des scénarios pris en charge.
 
 - [Prise en main d’Azure Data Catalog](data-catalog-get-started.md) : cet article fournit un didacticiel de bout en bout qui vous indique comment utiliser Azure Data Catalog pour découvrir des sources de données.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

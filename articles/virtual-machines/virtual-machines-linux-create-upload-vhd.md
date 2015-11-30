@@ -55,6 +55,7 @@ Azure prend en charge diverses distributions de Linux (voir [Distributions Lin
 
 - **[Distributions CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES et openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Autres - Distributions non approuvées](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -170,4 +171,4 @@ Pour plus d'informations, consultez la page [Add-AzureVhd](https://msdn.microsof
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

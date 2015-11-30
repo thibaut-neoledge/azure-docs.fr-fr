@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Déploiement de la gestion des mots de passe et formation des utilisateurs
@@ -48,12 +48,14 @@ Avant qu’un utilisateur puisse utiliser la réinitialisation de mot de passe, 
 Vous avez plusieurs options pour spécifier les données que les utilisateurs de votre organisation doivent utiliser pour la réinitialisation du mot de passe.
 
 - Modifiez les utilisateurs dans le [portail de gestion Azure](https://manage.windowsazure.com) ou le [portail d’administration d’Office 365](https://portal.microsoftonline.com).
-- Utilisez AADSync pour synchroniser les propriétés de l’utilisateur dans Azure AD à partir d’un domaine Active Directory local.
-- Utilisez Windows PowerShell pour modifier les propriétés de l’utilisateur.
+- Utilisez Azure AD Sync pour synchroniser les propriétés de l’utilisateur dans Azure AD à partir d’un domaine Active Directory local.
+- Utilisez Windows PowerShell pour modifier les propriétés de l’utilisateur en [procédant comme indiqué ici](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 - Autorisez les utilisateurs à inscrire leurs propres données en les guidant vers le portail d’inscription à la page [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
-- Obligez les utilisateurs à s’inscrire à la réinitialisation de mot de passe lors de leur connexion au panneau d’accès à la page [http://myapps.microsoft.com](http://myapps.microsoft.com) en définissant l’option de configuration **Demander aux utilisateurs de s’inscrire à SSPR** sur **Oui**.
+- Obligez les utilisateurs à s’inscrire à la réinitialisation de mot de passe lors de leur connexion au compte Azure AD en définissant l’option de configuration [**Demander aux utilisateurs de s’inscrire lorsqu’ils se connectent ?**](active-directory-passwords-customize.md#require-users-to-register-when-signing-in) sur **Oui**.
 
-Les utilisateurs n’ont pas besoin de s’inscrire à la réinitialisation de mot de passe pour que le système fonctionne. Par exemple, si vous avez des numéros de téléphone existants dans votre annuaire local, vous pouvez les synchroniser dans Azure AD et nous les utiliserons pour réinitialiser automatiquement les mots de passe.
+Les utilisateurs n’ont pas besoin de s’inscrire à la réinitialisation de mot de passe pour que le système fonctionne. Par exemple, si vous avez des numéros de téléphone fixes ou portables existants dans votre annuaire local, vous pouvez les synchroniser dans Azure AD et nous les utiliserons pour réinitialiser automatiquement les mots de passe.
+
+Vous pouvez également en savoir plus sur [comment les données sont utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) et [comment vous pouvez remplir les différents champs d’authentification avec PowerShell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users).
 
 ## Quelle est la meilleure façon de déployer la réinitialisation de mot de passe pour les utilisateurs ?
 Voici les étapes de déploiement générales pour la réinitialisation de mot de passe :
@@ -121,24 +123,25 @@ Vous pouvez télécharger les données d’authentification via le [portail de g
 
 Pour voir comment chacune de ces propriétés peut être utilisée, consultez la section [Données utilisées par la réinitialisation de mot de passe](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
+Consultez la page [Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs depuis PowerSell](active-directory-passwords-learn-more.md#how-to-access-password-reset-data-for-your-users) pour apprendre à lire et définir ces données avec PowerShell.
+
 ## Exemples de supports de formation
 Nous travaillons actuellement sur des exemples de supports de formation que vous pourrez utiliser pour que votre service informatique et vos utilisateurs soient opérationnels rapidement concernant le déploiement et l’utilisation de la réinitialisation de mot de passe. Restez connecté !
 
 
 <br/> <br/> <br/>
 
-**Ressources supplémentaires**
+## Liens vers la documentation de réinitialisation du mot de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-
-* [Définition de la gestion des mots de passe](active-directory-passwords.md)
-* [Fonctionnement de la gestion des mots de passe](active-directory-passwords-how-it-works.md)
-* [Prise en main de la gestion des mots de passe](active-directory-passwords-getting-started.md)
-* [Personnalisation de la gestion des mots de passe](active-directory-passwords-customize.md)
-* [Obtention d’informations grâce aux rapports sur la gestion des mots de passe](active-directory-passwords-get-insights.md)
-* [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
-* [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
-* [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
+* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 
 
@@ -150,4 +153,4 @@ Nous travaillons actuellement sur des exemples de supports de formation que vous
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-best-practices/007.jpg "Image_007.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

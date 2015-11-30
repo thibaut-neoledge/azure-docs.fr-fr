@@ -41,7 +41,7 @@ Azure App Service Web Apps est une plateforme entièrement gérée qui vous pe
 
 - **Galerie Web Apps** : sélectionnez parmi la liste des modèles d’applications web existants qui est alimentée en permanence. Profitez du meilleur de la communauté des applications OSS grâce à une installation en un clic de packages tels que Wordpress, Joomla et Drupal. Commencez votre développement d'applications sur de bonnes bases en exploitant des infrastructures telles que .NET MVC, Django et CakePHP.
 - **Mise à l’échelle automatique** : Web Apps permet de réaliser rapidement une montée ou une descente en puissance pour gérer la charge entrante des clients. Sélectionnez manuellement le nombre et la taille des machines virtuelles ou configurez la mise à l'échelle automatique pour adapter vos serveurs à la charge ou planification.
-- **Intégration continue** : configurez des flux de travail d’intégration et de déploiement continus avec VSO, GitHub, TeamCity, Hudson ou BitBucket ; vous pouvez ainsi générer, tester et déployer automatiquement votre application web après chaque test d’intégration ou de vérification de code réussi.
+- **Intégration continue** : configurez des flux de travail d’intégration et de déploiement continus avec VSTS, GitHub, TeamCity, Hudson ou BitBucket. Vous pouvez ainsi générer, tester et déployer automatiquement votre application web après chaque test d’intégration ou de vérification de code réussi.
 - **Emplacements de déploiement** : mettez en place un [déploiement intermédiaire][Slots] pour vérifier votre code dans un environnement de pré-production identique à celui de votre application web de production dans Azure App Service. Quand vous êtes satisfait du résultat, publiez une nouvelle version de votre application sans interruption de service en effectuant une opération d'échange. 
 - **Tests dans un environnement de production** : allez au-delà du déploiement intermédiaire en effectuant des tests A/B pour vérifier votre nouveau code avec une fraction configurable de votre trafic. 
 - **WebJobs** : exécutez n’importe quel programme ou script sur des machines virtuelles Web Apps. Exécutez des tâches en continu ou selon un planning, et effectuez une mise à l'échelle pour une exécution sur plusieurs machines virtuelles. Pour intégrer Azure Storage ou Service Bus, utilisez le [Kit de développement logiciel (SDK) WebJobs][Webjobs] Azure.
@@ -65,4 +65,4 @@ Pour plus d’informations sur la plateforme Azure App Service, consultez [Azure
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

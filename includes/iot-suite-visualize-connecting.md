@@ -1,40 +1,40 @@
-## View device telemetry in the dashboard
+## Affichage de la télémétrie des appareils dans le tableau de bord
 
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+Le tableau de bord de la solution de surveillance à distance permet d'afficher la télémétrie que vos appareils envoient au IoT Hub.
 
-1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. Dans votre navigateur, retournez au tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
 
-2. In the **Devices list**, you should see that the status of your device is now **Running**.
+2. Dans la **Liste de périphériques**, vous devez voir que l'état de votre périphérique est maintenant **En cours d'exécution**.
 
     ![][18]
 
-3. In the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
+3. Dans le tableau de bord, sélectionnez votre périphérique dans la liste déroulante **Périphérique à afficher** pour afficher sa télémétrie. La télémétrie de l’exemple d’application est configurée pour envoyer 50 unités correspondant à la température interne, 55 unités correspondant à la température externe et 50 à l’humidité. Notez que le tableau de bord affiche uniquement les données de température et d’humidité par défaut.
 
     ![][img-telemetry]
 
-## Send a command to your device
+## Envoyer une commande à votre périphérique
 
-The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+Le tableau de bord de la solution de surveillance à distance permet de demander à IoT Hub d’envoyer des commandes à vos périphériques. Par exemple, dans la solution de surveillance à distance, vous pouvez envoyer une commande pour définir la température interne d'un périphérique.
 
-1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. Dans le tableau de bord de la solution de surveillance à distance, cliquez sur **Périphériques** dans le panneau de gauche pour accéder à la **Liste de périphériques**.
 
-2. Click **Device ID** for your device in the **Devices list**.
+2. Cliquez sur **ID de périphérique** pour votre périphérique dans la **Liste de périphériques**.
 
-3. In the **Device details** panel, click **Commands**.
+3. Dans le panneau **Détails du périphérique**, cliquez sur **Commandes**.
 
     ![][13]
 
-4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+4. Dans la liste déroulante **Commande**, sélectionnez **SetTemperature**, puis dans **Température**, saisissez une nouvelle valeur de température. Cliquez sur **Envoyer commande** pour envoyer la commande au périphérique.
 
     ![][14]
 
-    > [AZURE.NOTE] The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
+    > [AZURE.NOTE]L'historique affiche initialement l'état de la commande comme étant **En attente**. Lorsque le périphérique reconnaît la commande, l'état passe à **Réussite**.
 
-5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
+5. Dans le tableau de bord, vérifiez que le périphérique envoie désormais 75 comme nouvelle valeur de température.
 
-## Next steps
+## Étapes suivantes
 
-The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
+L'article [Personnalisation des solutions préconfigurées][lnk-customize] décrit quelques méthodes pour étendre cet exemple. Les extensions incluent l'utilisation de capteurs réels et l'implémentation de commandes supplémentaires.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
@@ -42,3 +42,5 @@ The article [Customizing preconfigured solutions][lnk-customize] describes some 
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
+
+<!---HONumber=Nov15_HO4-->

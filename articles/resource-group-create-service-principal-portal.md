@@ -13,22 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/29/2015"
+   ms.date="11/17/2015"
    ms.author="tomfitz"/>
 
 # Création de l'application Active Directory et du principal du service à l'aide du portail
 
 ## Vue d'ensemble
-Lorsque vous avez une application qui doit accéder ou modifier une ressource dans votre abonnement, vous pouvez utiliser le portail pour créer une application Active Directory et l'assigner à un rôle avec les autorisations correctes. Lorsque vous créez une application Active Directory par le biais du portail, celui-ci crée l'application et un principal du service. Vous utilisez le principal du service lors de la définition des autorisations.
+Lorsque vous avez un processus automatisé ou une application qui doit accéder ou modifier une ressource dans votre abonnement, vous pouvez utiliser le portail pour créer une application Active Directory et l'assigner à un rôle avec les autorisations correctes. Lorsque vous créez une application Active Directory par le biais du portail, celui-ci crée l'application et un principal du service. Vous utilisez le principal du service lors de la définition des autorisations.
 
-Cette rubrique montre comment créer une application et un principal du service à l'aide du portail Azure. Actuellement, vous devez utiliser le portail Microsoft Azure pour créer une application Active Directory. Cette possibilité sera ajoutée à la version préliminaire du portail Azure dans une version ultérieure. Vous pouvez utiliser le portail en version préliminaire pour assigner l'application à un rôle.
+Cette rubrique montre comment créer une application et un principal du service à l'aide du portail Azure. Actuellement, vous devez utiliser le portail Microsoft Azure pour créer une application Active Directory. Cette possibilité sera ajoutée à la version préliminaire du portail Azure dans une version ultérieure. Vous pouvez utiliser le portail en version préliminaire pour assigner l'application à un rôle. Vous pouvez également effectuer ces étapes via Azure PowerShell ou l’interface de ligne de commande Azure. Pour en savoir plus, consultez la rubrique [Authentification d'un principal du service à l'aide d'Azure Resource Manager](resource-group-authenticate-service-principal.md).
 
 ## Concepts
 1. Azure Active Directory (AAD) - une build de service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
 2. Principal du service : une instance d’application dans un annuaire.
 3. Application Active Directory : un enregistrement d’annuaire dans AAD qui identifie une application à AAD. 
 
-Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez [Objets principal du service et application](active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez [Scénarios d'authentification pour Azure AD](active-directory/active-directory-authentication-scenarios.md).
+Pour obtenir une explication plus détaillée des applications et des principaux du service, consultez la rubrique [Objets principal du service et application](active-directory/active-directory-application-objects.md). Pour plus d'informations sur l'authentification Active Directory, consultez la rubrique [Scénarios d'authentification pour Azure AD](active-directory/active-directory-authentication-scenarios.md).
 
 
 ## Création des objets principal du service et application
@@ -82,7 +82,7 @@ L’application doit à présent être sélectionnée dans le portail.
 
      ![enregistrer][13]
 
-     La clé enregistrée s’affiche. Vous pouvez la copier.
+     La clé enregistrée s’affiche. Vous pouvez la copier. Copiez la clé dès à présent, car par la suite, vous ne pourrez plus la récupérer.
 
      ![clé enregistrée][8]
 
@@ -90,6 +90,9 @@ L’application doit à présent être sélectionnée dans le portail.
   
      ![ID de client][5]
 
+5. Dans certains cas, vous devez transmettre l'ID de client avec votre demande d'authentification. Vous pouvez récupérer l'ID de client en sélectionnant **Afficher les points de terminaison** et en extrayant l'ID comme indiqué ci-dessous.
+
+     ![ID client](./media/resource-group-create-service-principal-portal/save-tenant.png)
 
 Votre application est maintenant prête et le principal du service est créé sur votre client. Lorsque vous vous connectez en tant que principal du service, veillez à utiliser :
 
@@ -98,7 +101,17 @@ Votre application est maintenant prête et le principal du service est créé su
 
 ## Affectation de l'application à un rôle
 
-Vous pouvez utiliser le [portail en version préliminaire](https://portal.azure.com) pour affecter l'application Active Directory à un rôle ayant accès à la ressource à laquelle vous devez accéder. Pour plus d'informations sur l'affectation de l'application à un rôle, consultez [Contrôle d'accès en fonction du rôle Azure Active Directory](active-directory/role-based-access-control-configure.md).
+Vous devez affecter l'application à un rôle pour lui accorder des autorisations lui permettant de réaliser des opérations. Vous pouvez utiliser le [portail en version préliminaire](https://portal.azure.com) pour affecter l'application Active Directory à un rôle avec des autorisations appropriées.
+
+Pour vous familiariser avec le contrôle d'accès dans la version préliminaire du portail, sélectionnez l’icône **Accès**.
+
+![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/select-users.png)
+
+Sélectionnez le rôle auquel vous souhaitez affecter l'application et recherchez l'application.
+
+![sélectionner les utilisateurs](./media/resource-group-create-service-principal-portal/assign-to-role.png)
+
+Pour plus d'informations sur l'utilisation des utilisateurs, des applications et des rôles, consultez la rubrique [Gérer l'accès à l'aide du portail de gestion Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Obtention d'un jeton d'accès dans le code
 
@@ -128,10 +141,10 @@ Dans votre application, ajoutez une méthode comme suit pour récupérer le jeto
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez [Gestion et audit d'accès aux ressources](resource-group-rbac.md).  
-- Pour une démonstration vidéo de ces étapes, consultez [Activation de la gestion par programme d'une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
-- Pour en savoir plus sur l'utilisation d'Azure PowerShell ou Azure CLI pour utiliser les applications et les principaux du service Active Directory, notamment l'utilisation d'un certificat pour l'authentification, consultez [Authentification d'un principal du service à l'aide d'Azure Resource Manager](./resource-group-authenticate-service-principal.md).
-- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour en savoir plus sur la spécification de stratégies de sécurité, consultez la rubrique [Gestion et audit d'accès aux ressources](resource-group-rbac.md).  
+- Pour une démonstration vidéo de ces étapes, consultez la rubrique [Activation de la gestion par programme d'une ressource Azure avec Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+- Pour en savoir plus sur l'utilisation d'Azure PowerShell ou l’interface de ligne de commande Azure pour utiliser les applications et les principaux du service Active Directory, notamment l'utilisation d'un certificat pour l'authentification, consultez la rubrique [Authentification d'un principal du service à l'aide d'Azure Resource Manager](./resource-group-authenticate-service-principal.md).
+- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
@@ -149,4 +162,4 @@ Dans votre application, ajoutez une méthode comme suit pour récupérer le jeto
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

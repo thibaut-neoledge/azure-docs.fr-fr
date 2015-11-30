@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 # Envoi de notifications Push aux utilisateurs authentifiés
@@ -95,7 +95,7 @@ Une fois ces deux didacticiels terminés, vous saurez comment empêcher les util
 [Ajout de l’authentification à votre application]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Ajout de notifications Push à votre application]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[portail de gestion Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

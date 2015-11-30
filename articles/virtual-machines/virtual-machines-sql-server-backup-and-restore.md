@@ -14,17 +14,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
+	ms.date="11/13/2015"
 	ms.author="jroth" />
 
 # Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
-
-
 ## Vue d'ensemble
 
 La sauvegarde des données dans les bases de données SQL Server constitue une partie importante de la stratégie de protection contre la perte de données due aux erreurs d’application ou d’utilisateur. Cela vaut également pour SQL Server s’exécutant sur des machines virtuelles Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 Pour SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez utiliser les techniques de sauvegarde et restauration en mode natif en utilisant des disques attachés pour la destination des fichiers de sauvegarde. Néanmoins, le nombre de disques que vous pouvez attacher à une machine virtuelle Azure est limité et basé sur la [taille de la machine virtuelle](virtual-machines-size-specs.md). Il convient également de tenir compte du traitement de la gestion des disques.
 
@@ -42,11 +41,11 @@ Les raisons motivant l’exécution de sauvegardes de base de données et la tec
 
 - Vous devez cependant effectuer des sauvegardes de base de données pour garantir une protection contre les erreurs d’utilisateur, ou à des fins d’archivage ou d’administration, ou pour des besoins réglementaires.
 
-- Vous pouvez effectuer des sauvegardes quasi instantanées et des restaurations rapides à l’aide de la fonctionnalité Sauvegarde instantanée de fichier SQL Server dans la version préliminaire CTP2 (Community Technology Preview 2) de Microsoft SQL Server 2016. Pour plus d’informations, voir [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363.aspx) (en anglais).
+- Vous pouvez effectuer des sauvegardes quasi instantanées et des restaurations rapides à l’aide de la fonctionnalité Sauvegarde instantanée de fichier SQL Server dans la version préliminaire CTP3 (Community Technology Preview 3) de Microsoft SQL Server 2016. Pour plus d’informations, voir [File-Snapshot Backups for Database Files in Azure](https://msdn.microsoft.com/library/mt169363.aspx) (en anglais).
 
-## Sauvegarde et restauration dans la version préliminaire CTP2 (Community Technology Preview 2) de Microsoft SQL Server 2016
+## Sauvegarde et restauration dans la version préliminaire CTP3 (Community Technology Preview 3) de Microsoft SQL Server 2016
 
-La version préliminaire CTP2 (Community Technology Preview 2) de Microsoft SQL Server 2016 prend en charge les fonctionnalités de [sauvegarde et restauration avec les objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) de SQL Server 2014, qui sont décrites ci-dessous. Elle inclut également les améliorations suivantes :
+La version préliminaire CTP3 (Community Technology Preview 3) de Microsoft SQL Server 2016 prend en charge les fonctionnalités de [sauvegarde et restauration avec les objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx) de SQL Server 2014, qui sont décrites ci-dessous. Elle inclut également les améliorations suivantes :
 
 - **Répartition** : lors de la sauvegarde dans le stockage d’objets blob Microsoft Azure, SQL Server 2016 prend en charge la sauvegarde dans plusieurs objets blob, ce qui permet de sauvegarder des bases de données volumineuses allant jusqu’à 12,8 To.
 
@@ -93,4 +92,4 @@ Même si la sauvegarde et la restauration permettent de migrer vos données, il 
 
 Passez en revue les autres [ressources liées à l’exécution de SQL Server dans des machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

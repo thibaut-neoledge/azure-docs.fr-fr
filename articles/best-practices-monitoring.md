@@ -101,9 +101,9 @@ Vous pouvez calculer le pourcentage de disponibilité d’un service sur une pé
 %Availability =  ((Total Time – Total Downtime) / Total Time ) * 100
 ```
 
-Ce calcul est utile dans le cadre des SLA (La [Surveillance des SLA](#SLA-monitoring) est décrite en détail plus loin dans ce guide). La définition de _temps mort_ dépend du service. Par exemple, Visual Studio Online définit les temps morts en tant que période pendant laquelle les tentatives du client pour se connecter au service prennent plus de 120 secondes et toutes les opérations de lecture et d’écriture de base échouent une fois la connexion établie dans ce délai.
+Ce calcul est utile dans le cadre des SLA (La [Surveillance des SLA](#SLA-monitoring) est décrite en détail plus loin dans ce guide). La définition de _temps mort_ dépend du service. Par exemple, Visual Studio Team Services définit les temps morts en tant que période pendant laquelle les tentatives du client pour accéder au service prennent plus de 120 secondes et toutes les opérations de lecture et d’écriture de base échouent une fois la connexion établie dans ce délai.
 
-## Surveillance des performances
+## Analyse des performances
 Comme le système est placé sous contrainte croissante à mesure que le volume d’utilisateurs augmente, ainsi que la taille des jeux de données auxquels ces utilisateurs accèdent, la défaillance d’un ou plusieurs composants devient de plus en plus probable. Fréquemment, la défaillance d’un composant est précédée par une baisse des performances. Si vous êtes en mesure de détecter cette baisse, vous pouvez prendre des mesures proactives pour y remédier.
 
 Les performances du système dépendent de plusieurs facteurs. Chaque facteur est généralement mesuré à l’aide d’indicateurs clés de performance (ICP), tels que le nombre de transactions de base de données par seconde ou le volume de demandes réseau traitées avec succès dans une période donnée. Certains de ces indicateurs peuvent être disponibles en tant que mesures de performances spécifiques, tandis que d’autres peuvent être dérivés d’une combinaison de métriques.
@@ -612,4 +612,4 @@ Dans de nombreux cas, les rapports peuvent être générés par les processus de
 - La page [Présentation de la surveillance des alertes et des notifications dans Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) sur le site web Microsoft.
 - La page [Application Insights](app-insights-get-started/) sur le site web Microsoft.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
