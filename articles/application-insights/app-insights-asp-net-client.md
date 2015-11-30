@@ -18,13 +18,6 @@
 
 # Configurer Application Insights : pages web
 
-*Application Insights est à l'état de version préliminaire.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi [découvrir comment votre application est utilisée][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -37,7 +30,7 @@ Si vous avez déjà configuré une télémétrie de serveur pour votre applicati
 
 ## Ouvrir votre ressource Application Insights
 
-Connectez-vous au [portail Azure](http://portal.azure.com).
+Connectez-vous au [portail Azure](http://portal.azure.com)
 
 Si vous avez déjà défini la surveillance pour le côté serveur de votre application, vous aurez déjà une ressource :
 
@@ -200,4 +193,4 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

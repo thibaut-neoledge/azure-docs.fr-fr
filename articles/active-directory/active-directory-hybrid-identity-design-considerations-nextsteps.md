@@ -40,6 +40,9 @@ L'analyse des ressources suivantes fournit souvent les dernières actualités et
 - [Blog Microsoft In The Cloud](http://blogs.technet.com/b/in_the_cloud/)
 - [Blog Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 - [Blog Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)
-- [Blog Microsoft System Center Configuration Manager Team](http://blogs.technet.com/b/configmgrteam/)
+- [Blog de l’équipe Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configmgrteam/)
 
-<!---HONumber=Nov15_HO3-->
+## Voir aussi
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
+
+<!---HONumber=Nov15_HO4-->

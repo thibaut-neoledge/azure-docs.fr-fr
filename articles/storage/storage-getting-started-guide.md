@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/12/2015" 
 	ms.author="tamram;selcint"/>
 
 # Familiarisez-vous avec Azure Storage en cinq minutes 
 
-Il est facile de commencer à développer sur Azure Storage. Ce didacticiel vous montre comment faire fonctionner rapidement une application Azure Storage. Nous allons voir deux scénarios qui vous aideront à tirer le meilleur parti d’Azure Storage :
+## Vue d'ensemble
 
-- [Exécution locale de votre première application Azure Storage sur l’émulateur d’Azure Storage](#run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator)
-- [Exécution de votre première application Azure Storage sur Azure Storage dans le cloud](#run-your-first-azure-storage-application-against-azure-storage-in-the-cloud)
+Le kit de développement logiciel (SDK) Azure inclut des modèles de démarrage rapide pour l'utilisation d’Azure Storage à partir de Microsoft Visual Studio. Vous pouvez
+
+Il est facile de commencer à développer sur Azure Storage. Ce didacticiel vous montre comment faire fonctionner rapidement une application Azure Storage. Nous allons voir deux scénarios qui vous aideront à tirer le meilleur parti d’Azure Storage :
 
 Si vous souhaitez en savoir plus sur Azure Storage avant de vous plonger dans le code, consultez la page [Étapes suivantes](#next-steps).
 
@@ -107,4 +108,4 @@ Pour en savoir plus sur Azure Storage, consultez les ressources suivantes :
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

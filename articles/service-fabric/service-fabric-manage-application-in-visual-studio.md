@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/17/2015"
    ms.author="jesseb"/>
 
 # Utilisation de Visual Studio pour simplifier l'écriture et la gestion des applications Service Fabric
@@ -34,8 +34,24 @@ Le déploiement d'une application combine les étapes suivantes en une simple op
 4. Suppression des instances d'application en cours d'exécution
 5. Création d'une instance d'application
 
-Dans Visual Studio, vous pouvez déployer une application en sélectionnant Déployer la solution dans le menu Générer. Vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application.
+Dans Visual Studio, vous pouvez aussi appuyer sur **F5** pour déployer votre application et attacher le débogueur à toutes les instances de l'application. Vous pouvez utiliser **Ctrl + F5** pour déployer une application sans débogage ou la publier sur un cluster local ou distant à l'aide du profil de publication. Veuillez vous reporter à [Publish an application to a remote cluster using Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
+### Conservation des données entre les séries de tests
+
+Souvent, vous testez les services localement en ajoutant l'entrée de données de test, en modifiant certains blocs de code, puis en effectuant un nouveau débogage local. Les outils Service Fabric de Visual Studio fournissent une propriété utile appelée **Preserve Data on Start** qui permet de conserver les données saisies au cours de la session précédente et de les réutiliser.
+
+### Activation de la propriété Preserve Data on Start
+
+1. Dans le menu contextuel du projet d’application cliquez sur **Propriétés** (ou appuyez sur la touche **F4**).
+1. Dans la fenêtre **Propriétés**, définissez la propriété **Preserve Data on Start** sur **Yes**.
+
+	![Configuration de la propriété Preserve Data on Start][preservedata]
+
+Lorsque vous exécutez votre application à nouveau, le script de déploiement traite le déploiement comme une mise à niveau, en utilisant le mode automatique non contrôlé pour mettre rapidement à niveau l'application vers une version plus récente avec une chaîne de date ajoutée. Le processus de mise à niveau conserve les données que vous avez saisies au cours d’une session de débogage précédente.
+
+![Exemple d’une nouvelle version de l'application avec une date ajoutée][preservedate]
+
+Les données sont préservées à l’aide de la fonctionnalité de mise à niveau de la plate-forme de Service Fabric. Pour plus d'informations sur la mise à niveau d’une application, reportez-vous à [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
 
 ## Ajout d'un service à votre application Service Fabric
 
@@ -53,15 +69,14 @@ Le nouveau service est ajouté à votre solution et au package d'application exi
 
 ## Empaquetage de votre application Service Fabric
 
-Un package d'application doit être créé pour déployer l'application et ses services dans un cluster. Le package organise le manifeste d'application, le ou les manifestes de service et les autres fichiers nécessaires dans une disposition spécifique. Visual Studio configure et gère le package dans le dossier du projet d'application, dans le répertoire « pkg ». Cliquez sur **Package** pour créer ou mettre à jour le package d'application. Ce peut être utile si vous déployez l'application à l'aide de scripts Powershell personnalisés.
+Un package d'application doit être créé pour déployer l'application et ses services dans un cluster. Le package organise le manifeste d'application, le ou les manifestes de service et les autres fichiers nécessaires dans une disposition spécifique. Visual Studio configure et gère le package dans le dossier du projet d'application, dans le répertoire « pkg ». Cliquez sur **Package** dans le menu contextuel **Application** pour créer ou mettre à jour le package d'application. Cela peut être utile si vous déployez l'application à l'aide de scripts Powershell personnalisés.
 
 ## Suppression d'une application
 
-Vous pouvez supprimer une application de votre cluster local à l'aide de l'Explorateur de serveurs. Les étapes de déploiement décrites ci-dessus seront annulées :
+Vous pouvez annuler la mise en service d’un type d'application à partir de votre cluster local à l'aide de l'explorateur de Service Fabric. L'explorateur de cluster est accessible à partir du point de terminaison de passerelle HTTP du cluster (généralement 19080 ou 19007), par exemple, http://localhost:19080/Explorer. Les étapes de déploiement décrites ci-dessus seront annulées :
 
 1. Supprimer toutes les instances d'application en cours d'exécution
 2. Annuler l'enregistrement du type d'application
-3. Télécharger le package d'application à partir du magasin d'images
 
 ![Supprimer une application](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
 
@@ -70,6 +85,7 @@ Vous pouvez supprimer une application de votre cluster local à l'aide de l'Expl
 
 - [Modèle d'application Service Fabric](service-fabric-application-model.md)
 - [Déploiement d'applications Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Gestion des paramètres d’application pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md)
 - [Débogage de votre application Service Fabric](service-fabric-debugging-your-application.md)
 - [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
@@ -78,5 +94,7 @@ Vous pouvez supprimer une application de votre cluster local à l'aide de l'Expl
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
+[preservedata]: ./media/service-fabric-manage-application-in-visual-studio/preservedata.png
+[preservedate]: ./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

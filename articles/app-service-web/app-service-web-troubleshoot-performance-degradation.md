@@ -46,7 +46,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 [App Service Web Apps](/services/app-service/web/) vous offre différentes options à chaque étape.
 
 <a name="observe" />
-### 1\. Observer et contrôler le comportement de l’application
+### 1\. Observer et contrôler le comportement de l'application
 
 #### Suivi de l’état du service
 
@@ -87,7 +87,7 @@ Consultez également [Assurer la gestion des sites Web Azure et la surveillance 
 
 Vous pouvez également surveiller les performances de votre application en mettant à profit les _extensions de site_.
 
-Chaque application web d’App Service fournit un point de terminaison de gestion extensible qui vous permet de tirer parti d’un ensemble performant d’outils déployés en tant qu’extensions de site. Ces outils vont d’éditeurs de code source comme [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) à des outils de gestion de ressources connectées telles qu’une base de données MySQL connectée à une application web.
+Chaque application web d’App Service fournit un point de terminaison de gestion extensible qui vous permet de tirer parti d’un ensemble performant d’outils déployés en tant qu’extensions de site. Ces outils vont d’éditeurs de code source comme [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) à des outils de gestion de ressources connectées telles qu’une base de données MySQL connectée à une application web.
 
 [Azure Application Insights](/services/application-insights/) et [New Relic](/marketplace/partners/newrelic/newrelic/) sont tous les deux des extensions de site de surveillance des performances disponibles. Pour utiliser New Relic, vous installez un agent lors de l'exécution. Pour utiliser Azure Application Insights, vous devez régénérer votre code avec un kit de développement logiciel (SDK). Vous avez également la possibilité d’installer une extension qui fournit l’accès aux données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application.
 
@@ -157,7 +157,7 @@ Kudu fournit, entre autres, les éléments suivants :
 
 Autre fonctionnalité utile de Kudu, dans le cas où votre application lève des exceptions de première chance, vous pouvez utiliser Kudu et l’outil Procdump de SysInternals pour créer des vidages de mémoire. Ces vidages de mémoire sont des instantanés du processus et peuvent souvent vous aider à résoudre les problèmes plus complexes avec votre application web.
 
-Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consultez [Outils en ligne de Sites Web Azure que vous devez connaître](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consultez [Outils Team Services de Sites Web Azure que vous devez connaître](/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 ### 3\. Résoudre le problème
@@ -186,4 +186,4 @@ Il s’agit souvent du moyen le plus simple de résoudre des problèmes à usage
 
 Vous pouvez également gérer votre application web à l’aide d’Azure PowerShell. Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](powershell-azure-resource-manager.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

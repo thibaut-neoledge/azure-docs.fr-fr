@@ -17,7 +17,7 @@
 	ms.author="omark"/>
 
 # Qu'est-ce qu'Azure App Service ?
-Azure App Service est le seul service cloud qui intègre tout ce dont vous avez besoin pour créer rapidement et facilement des applications web et mobiles pour toute plateforme et tout appareil. Conçue pour les développeurs, App Service est une plateforme entièrement gérée avec des fonctionnalités puissantes telles que la fonctionnalité intégrée d’opérations de développement, l’intégration continue avec Visual Studio Online et GitHub, la prise en charge des environnements intermédiaires et de production, et la mise à jour corrective automatique.
+Azure App Service est le seul service cloud qui intègre tout ce dont vous avez besoin pour créer rapidement et facilement des applications web et mobiles pour toute plateforme et tout appareil. Conçue pour les développeurs, App Service est une plateforme entièrement gérée avec des fonctionnalités puissantes telles que la fonctionnalité intégrée d’opérations de développement, l’intégration continue avec Visual Studio Team Services et GitHub, la prise en charge des environnements intermédiaires et de production, et la mise à jour corrective automatique.
 
 Azure App Service est un service unique qui inclut toutes les fonctionnalités existantes d'Azure Web Sites, Azure Mobile Services et Azure Biztalk Services, ainsi que de nouvelles fonctionnalités. [Obtenez plus d’informations](http://azure.microsoft.com/documentation/services/app-service/) sur la manière dont App Service se rapporte à ces services existants.
 
@@ -30,7 +30,7 @@ Centrée sur le développement rapide d'applications web et mobiles, ainsi que s
 
 - **Intégration simplifiée** – Intégrez vos données dans des clouds et automatisez les processus métier en quelques minutes via une expérience de conception visuelle simple. Intégrez facilement votre logique dans n'importe quelle application web ou mobile via les API REST standard. Générez des solutions B2B d'Intégration d'Applications d'Entreprise sophistiquées à l'aide de l'échange de données informatisées (EDI, Electronic Data Interchange), de stratégies d'entreprise (moteur de règles), etc., en fonction de la plateforme BizTalk leader dans l'industrie.
 
-- **Productivité des développeurs inégalée** - Optimisé pour les opérations de développement, avec la prise en charge d’une intégration continue pour Visual Studio Online et Github, qui vous permet de vous concentrer sur l’amélioration rapide de vos applications sans vous soucier de l’infrastructure. Déployez des mises à jour des applications avec des fonctionnalités intégrées de test intermédiaire, de restauration et de production.
+- **Productivité des développeurs inégalée** – Optimisé pour les opérations de développement, avec la prise en charge d’une intégration continue pour Visual Studio Team Services et Github, qui vous permet de vous concentrer sur l’amélioration rapide de vos applications sans vous soucier de l’infrastructure. Déployez des mises à jour des applications avec des fonctionnalités intégrées de test intermédiaire, de restauration et de production.
 
 - **Prise en charge des environnements d’entreprise** - Appréciez la sérénité qu’offrent une sécurité et une gestion de niveau entreprise. Proposez une administration déléguée et basée sur les rôles, sécurisez et gérez aisément les flux de données vers vos applications mobiles, et protégez vos actifs à l'aide d'une fonctionnalité intégrée de sauvegarde et de restauration. Restez serein sachant qu'App Service est compatible PCI. Gardez le contrôle avec des environnements dédiés et la possibilité d'effectuer un déploiement dans des clouds publics et privés. Bénéficiez de plus de 25 ans d'expérience Microsoft et de notre contrat de niveau de service (SLA) de niveau entreprise.
 
@@ -59,4 +59,4 @@ Avec Azure App Service, la procédure est aussi simple que de sélectionner une 
 [Créez une application](http://go.microsoft.com/fwlink/?LinkId=523751) immédiatement et gratuitement. Aucune carte de paiement requise, aucun engagement, aucune contrainte.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

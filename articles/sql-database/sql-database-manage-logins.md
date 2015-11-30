@@ -79,7 +79,7 @@ CREATE LOGIN login1 WITH password='<ProvidePassword>';
 
 #### Utilisation de nouvelles connexions
 
-Pour vous connecter à la base de données SQL Microsoft Azure à l’aide de connexions que vous avez créées, vous devez d’abord accorder à chaque connexion les autorisations de niveau de base de données à l’aide de la commande ``CREATE USER``. Pour plus d’informations, voir [Octroi d’autorisations au niveau de la base de données à une connexion](https://msdn.microsoft.com/library/ee336235.aspx#DatabasePerms).
+Pour vous connecter à la base de données SQL Microsoft Azure à l’aide de connexions que vous avez créées, vous devez d’abord accorder à chaque connexion les autorisations de niveau de base de données à l’aide de la commande ``CREATE USER``. Pour plus d'informations, consultez la section **Octroi d’un accès de base de données à une connexion** ci-dessous.
 
 Étant donné que certains outils implémentent les flux de données TDS (Tabular Data Stream) différemment, il se peut que vous deviez ajouter le nom de serveur de base de données SQL Azure à la connexion dans la chaîne de connexion en utilisant la notation ``<login>@<server>``. Dans ces cas-là, insérez le symbole ``@`` entre la connexion et le nom de serveur de base de données SQL Azure. Par exemple, si votre connexion a été nommée **login1** et que le nom complet de votre serveur de base de données SQL Azure est **servername.database.windows.net**, le paramètre de nom d’utilisateur de votre chaîne de connexion doit être : ****login1@servername**. Cette restriction impose des limitations sur le texte que vous pouvez choisir pour le nom de connexion. Pour plus d’informations, voir [CRÉER UNE CONNEXION (Transact-SQL)](https://msdn.microsoft.com/library/ms189751.aspx).
 
@@ -95,7 +95,7 @@ Pour que les connexions autres que le principal au niveau du serveur puissent g�
 
 ### Le rôle dbmanager
 
-Le rôle de base de données **dbmanager** de la base de données SQL Azure est similaire au rôle de serveur fixe **dbcreator** sur une instance locale de SQL Server. Seuls la connexion du principal au niveau du serveur (créée par le processus d’approvisionnement) ou les membres du rôle de base de données **dbmanager** peuvent créer des bases de données. Une fois qu’un utilisateur est membre du rôle de base de données **dbmanager**, il peut créer une base de données avec la commande de base de données SQL Azure ``CREATE DATABASE``, mais cette commande doit être exécutée dans la base de données MASTER. Pour plus d’informations, voir [CRÉER UNE BASE DE DONNÉES (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
+Le rôle de base de données **dbmanager** de la base de données SQL Azure est similaire au rôle de serveur fixe **dbcreator** sur une instance locale de SQL Server. Seuls la connexion du principal au niveau du serveur (créée par le processus d’approvisionnement) ou les membres du rôle de base de données **dbmanager** peuvent créer des bases de données. Une fois qu’un utilisateur est membre du rôle de base de données **dbmanager**, il peut créer une base de données avec la commande de base de données SQL Azure ``CREATE DATABASE``, mais cette commande doit être exécutée dans la base de données MASTER. Pour plus d’informations, voir [CRÉER UNE BASE DE DONNÉES (Transact-SQL)](https://msdn.microsoft.com/library/dn268335.aspx).
 
 ### Attribuer de rôles au niveau serveur de base de données SQL
 
@@ -157,7 +157,7 @@ Ce modèle d’autorisation au niveau de la base de données dans la base de don
 ## Affichage des connexions et bases de données
 
 
-Pour afficher les connexions et bases de données sur votre serveur de base de données SQL Azure, utilisez respectivement les vues ``sys.sql_logins`` et ``sys.databases`` de la base de données master. L’exemple suivant montre comment afficher une liste de toutes les connexions et bases de données sur votre serveur de base de données SQL Azure.
+Pour afficher les connexions et bases de données sur votre serveur de base de données SQL Azure, utilisez respectivement les vues ``sys.sql_logins`` et ``sys.databases`` de la base de données master. L’exemple suivant montre comment afficher une liste de toutes les connexions et bases de données sur votre serveur de base de données SQL Azure.
 
 ```
 -- first, connect to the master database
@@ -167,6 +167,6 @@ SELECT * FROM sys.databases;
 
 ## Voir aussi
 
-[Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
+[Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md) [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

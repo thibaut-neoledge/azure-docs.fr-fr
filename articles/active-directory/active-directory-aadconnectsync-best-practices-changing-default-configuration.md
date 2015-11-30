@@ -54,7 +54,7 @@ Dans certains cas, l'Assistant d'installation a produit une configuration qui ne
 Dans l'image ci-dessus l'Assistant d'installation a trouvé un ancien schéma Exchange 2003 dans la forêt de comptes. Ce schéma a été ajouté avant l'introduction de la forêt de ressources dans l'environnement de Fabrikam. Pour garantir qu'aucun attribut de l'ancienne implémentation Exchange n'est synchronisé, la règle de synchronisation devrait être désactivée comme indiqué.
 
 ### Modifier les règles out-of-box
-Si vous avez besoin effectuer des modifications d'une règle out-of-box, vous devriez en faire une copie, puis désactiver la règle d'origine. Modifiez ensuite la règle clonée. L'éditeur de règles de synchronisation vous aidera à le faire. Lorsque vous ouvrez une règle out-of-box, cette boîte de dialogue s'affiche :
+Si vous devez effectuer des modifications d’une règle out-of-box, vous devriez en faire une copie, puis désactiver la règle d’origine. Modifiez ensuite la règle clonée. L’éditeur de règles de synchronisation vous aidera à le faire. Lorsque vous ouvrez une règle out-of-box, cette boîte de dialogue s'affiche :
 
 ![Règle d'avertissement out-of-the box](./media/active-directory-aadconnectsync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
@@ -83,4 +83,4 @@ En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory
 
 En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

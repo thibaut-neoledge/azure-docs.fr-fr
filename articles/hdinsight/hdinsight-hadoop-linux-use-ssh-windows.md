@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Windows
@@ -44,10 +44,6 @@ SSH est un utilitaire permettant de se connecter et d'exécuter à distance des 
 ###Nom d'utilisateur du SSH
 
 Un nom d’utilisateur SSH est le nom que vous utilisez pour vous authentifier auprès du cluster HDInsight. Quand vous spécifiez un nom d’utilisateur SSH lors de la création du cluster, cet utilisateur est créé sur tous les nœuds du cluster. Une fois le cluster créé, vous pouvez utiliser ce nom d’utilisateur pour vous connecter aux nœuds principaux du cluster HDInsight. À partir des nœuds principaux, vous pouvez ensuite vous connecter aux nœuds de travail individuels.
-
-> [AZURE.NOTE]Un nom d’utilisateur SSH doit être unique. Dans la mesure où un nom d’utilisateur SSH crée un compte d’utilisateur sur le cluster HDInsight, il ne doit pas être en conflit avec des utilisateurs existants créés par HDInsight. Voici la liste des noms dont l’usage est réservé aux services exécutés sur le cluster HDInsight et qui ne peuvent pas être utilisés en tant que nom d’utilisateur SSH :
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###Clé publique ou mot de passe SSH
 
@@ -99,9 +95,9 @@ Chacune de ces méthodes nécessite une clé publique. Pour plus d’information
 
 ###Portail Azure en version préliminaire
 
-Quand vous utilisez le [portail Azure en version préliminaire][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez saisir un **Nom d’utilisateur SSH**, puis choisir d’entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
+Quand vous utilisez le [portail Azure en version préliminaire][preview-portal] pour créer un cluster HDInsight sous Linux, vous devez saisir un **Nom d’utilisateur SSH**, puis entrer un **MOT DE PASSE** ou une **CLÉ PUBLIQUE SSH**.
 
-Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez soit coller la clé publique (affichée dans le champ __Public key for pasting into OpenSSH authorized\_keys file__ dans PuttyGen) dans le champ __Clé publique SSH__, soit choisir __Sélectionner un fichier__ pour rechercher et sélectionner le fichier contenant la clé publique.
+Si vous sélectionnez **CLÉ PUBLIQUE SSH**, vous pouvez coller la clé publique (affichée dans le champ __Clé publique à coller dans le fichier OpenSSH authorized\_keys__ dans PuttyGen) dans le champ __Clé publique SSH__ ou choisir __Sélectionner un fichier__ pour rechercher et sélectionner le fichier contenant la clé publique.
 
 ![Image du formulaire de demande de clé publique](./media/hdinsight-hadoop-linux-use-ssh-windows/ssh-key.png)
 
@@ -181,9 +177,9 @@ Si vous avez fourni une clé SSH lors de la création de votre compte d’utilis
 
     > [AZURE.NOTE]Si vous utilisez un mot de passe pour l’authentification de votre session SSH, vous devez entrer à nouveau le mot de passe. Si vous utilisez une clé SSH, la connexion doit se terminer sans invite de commandes.
 
-9. Une fois la session établie, l’invite de commandes de votre session PuTTY passe de `username@headnode` à `username@workernode` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
+9. Une fois la session établie, l’invite de commandes de votre session PuTTY passe de `username@hn0-clustername` à `username@wn0-clustername` pour indiquer que vous êtes connecté au nœud de travail. Les commandes que vous exécutez à ce stade sont exécutées sur le nœud de travail.
 
-10. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@headnode`.
+10. Une fois les actions sur le nœud de travail terminées, utilisez la commande `exit` pour fermer la session sur le nœud de travail. Vous revenez à l’invite de commandes `username@hn0-clustername`.
 
 ##Ajout d’autres comptes
 
@@ -233,4 +229,4 @@ Maintenant que vous savez comment vous authentifier avec une clé SSH, apprenez 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Scénarios avancés avec l'authentification multifacteur Azure et un VPN tiers
@@ -43,4 +43,4 @@ Guide de configuration | Description
 [Juniper/Pulse Secure SSL VPN et Azure MFA Configuration pour LDAP](http://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx)| Intégrez votre appareil Juniper/Pulse Secure SSL VPN de façon transparente avec l'authentification multifacteur Azure à l'aide de LDAP|
 [Juniper/Pulse Secure SSL VPN et Azure MFA Configuration pour RADIUS](http://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Intégrez votre appareil Juniper/Pulse Secure SSL VPN de façon transparente avec l'authentification multifacteur Azure à l'aide de RADIUS
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

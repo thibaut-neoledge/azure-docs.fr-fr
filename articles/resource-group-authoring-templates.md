@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/13/2015"
    ms.author="tomfitz"/>
 
 # Création de modèles Azure Resource Manager
 
 Les applications Azure requièrent généralement une combinaison de ressources (comme un serveur de base de données, une base de données ou un site Web) pour atteindre les objectifs voulus. Au lieu de déployer et gérer chaque ressource séparément, vous pouvez créer un modèle Azure Resource Manager qui déploie et approvisionne toutes les ressources de votre application en une seule opération coordonnée. Dans le modèle, vous définissez les ressources nécessaires à l'application et vous spécifiez les paramètres de déploiement pour entrer des valeurs pour différents environnements. Le modèle se compose de JSON et d'expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement.
 
-Cette rubrique décrit les sections du modèle. Pour obtenir les schémas réels, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
+Cette rubrique décrit les sections du modèle. Pour obtenir les schémas réels, consultez la page [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas). Visual Studio fournit des outils pour vous aider à créer des modèles. Pour plus d’informations sur l’utilisation de Visual Studio avec vos modèles, consultez [Création et déploiement des groupes de ressources Azure via Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) et [Modèles de modification d’un gestionnaire de ressources avec Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
 Vous devez limiter la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 Ko. La limite de 1 Mo s'applique à l'état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres.
 
@@ -240,7 +240,7 @@ Vous définissez des ressources avec la structure suivante :
 
 Si le nom de la ressource n'est pas unique, vous pouvez utiliser la fonction d'assistance **resourceId** (décrite ci-dessous) pour obtenir l'identificateur unique de la ressource.
 
-Les valeurs pour l'élément **properties** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l'opération d'API REST (méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d'API REST pour la ressource que vous souhaitez déployer.
+Les valeurs pour l’élément des **propriétés** sont exactement identiques aux valeurs que vous fournissez dans le corps de la demande pour l’opération d’API REST ( méthode PUT) pour créer la ressource. Consultez la [documentation de référence Azure](https://msdn.microsoft.com/library/azure/mt420159.aspx) pour les opérations d’API REST pour la ressource que vous souhaitez déployer.
 
 L'exemple suivant illustre une ressource **Microsoft.Web/serverfarms** et une ressource **Microsoft.Web/sites** avec une ressource imbriquée **Extensions** :
 
@@ -414,8 +414,8 @@ Le modèle suivant déploie une application web et l'approvisionne avec le code 
 
 ## Étapes suivantes
 - Pour plus d’informations sur les fonctions que vous pouvez utiliser dans un modèle, consultez [Fonctions des modèles Azure Resource Manager](resource-group-template-functions.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 - Pour obtenir un exemple détaillé de déploiement d’une application, consultez [Mise en service et déploiement de microservices de manière prévisible dans Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Pour voir les schémas disponibles, consultez [Schémas Azure Resource Manager](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

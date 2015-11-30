@@ -88,7 +88,7 @@ Voici l'essentiel de l'exemple de code Java. L'exemple inclut la fonction `main`
 				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
-				+ "password={your_password};"
+				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
@@ -230,4 +230,4 @@ Copiez et collez ce court segment Java dans l'exemple de code principal où vous
 
 Pour plus d’informations, consultez le [Centre pour développeurs Java](/develop/java/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

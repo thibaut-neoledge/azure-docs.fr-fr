@@ -161,8 +161,8 @@ Prise en charge de SSL|X|X|X|Pour les applications web App Service, le protocole
 Intégration de Visual Studio|X|X|X|
 Débogage à distance|X|X|X|
 Déploiement de code avec TFS|X|X|X|
-Isolation du réseau avec [Azure Virtual Network](../services/virtual-network/)|X|X|X|Voir aussi [Intégration au réseau virtuel de Sites Web Azure](../blog/2014/09/15/azure-websites-virtual-network-integration/)
-Prise en charge d'[Azure Traffic Manager](../services/traffic-manager/)|X|X|X|
+Isolation du réseau avec [Azure Virtual Network](/services/virtual-network/)|X|X|X|Voir aussi [Intégration au réseau virtuel de Sites Web Azure](/blog/2014/09/15/azure-websites-virtual-network-integration/)
+Prise en charge d'[Azure Traffic Manager](/services/traffic-manager/)|X|X|X|
 Surveillance intégrée des points de terminaison|X|X|X|
 Accès aux serveurs via le Bureau à distance||X|X|
 Installez n'importe quel MSI personnalisé||X|X|
@@ -204,4 +204,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

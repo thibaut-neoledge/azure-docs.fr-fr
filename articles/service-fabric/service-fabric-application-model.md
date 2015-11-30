@@ -135,6 +135,8 @@ Comme dans le cas des manifestes de service, les attributs **Version** sont des 
 
 > [AZURE.NOTE]Un manifeste d'application peut contenir plusieurs importations de manifeste de service et services par défaut. La version de chaque importation de manifeste de service peut être gérée indépendamment.
 
+Pour savoir comment mettre à jour différents paramètres d’application et de service des environnements individuels, consultez [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md)
+
 <!--
 For more information about other features supported by application manifests, refer to the following articles:
 
@@ -169,6 +171,12 @@ D:\TEMP\MYAPPLICATIONTYPE
 ~~~
 
 Les dossiers sont nommés d'après les attributs **Name** de chaque élément correspondant. Par exemple, si le manifeste de service contient deux packages de code nommés **MonCodeA** et **MonCodeB**, deux dossiers de même nom contenant les fichiers binaires nécessaires pour chaque package de code sont nécessaires.
+
+### Utilisation de SetupEntryPoint
+SetupEntryPoint est en général utilisée lorsque vous avez besoin de faire quelque chose avant le démarrage du service, ou que vous devez effectuer une opération nécessitant des privilèges plus élevés. Cela pourrait être, par exemple, la configuration et l’initialisation de variables d'environnement que l'exécutable du service peut utiliser. Cela inclut non seulement les exécutables écrits avec les modèles de programmation de Service Fabric mais aussi les EXE. Par exemple, si vous déployez une application nodejs, les variations d’environnement doivent être configurées pour l’exécutable npm.exe. - ACL une ressource comme un certificat
+
+Voici les étapes permettant de vous assurer que votre code (exe), fichier de commandes ou PowerShell sont empaquetés correctement dans un projet Visual Studio.
+
 
 ### Création d'un package à l'aide de Visual Studio
 
@@ -221,15 +229,11 @@ Une fois l'application correctement empaquetée et vérifiée, elle peut être d
 
 ## Étapes suivantes
 
-[Déployer et supprimer des applications][10]
-
-<!--Image references-->
-[1]: ./media/service-fabric-application-model/application-model.jpg
-[2]: ./media/service-fabric-application-model/vs-package-command.png
-[Image1]: media/service-fabric-application-model/Service1.jpg
-[Image2]: media/service-fabric-application-model/Service2.jpg
+[Déploiement et suppression d’applications][10] [Gestion de paramètres d’application pour les environnements multiples][11] [RunAs : exécution d’une application Service Fabric avec différentes autorisations de sécurité][12] <!--Image references--> [1]: ./media/service-fabric-application-model/application-model.jpg [2]: ./media/service-fabric-application-model/vs-package-command.png [Image1]: media/service-fabric-application-model/Service1.jpg [Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
+[11]: service-fabric-manage-multiple-environment-app-configuration.md
+[12]: service-fabric-application-runas-security.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

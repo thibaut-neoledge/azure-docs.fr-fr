@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
-# Test des paramètres de Traffic Manager
+# Tester vos paramètres de Traffic Manager
 
 La meilleure façon de tester les paramètres de Traffic Manager consiste à configurer des clients, puis à mettre hors fonction un à un les services cloud et sites web de votre profil. Voici quelques conseils relatifs au test de votre profil Traffic Manager :
 
@@ -61,22 +61,15 @@ Pour tester efficacement une méthode de routage du trafic basé sur les perform
 
 Vous trouverez différents services de recherche et d’obtention de DNS gratuits sur Internet. Certains d’entre eux permettent de contrôler la résolution de noms DNS à partir de différents emplacements. Faites une recherche sur « Recherche DNS » pour obtenir des exemples. Vous pouvez également utiliser une solution tierce, telle que Gomez ou Keynote, pour vérifier que vos profils répartissent le trafic comme prévu.
 
-## Voir aussi
+## Étapes suivantes
 
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
+[Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 
-[Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-[Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Opérations pour Traffic Manager (informations de référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

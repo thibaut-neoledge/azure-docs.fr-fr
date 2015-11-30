@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Connexion à l'application mobile par code de vérification avec Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@ Les informations suivantes décrivent l'utilisation de l'authentification multif
 
 <li>Vous devez maintenant être connecté.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

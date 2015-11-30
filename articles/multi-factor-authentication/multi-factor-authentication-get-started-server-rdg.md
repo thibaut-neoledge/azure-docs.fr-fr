@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
@@ -59,4 +59,4 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 
 ![Authentification RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

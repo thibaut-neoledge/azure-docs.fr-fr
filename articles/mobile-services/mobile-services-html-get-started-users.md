@@ -35,7 +35,7 @@ Ce didacticiel est basé sur le démarrage rapide de Mobile Services. Vous devez
 
 3. Dans le répertoire de l'application, lancez un des fichiers de commande suivants à partir du sous-dossier **server**.
 
-	+ **launch-windows** (pour les ordinateurs Windows) 
+	+ **.\\start-iisexpress.ps1** (pour les ordinateurs Windows) 
 	+ **launch-mac.command** (pour les ordinateurs Mac OS X)
 	+ **launch-linux.sh** (pour les ordinateurs Linux)
 
@@ -68,7 +68,7 @@ Ensuite, vous allez mettre à jour l'application pour autoriser l'authentificati
 
 	Cela vous permet de vous connecter à Mobile Services à partir de la page.
 
-2. Dans le fichier app.js, recherchez la ligne de code tout en bas du fichier qui appelle la fonction refreshTodoItems, puis remplacez-la par le code suivant :
+2. Dans le fichier page.js, recherchez la ligne de code tout en bas du fichier qui appelle la fonction refreshTodoItems, puis remplacez-la par le code suivant :
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@ Dans le didacticiel suivant, [Autorisation des utilisateurs avec des scripts], v
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

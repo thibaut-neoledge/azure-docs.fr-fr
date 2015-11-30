@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@ Cette rubrique est idéale pour commencer une connectivité client avec Azure SQ
 
 
 - [Instructions pour la connexion à la base de données SQL Azure par programme](http://msdn.microsoft.com/library/azure/ee336282.aspx) - Les éléments abordés sont les suivants :
- - [Ports et pare-feu](sql-database-configure-firewall-settings.md/)
+ - [Ports et pare-feu](sql-database-configure-firewall-settings.md)
  - Chaînes de connexion
-- [Gestion des ressources de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx) - Les éléments abordés sont les suivants :
+- [Gestion des ressources de la Base de données SQL Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx) - Les éléments abordés sont les suivants :
  - Gouvernance des ressources
  - Application de limites
  - Limitation
@@ -169,4 +169,4 @@ Divers exemples de codes sont fournis pour les clients qui s’exécutent sur Wi
 
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Configuration d’Azure AD Join pour vos utilisateurs | Microsoft Azure" 
-	description="Explique comment les administrateurs peuvent configurer Azure AD Join pour leurs utilisateurs finaux (employés, étudiants, autres utilisateurs) dans leur organisation." 
+	description="Explique comment les administrateurs peuvent configurer Azure AD Join pour l’inscription locale d’appareils et d’annuaires."
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Configuration d’Azure AD Join dans votre organisation
@@ -26,7 +27,7 @@ Des instructions détaillées pour la synchronisation de vos utilisateurs locaux
 Pour créer et gérer manuellement des utilisateurs dans Azure AD, reportez-vous à [Gestion des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Configuration de l’inscription des appareils 
-1. Connectez-vous au portail Azure en tant qu’administrateur.
+1. Ouvrez une session sur le portail Azure en tant qu’administrateur.
 2. Dans le volet gauche, sélectionnez Active Directory.
 3. Dans l’onglet **Annuaire**, sélectionnez votre annuaire.
 4. Sélectionnez l'onglet **Configurer**.
@@ -34,13 +35,9 @@ Pour créer et gérer manuellement des utilisateurs dans Azure AD, reportez-vous
 6. Dans l’onglet **Appareils**, définissez les éléments suivants :  
    * **Nombre maximal d’appareils par utilisateur** : sélectionnez le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne sera pas en mesure d’ajouter des appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés.
    * **Exiger Multi-factor Auth pour joindre des appareils** : activez cette option lorsque les utilisateurs doivent fournir un second facteur d’authentification pour joindre leurs appareils à Azure AD. Pour plus d’informations sur Multi-Factor Authentication, consultez [Prise en main avec Azure Multi-Factor Authentication dans le cloud](multi-factor-authentication-get-started-cloud/)
-   *  **Les utilisateurs peuvent joindre des appareils à Azure AD** : sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.   
-    * **Administrateurs supplémentaires sur les appareils joints à Azure AD** : avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et le propriétaire de l’appareil bénéficient de droits d’administrateur local par défaut.
-   
->[AZURE.NOTE]Si l’erreur « **Limite d’enregistrements d’appareils atteinte** » (Code erreur : **0x801C000E - DSREG\_ E\_ DEVICE\_ REGISTRATION\_ QUOTA\_EXCCEEDED**) s’affiche à l’écran de vos utilisateurs, vous devez modifier le nombre maximal d’appareils autorisés par utilisateur. Dans la section **Les utilisateurs peuvent joindre des appareils à Azure AD**, sélectionnez **Ajouter** et définissez le nombre d’appareils à autoriser par utilisateur.
-      
+   * **Les utilisateurs peuvent joindre des appareils à Azure AD** : sélectionnez les utilisateurs et groupes autorisés à joindre des appareils à Azure AD.
+   * **Administrateurs supplémentaires sur les appareils joints à Azure AD** : avec Azure AD Premium ou Enterprise Mobility Suite (EMS), vous pouvez choisir les utilisateurs qui bénéficient de droits d’administrateur local sur l’appareil. Les administrateurs globaux et le propriétaire de l’appareil bénéficient de droits d’administrateur local par défaut.
 
-    
 <center>![](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 Après avoir configuré Azure AD Join pour vos utilisateurs, ces derniers peuvent se connecter à Azure AD via leurs appareils d’entreprise ou personnels.
 
@@ -51,8 +48,11 @@ Voici trois scénarios expliquant comment vous pouvez autoriser les utilisateurs
 - Les utilisateurs ajoutent des comptes professionnels à Windows sur un appareil personnel 
 
 ## Informations supplémentaires
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-overview.md)
+
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -56,4 +56,4 @@ Pour configurer le client RADIUS, suivez ces indications :
 - Utilisez le même secret partagé configuré ci-dessus. 
 - Configurez le délai d'expiration RADIUS sur 30 à 60 secondes pour pouvoir valider les informations d'identification de l'utilisateur, effectuez l'authentification multifacteur, recevez leur réponse et répondez à la demande d'accès RADIUS.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -24,21 +24,21 @@ Certains de vos rapports de paiement seront disponibles à l'adresse https://pub
 
   ![accessingpayoutreport][1]
 
-  1. Accédez au portail de publication à l'adresse https://publish.windowsazure.com
-  2. Dans la section **Publishers (Éditeurs)**, cliquez sur **Payout Reports (Rapports de paiement)**
+  1. Accédez au portail de publication à l'adresse https://publish.windowsazure.com.
+  2. Dans la section **Publishers**, cliquez sur **Payout Reports**.
   3. Un clic sur la liste déroulante affiche tous les rapports de paiement trimestriels disponibles
 
 ## Lecture de votre rapport de paiement
 
 Le rapport de paiement pour chaque trimestre enregistre toutes les transactions effectuées au cours de ce trimestre.
 
-- Si vous recherchez des écritures comptables associées à un trimestre spécifique, sélectionnez le rapport de paiement pour ce trimestre dans la liste déroulante. Par exemple, si vous souhaitez consulter les écritures comptables pour la période allant d'avril au 15 juin, sélectionnez Apr – Jun 15 dans la liste déroulante.
-- Si vous recherchez des détails sur des paiements relatifs à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous souhaitez consulter les paiements d'avril au 15 juin, ces montants apparaîtront dans le rapport de paiement ultérieur (Jul – Sep 15).
+- Si vous recherchez des écritures comptables se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour ce trimestre dans la liste déroulante. Par exemple, si vous êtes intéressé par les écritures comptables d'avril à juin 2015, sélectionnez cette plage de dates dans la liste déroulante.
+- Si vous recherchez des détails de paiements se rapportant à un trimestre spécifique, sélectionnez le rapport de paiement pour le trimestre suivant. Par exemple, si vous êtes intéressé par les paiements d'avril à juin 2015, ces montants apparaîtront dans le rapport de paiement suivant, de juillet à septembre 2015.
 
 ![readingpayoutreport][2]
 
-- Le volet Financial Summary (Synthèse financière) indique les soldes, crédits et débits
-- Le volet Ledger Entries (Écritures comptables) indique les transactions individuelles.
+- Le volet de synthèse financière indique les soldes, crédits et débits par catégories.
+- Le volet des écritures comptables indique les transactions individuelles.
 
 ## Définitions
 
@@ -56,14 +56,14 @@ Si vous avez une question concernant vos paiements, contactez notre équipe de s
 
 ![payoutquestions][5]
 
-1. Accédez aux pages de support
-2. Sélectionnez **Payouts (Paiements)**
-3. Sélectionnez **Payout related inquiries (Demandes relatives aux paiements)**
-4. Click **Start request (Début de la requête)**
+1. Accédez aux pages de support.
+2. Sélectionnez **Payouts**
+3. Sélectionnez **Payout related inquiries**
+4. Cliquez sur **Start request**.
 
-## Étapes suivantes : autres demandes de support
+## Étapes suivantes
 
-Pour les problèmes suivants, soumettez une demande d'assistance à l'adresse https://portal.azure.com
+Pour les autres requêtes de support, soumettez une demande d’assistance à https://portal.azure.com.
 
 [1]: ./media/marketplace-publishing-report-payout/accessingpayoutreport.png
 [2]: ./media/marketplace-publishing-report-payout/readingpayoutreport.png
@@ -71,4 +71,4 @@ Pour les problèmes suivants, soumettez une demande d'assistance à l'adresse ht
 [4]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [5]: ./media/marketplace-publishing-report-payout/payoutquestions.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -54,12 +54,12 @@ Pendant la phase de réduction des risques et de contrôle des dommages, il est 
  - Si oui, la solution actuelle pourra-t-elle être intégrée dans le système de gestion d'identité hybride que vous vous apprêtez à adopter ?
 - Votre entreprise a-t-elle besoin d'appliquer des conditions d'accès pour les utilisateurs qui sont en quarantaine ? 
  
->[AZURE.NOTE]Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
+>[AZURE.NOTE]Veillez à noter chaque réponse et à comprendre le raisonnement derrière la réponse. [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) examinera les options disponibles et les avantages/inconvénients de chaque option. En répondant à chacune de ces questions, vous sélectionnerez l’option correspondant le mieux à vos besoins métier.
 
 ## Étapes suivantes
 [Définir les options de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

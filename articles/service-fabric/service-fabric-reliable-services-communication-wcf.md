@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Pile de communication WCF fournie par l'API de services fiables"
-   description="Cet article décrit la pile de communication WCF fournie par l'API de services fiables."
+   pageTitle="Pile de communication WCF Reliable Services | Microsoft Azure"
+   description="La pile de communication WCF intégrée dans Services Fabric fournit une communication WCF client-service pour Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,24 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Pile de communication WCF pour les services fiables
 L'infrastructure de services fiables permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix via le `ICommunicationListener` retourné à partir de la méthode [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). L'infrastructure fournit une implémentation WCF de la pile de communication pour les auteurs de service qui souhaitent utiliser une communication WCF.
 
 ## Écouteur de communication WCF
-L'implémentation WCF spécifique de `ICommunicationListener` est fournie par la classe `WcfCommunicationListener`.
+L'implémentation WCF spécifique de `ICommunicationListener` est fournie par la classe `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
 
 ```csharp
 
-public WcfCommunicationListener(
-    Type communicationInterfaceType,
-    Type communicationImplementationType);
-
-protected override ICommunicationListener CreateCommunicationListener()
-    {
-        WcfCommunicationListener communicationListener = new WcfCommunicationListener(typeof(ICalculator), this)
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
+    return new[] { new ServiceReplicaListener(parameters =>
+        new WcfCommunicationListener(typeof(ICalculator), this)
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
@@ -42,10 +40,9 @@ protected override ICommunicationListener CreateCommunicationListener()
             // Populate the binding information that you want the service to use.
             //
             Binding = this.CreateListenBinding()
-        };
-
-        return communicationListener;
-    }
+        }
+    )};
+}
 
 ```
 
@@ -110,8 +107,11 @@ var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicati
 var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
-
 ```
  
+## Étapes suivantes
+* [Appel de procédure distante avec Reliable Services à distance](service-fabric-reliable-services-communication-remoting.md)
 
-<!---HONumber=Nov15_HO1-->
+* [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+
+<!---HONumber=Nov15_HO4-->

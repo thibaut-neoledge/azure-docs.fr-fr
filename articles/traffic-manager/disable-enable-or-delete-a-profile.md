@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Désactiver, activer ou supprimer un profil
@@ -46,8 +46,12 @@ Vous pouvez désactiver un profil Traffic Manager existant afin qu’il ne renvo
 
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
+[Configurer la méthode de routage par basculement](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Configurer la méthode de routage du trafic en tourniquet (round robin)](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
+
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

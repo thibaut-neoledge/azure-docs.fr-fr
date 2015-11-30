@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/11/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Prise en charge de Resource Manager pour les services, les régions et les versions API
@@ -40,6 +40,29 @@ Machines virtuelles (classiques) fait référence à des ressources qui ont ét�
 
 Les ressources Machines virtuelles (classiques) peuvent être déplacées vers un nouveau groupe de ressources, mais pas vers un nouvel abonnement.
 
+## Mise en réseau
+
+| Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Application Gateway | Oui | | | | |
+| DNS | Oui | | | [Créer une zone DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Load Balancer | Oui | | | [Créer un équilibreur de charge](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Virtual Network | Oui | [Oui](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | Non | [Créer un réseau virtuel](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
+| Traffic Manager | Oui | Non | | [Créer un profil Traffic Manager](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
+| ExpressRoute | Oui | Non | Non | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
+
+## Données et stockage
+
+| Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
+| ------- | ------- | ------- | -------------- | -------- | ------ |
+| DocumentDB | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DocumentDB) | Oui | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
+| Storage | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | Non | [Créer un stockage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Compte de stockage](resource-manager-template-storage.md) |
+| Cache Redis | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Oui | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
+| SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
+| SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | Non | Non | - | - | - | | Cache géré | Non | Non | - | - | - |
+
 ## Web et mobilité
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
@@ -56,23 +79,6 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 - Déplacer toutes les ressources d'un groupe de ressources à un autre, si le groupe de ressources de destination n'a pas déjà de ressources Microsoft.Web.
 - Déplacer les applications web vers un autre groupe de ressources, mais conserver le plan App Service dans le groupe de ressources d'origine.
 
-
-## Données et stockage
-
-| Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
-| ------- | ------- | ------- | -------------- | -------- | ------ |
-| DocumentDB | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DocumentDB) | Oui | [REST DocumentDB](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Storage | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Créer un stockage](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Compte de stockage](resource-manager-template-storage.md) |
-| Cache Redis | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Oui | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
-| Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Non | Non | - | - | - |
-| Backup | Non | Non | - | - | - |
-| Site Recovery | Non | Non | - | - | - |
-| Managed cache | Non | Non | - | - | - |
-| Data Catalog | Non | Non | - | - | - |
-
 ## Analyse
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
@@ -82,17 +88,6 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Data Factory | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DataFactory) | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Machine Learning | Non | Non | - | - | - | | Catalogue de données | Non | Non | - | - | - |
-
-## Mise en réseau
-
-| Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
-| ------- | ------- | -------- | -------------- | -------- | ------ |
-| Application Gateway | Oui | | | | |
-| DNS | Oui | | | [Créer une zone DNS](https://msdn.microsoft.com/library/azure/mt130622.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Load Balancer | Oui | | | [Créer un équilibreur de charge](https://msdn.microsoft.com/library/azure/mt163574.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Virtual Network | Oui | [Oui](https://portal.azure.com/#create/Microsoft.VirtualNetwork-ARM) | Non | [Créer un réseau virtuel](https://msdn.microsoft.com/library/azure/mt163661.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Network.json) |
-| Traffic Manager | Oui | Non | | [Créer un profil Traffic Manager](https://msdn.microsoft.com/library/azure/mt163581.aspx) | |
-| ExpressRoute | Oui | Non | Non | [ExpressRoute REST](https://msdn.microsoft.com/library/azure/mt586720.aspx) | |
 
 ## Média et CDN
 
@@ -140,7 +135,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Fonctionnalité | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| Autorisation | Oui | N/A | N/A | [Verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Contrôle d’accès en fonction du rôle](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Verrous de ressource](resource-manager-template-lock.md)<br />[Affectations de rôle](resource-manager-template-role.md) |
+| Autorisation | Oui | N/A | N/A | [Verrous de gestion](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Contrôle d’accès en fonction du rôle](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Verrou de ressource](resource-manager-template-lock.md)<br />[Affectations de rôle](resource-manager-template-role.md) |
 | Ressources | Oui | N/A | N/A | [Ressources liées](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Liens de ressources](resource-manager-template-links.md) |
 
 
@@ -152,11 +147,11 @@ Pour obtenir la liste complète de toutes les régions prises en charge pour tou
 
 ### API REST
 
-Pour découvrir quelles régions sont disponibles pour un type de ressource particulier dans votre abonnement, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Pour découvrir quelles régions sont disponibles pour un type de ressource particulier dans votre abonnement, utilisez l’opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
-L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d'informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
+L’exemple suivant montre comment obtenir la liste des régions prises en charge pour les sites web utilisant Azure PowerShell 1.0 en version préliminaire. Pour plus d’informations sur Azure PowerShell 1.0 en version préliminaire, consultez [Azure PowerShell 1.0 en version préliminaire](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
     PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
     
@@ -186,7 +181,7 @@ L’exemple suivant affiche la liste de tous les emplacements pris en charge pou
 
     azure location list
 
-Vous pouvez également filtrer les emplacements répertoriés à l'aide d'un outil tel que **jq**. Pour en savoir plus sur les outils tels que jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Vous pouvez également filtrer les emplacements répertoriés à l’aide d’un outil tel que **jq**. Pour en savoir plus sur les outils tels que jq, consultez [Outils utiles pour interagir avec Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -204,7 +199,7 @@ Lorsque vous déployez un modèle, vous devez spécifier une version de l'API à
 
 ### API REST
 
-Pour découvrir quelles versions de l'API sont disponibles pour les types de ressources, utilisez l'opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
+Pour découvrir quelles versions de l’API sont disponibles pour les types de ressources, utilisez l’opération [Liste de tous les fournisseurs de ressources](https://msdn.microsoft.com/library/azure/dn790524.aspx).
 
 ### PowerShell
 
@@ -235,11 +230,11 @@ Vous pouvez enregistrer les informations (y compris les versions disponibles de 
 
     azure provider show Microsoft.Web -vv --json > c:\temp.json
 
-Vous pouvez ouvrir le fichier et trouver l'élément **apiVersions**
+Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 
 ## Étapes suivantes
 
-- Pour en savoir plus sur la création de modèles Resource Manager, consultez la section [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
-- Pour savoir comment déployer des ressources, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
+- Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 # Comment sécuriser les services principaux à l'aide d'une authentification de certificat mutuel dans la Gestion des API Azure
@@ -54,7 +54,7 @@ Cliquez sur **Charger** pour charger le certificat.
 
 ![Certificat chargé][api-management-certificate-uploaded]
 
-Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients**. Si vous avez plusieurs certificats, créez une note à ce sujet ou indiquant les quatre derniers caractères de l'empreinte numérique, utilisés pour sélectionner le certificat lors de la configuration d'une API pour l'utilisation de certificats, tel qu'indiqué dans la section suivante [Configuration d'une API afin d'utiliser l'authentification mutuelle des certificats pour proxy][].
+Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients**. Si vous avez plusieurs certificats, créez une note à ce sujet ou indiquant les quatre derniers caractères de l’empreinte numérique, utilisés pour sélectionner le certificat lors de la configuration d’une API pour l’utilisation de certificats, tel qu’indiqué dans la section suivante [Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle][].
 
 ## <a name="step1a"> </a>Suppression d’un certificat client
 
@@ -70,7 +70,7 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 
 ![Confirmation de suppression][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour proxy
+## <a name="step2"> </a>Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle
 
 Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l'API désirée, puis cliquez sur l'onglet **Sécurité**.
 
@@ -90,7 +90,7 @@ Cliquez sur **Enregistrer** pour enregistrer la modification de configuration de
 
 ![Enregistrement des modifications d'API][api-management-save-api]
 
->Lorsqu'un certificat est spécifié pour l'authentification proxy d'un service principal d'une API, il est intégré à la stratégie de cette API et peut être affiché dans l'éditeur de stratégies.
+>Lorsqu’un certificat est spécifié pour l’authentification passerelle d’un service principal d’une API, il est intégré à la stratégie de cette API et peut être affiché dans l’éditeur de stratégies.
 
 ![Stratégie de certificat][api-management-certificate-policy]
 
@@ -133,7 +133,7 @@ Pour plus d’informations, regardez la vidéo suivante :
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configuration d'une API afin d'utiliser l'authentification mutuelle des certificats pour proxy]: #step2
+[Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Pour plus d’informations, regardez la vidéo suivante :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

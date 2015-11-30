@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Résolution des problèmes de gestion des mots de passe
@@ -698,6 +698,22 @@ Pour résoudre les problèmes liés à l’écriture différée des mots de pass
                 <li class="unordered">
 										Si des filtres de mot de passe sont activés et qu’un utilisateur sélectionne un mot de passe qui ne répond pas aux critères de filtrage, alors l’opération de réinitialisation ou de modification échoue. &lt;br>&lt;br></li>
               </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>HR 8023042</p>
+            </td>
+            <td>
+              <p>Le moteur de synchronisation a renvoyé une erreur hr=80230402, message = Une tentative visant à obtenir un objet a échoué, car il existe des entrées en double avec le même point d’ancrage.</p>
+            </td>
+            <td>
+              <p>ADSync</p>
+            </td>
+            <td>
+              <p>Cet événement se produit lorsque le même identifiant utilisateur est activé dans plusieurs domaines. Par exemple, cette erreur peut se produire si vous synchronisez des forêts de comptes&#160;/ ressources et que le même identifiant utilisateur est présent et activé pour chacune d’elles.  </p>
+              <p>Cette erreur peut également se produire si vous utilisez un attribut d'ancrage non unique (comme un alias ou un UPN) et que deux utilisateurs partagent ce même attribut d’ancrage.</p>
+              <p>Pour résoudre ce problème, assurez-vous de ne pas avoir d’utilisateurs en double dans vos domaines et d’utiliser un attribut d’ancrage unique pour chaque utilisateur.</p>
             </td>
           </tr>
           <tr>
@@ -1462,19 +1478,17 @@ Si cela ne résout pas votre problème, nous vous recommandons de consulter la r
 
 <br/> <br/> <br/>
 
-**Ressources supplémentaires**
+## Liens vers la documentation de réinitialisation du mot de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-
-* [Définition de la gestion des mots de passe](active-directory-passwords.md)
-* [Fonctionnement de la gestion des mots de passe](active-directory-passwords-how-it-works.md)
-* [Prise en main de la gestion des mots de passe](active-directory-passwords-getting-started.md)
-* [Personnalisation de la gestion des mots de passe](active-directory-passwords-customize.md)
-* [Meilleures pratiques de gestion des mots de passe](active-directory-passwords-best-practices.md)
-* [Obtention d’informations grâce aux rapports sur la gestion des mots de passe](active-directory-passwords-get-insights.md)
-* [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
-* [En savoir plus](active-directory-passwords-learn-more.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
-
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu’utilisateur du système.
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**En savoir plus**](active-directory-passwords-learn-more.md) : découvrez les détails techniques sur le fonctionnement du service.
 
 
 
@@ -1483,4 +1497,4 @@ Si cela ne résout pas votre problème, nous vous recommandons de consulter la r
 [003]: ./media/active-directory-passwords-troubleshoot/003.jpg "Image_003.jpg"
 [004]: ./media/active-directory-passwords-troubleshoot/004.jpg "Image_004.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

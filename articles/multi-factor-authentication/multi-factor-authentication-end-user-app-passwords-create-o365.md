@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Création ou suppression de mots de passe d’application dans le portail Office 365 pour Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@ Si vous utilisez l’authentification multifacteur avec Office 365, vous pourre
 <li>Vous obtenez un message contextuel vous demandant de confirmer la suppression.</li>
 <li>Cliquez sur **Oui**.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

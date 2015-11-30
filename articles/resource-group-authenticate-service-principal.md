@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Authentification d'un principal du service à l'aide d'Azure Resource Manager
@@ -22,7 +22,7 @@ Cette rubrique explique comment autoriser un principal du service (tel qu’un p
 
 Elle montre comment s’authentifier avec un nom d’utilisateur et un mot de passe ou un certificat.
 
-Vous pouvez utiliser Azure PowerShell ou Azure CLI pour Mac, Linux et Windows. Si Azure PowerShell n’est pas installé sur votre système, consultez la page [Installation et configuration d’Azure PowerShell](./powershell-install-configure.md). Si Azure CLI n’est pas installé, consultez [Installation et configuration d’Azure CLI](xplat-cli-install.md).
+Vous pouvez utiliser Azure PowerShell ou Azure CLI pour Mac, Linux et Windows. Si Azure PowerShell n’est pas installé sur votre système, consultez la page [Installation et configuration d’Azure PowerShell](./powershell-install-configure.md). Si Azure CLI n’est pas installé, consultez [Installation et configuration d’Azure CLI](xplat-cli-install.md). Pour plus d’informations sur l’utilisation du portail pour effectuer ces étapes, consultez la rubrique [Création de l'application Active Directory et du principal du service à l'aide du portail](resource-group-create-service-principal-portal.md)
 
 ## Concepts
 1. Azure Active Directory (AAD) : service de gestion des identités et des accès pour le cloud. Pour plus d’informations, consultez la page [Qu’est-ce qu’Azure Active Directory ?](active-directory/active-directory-whatis.md)
@@ -88,7 +88,7 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 
      Si vous avez créé l’attribution de rôle dans un abonnement autre que l’abonnement sélectionné, vous pouvez spécifier le paramètre **SubscriptoinId** ou **SubscriptionName** afin de récupérer un autre abonnement.
 
-5. Créez un objet **PSCredential** contenant vos informations d’identification à l’aide de la commande **Get-Credential**.
+5. Pour vous connecter en tant que principal du service via PowerShell, créez un objet **PSCredential** contenant vos informations d’identification à l’aide de la commande **Get-Credential**.
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 
      Pour le nom d’utilisateur, utilisez le paramètre **ApplicationId** ou **IdentifierUris** que vous avez utilisé lors de la création de l’application. Utilisez le mot de passe que vous avez indiqué lors de la création du compte.
 
-6. Utilisez les informations d’identification que vous avez saisies comme entrée pour l’applet de commande **Add-AzureAccount** afin de connecter le principal du service :
+     Utilisez les informations d’identification que vous avez saisies comme entrée pour l’applet de commande **Login-AzureRmAccount** afin de connecter le principal du service :
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@ Dans cette section, vous allez effectuer les étapes pour créer un principal du
 
      Vous devriez maintenant être authentifié en tant que principal du service pour l’application AAD que vous avez créée.
 
-7. Pour l’authentification à partir d’une application, incluez le code .NET suivant. Après avoir récupéré le jeton, vous pouvez accéder aux ressources dans l’abonnement.
+6. Pour l’authentification à partir d’une application, incluez le code .NET suivant. Après avoir récupéré le jeton, vous pouvez accéder aux ressources dans l’abonnement.
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,14 +288,28 @@ Commencez par créer un principal du service. Pour ce faire, nous allons utilise
 
     Vous devriez maintenant être authentifié en tant que principal du service pour l’application AAD que vous avez créée.
 
+## Authentifier le principal du service avec certificat - Interface de ligne de commande Azure
+
+Dans cette section, vous suivrez la procédure vous permettant de créer le principal du service d'une application Azure Active Directory qui utilise un certificat pour l'authentification. Cette rubrique part du principe que vous avez reçu un certificat et que vous disposez d’[OpenSSL](http://www.openssl.org/).
+
+1. Créez un fichier **.pem** avec :
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. Ouvrez le fichier **.pem** et copiez les données de certificat.
+
+3. Créez une application AAD à l’aide de la commande **azure ad app create** et fournissez les données de certificat que vous avez copiées à l'étape précédente en tant que valeur de clé.
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## Étapes suivantes
   
-- Pour obtenir une vue d'ensemble du contrôle d'accès en fonction du rôle, consultez [Gestion et audit d'accès aux ressources](resource-group-rbac.md)  
-- Pour en savoir plus sur l’utilisation du portail avec les principaux du service, consultez [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
-- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
+- Pour obtenir une vue d'ensemble du contrôle d'accès en fonction du rôle, consultez la rubrique [Gestion et audit d'accès aux ressources](resource-group-rbac.md)  
+- Pour en savoir plus sur l’utilisation du portail avec les principaux du service, consultez la rubrique [Création d’un principal du service Azure à l’aide du portail Azure](./resource-group-create-service-principal-portal.md)  
+- Pour obtenir des instructions sur l'implémentation de la sécurité avec Azure Resource Manager, consultez la rubrique [Questions de sécurité relatives à Azure Resource Manager](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

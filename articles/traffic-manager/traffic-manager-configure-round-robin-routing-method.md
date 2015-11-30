@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Configurer la méthode de routage du trafic en tourniquet (round robin)
@@ -35,21 +35,21 @@ Il est courant d'utiliser un ensemble de points de terminaison identiques, compr
 
 ## Étapes suivantes
 
-[À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
+
+[Rediriger un domaine Internet d’entreprise vers un domaine Traffic Manager](traffic-manager-point-internet-domain.md)
+
+[Méthodes de routage de Traffic Manager](traffic-manager-routing-methods.md)
+
+[Configurer la méthode de routage par basculement](traffic-manager-configure-failover-routing-method.md)
+
+[Configurer la méthode de routage basé sur les performances](traffic-manager-configure-performance-routing-method.md)
+
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
 [Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
 [Traffic Manager - Désactiver ou activer un point de terminaison](disable-or-enable-an-endpoint.md)
 
-[Qu’est-ce que Traffic Manager ?](../traffic-manager-overview.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Vue d'ensemble de la configuration de KVSActorStateProvider pour les acteurs fiables Service Fabric"
-   description="En savoir plus sur la configuration des acteurs avec état Service Fabric de type « KVSActorStateProvider »"
+   pageTitle="Vue d'ensemble de la configuration de KVSActorStateProvider pour Service Fabric Reliable Actors Azure | Microsoft Azure"
+   description="En savoir plus sur la configuration des acteurs avec état Azure Service Fabric de type « KVSActorStateProvider »"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="10/28/2015"
    ms.author="sumukhs"/>
 
 # Configuration des acteurs fiables - KVSActorStateProvider
@@ -81,4 +81,4 @@ Les configurations de magasin permettent de configurer le magasin local utilisé
 
 BatchAcknowledgementInterval contrôle la latence de réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception). Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

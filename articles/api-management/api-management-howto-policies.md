@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/16/2015" 
 	ms.author="sdanie"/>
 
 
@@ -23,7 +23,7 @@ Dans Gestion des API Azure, les stratégies sont une fonctionnalité puissante d
 
 Pour obtenir la liste complète des instructions et des paramètres de stratégie, consultez la section [Référence de stratégie][].
 
-Les stratégies sont appliquées au niveau du proxy qui se trouve entre le consommateur de l'API et l'API managée. Le proxy reçoit toutes les demandes et les transfère normalement sans les modifier à l'API sous-jacente. Cependant, une stratégie peut appliquer des modifications à la demande entrante et à la réponse sortante.
+Les stratégies sont appliquées au niveau de la passerelle qui se trouve entre le consommateur de l’API et l’API managée. La passerelle reçoit toutes les demandes et les transfère normalement sans les modifier à l’API sous-jacente. Cependant, une stratégie peut appliquer des modifications à la demande entrante et à la réponse sortante.
 
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Contrôler le flux][] et [Définir la variable][], sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées][] et [Expressions de stratégie][].
 
@@ -73,7 +73,7 @@ Pour limiter les demandes entrantes et n'accepter que celles venant de l'adresse
 
 ![Enregistrer][policies-save]
 
-Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur Enregistrer. Les modifications sont ajoutées immédiatement au proxy Gestion des API.
+Lorsque vous avez terminé la configuration des instructions de la stratégie, cliquez sur Enregistrer. Les modifications sont ajoutées immédiatement à la passerelle Gestion des API.
 
 ##<a name="sections"> </a>Configuration de la stratégie
 
@@ -128,4 +128,4 @@ Découvrez la vidéo suivante sur les expressions de stratégie.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

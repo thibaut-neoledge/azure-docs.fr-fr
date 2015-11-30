@@ -94,6 +94,6 @@ Vous devez également évaluer les exigences des utilisateurs. Cette évaluation
 [Déterminer les exigences de synchronisation de répertoire](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

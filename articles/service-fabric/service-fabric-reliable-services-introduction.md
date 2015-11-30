@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/17/2015"
    ms.author="masnider;jesseb"/>
 
 # Présentation des services fiables
@@ -52,7 +52,7 @@ Les Services fiables dans Service Fabric sont différents des services que vous
 ## Cycle de vie du service
 Que votre service soit avec état ou sans état, les Services fiables fournissent un cycle de vie simple qui vous permet de rattacher rapidement votre code et de vous lancer. Pour démarrer votre service, il vous suffit d'implémenter une ou deux méthodes.
 
-+ CreateCommunicationListener : c'est là que le service définit la pile de communications à utiliser. La pile de communications, comme l'[API Web](service-fabric-reliable-services-communication-webapi.md), est utilisée pour définir les points de terminaison d'écoute pour le service (comment les clients y accèdent), ainsi que l'interaction entre les messages et le reste du code de service.
++ CreateServiceReplicaListeners/CreateServiceInstanceListeners : il s'agit de l’emplacement dans lequel le service définit la pile de communications qu'il souhaite utiliser. La pile de communications, comme l'[API Web](service-fabric-reliable-services-communication-webapi.md), est utilisée pour définir les points de terminaison d'écoute pour le service (comment les clients y accèdent), ainsi que l'interaction entre les messages et le reste du code de service.
 
 + RunAsync : c'est ici que votre service exécute sa logique métier. Le jeton d'annulation fourni est un signal indiquant quand ce travail doit s'arrêter. Par exemple, si vous avez un service qui doit sans cesse extraire des messages d'une file d'attente ReliableQueue et les traiter, c'est là que se passe ce travail.
 
@@ -60,16 +60,16 @@ Les principaux événements du cycle de vie d'un Service fiable sont les suivant
 
 1. L'objet de service (élément dérivé de StatelessService ou StatefulService) est construit.
 
-2. La méthode CreateCommunicationListener est appelée, donnant au service une chance de renvoyer un écouteur de communication de son choix.
+2. La méthode CreateServiceReplicaListeners/CreateServiceInstanceListeners est appelée, ce qui permet au service de retourner un ou plusieurs écouteurs de son choix.
   + Notez que cela est facultatif, bien que la plupart des services exposent un système d’extrémité directement.
 
-3. Une fois l’écouteur créé, il est ouvert.
-  + Les écouteurs communication listeners utilisent une méthode nommée Open(), qui est appelée à ce stade et qui renvoie l’adresse d’écoute pour le service. Si votre Service fiable utilise l'un des écouteurs ICommunicationListeners intégrés, alors celui-ci est géré pour vous.
+3. Une fois les écouteurs créés, il sont ouverts.
+  + Les écouteurs utilisent une méthode nommée OpenAsync(), qui est appelée à ce stade et qui renvoie l’adresse d’écoute pour le service. Si votre Service fiable utilise l'un des écouteurs ICommunicationListeners intégrés, alors celui-ci est géré pour vous.
 
-4. Une fois l’écouteur de communication défini sur Open(), RunAsync() sur le service principal est appelé.
+4. Une fois l’écouteur défini sur ouvert, la méthode RunAsync() est appelée sur le service principal.
   + Notez que RunAsync est facultatif ; si le service effectue tout son travail directement en réponse aux appels utilisateur uniquement, il est inutile d'implémenter RunAsync().
 
-Quand le service est arrêté (quand il est supprimé ou simplement déplacé d’un emplacement spécifique), l’ordre d’appel est identique. Premièrement Close() est appelé sur l’écouteur de communication, puis le jeton d’annulation qui a été transmis à RunAsync() est annulé.
+Quand le service est arrêté (quand il est supprimé, mis à niveau ou simplement déplacé d’un emplacement spécifique), l’ordre d’appel est identique. Premièrement CloseAsync() est appelé sur les écouteurs de communication, puis le jeton d’annulation qui a été transmis à RunAsync() est annulé.
 
 ## Exemples de services
 En se basant sur ce modèle de programmation, observons rapidement deux services pour voir comment ces éléments s'imbriquent.
@@ -79,7 +79,7 @@ Un service sans état est un service dans lequel aucun état n'est conservé, ou
 
 Prenons pour exemple une calculatrice qui n'a pas de mémoire et qui reçoit tous les termes et les opérations à effectuer simultanément.
 
-Dans ce cas, la tâche RunAsync() du service peut être vide, car le service n'a besoin d'effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un CommunicationListener (par exemple, l'[API Web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d'écoute sur un port. Ce point de terminaison d'écoute se raccorde aux différentes méthodes (ex : « Add(n1, n2) ») qui définissent l'API publique de la calculatrice.
+Dans ce cas, la tâche RunAsync() du service peut être vide, car le service n'a besoin d'effectuer aucun traitement de tâche en arrière-plan. Quand le service Calculatrice est créé, il renvoie un ICommunicationListener (par exemple, l'[API Web](service-fabric-reliable-services-communication-webapi.md)) qui ouvre un point de terminaison d'écoute sur un port. Ce point de terminaison d'écoute se raccorde aux différentes méthodes (ex : « Add(n1, n2) ») qui définissent l'API publique de la calculatrice.
 
 Lorsqu'un appel est effectué à partir d'un client, la méthode appropriée est appelée et le service Calculatrice effectue les opérations sur les données fournies et renvoie le résultat. Il ne stocke aucun état.
 
@@ -94,9 +94,9 @@ Actuellement, la plupart des services stockent leur état en externe car le maga
 
 Supposons que nous voulions écrire un service qui a pris des requêtes pour une série de conversions qui devaient être effectuées sur une image, et l'image qui devait être convertie. Ce service renverrait un CommunicationListener (par exemple, WebAPI) qui ouvre un port de communication et permet les soumissions via une API comme `ConvertImage(Image i, IList<Conversion> conversions)`. Dans cette API, le service pourrait prendre les informations et stocker la requête dans une ReliableQueue, puis renvoyer un jeton au client afin d'effectuer le suivi de la requête (dans la mesure où les requêtes peuvent prendre du temps).
 
-Dans ce service, la tâche RunAsync pourrait être plus complexe : le service disposerait d'une boucle à l'intérieur de sa tâche RunAsync pour extraire les requêtes de la file ReliableQueue, effectuer les conversions répertoriées et stocker les résultats dans un ReliableDictionary, de façon que les clients puissent obtenir leurs images converties. Afin de garantir que, même en cas de problème, l'image n'est pas perdue, ce service fiable se sortirait de la file d'attente, exécuterait les conversions et stockerait le résultat dans une Transaction afin que le message ne soit réellement supprimé de la file d'attente et les résultats stockés dans le dictionnaire de résultats qu'une fois les conversions terminées. En cas de problème au milieu (comme l'ordinateur sur lequel cette instance de code est exécutée), la requête reste dans la file d'attente jusqu'à ce qu'elle soit à nouveau traitée.
+Dans ce service, la tâche RunAsync pourrait être plus complexe : le service disposerait d'une boucle à l'intérieur de sa tâche RunAsync pour extraire les requêtes de la file IReliableQueue, effectuer les conversions répertoriées et stocker les résultats dans un IReliableDictionary, afin que les clients puissent obtenir leurs images converties. Afin de garantir que, même en cas de problème, l'image n'est pas perdue, ce service fiable se sortirait de la file d'attente, exécuterait les conversions et stockerait le résultat dans une Transaction afin que le message ne soit réellement supprimé de la file d'attente et les résultats stockés dans le dictionnaire de résultats qu'une fois les conversions terminées. En cas de problème au milieu (comme l'ordinateur sur lequel cette instance de code est exécutée), la requête reste dans la file d'attente jusqu'à ce qu'elle soit à nouveau traitée.
 
-Une chose à noter concernant ce service est qu'il ressemble être un service .NET normal. La seule différence est que les structures de données utilisées (ReliableQueue et ReliableDictionary) sont fournies par Service Fabric et elles sont donc plus fiables, disponibles et cohérentes.
+Une chose à noter concernant ce service est qu'il ressemble être un service .NET normal. La seule différence est que les structures de données utilisées (IReliableQueue et IReliableDictionary) sont fournies par Service Fabric et elles sont donc plus fiables, disponibles et cohérentes.
 
 ## Utilisation des API de Services fiables
 Si l'un des éléments suivants correspond aux besoins de votre service d'application, alors vous devez songer à utiliser les API de Services fiables :
@@ -130,4 +130,4 @@ Si l'un des éléments suivants correspond aux besoins de votre service d'applic
 + [Lire le modèle de programmation Acteurs fiables](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

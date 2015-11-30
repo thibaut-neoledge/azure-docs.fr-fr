@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Azure"
-   description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et décrit les différents types de stratégies HADR pour SQL Server s’exécutant sur des machines virtuelles Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" 
-   tags="azure-service-management"/>
+	pageTitle="Haute disponibilité et récupération d’urgence pour SQL Server | Microsoft Azure"
+	description="Ce didacticiel utilise des ressources créées avec le modèle de déploiement classique, et décrit les différents types de stratégies HADR pour SQL Server s’exécutant sur des machines virtuelles Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Haute disponibilité et récupération d'urgence pour SQL Server sur des machines virtuelles Azure
 
@@ -104,9 +104,14 @@ Pour plus d’informations, voir [Configuration de groupes de disponibilité Alw
 
 ### Prise en charge de l’écouteur du groupe de disponibilité
 
-Les écouteurs de groupe de disponibilité sont pris en charge sur les machines virtuelles Azure exécutant Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Cette prise en charge est rendue possible par l’utilisation de points de terminaison à charge équilibrée avec le mode retour au serveur direct activé sur les machines virtuelles Azure qui sont des nœuds de groupe de disponibilité. Vous devez suivre des étapes de configuration spéciales de façon à ce que les écouteurs fonctionnent avec les applications clientes exécutées dans Azure et avec celles qui s’exécutent sur site.
+Les écouteurs de groupe de disponibilité sont pris en charge sur les machines virtuelles Azure exécutant Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. Cette prise en charge est rendue possible par l’utilisation de points de terminaison à charge équilibrée activés sur les machines virtuelles Azure qui sont des nœuds de groupe de disponibilité. Vous devez suivre des étapes de configuration spéciales de façon à ce que les écouteurs fonctionnent avec les applications clientes exécutées dans Azure et avec celles qui s’exécutent sur site.
 
-Les clients doivent se connecter à l’écouteur à partir d’un ordinateur qui n’est pas dans le même service cloud que les nœuds du groupe de disponibilité AlwaysOn. Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse les régions Azure), la chaîne de connexion du client doit inclure « MultisubnetFailover=True ». Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions de configuration d’un écouteur, voir [Configuration d’un écouteur pour les groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
+Il existe deux options principales de configuration de votre écouteur : externe (public) ou interne. Le port d'écoute externe (public) est associé à une adresse IP virtuelle publique (VIP) accessible via Internet. Avec un écouteur externe, vous devez activer le retour direct du serveur, ce qui signifie que vous devez vous connecter à l'écouteur à partir d'un ordinateur qui n'est pas dans le même service cloud que les nœuds du groupe de disponibilité AlwaysOn. Vous pouvez également utiliser un écouteur interne avec équilibrage de charge interne (ILB). Un écouteur interne prend uniquement en charge les clients qui se trouvent dans le même réseau virtuel.
+
+Si le groupe de disponibilité s’étend sur plusieurs sous-réseaux Azure (comme un déploiement qui traverse les régions Azure), la chaîne de connexion du client doit inclure « **MultisubnetFailover=True** ». Ainsi des tentatives de connexion parallèle aux réplicas sont générées dans les différents sous-réseaux. Pour obtenir des instructions sur la configuration d'un port d'écoute, consultez
+
+- [Configuration d'un écouteur à équilibrage de charge interne pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Configuration d'un écouteur externe pour des groupes de disponibilité AlwaysOn dans Azure](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md)
 
 Vous pouvez encore vous connecter à chaque réplica de disponibilité séparément en vous connectant directement à l’instance de service. En outre, puisque les groupes de disponibilité AlwaysOn sont à compatibilité descendante avec les clients de mise en miroir de bases de données, vous pouvez vous connecter aux réplicas de disponibilité comme les serveurs partenaires de mise en miroir de bases de données tant que les réplicas sont configurés de façon similaire à la mise en miroir de bases de données :
 
@@ -136,9 +141,9 @@ La géo-réplication dans les disques Azure ne prend pas en charge le fichier de
 
 ## Étapes suivantes
 
-Si vous devez créer une machine virtuelle Azure avec SQL Server, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
+Si vous devez créer une machine virtuelle Azure avec SQL Server, consultez [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-provision-sql-server.md).
 
-Pour obtenir des performances optimales de SQL Server dans Azure, voir les indications de [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
+Pour obtenir des performances optimales de SQL Server dans Azure, voir les indications de [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des machines virtuelles Azure, voir [SQL Server sur les machines virtuelles Azure](virtual-machines-sql-server-infrastructure-services.md).
 
@@ -147,4 +152,4 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 - [Installation d’une nouvelle forêt Active Directory dans Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Création du cluster WSFC pour les groupes de disponibilité AlwaysOn dans une machine virtuelle Azure ](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

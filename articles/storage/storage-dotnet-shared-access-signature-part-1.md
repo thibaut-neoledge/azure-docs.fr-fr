@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -59,7 +59,7 @@ La version 2015-04-05 d’Azure Storage introduit un nouveau type de signature 
 
 - **SAP de compte.** La SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent à un service donné, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l’accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d’objets blob, les tables, les files d’attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. Pour obtenir des informations détaillées sur la construction du jeton de SAP de compte, consultez la page [Construction d’une SAP de compte](https://msdn.microsoft.com/library/mt584140.aspx).
 
-- **SAP de service.** Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service BLOB, de File d’attente, de Table ou de fichiers. Pour obtenir des informations détaillées sur la construction du jeton de SAP de compte, consultez les pages [Construction d’une SAP de service](https://msdn.microsoft.com/library/dn140255.aspx) et [Exemples de SAP de service](https://msdn.microsoft.com/library/dn140256.aspx).
+- **SAP de service.** Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage : le service BLOB, de File d’attente, de Table ou de fichiers. Pour obtenir des informations détaillées sur la construction du jeton de SAP de service, consultez les pages [Construction d’une SAP de service](https://msdn.microsoft.com/library/dn140255.aspx) et [Exemples de SAP de service](https://msdn.microsoft.com/library/dn140256.aspx).
 
 ## Fonctionnement d’une signature d’accès partagé
 
@@ -144,17 +144,22 @@ La différence entre les deux formes est importante pour un scénario clé : la
 
 >[AZURE.IMPORTANT]L’URI d’une signature d’accès partagé est associé à la clé du compte utilisée pour créer la signature et à la stratégie d’accès stockée correspondante (le cas échéant). Si aucune stratégie d’accès stockée n’est spécifiée, la seule façon de révoquer une signature d’accès partagé consiste à modifier la clé du compte.
 
-## Exemples de signatures d’accès partagé
+## Exemples : créer et utiliser des signatures d'accès partagé
 
 Vous trouverez ci-dessous des exemples des deux types de signatures d’accès partagé, SAP de compte et SAP de service.
 
-### Exemple de SAP de compte
+Pour exécuter ces exemples, vous devez télécharger ces packages et y ajouter une référence :
+
+- [Bibliothèque cliente de stockage Azure pour .NET](http://www.nuget.org/packages/WindowsAzure.Storage), version 6.x ou ultérieure (pour utiliser une SAP de compte).
+- [Gestionnaire de configuration Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### Exemple : SAP de compte
 
 L’exemple de code suivant crée une SAP de compte valide pour le service BLOB et le service de fichiers, et donne au client des autorisations d’accès en lecture, en écriture et en liste pour accéder aux API au niveau du service. Le SAP de compte limitant le protocole à HTTPS, la demande doit être effectuée avec ce protocole.
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ Afin utiliser la SAP de compte pour accéder aux API au niveau du service pour l
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### Exemple de SAP de service
+### Exemple : SAP de service avec stratégie d'accès stockée
 
-L’exemple de code suivant crée une stratégie d’accès stockée sur un conteneur puis génère une SAP de service pour ce conteneur. Cette SAP peut ensuite être donnée aux clients pour leur accorder des autorisations d’accès en lecture/écriture sur le conteneur :
+L’exemple de code suivant crée une stratégie d’accès stockée sur un conteneur puis génère une SAP de service pour ce conteneur. Cette SAP peut ensuite être donnée aux clients pour leur accorder des autorisations d’accès en lecture/écriture sur le conteneur. Modifiez le code pour utiliser votre propre nom de compte :
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ L’exemple de code suivant crée une stratégie d’accès stockée sur un cont
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -253,24 +253,23 @@ L’exemple de code suivant crée une stratégie d’accès stockée sur un cont
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
     
     // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-Un client en possession de la SAP de service peut l’utiliser à partir de son code pour authentifier une demande de lecture ou d’écriture sur un objet blob dans le conteneur. Par exemple, le code suivant utilise le jeton de SAP pour créer un objet blob dans le conteneur :
+Un client en possession de la SAP de service peut l’utiliser à partir de son code pour authentifier une demande de lecture ou d’écriture sur un objet blob dans le conteneur. Par exemple, le code suivant utilise le jeton de SAP pour créer un objet blob de blocs dans le conteneur. Modifiez le code pour utiliser votre propre nom de compte :
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +280,7 @@ Un client en possession de la SAP de service peut l’utiliser à partir de son 
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -324,4 +323,4 @@ Les signatures d'accès partagé sont utiles pour fournir des autorisations d'ac
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

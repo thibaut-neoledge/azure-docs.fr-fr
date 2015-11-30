@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/12/2015" 
 	ms.author="luisca"/>
 
 # Guide de démarrage rapide pour l'API de Machine Learning Recommendations
@@ -27,7 +27,7 @@ Ce document décrit comment intégrer votre service ou application pour utiliser
 Pour utiliser Azure Machine Learning Recommendations, procédez comme suit :
 
 * Créez un modèle : le modèle est le conteneur de vos données d’utilisation, des données de catalogue et du modèle de recommandation.
-* Importez des données de catalogue : il s'agit d'une étape facultative. Un catalogue contient des métadonnées sur les éléments. Si vous ne téléchargez pas les données de catalogue, les services de recommandations découvriront implicitement votre catalogue à partir des données d’utilisation.
+* Importer les données du catalogue : un catalogue contient des informations de métadonnées sur les éléments. 
 * Importez des données d'utilisation : les données d'utilisation peuvent être téléchargées de deux manières :
 	* En téléchargeant un fichier qui contient les données d'utilisation.
 	* En envoyant des événements d’acquisition de données. Généralement, vous téléchargez un fichier d’utilisation pour pouvoir créer un modèle de recommandation initial (démarrage) et l’utiliser jusqu’à ce que le système rassemble suffisamment de données en utilisant le format d’acquisition de données.
@@ -673,4 +673,4 @@ OData XML
 Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit. Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence. © 2014 Microsoft. Tous droits réservés.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

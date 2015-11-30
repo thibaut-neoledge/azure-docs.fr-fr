@@ -35,7 +35,7 @@ Vous pouvez créer rapidement des sites à partir d’un système de gestion de 
 
 Microsoft Azure Marketplace fournit des modèles proposés par des systèmes CMS bien connus, tel que Orchard, Umbraco, Drupal et [WordPress]. Vous pouvez créer une application web en utilisant votre version de CMS préférée. Différents systèmes de bases de données principaux permettent de répondre à vos besoins, y compris la [base de données SQL Azure] et [MySQL].
 
-Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe à partir des options de contrôle de code source populaires, comme [Visual Studio], [Visual Studio Team Services] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
 ## Publication fiable
 
@@ -102,7 +102,7 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 [base de données SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [déploiement vers un module de transfert]: web-sites-staged-publishing.md
@@ -138,4 +138,4 @@ Rendez votre site .COM attrayant grâce à des contenus multimédia enrichis, co
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

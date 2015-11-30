@@ -85,7 +85,7 @@ Si vous n'avez pas activé les sauvegardes automatiques, vous pouvez créer une 
 
 Envisagez d'utiliser le [déploiement intermédiaire](web-sites-staged-publishing.md). Cette option vous permet de publier des mises à jour pour un déploiement intermédiaire qui s'exécute parallèlement à votre déploiement de production.
 
-Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement continu à partir d'un contrôle de code source :
+Si vous utilisez Visual Studio Team Services, vous pouvez configurer le déploiement continu depuis le contrôle de la source :
 
 - [Utilisation de TFVC (Team Foundation Version Control)](../cloud-services-continuous-delivery-use-vso.md) 
 - [Utilisation de Git](../cloud-services-continuous-delivery-use-vso-git.md)
@@ -103,4 +103,4 @@ Si vous utilisez Visual Studio Online, vous pouvez configurer un déploiement co
 
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

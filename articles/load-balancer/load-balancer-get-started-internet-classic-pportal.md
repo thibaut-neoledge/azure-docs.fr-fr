@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Prise en main de la création d'un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide du portail en version préliminaire | Microsoft Azure"
-   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide du portail en version préliminaire"
+   pageTitle="Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail en version préliminaire | Microsoft Azure"
+   description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide du portail en version préliminaire"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -17,13 +17,14 @@
    ms.date="11/03/2015"
    ms.author="joaoma" />
 
-#Prise en main de la création d'un équilibreur de charge accessible sur Internet (classique) dans le portail en version préliminaire
+#Création d’un équilibreur de charge accessible sur Internet (classique) dans le portail en version préliminaire
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [commencer la création d'un équilibreur de charge avec Azure Resource Manager PowerShell](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps).
+
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -39,7 +40,7 @@ Pour créer un modèle de déploiement (classique) d'équilibrage de charge acce
 
 3. Dans le panneau « Essentials » des machines virtuelles > sélectionnez « Tous les paramètres »
 
-4. Cliquez sur « Jeux d'équilibrage de charge ».
+4. Cliquez sur Jeux d’équilibrage de charge.
 
 5. Pour créer un équilibreur de charge, cliquez sur l'icône « Joindre » en haut du panneau des jeux d'équilibrage de charge.
 
@@ -65,4 +66,4 @@ Pour créer un modèle de déploiement (classique) d'équilibrage de charge acce
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

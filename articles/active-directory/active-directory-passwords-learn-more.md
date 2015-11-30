@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # En savoir plus sur la gestion des mots de passe
@@ -25,6 +25,7 @@ Si vous avez déjà déployé la gestion des mots de passe ou si vous souhaitez 
   - [Modèle de sécurité de l’écriture différée de mot de passe](#password-writeback-security-model)
 * [**Fonctionnement du portail de réinitialisation de mot de passe**](#how-does-the-password-reset-portal-work)
   - [Données utilisées par la réinitialisation de mot de passe](#what-data-is-used-by-password-reset)
+  - [Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs](#how-to-access-password-reset-data-for-your-users)
 
 ## Vue d’ensemble de l’écriture différée de mot de passe
 L’écriture différée de mot de passe est un composant [Azure Active Directory Connect](active-directory-aadconnect) qui peut être activé et utilisé par les abonnés actifs d’Azure Active Directory Premium. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](active-directory-editions.md).
@@ -261,24 +262,121 @@ Le tableau suivant indique où et comment ces données sont utilisées lors de l
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###Comment accéder aux données de réinitialisation des mots de passe pour vos utilisateurs
+####Données définissables via la synchronisation
+Les champs suivants peuvent être synchronisés en local :
 
-**Ressources supplémentaires**
+* Téléphone mobile
+* Téléphone de bureau
 
+####Données définissables avec Azure AD PowerShell
+Les champs suivants sont accessibles avec Azure AD PowerShell et l'API Graph :
 
-* [Définition de la gestion des mots de passe](active-directory-passwords.md)
-* [Fonctionnement de la gestion des mots de passe](active-directory-passwords-how-it-works.md)
-* [Prise en main de la gestion des mots de passe](active-directory-passwords-getting-started.md)
-* [Personnalisation de la gestion des mots de passe](active-directory-passwords-customize.md)
-* [Meilleures pratiques de gestion des mots de passe](active-directory-passwords-best-practices.md)
-* [Obtention d’informations grâce aux rapports sur la gestion des mots de passe](active-directory-passwords-get-insights.md)
-* [FAQ sur la gestion des mots de passe](active-directory-passwords-faq.md)
-* [Résolution des problèmes de gestion des mots de passe](active-directory-passwords-troubleshoot.md)
-* [Gestion des mots de passe sur MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* Autre adresse de messagerie
+* Téléphone mobile
+* Téléphone de bureau
+* Téléphone d’authentification
+* E-mail d’authentification
+
+####Données définissables avec l’interface utilisateur d’inscription uniquement
+Les champs suivants sont uniquement accessibles via l'interface utilisateur d'inscription SSPR (https://aka.ms/ssprsetup) :
+
+* Questions et réponses de sécurité
+
+####Que se passe-t-il lorsqu'un utilisateur s'inscrit ?
+Lorsqu'un utilisateur s'inscrit, la page d'inscription définira **toujours** les champs suivants :
+
+* Téléphone d’authentification
+* E-mail d’authentification
+* Questions et réponses de sécurité
+
+Si vous avez fourni une valeur pour **Téléphone mobile** ou **Autre adresse de messagerie**, les utilisateurs peuvent immédiatement les utiliser pour réinitialiser leurs mots de passe, même s’ils ne se sont pas inscrits au service. Les utilisateurs verront ces valeurs lorsqu’ils s’inscriront pour la première fois et ils auront la possibilité de les modifier. Cependant, une fois inscrits, ces valeurs seront respectivement conservées dans les champs **Téléphone d'authentification** et **E-mail d'authentification**.
+
+Ceci peut être un bon moyen d’inciter un grand nombre d'utilisateurs à utiliser la réinitialisation de mot de passe libre-service (SSPR), tout en leur permettant de valider ces informations à travers le processus d'inscription.
+
+####Configuration de données de réinitialisation de mot de passe avec PowerShell
+Vous pouvez définir des valeurs pour les champs suivants à l’aide d’Azure AD PowerShell.
+
+* Autre adresse de messagerie
+* Téléphone mobile
+* Téléphone de bureau
+
+Pour commencer, vous devez d'abord [télécharger et installer le module Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Une fois installé, vous pouvez suivre les étapes ci-dessous pour configurer chaque champ.
+
+#####Autre adresse de messagerie
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Téléphone mobile
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Téléphone de bureau
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Lecture de données de réinitialisation de mot de passe avec PowerShell
+Vous pouvez lire des valeurs pour les champs suivants à l’aide d’Azure AD PowerShell.
+
+* Autre adresse de messagerie
+* Téléphone mobile
+* Téléphone de bureau
+* Téléphone d’authentification
+* E-mail d’authentification
+
+Pour commencer, vous devez d'abord [télécharger et installer le module Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). Une fois installé, vous pouvez suivre les étapes ci-dessous pour configurer chaque champ.
+
+#####Autre adresse de messagerie
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Téléphone mobile
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Téléphone de bureau
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Téléphone d’authentification
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####E-mail d’authentification
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## Liens vers la documentation de réinitialisation du mot de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
+
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : en savoir plus sur la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système
+* [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
+* [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
+* [**Personnalisation**](active-directory-passwords-customize.md) : découvrez comment personnaliser l’apparence et le comportement du service en fonction des besoins de votre organisation.
+* [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
+* [**Obtention d’informations**](active-directory-passwords-get-insights.md) : découvrez nos fonctionnalités intégrées de création de rapports.
+* [**FAQ**](active-directory-passwords-faq.md) : obtenez des réponses aux questions fréquemment posées.
+* [**Dépannage**](active-directory-passwords-troubleshoot.md) : découvrez comment résoudre rapidement les problèmes liés au service.
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

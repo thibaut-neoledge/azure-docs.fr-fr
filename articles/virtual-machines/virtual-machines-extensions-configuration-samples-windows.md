@@ -26,9 +26,9 @@
 Cet article présente un exemple de configuration des extensions de machine virtuelle Azure pour les machines virtuelles Windows.
 
 
-Pour en savoir plus sur ces extensions, cliquez ici : [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
+Pour en savoir plus sur ces extensions, consultez la section [Présentation des extensions de machine virtuelle Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx).
 
-Pour en savoir plus sur la création de modèles d’extension, cliquez ici : [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
+Pour en savoir plus sur la création de modèles d’extension, consultez la section [Création de modèles d’extension](virtual-machines-extensions-authoring-templates.md).
 
 Cet article répertorie les valeurs de configuration attendues pour certaines des extensions Windows.
 
@@ -285,12 +285,13 @@ Avant de déployer l'extension, déterminez la dernière version de l'extension 
 
 ### Azure Diagnostics
 
-Cliquez ici pour une vue d’ensemble de l’[extension diagnostics Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/)
+Pour plus d'informations sur la configuration des diagnostics, consultez la section [Extension des diagnostics Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@ Voici un exemple de modèle de machine virtuelle complet avec l’extension de s
 
 [Extension de script personnalisé sur une machine virtuelle Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

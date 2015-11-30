@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/24/2015"
+   ms.date="11/13/2015"
    ms.author="bwren" />
 
 # Types de Runbooks Azure Automation
@@ -82,7 +82,6 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell. Vous modifiez direct
 - Doit être familiarisé avec les scripts PowerShell.
 - Impossible d'utiliser un [traitement en parallèle](automation-powershell-workflow.md#parallel-processing) pour effectuer plusieurs actions en parallèle.
 - Impossible d'utiliser des [points de contrôle](automation-powershell-workflow.md#checkpoints) pour reprendre le Runbook en cas d'erreur.
-- Impossible de démarrer des Runbooks sur un [Runbook Worker hybride](automation-hybrid-runbook-worker.md).
 - Les Runbooks graphiques et les Runbooks de Workflow PowerShell peuvent uniquement être inclus en tant que Runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook qui crée une tâche.
 
 ### Problèmes connus
@@ -91,14 +90,14 @@ Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
 - Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) non chiffrée avec une valeur null.
 - Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) avec le symbole *~* dans le nom.
 - Get-Process dans une boucle d’un Runbook PowerShell peut se bloquer après environ 80 itérations. 
-- Un Runbook PowerShell peut échouer s’il tente d'écrire une très grande quantité de données dans un flux de sortie. Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux. Par exemple, au lieu d'exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
+- Un Runbook PowerShell peut échouer s’il tente d'écrire une très grande quantité de données dans un flux de sortie. Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux. Par exemple, au lieu d’exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
 
 ## Considérations
 
 Vous devez prendre en compte les considérations supplémentaires suivantes pour déterminer le type à utiliser pour un Runbook donné.
 
 - Vous ne pouvez pas convertir des Runbooks d'un type à un autre.
-- Il existe des limitations à l’utilisation de Runbooks de différents types comme un Runbook enfant. Consultez la page [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) pour plus d'informations.
+- Il existe des limitations à l’utilisation de Runbooks de différents types comme un Runbook enfant. Consultez la page [Runbooks enfants dans Azure Automation](automation-child-runbooks.md) pour plus d’informations.
 
 
 
@@ -109,4 +108,4 @@ Vous devez prendre en compte les considérations supplémentaires suivantes pour
 - [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 - [Création ou importation d'un runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -72,7 +72,7 @@ Pour obtenir un échantillonnage de données de pages web, ajoutez une ligne sup
 	}); 
 ```
 
-* Définissez un pourcentage (10 dans ces exemples) qui est égal à 100/N, où N est un entier ; par exemple 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4), 10 (= 100/5). 
+* Définissez un pourcentage (10 dans ces exemples) qui est égal à 100/N, où N est un entier ; par exemple 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) ou 10 (= 100/10). 
 * Si vous avez beaucoup de données, vous pouvez utiliser des taux d'échantillonnage très faibles, comme 0,1.
 * Si vous définissez l’échantillonnage sur la page web et sur le serveur, veillez à définir le même pourcentage d’échantillonnage des deux côtés.
 * Les côtés client et serveur s’accorderont pour sélectionner des éléments associés.
@@ -172,7 +172,7 @@ Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
 
-    TelemetryConfiguration.Active.TelemetryChannel = builder.Build();
+    builder.Build();
 
     ```
 
@@ -409,4 +409,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

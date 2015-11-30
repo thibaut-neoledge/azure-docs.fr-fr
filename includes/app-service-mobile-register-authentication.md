@@ -1,5 +1,5 @@
 
-Vous devez ensuite inscrire votre application auprès d’un site de fournisseur d’identité, puis définir les informations d’identification générées par le fournisseur dans le backend d’application mobile.
+Commencez par inscrire votre application auprès d’un site de fournisseur d’identité, puis définissez les informations d’identification générées par le fournisseur dans le backend Mobile App.
 
 1. Configurez votre fournisseur d’identité en suivant les instructions correspondantes : 
 	
@@ -15,4 +15,4 @@ Vous devez ensuite inscrire votre application auprès d’un site de fournisseur
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

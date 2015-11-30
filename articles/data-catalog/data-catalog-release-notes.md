@@ -13,11 +13,29 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="11/06/2015"
+   ms.date="11/20/2015"
    ms.author="maroche"/>
 
 # Notes de publication sur Azure Data Catalog
 
+## Notes pour la version du 20 novembre 2015 d’Azure Data Catalog
+
+### Ouverture de sources de données dans Power BI Desktop
+
+Lorsque vous utilisez l'option « Ouvrir dans Power BI Desktop » à partir du portail **Catalogue de données Azure**, les utilisateurs peuvent rencontrer un ou deux problèmes dans l'application Power BI Desktop :
+
+- Une boîte de dialogue avec le titre « Impossible d’ouvrir le document » s'affiche.
+- L'application Power BI Desktop s'ouvre, mais le fichier semble être vide.
+
+Pour chaque cas, le problème peut être résolu en téléchargeant et en installant la dernière version de Power BI Desktop sur [PowerBI.com](https://powerbi.com).
+
+## Notes pour la version du 13 novembre 2015 d’Azure Data Catalog
+
+### Inscription et connexion sur Teradata
+
+Lors de la connexion aux sources de données Teradata, les utilisateurs doivent avoir installé le pilote ODBC Teradata qui correspond au nombre de bits (32 ou 64) du logiciel utilisé.
+
+À compter de cette date de version d’ADC, le [pilote ODBC de Teradata pour Windows (version 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) le plus récent est compatible avec Office 2013, mais pas avec Office 2016.
 
 ## Notes pour la version du 6 novembre 2015 d’Azure Data Catalog
 
@@ -78,4 +96,4 @@ Pour plus d’informations, consultez [Configuration des stratégies d’authent
 
 Pour localiser le fichier RegistrationTool.exe.config, lancez l'outil d'inscription, puis ouvrez l'utilitaire Gestionnaire des tâches de Windows. Sous l'onglet Détails du Gestionnaire des tâches, cliquez avec le bouton droit sur RegistrationTool.exe et choisissez Ouvrir l'emplacement du fichier dans le menu contextuel.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

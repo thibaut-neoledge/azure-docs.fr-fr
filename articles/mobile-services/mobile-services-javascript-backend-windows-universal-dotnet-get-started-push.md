@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 
@@ -44,9 +44,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 &nbsp;&nbsp;7. Ouvrez le fichier de code App.xaml.cs partagé et notez qu'un appel vers la méthode **UploadChannel** a été ajouté au gestionnaire d'événements **OnLaunched**. Cela garantit qu'une tentative d'inscription de l'appareil est effectuée chaque fois que l'application est lancée.
 
-&nbsp;&nbsp;8. Répétez les étapes précédentes pour ajouter des notifications Push à un projet d'application Windows Phone Store. Ensuite, dans le fichier App.xaml.cs partagé, supprimez l'appel supplémentaire vers **UploadChannel** et l'encapsuleur conditionnel `#if...#endif` restant. Les deux projets peuvent maintenant partager un même appel vers **UploadChannel**.
+&nbsp;&nbsp;8. Répétez les étapes précédentes pour ajouter des notifications Push à un projet d’application Windows Phone Store. Ensuite, dans le fichier App.xaml.cs partagé, supprimez l’appel supplémentaire vers le **client de service mobile**, **UploadChannel** et le wrapper conditionnel `#if...#endif` restant. Les deux projets peuvent maintenant partager un même appel vers **UploadChannel**.
 
-&nbsp;&nbsp;Notez que vous pouvez également simplifier le code généré en unifiant les définitions [MobileServiceClient] encapsulées dans `#if...#endif` en une seule définition non encapsulée, utilisée par les deux versions de l'application.
+&nbsp;&nbsp;Notez que vous pouvez également simplifier le code généré en unifiant les définitions [MobileServiceClient] encapsulées dans `#if...#endif` en une seule définition non encapsulée, utilisée par les deux versions de l’application.
 
 Maintenant que les notifications Push sont activées dans l'application, vous devez mettre à jour le service mobile pour les envoyer.
 
@@ -104,4 +104,4 @@ Découvrez Mobile Services et Notification Hubs dans les rubriques suivantes :
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

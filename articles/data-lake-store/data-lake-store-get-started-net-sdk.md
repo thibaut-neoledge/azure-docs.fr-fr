@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/05/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Prise en main d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
@@ -65,7 +65,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 
 7. Ouvrez **Program.cs** et remplacez le bloc de code existant par le code suivant : En outre, fournissez les valeurs des paramètres dans l’extrait de code.
 
-	Ce code déroule le processus de création d’un magasin Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à télécharger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Ce code déroule le processus de création d’un magasin Data Lake Store, de création de dossiers dans le magasin, de téléchargement de fichiers et enfin de suppression du compte. Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -223,4 +223,4 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET Azure Data La
 - [Utiliser Azure Data Lake Analytics avec Data Lake Store](data-lake-analytics-get-started-portal.md)
 - [Utiliser Azure HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

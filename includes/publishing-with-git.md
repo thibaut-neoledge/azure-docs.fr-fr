@@ -1,6 +1,6 @@
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) prend en charge le déploiement continu vers Web Apps à partir d'outils de contrôle de code source et de référentiel comme BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial et TFS. Ces outils permettent de mettre à jour le contenu et le code de votre application, puis d’envoyer (par transmission de type push) rapidement et facilement les modifications à votre application web Azure à votre convenance.
 
-Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Online].
+Dans cet article, vous allez apprendre à utiliser Git pour publier directement de votre ordinateur local vers Web Apps (dans Azure, cette méthode de publication est appelée **Git local**). Vous allez également découvrir comment activer le déploiement continu à partir de sites de référentiel, comme BitBucket, CodePlex, Dropbox, GitHub ou Mercurial. Pour plus d'informations sur l'utilisation de TFS dans le cadre d'un déploiement continu, consultez la page [Diffusion continue sur Azure au moyen de Visual Studio Team Services].
 
 > [AZURE.NOTE]La plupart des commandes Git décrites dans cet article sont exécutées automatiquement pendant la création d'une application web avec les [outils en ligne de commande Azure pour Mac et Linux](/develop/nodejs/how-to-guides/command-line-tools/).
 
@@ -296,6 +296,6 @@ Voici les erreurs ou les problèmes rencontrés couramment lors de l’utilisati
 [Création d'un référentiel (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Démarrage rapide - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Utilisation de Dropbox pour partager des référentiels Git]: https://gist.github.com/trey/2722927
-[Livraison continue sur Azure au moyen de Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Diffusion continue sur Azure au moyen de Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

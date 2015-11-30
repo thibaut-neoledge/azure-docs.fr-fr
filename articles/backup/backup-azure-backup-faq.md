@@ -1,16 +1,17 @@
 <properties
    pageTitle="Azure Backup - Forum aux questions | Microsoft Azure"
-   description="Forum aux questions sur le service Azure Backup"
+   description="Forum aux questions sur la solution Azure Backup – agent de sauvegarde, sauvegarde et rétention, récupération, sécurité et autres questions générales sur le service Azure Backup."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="solution de sauvegarde ; service de sauvegarde"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Azure Backup - Forum Aux Questions
-Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
+# Service Azure Backup – Forum aux questions
+Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez d’autres questions sur la solution Azure Backup, veuillez accéder au [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) et publier vos questions. Un membre de notre communauté vous aidera à obtenir vos réponses. Si une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle puisse être trouvée rapidement et facilement.
 
 ## Installation et configuration
 **Q1. Quelle est la liste des systèmes d’exploitation pris en charge à partir desquels je peux sauvegarder des fichiers dans Azure à l’aide d’Azure Backup ?** <br/> R1. La liste suivante de systèmes d’exploitation est prise en charge par Azure Backup
@@ -78,13 +79,13 @@ Voici une liste de questions fréquemment posées sur Azure Backup. Si vous avez
 
 **Question 16. Puis-je « migrer » mon archivage de sauvegarde entre les abonnements ?** <br/> R16 : non. L’archivage est créé au niveau de l’abonnement et ne peut pas être réaffecté à un autre abonnement une fois créé.
 
-**Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/>R17 : oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
+**Question 17. L’agent Azure Backup fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ?** <br/> R17 : oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
 
-**Question 18. Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu’elle a démarré ?** <br/>R18 : non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu’au moment de l’annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
+**Question 18. Les données de sauvegarde sont-elles supprimées si j’annule une sauvegarde après qu’elle a démarré ?** <br/> R18 : non. L’archivage de sauvegarde stocke les données sauvegardées qui avaient été transférées jusqu’au moment de l’annulation. Azure Backup utilise un mécanisme de point de contrôle afin que les données de sauvegarde soient régulièrement contrôlées pendant la sauvegarde avant que le processus de sauvegarde suivant puisse valider l'intégrité des fichiers. La sauvegarde suivante est déclenchée de manière incrémentielle sur les données qui avaient été sauvegardées précédemment. Cette procédure optimise l’utilisation de la bande passante, ce qui vous évite d’avoir à transférer les mêmes données à plusieurs reprises.
 
-**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/>R19 : cela peut se produire quand les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s’est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
+**Question 19. Pourquoi l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » apparaît-il alors que j’avais planifié des sauvegardes standard ?** <br/> R19 : cela peut se produire quand les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans l’archivage de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si cela s’est produit, vous devez reconfigurer la stratégie de sauvegarde, puis **exécuter la sauvegarde** pour resynchroniser le serveur local avec Azure.
 
-**Question 20. Quelles règles de pare-feu doivent être configurées pour la sauvegarde d’Azure Backup ?** <br/>R20. Vérifiez que les règles de pare-feu permettent la communication avec les URL ci-dessous pour la sauvegarde transparente du serveur local vers Azure et la protection de la charge de travail sur Azure :
+**Question 20. Quelles règles de pare-feu doivent être configurées pour la sauvegarde d’Azure Backup ?** <br/> R20. Vérifiez que les règles de pare-feu permettent la communication avec les URL ci-dessous pour la sauvegarde transparente du serveur local vers Azure et la protection de la charge de travail sur Azure :
 
 - www.msftncsi.com
 - *.Microsoft.com
@@ -122,7 +123,7 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 **Q5. Puis-je configurer mes stratégies de rétention de manière sélective (par exemple, configurer des stratégies hebdomadaires et quotidiennes, mais pas annuelles et mensuelles) ?**<br/> R5. Oui, la structure de rétention Azure Backup vous permet une flexibilité complète dans la définition de la stratégie de rétention selon vos besoins.
 
-**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18:00. <br/>
+**Q6. Puis-je « planifier une sauvegarde » à 18 h 00 et spécifier des « stratégies de rétention » à une autre heure ?**<br/> R6. Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Dans l’image ci-dessous, la stratégie de rétention est spécifiée sur les sauvegardes effectuées à minuit et 18 h. <br/>
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
@@ -175,4 +176,4 @@ La taille de la source de données est mesurée comme indiqué ci-dessous.
 
 Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

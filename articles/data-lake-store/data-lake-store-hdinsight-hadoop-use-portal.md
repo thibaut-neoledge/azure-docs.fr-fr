@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Approvisionner un cluster HDInsight avec Data Lake Store à l'aide du portail Azure en version préliminaire
@@ -92,7 +92,7 @@ Dans cette section, vous créez un cluster HDInsight Hadoop qui utilise le Data 
 	Effectuez les tâches suivantes sous votre compte Data Lake Store.
 
 	* [Créer un dossier dans votre Data Lake Store](data-lake-store-get-started-portal.md#createfolder).
-	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Ambulance Data** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Charger un fichier dans votre Data Lake Store](data-lake-store-get-started-portal.md#uploaddata). Si vous recherchez des exemples de données à charger, vous pouvez récupérer le dossier **Données Ambulance** dans le [Référentiel Git Azure Data Lake](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 	Vous utiliserez ultérieurement les fichiers téléchargés, lorsque vous testerez le compte Data Lake Store avec le cluster HDInsight.
 
@@ -207,4 +207,4 @@ Pour obtenir des instructions sur l'ajout d'un principal du service à un systè
 [makecert]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/fr-FR/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

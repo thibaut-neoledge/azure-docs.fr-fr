@@ -4,36 +4,36 @@
 	description="Procédure de création de règles avancées pour un groupe incluant des paramètres et des opérateurs de règle d’expression pris en charge."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 
 # Utilisation d’attributs pour créer des règles avancées
-Le portail de gestion Azure vous permet de définir une règle plus avancée pour activer l’appartenance dynamique à des groupes.
+Le portail Azure vous offre la possibilité de définir les règles avancées dans Azure Active Directory (Azure AD) pour activer des appartenances dynamiques plus complexes aux groupes Azure AD.
 
-**Pour créer la règle avancée** Dans le portail de gestion Azure, sous l’onglet **Configurer** du groupe, activez la case d’option **Règle avancée**, puis tapez votre règle avancée dans la zone de texte fournie. Vous pouvez créer votre règle avancée à l’aide des informations suivantes.
+**Pour créer la règle avancée** Dans le portail Azure, sous l’onglet **Configurer** du groupe, cochez la case d’option **Règle avancée**, puis tapez votre règle avancée dans la zone de texte fournie. Vous pouvez créer votre règle avancée à l’aide des informations suivantes.
 
 ## Construction du corps d’une règle avancée
 La règle avancée que vous pouvez créer pour l’appartenance dynamique à des groupes est essentiellement une expression binaire qui se compose de trois parties et qui génère un résultat true ou false. Les trois parties sont les suivantes :
 
 - Paramètre de gauche (leftParameter)
 - Opérateur binaire (binaryOperator)
-- Constante de droite (rightConstant) 
+- Constante de droite (rightConstant)
 
-Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator "rightConstant"). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
+Une règle avancée complète ressemble à ceci : (leftParameter binaryOperator «RightConstant»). Elle nécessite des parenthèses ouvrantes et fermantes pour l’ensemble de l’expression binaire, des guillemets doubles pour la constante de droite et l’utilisation de la syntaxe user.property pour le paramètre de gauche. Une règle avancée peut se composer de plusieurs expressions binaires séparées par les opérateurs logiques -and, -or et -not. Voici des exemples de règles avancées correctement construites :
 
-- (user.department -eq "Sales") -or (user.department -eq "Marketing") 
-- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE") 
+- (user.department -eq "Sales") -or (user.department -eq "Marketing")
+- (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 
 Pour obtenir la liste complète des paramètres et des opérateurs de règle d’expression pris en charge, consultez les sections ci-dessous.
 
@@ -152,13 +152,13 @@ Opérateurs autorisés
 Vous pouvez maintenant remplir les membres d’un groupe en fonction de l’attribut de responsable hiérarchique d’un utilisateur.
 Pour configurer un groupe en tant que groupe « Responsable »
 --------------------------------------------------------------------------------
-1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**. 
+1. Dans le portail d’administration, cliquez sur l’onglet **Configurer** et sélectionnez **Règle avancée**.
 2. Tapez la règle avec la syntaxe suivante : Collaborateurs de *Collaborateurs de {ID\_utilisateur\_du\_responsable}*
-3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Notez que le remplissage initial du groupe peut prendre quelques minutes. 
+3. Une fois cette règle enregistrée, tous les utilisateurs qui satisfont à la règle seront joints en tant que membres du groupe. Notez que le remplissage initial du groupe peut prendre quelques minutes.
 
 
 ## Informations supplémentaires
-Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory
+Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Résolution des problèmes liés à l’appartenance dynamique à des groupes](active-directory-accessmanagement-troubleshooting.md)
 
@@ -168,4 +168,4 @@ Voici des rubriques qui fournissent des informations supplémentaires sur Azure 
 
 * [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

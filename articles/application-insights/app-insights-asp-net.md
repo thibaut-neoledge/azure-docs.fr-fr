@@ -12,26 +12,20 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Configurer Application Insights pour ASP.NET
 
-*Application Insights est à l'état de version préliminaire.*
-
-<a name="selector1"></a>
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi [découvrir comment votre application est utilisée][knowUsers]. Il fonctionne en installant un SDK dans votre application. Le Kit de développement logiciel (SDK) envoie la télémétrie de votre application au service Application Insights afin que vous puissiez analyser le comportement de celle-ci.
-
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Ajoutez le SDK à votre application dans Visual Studio afin d’obtenir des tableaux indiquant les demandes serveur, les temps de réponse et les échecs.
+Le kit de développement logiciel (SDK) Application Insights envoie les données de télémétrie de votre application web en ligne vers le portail Azure, où vous pouvez vous connecter et afficher des graphiques des performances et de l’utilisation de votre application.
 
 ![Exemples de graphiques d’analyse des performances](./media/app-insights-asp-net/10-perf.png)
 
-Vous pourrez également utiliser l'API pour surveiller l’utilisation attentivement.
+Vous pouvez rechercher et mettre en corrélation des demandes, des exceptions et des événements de journal spécifiques. Vous pouvez utiliser l’API pour ajouter des données de télémétrie pour surveiller les performances et l’utilisation dans les détails.
 
 #### Avant de commencer
 
@@ -174,4 +168,4 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

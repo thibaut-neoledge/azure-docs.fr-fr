@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="FAQ de base de données SQL Azure" 
+   pageTitle="FAQ de base de données SQL Azure" 
    description="Réponses fréquemment posées sur les bases de données du cloud et Azure SQL Database, le système de gestion de base de données relationnelle Microsoft (SGBDR) et la base de données en tant que service dans cloud." 
    services="sql-database" 
    documentationCenter="" 
@@ -45,20 +45,20 @@ Exemples
 Contrairement aux bases de données uniques, GEO-DR avec les bases de données élastiques n’a pas un impact direct sur la facturation. Vous êtes facturé pour les eDTU configurées pour chaque pool (pool principal et pool secondaire)
 
 ## Quel sera l’impact de l’utilisation de la fonctionnalité d’audit sur ma facture ? 
-La fonctionnalité d’audit est intégrée au service Base de données SQL sans frais supplémentaires et est disponible pour les bases de données de base, Standard et Premium. Toutefois, pour stocker les journaux d’audit, la fonction d’audit utilise un compte Azure Storage et les tarifs des tables et files d’attente dans Azure Storage s’appliquent en fonction de la taille de votre journal d’audit.
+La fonctionnalité d’audit est intégrée au service Base de données SQL sans frais supplémentaires et est disponible pour les bases de données De base, Standard et Premium. Toutefois, pour stocker les journaux d’audit, la fonction d’audit utilise un compte Azure Storage et les tarifs des tables et files d’attente dans Azure Storage s’appliquent en fonction de la taille de votre journal d’audit.
 
 ## Comment trouver le niveau de service adéquat et le niveau de performance adapté pour les pools de bases de données uniques et élastiques ? 
 Il existe quelques outils à votre disposition.
 
 - Pour les bases de données sur site, utilisez le [conseil de dimensionnement DTU](http://dtucalculator.azurewebsites.net/), qui recommande les bases de données et les DTU requis, et évaluera plusieurs bases de données pour les pools élastiques de la base de données.
-- Si une base de données unique tire avantage d’être au sein d’un pool, le moteur intelligent d’Azure recommande un pool de bases de données élastique s’il voit un schéma d’utilisation historique qui le garantit. Voir [Pools de base de données élastiques recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools) pour voir le fonctionnement. Pour plus d’informations sur la façon d’effectuer des calculs vous-même, consultez [Considérations relatives au prix et aux performances d’un pool élastique de bases de données](sql-database-elastic-pool-guidance.md)
+- Si une base de données unique tire avantage d’être au sein d’un pool, le moteur intelligent d’Azure recommande un pool de bases de données élastique s’il voit un schéma d’utilisation historique qui le garantit. Consultez [Pools de base de données élastiques recommandés](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools) pour afficher le fonctionnement. Pour plus d’informations sur la façon d’effectuer des calculs vous-même, consultez [Considérations relatives au prix et aux performances d’un pool de bases de données élastiques](sql-database-elastic-pool-guidance.md)
 - Pour voir si vous devez activer/désactiver une base de données unique, consultez [Guide des performances pour les bases de données uniques](sql-database-performance-guidance.md).
 
 ## À quelle fréquence puis-je changer le niveau de service ou le niveau de performances d’une base de données unique ? 
-Vous pouvez modifier le niveau de service (entre Basic, Standard et Premium) ou le niveau de performance au sein d’un niveau de service (par exemple, S1 à S2) un total de quatre fois sur une période de 24 heures.
+Avec les bases de données V12, vous pouvez modifier le niveau de service (entre De base, Standard et Premium) ou le niveau de performance au sein d’un niveau de service (par exemple, S1 à S2) aussi souvent que vous le souhaitez. Pour les versions de bases de données plus anciennes, vous pouvez modifier le niveau de service ou de performance jusqu’à quatre fois pendant une période de 24 heures.
 
 ##À quelle fréquence puis-je ajuster le nombre d’eDTU par pool ? 
-Une fois par jour
+Aussi souvent que vous le souhaitez.
 
 ## Combien de temps faut-il pour modifier le niveau de service ou le niveau de performances d’une base de données ou pour déplacer une base de données dans ou hors du pool élastique de base de données ? 
 Le changement de niveau de service d’une base de données et le déplacement dans ou vers un pool exige que la base de données soit copiée sur la plateforme en tant qu’opération d’arrière-plan. L’opération peut prendre de quelques minutes à plusieurs heures en fonction de la taille de la base de données. Dans les deux cas, les bases de données restent en ligne et disponibles pendant le déplacement. Pour plus d’informations sur la modification des bases de données uniques, consultez [Modifier le niveau de service d’une base de données](sql-database-scale-up.md). Pour les bases de données élastiques, consultez [Référence de pool élastique](sql-database-elastic-pool-reference.md#latency-of-elastic-pool-operations)
@@ -74,4 +74,4 @@ Le stockage de sauvegarde est le stockage associé à vos sauvegardes de bases d
 ## Je passe de services Web/Business à de nouveaux niveaux de service, que dois-je savoir ?
 Les bases de données Web et Business SQL Azure sont désormais supprimées. Les niveaux De base, Standard, Premium et Élastique remplacent les bases de données Web et Business. Nous disposons d’un Forum aux questions supplémentaires qui devrait vous aider dans cette période de transition. [Forum aux questions sur la disparition des éditions Web et Business](sql-database-web-business-faq.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -65,7 +65,7 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
 	+ [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]
 	+ [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau]
 	+ [Annexe 4 : utilisation d’Excel pour afficher les métriques et les données de journalisation]
-	+ [Annexe 5 : analyse avec Application Insights pour Visual Studio Online]
+	+ [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services]
 
 ## <a name="introduction"></a>Introduction
 
@@ -100,7 +100,7 @@ Si vous connaissez les outils d’analyse de performances Windows, vous pouvez c
 
 Vous pouvez sélectionner les métriques horaires à afficher dans le portail Azure et configurer les règles de notification par e-mail des administrateurs quand une métrique horaire dépasse un seuil spécifique (pour plus d’informations, voir la page <a href="http://msdn.microsoft.com/library/azure/dn306638.aspx" target="_blank">Procédure : réception de notifications d’alerte et gestion de règles d’alerte dans Azure</a>). Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
 
-La figure2 ci-dessous illustre la page Monitor du portail, où vous pouvez afficher des métriques telles que la disponibilité, le nombre total de demandes et les valeurs de latence moyennes pour un compte de stockage. Une règle de notification a également été configurée afin d'alerter l'administrateur lorsque la disponibilité chute en dessous d'un certain niveau. Lorsque ces données sont affichées, l'un des possibles éléments d'enquête est la présence d'un pourcentage inférieur à 100 % dans le service de table (pour plus d'informations, voir la section « [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors] »).
+La figure 2 ci-dessous illustre la page Monitor du portail, où vous pouvez afficher des métriques telles que la disponibilité, le nombre total de demandes et les valeurs de latence moyennes pour un compte de stockage. Une règle de notification a également été configurée afin d'alerter l'administrateur lorsque la disponibilité chute en dessous d'un certain niveau. Lorsque ces données sont affichées, l'un des possibles éléments d'enquête est la présence d'un pourcentage inférieur à 100 % dans le service de table (pour plus d'informations, voir la section « [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors] »).
 
 ![][2]
 
@@ -125,7 +125,7 @@ Vous pouvez utiliser le portail Microsoft Azure à l’adresse <a href="https://
 
 Le portail Azure peut également envoyer des notifications des incidents qui affectent les divers services Azure. Remarque : ces informations étaient auparavant accessibles avec les données historiques sur le tableau de bord du service Azure à l’adresse <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-Le portail collecte les informations d’état d’intégrité à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui ont accès à votre application Web Azure depuis divers emplacements. Les services offerts par <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> et Application Insights pour Visual Studio Online sont des exemples de ce type d’approche. Pour plus d’informations sur Application Insights pour Visual Studio Online, consultez « [Annexe 5 : analyse avec Application Insights pour Visual Studio Online] ».
+Le portail collecte les informations d’état d’intégrité à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui ont accès à votre application Web Azure depuis divers emplacements. Les services offerts par <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> et Application Insights pour Visual Studio Team Services sont des exemples de ce type d’approche. Pour plus d’informations sur Application Insights pour Visual Studio Team Services, consultez « [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services] ».
 
 ### <a name="monitoring-capacity"></a>Analyse de la capacité
 
@@ -827,14 +827,14 @@ Pour importer vos données de journalisation du stockage dans Excel, après les 
 
 À l'étape 1 du **Text Import Wizard**, sélectionnez **Semicolon** comme unique délimiteur et guillemet double comme **Text qualifier**. Ensuite, cliquez sur **Finish** et sélectionnez l'emplacement des données dans votre classeur.
 
-### <a name="appendix-5"></a>Annexe 5 : analyse avec Application Insights pour Visual Studio Online
+### <a name="appendix-5"></a>Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services
 
-Vous pouvez également utiliser la fonctionnalité Application Insights pour Visual Studio Online dans le cadre de votre analyse de performances et de disponibilité. Cet outil permet de :
+Vous pouvez également utiliser la fonctionnalité Application Insights pour Visual Studio Team Services dans le cadre de votre analyse de performances et de disponibilité. Cet outil permet de :
 
 - Vous assurer que votre service Web est disponible et réactif. Que votre application soit destinée à un site Web ou un périphérique qui utilise un service Web, l'outil peut tester votre URL toutes les quelques minutes depuis divers emplacements de par le monde et vous signaler tout problème éventuel.
 - Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l'application chutent en deçà des limites acceptables, nous pouvons vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
 
-Au moment de la rédaction du présent document, Application Insights était à l’état de version préliminaire. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights pour Visual Studio Online sur MSDN</a>.
+Au moment de la rédaction du présent document, Application Insights était à l’état de version préliminaire. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights pour Visual Studio Team Services sur MSDN</a>.
 
 
 <!--Anchors-->
@@ -897,7 +897,7 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]: #appendix-2
 [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau]: #appendix-3
 [Annexe 4 : utilisation d’Excel pour afficher les métriques et les données de journalisation]: #appendix-4
-[Annexe 5 : analyse avec Application Insights pour Visual Studio Online]: #appendix-5
+[Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
@@ -911,4 +911,4 @@ Au moment de la rédaction du présent document, Application Insights était à 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

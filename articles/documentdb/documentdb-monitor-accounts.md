@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Surveillance d’un compte DocumentDB avec le portail Azure en version préliminaire 
+# Surveillance d'un compte DocumentDB 
 
 Vous pouvez surveillez vos comptes DocumentDB dans le [portail Azure en version préliminaire de Microsoft](https://portal.azure.com/). Pour chaque compte DocumentDB, des mesures de performances (notamment les demandes et les erreurs de serveur) et des mesures d'utilisation (par exemple l'espace de stockage utilisé) sont disponibles.
 
@@ -90,4 +90,4 @@ Vous pouvez maintenant considérer cette partie comme n'importe quelle mesure en
 Pour en savoir plus sur la capacité de DocumentDB, consultez [Gestion de la capacité de DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

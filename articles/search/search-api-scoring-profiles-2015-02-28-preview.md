@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Profils de score (API REST du service Azure Search : version 2015-02-28-Preview) | Microsoft Azure | Service de recherche cloud hébergé"
+	pageTitle="Profils de score (API REST service Azure Search : version préliminaire 28/02/2015) | Microsoft Azure | Service de recherche cloud hébergé"
 	description="Azure Search est un service de recherche cloud hébergé qui prend en charge le paramétrage des résultats classés en fonction des profils de score définis par l'utilisateur."
 	services="search"
 	documentationCenter=""
@@ -340,7 +340,9 @@ Les interpolations permettent de définir la pente pour laquelle le score augmen
 
 `boostingDuration` est un attribut de la fonction freshness. Il permet de définir une période d'expiration après laquelle la valorisation s'arrête pour un document spécifique. Par exemple, pour valoriser une ligne de produits ou une marque pendant une période promotionnelle de 10 jours, vous spécifiez la période de 10 jours en tant que « P10D » pour les documents correspondants. Ou pour valoriser des événements qui vont se produire au cours de la semaine à venir, spécifiez « -P7D ».
 
-La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle appliqué est : « [-]P[nD][T[nH][nM][nS]] ».
+La valeur `boostingDuration` doit être au format « dayTimeDuration » XSD (sous-ensemble limité d'une valeur de durée ISO 8601). Le modèle est le suivant :
+
+     [-]P\[nD]\[T\[nH]\[nM]\[nS]\]
 
 Le tableau suivant fournit plusieurs exemples.
 
@@ -370,4 +372,4 @@ Pour plus d'exemples, consultez [Schéma XML : types de données (site Web W3.o
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

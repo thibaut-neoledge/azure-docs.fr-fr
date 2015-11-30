@@ -4,43 +4,46 @@
 	description="Procédures avancées concernant la gestion des groupes de sécurité et l’utilisation de ces groupes pour gérer l’accès à une ressource."
 	services="active-directory"
 	documentationCenter=""
-	authors="femila"
+	authors="curtand"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/09/2015" 
-	ms.author="femila"/>
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015"
+	ms.author="curtand"/>
 
 # Gestion des propriétaires d’un groupe
 
-##Affectation de propriétaires à un groupe
-**Pour ajouter un propriétaire à un groupe à partir du portail de gestion Azure**
+## Affectation de propriétaires à un groupe
 
-1. Dans le portail de gestion, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation. 
+**Pour ajouter un propriétaire à un groupe dans le portail Azure**
+
+1. Dans le portail Azure, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Cliquez sur l’onglet **Groupes**.
-2. Dans la page Groupes, cliquez sur le nom du groupe auquel vous souhaitez ajouter des propriétaires. 
-3. Dans la page de ce groupe, cliquez sur **Ajouter des propriétaires**.
-4. Dans la page Ajouter des propriétaires, cliquez sur le nom de l’utilisateur à ajouter en tant que propriétaire de ce groupe, puis vérifiez qu’il a été ajouté au volet **Sélectionné**.
+2. Sur la page **Groupes**, cliquez sur le nom du groupe auquel vous souhaitez ajouter des propriétaires.
+3. Sur la page de ce groupe, cliquez sur **Ajouter des propriétaires**.
+4. Sur la page **Ajouter des propriétaires**, cliquez sur le nom de l’utilisateur à ajouter en tant que propriétaire de ce groupe, puis vérifiez que son nom a été ajouté au volet **Sélectionné**.
 
 
-**Pour supprimer un propriétaire d’un groupe à partir du portail de gestion Azure**
+**Pour supprimer un propriétaire d’un groupe à partir du portail Azure**
 
-1. Dans le portail de gestion, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
+1. Dans le portail Azure, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation.
 2. Cliquez sur l’onglet **Groupes**.
-3. Dans la page Groupes, cliquez sur le nom du groupe dont vous souhaitez supprimer un propriétaire.
-4. Dans la page de ce groupe, cliquez sur l’onglet **Propriétaires**.
-5. Dans la page de ce groupe, cliquez sur le nom du propriétaire à supprimer de ce groupe, puis sur **Supprimer**.
+3. Sur la page **Groupes**, cliquez sur le nom du groupe duquel vous souhaitez supprimer un propriétaire.
+4. Sur la page de ce groupe, cliquez sur l’onglet **Propriétaires**.
+5. Sur la page de ce groupe, cliquez sur le nom du propriétaire à supprimer de ce groupe, puis sur **Supprimer**.
 
-Voici des rubriques qui fournissent des informations supplémentaires sur Azure Active Directory.
+## Informations supplémentaires
+
+Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
 
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

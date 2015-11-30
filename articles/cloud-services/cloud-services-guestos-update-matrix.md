@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="yuemlu"/>
 
 # Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
@@ -28,6 +28,43 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 
 
 ## Nouvelles mises à jour
+###### **12 novembre 2015**  
+Le 7 août 2014, Microsoft a annoncé la fin de la prise en charge de .NET Framework 4, 4.5 et 4.5.1 le 12 janvier 2016. Nous recommandons aux clients et développeurs d’effectuer la mise à jour sur place pour .NET Framework 4.5.2 avant le 12 janvier 2016 afin de continuer à recevoir des mises à jour de sécurité et à bénéficier du support technique. Pour plus d’informations, consultez la politique de support Microsoft .NET Framework.
+
+Le 27 octobre, nous avons annoncé la mise à jour par Azure de .NET Framework dans le système d’exploitation invité Azure (familles 2.x, 3.x et 4.x) vers .NET Framework 4.5.2 lors de la publication de la prochaine version du système d’exploitation invité en novembre. Depuis, nous avons reçu des commentaires des clients demandant de reporter la mise à jour automatique vers une version de système d’exploitation avec .NET 4.5.2 et de fournir une image avec .NET 4.5.2 pour la validation des tests.
+
+Pour répondre aux demandes des clients et fournir une mise à niveau fluide vers .NET 4.5.2, Azure mettra à jour .NET Framework dans le système d’exploitation invité Azure (familles 2.x, 3.x et 4.x) vers .NET Framework 4.5.2 lors de la publication du système d’exploitation invité de janvier 2016. Les services cloud exécutant la famille de systèmes d’exploitation invités 2.x, 3.x et 4.x avec des mises à jour automatiques activées seront mis à jour vers la version de janvier 2016 du système d’exploitation invité avec .NET Framework 4.5.2. En novembre, la version de .NET Framework installée dans le système d’exploitation par défaut ne sera pas modifiée. Pour aider les clients à valider leur service cloud avec .NET 4.5.2, Azure fournira en novembre un second jeu de versions de système d’exploitation 201511-02 avec .NET 4.5.2 pour un déploiement manuel.
+
+Le tableau suivant présente les modifications qui seront appliquées.
+ 
+| Famille de SE invité | .NET Framework installé avant la publication du système d’exploitation invité 201511-02 | .NET Framework installé lors de la publication du système d’exploitation invité 201511-02 | .NET Framework installé lors de la publication du système d’exploitation invité 201512-01 | .NET Framework installé lors de la publication du système d’exploitation invité 201601-01 ou ultérieur |
+| --------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| Famille 2.x du système d’exploitation basée sur Windows Server 2008 R2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 | .NET 3.5, .NET 4.0 | .NET 3.5, .NET 4.5.2 |
+| Famille 3.x du système d’exploitation basée sur Windows Server 2012 | .NET 4.5 | .NET 4.5.2 | .NET 4.5 | .NET 4.5.2 | 
+| Famille 4.x du système d’exploitation basée sur Windows Server 2012 R2 | .NET 4.5.1 | .NET 4.5.2 | .NET 4.5.1 | .NET 4.5.2 | 
+ 
+Si vous êtes concerné par la mise à jour manuelle du système d’exploitation invité, deux versions de système d’exploitation invité seront publiées pour toutes les familles de système d’exploitation invité en novembre.
+
+   • WA-GUEST-OS-4.26\_201511-01, WA-GUEST-OS-3.33\_201511-01, WA-GUEST-OS-2.45\_201511-01 (par défaut)
+
+   Sont inclus les correctifs cumulatifs Windows d’octobre et MSRC de novembre
+
+   • WA-GUEST-OS-4.26\_201511-02, WA-GUEST-OS-3.33\_201511-02, WA-GUEST-OS-2.45\_201511-02
+
+   Sont inclus les correctifs cumulatifs Windows d’octobre, MSRC de novembre et la mise à niveau de .NET Framework vers .NET 4.5.2
+
+
+
+Avant la mise à niveau, voici certaines des options pour valider votre service cloud avec .NET 4.5.2 :
+
+1. 	Déployez un rôle de service cloud de test vers la version 201511-02 et effectuez la validation de la compatibilité des applications. 
+
+2. 	Installez .NET 4.5.2 sur un rôle de service cloud de test et effectuez la validation de la compatibilité des applications. Pour des instructions, consultez [Installer .NET sur un rôle de service cloud].
+
+3. 	Effectuez la validation de la compatibilité des applications sur une machine virtuelle autonome, soit localement, soit sur une machine virtuelle Azure sur laquelle .NET 4.5.2 est installé.
+
+
+
 
 ###### **15 octobre 2015**
 Le déploiement du système d’exploitation invité du mois d’octobre commence dès aujourd’hui, le 15 octobre 2015, et devrait être publié le 13 novembre 2015.
@@ -131,6 +168,8 @@ Prend en charge .NET 4.0, 4.5, 4.5.1, 4.5.2 (Remarque 2)
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-02 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 4.28 | TBD |
+| 4\.26 | WA-GUEST-OS-4.26\_201511-01 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 4.28 | TBD |
 | 4\.25 | WA-GUEST-OS-4.25\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 4.27 | TBD |
 | 4\.24 | WA-GUEST-OS-4.24\_201509-01 | 1er octobre 2015 | Mise à jour lors de la publication de la version 4.26 | TBD |
 | 4\.23 | WA-GUEST-OS-4.23\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
@@ -158,6 +197,8 @@ Prend en charge .NET 4.0, 4.5
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-02 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 3.35 | TBD |
+| 3\.33 | WA-GUEST-OS-3.33\_201511-01 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 3.35 | TBD |
 | 3\.32 | WA-GUEST-OS-3.32\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 3.34 | TBD |
 | 3\.31 | WA-GUEST-OS-3.31\_201509-01 | 1er octobre 2015 | Mise à jour lors de la publication de la version 3.33 | TBD |
 | 3\.30 | WA-GUEST-OS-3.30\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
@@ -186,6 +227,8 @@ Prend en charge .NET 3.5, 4.0
 
 | Version du SE invité | Chaîne de configuration | Date de lancement | Date de désactivation | Date d’expiration |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-02 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 2.47 | TBD |
+| 2\.45 | WA-GUEST-OS-2.45\_201511-01 | Prévu le 10 décembre 2015 | Mise à jour lors de la publication de la version 2.47 | TBD |
 | 2\.44 | WA-GUEST-OS-2.44\_201510-01 | 6 novembre 2015 | Mise à jour à l’occasion de la publication de la version 2.46 | TBD |
 | 2\.43 | WA-GUEST-OS-2.43\_201509-01 | 1er octobre 2015 | Mise à jour lors de la publication de la version 2.45 | TBD |
 | 2\.42 | WA-GUEST-OS-2.42\_201508-02 | 9 septembre 2015 | 6 décembre 2015 | TBD |
@@ -330,7 +373,7 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 | 2\.19 rel3 | WA-GUEST-OS-2.19\_201309-03 | 9 octobre 2013 | N/A | 14 mai 2014 |
 | 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 septembre 2013 | N/A | 14 mai 2014 |
 
-
+[Installer .NET sur un rôle de service cloud]: https://azure.microsoft.com/fr-FR/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Paramètres de mise à jour du système d’exploitation invité Azure]: cloud-services-how-to-configure.md
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -351,4 +394,4 @@ En raison du déploiement partiel des deux dernières versions, les personnes ut
 [fam1retire]: cloud-services-guestos-family1-retirement.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

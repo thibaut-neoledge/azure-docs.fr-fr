@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Désactiver ou activer un point de terminaison Traffic Manager
@@ -40,14 +40,8 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 
 [Traffic Manager - Désactiver, activer ou supprimer un profil](disable-enable-or-delete-a-profile.md)
 
-[Qu’est-ce que Traffic Manager ?](../traffic-manager.md)
+[Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
 
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

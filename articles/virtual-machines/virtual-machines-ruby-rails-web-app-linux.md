@@ -34,11 +34,11 @@ Ce didacticiel a été validé à l’aide d’Ubuntu Server 14.04 LTS. Si vous 
 
 Commencez par créer une machine virtuelle Azure avec une image Linux.
 
-Pour créer la machine virtuelle, vous pouvez utiliser le portail de gestion Azure ou l’interface de ligne de commande (CLI) Azure.
+Pour créer la machine virtuelle, vous pouvez utiliser le portail Azure ou l’interface de ligne de commande (CLI) Azure.
 
 ### Portail de gestion Azure
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure](http://manage.windowsazure.com).
 2. Cliquez sur **Nouveau** > **Calcul** > **Machine virtuelle** > **Création rapide**. Sélectionnez une image Linux.
 3. Entrez un mot de passe.
 
@@ -97,7 +97,7 @@ Le résultat ressemble à ce qui suit.
 
 ## Ajout d’un point de terminaison
 
-1. Accédez au [portail de gestion Azure][management-portal] et sélectionnez votre machine virtuelle.
+1. Accédez au [portail Azure][management-portal] et sélectionnez votre machine virtuelle.
 
 	![liste des machines virtuelles][vmlist]
 
@@ -175,4 +175,4 @@ Pour utiliser des services Azure depuis votre application Ruby, consultez :
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

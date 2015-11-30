@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Exporter la télémétrie depuis Application Insights
@@ -21,14 +21,14 @@ Vous souhaitez effectuer une analyse personnalisée de votre télémétrie ? Ou
 
 L’exportation continue est disponible pendant la période d’essai gratuite et sur les [plans de tarification Standard et Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-Si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du volet.
+(Si vous souhaitez uniquement effectuer une [exportation unique](app-insights-metrics-explorer.md#export-to-excel) de ce que vous voyez sur un panneau de mesures ou de recherche, cliquez sur Exporter en haut du panneau. Et si vous souhaitez visualiser des données dans Power BI, utilisez [l’adaptateur](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), qui n’utilise *pas* l’exportation continue.)
 
 ## Créer un compte de stockage
 
 Si vous ne disposez pas d'un compte de stockage classique, créez-en un maintenant.
 
 
-1. Créez un compte de stockage classique dans votre abonnement sur le [portail Azure](https://portal.azure.com).
+1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure](https://portal.azure.com).
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-export-telemetry/030.png)
 
@@ -73,7 +73,7 @@ Les données exportées sont les données de télémétrie brutes que nous recev
 
 Les autres mesures calculées ne sont pas incluses. Par exemple, nous n’exportons pas l’utilisation moyenne du processeur, mais nous exportons la télémétrie brute à partir de laquelle la moyenne est calculée.
 
-Les données incluent également les résultats de n'importe quel [test Web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
+Les données incluent également les résultats de n’importe quel [test web de disponibilité](app-insights-monitor-web-app-availability.md) que vous avez configuré.
 
 ## <a name="get"></a> Inspection des données
 
@@ -141,22 +141,13 @@ Ouvrez le panneau Exportation continue et modifiez votre exportation. Modifiez l
 
 L’exportation continue redémarre.
 
-## Exporter vers Power BI
+## Exemples d’exportation
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) présente vos données dans des graphiques riches et variés, avec la possibilité de rassembler des informations provenant de plusieurs sources. Vous pouvez diffuser des données télémétriques sur les performances et l’utilisation de vos applications à partir d’Application Insights vers Power BI.
-
-[Diffusion d’Application Insights vers Power BI](app-insights-export-power-bi.md)
-
-![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-telemetry/210.png)
-
-## Exporter vers SQL
-
-L’autre possibilité consiste à déplacer les données vers une base de données SQL, où vous pouvez effectuer une analyse plus puissante.
-
-Nous disposons d’exemples illustrant deux autres méthodes de déplacement des données depuis le stockage d’objets blob dans une base de données :
 
 * [Exportation vers SQL à l’aide d’un rôle de travail][exportcode]
 * [Exporter vers SQL à l’aide de Stream Analytics][exportasa]
+* [Exporter vers Power BI à l’aide de Stream Analytics](app-insights-export-power-bi.md)
+ * Notez que ce n’est pas la méthode standard pour utiliser Power BI. Il existe [un adaptateur](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx) ne nécessitant pas l’exportation continue.
 
 
 À plus grande échelle, envisagez d’utiliser des clusters [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop dans le cloud. HDInsight offre de nombreuses technologies pour gérer et analyser les données volumineuses.
@@ -217,4 +208,4 @@ Nous disposons d’exemples illustrant deux autres méthodes de déplacement des
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -18,6 +18,10 @@
 
 
 #Utilitaire de migration de l’entrepôt de données (version préliminaire)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 L’utilitaire de migration de l’entrepôt de données est un outil conçu pour migrer le schéma et les données du SQL Server et de la base de données SQL Azure vers Azure SQL Data Warehouse. Lors de la migration du schéma, l’outil mappe automatiquement le schéma correspondant à partir de la source vers la destination. Une fois que le schéma a été migré, les utilisateurs ont également la possibilité de déplacer des données au moyen de scripts générés automatiquement.
 
 Outre la migration du schéma et des données, cet outil permet aux utilisateurs de générer des rapports de compatibilité qui résument les incompatibilités entre les instances cible et source, qui empêcheraient la migration simplifiée.
@@ -57,4 +61,4 @@ Maintenant que vous avez migré certaines données, découvrez comment [dévelop
 [développer]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-data-warehouse-overview-develop/
 [ici]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

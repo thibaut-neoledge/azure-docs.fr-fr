@@ -12,19 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/05/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
 
 
 # Configurer Application Insights : suivi des dépendances
 
-*Application Insights est à l'état de version préliminaire.*
-
-
-[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights) surveille vos applications en direct pour vous aider à [détecter et diagnostiquer les problèmes de performances et les exceptions][detect], mais aussi [découvrir comment votre application est utilisée][knowUsers].
-
-
-<a name="selector1"></a>
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
@@ -44,7 +37,7 @@ Le moniteur de dépendance prêt à l’emploi signale les appels aux types de d
 * Java
  * Appels effectués vers une base de données par le biais d’un pilote [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), comme MySQL, SQL Server, PostgreSQL ou SQLite.
 
-Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d'autres dépendances à l'aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
+Vous pouvez écrire vos propres appels de Kit de développement logiciel (SDK) pour surveiller d’autres dépendances à l’aide de l’[API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Pour configurer la surveillance des dépendances
@@ -65,7 +58,7 @@ Cette opération nécessite un abonnement [Microsoft Azure](http://azure.com).
 
     ![Choisissez une application et une ressource.](./media/app-insights-asp-net-dependencies/appinsights-036-configAIC.png)
 
-    Il est probable que vous choisirez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
+    Il est probable que vous choisissiez de configurer une nouvelle ressource et un nouveau [groupe de ressources][roles].
 
     Vous pouvez aussi utiliser une ressource existante si vous avez déjà configuré des [tests web][availability] pour votre site ou une [surveillance du client web][client].
 
@@ -97,7 +90,7 @@ Dans le panneau de configuration de votre application web Azure, ajoutez l’ext
 
 ### S’il s’agit d’un projet services cloud Azure
 
-[Ajoutez des scripts aux rôles web et de travail](app-insights-cloudservices.md).
+[Ajouter des scripts aux rôles web et de travail](app-insights-cloudservices.md).
 
 ## <a name="diagnosis"></a> Diagnostic des problèmes de performances liés aux dépendances
 
@@ -202,4 +195,4 @@ Si vous souhaitez désactiver le module de suivi des dépendances standard, supp
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

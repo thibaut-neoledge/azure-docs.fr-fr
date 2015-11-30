@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud
@@ -80,4 +80,4 @@ Les administrateurs ont la possibilité de réinitialiser Multi-Factor Authenti
 <li>En haut de la page, cliquez sur Utilisateurs.</li>
 <li>En bas de la page, cliquez sur Gérer Multi-Factor Auth. Cette action ouvre la page relative à l’authentification multifacteur. <li>Recherchez l'utilisateur que vous souhaitez gérer et cochez la case située à côté du nom. Vous devrez peut-être modifier l'affichage en haut de la page.</li> <li>Cela fera apparaître le lien **Gérer les paramètres utilisateur** à droite de la page. Cliquez dessus.</li> <li>Cochez la case Restaurer Multi-Factor Authentication sur tous les appareils interrompus.</li> ![Supprimer des mots de passe d'application](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Cliquez sur Enregistrer.</li> <li>Cliquez sur Fermer.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

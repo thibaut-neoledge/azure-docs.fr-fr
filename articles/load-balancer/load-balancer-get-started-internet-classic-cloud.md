@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Prise en main de la création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique avec les services cloud | Microsoft Azure"
+   pageTitle="Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique avec les services cloud | Microsoft Azure"
    description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique pour les services cloud"
    services="load-balancer"
    documentationCenter="na"
@@ -17,14 +17,13 @@
    ms.date="11/03/2015"
    ms.author="joaoma" />
 
-# Prise en main de la création d’un équilibreur de charge accessible sur Internet pour les services cloud
+# Création d’un équilibreur de charge accessible sur Internet pour les services cloud
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article présente le modèle de déploiement classique. Si vous recherchez un modèle de déploiement Azure Resource Manager, accédez à la page [Prise en main de la création d’équilibreur de charge accessible sur Internet à l’aide de Resource Manager](load-balancer-get-started-internet-arm-ps.md).
-
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article est consacré au modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-cli.md).
 
 Les services cloud sont automatiquement configurés avec un équilibrage de charge et peuvent être personnalisés via le modèle de service
 
@@ -66,7 +65,7 @@ Voici un exemple de sonde d’intégrité :
     	<LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
  	 	</LoadBalancerProbes>
 
-L'équilibrage de charge combine les informations du point de terminaison et de la sonde pour créer une URL sous la forme http://{DIP de VM}:80/Probe.aspx pour interroger l'intégrité du service.
+L’équilibreur de charge combine les informations du point de terminaison et de la sonde pour créer une URL sous la forme http://{DIP de VM}:80/Probe.aspx pour interroger l’intégrité du service.
 
 Le service détecte les sondes périodiques à partir de la même adresse IP. Il s'agit de la requête de la sonde d'intégrité en provenance de l'hôte du nœud sur lequel la machine virtuelle s'exécute. Le service doit répondre avec un code d’état HTTP 200 pour que l’équilibrage de charge suppose que le service est sain. Tout autre code d'état HTTP (par exemple 503) prend directement la machine virtuelle hors service.
 
@@ -82,4 +81,4 @@ Vérifiez le schéma de définition de service de la [sonde d’intégrité](htt
 
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

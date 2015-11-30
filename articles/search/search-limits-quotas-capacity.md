@@ -56,7 +56,7 @@ Nombre maximal de champs par index|1 000
 Nombre maximal de documents|15 millions par partition
 Taille de stockage maximale|25 Go par partition
 Partitions maximales|12 par service de recherche
-Réplicas maximales|6 par service de recherche
+Réplicas maximales|12 par service de recherche
 Nombre maximal d’unités de recherche|36 par service de recherche
 Nombre maximal de services de recherche|12 par abonnement Azure
 Nombre maximal d’indexeurs|50 par service de recherche
@@ -85,6 +85,7 @@ La capacité supplémentaire peut être obtenue en multipliant les partitions pa
 Le tableau suivant est un graphique qui répertorie les réplicas sur l'axe vertical et les partitions sur l'axe horizontal. L'intersection indique le nombre d'unités de recherche requises pour prendre en charge chaque combinaison, soumises à la limite de 36 unités de recherche par service. Si vous souhaitez utiliser, par exemple, 6 réplicas et 2 partitions, cette configuration nécessite 12 unités de recherche. Pour utiliser 4 réplicas et 2 partitions, vous devez disposer de 8 unités de recherche. En règle générale, la plupart des applications de recherche requièrent généralement plus de réplicas que de partitions.
 
 <table cellspacing="0" border="1">
+<tr><td><b>12&#160;réplicas</b></td><td>12&#160;unités de recherche</td><td>24&#160;unités de recherche</td><td>36&#160;unités de recherche</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>
 <tr><td><b>6&#160;réplicas</b></td><td>6&#160;unités de recherche</td><td>12&#160;unités de recherche</td><td>18&#160;unités de recherche</td><td>24&#160;unités de recherche</td><td>36&#160;unités de recherche</td><td>N/A</td></tr>
 <tr><td><b>5&#160;réplicas</b></td><td>5&#160;unités de recherche</td><td>10&#160;unités de recherche</td><td>15&#160;unités de recherche</td><td>20&#160;unités de recherche</td><td>30&#160;unités de recherche</td><td>N/A</td></tr>
 <tr><td><b>4&#160;réplicas</b></td><td>4&#160;unités de recherche</td><td>8&#160;unités de recherche</td><td>12&#160;unités de recherche</td><td>16&#160;unités de recherche</td><td>24&#160;unités de recherche</td><td>N/A </td></tr>
@@ -96,7 +97,7 @@ Le tableau suivant est un graphique qui répertorie les réplicas sur l'axe vert
 
 Les unités de recherche, leur tarification et leur capacité sont détaillées sur le site Web Azure. Pour plus d'informations, consultez la rubrique [Tarification](http://azure.microsoft.com/pricing/details/search/).
 
-> [AZURE.NOTE]Les partitions choisies doivent être partagées de façon uniforme en 12 (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
+> [AZURE.NOTE]Le nombre de réplicas et de partitions doit être partagé en 12, de manière égale (plus précisément, 1, 2, 3, 4, 6, 12). Azure Search divise au préalable chaque index en 12 partitions pour que celles-ci puissent être réparties sur plusieurs partitions. Par exemple, si votre service comporte trois partitions et que vous créez un nouvel index, chaque partition contiendra 4 partitions de l'index. Le partitionnement d’un index réalisé par Azure Search est un détail d'implémentation, susceptible d’être modifié dans les futures versions. Le nombre de partitions (12 à l’heure actuelle) peut être, à l’avenir, totalement différent.
 
 ## Choisissez une combinaison de partitions et de réplicas pour la haute disponibilité
 
@@ -133,4 +134,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

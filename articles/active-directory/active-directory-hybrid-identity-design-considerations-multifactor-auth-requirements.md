@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Considérations relatives à la conception d'identités hybrides Azure Active Directory - déterminer les exigences en matière d'authentification multifacteur"
-	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l'authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l'utilisateur est authentifié et autorisé à accéder à l'application."
+	description="Avec le contrôle d’accès conditionnel, Azure Active Directory vérifie les conditions spécifiques que vous choisissez lors de l’authentification de l’utilisateur et avant d’autoriser l’accès à l’application. Une fois que ces conditions sont remplies, l’utilisateur est authentifié et autorisé à accéder à l’application."
 	documentationCenter=""
 	services="active-directory"
 	authors="femila"
@@ -51,10 +51,10 @@ Après avoir répondu à ces questions, vous serez en mesure de déterminer s'il
 
 
 ## Étapes suivantes
-[Définir une stratégie d'adoption des identités hybrides](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+[Définir une stratégie d’adoption des identités hybrides](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
 
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

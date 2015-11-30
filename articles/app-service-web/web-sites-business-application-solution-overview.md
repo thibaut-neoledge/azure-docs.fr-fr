@@ -38,7 +38,7 @@ Voici un exemple d’une application métier exécutée sur App Service Web Apps
 
 Apportez vos ressources web existantes dans App Service Web Apps à partir d’une variété de langages et d’infrastructures.
 
-Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe depuis des systèmes de contrôle de code source répandus, tels que [Visual Studio], [Visual Studio Online] et [Git] : local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Vos ressources web existantes peuvent s’exécuter sur App Service Web Apps, qu’il s’agisse de ressources .NET, PHP, Java, Node.js ou Python. Vous pouvez les déplacer vers Web Apps à l’aide de vos outils [FTP] habituels ou de votre système de gestion de contrôle de code source. Web Apps prend en charge la publication directe à partir des options de contrôle de code source populaires, comme [Visual Studio], [Visual Studio Team Services] et [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
 ## Sécuriser vos ressources
 
@@ -92,7 +92,7 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -124,4 +124,4 @@ Au niveau **Standard**, surveillez la réactivité de l’application et recevez
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

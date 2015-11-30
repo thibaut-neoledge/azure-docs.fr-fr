@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Vue d'ensemble des Acteurs fiables Service Fabric"
+   pageTitle="Vue d'ensemble de Service Fabric Reliable Actors | Microsoft Azure"
    description="Présentation du modèle de programmation Acteurs fiables Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -36,10 +36,10 @@ public interface ICalculatorActor : IActor
 }
 ```
 
-Un type d'acteur peut implémenter l'interface ci-dessus comme suit :
+Un type d'acteur peut implémenter cette interface comme suit :
 
 ```csharp
-public class CalculatorActor : Actor, ICalculatorActor
+public class CalculatorActor : StatelessActor, ICalculatorActor
 {
     public Task<double> AddAsync(double valueOne, double valueTwo)
     {
@@ -81,9 +81,9 @@ Les acteurs Service Fabric sont virtuels, ce qui signifie que leur durée de vie
 Pour garantir une fiabilité et une évolutivité élevées, Service Fabric distribue les acteurs dans l'ensemble du cluster et les migre automatiquement à partir des nœuds ayant échoué vers des nœuds sains selon les besoins. La classe `ActorProxy` côté client effectue la résolution nécessaire pour localiser l'acteur par ID [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) et ouvrir un canal de communication avec lui. La classe `ActorProxy` retente également la communication en cas d'échec et pendant les basculements. Cela garantit que les messages seront remis correctement malgré la présence d'erreurs, mais cela signifie également qu’une implémentation de l'acteur peut recevoir des messages en double du même client.
 
 ## Accès concurrentiel
-### Accès concurrentiel en alternance
+### Accès en alternance
 
-Le runtime Actors fournit un simple accès concurrentiel en alternance pour les méthodes d'acteur. Cela signifie qu'un seul thread peut être actif à l'intérieur du code d'acteur à tout moment.
+Le runtime Actors fournit un modèle en alternance simple pour accéder aux méthodes d'acteur. Cela signifie qu'un seul thread peut être actif à l'intérieur du code d'acteur à tout moment.
 
 Un tour consiste en l'exécution complète d'une méthode d'acteur en réponse à la demande d'autres acteurs ou clients, ou l'exécution complète d'un rappel de [minuterie/rappel](service-fabric-reliable-actors-timers-reminders.md). Bien que ces méthodes et ces rappels soient asynchrones, le runtime Actors ne les entremêle pas. Un tour doit être totalement terminé avant qu'un nouveau tour soit autorisé. En d'autres termes, une méthode d'acteur ou un rappel de minuterie/rappel en cours d'exécution doit être totalement terminé avant qu'un nouvel appel à une méthode ou qu'un rappel soit autorisé. Une méthode ou un rappel est considéré terminé si l'exécution a été retournée depuis la méthode ou le rappel et que la tâche retournée par la méthode ou le rappel est terminée. Il est important de souligner que cet accès concurrentiel en alternance est respecté même dans les différents rappels, minuteries et méthodes.
 
@@ -121,12 +121,12 @@ Le runtime Actors fournit ces garanties d'accès concurrentiel dans les situatio
 Fabric Actors vous permet de créer des acteurs avec ou sans état.
 
 ### Acteurs sans état
-Les acteurs sans état, dérivés de la classe de base ``Actor``, n'ont pas d'état et sont gérés par le runtime Actors. Leurs variables de membres sont conservées tout au long de leur durée de vie en mémoire, comme tout autre type .NET. Toutefois, lorsqu'elles sont nettoyées après une période d'inactivité, leur état est perdu. De même, un état peut être perdu en raison des basculements qui se produisent pendant les mises à niveau, les opérations d'équilibrage des ressources ou à la suite d'erreurs dans le processus de l'acteur ou de son nœud hôte.
+Les acteurs sans état, dérivés de la classe de base `StatelessActor`, n'ont pas d'état et sont gérés par le runtime Actors. Leurs variables de membres sont conservées tout au long de leur durée de vie en mémoire, comme tout autre type .NET. Toutefois, lorsqu'elles sont nettoyées après une période d'inactivité, leur état est perdu. De même, un état peut être perdu en raison des basculements qui se produisent pendant les mises à niveau, les opérations d'équilibrage des ressources ou à la suite d'erreurs dans le processus de l'acteur ou de son nœud hôte.
 
 Voici un exemple d'acteur sans état :
 
 ```csharp
-class HelloActor : Actor, IHello
+class HelloActor : StatelessActor, IHello
 {
     public Task<string> SayHello(string greeting)
     {
@@ -136,12 +136,12 @@ class HelloActor : Actor, IHello
 ```
 
 ### Acteurs avec état
-Les acteurs avec état ont un état qui doit être conservé dans les opérations de basculement et de Garbage Collection. Ils dérivent de la classe de base `Actor<TState>`, où `TState` est le type de l'état qui doit être conservé. L'état est accessible dans les méthodes d'acteur via la propriété `State` sur la classe de base.
+Les acteurs avec état ont un état qui doit être conservé dans les opérations de basculement et de Garbage Collection. Ils dérivent de `StatefulActor<TState>`, où `TState` est le type de l'état qui doit être conservé. L'état est accessible dans les méthodes d'acteur via la propriété `State` sur la classe de base.
 
 Voici un exemple d'un acteur avec état accédant à l'état :
 
 ```csharp
-class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -198,4 +198,4 @@ Les rappels de minuterie peuvent être marqués avec l'attribut `Readonly` de la
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

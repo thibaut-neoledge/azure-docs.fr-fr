@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
@@ -55,4 +55,4 @@ Pour plus d'informations sur la configuration d’Azure Multi-Factor Authenticat
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

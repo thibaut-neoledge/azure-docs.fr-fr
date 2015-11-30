@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Test des paramètres de Traffic Manager
@@ -57,4 +57,4 @@ Vous trouverez différents services de recherche et d’obtention de DNS gratuit
 [À propos des méthodes de routage du trafic de Traffic Manager](../about-traffic-manager-balancing-methods.md) [Traffic Manager](../traffic-manager.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

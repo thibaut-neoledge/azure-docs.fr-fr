@@ -643,10 +643,10 @@ Dans le menu **Générer** de Visual Studio, cliquez sur **Générer la solution
 
 Ce didacticiel vous a montré comment créer une application cliente et un service Service Bus à l’aide des fonctionnalités de messagerie répartie Service Bus. Pour obtenir un didacticiel similaire utilisant la [messagerie relayée](service-bus-messaging-overview.md/#Relayed-messaging) Service Bus, consultez le [didacticiel sur la messagerie relayée Service Bus](service-bus-relay-tutorial.md).
 
-Pour en savoir plus sur Service Bus, consultez les rubriques suivantes.
+Pour en savoir plus sur [Service Bus](https://azure.microsoft.com/services/service-bus/), consultez les rubriques qui suivent.
 
 - [Présentation de la messagerie Service Bus](service-bus-messaging-overview.md)
 - [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Architecture de Service Bus](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

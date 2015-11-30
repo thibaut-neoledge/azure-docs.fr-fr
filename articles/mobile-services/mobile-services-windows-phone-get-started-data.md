@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l’application po
 
   	Cela permet de créer une nouvelle instance de **MobileServiceClient**, qui est utilisée pour accéder à votre service mobile.
 
-6. Dans le fichier MainPage.xaml.cs, ajoutez les instructions `using` suivantes ou supprimez leurs marques de commentaire :
+6. Dans le fichier MainPage.cs, ajoutez les instructions `using` suivantes ou supprimez leurs marques de commentaire :
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. Dans ce même fichier, remplacez la définition de classe **TodoItem** par le code suivant :
+7. Dans ce dossier DataModel, remplacez la définition de classe **TodoItem** par le code suivant :
 
         public class TodoItem
         {
@@ -193,4 +193,4 @@ Ce didacticiel a présenté les bases de l'activation d'une application Windows 
 [site d'exemples de code développeur]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

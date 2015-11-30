@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="11/16/2015"
    ms.author="v-sharos" />
 
 # Déployer le composant logiciel enfichable MMC Gestionnaire d’instantanés StorSimple
@@ -127,7 +127,7 @@ Pour connecter le Gestionnaire d’instantanés StorSimple à un appareil StorSi
 
     ![Configurer un appareil](./media/storsimple-snapshot-manager-deployment/HCS_SSM_config_device.png)
 
-3. Dans la zone de liste **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel Microsoft Azure StorSimple. Dans la zone de texte **Mot de passe**, tapez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail de gestion Microsoft Azure. Cliquez sur **OK**.
+3. Dans la zone de liste **Appareil**, sélectionnez l’adresse IP de l’appareil ou de l’appareil virtuel Microsoft Azure StorSimple. Dans la zone de texte **Mot de passe**, entrez le mot de passe du Gestionnaire d’instantanés StorSimple que vous avez créé pour l’appareil dans le portail Azure. Cliquez sur **OK**.
 
 4. Le Gestionnaire d’instantanés StorSimple recherche l’appareil que vous avez identifié. Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Vous pouvez [vérifier la connexion à l’appareil](#to-verify-the-connection) pour confirmer que la connexion a bien été ajoutée.
 
@@ -255,4 +255,4 @@ Pour réinstaller le Gestionnaire d’instantanés StorSimple, suivez les étap
 
 - Pour en savoir plus sur l’utilisation du Gestionnaire d’instantanés StorSimple, consultez [Utiliser le Gestionnaire d’instantanés StorSimple pour gérer votre solution StorSimple](storsimple-snapshot-manager-admin.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

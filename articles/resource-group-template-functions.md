@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/09/2015"
+   ms.date="11/12/2015"
    ms.author="tomfitz"/>
 
 # Fonctions des modèles Azure Resource Manager
@@ -494,6 +494,25 @@ L’exemple ci-après convertit la valeur de paramètre fournie par l’utilisat
         "upperCaseAppName": "[toUpper(parameters('appName'))]"
     }
 
+## découper
+
+**découper (stringToTrim)**
+
+Supprime tous les espaces de début et de fin de la chaîne indiquée.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| stringToTrim | Oui | Chaîne à découper.
+
+L’exemple suivant supprime les espaces à partir de la valeur de paramètre indiquée par l’utilisateur.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "trimAppName": "[trim(parameters('appName'))]"
+    }
+
 
 ## uniqueString
 
@@ -529,6 +548,21 @@ L'exemple suivant montre comment créer un nom unique pour un compte de stockage
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+## URI
+
+**URI (baseUri, relativeUri)**
+
+Crée un URI absolu en combinant le baseUri et la chaîne relativeUri.
+
+| Paramètre | Requis | Description
+| :--------------------------------: | :------: | :----------
+| baseUri | Oui | La chaîne d’URI de base.
+| relativeUri | Oui | La chaîne d’URI relatif à ajouter à la chaîne d’URI de base.
+
+L’exemple suivant montre comment créer un URI absolu dans le lien du modèle. Voici le résultat : ****http://contoso.com/resources/nested/azuredeploy.json**.
+
+    "templateLink": "[uri('http://contoso.com/resources/', 'nested/azuredeploy.json')]"
+
 
 ## variables
 
@@ -544,7 +578,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 ## Étapes suivantes
 - Pour obtenir une description des sections dans un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](resource-group-linked-templates.md).
-- Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
-- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d'une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+- Pour itérer un nombre de fois précis pendant la création d’un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
+- Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -17,7 +17,7 @@
 
 # Ajout d’utilisateurs à un pool de base de données élastique
 
-La fonctionnalité **Tâches de bases de données élastiques** (version préliminaire) vous permet d'exécuter un script Transact-SQL dans un groupe de bases de données, notamment une collection de bases de données personnalisée, un **pool de base de données élastique** ou un **ensemble de partitions de base de données élastique** dans la base de données SQL Azure. Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool dans laquelle la tâche s’exécutera. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
+La fonctionnalité **Tâches de bases de données élastiques** (version préliminaire) vous permet d'exécuter un script Transact-SQL dans un groupe de bases de données, notamment une collection de bases de données personnalisée, un **pool de base de données élastique** ou un **ensemble de partitions de base de données élastique** dans la base de données SQL Azure. Pour exécuter le script, vous devez ajouter les autorisations appropriées à chaque base de données du pool dans laquelle la tâche s’exécutera. Pour en savoir plus, voir [Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](sql-database-manage-logins.md) ou [Ajout d'utilisateurs à votre base de données SQL Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 
 ## Composants requis
 * Installez les [composants de la tâche élastique](sql-database-elastic-jobs-service-installation.md). 
@@ -36,7 +36,7 @@ La fonctionnalité **Tâches de bases de données élastiques** (version prélim
 
 ## Étapes suivantes
 
-Pour assurer la création et la gestion des tâches, consultez la rubrique [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md).
+Pour assurer la création et la gestion des tâches avec le portail Azure, consultez la rubrique [Création et gestion de tâches de bases de données élastiques](sql-database-elastic-jobs-create-and-manage.md). Pour créer des tâches avec PowerShell, consultez la rubrique [Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)](sql-database-elastic-jobs-powershell.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -44,4 +44,4 @@ Pour assurer la création et la gestion des tâches, consultez la rubrique [Cré
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

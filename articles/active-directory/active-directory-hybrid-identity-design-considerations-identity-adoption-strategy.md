@@ -39,13 +39,13 @@ Les scénarios définis dans la figure ci-dessus sont les suivants :
 - **Synchronisée** : ce sont des identités qui existent en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants. Le hachage du mot de passe de l’utilisateur est synchronisé à partir de l’environnement local vers le cloud dans ce que l’on appelle un hachage du mot de passe. Lorsque vous utilisez l’option Synchronisée, l’inconvénient est que si un utilisateur est désactivé dans l’environnement local, l’affichage de l’état du compte dans Azure AD peut prendre jusqu’à 3 heures. Cela est dû à l’intervalle de synchronisation.
 - **Fédérée** : ces identités existent à la fois en local et dans le cloud. À l’aide d’Azure AD Connect, ces utilisateurs sont créés ou joints avec des comptes Azure AD existants.  
  
->[AZURE.NOTE]Pour plus d’informations sur les options de synchronisation, consultez [Intégration de vos identités locales à Azure Active Directory](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect/).
+>[AZURE.NOTE]Pour plus d’informations sur les options de synchronisation, consultez la rubrique [Intégration de vos identités locales à Azure Active Directory](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect/).
 
 Le tableau suivant vous aidera à déterminer les avantages et inconvénients de chacune des stratégies suivantes :
 
 | Stratégie | Avantages | Inconvénients |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Identités cloud** | Plus faciles à gérer pour les petites entreprises. <br> Rien à n’installer en local ; aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise | Les utilisateurs devront se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Identités cloud** | Plus faciles à gérer pour les petites entreprises. <br> Rien n’à installer en local ; aucun matériel supplémentaire requis<br>Faciles à désactiver si l’utilisateur quitte l’entreprise | Les utilisateurs devront se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
 | **Synchronisée** | Le mot de passe local permettra l’authentification sur les répertoires locaux et cloud <br>Plus faciles à gérer pour les organisations de petite, moyenne ou grande taille <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer | Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
 | **Adresses IP fédérées** | Les utilisateurs peuvent disposer de l’authentification unique (SSO) <br>Si un utilisateur termine une mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge des scénarios avancés qui ne peuvent pas être effectués avec l’option Synchronisée | Plus d’étapes d’installation et de configuration <br> Maintenance plus importante <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut requérir du matériel supplémentaire pour installer le serveur de fédération. Un logiciel supplémentaire est requis si vous utilisez AD FS <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
@@ -59,7 +59,7 @@ La stratégie que vous utilisez détermine l’expérience de connexion utilisat
 |------------------------------|----------------------------|--------------------------------------------------------------|
 | Navigateurs web | Authentification basée sur les formulaires | Authentification unique, parfois requise pour fournir l’ID d’organisation |
 | Outlook | Demander les informations d’identification | Demander les informations d’identification |
-| Skype Entreprise (Lync) | Demander les informations d’identification | Authentification unique pour Lync, informations d’identification demandées pour Exchange |
+| Skype Entreprise (Lync) | Demander les informations d’identification | Authentification unique pour Lync, informations d’identification demandées pour Exchange |
 | OneDrive Entreprise | Demander les informations d’identification | Authentification unique |
 | Abonnement Office Professionnel Plus | Demander les informations d’identification | Authentification unique |
 
@@ -133,10 +133,10 @@ Il est possible et pris en charge de connecter une instance locale d’Active Di
 
 Pour ce faire, les éléments suivants doivent se vérifier :
 
-- Les serveurs de synchronisation Azure AD Connect doivent être configurés pour le filtrage et ils ont donc chacun un ensemble d’objets mutuellement exclusifs. Cela est possible, par exemple, en délimitant l’étendue de chaque serveur à un domaine ou à une unité d’organisation spécifique.
-- Un domaine DNS ne peut être inscrit que dans un seul répertoire Azure AD. Les UPN des utilisateurs d’Active Directory local doivent utiliser des espaces de noms distincts.
+- Les serveurs de synchronisation Azure AD Connect doivent être configurés pour le filtrage et ils ont donc chacun un ensemble d’objets mutuellement exclusifs. Cela est possible, par exemple, en délimitant l’étendue de chaque serveur à un domaine ou à une unité d’organisation spécifique.
+- Un domaine DNS ne peut être inscrit que dans un seul répertoire Azure AD. Les UPN des utilisateurs d’Active Directory local doivent utiliser des espaces de noms distincts.
 - Les utilisateurs dans une instance d’Azure AD seront uniquement en mesure de voir les utilisateurs à partir de leur instance. Ils ne pourront pas voir les utilisateurs dans les autres instances.
-- Seul un des répertoires Azure AD peut activer Exchange hybride avec AD local.
+- Seul un des répertoires Azure AD peut activer Exchange hybride avec AD local.
 - L’exclusivité mutuelle s’applique également à l’écriture différée. Ainsi, certaines fonctionnalités d’écriture différée ne sont pas prises en charge avec cette topologie, car elles supposent une configuration locale unique. notamment :
  - Écriture différée des groupes avec la configuration par défaut
  - Écriture différée des appareils
@@ -144,9 +144,9 @@ Pour ce faire, les éléments suivants doivent se vérifier :
 
 Sachez que les éléments suivants ne sont pas pris en charge et ne doivent pas être choisis comme une implémentation :
 
-- La connexion de plusieurs serveurs de synchronisation Azure AD Connect au même répertoire Azure AD n’est pas prise en charge, même s’ils sont configurés pour synchroniser un ensemble d’objets mutuellement exclusifs.
+- La connexion de plusieurs serveurs de synchronisation Azure AD Connect au même répertoire Azure AD n’est pas prise en charge, même s’ils sont configurés pour synchroniser un ensemble d’objets mutuellement exclusifs.
 - La synchronisation d’un même utilisateur vers plusieurs annuaires Azure AD n’est pas prise en charge. 
-- La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaisse comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. 
+- La modification d’une configuration pour faire en sorte que les utilisateurs dans un annuaire Azure AD apparaissent comme contacts dans un autre annuaire Azure AD n’est pas prise en charge. 
 - La modification d’Azure AD Connect Sync pour qu’il se connecte à plusieurs annuaires Azure AD n’est pas non plus prise en charge.
 - Les annuaires Azure AD sont isolés par conception. La modification de la configuration d’Azure AD Connect Sync pour lire des données à partir d’un autre annuaire Azure AD pour générer une liste d’adresses globale commune et unifiée entre les annuaires n’est pas prise en charge. L’exportation d’utilisateurs comme contacts vers un autre annuaire Active Directory local avec Azure AD Connect Sync n’est pas prise en charge.
 
@@ -154,7 +154,7 @@ Sachez que les éléments suivants ne sont pas pris en charge et ne doivent pas 
 >[AZURE.NOTE]Si votre organisation limite la connexion des ordinateurs de votre réseau à Internet, cet article répertorie les points de terminaison (noms de domaine complets, plages d’adresses IPv4 et IPv6) que vous devez inclure dans vos listes d’autorisation sortante et dans votre zone Sites de confiance Internet Explorer d’ordinateurs clients pour garantir que vos ordinateurs peuvent utiliser Office 365. Pour plus d’informations, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=fr-FR&rs=fr-FR&ad=US).
 
 ## Définir la stratégie d’authentification multifacteur
-Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser. Azure Multi-Factor Authentication existe en deux versions différentes. L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure. En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie. Utilisez le tableau ci-dessous pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
+Dans cette tâche, vous allez définir la stratégie d’authentification multifacteur à utiliser. Azure Multi-Factor Authentication existe en deux versions différentes. L’une est basée sur le cloud, et l’autre est locale et utilise le serveur MFA Azure. En vous appuyant sur l’évaluation effectuée précédemment, vous pouvez déterminer quelle solution est correcte pour votre stratégie. Utilisez le tableau ci-dessous pour déterminer l’option de conception répondant le mieux aux exigences de sécurité de votre entreprise :
 
 Options de conception multifacteur :
 
@@ -163,23 +163,23 @@ Options de conception multifacteur :
 | Applications Microsoft | yes | yes |
 | Applications SaaS dans la galerie d’applications | yes | yes |
 | Applications IIS publiées via le proxy d'application Azure AD | yes | yes |
-| Applications IIS non publiées via le proxy Azure AD App | no | yes |
-| Accès à distance en tant que VPN, passerelle Bureau à distance | no | yes |
+| Applications IIS non publiées via le proxy Azure AD App | no | yes |
+| Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) | no | yes |
 
 Même si vous avez opté pour une solution pour votre stratégie, vous devez toujours utiliser l’évaluation ci-dessus sur l’emplacement où se trouvent vos utilisateurs. Cela peut entraîner la modification de la solution. Utilisez le tableau ci-dessous pour vous aider à déterminer les éléments suivants :
 
 | Emplacement de l’utilisateur | Option de conception préférée |
 |---------------------------------------------------------------------|-----------------------------------------|
-| Azure Active Directory | Multi-Factor Authentication dans le cloud |
+| Azure Active Directory | Multi-Factor Authentication dans le cloud |
 | Azure AD et AD local à l'aide de la fédération avec AD FS | Les deux |
-| Azure AD et AD local utilisant Azure AD Connect : aucune synchronisation de mot de passe | Les deux |
-| Azure AD et local utilisant Azure AD Connect avec synchronisation de mot de passe | Les deux |
+| Azure AD et AD local utilisant Azure AD Connect : aucune synchronisation de mot de passe | Les deux |
+| Azure AD et local utilisant Azure AD Connect avec synchronisation de mot de passe | Les deux |
 | AD local | Serveur Multi-Factor Authentication |
 
->[AZURE.NOTE]Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception. Pour plus d’informations, consultez [Choix de la solution de sécurité multifacteur la plus appropriée pour vous](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure)
+>[AZURE.NOTE]Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception. Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la plus appropriée pour vous](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started/#what-am-i-trying-to-secure).
 
 ## Fournisseur d’authentification multi facteurs
-Multi-Factor Authentication est disponible par défaut pour les administrateurs généraux ayant un locataire Azure Active Directory. Toutefois, si vous souhaitez étendre l’authentification multifacteur à tous vos utilisateurs et/ou souhaitez que vos administrateurs généraux puissent tirer pleinement parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports, vous devez acheter et configurer un fournisseur Multi-Factor Authentication.
+Multi-Factor Authentication est disponible par défaut pour les administrateurs généraux ayant un locataire Azure Active Directory. Toutefois, si vous souhaitez étendre l’authentification multifacteur à tous vos utilisateurs et/ou souhaitez que vos administrateurs généraux puissent tirer pleinement parti de certaines fonctionnalités telles que le portail de gestion, les messages de bienvenue personnalisés et les rapports, vous devez acheter et configurer un fournisseur Multi-Factor Authentication.
 
 >[AZURE.NOTE]Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.
 
@@ -187,6 +187,6 @@ Multi-Factor Authentication est disponible par défaut pour les administrateurs 
 [Déterminer les exigences de protection des données](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
 ## Voir aussi
-[Présentation des considérations relatives à la conception](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Présentation des considérations relatives à la conception]((active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

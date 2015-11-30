@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnostic des défaillances et des exceptions dans les applications ASP.NET avec Application Insights" 
-	description="Configurez votre application pour obtenir une expérience de diagnostic intéressante en capturant les exceptions ainsi que la télémétrie de demande." 
+	description="Capturez des exceptions à partir d’applications ASP.NET, ainsi que des données de télémétrie des demandes." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -12,10 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
- 
-# Diagnostic des défaillances et des exceptions dans les applications ASP.NET avec Application Insights  
+
+
+# Configurer Application Insights : diagnostiquer les exceptions
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 
 En analysant votre application avec [Application Insights de Visual Studio][start], vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.
 
@@ -64,12 +68,12 @@ Pour obtenir des données de diagnostic propres à votre application, vous pouve
 
 Vous disposez de plusieurs options :
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Evénements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic][diagnostic].
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) sert généralement à surveiller les modèles d’utilisation, mais les données qu’il envoie apparaissent également sous Événements personnalisés dans Recherche de diagnostic. Les événements sont nommés et peuvent contenir des propriétés de type chaîne et des métriques numériques sur lesquels vous pouvez [filtrer vos recherches de diagnostic][diagnostic].
 * [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) vous permet d’envoyer des données plus longues telles que des informations POST.
 * [TrackException()](#exceptions) envoie des arborescences des appels de procédure. [Plus d’informations sur les exceptions](#exceptions).
 * Si vous utilisez déjà un framework de journalisation comme Log4Net ou NLog, vous pouvez [capturer ces journaux][netlogs] et les visualiser dans Recherche de diagnostic avec les données sur les demandes et les exceptions.
 
-Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Evénement personnalisé, Trace ou Exception.
+Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, puis choisissez Événement personnalisé, Trace ou Exception.
 
 
 ![Extraire](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
@@ -429,7 +433,7 @@ Ajoutez l'attribut aux implémentations de service :
 
 Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
 
-Ouvrez un panneau Metric Explorer, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception** sous Compteurs de performance.
+Ouvrez un panneau Metric Explorer, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception** sous Compteurs de performances.
 
 .NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
 
@@ -448,4 +452,4 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

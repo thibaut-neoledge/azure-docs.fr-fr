@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/10/2015"
 	ms.author="danlep"/>
 
 
 
 # Création et gestion d'un compte Azure Batch dans le portail Azure en version préliminaire
+
+> [AZURE.SELECTOR]
+- [Azure preview portal](batch-account-create-portal.md)
+- [Batch Management .NET](batch-management-dotnet.md)
 
 Cet article vous montre comment utiliser le [portail Azure en version préliminaire](https://portal.azure.com) pour créer et gérer un compte Azure Batch et les paramètres tels que les clés de compte. Vous avez besoin d'une URL de compte Batch et d'une clé d'accès associée pour authentifier toutes les requêtes API Batch. Et vous associez toutes les ressources Batch (comme les pools, les travaux et les tâches) de votre charge de travail Batch à un compte Batch spécifique.
 
@@ -53,7 +57,7 @@ Cet article vous montre comment utiliser le [portail Azure en version prélimina
 ## Gestion des clés d'accès et des paramètres de compte
 Une fois le compte créé, il apparaît dans le portail et vous pouvez gérer les clés d'accès, les utilisateurs autorisés et d'autres paramètres.
 
-L'URL du compte Batch apparaît dans **Essentials**. Il s'agit d'une URL sous la forme `https://<account_name>.<region>.batch.azure.com`.
+L’URL du compte Batch apparaît dans **Essentials**. Il s’agit d’une URL sous la forme `https://<account_name>.<region>.batch.azure.com`.
 
 Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 
@@ -61,14 +65,14 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 
 ## Autres choses à savoir sur le compte Batch
 
-* D'autres façons de créer et de gérer des comptes Batch incluent les[applets de commande PowerShell Batch](batch-powershell-cmdlets-get-started.md) et la [bibliothèque .NET de gestion Batch](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
+* D’autres façons de créer et de gérer des comptes Batch incluent les[applets de commande PowerShell Batch](batch-powershell-cmdlets-get-started.md) et la [bibliothèque .NET de gestion Batch](http://www.nuget.org/packages/Microsoft.Azure.Management.Batch/).
 
 
-* Azure ne vous facture pas si vous avez un compte Batch. Vous êtes uniquement facturé pour l'utilisation des ressources de calcul et autres services Azure lors de l'exécution de vos charges de travail (voir [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/)).
+* Azure ne vous facture pas si vous avez un compte Batch. Vous êtes uniquement facturé pour l’utilisation des ressources de calcul et autres services Azure lors de l’exécution de vos charges de travail (voir [Tarification Batch](https://azure.microsoft.com/pricing/details/batch/)).
 
 * Vous pouvez exécuter plusieurs charges de travail Batch dans un seul compte Batch ou distribuer vos charges de travail entre plusieurs comptes Batch dans différentes régions Azure.
 
-* Si vous exécutez plusieurs charges de travail Batch à grande échelle, tenez compte des [limites et quotas du service Batch](batch-quota-limit.md) qui s'appliquent à votre abonnement Azure et à chaque compte Batch. Les quotas actuels sur le compte Batch apparaissent dans les propriétés du compte sur le portail en version préliminaire.
+* Si vous exécutez plusieurs charges de travail Batch à grande échelle, tenez compte des [limites et quotas du service Batch](batch-quota-limit.md) qui s’appliquent à votre abonnement Azure et à chaque compte Batch. Les quotas actuels sur le compte Batch apparaissent dans les propriétés du compte sur le portail en version préliminaire.
 
 ## Étapes suivantes
 
@@ -80,4 +84,4 @@ Pour afficher et gérer les clés d'accès, cliquez sur l'icône de clé.
 [account_portal]: ./media/batch-account-create-portal/batch_acct_portal.png
 [account_keys]: ./media/batch-account-create-portal/account_keys.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

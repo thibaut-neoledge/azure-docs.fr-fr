@@ -548,9 +548,6 @@ Pour supprimer une file d'attente et tous les messages qu'elle contient, exécut
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### Gestion des messages de file d'attente
-Actuellement, Azure PowerShell ne fournit aucune applet de commande pour gérer directement les messages de file d'attente. Pour effectuer des opérations sur des messages de la file d’attente, vous pouvez utiliser les classes fournies dans la [bibliothèque cliente Azure Storage pour .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
 #### Insertion d'un message dans une file d'attente
 Pour insérer un message dans une file d’attente existante, commencez par créer une instance de la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Appelez ensuite la méthode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
@@ -576,7 +573,7 @@ L'exemple suivant montre comment ajouter un message à une file d'attente. Cet e
 
 
 #### Suppression du message suivant dans la file d'attente
-Votre code enlève un message d'une file d'attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **DeleteMessage** juste après le traitement du message.
+Votre code enlève un message d'une file d'attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx), vous obtenez le message suivant dans une file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx). Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **DeleteMessage** juste après le traitement du message.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
@@ -597,12 +594,12 @@ Votre code enlève un message d'une file d'attente en deux étapes. Quand vous a
 ## Gestion des partages de fichiers et des fichiers Azure
 Le stockage de fichiers Azure propose un stockage partagé pour les applications utilisant le protocole SMB. Les machines virtuelles et les services cloud Microsoft Azure peuvent partager des données de fichiers entre plusieurs composants d'application grâce à des partages montés. Les applications locales peuvent accéder aux données de fichiers d'un partage via l'API de stockage de fichiers ou via Azure PowerShell.
 
-Pour plus d’informations sur le stockage Azure, consultez les pages [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md) et [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Pour plus d’informations sur le stockage de fichiers Azure, consultez les pages [Utilisation du stockage de fichiers Azure avec Windows](storage-dotnet-how-to-use-files.md) et [Référence de l’API REST du service de fichiers](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Définition et interrogation de Storage Analytics
 Vous pouvez utiliser [Azure Storage Analytics](storage-analytics.md) pour recueillir des mesures pour vos comptes de stockage Azure et enregistrer les données sur les demandes envoyées à votre compte de stockage. Vous pouvez utiliser des mesures de stockage pour analyser l’intégrité d’un compte de stockage et utiliser la journalisation de stockage pour diagnostiquer et résoudre les problèmes de votre compte de stockage. Par défaut, les mesures de stockage ne sont pas activées pour vos services de stockage. Vous pouvez activer la surveillance à l'aide du portail de gestion Azure, de Windows PowerShell ou par programmation via une API de stockage. La journalisation du stockage se produit côté serveur. Elle vous permet d’enregistrer les détails des demandes ayant réussi et des demandes ayant échoué dans votre compte de stockage. Ces journaux permettent d'afficher les détails des opérations de lecture, d'écriture et de suppression sur vos tables, vos files d'attente et vos objets blob, ainsi que la raison de l'échec de certaines demandes.
 
-Pour savoir comment activer et afficher les données de mesure de stockage à l’aide de PowerShell, consultez la page [Activation des mesures de stockage à l’aide de PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
+Pour savoir comment activer et afficher les données de mesure de stockage à l’aide de PowerShell, consultez la page [Activation de Storage Metrics avec PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
 Pour savoir comment activer et récupérer des données de journalisation du stockage à l’aide de PowerShell, consultez [Comment activer Storage Logging avec PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) et [Recherche des données de journal Storage Logging](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Pour plus d’informations sur l’utilisation de Storage Metrics et de la journalisation du stockage pour résoudre les problèmes de stockage, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -615,8 +612,8 @@ Les signatures d'accès partagé constituent une partie importante du modèle de
 
 Une signature d’accès partagé peut prendre deux formes :
 
-- **Signature d’accès partagé ad hoc :** quand vous créez une signature d’accès partagé ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette signature sont spécifiées sur l’URI de signature d’accès partagé. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
-- **Signature d’accès partagé avec stratégie d’accès stockée :** une stratégie d’accès stockée est définie sur un conteneur de ressource (un conteneur d’objets blob, une table ou une file d’attente) et vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
+- **SAP ad hoc :** quand vous créez une SAP ad hoc, l’heure de début, l’heure d’expiration et les autorisations associées à cette SAP sont spécifiées sur l’URI de SAP. Ce type de signature d'accès partagé peut être créé sur un conteneur, un objet blob, une table ou une file d'attente, et il ne peut pas être révoqué.
+- **SAP avec stratégie d’accès stockée :** une stratégie d’accès stockée est définie sur un conteneur de ressource (un conteneur d’objets blob, une table ou une file d’attente) et vous pouvez l’utiliser pour gérer les contraintes pour une ou plusieurs signatures d’accès partagé. Lorsque vous associez une signature d'accès partagé à une stratégie d'accès stockée, la signature hérite des contraintes (heure de début, heure d'expiration et autorisations) définies pour la stratégie. Ce type de signature d'accès partagé peut être révoqué.
 
 Pour plus d’informations, consultez [le didacticiel Signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md) et [Gestion de l’accès aux ressources d’Azure Storage](storage-manage-access-to-resources.md).
 
@@ -680,7 +677,7 @@ Pour utiliser Azure Storage avec [Azure pour le gouvernement des États-Unis](ht
 
 Pour plus d’informations, consultez :
 
-- [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide.md)
+- [Guide du développeur Microsoft Azure Government](../azure-government-developer-guide.md).
 - [Différences entre AzureCloud pour Azure global et AzureChinaCloud pour Azure géré par 21Vianet en Chine](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 
 ## Étapes suivantes
@@ -736,4 +733,4 @@ Dans ce guide, vous avez appris comment gérer Azure Storage avec Azure PowerShe
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

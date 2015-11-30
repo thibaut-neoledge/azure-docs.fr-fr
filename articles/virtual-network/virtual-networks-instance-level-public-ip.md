@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Adresses IP publiques de niveau d’instance (ILPIP)"
+   pageTitle="Adresses IP publiques de niveau d’instance (ILPIP) | Microsoft Azure"
    description="Description des adresses IP publiques (PIP) de niveau d’instance (ILPIP) et de leur mode de gestion"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2015"
+   ms.date="11/11/2015"
    ms.author="telmos" />
 
 # Vue d’ensemble des adresses IP publiques de niveau d’instance
-Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel résident cette machine ou instance. Cette adresse IP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
+Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à votre machine virtuelle ou instance de rôle, plutôt qu’au service cloud dans lequel résident cette machine ou instance. Cette adresse IP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
 
 >[AZURE.NOTE]Auparavant, une adresse ILPIP était désignée sous le terme d’adresse PIP, qui signifie adresse IP publique.
 
@@ -33,8 +33,6 @@ Quand vous créez un service cloud dans Azure, les enregistrements DNS A corresp
 
 ## Pourquoi dois-je demander une adresse ILPIP ?
 Si vous souhaitez être en mesure de vous connecter à votre machine virtuelle ou instance de rôle par l’intermédiaire d’une adresse IP qui lui est directement affectée, plutôt qu’en utilisant VIP:&lt;,numéro de port&gt;, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle. - **Mode FTP passif** - Le fait de disposer d’une adresse ILPIP sur votre machine virtuelle vous permet de recevoir le trafic sur le port de votre choix sans avoir à ouvrir de point de terminaison. Cette possibilité autorise notamment le mode FTP passif, où les ports sont sélectionnés de façon dynamique. - **Adresse IP sortante** - Le trafic sortant en provenance de la machine virtuelle présente l’adresse ILPIP en guise de source, ce qui identifie de manière unique la machine virtuelle auprès des entités externes.
-
->[AZURE.NOTE]L’utilisation d’adresses ILPIP réservées peut entraîner des frais supplémentaires au niveau de votre abonnement Azure. Pour plus d’informations sur la tarification des adresses ILPIP, voir la page [Tarification des adresses IP](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Demande d’une adresse ILPIP durant la création d’une machine virtuelle
 Le script PowerShell ci-dessous crée un service cloud nommé *FTPService*, puis récupère une image à partir d’Azure et crée une machine virtuelle nommée *FTPInstance* à l’aide de l’image récupérée, configure cette machine virtuelle pour qu’elle utilise une adresse ILPIP et ajoute la machine au nouveau service :
@@ -125,4 +123,4 @@ Vous pouvez également associer une adresse ILPIP à une machine virtuelle au m
 [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

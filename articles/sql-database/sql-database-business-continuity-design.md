@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="07/14/2015"
+   ms.date="11/16/2015"
    ms.author="elfish"/>
 
 #Conception pour la continuité des activités
@@ -49,7 +49,7 @@ Nous vous recommandons d'utiliser la géo-réplication si votre application rép
 
 ##Quand choisir la réplication géographique standard par rapport à la Géo-réplication active
 
-Les bases de données de niveau standard n'ont pas la possibilité d'utiliser la géo-réplication active. Par conséquent, si votre application utilise des bases de données standard et répond aux critères ci-dessus, la géo-réplication standard doit être activée. En revanche, les bases de données Premium peuvent utiliser les deux options. La géo-réplication standard a été conçue en tant que solution de récupération d'urgence plus simple et moins onéreuse, particulièrement adaptée aux applications qui l'utilisent uniquement pour se protéger contre des événements imprévus tels que des pannes. Avec la géo-réplication standard, vous ne pouvez utiliser que la région associée à la récupération d'urgence et vous avez la possibilité de créer plusieurs bases de données secondaires. Cette dernière fonctionnalité est essentielle pour le scénario de mise à niveau de l'application. Par conséquent, si ce scénario est essentiel pour votre application, vous devez plutôt activer la géo-réplication active. Consultez [Mise à niveau de l'application sans interruption](sql-database-business-continuity-application-upgrade.md) pour plus de détails.
+Les bases de données de niveau standard n'ont pas la possibilité d'utiliser la géo-réplication active. Par conséquent, si votre application utilise des bases de données standard et répond aux critères ci-dessus, la géo-réplication standard doit être activée. En revanche, les bases de données Premium peuvent utiliser les deux options. La géo-réplication standard a été conçue en tant que solution de récupération d'urgence plus simple et moins onéreuse, particulièrement adaptée aux applications qui l'utilisent uniquement pour se protéger contre des événements imprévus tels que des pannes. Avec la géo-réplication standard, vous ne pouvez utiliser que la région associée à la récupération d'urgence et ne pouvez créer qu’une base de données secondaire pour chaque base de données primaire. Une base de données secondaire supplémentaire peut être nécessaire pour le scénario de mise à niveau de l'application. Par conséquent, si ce scénario est essentiel pour votre application, vous devez plutôt activer la géo-réplication active. Consultez [Mise à niveau de l'application sans interruption](sql-database-business-continuity-application-upgrade.md) pour plus de détails.
 
 > [AZURE.NOTE]La géo-réplication active prend également en charge l'accès en lecture seule à la base de données secondaire, offrant ainsi une capacité supplémentaire pour les charges de travail en lecture seule.
 
@@ -74,31 +74,28 @@ Vous pouvez activer la géo-réplication à l'aide du portail Azure ou en appela
 
 ###PowerShell
 
-Utilisez l'applet de commande PowerShell [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) pour automatiser la configuration de la géo-réplication.
+Utilisez l'applet de commande PowerShell [New-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689.aspx) pour créer la configuration de la géo-réplication. Cette commande est synchrone et s’exécute lorsque les bases de données primaires et secondaires sont synchronisées.
 
-Pour créer la géo-réplication avec une base de données secondaire illisible pour une base de données Premium ou standard :
+Pour configurer la géo-réplication avec une base de données secondaire illisible pour une base de données Premium ou standard :
 		
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "None"
+
 Pour créer la géo-réplication avec une base de données secondaire lisible pour une base de données Premium :
 
-		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
+    $database = Get-AzureRmSqlDatabase –DatabaseName "mydb"
+    $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" -AllowConnections "All"
 		 
-Cette commande est asynchrone. Après son retour, utilisez l'applet de commande [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState de l'objet retourné aura la valeur CATCH\_UP une fois l'opération terminée.
-
-		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
-
 
 ###API REST 
 
-Utilisez l'API [Démarrer la copie de la base de données](https://msdn.microsoft.com/library/azure/dn509576.aspx) pour créer par programme une configuration de la géo-réplication.
+Utilisez l’API [Create Database](https://msdn.microsoft.com/library/mt163685.aspx) avec *createMode* défini sur *NonReadableSecondary* ou *Secondary* pour créer par programme une base de données secondaire de géo-réplication.
 
-Cette API est asynchrone. Après son retour, utilisez l'API [Obtenir la copie de la base de données](https://msdn.microsoft.com/library/azure/dn509570.aspx) pour vérifier l'état de cette opération. Le champ ReplicationState du corps de la réponse aura la valeur CATCH\_UP une fois l'opération terminée.
+Cette API est asynchrone. Après son retour, utilisez l'API [Get Replication Link](https://msdn.microsoft.com/library/mt600778.aspx) pour vérifier l'état de cette opération. Le champ *replicationState* du corps de la réponse aura la valeur CATCHUP une fois l'opération terminée.
 
 
 ##Comment choisir la configuration de basculement ? 
 
-Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
+Lorsque vous concevez votre application pour la continuité des activités, vous devez envisager plusieurs options de configuration. Le choix dépendra de la topologie de déploiement de l'application et des parties de vos applications les plus vulnérables à une défaillance. Consultez [Conception de solutions Cloud pour la récupération d'urgence à l'aide de la géo-réplication](sql-database-designing-cloud-solutions-for-disaster-recovery.md) pour obtenir des instructions.
 
- 
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

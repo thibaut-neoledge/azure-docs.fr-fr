@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ Au vu des informations ci-dessus, nous savons que le seul impact sur les perform
 
 [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-load-balancing-methods.md)
 
-[Qu’est-ce que Traffic Manager ?](../traffic-manmager-overview.md)
-
-[Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Sites Web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Tester vos paramètres de Traffic Manager](traffic-manager-testing-settings.md)
 
 [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Applets de commande Azure Traffic Manager](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

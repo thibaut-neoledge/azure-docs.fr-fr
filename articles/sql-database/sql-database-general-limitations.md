@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/05/2015"
+   ms.date="11/16/2015"
    ms.author="jroth" />
 
 # Consignes et limitations générales de base de données SQL Azure
@@ -59,9 +59,9 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 ## Conseils supplémentaires
 
-- Outre les limitations générales décrites dans cet article, la base de données SQL impose des quotas de ressource et des limitations spécifiques selon votre [niveau de service](sql-database-service-tiers.md). Pour obtenir une description détaillée des limites de niveau de service, consultez la rubrique relative aux [limites et capacités de niveau de service](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
+- Outre les limitations générales décrites dans cet article, la base de données SQL impose des quotas de ressources et des limitations spécifiques selon votre **niveau de service**. Pour obtenir une présentation des niveaux de service, consultez [Niveaux de service de Base de données SQL](sql-database-service-tiers.md).
 
-- Pour connaître les autres limites de la base de données SQL, consultez [Limites de ressources de la base de données SQL Azure](sql-database-limits.md).
+- Pour connaître les autres limites de la base de données SQL, consultez [Limites de ressources de la base de données SQL Azure](sql-database-resource-limits.md).
 
 - Pour des informations sur la sécurité, consultez [Instructions et limitations de sécurité dans la base de données SQL Azure](sql-database-security-guidelines.md).
 
@@ -69,4 +69,4 @@ En outre, les noms de connexion et d’utilisateur ne peuvent pas contenir le ca
 
 - Pour plus d'informations sur la disponibilité des pilotes et sur la prise en charge de la base de données SQL, consultez [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

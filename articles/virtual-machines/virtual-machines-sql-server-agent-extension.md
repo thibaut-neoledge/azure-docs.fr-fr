@@ -1,9 +1,9 @@
-<properties 
-	pageTitle="Extension de l’agent IaaS SQL Server | Microsoft Azure" 
-	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit l'extension de l'agent SQL Server, qui permet à une machine virtuelle exécutant SQL Server sur Azure d’utiliser des fonctionnalités d'automatisation." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
+<properties
+	pageTitle="Extension de l’agent IaaS SQL Server | Microsoft Azure"
+	description="Cette rubrique utilise des ressources créées avec le modèle de déploiement classique et décrit l'extension de l'agent SQL Server, qui permet à une machine virtuelle exécutant SQL Server sur Azure d’utiliser des fonctionnalités d'automatisation."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="jeffgoll"
 	manager="jeffreyg"
    editor="monicar"    
    tags="azure-service-management"/>
@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
+	ms.workload="infrastructure-services"
 	ms.date="10/02/2015"
 	ms.author="jeffreyg"/>
 
@@ -22,8 +22,8 @@
 Cette extension permet à SQL Server dans Azure Virtual Machines d’utiliser certains services, répertoriés dans cet article, qui peuvent être utilisés seulement quand cette extension est installée. Cette extension est installée automatiquement pour les images de la galerie SQL Server dans le portail Azure en version préliminaire. Il peut être installé sur toute machine virtuelle SQL Server dans Azure où l’agent invité de la machine virtuelle Azure est installé.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
- 
- 
+
+
 ## Composants requis
 Configuration requise pour l’utilisation des applets de commande PowerShell :
 
@@ -34,14 +34,14 @@ Configuration requise pour utiliser l’extension sur votre machine virtuelle :
 - Agent invité de machine virtuelle Azure
 - Windows Server 2012, Windows Server 2012 R2 ou ultérieur
 - SQL Server 2012, SQL Server 2014 ou ultérieur
- 
+
 ## Services disponibles avec l’extension
 
 - **Sauvegarde automatisée SQL** : ce service automatise la planification des sauvegardes pour toutes les bases de données pour l’instance par défaut de SQL Server dans la machine virtuelle. Pour plus d’informations sur ce service, consultez [Sauvegarde automatisée pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-automated-backup.md).
 - **Application automatisée des correctifs SQL** : ce service vous permet de configurer une fenêtre de maintenance pendant laquelle les mises à jour de votre machine virtuelle peuvent avoir lieu, afin d’éviter les mises à jour pendant les heures de pointe de votre charge de travail. Pour plus d’informations sur ce service, consultez [Application automatisée des correctifs pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-automated-patching.md).
 
 ## Ajouter l’extension avec PowerShell
-Si vous configurez votre machine virtuelle SQL Server en utilisant le [portail Azure en version préliminaire](https://portal.azure.com/), l’extension est automatiquement installée. Pour les machines virtuelles SQL Server configurées avec le [portail de gestion Azure](https://manage.windowsazure.com) ou pour les machines virtuelles où vous avez apporté votre propre licence SQL, vous pouvez ajouter cette extension à une machine virtuelle existante en utilisant l’applet de commande Azure PowerShell suivante.
+Si vous configurez votre machine virtuelle SQL Server en utilisant le [portail Azure en version préliminaire](https://portal.azure.com/), l’extension est automatiquement installée. Pour les machines virtuelles SQL Server configurées avec le [portail Azure](https://manage.windowsazure.com) ou pour les machines virtuelles où vous avez apporté votre propre licence SQL, vous pouvez ajouter cette extension à une machine virtuelle existante en utilisant l’applet de commande Azure PowerShell suivante.
 
 **Set-AzureVMSqlServerExtension**
 
@@ -78,4 +78,4 @@ Si vous voulez supprimer cette extension de votre machine virtuelle, vous pouvez
 ### Syntaxe
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
