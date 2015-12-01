@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm;barbkess"/>
 
-# Créer une base de données SQL Data Warehouse à l’aide du portail Azure en version préliminaire#
+# Créer un entrepôt de données SQL
 
 > [AZURE.SELECTOR]
 - [Azure preview portal](sql-data-warehouse-get-started-provision.md)
@@ -46,14 +46,10 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 
 ## Étape 2 : Configurer et créer un serveur
+
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
-  >
-  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*.
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
-  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 
@@ -75,6 +71,7 @@ Dans la base de données SQL et SQL Data Warehouse, chaque base de données est 
     ![Configurer un nouveau serveur](./media/sql-data-warehouse-get-started-provision/configure-server.png)
 
 ## Étape 3 : Configurer et créer une base de données
+
 Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes prêt à achever la création de la base de données.
  
 2. Dans le panneau **SQL Data Warehouse**, renseignez les champs restants. 
@@ -103,6 +100,7 @@ Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes pr�
 
 
 ## Étape 4 : Configurer l’accès au pare-feu du serveur pour l’adresse IP de votre client
+
 Pour vous connecter au serveur à partir de votre adresse IP actuelle, ajoutez l’adresse IP de votre client aux règles du pare-feu. Cette étape vous montre comment procéder.
 
 1. Cliquez sur **Parcourir** > **Serveurs SQL**, choisissez votre serveur, puis cliquez sur **Paramètres** > **Pare-feu**.
@@ -123,9 +121,8 @@ Pour vous connecter au serveur à partir de votre adresse IP actuelle, ajoutez 
 
 Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d’établir des connexions entre votre ordinateur de bureau et la base de données Azure SQL Data Warehouse que vous venez de créer.
 
-
 ## Étapes suivantes
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

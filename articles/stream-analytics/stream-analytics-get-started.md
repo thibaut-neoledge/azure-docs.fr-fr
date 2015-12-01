@@ -14,7 +14,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok" />
 
 
@@ -84,14 +84,14 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 
 ### Configuration d’un travail Stream Analytics
 
-1.	Dans le portail Azure, cliquez sur **Nouveau > Services de données > Stream Analytics > Création rapide**.
+1.	Dans le portail Azure, cliquez sur **Nouveau > Data Services > Stream Analytics > Création rapide**.
 2.	Spécifiez les valeurs suivantes, puis cliquez sur **Créer un travail Stream Analytics** :
 
 	* **Nom du travail** : entrez un nom pour le travail.
 
 	* **Région** : sélectionnez la région où vous souhaitez exécuter le travail. Envisagez de placer le travail et le concentrateur d’événements dans la même région pour être certain d’améliorer les performances et de ne pas payer pour un transfert de données entre différentes régions.
 
-	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d'exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
+	* **Compte de stockage** : choisissez le compte de stockage que vous souhaitez utiliser pour stocker les données de surveillance de toutes les tâches Stream Analytics en cours d’exécution dans cette région. Vous pouvez choisir un compte de stockage existant ou en créer un.
 
 3.	Dans le volet gauche, cliquez sur **Stream Analytics** pour afficher une liste des travaux Stream Analytics.
 
@@ -102,7 +102,7 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 ### Spécification d'une entrée de travail
 1.	En haut de la page de votre travail Stream Analytics, cliquez sur **Entrées**, puis sur **Ajouter une entrée**. La boîte de dialogue qui s’ouvre vous guidera le long d’une procédure de configuration de votre entrée.
 2.	Sélectionnez **Flux de données**, puis cliquez avec le bouton droit.
-3.	Sélectionnez **Hub d’événements**, puis cliquez avec le bouton droit.
+3.	Sélectionnez **Concentrateur d’événements**, puis cliquez avec le bouton droit.
 4.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **Alias d'entrée** : entrez un nom convivial pour cette entrée de travail, comme *CallStream*. Notez que vous utiliserez ce nom dans la requête par la suite.
@@ -110,11 +110,11 @@ Maintenant que nous avons un flux d’événements de télécommunication, nous 
 
 	Si votre concentrateur d’événements est situé dans un autre abonnement, sélectionnez **Utiliser le concentrateur d’événements à partir d’un autre abonnement** et entrez manuellement l’**espace de noms Service Bus**, le **nom du concentrateur d’événements**, le **nom de la stratégie du concentrateur d’événements**, la **clé de stratégie du concentrateur d’événements** et le **nombre de partitions du concentrateur d’événements**.
 
-	* **Nom du concentrateur d'événements** : sélectionnez le nom du concentrateur d'événements.
+	* **Nom du hub d’événements** : sélectionnez le nom du concentrateur d’événements.
 
 	* **Nom de la stratégie du concentrateur d'événements** : sélectionnez la stratégie de concentrateur d’événements créée précédemment dans ce didacticiel.
 
-	* **Groupe de consommateurs du concentrateur d'événements** : entrez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
+	* **Groupe de consommateurs du hub d’événements** : saisissez le nom du groupe de consommateurs créé précédemment dans ce didacticiel.
 5.	Cliquez avec le bouton droit.
 6.	Spécifiez les valeurs suivantes :
 
@@ -130,7 +130,7 @@ Stream Analytics prend en charge un modèle de requête simple et déclaratif po
 Pour appliquer votre requête à des données de travail réelles, vous pouvez utiliser la fonctionnalité **Exemples de données** pour extraire des événements à partir de votre flux de données et créer un fichier .JSON contenant les événements du test. Les étapes suivantes indiquent comment effectuer cette opération. Nous avons également fourni un exemple de fichier [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) à des fins de test.
 
 1.	Sélectionnez l’entrée de votre concentrateur d’événements, puis cliquez sur **Exemples de données** en bas de la page.
-2.	Dans la boîte de dialogue qui s'affiche, entrez une **Heure de début** pour le démarrage de la collecte de données et une **Durée** afin de déterminer la quantité de données supplémentaires à traiter.
+2.	Dans la boîte de dialogue qui s’affiche, entrez une **Heure de début** pour le démarrage de la collecte de données et une **Durée** afin de déterminer la quantité de données supplémentaires à traiter.
 3.	Cliquez sur la coche pour démarrer l'échantillonnage des données à partir de l'entrée. La production du fichier de données peut prendre une minute ou deux. Une fois le processus terminé, cliquez sur **Détails** et téléchargez et enregistrez le fichier .JSON généré.
 
 	![Téléchargement et enregistrement des données traitées dans un fichier JSON](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
@@ -146,8 +146,8 @@ Si vous voulez archiver tous les événements, vous pouvez utiliser une requête
 
 	> Assurez-vous que le nom de la source d'entrée correspond à celui que vous avez spécifié précédemment.
 
-3.	Cliquez sur**Test**dans l'éditeur de requête.
-4.	Fournissez un fichier de test. Il peut s'agir soit d'un fichier que vous avez créé en suivant la procédure ci-dessus, soit du fichier [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
+3.	Cliquez sur**Test**dans l’éditeur de requête.
+4.	Fournissez un fichier de test. Il peut s’agir soit d’un fichier que vous avez créé en suivant la procédure ci-dessus, soit du fichier [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json).
 5.	Cliquez sur le bouton en forme de coche et consultez les résultats affichés sous la définition de la requête.
 
 	![Résultats de la définition de la requête](./media/stream-analytics-get-started/stream-analytics-sim-fraud-output.png)
@@ -178,7 +178,7 @@ Pour comparer la quantité d'appels entrants par région, nous allons exploiter 
 
 	Cette requête utilise le mot clé **Timestamp By** pour spécifier un champ d’horodatage dans la charge utile à utiliser dans le calcul temporel. Si ce champ n’est pas spécifié, l’opération de fenêtrage est réalisée en utilisant l’heure d’arrivée de chaque événement dans le concentrateur d’événements. Consultez [« Heure d’arrivée par rapport à l’heure de l’application » dans la page Référence du langage de requête de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
 
-	Notez que vous pouvez accéder à un horodatage pour la fin de chaque fenêtre à l'aide de la propriété **System.Timestamp**.
+	Notez que vous pouvez accéder à un horodatage pour la fin de chaque fenêtre à l’aide de la propriété **System.Timestamp**.
 
 2.	Cliquez sur **Réexécuter** dans l’éditeur de requête pour afficher les résultats de la requête.
 
@@ -208,7 +208,7 @@ Maintenant que nous avons défini un flux d’événements, un concentrateur d�
 
 Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, procédez comme suit pour en créer un.
 
-1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **NOUVEAU > SERVICES DE DONNÉES > STOCKAGE > CRÉATION RAPIDE**, puis suivez les instructions qui s'affichent.
+1.	Utilisez un compte de stockage existant ou créez-en un en cliquant sur **NOUVEAU > SERVICES DE DONNÉES > STOCKAGE > CRÉATION RAPIDE**, puis suivez les instructions qui s’affichent.
 2.	Sélectionnez le compte de stockage, cliquez en haut de la page sur **CONTENEURS**, puis sur **AJOUTER**.
 3.	Entrez un **NOM** pour votre conteneur et définissez son **ACCÈS** sur Objet blob public.
 
@@ -219,7 +219,7 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 3.	Saisissez ou sélectionnez les valeurs suivantes sur la troisième page :
 
 	* **ALIAS DE SORTIE** : entrez un nom convivial pour cette sortie de travail.
-	* **ABONNEMENT** : si le stockage d'objets blob que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l'abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
+	* **ABONNEMENT** : si le stockage d’objets blobs que vous avez créé est situé dans le même abonnement que la tâche Stream Analytics, sélectionnez **Utiliser le compte de stockage de l’abonnement actuel**. Si votre espace de stockage appartient à un autre abonnement, sélectionnez **Utiliser le compte de stockage d’un autre abonnement** et entrez manuellement les informations des champs **COMPTE DE STOCKAGE**, **CLÉ DU COMPTE DE STOCKAGE** et **CONTENEUR**.
 	* **COMPTE DE STOCKAGE** : sélectionnez le nom du compte de stockage.
 	* **CONTENEUR** : sélectionnez le nom du conteneur.
 	* **PRÉFIXE DU NOM DE FICHIER** : entrez un préfixe de fichier à utiliser lors de l’écriture de la sortie de l’objet blob.
@@ -237,7 +237,7 @@ Si vous n’avez pas déjà de conteneur pour le stockage des objets blob, proc�
 Une fois que vous avez spécifié une entrée, une requête et une sortie pour la tâche Stream Analytics, nous pouvons lancer la détection des fraudes en temps réel.
 
 1.	Sur le **TABLEAU DE BORD** du travail, en bas de la page, cliquez sur **DÉMARRER**.
-2.	Dans la boîte de dialogue qui s'affiche, sélectionnez **HEURE DE DÉMARRAGE DE LA TÂCHE**, puis activez la case à cocher en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
+2.	Dans la boîte de dialogue qui s’affiche, sélectionnez **HEURE DE DÉMARRAGE DE LA TÂCHE**, puis activez la case à cocher en bas de la boîte de dialogue. L’état du travail passe à **Démarrage**, puis à **En cours d’exécution**.
 
 ## Afficher la sortie de détection des fraudes
 
@@ -257,4 +257,4 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="get-started-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Django et MySQL sur Azure avec Python Tools 2.2 pour Visual Studio 
 
@@ -98,14 +98,13 @@ Vous pouvez également créer votre propre machine virtuelle s'exécutant dans A
 
 Pour créer une base de données avec un plan gratuit, procédez comme suit :
 
-1.  Connectez-vous au [portail Azure].
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1.  En bas du volet de navigation, cliquez sur **NOUVEAU**. Ensuite, cliquez sur **Données + stockage** > **Azure Marketplace**.
+1.  En haut du volet de navigation, cliquez sur **NOUVEAU**. Ensuite, cliquez sur **Données + stockage** > **Base de données MySQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
-1.  Entrez « **mysql** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**.
-
+1.  Entrez « **mysql** » dans la zone de recherche, cliquez sur **Base de données MySQL**, puis sur **Créer**. -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Configurez la nouvelle base de données MySQL en créant un nouveau groupe de ressources, puis sélectionnez l’emplacement approprié pour celui-ci.
@@ -191,7 +190,7 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 - [Documentation Django]
 - [MySQL]
 
-Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
+Pour plus d’informations, consultez le [Centre de développement Python](/develop/python/).
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -203,7 +202,7 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [Azure Cloud Services]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[portail Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Python Tools pour Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.2 pour Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Python Tools 2.2 pour Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -218,4 +217,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Python](/dev
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

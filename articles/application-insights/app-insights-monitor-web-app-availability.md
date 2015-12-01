@@ -17,6 +17,9 @@
 
 # Analyse de la disponibilité et de la réactivité d'un site Web
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
+
 Après avoir déployé votre application web, vous pouvez configurer des tests web pour analyser sa disponibilité et sa réactivité. Application Insights envoie des demandes web à intervalles réguliers à partir de différents points dans le monde et vous alerte si votre application réagit lentement ou pas du tout.
 
 ![Exemple de test web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
@@ -249,4 +252,4 @@ Vous pouvez par exemple désactiver des tests web lorsque vous effectuez des op�
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

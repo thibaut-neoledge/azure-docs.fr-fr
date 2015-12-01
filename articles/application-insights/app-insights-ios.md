@@ -12,70 +12,20 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="11/15/2015"
+    ms.date="11/17/2015"
     ms.author="awills"/>
 
 # Analyse des applications iOS
 
-Visual Studio Application Insights vous permet d’analyser l’utilisation, les événements et les incidents de votre application mobile.
+Microsoft propose deux solutions pour les appareils devOps : [HockeyApp](http://hockeyapp.net/) pour l’analyse de flux de travail et des pannes devOps ; et [Application Insights](app-insights-overview.md) pour l’analyse de l’utilisation et des pannes.
+
+[HockeyApp](http://hockeyapp.net/) est notre solution Mobile DevOps pour le développement d’applications pour appareils iOS, OS X, Android ou Windows, ainsi que des applications inter-plateformes sur Xamarin, Cordova et Unity. Avec elle, vous pouvez distribuer des versions pour les testeurs de versions béta, collecter des données liées aux pannes et obtenir des retours utilisateur. Elle est intégrée à Visual Studio Team Services, ce qui permet d’activer des déploiements de versions simples et d’intégrer des éléments de travail. Vous pouvez obtenir d’autres informations dans la [Base de connaissances HockeyApp](http://support.hockeyapp.net/kb) et vous tenir au courant sur le [blog HockeyApp](http://hockeyapp.net/blog/).
 
 
-> [AZURE.NOTE]Nous vous recommandons [HockeyApp](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios) pour obtenir des rapports d’incident, des analyses, ainsi que des données sur la distribution et la gestion des commentaires.
-
-## Conditions requises
-
-Vous devez avoir :
-
-* Un abonnement à [Microsoft Azure](http://azure.com). Vous vous connectez avec un compte Microsoft, que vous pouvez avoir pour Windows, XBox Live ou d’autres services cloud de Microsoft.
-* Xcode 6 ou version ultérieure.
-* Le Kit de développement logiciel (SDK) s’exécute sur les appareils iOS 6.0 ou version ultérieure.
-
-## Création d’une ressource Application Insights dans Azure
-
-Dans le [portail Azure][portal], créez une ressource Application Insights. Choisissez l’option iOS.
-
-![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-ios/11-new.png)
-
-Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l’écran d’accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
-
-## Paramétrage
-
-Veuillez suivre le [guide d’installation](https://github.com/Microsoft/ApplicationInsights-iOS#setup) pour installer le Kit de développement logiciel (SDK) dans votre application.
-
-## Affichage de vos données dans Application Insights
-
-Exécutez votre application pour générer un certain volume de télémétrie.
-
-Revenez à http://portal.azure.com et accédez à vos ressources Application Insights.
-
-Cliquez sur **Rechercher** pour ouvrir [Recherche de diagnostic][diagnostic] : les premiers événements y apparaissent. Si vous ne voyez rien, attendez une minute ou deux et cliquez sur **Actualiser**.
-
-![Cliquez sur Recherche de diagnostic](./media/app-insights-ios/21-search.png)
-
-Lorsque votre application est utilisée, les données s’affichent dans le panneau Vue d’ensemble.
-
-![Panneau Vue d’ensemble](./media/app-insights-ios/22-oview.png)
-
-Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exemple, pour les incidents :
-
-![Cliquez sur le graphique de l’incident](./media/app-insights-ios/23-crashes.png)
-## <a name="usage"></a>Étapes suivantes
-
-[Suivi de l'utilisation de votre application][track]
-
-[Recherche de diagnostic][diagnostic]
-
-[Metrics Explorer][metrics]
-
-[Résolution des problèmes][qna]
+Pour une analyse de l’utilisation, utilisez le [Kit de développement logiciel (SDK) Application Insights pour iOS](https://github.com/Microsoft/ApplicationInsights-iOS). Si votre application dispose d’un côté serveur, vous pouvez envoyer les données client et serveur à la même ressource Application Insights.
 
 
-<!--Link references-->
+* [Prise en main d'Application Insights pour iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
+* [Prise en main de HockeyApp pour Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 
-[diagnostic]: app-insights-diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

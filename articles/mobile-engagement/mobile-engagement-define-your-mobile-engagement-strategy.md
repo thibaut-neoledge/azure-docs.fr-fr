@@ -117,6 +117,9 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 
 ### Étapes suivantes
 - Consultez la page [Concepts de Mobile Engagement] pour en savoir plus sur les concepts Mobile Engagement de base.
+- Consultez [Meilleures pratiques](mobile-engagement-getting-started-best-practices.md) pour une étude approfondie
+- Consultez [Scénario d’application de jeu](mobile-engagement-gaming-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec une application de jeu exemple. 
+- Consultez [Scénario d’application multimédia](mobile-engagement-media-scenario.md) pour en savoir plus sur l’implémentation de Mobile Engagement avec une application multimédia exemple. 
 - Consultez la page [Didacticiels] pour en savoir plus sur l'implémentation.
 
 <!-- Images. -->
@@ -127,4 +130,4 @@ Tous ces types de données peuvent être agrémentés de paramètres (*extra-inf
 [Concepts de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Didacticiels]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

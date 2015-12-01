@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Prise en main de la configuration de votre équilibreur de charge accessible sur Internet
@@ -130,10 +130,10 @@ Dans l'exemple ci-dessous, vous allez ajouter un équilibrage de charge appelé 
 
 ## Étapes suivantes
 
-[Prise en main de la configuration d’un équilibrage de charge interne](load-balancer-internal-getstarted.md)
+[Prise en main de la configuration d’un équilibreur de charge interne](load-balancer-internal-getstarted.md)
 
-[Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
+[Configuration d'un mode de distribution d'équilibreur de charge](load-balancer-distribution-mode.md)
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

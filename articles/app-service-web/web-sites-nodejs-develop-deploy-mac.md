@@ -3,7 +3,7 @@
 	description="Découvrez comment déployer une application Node.js sur une application web dans Azure App Service."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="10/13/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Créer une application web Node.js dans Azure App Service
 
@@ -77,7 +77,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 	Azure termine la création de la nouvelle application web dans un délai bref, généralement inférieur à une minute.
 
-9. Cliquez sur **Applications Web > {votre nouvelle application web}**.
+9. Cliquez sur **Applications web > {votre nouvelle application web}**.
 
 	![](./media/web-sites-nodejs-develop-deploy-mac/gotowebapp.png)
 
@@ -85,7 +85,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 	![][deployment-part]
 
-11. Dans le panneau **Déploiement continu** lame, cliquez sur **Choisir la source**
+11. Dans le panneau **Déploiement continu**, cliquez sur **Choisir la source**
 
 12. Cliquez sur **Référentiel Git local**, puis sur **OK**.
 
@@ -224,4 +224,4 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

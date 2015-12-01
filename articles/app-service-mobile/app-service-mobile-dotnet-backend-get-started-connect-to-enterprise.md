@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Connexion d'une application mobile à une solution SaaS d'entreprise | Microsoft Azure"
 	description="Découvrez comment effectuer des appels à des ressources d'entreprise telles que SharePoint Online"
+	keywords="azure app service,app service,application mobile,backend mobile,saas,saas azure,service mobile d’entreprise"
 	documentationCenter=""
 	authors="mattchenderson"
 	manager="dwrede"
@@ -18,7 +19,7 @@
 
 # Connecter une application mobile aux API SaaS
 
-Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory] pour créer un document Microsoft Word dans SharePoint Online, chaque fois qu’un nouvel élément TodoItem est ajouté.
+Dans ce didacticiel, vous connecterez votre application mobile à une solution SaaS (software-as-a-service) d'entreprise. Vous mettrez à jour l’application à partir de la page [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory] pour créer un document Microsoft Word dans SharePoint Online chaque fois qu’un nouvel élément TodoItem est ajouté.
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -187,4 +188,4 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

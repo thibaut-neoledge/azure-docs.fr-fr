@@ -19,9 +19,7 @@
 
 #Créer une page HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Nous vous remercions pour votre patience pendant que nous terminons la version d’évaluation de Mobile Apps.
 
@@ -47,7 +45,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ##Création d'un backend Mobile App
 
+Suivez ces étapes pour créer un serveur principal d’application mobile.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
 ## Télécharger le projet de serveur
 
@@ -65,7 +67,7 @@ Le partage des ressources cross-origin (CORS) est un moyen pour votre applicatio
 
 Par défaut, le projet de démarrage rapide du client que vous allez télécharger à partir du portail s'exécute sur localhost sur le port 8000. Par conséquent, vous allez ensuite activer CORS pour `http://localhost:8000` dans le projet de serveur.
 
-1. Dans le menu Outils de Visual Studio, cliquez sur **Gestionnaire de Package NuGet** > **Console du gestionnaire de package**, sélectionnez Nuget.org comme **Source du package** et exécutez la commande suivante dans la fenêtre de console :
+1. Dans le menu Outils de Visual Studio, cliquez sur **Gestionnaire de Package NuGet** > **Console du gestionnaire de package**, sélectionnez Nuget.org comme **Source du package** et exécutez la commande suivante dans la fenêtre de console :
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
@@ -123,4 +125,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

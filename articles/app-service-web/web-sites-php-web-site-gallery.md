@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Créer une application web WordPress dans Azure App Service
@@ -40,7 +40,7 @@ Azure Marketplace met à votre disposition une large gamme d’applications web 
 
 1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com/).
 
-2. Cliquez sur **Nouveau > Marketplace**.
+2. Cliquez sur **Nouveau**.
 	
     ![Création][5]
 	
@@ -124,4 +124,4 @@ Pour plus d’informations sur l’utilisation d’App Service Web Apps, consult
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

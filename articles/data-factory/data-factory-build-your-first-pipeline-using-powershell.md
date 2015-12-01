@@ -112,7 +112,6 @@ Vous allez maintenant créer un service lié pour le cluster Azure HDInsight à 
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -125,7 +124,6 @@ Vous allez maintenant créer un service lié pour le cluster Azure HDInsight à 
 	Version | Cette propriété indique que la version du service HDInsight doit être la version 3.1.
 	ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud.
 	TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression.
-	JobsContainer | Cette propriété spécifie le nom du conteneur de tâche qui sera créé pour stocker les journaux générés par HDInsight.
 	linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight.
 2. Exécutez l’applet de commande **New-AzureDataFactoryLinkedService** pour créer le service lié HDInsightOnDemandLinkedService.
 
@@ -156,7 +154,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 		  }
 		}
 
-	Dans l’exemple précédent, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d’objets blob appelé **data** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
+	Dans l’exemple précédent, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle
 
 2. Exécutez la commande suivante dans Azure PowerShell pour créer le jeu de données Data Factory :
 
@@ -205,7 +203,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 
 	Le fichier de script Hive, partitionweblogs.hql, est stocké dans le compte de stockage Azure (spécifié par le scriptLinkedService, appelé StorageLinkedService) et dans un conteneur appelé **script**.
 
-	La section **extendedProperties** permet de spécifier les paramètres d’exécution qui seront transmis au script Hive en tant que valeurs de configuration Hive (par exemple ${hiveconf:PartitionedData}).
+	La section **définit** permet de spécifier les paramètres d’exécution qui seront transmis au script Hive en tant que valeurs de configuration Hive (par exemple ${hiveconf:PartitionedData}).
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
@@ -264,7 +262,7 @@ Au cours de cette étape, vous allez utiliser Azure PowerShell pour surveiller c
 
 	Vous pouvez continuer d’exécuter cette applet de commande jusqu'à ce que la tranche indique l’état Prêt ou Détérioré. Lorsque la tranche indique l’état Prêt, vérifiez le dossier partitioneddata du conteneur de données de votre stockage d'objets blob pour les données de sortie. Notez que la création d’un cluster HDInsight à la demande prend généralement un certain temps.
 
-Consultez la [référence des applets de commande Data Factory](https://msdn.microsoft.com/library/azure/dn820234.aspx) pour obtenir une documentation complète sur les applets de commande Data Factory.
+Consultez la [Référence des applets de commande Data Factory](https://msdn.microsoft.com/library/azure/dn820234.aspx) pour obtenir une documentation complète sur les applets de commande Data Factory.
 
 
 
@@ -274,4 +272,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

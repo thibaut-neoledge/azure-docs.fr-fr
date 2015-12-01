@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Déploiement de batteries de serveurs SharePoint avec des modèles Azure Resource Manager | Microsoft Azure"
-	description="Déployez facilement une batterie SharePoint à trois ou à neuf serveurs à l’aide de modèles du Gestionnaire de ressources et du portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
+	description="Déployez facilement une batterie SharePoint à trois ou à neuf serveurs à l’aide de modèles du Gestionnaire de ressources et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -41,7 +41,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 6.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 7.	Cliquez sur **Create**.
@@ -113,7 +113,7 @@ Pour déployer cette charge de travail à l’aide d’un modèle Resource Mana
 
 1.	Cliquez sur **Paramètres**. Dans le panneau **Paramètres**, tapez les nouvelles valeurs, effectuez votre sélection parmi les valeurs autorisées ou acceptez les valeurs par défaut, puis cliquez sur **OK**.
 2.	Si nécessaire, cliquez sur **Abonnement**, puis sélectionnez l’abonnement Azure approprié.
-3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer nouveau** pour créer un nouveau groupe de ressources pour cette charge de travail.
+3.	Cliquez sur **Groupe de ressources**, puis sélectionnez un groupe de ressources existant. Sinon, cliquez sur **Ou créer** pour créer un groupe de ressources pour cette charge de travail.
 4.	Si nécessaire, cliquez sur **Emplacement du groupe de ressources**, puis sélectionnez l’emplacement Azure approprié.
 5.	Cliquez sur **Mentions légales** afin de passer en revue les conditions d’utilisation et le contrat de ce modèle, puis cliquez sur **Acheter**.
 6.	Cliquez sur **Create**.
@@ -186,4 +186,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,32 +60,29 @@ Veillez à passer en mode PowerShell pour utiliser les applets de commande ARM. 
 
 ### Étape 1
 
-    Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Login-AzureRmAccount
 
-### Étape 2
+### Étape 2 :
 
-Connectez-vous à votre compte Azure.
+Vérifiez les abonnements associés au compte
+
+		PS C:\> get-AzureRmSubscription 
+
+Vous devez indiquer vos informations d’identification.<BR>
+
+### Étape 3 
+
+Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.<BR>
 
 
-    Add-AzureAccount
-
-Vous devez indiquer vos informations d’identification.
-
-
-### Étape 3
-
-Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
-
-    Select-AzureSubscription -SubscriptionName "MySubscription"
-
-Pour afficher la liste des abonnements disponibles, utilisez l'applet de commande « Get-AzureSubscription ».
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Étape 4
 
 Créez un groupe de ressources (ignorez cette étape si vous utilisez un groupe de ressources existant)
 
-    New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Ce dernier est utilisé comme emplacement par défaut des ressources de ce groupe. Assurez-vous que toutes les commandes pour la création d’une passerelle Application Gateway utiliseront le même groupe de ressources.
 
@@ -97,13 +94,13 @@ L’exemple ci-après indique comment créer un réseau virtuel à l’aide de R
 
 ### Étape 1	
 	
-	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Attribue la plage d’adresses 10.0.0.0/24 à la variable subnet à utiliser pour créer un réseau virtuel.
 
 ### Étape 2
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 Crée un réseau virtuel nommé « appgwvnet » dans le groupe de ressources « appw-rg » pour la région « West US » à l’aide du préfixe 10.0.0.0/16 avec le sous-réseau 10.0.0.0/24.
 	
@@ -118,49 +115,49 @@ Assigne l'objet de sous-réseau à la variable $subnet pour les étapes suivante
 
 ### Étape 1
 
-	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 Crée une configuration IP de passerelle Application Gateway nommée « gatewayIP01 ». Lorsque la passerelle Application Gateway démarrera, elle sélectionnera une adresse IP à partir du sous-réseau configuré et acheminera le trafic réseau vers les adresses IP du pool IP principal. Gardez à l’esprit que chaque instance utilisera une adresse IP unique.
  
 ### Étape 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
 Cette étape va configurer le pool d’adresses IP principal nommé « pool01 » avec les adresses IP « 10.0.0.10, 10.0.0.11, 10.0.0.12 ». Il s’agit des adresses IP qui recevront le trafic réseau provenant du point de terminaison IP frontal. Vous remplacerez les adresses IP ci-dessus afin d’ajouter vos propres points de terminaison d’adresse IP d’application.
 
 ### Étape 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 Configure les paramètres de passerelle Application Gateway « poolsetting01 » pour le trafic réseau à charge équilibrée dans le pool principal.
 
 ### Étape 4
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
 Configure le port d’adresses IP frontal nommé « frontendport01 » pour l’équilibrage de charge interne.
 
 ### Étape 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
 Crée la configuration IP frontale nommée « fipconfig01 » et associe une adresse IP privée à partir du sous-réseau du réseau virtuel actuel.
 
 ### Étape 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 Crée l’écouteur nommé « listener01 » et associe le port frontal à la configuration IP frontale.
 
 ### Étape 7 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 Crée la règle d’acheminement d’équilibrage de charge nommée « rule01 » qui configure le comportement d’équilibrage de charge.
 
 ### Étape 8
 
-	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 Configure la taille d’instance de la passerelle Application Gateway.
 
@@ -168,7 +165,7 @@ Configure la taille d’instance de la passerelle Application Gateway.
 
 ## Créer une passerelle Application Gateway avec New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Crée une passerelle Application Gateway avec tous les éléments de configuration à partir de la procédure ci-dessus. Dans notre exemple, la passerelle Application Gateway est appelée « appgwtest ».
 
@@ -176,10 +173,10 @@ Crée une passerelle Application Gateway avec tous les éléments de configurati
 
 ## Démarrer la passerelle
 
-Une fois la passerelle configurée, utilisez l'applet de commande `Start-AzureApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
+Une fois la passerelle configurée, utilisez l’applet de commande `Start-AzureRmApplicationGateway` pour démarrer la passerelle. La facturation pour une passerelle Application Gateway commence une fois la passerelle démarrée avec succès.
 
 
-**Remarque :** l'applet de commande `Start-AzureApplicationGateway` peut prendre jusqu'à 15 à 20 minutes pour se terminer.
+**Remarque :** l’exécution de l’applet de commande `Start-AzureRmApplicationGateway` peut prendre jusqu’à 15 à 20 minutes.
 
 Dans l’exemple ci-dessous, la passerelle Application Gateway est appelée « appgwtest », et le groupe de ressources est nommé « appgw-rg » :
 
@@ -188,15 +185,15 @@ Dans l’exemple ci-dessous, la passerelle Application Gateway est appelée « 
 
 Obtenez l’objet de passerelle Application Gateway et associez-le à une variable « $getgw » :
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Étape 2
 	 
-Utilisez `Start-AzureApplicationGateway` pour démarrer la passerelle Application Gateway :
+Utilisez `Start-AzureRmApplicationGateway` pour démarrer la passerelle Application Gateway :
 
-	PS C:\> Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -206,46 +203,30 @@ Utilisez `Start-AzureApplicationGateway` pour démarrer la passerelle Applicatio
 
 ## Vérifier l’état de la passerelle Application Gateway
 
-Utilisez l’applet de commande `Get-AzureApplicationGateway` pour vérifier l’état de la passerelle. Si *Start-AzureApplicationGateway* a réussi à l’étape précédente, l’état doit être *En cours d’exécution* et l’adresse IP virtuelle et DnsName doivent avoir des entrées valides.
-
-Cet exemple présente une passerelle Application Gateway en cours d’exécution et prête à prendre en charge le trafic destiné à `http://<generated-dns-name>.cloudapp.net`.
-
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : appgwvnet 
-	Subnets       : {Subnet01} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
-	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+Utilisez l’applet de commande `Get-AzureRmApplicationGateway` pour vérifier l’état de la passerelle. Si *Start-AzureApplicationGateway* a bien été exécuté à l’étape précédente, l’état doit être *en cours d’exécution*.
 
 
 ## Supprimer une passerelle Application Gateway
 
 Pour supprimer une passerelle Application Gateway, vous devez effectuer les opérations suivantes dans l'ordre :
 
-1. Utilisez l’applet de commande `Stop-AzureApplicationGateway` pour arrêter la passerelle. 
-2. Utilisez l’applet de commande `Remove-AzureApplicationGateway` pour supprimer la passerelle.
+1. Utilisez l’applet de commande `Stop-AzureRmApplicationGateway` pour arrêter la passerelle. 
+2. Utilisez l’applet de commande `Remove-AzureRmApplicationGateway` pour supprimer la passerelle.
 3. Vérifiez que la passerelle a été supprimée à l’aide de l’applet de commande `Get-AzureApplicationGateway`.
 
-Cet exemple présente l’applet de commande `Stop-AzureApplicationGateway` sur la première ligne, suivie de la sortie.
+Cet exemple montre l'applet de commande `Stop-AzureRmApplicationGateway` sur la première ligne, suivie de la sortie.
 
 ### Étape 1
 
 Obtenez l’objet de passerelle Application Gateway et associez-le à une variable « $getgw » :
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Étape 2
 	 
-Utilisez `Stop-AzureApplicationGateway` pour arrêter la passerelle Application Gateway :
+Utilisez `Stop-AzureRmApplicationGateway` pour arrêter la passerelle Application Gateway :
 
-	PS C:\> Stop-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -253,10 +234,10 @@ Utilisez `Stop-AzureApplicationGateway` pour arrêter la passerelle Application 
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Une fois la passerelle Application Gateway dans un état arrêté, utilisez l’applet de commande `Remove-AzureApplicationGateway` pour supprimer le service.
+Une fois la passerelle Application Gateway arrêtée, utilisez l’applet de commande `Remove-AzureRmApplicationGateway` pour supprimer le service.
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+	PS C:\> Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -267,10 +248,10 @@ Une fois la passerelle Application Gateway dans un état arrêté, utilisez l’
 >[AZURE.NOTE]Il est possible d’utiliser le commutateur « -force » pour supprimer le message de confirmation.
 >
 
-Pour vérifier que le service a été supprimé, vous pouvez utiliser l’applet de commande `Get-AzureApplicationGateway`. Cette étape n'est pas requise.
+Pour vérifier que le service a été supprimé, vous pouvez utiliser l’applet de commande `Get-AzureRmApplicationGateway`. Cette étape n'est pas requise.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -281,11 +262,11 @@ Pour vérifier que le service a été supprimé, vous pouvez utiliser l’applet
 
 Si vous souhaitez configurer le déchargement SSL, consultez [Configuration de la passerelle Application Gateway pour le déchargement SSL](application-gateway-ssl.md).
 
-Si vous souhaitez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibreur de charge interne (ILB)](application-gateway-ilb.md).
+Si vous souhaitez configurer une passerelle Application Gateway à utiliser avec l’équilibreur de charge interne, consultez [Création d’une passerelle Application Gateway avec un équilibrage de charge interne (ILB)](application-gateway-ilb.md).
 
 Si vous souhaitez plus d'informations sur les options d'équilibrage de charge en général, consultez :
 
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

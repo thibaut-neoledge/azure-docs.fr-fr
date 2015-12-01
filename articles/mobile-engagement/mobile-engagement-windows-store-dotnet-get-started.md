@@ -55,13 +55,11 @@ Les étapes suivantes supposent l’utilisation de Visual Studio 2015, même si
 
     ![][1]
 
-> [AZURE.IMPORTANT]Azure Engagement Mobile ne prend pas encore en charge les applications Windows universelles Windows 10.
-
 Vous avez maintenant créé un nouveau projet d’application universelle Windows dans lequel nous allons intégrer le Kit de développement logiciel Azure Mobile Engagement.
 
 ###Connectez votre application au serveur principal Mobile Engagement
 
-1. Installez le package NuGet [MicrosoftAzure.MobileEngagement] dans votre projet. Si vous ciblez les plateformes Windows et Windows Phone, vous devrez effectuer cette opération pour les deux projets. Le même package NuGet placera les fichiers binaires spécifiques de plateforme adéquats dans chaque projet.
+1. Installez le package nuget [MicrosoftAzure.MobileEngagement] dans votre projet. Si vous ciblez les plateformes Windows et Windows Phone, vous devrez effectuer cette opération pour les deux projets. Pour Windows 8.x et Windows Phone 8.1, le même package Nuget place les fichiers binaires spécifiques de plateforme adéquats dans chaque projet.
 
 2. Ouvrez **Package.appxmanifest** et assurez-vous que la fonctionnalité suivante y est ajoutée :
 
@@ -81,11 +79,20 @@ Vous avez maintenant créé un nouveau projet d’application universelle Window
 
 			using Microsoft.Azure.Engagement;
 
-	b. Initialisez le Kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
+	b. Ajoutez une méthode dédiée pour l’initialisation et la configuration d’Engagement :
+
+           private void InitEngagement(IActivatedEventArgs e)
+           {
+             EngagementAgent.Instance.Init(e);
+
+			 //... rest of the code
+           }
+
+    c. Initialisez le kit de développement logiciel (SDK) dans la méthode **OnLaunched** :
 
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -94,7 +101,7 @@ Vous avez maintenant créé un nouveau projet d’application universelle Window
 
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
-			  EngagementAgent.Instance.Init(e);
+			  InitEngagement(e);
 
 			  //... rest of the code
 			}
@@ -125,7 +132,7 @@ Pour commencer à envoyer des données et vous assurer que les utilisateurs sont
 
 [AZURE.INCLUDE [Connexion d’application avec l’analyse en temps réel](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-##<a id="integrate-push"></a>Activation des notifications push et de la messagerie in-app
+##<a id="integrate-push"></a>Activation des notifications Push et de la messagerie in-app
 
 Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs à l’aide de notifications push et de la messagerie dans l’application, dans le cadre d’une campagne. Ce module s'appelle Couverture dans le portail Mobile Engagement. Les sections suivantes vous permettent de configurer votre application pour la réception.
 
@@ -137,17 +144,9 @@ Mobile Engagement vous permet d’interagir et d’atteindre vos utilisateurs �
 
 ###Initialiser le SDK du module Couverture
 
-1. Dans `App.xaml.cs`, appelez **EngagementReach.Instance.Init();**, dans la fonction **OnLaunched**, juste après l’initialisation de l’agent :
+Dans `App.xaml.cs`, appelez **EngagementReach.Instance.Init(e);** dans la fonction **InitEngagement**, juste après initialisation de l’agent :
 
-		protected override void OnLaunched(LaunchActivatedEventArgs e)
-		{
-		   EngagementAgent.Instance.Init(e);
-		   EngagementReach.Instance.Init(e);
-		}
-
-2. Dans `App.xaml.cs`, appelez **EngagementReach.Instance.Init(e);** dans la fonction **OnActivated**, juste après initialisation de l’agent :
-
-		protected override void OnActivated(IActivatedEventArgs e)
+        private void InitEngagement(IActivatedEventArgs e)
 		{
 		   EngagementAgent.Instance.Init(e);
 		   EngagementReach.Instance.Init(e);
@@ -190,7 +189,7 @@ Vous êtes prêt à envoyer un toast. Nous allons maintenant vérifier que vous 
 
 [AZURE.INCLUDE [Création d’une campagne push Windows](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Si l’application était en cours d’exécution, une notification dans l’application s’affiche. Par contre, si l’application était fermée, une notification toast apparaît. Si vous voyez une notification dans l’application, mais pas une notification toast, et que vous exécutez l’application en mode débogage dans Visual Studio, accédez à **Événements de cycle de vie -> Interrompre** dans la barre d’outils pour vous assurer que l’application est effectivement suspendue. Si vous avez simplement cliqué sur le bouton Accueil pendant le débogage de l’application dans Visual Studio, l’application n’est pas systématiquement interrompue et la notification dans l’application ne fait pas place à une notification toast.
+Si l’application était en cours d’exécution, une notification dans l’application s’affiche. Par contre, si l’application était fermée, une notification toast apparaît. Si vous voyez une notification dans l’application, mais pas qu’il ne s’agit pas d’une notification toast, et que vous exécutez l’application en mode débogage dans Visual Studio, accédez à **Événements de cycle de vie -> Interrompre** dans la barre d’outils pour vous assurer que l’application est effectivement suspendue. Si vous avez simplement cliqué sur le bouton Accueil pendant le débogage de l’application dans Visual Studio, l’application n’est pas systématiquement interrompue et la notification dans l’application ne fait pas place à une notification toast.
 
 ![][8]
 
@@ -214,4 +213,4 @@ Si l’application était en cours d’exécution, une notification dans l’app
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

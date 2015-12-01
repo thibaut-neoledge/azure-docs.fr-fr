@@ -1,10 +1,6 @@
-
-
-Suivez ces étapes pour créer un serveur principal d’application mobile.
-
 1. Connectez-vous au [portail Azure].
 
-2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez un nom pour le serveur principal de votre application mobile.
+2. Dans le coin supérieur gauche de la fenêtre, cliquez sur le bouton **+ NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez un nom pour votre serveur principal d’application mobile.
 
 3. Dans la zone **Groupe de ressources**, sélectionnez un groupe de ressources existant. Si vous n’avez pas de groupe de ressources, entrez le même nom que celui de votre application.
  
@@ -30,9 +26,8 @@ Suivez ces étapes pour créer un serveur principal d’application mobile.
 
 	La création de la base de données prend quelques minutes. Utilisez la zone **Notifications** pour surveiller la progression du déploiement. Attendez la fin du déploiement avant de continuer.
 
-Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

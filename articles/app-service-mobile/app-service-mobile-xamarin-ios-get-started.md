@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/03/2015"
+	ms.date="11/23/2015"
 	ms.author="normesta"/>
 
 
 #Création d’une application Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -38,38 +36,41 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * [Visual Studio Community 2013] ou version ultérieure. Si vous installez Visual Studio Community 2013, installez [Xamarin] séparément. Vous pouvez installer les outils Xamarin en même temps que Visual Studio 2015.
 
 * Un Mac sur lequel sont installés [Xcode] 7.0 ou version ultérieure et [Xamarin Studio].
+ 
+* Si vous envisagez de générer votre application sur un ordinateur Windows exécutant Visual Studio, vous devrez toujours avoir accès à un Mac en réseau exécutant l’hôte Xamarin.iOS Build pour pouvoir générer et déployer votre application. Pour plus d’informations, consultez la rubrique [Installation de Xamarin.iOS sur Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/).
 
-     >[AZURE.NOTE]Si vous envisagez de créer votre application sur un ordinateur Windows à l’aide de Visual Studio, vous devez quand même avoir accès à un Mac en réseau pour effectuer cette opération.
-
->[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+>[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ## Créer un serveur principal d'applications mobiles Azure
 
+Suivez ces étapes pour créer un serveur principal d’application mobile.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Télécharger le projet de serveur
+## Configurer le projet de serveur
 
-1. Sur votre PC, accédez au [portail Azure]. Cliquez sur **Parcourir tout** > **Mobile Apps**, puis cliquez sur le serveur principal d’application mobile que vous venez de créer.
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
-2. Dans le panneau de l’application Mobile App, cliquez sur **Paramètres** et sous **Application mobile** cliquez sur **Démarrage rapide** > **Xamarin.iOS**.
+Suivez les étapes ci-dessous pour configurer le projet de serveur de sorte qu’il utilise le serveur principal Node.js ou .NET.
 
-3. Sous **Télécharger et exécuter votre projet de serveur**, cliquez sur **Télécharger**. Extrayez les fichiers projet compressés sur votre ordinateur et ouvrez la solution dans Visual Studio.
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Tester localement votre projet de serveur principal
+
+## (Facultatif) Tester localement votre projet de serveur principal
+
+Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous pouvez éventuellement tester votre serveur principal en local.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
 
-## Publier le projet de serveur sur Azure
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## Télécharger et exécuter l’application Xamarin.iOS
 
 1. Sur votre Mac, ouvrez le [portail Azure] dans une fenêtre de navigateur.
 
->[AZURE.NOTE]Il est plus facile d’exécuter votre application Xamarin.iOS sur un Mac. Vous pouvez exécuter l’application Xamarin.iOS à l’aide de Visual Studio sur votre ordinateur Windows si vous le souhaitez, mais c’est un peu plus compliqué, car vous devez vous connecter à un Mac en réseau. Si vous souhaitez effectuer cette opération, consultez [Installation de Xamarin.iOS sur Windows].
+	>[AZURE.NOTE]Il est plus facile d’exécuter votre application Xamarin.iOS sur un Mac. Vous pouvez exécuter l’application Xamarin.iOS à l’aide de Visual Studio sur votre ordinateur Windows si vous le souhaitez, mais c’est un peu plus compliqué, car vous devez vous connecter à un Mac en réseau. Si vous souhaitez effectuer cette opération, consultez la rubrique [Installation de Xamarin.iOS sur Windows].
 
-2. Sous **Télécharger et exécuter votre projet Xamarin.iOS**, cliquez sur le bouton **Télécharger**.
+2. Dans le panneau Paramètres de votre application mobile, cliquez sur **Get Started** (sous Mobile) > **Xamarin.iOS**. À l’Étape 3, cliquez sur **Create a new app** si cette option n’est pas déjà sélectionnée. Cliquez ensuite sur le bouton **Download**.
 
   	Cette opération télécharge un projet qui contient une application cliente connectée à votre application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l’emplacement où vous l’avez enregistré.
 
@@ -118,4 +119,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
