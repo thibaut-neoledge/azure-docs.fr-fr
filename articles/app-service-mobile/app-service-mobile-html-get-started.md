@@ -19,7 +19,9 @@
 
 #Créer une page HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
+&nbsp;  
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Nous vous remercions pour votre patience pendant que nous terminons la version d’évaluation de Mobile Apps.
 
