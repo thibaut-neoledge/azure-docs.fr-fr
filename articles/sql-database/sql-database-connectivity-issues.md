@@ -31,7 +31,7 @@ Cette rubrique décrit comment empêcher, dépanner, diagnostiquer et limiter le
 Une erreur temporaire est une erreur dont la cause sous-jacente se résout rapidement elle-même. Une des causes des défaillances temporaires est souvent que le système Azure rapidement réaffecte rapidement des ressources matérielles pour mieux équilibrer les différentes charges de travail. Durant cette reconfiguration, les connexions à la base de données SQL Azure peuvent être perdues.
 
 
-Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par l’envoi d’une exception **SqlException**. La propriété **Number** peut être comparée à la liste des erreurs temporaires au début de la rubrique : [Messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages).
+Si votre programme client utilise ADO.NET, votre programme est informé de l’erreur temporaire par l’envoi d’une exception **SqlException**. La propriété **Number** peut être comparée à la liste des erreurs temporaires au début de la rubrique : [Messages d’erreur pour les programmes clients SQL Database](sql-database-develop-error-messages.md).
 
 
 ### Connexion ou commande
@@ -94,7 +94,7 @@ Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt
 
 Vous trouverez des exemples de code avec logique de nouvelle tentative dans divers langages de programmation ici :
 
-- [Exemples de code de démarrage rapide](sql-database-develop-quick-start-client-code-samples.md) 
+- [Exemples de code de démarrage rapide](sql-database-develop-quick-start-client-code-samples.md)
 
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -478,4 +478,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

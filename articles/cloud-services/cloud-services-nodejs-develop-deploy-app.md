@@ -3,7 +3,7 @@
 	description="Apprenez à créer une application web Node.js simple et à la déployer vers un service cloud Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Création et déploiement d'une application Node.js dans Azure Cloud Services
@@ -27,7 +27,7 @@ Ce didacticiel explique comment créer une application Node.js simple s’exécu
 
 Pour plus d'informations sur les services cloud et pour connaître les différences avec les sites Web Azure et les machines virtuelles, consultez la page [Comparaison des sites Web Azure, des services cloud et des machines virtuelles](../choose-web-site-cloud-service-vm.md).
 
->[AZURE.TIP]Vous voulez créer un simple site Web ? Si votre scénario ne comporte qu’un simple composant frontal web, envisagez d’<a href="/web-sites-nodejs-develop-deploy-mac/">utiliser une application web légère.</a> Vous pouvez facilement mettre à niveau vers un service cloud en fonction du développement de votre application et de vos besoins.
+>[AZURE.TIP]Vous voulez créer un simple site Web ? Si votre scénario ne comporte qu’un simple composant frontal web, envisagez d’<a href="../app-service-web/web-sites-nodejs-develop-deploy-mac.md">utiliser une application web légère.</a> Vous pouvez facilement mettre à niveau vers un service cloud en fonction du développement de votre application et de vos besoins.
 
 
 Dans ce didacticiel, vous allez créer une application Web simple, hébergée dans un rôle Web. Vous utiliserez l’émulateur de calcul pour tester votre application localement, puis déploierez cette dernière à l’aide d’outils en ligne de commande PowerShell.
@@ -197,4 +197,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

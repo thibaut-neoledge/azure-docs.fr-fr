@@ -81,7 +81,7 @@ Dans cette étape, vous lierez votre compte de stockage Azure et un cluster Azur
 	![Service lié Azure Storage](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	Le script JSON de création d’un service lié Microsoft Azure Storage doit apparaître dans l’éditeur. 
-4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès de stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+4. Remplacez **account name** par le nom de votre compte de stockage Azure et **account key** par sa clé d’accès. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez la rubrique [Affichage, copie et régénération de clés d’accès de stockage](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
 
 	![Bouton déployer](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -102,7 +102,6 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 		      "version": "3.1",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
-		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
 		  }
@@ -115,7 +114,6 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 	Version | Cette propriété indique que la version du service HDInsight doit être la version 3.1. 
 	ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud. 
 	TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression.
-	JobsContainer | Cette propriété spécifie le nom du conteneur de tâche qui sera créé pour stocker les journaux générés par HDInsight.
 	linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight.
 3. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié. 
 4. Confirmez que vous voyez s’afficher StorageLinkedService et HDInsightOnDemandLinkedService dans l’arborescence à gauche de l’écran.
@@ -128,7 +126,7 @@ Vous allez maintenant créer le jeu de données de sortie pour représenter les 
 1. Dans **Data Factory Editor**, cliquez sur **Nouveau jeu de données** dans la barre de commandes, puis sélectionnez **Stockage d’objets Blob Azure**.  
 
 	![Nouveau jeu de données](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
-2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d’objets blob appelé **data** et dans le dossier appelé **partitioneddata**. La section **availability** spécifie que le jeu de données de sortie est généré sur une base mensuelle.
+2. Copiez et collez l'extrait ci-dessous dans la fenêtre Draft-1. Dans l’extrait de code JSON, vous créez un jeu de données appelé **AzureBlobOutput** et vous spécifiez la structure de données qui sera générée par le script Hive. En outre, vous spécifiez que les résultats sont stockés dans le conteneur d'objets blob appelé **données** et dans le dossier appelé **partitioneddata**. La section **disponibilité** spécifie que le jeu de données de sortie est généré sur une base mensuelle
 	
 		{
 		  "name": "AzureBlobOutput",
@@ -204,7 +202,7 @@ Dans cette étape, vous allez créer votre premier pipeline.
 	
 	Le fichier de script Hive, **partitionweblogs.hql**, est stocké dans le compte de stockage Azure (spécifié par le scriptLinkedService, appelé **StorageLinkedService**) et dans un conteneur appelé **script**.
 
-	La section **extendedProperties** permet de spécifier les paramètres d'exécution qui seront transmis au script Hive en tant que valeurs de configuration Hive (par ex. ${hiveconf:PartitionedData}).
+	La section **définition** permet de spécifier les paramètres d’exécution qui seront transmis au script Hive en tant que valeurs de configuration Hive (par ex. ${hiveconf:PartitionedData}).
 
 	Les propriétés **start** et **end** du pipeline spécifient la période active du pipeline.
 
@@ -235,4 +233,4 @@ Dans cette étape, vous allez créer votre premier pipeline.
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble technique d’Azure Batch | Microsoft Azure"
+	pageTitle="Concepts de base d’Azure Batch Service | Microsoft Azure"
 	description="Découvrez les concepts, les flux de travail et les scénarios du service Azure Batch pour les charges de travail HPC et parallèle à grande échelle"
 	services="batch"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/26/2015"
+	ms.date="11/19/2015"
 	ms.author="danlep"/>
 
+# Notions de base d’Azure Batch
 
-# Vue d’ensemble technique d’Azure Batch pour les charges de travail HPC et parallèles à grande échelle
 Azure Batch vous permet d'exécuter des applications de calculs complexes parallèles à grande échelle efficacement dans le cloud. Il s’agit d’un service de plateforme qui planifie les travaux nécessitant beaucoup de ressources système à exécuter sur une collection gérée de machines virtuelles (nœuds de calcul) et peut mettre à l’échelle les ressources de calcul pour répondre aux besoins du travail. En utilisant le service Batch, vous pouvez définir par programme des ressources de calcul Azure et des travaux par lots à grande échelle qui s’exécutent à la demande ou selon une planification, sans que vous deviez manuellement configurer et gérer un cluster HPC, des machines virtuelles spécifiques, des réseaux virtuels ou un planificateur de travaux.
 
 ## Cas d'utilisation
@@ -48,7 +48,7 @@ Pour une comparaison de Batch avec d’autres solutions HPC dans Azure, consulte
 
 Développez avec les API Batch pour créer et gérer les pools de nœuds de calcul et planifier les travaux et les tâches qui s’y exécutent. Écrivez des applications clientes ou frontales pour exécuter des travaux et des tâches à la demande, selon une planification ou dans le cadre d’un plus grand flux de travail géré par des outils tels qu’[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
-Consultez [Concepts de base concernant les API dans Azure Batch](batch-api-basics.md) pour en savoir plus sur les concepts relatifs à Batch.
+Consultez [Présentation de la fonction Azure Batch](batch-api-basics.md) pour en savoir plus sur les concepts de Batch.
 
 ### Comptes dont vous aurez besoin
 
@@ -103,4 +103,4 @@ La figure 2 illustre un flux de travail qui utilise une application cliente .NE
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -18,7 +18,7 @@
 
 # Créer votre première application Service Fabric dans Visual Studio
 
-Le kit de développement Fabric Service inclut un complément pour Visual Studio proposant des outils et des modèles pour la création, le débogage et le déploiement d’applications Service Fabric. Cette rubrique vous guide tout au long du processus de création de votre première application dans Visual Studio.
+Le kit de développement logiciel Fabric Service inclut un complément à Visual Studio proposant des outils et des modèles pour la création, le déploiement et le débogage d’applications Service Fabric. Cette rubrique vous guide tout au long du processus de création de votre première application dans Visual Studio.
 
 ## Composants requis
 
@@ -54,11 +54,11 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 
 	- **Définition d’application** : le manifeste d’application et les fichiers de paramètres d’application associés définissent l’application et vous permettent de la configurer spécifiquement un environnement donné.
 
-  Pour avoir une vue d’ensemble du contenu du projet de service, consultez [prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md).
+    Pour avoir une vue d’ensemble du contenu du projet de service, consultez [prise en main de Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## Déployer et déboguer l’application.
 
-Maintenant que disposons d’une application, essayons de l’exécuter.
+Maintenant que vous disposez d’une application, essayez de l’exécuter.
 
 1. Appuyez sur F5 dans Visual Studio pour déployer l’application en vue d’un débogage.
 
@@ -88,9 +88,9 @@ Maintenant que disposons d’une application, essayons de l’exécuter.
 
 5. Cliquez avec le bouton droit de la souris sur l’application de barre d’état système du gestionnaire du cluster local et choisissez Gérer le cluster Local pour lancer Service Fabric Explorer.
 
-  ![Lancer l’Explorateur de Fabric Service à partir du Gestionnaire de cluster Local.][systray-launch-sfx]
+    ![Lancer l’Explorateur de Fabric Service à partir du Gestionnaire de cluster Local.][systray-launch-sfx]
 
-  Service Fabric Explorer offre une représentation visuelle de cluster, notamment l’ensemble des applications déployées et le jeu de nœuds physiques qui le composent.
+    Service Fabric Explorer offre une représentation visuelle de cluster, notamment l’ensemble des applications déployées et le jeu de nœuds physiques qui le composent. Pour en savoir plus sur Service Fabric Explorer, voir [Visualisation de votre cluster](service-fabric-visualizing-your-cluster).
 
 6. Dans le volet gauche, développez **Cluster > Nœuds** et recherchez le nœud sur lequel votre code s’exécute.
 
@@ -102,14 +102,25 @@ Maintenant que disposons d’une application, essayons de l’exécuter.
 
 8. Revenir à l’Observateur d’événements de diagnostic et prenez connaissance des messages. Notez que le compteur a continué de s’incrémenter même si les événements proviennent en fait d’un autre nœud.
 
-  ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
+    ![Observateur d’événements de diagnostic après basculement][diagnostic-events-viewer-detail-post-failover]
+
+### Nettoyage
+
+  Avant de conclure, il est important de se rappeler que le cluster local est très réel. Même après l’arrêt du débogueur et la fermeture de Visual Studio, vos applications continueront de s’exécuter en arrière-plan. Selon la nature de vos applications, cette activité en arrière-plan peut accaparer une quantité significative de ressources de votre ordinateur. Vous disposez de plusieurs options assurer la gestion :
+
+  1. Pour supprimer une application individuelle et toutes ses données, utilisez l’action **Supprimer application** dans l’Explorateur Service Fabric.
+
+  2. Pour arrêter le cluster et conserver les données et les suivis de l’application, cliquez sur **Arrêter le cluster** dans l’application de la barre d’état système.
+
+  3. Pour supprimer complètement le cluster, cliquez sur **Supprimer le cluster** dans l’application de la barre d’état système. Notez que cette option entraînera un ralentissement du déploiement lors de la prochaine utilisation de la touche F5 dans Visual Studio et qu’il ne faut l’utiliser que si vous n’envisagez pas d’utiliser le cluster local pendant un certain temps, ou si vous avez désespérément besoin de récupérer des ressources.
+
 
 
 ## Étapes suivantes
 
+- [Voir comment vous exposer vos services à internet avec WebAPI](service-fabric-add-a-web-frontend.md)
 - [En savoir plus pour créer un cluster dans Azure](service-fabric-cluster-creation-via-portal.md)
 - [En savoir plus sur la création de services fiables](service-fabric-reliable-services-quick-start.md)
-- [Voir comment vous exposer vos services à internet avec WebAPI](service-fabric-add-a-web-frontend.md)
 - [Essayer de créer un service en utilisant le modèle de programmation Reliable Actor](service-fabric-reliable-actors-get-started.md)
 
 <!-- Image References -->
@@ -125,4 +136,4 @@ Maintenant que disposons d’une application, essayons de l’exécuter.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

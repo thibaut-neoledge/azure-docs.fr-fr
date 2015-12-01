@@ -12,32 +12,39 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/17/2015"
 	ms.author="awills"/>
 
 # Application Insights pour les applications Web JavaScript
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Apprenez-en plus sur les performances et l’utilisation de votre page web. Ajoutez Visual Studio Application Insights à votre page, et vous connaîtrez le nombre d’utilisateurs dont vous disposez, la fréquence à laquelle ils reviennent et les pages qu’ils utilisent le plus. Vous obtiendrez également des rapports de durée de chargement et sur toutes les exceptions. Ajoutez quelques [événements et métriques personnalisés][track] pour analyser en détail les fonctionnalités les plus populaires, les erreurs les plus courantes, et ainsi adapter votre page pour combler vos utilisateurs.
+Apprenez-en plus sur les performances et l’utilisation de votre page web. Ajoutez Visual Studio Application Insights à votre page, et vous connaîtrez le nombre d’utilisateurs dont vous disposez, la fréquence à laquelle ils reviennent et les pages qu’ils utilisent le plus. Vous obtiendrez également des rapports de durée de chargement et sur toutes les exceptions. Ajoutez quelques [événements et métriques personnalisés](app-insights-api-custom-events-metrics.md) pour analyser en détail les fonctionnalités les plus populaires, les erreurs les plus courantes, et ainsi adapter votre page pour combler vos utilisateurs.
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-javascript/16-page-views.png)
 
-Si vous avez déjà configuré une télémétrie de serveur pour votre application web [ASP.NET][greenbrown] ou [Java][java], vous obtiendrez des informations du point de vue client et serveur. Les deux flux de données seront intégrés dans le portail Application Insights.
+Si vous avez déjà configuré une télémétrie de serveur pour votre application web [ASP.NET](app-insights-asp-net.md) ou [Java](app-insights-java-get-started.md), vous obtiendrez des informations du point de vue client et serveur. Les deux flux de données seront intégrés dans le portail Application Insights.
 
 #### Démonstration rapide
 
 Si vous n’avez pas d’abonnement Azure et que vous souhaitez essayer Application Insights sur votre page web, visitez la page d’[essai d’Application Insights](http://aka.ms/ainow) (en anglais).
 
-## Création d’une ressource Application Insights dans Azure
+## Ouverture d’une ressource Application Insights
 
 La ressource Application Insights est l’endroit où les données de performance et d’utilisation de votre page s’affichent. (Si vous avez déjà créé une ressource, pour collecter les données de votre serveur Web par exemple, ignorez cette étape.)
 
-Dans le [portail Azure](http://portal.azure.com), créez une ressource Application Insights :
+Connectez-vous au [portail Azure](http://portal.azure.com).
+
+Si vous avez déjà défini la surveillance pour le côté serveur de votre application, vous aurez déjà une ressource :
+
+![Cliquez sur Parcourir, Services de développement, Application Insights.](./media/app-insights-javascript/01-find.png)
+
+Si vous n'en avez pas, créez-la.
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights.](./media/app-insights-javascript/01-create.png)
 
-*Vous avez déjà des questions ?* [Plus d’informations sur la création d’une ressource][new].
+
+*Vous avez déjà des questions ?* [Plus d’informations sur la création d’une ressource](app-insights-create-new-resource.md).
 
 
 ## Ajoutez le script du Kit de développement logiciel (SDK) à votre application ou vos pages web
@@ -72,7 +79,7 @@ Vers le haut du panneau Vue d’ensemble des applications se trouve un graphique
 ![](./media/app-insights-javascript/05-browser-page-load.png)
 
 
-*Pas de données pour le moment ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes][qna].*
+*Pas de données pour le moment ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).*
 
 Cliquez sur le graphique pour obtenir une version plus détaillée :
 
@@ -143,9 +150,9 @@ Dans le volet Recherche de diagnostic, définissez Filtres sur Affichage de page
 
 Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la page des détails, cliquez sur «... » pour voir davantage de détails.
 
-> [AZURE.NOTE]Si vous utilisez [Rechercher][diagnostic], notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
+> [AZURE.NOTE]Si vous utilisez [Rechercher](app-insights-diagnostic-search.md), notez que vous devez faire correspondre les mots entiers : « à propo » et « propos » ne correspondent pas à « À propos », contrairement à « À propo* ». En outre, un terme de recherche ne peut pas commencer par un caractère générique. Par exemple, effectuer une recherche sur « *oncernan » ne correspondra pas à « Concernant ».
 
-> [En savoir plus sur la recherche de diagnostic][diagnostic]
+> [En savoir plus sur la recherche de diagnostic](app-insights-diagnostic-search.md)
 
 ### Propriétés d'affichage de la page
 
@@ -155,16 +162,20 @@ Sélectionnez n'importe quel événement pour afficher plus de détails. Dans la
 
 Vous souhaitez savoir ce que vos utilisateurs font avec votre application ? En insérant des appels dans votre code côtés client et serveur, vous pouvez envoyer vos propres données de télémétrie à Application Insights. Par exemple, vous pouvez découvrir combien d'utilisateurs ont créé des commandes sans les achever, quelles erreurs de validation surviennent le plus souvent ou quel est le score moyen d'un jeu.
 
-* [En savoir plus sur les événements personnalisés et les API de métriques][track].
+* [En savoir plus sur les événements personnalisés et les API de métriques](app-insights-api-custom-events-metrics.md).
 * [Référence d’API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Télémétrie de serveur
 
-Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informations de votre serveur et afficher les données avec les données côté client, ce qui vous permet d’évaluer les performances au niveau du serveur et de diagnostiquer les problèmes.
+Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informations de votre serveur et afficher les données avec les données côté client, ce qui vous permet d’évaluer les performances au niveau du serveur et de diagnostiquer les problèmes. Ajoutez simplement le Kit de développement logiciel (SDK) Application Insights à votre application :
 
-* [Ajout de Application Insights à une application ASP.NET][greenbrown]
-* [Ajout de Application Insights à une application web Java][java]
+* [Ajouter le Kit de développement logiciel à une application ASP.NET](app-insights-asp-net.md)
+* [Ajouter le Kit de développement logiciel à une application Web Java](app-insights-java-get-started.md)
 
+Si votre application est déjà active, vous pouvez toujours ajouter des données de télémétrie de serveur sans avoir à la régénérer ou à la redéployer :
+
+* [Surveiller une application ASP.NET active](app-insights-monitor-performance-live-website-now.md)
+* [Surveiller une application Java active](app-insights-java-live.md)
 
 ## <a name="video"></a> Vidéo : suivi de l’utilisation
 
@@ -172,18 +183,8 @@ Si vous n’avez pas effectué cette opération, vous pouvez obtenir des informa
 
 ## <a name="next"></a>Étapes suivantes
 
-[Suivi de l’utilisation avec des événements et des métriques personnalisés][track]
+* [Suivi de l'utilisation](app-insights-web-track-usage.md)
+* [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
+* [Développer-mesurer-apprendre](app-insights-overview-usage.md)
 
-
-
-
-<!--Link references-->
-
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[new]: app-insights-create-new-resource.md
-[qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-api-custom-events-metrics.md
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

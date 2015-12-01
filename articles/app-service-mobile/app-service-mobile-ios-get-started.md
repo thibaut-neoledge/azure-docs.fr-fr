@@ -24,9 +24,7 @@
 
 ## Vue d'ensemble
 
-Ce didacticiel montre comment ajouter un backend cloud à une application mobile iOS à l'aide d'un backend Azure Mobile App. Vous allez créer un backend Mobile App et une simple application iOS _Todo list_ qui stocke les données d’application dans Azure.
-
-Le suivi de ce didacticiel est un prérequis pour tous les autres didacticiels iOS sur l’utilisation de la fonctionnalité Mobile Apps dans Azure App Service.
+Ce didacticiel montre comment utiliser un backend cloud ([Azure Mobile Apps](app-service-mobile-value-prop.md)) sur une application mobile iOS. Vous allez créer un backend mobile et utiliser une simple application iOS _Todo list_ qui stocke les données d’application dans Azure.
 
 ## Composants requis
 
@@ -38,11 +36,15 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un Mac avec Xcode v7.0 ou version ultérieure.
 
-* L’[infrastructure Azure Mobile iOS](https://go.microsoft.com/fwLink/?LinkID=529823), qui est automatiquement incluse dans le cadre du projet de démarrage rapide que vous téléchargez
+* L’[infrastructure Azure Mobile iOS](https://go.microsoft.com/fwLink/?LinkID=529823), qui est automatiquement incluse dans le cadre du projet de démarrage rapide que vous téléchargez.
 
 ## Créer un serveur principal d'applications mobiles Azure
 
+Suivez ces étapes pour créer un serveur principal d’application mobile.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
 ## Télécharger le projet de serveur
 
@@ -50,11 +52,10 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 2. Dans le panneau Application mobile, cliquez sur **Paramètres** et sous **Application mobile**, cliquez sur **Démarrage rapide** > **iOS (Objective-C)**. Si vous préférez Swift, cliquez sur **Démarrage rapide** > **iOS (Swift)**.
 
-3. Sous **Télécharger et exécuter votre projet de serveur**, cliquez sur **Télécharger**. Extrayez les fichiers projet compressés sur votre ordinateur et ouvrez la solution dans Visual Studio.
+## Configurer le projet de serveur
 
-## Publier le projet de serveur sur Azure
+[AZURE.INCLUDE [app-service-mobile-Configure-New-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ## Télécharger et exécuter l'application iOS
 
@@ -68,4 +69,4 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

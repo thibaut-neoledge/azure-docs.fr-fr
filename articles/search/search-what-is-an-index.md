@@ -24,36 +24,35 @@
 - [.NET](search-create-index-dotnet.md)
 - [REST](search-create-index-rest-api.md)
 
-Azure Search est un service de recherche cloud hébergé qui fournit un moteur de recherche, des fonctions de recherche qui permettent une expérience de type Bing ou Google dans votre application personnalisée, API .NET et REST pour l’intégration d’Azure Search avec votre application web ou de bureau, et le stockage de données avec possibilité de recherche sous la forme d’un *index*.
+Azure Search est un service de recherche cloud hébergé qui fournit un moteur de recherche, des fonctions de recherche qui permettent une expérience de type Bing ou Google dans votre application personnalisée, API .NET et REST pour l’intégration d’Azure Search avec votre application web ou de bureau et le stockage de données avec votre possibilité de recherche sous la forme d’un *index*.
 
 ##Qu’est-ce qu’un index ?
 
 Un *index* est un stockage permanent des *documents* et d’autres éléments utilisés par un service Azure Search. Les documents sont une unité de base de données dans lesquelles on peut faire des recherches. Un détaillant peut avoir un document correspondant à chaque référence SKU, une organisation diffusant des actualités disposer d’un document pour illustrer chaque article, et une entreprise de médias associer un document à chaque vidéo ou morceau de musique de sa bibliothèque. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un*index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
 
-L’index qui contient des documents est un jeu de données plat (en général, un sous-ensemble de données créées ou recueillies pendant les opérations normales via des procédures informatisées, notamment des transactions commerciales, la publication de contenu, les achats) souvent stocké dans des bases de données relationnelles ou NoSQL. Un index permet d’accéder à des documents lorsque vous extrayez ou transmettez un jeu de données contenant des lignes provenant d’autres sources de données à votre index.
-
-Dans les limites des opérations de moteur de recherche, un index contient toutes les données dans lesquelles faire des recherches utilisées pour traiter un index, exécuter une requête ou retourner l’un des éléments suivants : une liste de résultats, une structure de navigation à facettes, une page de détails pour un document unique. Dans Azure Search, un index peut également contenir des données dans lesquelles il est impossible de faire des recherches utilisées en interne dans les expressions de filtre ou dans les profils de score fournissant des critères utilisés pour améliorer un score de classement de recherche.
+L’index est un jeu de données plat (en général, un sous-ensemble de données créées ou recueillies pendant les opérations normales via des procédures informatisées, notamment des transactions commerciales, la publication de contenu, les achats) souvent stocké dans des bases de données relationnelles ou NoSQL. Un index permet d’accéder à des documents lorsque vous extrayez ou transmettez un jeu de données contenant des lignes provenant d’autres sources de données à votre index.
 
 ##Quand créer un index ?
 
-Dans le cadre de l’approvisionnement d’un service de recherche pour l’utiliser avec votre application, vous devez créer un index. La création d’un index est une tâche centrée sur la définition de son schéma. Il comprend au minimum la définition de champs et la configuration d’attributs. Si vous le souhaitez, vous pouvez étendre un index pour y inclure des profils de score, des suggestions et des valeurs personnalisées par défaut.
+Dans le cadre de l’approvisionnement d’un service de recherche pour l’utiliser avec votre application, vous devez créer un index. La création d’un index disponible pour les opérations de recherche est une tâche en 2 parties. Tout d’abord, il faut définir le schéma et le publier sur Azure Search. Ensuite, il faut renseigner l’index avec un jeu de données défini par l’utilisateur conforme au schéma.
 
-Pour créer un schéma définissant un index, vous pouvez utiliser le portail ou écrire un code émettant un appel dans le kit de développement logiciel .NET ou l’API REST.
-
-Une fois que vous avez défini le schéma et créé l’index, le remplissage est une opération distincte. Pour plus d’informations sur la réception des données après la création de l’index, consultez [Importer des données dans Azure Search](search-what-is-data-import.md).
+Pour créer un schéma définissant un index, vous pouvez utiliser le portail ou écrire un code émettant un appel dans le kit de développement logiciel .NET ou l’API REST (consulter les onglets en haut de cette rubrique). Pour plus d’informations sur la réception des données après la création de l’index, consultez [Importer des données dans Azure Search](search-what-is-data-import.md).
 
 ##Spécification du schéma JSON d’un index
 
+Un index est un document JSON qui comporte des sections pour les champs et les attributs, la notation des profils, des générateurs de suggestions, un profil de score par défaut et des options CORS.
+
+ ![][1]
+
 Les sections principales d’un index de recherche Azure, telles qu’elles sont articulées dans le format d’échange de données JSON, se présentent comme suit.
 
-|Élément de schéma|Description|
+|Section|Description|
 |--------------|-----------|
-|Collection de champs|Les champs définissent un document. Un jeu de données que vous extrayez ou transmettez dans un index doit fournir des valeurs ou des valeurs NULL pour chaque champ compatibles avec le type de données et la longueur de champ décrits dans le schéma.|
-|[Attributs](#index-attributes)|Propriétés ou annotations d’un champ qui spécifie le type, la longueur, la valeur et les comportements de données autorisés pour le champ. Vous pouvez spécifier si un champ offre des possibilités de recherche, consultable, affichage dans les résultats de recherche ou triable, le tout sur une base champ par champ. Vous pouvez également spécifier l’analyseur de langage de remplacement au niveau du champ.
-|[Profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Critères utilisés pour améliorer le classement des correspondances présentant le plus grand nombre de caractéristiques définies par le profil. Par exemple, supposons qu’un terme de recherche correspond à un nom de produit et une description de produit, il se peut que vous vouliez que lesdits correspondances et noms de produit soient classés plus haut que ceux dans une description.|
+|Collection de champs|Les champs définissent un document. Un jeu de données que vous extrayez ou transmettez dans un index doit fournir des valeurs ou des valeurs NULL pour chaque champ compatibles avec le type de données et la longueur de champ décrits dans le schéma. Les champs comportent des [attributs](#index-attributes) : propriétés ou annotations utilisées servant à marquer un champ pour autoriser des comportements liés à la recherche de ce champ. Vous pouvez par exemple spécifier si un champ offre des possibilités de recherche, s’il est consultable, s’il peut être affiché dans les résultats de recherche ou être soumis à des tris, le tout sur une base champ par champ. Vous pouvez également spécifier l’analyseur de langage de remplacement au niveau du champ.
 |[Générateurs de suggestions](https://msdn.microsoft.com/library/azure/mt131377.aspx)|Également connus sous le nom de requêtes à saisie ou frappe automatiques, ils sont définis comme une section dans l’index.|
-|[Analyseurs de langage par défaut]()|Les analyseurs de langage par défaut peuvent aussi être spécifiés au niveau de l’index, être applicables globalement à tous les champs.|
-|Options CORS|Le cas échéant, permet de partage de ressources cross-origin, dans lesquelles les requêtes d’une ressource utilisée par une page web émise sur une limite de domaine. CORS est toujours désactivée, à moins que vous l’activiez spécifiquement pour vos index.|
+|[Profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx)|Critères utilisés pour améliorer le classement des correspondances présentant le plus grand nombre de caractéristiques définies par le profil. Par exemple, supposons qu’un terme de recherche correspond à un nom de produit et une description de produit, il se peut que vous vouliez que lesdits correspondances et noms de produit soient classés plus haut que ceux dans une description. Vous pouvez créer plusieurs profils.|
+|Profil de score par défaut|Si vous le souhaitez, vous pouvez substituer la logique intégrée qui calcule un score de classement de recherche en spécifiant l’un de vos profils de score par défaut.|
+|Options CORS|Le cas échéant, elles permettent le partage de ressources cross-origin, dans lesquelles les requêtes d’une ressource utilisée par une page web émise sur une limite de domaine. CORS est toujours désactivée, à moins que vous l’activiez spécifiquement pour vos index.|
 
 <a name="index-attributes"></a>
 ##Attributs d’index
@@ -72,9 +71,11 @@ Les attributs sont définis sur des champs individuels pour spécifier la façon
 
 ##Comment les index sont-ils utilisés dans Azure Search ?
 
+Les données de l’index sont utilisées pour établir une liste de résultats de recherche, une structure de navigation à facettes ou une page de détails pour un seul document. Dans Azure Search, un index peut également contenir des données dans lesquelles il est impossible de faire des recherches utilisées en interne dans les expressions de filtre ou dans les profils de score fournissant des critères utilisés pour améliorer un score de classement de recherche.
+
 Toutes les opérations liées aux données effectuées par Azure Search consomment ou retournent des données à partir d’un index. Il n’existe aucune exception : vous ne pouvez pas référencer le service vers d’autres sources de données en dehors de l’index pour renvoyer les données externes dans une réponse émise par votre service de recherche.
 
-Pour les applications qui s’accumulent et opèrent sur les données, telles que les transactions commerciales d’une application de détail en ligne stockant des données dans une base de données OLTP, un index Azure Search est une source de données supplémentaire de votre solution globale. L’index est un stockage de données dédié utilisé uniquement pour votre service de recherche. Le fait d’avoir une source de données dédiée à proximité de votre service de recherche garantit la cohérence des résultats de recherche, réduit la volatilité, réduit le nombre d’allers-retours entre votre application et Azure Search et améliore les performances d’ensemble des opérations de recherche, car il n’existe pas de concurrence pour les ressources ou les données.
+À l’évidence, pour les applications qui s’accumulent et opèrent sur les données telles que les transactions commerciales d’une application de distribution, un index Azure Search est une source de données supplémentaire de votre solution globale. Le fait d’avoir une source de données dédiée à proximité de votre service de recherche garantit la cohérence des résultats de recherche, réduit la volatilité, réduit le nombre d’allers-retours entre votre application et Azure Search et améliore les performances d’ensemble des opérations de recherche, car il n’existe pas de concurrence pour les ressources ou les données.
 
 ##Instructions de définition d’un schéma
 
@@ -82,7 +83,7 @@ Les schémas sont créés en tant que structures JSON. Vous devez créer un inde
 
 Lorsque vous concevez votre index, prenez le temps lors de la phase de planification de réfléchir chaque décision. La modification d’un index une fois déployé implique la reconstruction et le rechargement des données. Si vous créez un index dans le code, cette étape sera plus facile si vous la créez manuellement dans le portail.
 
-Avoir une solide connaissance des données sources d’origine est essentiel pour la création d’un bon schéma. Vous voudrez savoir quels types de données correspondent au champ à utiliser comme *clé* identifiant de manière unique chaque document dans l’index et quels champs doivent être exposés dans une liste ou une page de détails.
+Avoir une solide connaissance des données sources d’origine est essentiel pour la création d’un bon schéma. Vous devez savoir quels types de données correspondent au champ à utiliser comme *clé* identifiant de manière unique chaque document dans l’index et quels champs doivent être exposés dans une liste ou une page de détails.
 
 **Démarrage avec des données relationnelles**
 
@@ -102,4 +103,7 @@ Comme vous pouvez l’imaginer, l’index doit être synchronisé régulièremen
 
 Si les exigences en matière de volume de requête ou de stockage de données changent au fil du temps, vous pouvez augmenter ou diminuer la capacité en ajoutant ou en déplaçant des réplicas et des partitions. Pour plus d’informations, consultez [Gérer votre service de recherche dans Azure](search-manage.md) ou [Limites de service](search-limits-quotas-capacity.md).
 
-<!---HONumber=Nov15_HO4-->
+<!--Image References-->
+[1]: ./media/search-what-is-an-index/search-JSON-indexSchema.png
+
+<!---HONumber=AcomDC_1125_2015-->

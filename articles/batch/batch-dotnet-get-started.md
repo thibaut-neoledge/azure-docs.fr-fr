@@ -42,7 +42,7 @@ Commencez à travailler avec la bibliothèque .NET Azure Batch en créant une ap
 
 	2. Recherchez en ligne **WindowsAzure.Storage**, puis cliquez sur **Installer** pour installer le package Azure Storage et ses dépendances.
 
-> [AZURE.TIP]Ce didacticiel utilise certains concepts Batch clés abordés dans la rubrique [Concepts de base concernant les API dans Azure Batch](batch-api-basics.md). Il est fortement recommandé de la lire pour ceux qui découvrent Azure Batch.
+> [AZURE.TIP]Ce didacticiel utilise certains concepts Batch clés abordés dans la rubrique [Présentation de la fonctionnalité Azure Batch](batch-api-basics.md). Il est fortement recommandé de la lire pour ceux qui découvrent Azure Batch.
 
 ## Étape 1 : créer et charger les fichiers de prise en charge
 
@@ -495,4 +495,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="11/03/2015"
+	ms.date="11/23/2015"
 	ms.author="normesta"/>
 
 #Créer une application Xamarin.Forms
@@ -42,23 +42,26 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Créer un serveur principal d'applications mobiles Azure
 
+Suivez ces étapes pour créer un serveur principal d’application mobile.
+
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Télécharger le projet de serveur
 
-1. Sur votre PC, accédez au [portail Azure]. Cliquez sur **Parcourir tout** > **Mobile Apps**, puis sur le serveur principal d’application mobile que vous venez de créer.
+Vous avez maintenant configuré un serveur principal d’application mobile Azure qui peut être utilisé par vos applications clientes mobiles. Vous allez ensuite télécharger un projet de serveur pour un serveur principal « todo list » simple et le publier dans Azure.
 
-2. Dans le panneau de l’application Mobile App, cliquez sur **Paramètres** et sous **Mobile App**, cliquez sur **Démarrage rapide** > **Xamarin.Forms**.
+## Configurer le projet de serveur
+
+Suivez les étapes ci-dessous pour configurer le projet de serveur de sorte qu’il utilise le serveur principal Node.js ou .NET.
+
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
+
  
-3. Sous **Télécharger et exécuter votre projet de serveur**, cliquez sur **Télécharger**. Extrayez les fichiers projet compressés sur votre ordinateur et ouvrez la solution dans Visual Studio.
- 
-## Tester localement votre projet de serveur principal
+## (Facultatif) Tester localement votre projet de serveur principal
+
+Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous pouvez éventuellement tester votre serveur principal en local.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
 
-## Publier le projet de serveur sur Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Télécharger et exécuter la solution Xamarin.Forms
 
@@ -71,7 +74,7 @@ Plusieurs options s’offrent à vous. Vous pouvez télécharger la solution sur
 Puis, procédez comme suit :
 
  1. Sur votre Mac ou votre ordinateur Windows, ouvrez le [portail Azure] dans une fenêtre de navigateur.
- 2. Sous **Télécharger et exécuter votre projet Xamarin.Forms**, cliquez sur le bouton **Télécharger**.
+ 2. Dans le panneau Paramètres de votre application mobile, cliquez sur **Get Started** (sous Mobile) > **Xamarin.Forms**. À l’Étape 3, cliquez sur **Create a new app** si cette option n’est pas déjà sélectionnée. Cliquez ensuite sur le bouton **Download**.
 
     Cette opération télécharge un projet qui contient une application cliente connectée à votre application mobile. Enregistrez le fichier projet compressé sur votre ordinateur local et notez l'emplacement où vous l'avez enregistré.
 
@@ -81,7 +84,9 @@ Puis, procédez comme suit :
 
 	![][8]
 
-###Exécuter le projet iOS
+###(Facultatif) Exécuter le projet iOS
+
+Cette section s’applique à l’exécution du projet iOS Xamarin pour les appareils iOS. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils iOS.
 
 ####Dans Xamarin Studio
 
@@ -98,11 +103,13 @@ Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, pu
 
 ![][10]
 
-Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
+Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d’application mobile et les données sont affichées dans la liste.
 
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# ToDoActivity.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
-###Exécuter le projet Android
+###(Facultatif) Exécuter le projet Android
+
+Cette section s’applique à l’exécution du projet Xamarin pour Android. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Android.
 
 ####Dans Xamarin Studio
 
@@ -119,12 +126,16 @@ Dans l’application, tapez un texte explicite, tel que _Découvrir Xamarin_, pu
 
 ![][11]
 
-Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d'application mobile et les données sont affichées dans la liste.
+Ceci envoie une demande POST vers le nouveau backend d'application mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem. Les éléments stockés dans cette table sont renvoyés par le backend d’application mobile et les données sont affichées dans la liste.
 
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# ToDoActivity.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 
-###Exécuter le projet Windows
+###(Facultatif) Exécuter le projet Windows
+
+
+Cette section s’applique à l’exécution du projet WinApp Xamarin pour les appareils Windows. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
+
 
 ####Dans Visual Studio
 1. Cliquez avec le bouton droit sur les projets Windows, puis cliquez sur **Définir comme projet de démarrage**.
@@ -138,7 +149,7 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 
 ![][12]
 	
-> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# ToDoActivity.cs du projet de bibliothèque de classes portables de votre solution.
+> [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -168,4 +179,4 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

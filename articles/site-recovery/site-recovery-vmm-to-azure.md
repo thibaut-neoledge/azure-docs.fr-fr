@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="raynew"/>
 
 #  Configuration de la protection entre un site local VMM et Azure
@@ -153,29 +153,31 @@ Générez une clé d'inscription dans le coffre. Une fois que vous aurez téléc
 8. Cliquez sur *Suivant* pour terminer le processus. Une fois l'inscription terminée, les métadonnées du serveur VMM sont extraites par Azure Site Recovery. Le serveur apparaît sous l’onglet *Serveurs VMM* de la page **Serveurs** du coffre.
 
 >[AZURE.NOTE]Le fournisseur Azure Site Recovery peut également être installé à l’aide de la ligne de commande suivante. Cette méthode peut être utilisée pour installer le fournisseur sur un module Server CORE pour Windows Server 2012 R2.
->
->1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
->2. Arrêter le service System Center Virtual Machine Manager
->3. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**.
->
+
+1. Téléchargez le fichier d’installation du fournisseur et la clé d’inscription vers un dossier, par exemple C:\\ASR.
+1. Arrêter le service System Center Virtual Machine Manager
+1. Extrayez le programme d’installation du fournisseur en exécutant les commandes ci-après à partir d’une invite de commandes avec des privilèges d’**administrateur**.
+
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
->4. Installez le fournisseur en exécutant la commande suivante.
->
+1. Installez le fournisseur en exécutant la commande suivante.
+
 		C:\ASR> setupdr.exe /i
->5. Inscrivez le fournisseur en exécutant la commande suivante.
->
+1. Inscrivez le fournisseur en exécutant la commande suivante.
+
     	CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>         
- ####Liste des paramètres de la ligne de commande utilisés pour l’installation####
->
+    	C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
+
+  
+#### Liste des paramètres de la ligne de commande utilisés pour l’installation
+
  - **/Credentials** : paramètre obligatoire, qui spécifie l’emplacement auquel le fichier de clé d’inscription se trouve  
  - **/FriendlyName** : paramètre obligatoire, qui correspond au nom du serveur hôte Hyper-V qui s’affiche sur le portail Microsoft Azure Site Recovery
  - **/EncryptionEnabled** : paramètre facultatif que vous ne devez utiliser que dans le scénario VMM vers Azure si vos machines virtuelles doivent être chiffrées au repos dans Azure. Vérifiez que le nom du fichier que vous fournissez porte l’extension **.pfx**.
  - **/proxyAddress** : paramètre facultatif qui spécifie l’adresse du serveur proxy
  - **/proxyport** : paramètre facultatif qui spécifie le port du serveur proxy
  - **/proxyUsername** : paramètre facultatif qui spécifie le nom d’utilisateur proxy (si le proxy nécessite une authentification)
- - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)
+ - **/proxyPassword** : paramètre facultatif qui spécifie le mot de passe pour l’authentification auprès du serveur proxy (si le proxy nécessite une authentification)  
 
 
 ## Étape 4 : Création d’un compte de stockage Azure
@@ -267,7 +269,16 @@ Dès lors que les serveurs, les clouds et les réseaux ont été configurés cor
 
 4. Dans l'onglet de configuration des propriétés de la machine virtuelle, les propriétés réseau suivantes ont pu être modifiées.
 
-    1. Nombre de cartes réseau de la machine virtuelle cible : le nombre de cartes réseau sur la machine virtuelle cible dépend de la taille de la machine virtuelle choisie. Le nombre de cartes réseau des machines virtuelles cible est au minimum le nombre de cartes réseau sur la machine virtuelle source et au maximum le nombre de cartes réseau prises en charge par la machine virtuelle choisie en fonction de sa taille.  
+
+	1.  Nombre d’adaptateurs réseau de machine virtuelle : le nombre de cartes réseau est défini en fonction de la taille de machine virtuelle cible que vous avez spécifiée. Vérifiez dans [spécifications de taille de machine virtuelle](../virtual-machines/virtual-machines-size-specs.md#size-tables) le nombre de cartes réseau prises en charge par une machine virtuelle de cette taille. 
+
+		Une fois que vous avez modifié la taille d’une machine virtuelle et enregistré ses paramètres, lorsque vous ouvrez la page de **configuration** la fois suivante, le nombre d’adaptateurs réseau change. Le nombre de cartes réseau de machines virtuelles cible correspond au minimum au nombre de cartes réseau présentes sur la machine virtuelle source et au maximum au nombre maximal d’adaptateurs réseau pris en charge pour la taille de la machine virtuelle choisie. Vous trouverez l’explication ci-dessous :
+
+
+		- Si le nombre de cartes réseau sur la machine source est inférieur ou égal au nombre de cartes autorisé pour la taille de la machine cible, la cible présente le même nombre de cartes que la source.
+		- Si le nombre de cartes de la machine virtuelle source dépasse la valeur de taille cible autorisée, la taille cible maximale est utilisée.
+		- Par exemple, si une machine source présente deux cartes réseau et que la taille de la machine cible en accepte quatre, la machine cible présentera deux cartes. Si la machine source inclut deux cartes, mais que la taille cible prise en charge accepte une seule carte, la machine cible présentera une seule carte. 	
+
 
 	1. Réseau de la machine virtuelle cible : le réseau auquel la machine virtuelle se connecte est déterminé par le mappage réseau du réseau de la machine virtuelle source. Dans le cas où la machine virtuelle source possède plusieurs cartes réseau et où les réseaux source sont mappés à des réseaux différents sur la cible, l'utilisateur doit choisir l'un des réseaux cible.
 
@@ -277,6 +288,8 @@ Dès lors que les serveurs, les clouds et les réseaux ont été configurés cor
 
 		![Modifier les propriétés du réseau](./media/site-recovery-vmm-to-azure/MultiNic.png)
 
+>[AZURE.NOTE]Les machines virtuelles Linux qui utilisent des adresses ip statiques ne sont pas prises en charge.
+
 ## Tester votre déploiement
 Pour tester votre déploiement, vous pouvez exécuter un test de basculement pour une seule machine virtuelle, ou créer un plan de récupération comportant plusieurs machines virtuelles et exécuter sur lui un test de basculement. Il simule votre mécanisme de basculement et de récupération dans un réseau isolé. Notez les points suivants :
 
@@ -285,7 +298,7 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 
 ### Créer un plan de récupération
 
-1. Sous l’onglet **Plans de récupération**, ajoutez un nouveau plan. Spécifiez un nom, **VMM** dans **Type de source**, puis le serveur VMM source dans **Source**. La cible est Azure.
+1. Sous l’onglet **Plans de récupération**, ajoutez un nouveau plan. Spécifiez un nom, **VMM** (Gestionnaire d’ordinateurs virtuels) dans **Type de source**, puis le serveur VMM source dans **Source**. La cible est Azure.
 
 	![Créer un plan de récupération](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RP1.png)
 
@@ -297,7 +310,7 @@ Pour tester votre déploiement, vous pouvez exécuter un test de basculement pou
 
 	![Créer un plan de récupération](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVMRP.png)
 
-Une fois qu’un plan de récupération a été créé, il apparaît dans la liste sous l’onglet **Plans de récupération**. Vous pouvez également ajouter des [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les actions de temps de basculement.
+Une fois qu’un plan de récupération a été créé, il apparaît dans la liste sous l’onglet **Plans de récupération**. Vous pouvez également ajouter [Runbooks Azure Automation](site-recovery-runbook-automation.md) au plan de récupération pour automatiser les opérations de temps de basculement.
 
 ### Exécution d’un test de basculement
 
@@ -347,4 +360,4 @@ Pour exécuter un test de basculement, procédez comme suit :
 
 <LI>Pour toute question, visitez le <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Forum Azure Recovery Services</a>.</LI></UL>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
