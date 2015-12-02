@@ -47,11 +47,14 @@ La création d'un modèle de recommandation est généralement suffisante pour p
 
 ###2\.2. Build de classement
 
-L'amélioration du modèle de recommandation exige le recours à des caractéristiques significatives. Dans cette optique, une nouvelle build a été introduite : la build de classement. Cette build permet de classer l'utilité des caractéristiques. Une caractéristique est significative si elle reçoit un score d'au moins 2 de la build de classement. Après avoir déterminé les caractéristiques significatives, déclenchez une build de recommandation avec la liste (ou sous-liste) des caractéristiques significatives. Il est possible d'utiliser ces caractéristiques pour améliorer à la fois les éléments chauds et les éléments froids. Pour utiliser des caractéristiques pour des éléments chauds, vous devez configurer le paramètre de build `UseFeatureInModel`. Pour utiliser des caractéristiques pour des éléments froids, vous devez activer le paramètre de build `AllowColdItemPlacement`. Remarque : il est impossible d'activer `AllowColdItemPlacement` sans activer `UseFeatureInModel`.
+L'amélioration du modèle de recommandation exige le recours à des caractéristiques significatives. Dans cette optique, une nouvelle build a été introduite : la build de classement. Cette build permet de classer l'utilité des caractéristiques. Une caractéristique est significative si elle reçoit un score d'au moins 2 de la build de classement.
+Après avoir déterminé les caractéristiques significatives, déclenchez une build de recommandation avec la liste (ou sous-liste) des caractéristiques significatives. Il est possible d'utiliser ces caractéristiques pour améliorer à la fois les éléments chauds et les éléments froids. Pour utiliser des caractéristiques pour des éléments chauds, vous devez configurer le paramètre de build `UseFeatureInModel`. Pour utiliser des caractéristiques pour des éléments froids, vous devez activer le paramètre de build `AllowColdItemPlacement`.
+Remarque : il est impossible d'activer `AllowColdItemPlacement` sans activer `UseFeatureInModel`.
 
 ###2\.3. Raisonnement de la recommandation
 
-Le raisonnement de la recommandation est un autre aspect de l'utilisation des caractéristiques. En effet, le moteur Azure Machine Learning Recommendations peut utiliser des caractéristiques pour fournir des explications sur la recommandation (ou « raisonnement »), renforçant ainsi la confiance de l'utilisateur de la recommandation envers l'élément recommandé. Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `ReasoningFeatureList` doivent être configurés avant la demande d'une build de recommandation.
+Le raisonnement de la recommandation est un autre aspect de l'utilisation des caractéristiques. En effet, le moteur Azure Machine Learning Recommendations peut utiliser des caractéristiques pour fournir des explications sur la recommandation (ou « raisonnement »), renforçant ainsi la confiance de l'utilisateur de la recommandation envers l'élément recommandé.
+Pour activer le raisonnement, les paramètres `AllowFeatureCorrelation` et `ReasoningFeatureList` doivent être configurés avant la demande d'une build de recommandation.
 
 ##3\. Limites
 
@@ -98,7 +101,8 @@ Crée une demande de création de modèle.
 
 Code d'état HTTP : 200
 
-- `feed/entry/content/properties/id` : contient l'ID du modèle. **Remarque** : l'ID du modèle respecte la casse.
+- `feed/entry/content/properties/id` : contient l'ID du modèle.
+**Remarque** : l'ID du modèle respecte la casse.
 
 OData XML
 
@@ -262,7 +266,9 @@ OData XML
 
 ###5\.4. Mise à jour du modèle
 
-Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br> <ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br> Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
+Vous pouvez mettre à jour la description du modèle ou l'ID de build active.<br>
+<ins>ID de build active</ins> : chaque build de chaque modèle possède un ID de build. L'ID de build active correspond à la première build réussie de chaque nouveau modèle. Une fois que vous avez un ID de build active et que vous effectuez d'autres builds pour le même modèle, vous pouvez le définir explicitement comme ID de build par défaut. Quand vous utilisez des recommandations, si vous ne spécifiez pas l'ID de build à utiliser, l'ID par défaut est automatiquement sélectionné.<br>
+Ce mécanisme vous permet, une fois que vous disposez d'un modèle de recommandation en production, de générer de nouveaux modèles et de les tester avant de les passer en production.
 
 
 | Méthode HTTP | URI |
@@ -793,7 +799,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 </pre>
 
 ##7\. Règles métiers de modèle
-Il existe 4 types de règles. <strong>BlockList</strong> : permet de fournir une liste d'éléments à ne pas retourner dans les résultats de la recommandation. <strong>Upsale</strong> : permet de forcer le retour d'éléments dans les résultats de la recommandation. <strong>WhiteList</strong> : permet de limiter les résultats de la recommandation aux éléments contenus dans une liste fournie (contraire de BlockList). <strong>PerSeedBlockList</strong> : permet de fournir, par élément, une liste d'éléments ne pouvant pas être retournés dans les résultats de la recommandation.
+Il existe 4 types de règles.
+<strong>BlockList</strong> : permet de fournir une liste d'éléments à ne pas retourner dans les résultats de la recommandation.
+<strong>Upsale</strong> : permet de forcer le retour d'éléments dans les résultats de la recommandation.
+<strong>WhiteList</strong> : permet de limiter les résultats de la recommandation aux éléments contenus dans une liste fournie (contraire de BlockList).
+<strong>PerSeedBlockList</strong> : permet de fournir, par élément, une liste d'éléments ne pouvant pas être retournés dans les résultats de la recommandation.
 
 
 ###7\.1. Obtention de règles de modèle
@@ -865,7 +875,9 @@ OData XML
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
 ||| 
-| Corps de la demande | <ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle WhiteList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+| Corps de la demande | 
+<ins>Chaque fois que vous fournissez des ID d’élément pour des règles métier, veillez à utiliser l’ID externe de l’élément (le même ID que vous avez utilisé dans le fichier de catalogue)</ins><br>
+<ins>Pour ajouter une règle BlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle Upsale :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle WhiteList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Pour ajouter une règle PerSeedBlockList :</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Réponse** :
 
@@ -979,7 +991,9 @@ Remarque : la taille de fichier maximale est de 200 Mo.
 
 Code d'état HTTP : 200
 
-L'API retourne un rapport de l'importation. `feed\entry\content\properties\LineCount` : nombre de lignes acceptées. `feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
+L'API retourne un rapport de l'importation.
+- `feed\entry\content\properties\LineCount` : nombre de lignes acceptées.
+- `feed\entry\content\properties\ErrorCount` : nombre de lignes non insérées en raison d'une erreur.
 
 OData XML
 
@@ -1324,7 +1338,8 @@ Cette section explique comment envoyer des événements en temps réel à Azure 
   		</EventData>
 		</Event>
 
-**Réponse** : Code d'état HTTP : 200
+**Réponse** :
+Code d'état HTTP : 200
 
 ###9\.2. Liste des fichiers d'utilisation de modèle
 Récupère les métadonnées de tous les fichiers d'utilisation du modèle.
@@ -1494,7 +1509,24 @@ Récupère les 2 premiers Ko de contenu du fichier d'utilisation.
 
 Code d'état HTTP : 200
 
-La réponse est retournée au format texte brut : <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
+La réponse est retournée au format texte brut :
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+</pre>
 
 
 ###9\.5. Obtention de fichier d'utilisation de modèle
@@ -1517,7 +1549,42 @@ Récupère le contenu intégral du fichier d'utilisation.
 
 Code d'état HTTP : 200
 
-La réponse est retournée au format texte brut : <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
+La réponse est retournée au format texte brut :
+<pre>
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
+274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
+171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+</pre>
 
 ###9\.6. Suppression de fichier d'utilisation
 Supprime le fichier d'utilisation du modèle spécifié.
@@ -1558,7 +1625,9 @@ Supprime tous les fichiers d'utilisation du modèle.
 Code d'état HTTP : 200
 
 ##10\. Caractéristiques
-Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement. Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes. Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
+Cette section montre comment récupérer des informations sur les caractéristiques, notamment les caractéristiques importées et leurs valeurs, leur classement et la date à laquelle ce classement a été alloué. Les caractéristiques sont importées dans le cadre des données de catalogue, puis leur classement est associé au terme de l'exécution d'une build de classement.
+Le classement des caractéristiques peut varier selon le modèle des données d'utilisation et le type d'éléments. Toutefois, pour des données d'utilisation ou des éléments cohérents, les fluctuations de classement sont généralement minimes.
+Le classement des caractéristiques est représenté par une valeur non négative. La valeur 0 signifie que la caractéristique n'a pas été classée (ce qui se produit si vous appelez cette API avant la fin de la première build de classement). On parle d'actualisation du score pour désigner la date à laquelle le classement a été attribué.
 
 ###10\.1. Obtention d'informations sur les caractéristiques (pour la dernière build de classement)
 Récupère des informations sur les caractéristiques, y compris le classement, pour la dernière build de classement réussie.
@@ -1728,9 +1797,19 @@ OData
 
   Cette section explique les différentes API liées aux builds. Il existe 3 types de builds : une build de recommandation, une build de classement et une build FBT (fréquemment achetés ensemble).
 
-L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types : * I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants. * U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
+L’objectif de la build de recommandation est de générer un modèle de recommandation utilisé pour les prévisions. Les prédictions (pour ce type de build) sont de deux types :
+* I2I - alias. Recommandations d’éléments selon des éléments donnés : sur la base d’un élément ou d’une liste d’éléments, cette option prédit une liste d’éléments susceptibles d’être très intéressants.
+* U2I - alias Recommandations d’éléments selon un utilisateur : sur la base d’un ID utilisateur (et éventuellement d’une liste d’éléments), cette option prédit une liste d’éléments susceptibles de présenter un intérêt élevé pour l’utilisateur donné (et son choix d’éléments supplémentaires). Les recommandations U2I se basent sur l’historique des éléments ayant présenté un intérêt pour l’utilisateur jusqu’au moment où le modèle a été généré.
 
-Une build de classement est une build technique qui vous permet d'en savoir plus sur l'utilité de vos caractéristiques. En général, pour tirer le meilleur parti d'un modèle de recommandation impliquant des caractéristiques, vous devez procéder comme suit : - Déclencher une build de classement (sauf si le score de vos caractéristiques est stable) et attendre l'obtention du score des caractéristiques. - Récupérer le classement de vos caractéristiques en appelant l'API [Obtention d'informations sur les caractéristiques](#101-get-features-info-for-last-rank-build). - Configurer une build de recommandation avec les paramètres suivants :- `useFeatureInModel` : valeur True. - `ModelingFeatureList` : liste séparée par des virgules des caractéristiques avec un score de 2.0 ou plus (selon les classements récupérés lors de l'étape précédente). - `AllowColdItemPlacement` : valeur True. - Affecter éventuellement à `EnableFeatureCorrelation` la valeur True et à `ReasoningFeatureList` la liste des caractéristiques à utiliser pour fournir des explications (en général la même liste de caractéristiques que celle utilisée lors de la modélisation ou une sous-liste). -Déclencher la build de recommandation avec les paramètres configurés.
+Une build de classement est une build technique qui vous permet d'en savoir plus sur l'utilité de vos caractéristiques. En général, pour tirer le meilleur parti d'un modèle de recommandation impliquant des caractéristiques, vous devez procéder comme suit :
+- Déclencher une build de classement (sauf si le score de vos caractéristiques est stable) et attendre l'obtention du score des caractéristiques.
+- Récupérer le classement de vos caractéristiques en appelant l'API [Obtention d'informations sur les caractéristiques](#101-get-features-info-for-last-rank-build).
+- Configurer une build de recommandation avec les paramètres suivants :
+	- `useFeatureInModel` : valeur True.
+	- `ModelingFeatureList` : liste séparée par des virgules des caractéristiques avec un score de 2.0 ou plus (selon les classements récupérés lors de l'étape précédente).
+	- `AllowColdItemPlacement` : valeur True.
+	- Affecter éventuellement à `EnableFeatureCorrelation` la valeur True et à `ReasoningFeatureList` la liste des caractéristiques à utiliser pour fournir des explications (en général la même liste de caractéristiques que celle utilisée lors de la modélisation ou une sous-liste).
+- Déclencher la build de recommandation avec les paramètres configurés.
 
 Remarque : si vous ne configurez aucun paramètre (par exemple, en appelant la build de recommandation sans paramètres) ou que vous ne désactivez pas explicitement l'utilisation de caractéristiques (par exemple, en affectant à `UseFeatureInModel` la valeur False), le système affecte aux paramètres liés aux caractéristiques les valeurs ci-dessus dans le cas d'une build de classement existante.
 
@@ -1981,9 +2060,18 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
 
-États de build valides : - Created : l'entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d'attente. - Building : la build est en cours d'exécution. - Success : la build a été correctement exécutée - Error : la build s'est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d'annulation.
+États de build valides :
+- Created : l'entrée de demande de build a été créée.
+- Queued : la demande de build a été déclenchée et mise en file d'attente.
+- Building : la build est en cours d'exécution.
+- Success : la build a été correctement exécutée
+- Error : la build s'est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d'annulation.
 
-Valeurs valides pour le type de build : - Rank : build de classement. - Recommendation : build de recommandation.
+Valeurs valides pour le type de build :
+- Rank : build de classement.
+- Recommendation : build de recommandation.
 
 
 OData XML
@@ -2056,10 +2144,19 @@ La réponse inclut une entrée par build. Chaque entrée comprend les données s
 - `feed/entry/content/properties/ExecutionTime` : durée de la build.
 - `feed/entry/content/properties/ProgressStep` : détails sur l'étape actuelle d'une build en cours d'exécution.
 
-États de build valides : - Created : l'entrée de demande de build a été créée. - Queued : la demande de build a été déclenchée et mise en file d'attente. - Building : la build est en cours d'exécution. - Success : la build a été correctement exécutée - Error : la build s'est terminée par un échec. - Cancelled : la build a été annulée. - Cancelling : la build est en cours d'annulation.
+États de build valides :
+- Created : l'entrée de demande de build a été créée.
+- Queued : la demande de build a été déclenchée et mise en file d'attente.
+- Building : la build est en cours d'exécution.
+- Success : la build a été correctement exécutée
+- Error : la build s'est terminée par un échec.
+- Cancelled : la build a été annulée.
+- Cancelling : la build est en cours d'annulation.
 
 
-Valeurs valides pour le type de build : - Rank : build de classement. - Recommendation : build de recommandation.
+Valeurs valides pour le type de build :
+- Rank : build de classement.
+- Recommendation : build de recommandation.
 
 
 OData XML
@@ -2148,7 +2245,9 @@ Récupère les paramètres de build.
 
 Code d'état HTTP : 200
 
-Cette API retourne une collection d'éléments clé/valeur. Chaque élément représente un paramètre et sa valeur : - `feed/entry/content/properties/Key` : nom du paramètre de build. - `feed/entry/content/properties/Value` : valeur du paramètre de build.
+Cette API retourne une collection d'éléments clé/valeur. Chaque élément représente un paramètre et sa valeur :
+- `feed/entry/content/properties/Key` : nom du paramètre de build.
+- `feed/entry/content/properties/Value` : valeur du paramètre de build.
 
 Le tableau ci-dessous décrit la valeur de chaque clé.
 
@@ -2358,7 +2457,11 @@ Obtient des recommandations de la build active de type « Recommendation » ou
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 L'exemple de réponse ci-dessous comprend 10 éléments recommandés.
 
@@ -2535,7 +2638,11 @@ Obtient des recommandations d'une build spécifique de type « Recommendation 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2561,7 +2668,13 @@ Obtient des recommandations de la build active de type « Fbt ». en fonction 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id1` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name1` : nom de l’élément. - `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif). - `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif). - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id1` : ID de l’élément recommandé.
+- `Feed\entry\content\properties\Name1` : nom de l’élément.
+- `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif).
+- `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif).
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 L’exemple de réponse ci-dessous comprend 3 ensembles d’éléments recommandés.
 
@@ -2647,7 +2760,13 @@ Obtient des recommandations d’une build spécifique de type « Fbt ».
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id1` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name1` : nom de l’élément. - `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif). - `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif). - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par ensemble d’éléments recommandé (il s’agit d’un ensemble d’éléments souvent acheté avec l’élément initial/saisi). Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id1` : ID de l’élément recommandé.
+- `Feed\entry\content\properties\Name1` : nom de l’élément.
+- `Feed\entry\content\properties\Id2` : ID du 2e élément recommandé (facultatif).
+- `Feed\entry\content\properties\Name2` : nom du 2e élément (facultatif).
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.3.
 
@@ -2657,7 +2776,9 @@ Obtient des recommandations de l’utilisateur auprès de la build de type « R
 
 L’API retourne une liste d’éléments prédits en fonction de l’historique d’utilisation de l’utilisateur.
 
-Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT. 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
+Remarques : 
+ 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT.
+ 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
 
 | Méthode HTTP | URI |
 |:--------|:--------|
@@ -2676,7 +2797,11 @@ Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2686,7 +2811,9 @@ Obtient des recommandations de l’utilisateur auprès de la build de type « R
 
 L’API retourne une liste d’éléments prédits en fonction de l’historique d’utilisation de l’utilisateur et des éléments supplémentaires fournis.
 
-Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT. 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
+Remarques : 
+ 1. Il n’existe aucune recommandation de l’utilisateur pour une build de type FBT.
+ 2. Si la build active est de type FBT, cette méthode renvoie une erreur.
 
 
 | Méthode HTTP | URI |
@@ -2707,7 +2834,11 @@ Remarques : 1. Il n’existe aucune recommandation de l’utilisateur pour une 
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2738,7 +2869,11 @@ Remarque : il n’existe aucune recommandation de l’utilisateur pour une buil
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
@@ -2772,12 +2907,17 @@ Remarque : il n’existe aucune recommandation de l’utilisateur pour une buil
 Code d'état HTTP : 200
 
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes : - `Feed\entry\content\properties\Id` : ID de l'élément recommandé. - `Feed\entry\content\properties\Name` : nom de l'élément. - `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé. - `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
+La réponse inclut une entrée par élément recommandé. Chaque entrée comprend les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l'élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l'élément.
+- `Feed\entry\content\properties\Rating` : évaluation de la recommandation ; plus le nombre est élevé, plus le niveau de confiance est élevé.
+- `Feed\entry\content\properties\Reasoning` : raisonnement de la recommandation (par exemple, explications de la recommandation).
 
 Pour obtenir un exemple de réponse, consultez la section 12.1.
 
 ##13\. Historique d’utilisation de l’utilisateur
-Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build. Cette API permet de récupérer l’historique de l’utilisateur.
+Une fois qu’un modèle de recommandation a été créé, le système autorise la récupération de l’historique de l’utilisateur (éléments associés à un utilisateur spécifique) utilisé pour la build.
+Cette API permet de récupérer l’historique de l’utilisateur.
 
 Remarque : l’historique de l’utilisateur est actuellement disponible uniquement pour les builds de recommandation.
 
@@ -2801,7 +2941,11 @@ Récupère la liste des éléments utilisés dans la build active ou dans la bui
 
 Code d'état HTTP : 200
 
-La réponse inclut une entrée par élément recommandé. Chaque entrée comporte les données suivantes :- `Feed\entry\content\properties\Id` : ID de l’élément recommandé. - `Feed\entry\content\properties\Name` : nom de l’élément. - `Feed\entry\content\properties\Rating` : n/a. - `Feed\entry\content\properties\Reasoning` : n/a.
+La réponse inclut une entrée par élément recommandé. Chaque entrée comporte les données suivantes :
+- `Feed\entry\content\properties\Id` : ID de l’élément recommandé.
+- `Feed\entry\content\properties\Name` : nom de l’élément.
+- `Feed\entry\content\properties\Rating` : n/a.
+- `Feed\entry\content\properties\Reasoning` : n/a.
 
 OData XML
 
@@ -2831,7 +2975,10 @@ OData XML
 </feed>
 
 ##14\. Notifications
-Azure Machine Learning Recommendations crée des notifications dès lors que des erreurs persistantes se produisent dans le système. Il existe 3 types de notifications : 1. Échec de build : cette notification est déclenchée à chaque échec de build. 2. Échec de traitement d'acquisition de données : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des événements d'utilisation par modèle. 3. Échec d'utilisation de recommandation : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des demandes de recommandation par modèle.
+Azure Machine Learning Recommendations crée des notifications dès lors que des erreurs persistantes se produisent dans le système. Il existe 3 types de notifications :
+1.	Échec de build : cette notification est déclenchée à chaque échec de build.
+2.	Échec de traitement d'acquisition de données : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des événements d'utilisation par modèle.
+3.	Échec d'utilisation de recommandation : cette notification est déclenchée quand plus de 100 erreurs se produisent au cours des 5 dernières minutes du traitement des demandes de recommandation par modèle.
 
 
 ###14\.1. Obtention de notifications
@@ -2927,7 +3074,10 @@ Code d'état HTTP : 200
 
 
 ##15\. Informations juridiques
-Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br> Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br> Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br> © 2015 Microsoft. Tous droits réservés.
+Ce document est fourni « en l'état ». Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis.<br><br>
+Certains exemples sont fournis à titre indicatif uniquement et sont fictifs. Toute association ou lien est purement involontaire ou fortuit.<br><br>
+Ce document ne vous accorde aucun droit légal à la propriété intellectuelle pour un produit Microsoft. Vous pouvez copier et utiliser ce document pour un usage interne, à titre de référence.<br><br>
+© 2015 Microsoft. Tous droits réservés.
  
 
 <!---HONumber=Nov15_HO3-->
