@@ -109,7 +109,7 @@ Sous-réseau IP|Masque réseau|Plage d’adresses IP
 4. Sur l’écran d’accueil de l’Assistant Configuration, cochez l’option **Ignorer l’Assistant Configuration de l’authentification**, puis cliquez sur **Suivant**. Cette opération fermera l’Assistant et démarrera le serveur. 
 
 
-![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
+	![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. Revenez à la page à partir de laquelle vous avez téléchargé le serveur, puis cliquez sur le bouton **Générer des informations d’identification d’activation**. Copiez ces informations dans les zones appropriées du serveur Azure MFA, puis cliquez sur **Activer**.
 
@@ -188,4 +188,4 @@ Méthode|Description
 [Synchronisation avec Windows Server Active Directory](multi-factor-authentication-get-started-server-dirint.md)|Informations sur l’installation et la configuration de la synchronisation entre Active Directory et le serveur Azure MFA.
 [Déploiement du service Web de l’application mobile du serveur Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Informations sur l'installation et la configuration du service Web du serveur Azure MFA.
 
-<!----HONumber=AcomDC_1125_2015-->
+<!-----HONumber=AcomDC_1125_2015-->
