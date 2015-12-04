@@ -88,11 +88,25 @@ Nous allons maintenant ajouter le fichier MySetup.bat au projet Visual Studio po
 
 ![Visual Studio CopyToOutput pour fichier batch SetupEntryPoint][Image1]
 
-Ouvrez le fichier MySetup.bat et ajoutez les commandes suivantes. ~~~ REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur setx -m TestVariable "MyValue" echo System TestVariable définie sur > test.txt echo %TestVariable% >> test.txt
+Ouvrez le fichier MySetup.bat et ajoutez les commandes suivantes.
+~~~
+REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
+setx -m TestVariable "MyValue"
+echo System TestVariable définie sur > test.txt
+echo %TestVariable% >> test.txt
 
-REM Pour supprimer cette variable système utilisez REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM Pour supprimer cette variable système utilisez
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l'Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et tapez ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ Comme ceci ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l'Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et tapez
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Comme ceci
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 Notez ensuite le nom du nœud où le service a été déployé et démarré dans l'Explorateur Service Fabric, par exemple Node 1, et naviguez vers le dossier de travail de l'instance d'application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si ceci a été déployé sur Node 2, alors vous pouvez accéder à ce chemin d'accès pour MyApplicationType
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Lancement des commandes PowerShell à partir de SetupEntryPoint
 Pour exécuter PowerShell à partir du point **SetupEntryPoint**, vous pouvez exécuter PowerShell.exe dans un fichier batch qui pointe vers un fichier PowerShell. Tout d'abord, ajoutez un fichier PowerShell au projet de service, par exemple MySetup.ps1. N'oubliez pas de définir la propriété *Copier si plus récent* afin que ce fichier soit également inclus dans le package de service. L'exemple suivant montre un exemple de fichier batch pour lancer un fichier PowerShell appelé MySetup.ps1 qui définit une variable d'environnement appelée *TestVariable*.
 
-MySetup.bat pour lancer le fichier PowerShell. ~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+MySetup.bat pour lancer le fichier PowerShell.
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-Dans le fichier PowerShell, ajoutez ce qui suit pour définir une variable d'environnement système ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+Dans le fichier PowerShell, ajoutez ce qui suit pour définir une variable d'environnement système
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## Application de RunAsPolicy aux services 
 Dans les étapes ci-dessus, vous avez vu comment appliquer une stratégie RunAs à un point SetupEntryPoint. Allons plus loin et explorons comment créer des principaux différents qui peuvent être appliqués en tant que stratégies de service.
