@@ -82,7 +82,7 @@ Obtenez les bibliothèques javax.mail, par exemple depuis <http://www.oracle.com
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Créez votre message et entrez des valeurs **À**, **De**, **Objet** et du contenu. Ceci est indiqué dans la section [Création d'un message électronique](#bkmk_HowToCreateEmail).
-5.  Envoyez le message via un objet *javax.mail.Transport*. Ceci est indiqué dans la section [Envoi d'un message électronique][Envoi d’un message électronique].
+5.  Envoyez le message via un objet *javax.mail.Transport*. Ceci est indiqué dans la section [Envoi d'un message électronique](Envoi d’un message électronique).
 
 ## Création d'un message électronique
 
