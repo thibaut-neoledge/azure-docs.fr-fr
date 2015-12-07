@@ -3,7 +3,7 @@
    description="Procédure détaillée indiquant comment empaqueter plusieurs applications à déployer sur un cluster Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# Déploiement de plusieurs applications existantes
+# Déploiement de plusieurs applications personnalisées
 
 Cet article explique comment empaqueter et déployer plusieurs applications Service Fabric à l'aide de la version préliminaire de l'outil d'empaquetage Service Fabric, qui est disponible à l'adresse http://aka.ms/servicefabricpacktool.
 
@@ -194,8 +194,8 @@ Une fois que l'application est publiée avec succès sur le cluster local, vous 
 
 Dans ce didacticiel, vous avez vu comment empaqueter facilement deux applications existantes sous la forme d'une seule application Service Fabric et comment la déployer vers Service Fabric afin qu'elle puisse bénéficier de certaines des fonctionnalités Service Fabric, telles que la haute disponibilité et l'intégration du système d'intégrité.
 
-Pour plus d'informations, consultez les rubriques suivantes :
+## Étapes suivantes
 
-[Format d'empaquetage de Service Fabric](service-fabric-deploy-existing-app.md)
+Découvrez comment [packager manuellement une application unique](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

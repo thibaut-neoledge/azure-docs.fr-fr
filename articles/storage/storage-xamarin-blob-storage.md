@@ -3,8 +3,8 @@
 	description="La bibliothèque cliente de stockage Azure pour Xamarin permet aux développeurs d’utiliser un code base C# partagé pour créer des applications iOS, Android et Windows Store avec leurs interfaces utilisateur natives. Ce didacticiel montre comment utiliser Xamarin pour créer une application Android qui utilise le stockage d’objets blob Azure." 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # Utilisation du stockage d’objets blob à partir de Xamarin (version préliminaire)
@@ -173,10 +173,7 @@ Dans ce didacticiel, vous avez appris à utiliser le stockage d’objets blob Az
 
 Pour en savoir plus sur les objets blob, les tables et les files d’attente, suivez les liens ci-après :
 
-[Introduction à Microsoft Azure Storage](storage-introduction.md)  
-[Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md)  
-[Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md)  
-[Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
+[Introduction à Microsoft Azure Storage](storage-introduction.md) [Utilisation du stockage d’objets blob à partir de .NET](storage-dotnet-how-to-use-blobs.md) [Utilisation du stockage de tables à partir de .NET](storage-dotnet-how-to-use-tables.md) [Utilisation du stockage de files d’attente à partir de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

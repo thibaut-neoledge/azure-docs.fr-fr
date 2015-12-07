@@ -27,9 +27,9 @@ Les modèles Microsoft Azure Resource Manager ont été récemment introduits 
 
 ## Choix des outils
 
-### Interface utilisateur graphique : le portail ou le portail en version préliminaire Microsoft Azure
+### Interface utilisateur graphique : le portail Azure ou le portail Azure en version préliminaire
 
-L’interface utilisateur graphique du portail Microsoft Azure constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le [portail Azure](http://manage.windowsazure.com) ou le [portail Azure en version préliminaire](http://portal.azure.com). Pour obtenir des instructions générales, consultez [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**. Notez que le [portail Azure](http://manage.windowsazure.com) crée des machines virtuelles en utilisant uniquement le modèle de déploiement classique.
+L'interface utilisateur graphique du portail constitue un moyen simple de tester une machine virtuelle, en particulier si vous venez de démarrer avec Microsoft Azure. Pour créer la machine virtuelle, utilisez le [portail Azure](http://manage.windowsazure.com) ou le [portail Azure en version préliminaire](http://portal.azure.com). Pour obtenir des instructions générales, consultez [Création d’une machine virtuelle personnalisée][] et sélectionnez une image Linux à partir de la **galerie**. Notez que le [portail Azure](http://manage.windowsazure.com) crée des machines virtuelles en utilisant uniquement le modèle de déploiement classique.
 
 ### Interface de commande : interface de ligne de commande Microsoft Azure ou Microsoft Azure PowerShell
 
@@ -103,4 +103,4 @@ Utilisez une image basée sur une machine virtuelle Microsoft Azure existante, 
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-create-custom.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

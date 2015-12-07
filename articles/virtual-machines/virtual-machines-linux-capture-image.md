@@ -18,12 +18,12 @@
 	ms.author="dkshir"/>
 
 
-# Capture d’une machine virtuelle Linux classique en tant qu’image
+# Capture d'une machine virtuelle Linux classique en tant qu'image
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-linux-capture-image-resource-manager.md).
 
 
-Cet article vous montre comment capturer une machine virtuelle Azure classique exécutant Linux en tant qu’image pour créer d’autres machines virtuelles. Cette image comprend le disque du système d’exploitation ainsi que les disques de données attachés à la machine virtuelle. Elle ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d’autres machines virtuelles à partir de l’image.
+Cet article vous montre comment capturer une machine virtuelle Azure classique exécutant Linux en tant qu'image pour créer d'autres machines virtuelles. Cette image comprend le disque du système d'exploitation ainsi que les disques de données attachés à la machine virtuelle. Elle ne comprend pas la configuration réseau, vous devez donc la configurer lors de la création d'autres machines virtuelles à partir de l'image.
 
 Azure stocke l'image sous **Images**. C’est aussi là que sont stockées les images que vous avez chargées. Pour plus d’informations sur les images, voir l’article [À propos des images de machine virtuelle dans Azure][].
 
@@ -51,7 +51,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 	- Réinitialise le nom d'hôte sur localhost.localdomain.
 	- efface le dernier compte d’utilisateur approvisionné (obtenu de /var/lib/waagent) **et les données associées**.
 
-	>[AZURE.NOTE]L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur des machines virtuelles que vous souhaitez capturer dans un nouveau modèle d’image. Cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution à des tiers.
+	>[AZURE.NOTE]L’annulation de l’approvisionnement supprime les fichiers et les données dans le but de « généraliser » l’image. Exécutez uniquement cette commande sur des machines virtuelles que vous souhaitez capturer dans un nouveau modèle d'image. Cela ne garantit pas que l’image est exempte de toute information sensible ou qu’elle convient pour la redistribution à des tiers.
 
 
 3. Tapez **y** pour continuer. Vous pouvez ajouter le paramètre `-force` pour éviter cette étape de confirmation.
@@ -59,7 +59,7 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 4. Tapez **Exit** pour fermer le client SSH.
 
 
-	>[AZURE.NOTE]Les étapes suivantes supposent que vous avez déjà [installé la CLI Azure](../xplat-cli-install.md) sur votre ordinateur client. Toutes les étapes ci-dessous peuvent également être effectuées dans le [Portail de gestion][].
+	>[AZURE.NOTE]Les étapes suivantes supposent que vous avez déjà [installé la CLI Azure](../xplat-cli-install.md) sur votre ordinateur client. Toutes les étapes ci-dessous peuvent également être effectuées dans le [portail Azure][].
 
 5. À partir de votre ordinateur client, ouvrez la CLI Azure et connectez-vous à votre abonnement Azure. Pour plus d’informations, consultez [Se connecter à un abonnement Azure à partir de la CLI Azure](../xplat-cli-connect.md).
 
@@ -83,21 +83,21 @@ Ces étapes partent du principe que vous avez déjà créé une machine virtuell
 
 	`azure vm image list`
 
-	Dans le [Portail de gestion][], elle apparaît dans la liste **IMAGES**.
+	Dans le [portail Azure][], elle apparaît dans la liste **IMAGES**.
 
 	![Capture d'image réussie](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
 ## Étapes suivantes
-L'image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Pour plus d’informations sur la commande, consultez [Utilisation de l’interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec la gestion des services Azure](virtual-machines-command-line-tools.md). Vous pouvez également utiliser le [portail de gestion][] pour créer une machine virtuelle personnalisée en utilisant l’option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
+L'image est prête à être utilisée pour créer des machines virtuelles. Vous pouvez utiliser la commande `azure vm create` de la CLI Azure et fournir le nom de l’image que vous venez de créer. Pour plus d'informations sur la commande, consultez [Utilisation de l'interface de ligne de commande Microsoft Azure pour Mac, Linux et Windows avec la gestion des services Azure](virtual-machines-command-line-tools.md). Vous pouvez également utiliser le [portail Azure][] pour créer une machine virtuelle personnalisée en utilisant l'option **À partir de la galerie** et en sélectionnant l'image que vous venez de créer. Pour plus d’informations, consultez [Création d’une machine virtuelle personnalisée][].
 
 **Voir aussi :** [Guide d’utilisateur de l’agent Linux Azure](virtual-machines-linux-agent-user-guide.md)
 
-[Portail de gestion]: http://manage.windowsazure.com
+[portail Azure]: http://manage.windowsazure.com
 [Connexion à une machine virtuelle exécutant Linux]: virtual-machines-linux-how-to-log-on.md
 [À propos des images de machine virtuelle dans Azure]: virtual-machines-images.md
 [Création d’une machine virtuelle personnalisée]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Création d’une machine virtuelle exécutant Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

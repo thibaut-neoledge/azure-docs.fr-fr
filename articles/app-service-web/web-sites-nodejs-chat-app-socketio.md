@@ -3,9 +3,9 @@
 	description="Didacticiel démontrant l’utilisation de socket.io dans une application web node.js hébergée sur Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Créer une application de conversation instantanée Node.js avec Socket.IO dans Azure App Service
 
-Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l’utilisation d’autres transports (tels que l’interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel décrit la procédure d’hébergement d’une application de conversation instantanée Socket.IO sous la forme d’une application web Azure et explique comment la [mettre à l’échelle](#scale-out) à l’aide d’[Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache). Pour plus d'informations sur Socket.IO, consultez le site [http://socket.io/][socketio].
+Socket.IO offre une communication en temps réel entre votre serveur node.js et vos clients à l'aide de WebSockets. Il prend également en charge l’utilisation d’autres transports (tels que l’interrogation longue) qui fonctionnent avec des navigateurs plus anciens. Ce didacticiel décrit la procédure d’hébergement d’une application de conversation instantanée Socket.IO sous la forme d’une application web Azure et explique comment la [mettre à l’échelle](#scale-out) à l’aide d’[Azure Redis Cache](/documentation/services/cache). Pour plus d'informations sur Socket.IO, consultez le site [http://socket.io/][socketio].
 
 > [AZURE.NOTE]Les procédures de cette tâche s’appliquent à [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). Pour Cloud Services, consultez la page <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Création d’une application de conversation instantanée Node.js avec Socket.IO sur Azure Cloud Service</a>.
 
@@ -119,7 +119,7 @@ Vous pouvez faire monter en charge les applications Socket.IO en utilisant un __
 
 ###Création d'un cache Redis
 
-Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis](https://azure.microsoft.com/fr-FR/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache).
+Pour créer un cache, effectuez les étapes décrites dans [Création d'un cache dans le cache Azure Redis](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache).
 
 > [AZURE.NOTE]Enregistrez le __Nom d’hôte__ et la __Clé primaire__ de votre cache, car ces paramètres seront nécessaires lors des étapes suivantes.
 
@@ -285,4 +285,4 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

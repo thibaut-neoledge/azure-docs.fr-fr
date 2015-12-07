@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/03/2015"
+   ms.date="11/23/2015"
    ms.author="chackdan"/>
 
 # Mise à niveau d'un cluster Service Fabric
@@ -74,15 +74,17 @@ Pour ouvrir un nouveau port sur toutes les machines virtuelles dans un type de n
 
 1. **Ajouter une nouvelle sonde à l'équilibrage de charge approprié**
 
- Si vous avez déployé votre cluster à l'aide du portail, alors l'équilibrage de charge est nommé « loadBalancer-0 », « loadBalancer-1 », etc., pour chaque type de nœud. Étant donné que les noms de l'équilibrage de charge sont uniques dans un groupe de ressources (RG) uniquement, il est préférable de les rechercher dans un groupe de ressources donné.
+    Si vous avez déployé votre cluster à l'aide du portail, alors l'équilibrage de charge est nommé « loadBalancer-0 », « loadBalancer-1 », etc., pour chaque type de nœud. Étant donné que les noms de l'équilibrage de charge sont uniques dans un groupe de ressources (RG) uniquement, il est préférable de les rechercher dans un groupe de ressources donné.
 
- ![AddingProbes][addingProbes]
+    ![AddingProbes][AddingProbes]
+
 
 2. **Ajouter une nouvelle règle pour l'équilibrage de charge**
 
-  Pour le même équilibrage de charge, ajoutez une nouvelle règle à l'aide de la sonde créée à l'étape précédente.
+    Pour le même équilibrage de charge, ajoutez une nouvelle règle à l'aide de la sonde créée à l'étape précédente.
 
-  ![AddingLBRules][AddingLBRules]
+    ![AddingLBRules][AddingLBRules]
+
 
 ### Propriétés de positionnement
 
@@ -111,4 +113,4 @@ Si vous devez mettre à niveau l'image du système d'exploitation que vous utili
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

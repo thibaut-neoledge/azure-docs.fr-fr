@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configuration d’un nouvel appareil avec Azure AD lors de l’installation
@@ -41,7 +41,7 @@ Pour joindre un appareil à Azure AD
 11.	Dans ce cas, si vous êtes un utilisateur géré, Windows conclut le processus d'installation et vous dirige vers le bureau via la connexion automatique.
 12.	Si vous êtes un utilisateur fédéré, vous accédez à l'écran d'ouverture de session Windows et devez alors entrer vos informations d'identification pour vous connecter.
 
-> [AZURE.NOTE]Joindre un domaine Active Directory local dans Windows Out-of-Box Experience n'est pas pris en charge. Par conséquent, si vous souhaitez joindre un ordinateur à un domaine, vous devez sélectionner le lien « Configurer plutôt Windows avec un compte local ». Vous pouvez ensuite joindre le domaine à partir des paramètres du PC comme vous l’avez déjà fait auparavant.
+> [AZURE.NOTE]Joindre un domaine Active Directory local dans Windows Out-of-Box Experience n'est pas pris en charge. Par conséquent, si vous souhaitez joindre un ordinateur à un domaine, vous devez sélectionner le lien « Configurer plutôt Windows à l'aide d'un compte local ». Vous pouvez ensuite joindre le domaine à partir des paramètres du PC comme vous l’avez déjà fait auparavant.
 
 ## Informations supplémentaires
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
@@ -51,4 +51,4 @@ Pour joindre un appareil à Azure AD
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

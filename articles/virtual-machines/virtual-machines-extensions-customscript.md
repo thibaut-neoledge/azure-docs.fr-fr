@@ -71,7 +71,7 @@ Ce cas d’utilisation montre comment charger des scripts ou des fichiers en uti
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Ajout de l’extension de script personnalisé à partir du portail
+### Ajout de l'extension de script personnalisé à partir du portail Azure en version préliminaire
 
 Accédez à la machine virtuelle dans le <a href="https://portal.azure.com/ " target="_blank">portail Azure en version préliminaire</a> et ajoutez l’extension en spécifiant le fichier de script à exécuter.
 
@@ -91,4 +91,4 @@ Pour en savoir plus sur l’utilisation de l’extension de script personnalisé
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

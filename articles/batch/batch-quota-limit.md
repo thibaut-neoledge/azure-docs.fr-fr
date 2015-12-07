@@ -89,10 +89,10 @@ Le support Azure vous contactera. Le traitement de la demande peut prendre jusqu
 
 * [Créer et gérer un compte Azure Batch](batch-account-create-portal.md)
 
-* [Concepts de base concernant les API dans Azure Batch](batch-api-basics.md)
+* [Vue d'ensemble des fonctionnalités d'Azure Batch](batch-api-basics.md)
 
 * [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

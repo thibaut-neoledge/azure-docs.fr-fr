@@ -26,25 +26,9 @@ Visual Studio Application Insights offre deux niveaux de suivi de l'utilisation 
 
 ## Configuration
 
-Les données d'utilisation d'une application web proviennent du navigateur client.
+Ouvrez une ressource Application Insights dans le [portail Azure](https://portal.azure.com), un clic sur la page vide du navigateur charge un graphique. Suivez les instructions d'installation.
 
-#### Création d’une ressource Application Insights 
-
-Une ressource d'Application Insights est un endroit dans Microsoft Azure où les données de télémétrie de votre application sont analysées et affichées. Vous en avez peut-être déjà configuré une pour afficher les données du serveur de votre application dans [ASP.NET][greenbrown] ou [J2EE][java]. Sinon, vous souhaiterez peut-être le faire maintenant.
-
-Il est généralement préférable d'afficher les données d'utilisation du client web dans les mêmes ressources que les données du serveur. De cette façon, vous pouvez facilement mettre en corrélation les diagnostics et les métriques des deux côtés. Par conséquent, si vous disposez déjà d'une ressource, passez à l'étape suivante.
-
-#### Insérer du code dans vos pages web
-
-Dans votre ressource sur le [portail Azure][portal], ouvrez Quick Start afin d’obtenir l'extrait de code pour surveiller les pages web.
-
-![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
-
-Placez le code dans une page maître comme (dans .NET) \_Layout.cshtml, ou dans un fichier include, pour vous assurer qu'il est inclus dans toutes vos pages.
-
-L'extrait de code inclut la clé d'instrumentation (iKey) qui identifie la ressource. Pour envoyer des données vers une autre ressource, par exemple pendant le test, il vous suffit de remplacer l'iKey.
-
-Publiez vos pages web ou utilisez-les en mode débogage pour générer des données de télémétrie.
+[En savoir plus](app-insights-javascript.md)
 
 
 ## Quel est le niveau de popularité de mon application web ?
@@ -53,7 +37,7 @@ Connectez-vous au [portail Azure][portal] et accédez à votre ressource d’app
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Utilisateurs :** nombre d’utilisateurs actifs distincts dans la plage de temps du graphique. 
+* **Utilisateurs :** nombre d'utilisateurs actifs distincts dans la plage de temps du graphique. 
 * **Sessions :** nombre de sessions actives
 * **Affichages de pages** compte le nombre d’appels à trackPageView(), généralement appelé une seule fois dans chaque page web.
 
@@ -112,12 +96,12 @@ Toutefois, lorsque vous explorez des périodes plus courtes comme une session ho
 
 Chaque session utilisateur est associée à un ID d’utilisateur unique.
 
-Par défaut, l'utilisateur est identifié en plaçant un cookie. Un utilisateur qui utilise plusieurs navigateurs ou périphériques sera compté plus d’une fois. (Mais consultez [Utilisateurs authentifiés](#authenticated-users)
+Par défaut, l'utilisateur est identifié en plaçant un cookie. Un utilisateur qui utilise plusieurs navigateurs ou périphériques sera compté plus d’une fois. (Mais consultez [Utilisateurs authentifiés](#authenticated-users))
 
 
 La métrique du **nombre d'utilisateurs** dans un certain intervalle est définie comme le nombre d'utilisateurs uniques avec des activités enregistrées pendant cet intervalle. Par conséquent, les utilisateurs avec de longues sessions peuvent être pris en compte plusieurs fois, lorsque vous définissez une plage de temps afin que la granularité soit inférieure à une heure environ.
 
-La valeur **Nouveaux utilisateurs** compte les utilisateurs dont les premières sessions avec l'application se sont produites au cours de cet intervalle. Si la méthode par défaut de comptabilisation par utilisateurs et par cookies est utilisée, elle inclura également les utilisateurs qui ont désactivé leurs cookies ou qui utilisent un nouveau périphérique ou navigateur pour accéder à votre application pour la première fois. ![Dans le panneau d’utilisation, cliquez sur le graphique Utilisateurs pour examiner les nouveaux utilisateurs.](./media/app-insights-web-track-usage/031-dual.png)
+La valeur **Nouveaux utilisateurs** compte les utilisateurs dont les premières sessions avec l'application se sont produites au cours de cet intervalle. Si la méthode par défaut de comptabilisation par utilisateurs et par cookies est utilisée, elle inclura également les utilisateurs qui ont supprimé leurs cookies ou qui utilisent un nouveau périphérique ou navigateur pour accéder à votre application pour la première fois. ![Dans le panneau d’utilisation, cliquez sur le graphique Utilisateurs pour examiner les nouveaux utilisateurs.](./media/app-insights-web-track-usage/031-dual.png)
 
 ### Utilisateurs authentifiés
 
@@ -132,7 +116,7 @@ Si votre application regroupe les utilisateurs par comptes, vous pouvez égaleme
 
       appInsights.setAuthenticatedUserContext(userId, accountId);
 
-Les ID utilisateur et de compte ne doivent pas contenir des espaces ou les caractères `,;=|`
+Les ID d'utilisateur et de compte ne doivent pas contenir d'espaces ou les caractères `,;=|`
 
 
 Dans [Metrics Explorer](app-insights-metrics-explorer.md), vous pouvez créer un graphique des **Utilisateurs authentifiés** et des **Comptes**.
@@ -391,4 +375,4 @@ Lorsque vous utilisez l'analyse, elle devient partie intégrante de votre cycle 
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

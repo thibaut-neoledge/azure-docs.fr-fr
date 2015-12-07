@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels | Microsoft Azure" 
-	description="fournit une vue d'ensemble du déploiement d’appareils Windows 10 pour les entreprises, en mettant en contraste les différentes façons dont un appareil peut être approvisionné et utilisé dans une entreprise." 
+	description="Fournit une vue d'ensemble du déploiement d'appareils Windows 10 pour les entreprises, en mettant en contraste les différentes manières dont un appareil peut être approvisionné et utilisé dans une entreprise." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels
@@ -34,4 +34,4 @@ Les rubriques suivantes fournissent des indications sur l’utilisation des diff
 | Déploiement | [Scénarios d'utilisation et considérations relatives au déploiement pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10 ](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Activer Microsoft Passport for Work dans l'organisation](active-directory-azureadjoin-passport-deployment.md)<br><br> |
 | Tâches de l’utilisateur | [Configuration d’un nouvel appareil Windows 10 avec Azure AD lors de l’installation](active-directory-azureadjoin-user-frx.md) <br><br> [Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres](active-directory-azureadjoin-user-upgrade.md) <br><br> [Association d’un appareil Windows 10 personnel à votre organisation](active-directory-azureadjoin-personal-device.md) |
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

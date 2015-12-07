@@ -23,10 +23,20 @@ Votre application Service Fabric a été créée. Cet article décrit la constit
 Chaque nouvelle application inclut un projet d'application. Il peut y avoir un ou deux projets supplémentaires en fonction du type de service choisi.
 
 ### Le projet d'application
-Le projet d'application se compose des éléments suivants :-Un ensemble de références aux services qui composent votre application. -Deux profils de publication (locaux et Cloud), si vous préférez conserver des environnements de travail différents, tels qu'un point de terminaison de cluster, et si vous souhaitez effectuer des déploiements de mise à niveau par défaut. -Deux fichiers de paramètres d’application (locaux et Cloud) que vous pouvez utiliser pour effectuer des configurations spécifiques à l'environnement d'application, telles que le nombre de partitions à créer pour un service. -Un script de déploiement que vous pouvez utiliser pour déployer votre application à partir de la ligne de commande ou dans le cadre d'un pipeline d'intégration continue automatisée. -Le manifeste de l'application, qui décrit l'application.
+Le projet d'application se compose des éléments suivants :
+
+- Un ensemble de références aux services qui composent votre application.
+
+- Deux profils (local et Cloud) de publication que vous pouvez utiliser pour préserver les préférences d'utilisation des différents environnements, comme un point de terminaison du cluster et si vous souhaitez exécuter les déploiements de mise à niveau par défaut.
+
+- Deux fichiers (local et Cloud) de paramètres de l'application que vous pouvez utiliser pour gérer les configurations de l'application spécifiques à l'environnement, comme le nombre de partitions à créer pour un service.
+
+- Un script de déploiement que vous pouvez utiliser pour déployer votre application à partir de la ligne de commande ou dans le cadre d'un pipeline d'intégration continue automatisée.
+
+- Le manifeste d'application qui décrit l'application.
 
 ### Services fiables (Reliable Services)
-Lorsque vous ajoutez un nouveau service fiable (Reliable Service), Visual Studio ajoute un projet de service à votre solution. Le projet service contient une classe qui s’étend à partir de `StatelessService` ou `StatefulService`, selon le type choisi.
+Lorsque vous ajoutez un nouveau service fiable (Reliable Service), Visual Studio ajoute un projet de service à votre solution. Le projet de service contient une classe qui s'étend à partir de `StatelessService` ou `StatefulService`, selon le type choisi.
 
 ### Acteurs fiables (Reliable Actors)
 Lorsque vous ajoutez un nouvel acteur fiable (Reliable Actor), Visual Studio ajoute deux projets à votre solution : un projet d'acteur et un projet d'interface.
@@ -36,14 +46,18 @@ Le projet d'acteur définit le type d'acteur et (pour les acteurs avec état) so
 Notez que les projets d'acteur ne contiennent pas de comportement de démarrage par défaut, car les acteurs doivent être activés par d'autres services. Envisagez d'ajouter un service fiable ou un projet ASP.NET pour créer et interagir avec votre acteurs.
 
 ### ASP.NET 5
-Les modèles ASP.NET 5 fournis pour utilisation dans les applications de Service Fabric sont presque identiques à ceux disponibles pour les projets ASP.NET 5 créés indépendamment. Les seules différences sont les suivantes : - Le projet contient un dossier de **racine de package** pour stocker le manifeste de service, ainsi que les packages de données et de configuration. - Le projet référence un package NuGet supplémentaire (Microsoft.ServiceFabric.AspNet.Hosting), qui fait office de pont entre DNX et Service Fabric.
+Les modèles ASP.NET 5 fournis pour utilisation dans les applications de Service Fabric sont presque identiques à ceux disponibles pour les projets ASP.NET 5 créés indépendamment. Les seules différences sont les suivantes :
+
+- Le projet contient un dossier **PackageRoot** pour stocker ServiceManifest, ainsi que les packages Data et Config.
+
+- Le projet fait référence à un package NuGet supplémentaire (Microsoft.ServiceFabric.AspNet.Hosting), qui agit comme une passerelle entre DNX et Service Fabric.
 
 ## Étapes suivantes
 ### Ajout d’un serveur web frontal à votre application
 Service Fabric offre une intégration avec ASP.NET 5 pour la création de points d'entrée web pour votre application. Consultez la page [Ajout d'un serveur web frontal à votre application][add-web-frontend] pour apprendre à créer une interface REST basée sur l'API web ASP.NET.
 
 ### Création d’un cluster Azure
-Le SDK Service Fabric fournit un cluster local pour le développement et les tests. Pour créer un cluster dans Azure, consultez la page [Configuration d’un cluster Service Fabric à partir du portail Azure][create-cluster-in-portal].
+Le SDK Service Fabric fournit un cluster local pour le développement et les tests. Pour créer un cluster dans Azure, consultez la page [Configuration d'un cluster Service Fabric à partir du portail Azure][create-cluster-in-portal].
 
 ### Publication de votre application dans Azure
 Vous pouvez publier votre application directement à partir de Visual Studio vers un cluster Azure. Pour en savoir plus, voir [Publication de votre application dans Azure][publish-app-to-azure].
@@ -55,7 +69,7 @@ Service Fabric Explorer offre un moyen facile de visualiser votre cluster, y com
 Service Fabric permet un contrôle de version indépendant et la mise à niveau de services indépendants d'une application. Pour en savoir plus, voir [Contrôle de la version et mise à niveau de vos services][app-upgrade-tutorial].
 
 ### Configuration de l'intégration continue avec Visual Studio Online
-Pour savoir comment configurer un processus d'intégration continue pour votre application Service Fabric, voir [Configuration de l’intégration continue avec Visual Studio Online][ci-with-vso].
+Pour savoir comment configurer un processus d'intégration continue pour votre application Service Fabric, voir [Configuration de l'intégration continue avec Visual Studio Online][ci-with-vso].
 
 
 <!-- Links -->
@@ -67,4 +81,4 @@ Pour savoir comment configurer un processus d'intégration continue pour votre a
 [reliable-services-webapi]: ./service-fabric-reliable-services-communication-webapi.md
 [app-upgrade-tutorial]: ./service-fabric-application-upgrade-tutorial.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

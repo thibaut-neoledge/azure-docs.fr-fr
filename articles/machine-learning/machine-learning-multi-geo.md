@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Documentation d'aide de zones géographiques multiples
 
-Actuellement, toutes les ressources de formation de Machine Azure sont hébergées dans la région Azure South Central United States (SCUS). Cet article explique comment vous pouvez créer un espace de travail et publier un service web dans d'autres régions Azure.
+Cet article explique comment vous pouvez créer un espace de travail et publier un service web dans d'autres régions Azure.
 
 ## Création d'un espace de travail
 
@@ -57,4 +57,4 @@ Poser une question sur le [forum Azure Machine Learning](https://social.msdn.mic
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

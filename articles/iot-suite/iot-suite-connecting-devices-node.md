@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Envoi de données d’appareil à la solution de surveillance à distance à l’aide de node.js
+## Générer et exécuter l'exemple de solution node.js
 
 1. Pour cloner le référentiel GitHub des *kits de développement logiciel (SDK) Microsoft Azure IoT* et installer le *Kit de développement logiciel (SDK) d’appareil Azure IoT pour Node.js* dans votre environnement de bureau, suivez les instructions contenues dans [Préparation de votre environnement de développement][lnk-github-prepare].
 
@@ -61,4 +61,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

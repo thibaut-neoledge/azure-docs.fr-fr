@@ -34,7 +34,7 @@ La première section, « Étapes de base », répertorie les étapes de résol
 
 Ces étapes de base peuvent aider à résoudre les échecs de connexion Bureau à distance les plus courants sur les machines virtuelles créées à l'aide du modèle de déploiement classique. Après chaque étape, essayez de vous reconnecter à la machine virtuelle.
 
-- Réinitialisez le service Bureau à distance à partir du [portail Azure](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
+- Réinitialisez le service Bureau à distance à partir du [portail Azure en version préliminaire](https://portal.azure.com) pour résoudre les problèmes de démarrage avec le serveur RDP.<br> Cliquez sur Parcourir tout > Machines virtuelles (classiques) > votre machine virtuelle Windows > **Réinitialiser l’accès à distance**.
 
     ![Capture d'écran qui affiche une réinitialisation de la configuration RDP](./media/virtual-machines-troubleshoot-remote-desktop-connections/Portal-RDP-Reset-Windows.png)
 
@@ -89,7 +89,7 @@ Voici les erreurs les plus courantes que vous pouvez rencontrer lorsque vous ten
 
 Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
 
-Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail Azure, puis exécutez cette commande au niveau d’une invite de commande Windows PowerShell pour vous connecter.
+Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d'une invite de commande Windows PowerShell pour vous connecter.
 
 		mstsc <File name>.RDP /admin
 
@@ -107,7 +107,7 @@ Cause : Le client Bureau à distance de votre ordinateur n’a pas pu résoudre
 Solutions possibles :
 
 - Si vous êtes sur un intranet d’entreprise, vérifiez que votre ordinateur a bien accès au serveur proxy et peut lui transmettre le trafic HTTPS.
-- Si vous utilisez un fichier RDP stocké localement, essayez d'utiliser celui généré par le portail Azure. Ainsi, vous serez certain de disposer du nom DNS correct pour la machine virtuelle ou le service cloud et pour le port du point de terminaison de la machine virtuelle. Voici un exemple de fichier RDP généré par le portail Azure :
+- Si vous utilisez un fichier RDP stocké localement, essayez d'utiliser celui généré par le portail. Ainsi, vous serez certain de disposer du nom DNS correct pour la machine virtuelle ou le service cloud et pour le port du point de terminaison de la machine virtuelle. Voici un exemple de fichier RDP généré par le portail :
 
 		full address:s:tailspin-azdatatier.cloudapp.net:55919
 		prompt for credentials:i:1
@@ -169,4 +169,4 @@ Si aucune de ces erreurs ne s’est produite et vous ne parvenez toujours pas à
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

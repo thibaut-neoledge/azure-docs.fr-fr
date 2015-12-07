@@ -106,7 +106,7 @@ Voici une brève description des éléments du fichier de configuration.
 
 * **Database** : paramètres de base de données pour le cluster HPC Pack. Actuellement, le script prend en charge trois options de base de données : ExistingDB, NewRemoteDB et LocalDB. Dans cet exemple, nous allons créer une base de données locale sur le nœud principal.
 
-* **HeadNode** : paramètres pour le nœud principal HPC Pack. Dans cet exemple, nous allons créer un nœud principal de taille A7 nommé CentOS7RDMA-HN dans le service cloud centos7rdma-je. Pour prendre en charge la soumission de travaux HPC effectuée depuis des ordinateurs clients distants (non joints à un domaine), le script activera l’API REST du planificateur de travaux HPC et le portail web HPC.
+* **HeadNode** : paramètres du nœud principal HPC Pack. Dans cet exemple, nous allons créer un nœud principal de taille A7 nommé CentOS7RDMA-HN dans le service cloud centos7rdma-je. Pour prendre en charge la soumission de travaux HPC effectuée depuis des ordinateurs clients distants (non joints à un domaine), le script activera l’API REST du planificateur de travaux HPC et le portail web HPC.
 
 * **LinuxComputeNodes** : paramètres des nœuds de calcul Linux du HPC Pack. Dans cet exemple, nous allons créer deux nœuds de calcul Linux CentOS 7 de taille A7 (CentOS7RDMA-LN1 et CentOS7RDMA-LN2) dans le service cloud centos7rdma-je.
 
@@ -265,7 +265,7 @@ Il existe plusieurs façons de soumettre des travaux au cluster HPC Pack.
 
 La soumission de travaux au cluster via les outils de l’interface graphique utilisateur HPC Pack et via le portail web HPC est la même que pour les nœuds de calcul Windows. Consultez [Gestionnaire de travaux HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) et [Soumission de travaux à partir d'un client local](https://msdn.microsoft.com/library/azure/dn689084.aspx).
 
-Pour soumettre des travaux via l’API REST, consultez [Création et soumission de travaux à l’aide de l’API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l'exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d'un client Linux.
+Pour soumettre des travaux via l'API REST, consultez [Création et soumission de travaux à l'aide de l'API REST dans Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Reportez-vous également à l'exemple Python dans le [Kit de développement logiciel (SDK) HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756) pour soumettre des travaux à partir d'un client Linux.
 
 ## Clusrun pour les nœuds Linux
 
@@ -286,14 +286,14 @@ L'outil **clusrun** de HPC Pack permet d'exécuter des commandes sur des nœud
 * Créez un script shell affichant chaque nombre de 1 à 10 pour une seconde sur chaque nœud du cluster, exécutez-le et affichez la sortie des nœuds immédiatement.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]Il peut être nécessaire d'utiliser certains caractères d'échappement dans les commandes **clusrun**. Comme indiqué dans cet exemple, utilisez ^ dans une fenêtre de commande comme échappement pour le symbole « > ».
 
 ## Étapes suivantes
 
-* Essayez d’exécuter une charge de travail Linux sur le cluster. Pour un exemple, consultez [Exécuter NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Essayez d’exécuter une charge de travail Linux sur le cluster. Pour obtenir un exemple, consultez [Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](virtual-machines-linux-cluster-hpcpack-namd.md) ou [Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Essayez d'étendre le cluster à un plus grand nombre de nœuds ou déployez des nœuds de calcul de taille [A8 ou A9](virtual-machines-a8-a9-a10-a11-specs.md) pour exécuter des charges de travail MPI.
 
@@ -313,4 +313,4 @@ L'outil **clusrun** de HPC Pack permet d'exécuter des commandes sur des nœud
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

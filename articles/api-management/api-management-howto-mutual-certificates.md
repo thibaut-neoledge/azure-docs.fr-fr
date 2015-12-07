@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Comment sécuriser les services principaux à l'aide d'une authentification de certificat mutuel dans la Gestion des API Azure" 
-	description="Découvrez comment sécuriser les services principaux à l'aide d'une authentification mutuelle des certificats dans Gestion des API Azure." 
+	pageTitle="Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure" 
+	description="Découvrez comment sécuriser des services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure" 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
-# Comment sécuriser les services principaux à l'aide d'une authentification de certificat mutuel dans la Gestion des API Azure
+# Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 
-La Gestion des API permet de sécuriser l'accès au service principal d'une API en utilisant des certificats mutuels. Ce guide explique comment gérer les certificats dans le portail des éditeurs de l’API et comment configurer une API pour utiliser un certificat et accéder à son service principal.
+La Gestion des API permet de sécuriser l'accès au service principal d'une API en utilisant des certificats client. Ce guide explique comment gérer les certificats dans le portail des éditeurs de l’API et comment configurer une API pour utiliser un certificat et accéder à son service principal.
 
 Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez [Entité de certificat API REST de gestion des API Azure][].
 
 ## <a name="prerequisites"> </a>Configuration requise
 
-Ce guide explique comment configurer votre instance de service Gestion des API afin d'utiliser l'authentification mutuelle des certificats pour accéder au service principal d'une API. Avant de passer à la procédure de cette rubrique, vous devez configurer votre service principal pour l’authentification mutuelle des certificats, et avoir accès au certificat et au mot de passe associé afin de les charger dans le portail des éditeurs d’API.
+Ce guide explique comment configurer votre instance de service de gestion des API afin d'utiliser l'authentification par certificat lient pour accéder au service principal d'une API. Avant de suivre la procédure présentée dans cette rubrique, vous devez configurer votre service principal pour l'authentification avec certificat client et avoir accès au certificat et au mot de passe associés afin de les charger dans le portail de publication de la gestion des API.
 
 ## <a name="step1"> </a>Chargement d’un certificat client
 
@@ -54,7 +54,7 @@ Cliquez sur **Charger** pour charger le certificat.
 
 ![Certificat chargé][api-management-certificate-uploaded]
 
-Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients**. Si vous avez plusieurs certificats, créez une note à ce sujet ou indiquant les quatre derniers caractères de l’empreinte numérique, utilisés pour sélectionner le certificat lors de la configuration d’une API pour l’utilisation de certificats, tel qu’indiqué dans la section suivante [Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle][].
+Lorsque le certificat est chargé, il s'affiche dans l'onglet **Certificats clients**. Si vous avez plusieurs certificats, faites une note indiquant les quatre derniers caractères de l'empreinte numérique, qui sont utilisés pour sélectionner le certificat lors de la configuration d'une API pour l'utilisation de certificats, tel qu'indiqué dans la section suivante [Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle][].
 
 ## <a name="step1a"> </a>Suppression d’un certificat client
 
@@ -70,15 +70,15 @@ Si le certificat est en cours d'utilisation par une API, un écran d'avertisseme
 
 ![Confirmation de suppression][api-management-confirm-delete-policy]
 
-## <a name="step2"> </a>Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle
+## <a name="step2"> </a>Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle
 
 Cliquez sur **API** dans le menu **Gestion des API** de gauche, cliquez sur le nom de l'API désirée, puis cliquez sur l'onglet **Sécurité**.
 
 ![Sécurité API][api-management-api-security]
 
-Sélectionnez **Certificats mutuels** dans la liste déroulante **Avec informations d'identification**.
+Sélectionnez **Certificats client** dans la liste déroulante **Avec informations d'identification**.
 
-![Certificats mutuels][api-management-mutual-certificates]
+![Certificats clients][api-management-mutual-certificates]
 
 Sélectionnez le certificat désiré dans la liste déroulante **Certificat client**. Si plusieurs certificats s'affichent, vous pouvez consulter le sujet ou les quatre derniers caractères de l'empreinte numérique (notés dans la section précédente) afin d'identifier le certificat correct.
 
@@ -96,7 +96,7 @@ Cliquez sur **Enregistrer** pour enregistrer la modification de configuration de
 
 ## Étapes suivantes
 
-Pour plus d’informations, regardez la vidéo suivante :
+Pour plus d'informations sur les autres méthodes de sécurisation de votre service principal, telles que l’authentification HTTP de base ou partagée, regardez la vidéo suivante
 
 > [AZURE.VIDEO last-mile-security]
 
@@ -133,7 +133,7 @@ Pour plus d’informations, regardez la vidéo suivante :
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
 [Delete a client certificate]: #step1a
-[Configuration d’une API afin d’utiliser l’authentification mutuelle des certificats pour passerelle]: #step2
+[Configuration d'une API afin d'utiliser un certificat pour l'authentification de passerelle]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
@@ -141,4 +141,4 @@ Pour plus d’informations, regardez la vidéo suivante :
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

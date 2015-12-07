@@ -128,23 +128,9 @@ Les utilisateurs peuvent également utiliser Query Console (un éditeur Hive) en
 
 *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*
 
-dans un navigateur Web. Notez que vous devrez entrer les informations d'identification du cluster Hadoop pour vous connecter. Vous pouvez également [envoyer des tâches Hive avec PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+dans un navigateur Web. Notez que vous devrez entrer les informations d'identification du cluster Hadoop pour vous connecter.
 
-
-## Comment envoyer une requête Hive (ancienne version)
-
-Ce document décrit différentes manières d'envoyer des requêtes Hive à des clusters Hadoop gérés par un service HDInsight dans Azure. (ancienne présentation - TBD incorporer)
-
-
-Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d'informations sur la procédure, consultez l'article [Envoyer des requêtes Hive à des clusters Hadoop HDInsight dans le processus d'analyse avancée](machine-learning-data-science-process-hive-tables.md).
-
-Les utilisateurs peuvent également utiliser Query Console (Hive Editor) en saisissant l’adresse
-
-https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor
-
-dans un navigateur Web. Notez que vous devrez entrer les informations d’identification du cluster Hadoop pour vous connecter. Veillez donc à avoir ces informations d’identification à portée de main.
-
-Vous pouvez également [envoyer des tâches Hive avec PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Vous pouvez également [exécuter des requêtes Hive à l'aide de PowerShell](../hdinsight/hdinsight-hadoop-use-hive-powershell.md).
 
 
 ## <a name="create-tables"></a>Création de la base de données et des tables Hive
@@ -172,10 +158,10 @@ Voici les descriptions des champs que les utilisateurs doivent renseigner et d�
 - **&#60;table name>** : nom de la table que les utilisateurs veulent créer dans la base de données spécifiée. S'ils veulent utiliser la base de données par défaut, la table peut être désignée directement par *&#60;table name>* sans &#60;database name>.
 - **&#60;field separator>** : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive. 
 - **&#60;line separator>** : séparateur qui délimite les lignes dans le fichier de données. 
-- **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si les utilisateurs ne spécifient pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si un utilisateur souhaite spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster dans le format de *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs seront créés dans le conteneur par défaut. 
+- **&#60;storage location>** : emplacement Azure où enregistrer les données des tables Hive. Si les utilisateurs ne spécifient pas *LOCATION &#60;storage location>*, la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si un utilisateur souhaite spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement relatif du conteneur par défaut du cluster au format *’wasb:///&#60;directory 1>/’* ou *’wasb:///&#60;directory 1>/&#60;directory 2>/’*, etc. Une fois la requête exécutée, les répertoires relatifs seront créés dans le conteneur par défaut. 
 - **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d'en-tête, les utilisateurs doivent ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête. 
 
-## <a name="load-data"></a>Charger les données dans des tables Hive
+## <a name="load-data"></a>Chargement des données dans des tables Hive
 Voici la requête Hive qui charge les données dans une table Hive.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
@@ -264,4 +250,4 @@ Les utilisateurs ne peuvent pas charger directement des données au format ORC d
 
 La section finale présente les paramètres que les utilisateurs peuvent ajuster pour accélérer le traitement des requêtes Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

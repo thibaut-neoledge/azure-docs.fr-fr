@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7
@@ -52,4 +52,12 @@ Ouvrez ensuite une invite de commandes sur l’ordinateur Windows 7 et exécute
 
 Le journal des événements Windows sur l’ordinateur Windows 7 affiche des messages liés à la jonction d’espace de travail. Vous pouvez y trouver des messages pour les événements de jonction d’espace de travail qui ont réussi et pour ceux qui ont échoué. Le journal des événements se trouve dans l’Observateur d’événements, sous Journaux des services et Applications > Microsoft > Jonction d’espace de travail.
 
-<!---HONumber=Nov15_HO1-->
+## Rubriques supplémentaires
+
+- [Vue d’ensemble du service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)
+- [Inscription automatique d’appareils auprès d’Azure Active Directory pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Présentation d’Application Insights
@@ -21,7 +21,7 @@ Application Insights est un service d’analyse extensible qui surveille votre 
 
 ![Créez un graphique des statistiques d'activité de l’utilisateur ou explorez des événements spécifiques.](./media/app-insights-overview/00-sample.png)
 
-Il fonctionne avec les applications web et les applications autonomes sur un large éventail de plateformes : .NET ou J2EE, hébergées sur site ou dans le cloud ; des applications pour appareil sous Windows, iOS, Android, OSX et autres plateformes.
+Il fonctionne avec les applications web et les applications autonomes sur un large éventail de plates-formes : .NET ou J2EE, hébergées sur site ou dans le cloud.
 
 Application Insights est destiné à l'équipe de développement. Avec lui, vous pouvez :
 
@@ -32,7 +32,7 @@ Application Insights est destiné à l'équipe de développement. Avec lui, vou
  *  Alertes sur les changements de performances ou les incidents.
  *  Métriques permettant de diagnostiquer des problèmes de performances, comme les temps de réponse, l’utilisation du processeur et le suivi des dépendances.
  *  Tests de disponibilité pour les applications web.
- *  Alertes et rapports d’incidents et d’exceptions
+ *  Rapports d'incidents et d'exceptions
  *  Puissante recherche des journaux de diagnostic (y compris le suivi des journaux à partir de vos frameworks de journalisation préférés).
 
 Le Kit de développement logiciel (SDK) de chaque plateforme inclut une gamme de modules qui surveillent d’emblée l'application. En outre, vous pouvez coder vos propres mesures de télémétrie pour obtenir des analyses plus détaillées et personnalisées.
@@ -53,13 +53,10 @@ Il existe des Kits de développement logiciel pour un nombre croissant de platef
  * [Azure Cloud Services](app-insights-cloudservices.md)
  * les [serveurs J2EE][java]
  * [les pages Web][client] : HTML + JavaScript
- * [Les applications universelles Windows Phone, Windows Store, Windows 10 et une intégration directe avec le portail des développeurs Windows 10][windows]
- * [Ordinateurs Windows][desktop]
- * [iOS][ios]
- * [Android][android]
+ * [Applications de bureau et de serveurs Windows][desktop]
  * [Autres plateformes][platforms] : Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
-Application Insights peut également obtenir les mesures de télémétrie à partir des applications web ASP.NET existantes sur IIS, sans les recréer.
+Application Insights peut également obtenir la télémétrie à partir des applications Web ASP.NET existantes sans les recréer.
 
 Si votre application comporte un client, un serveur et d’autres composants, vous pouvez tous les instrumenter. Les données seront intégrées au portail Application Insights pour vous permettre, par exemple, d’associer des événements au niveau du client à des événements au niveau du serveur.
 
@@ -87,9 +84,9 @@ L'impact sur les performances est très faible. Le suivi des appels n’entraîn
 
 ## Pour commencer
 
-1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L’inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d’Application Insights.
+1. Vous devrez vous abonner à [Microsoft Azure](http://azure.com). L'inscription est gratuite et vous pouvez choisir le [niveau de tarification](https://azure.microsoft.com/pricing/details/application-insights/) gratuit d'Application Insights.
 
-2. Connectez-vous au [portail Azure](http://portal.azure.com)
+2. Connectez-vous au [portail Azure](http://portal.azure.com).
 3. Créez une ressource Application Insights. C’est ici que vous pouvez afficher les données de votre application.
 
     ![Ajouter, Services de développement, Application Insights](./media/app-insights-overview/11-new.png)
@@ -110,7 +107,7 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
 [Exemples et procédures pas à pas](app-insights-code-samples.md)
 
-[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) : packages NuGet que vous pouvez installer (et désinstaller) sous forme d’ajouts au Kit de développement logiciel (SDK) Application Insights. Essayez-les et envoyez-nous vos commentaires !
+[SDK Labs](https://www.myget.org/gallery/applicationinsights-sdk-labs) : packages NuGet que vous pouvez installer (et désinstaller) sous forme d'ajouts au Kit de développement logiciel (SDK) Application Insights. Essayez-les et envoyez-nous vos commentaires !
 
 
 ## Support et commentaires
@@ -154,4 +151,4 @@ Pour plus de détails, choisissez votre type d'application sous Prise en main da
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

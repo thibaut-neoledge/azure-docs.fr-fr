@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/18/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Prise en charge de Resource Manager pour les services, les régions et les versions API
@@ -30,11 +30,9 @@ Les tableaux suivants indiquent si les services répertoriés prennent en charge
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------------------------ | -------------- | -------------- |-------- | ------ |
 | Virtual Machines | Oui | Oui, de nombreuses options | Non | [Créer une machine virtuelle](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
-| Batch | Oui | [Oui (classique uniquement)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
+| Batch | Oui | [Oui (classique uniquement)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Oui | [Batch REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Dynamics Lifecycle Services | Oui | Non | | | |
-| Virtual Machines (classic) | Limité | Oui | Partiel (voir ci-dessous) | - | - |
-| Remote App | Non | - | - | - | - |
-| Service Fabric | Non | - | - | - | - |
+| Machines virtuelles (classiques) | Limité | Oui, de nombreuses options | Partiel (voir ci-dessous) | - | - | | Remote App | Non | Non | - | - | - | | Service Fabric | Non | Non | - | - | - |
 
 Machines virtuelles (classiques) fait référence à des ressources qui ont été déployées via le modèle de déploiement classique, et non via le modèle de déploiement Resource Manager. En général, ces ressources ne prennent pas en charge les opérations de Resource Manager, sauf certaines opérations qui ont été activées. Pour plus d’informations sur ces modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](resource-manager-deployment-model.md).
 
@@ -70,8 +68,8 @@ Les ressources Machines virtuelles (classiques) peuvent être déplacées vers u
 | API Management | Oui | Non | Oui | [Créer une API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
 | API Apps | Oui | [Oui](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Web Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.WebSite) | Oui, avec des limitations (voir ci-dessous) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
-| Notification Hubs | Oui | [Oui](https://portal.azure.com/#create/Microsoft.NotificationHub) | | [Créer un hub de notification](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
-| Logic Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | | | |
+| Notification Hubs | Oui | [Oui](https://portal.azure.com/#create/Microsoft.NotificationHub) | Oui | [Créer un hub de notification](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
+| Logic Apps | Oui | [Oui](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Oui | | |
 | Mobile Engagements | Oui | Non | Oui | | |
 
 Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer uniquement un plan App Service. Pour déplacer des applications web, les options disponibles sont :
@@ -85,7 +83,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Event Hub | Oui | Non | | [Créer un hub d’événements](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Stream Analytics | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
-| HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
+| HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Oui | | |
 | Data Factory | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DataFactory) | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
 | Machine Learning | Non | Non | - | - | - | | Catalogue de données | Non | Non | - | - | - |
 
@@ -109,15 +107,13 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | Non | Non | - | - | - |
-| Azure Actice Directory B2C | Non | Non | - | - | - |
-| Multi-Factor Authentication | Non | Non | - | - | - |
+| Azure Active Directory | Non | Non | - | - | - | | Azure Actice Directory B2C | Non | Non | - | - | - | | Multi-Factor Authentication | Non | Non | - | - | - |
 
 ## Services de développement 
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | Non | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Bing Maps | Oui | [Oui](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Visual Studio Account | Oui | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -125,7 +121,7 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 
 | Service | Resource Manager activé | Portail en version préliminaire | Déplacer des ressources | API REST | Schéma |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Automation | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
+| Automation | Oui | [Oui](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Oui | | |
 | Key Vault | Oui | Non | Oui | [REST Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Scheduler | Oui | Non | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights | Oui | Non | Oui | | |
@@ -237,4 +233,4 @@ Vous pouvez ouvrir le fichier et rechercher l’élément **apiVersions**.
 - Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 - Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

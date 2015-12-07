@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="11/24/2015"
    ms.author="andkjell"/>
 
 # Azure Connect AD sync : tâches opérationnelles et examen
@@ -44,14 +44,14 @@ Pour appliquer cette méthode, procédez comme suit :
 
 **Préparation**
 
-1. Installez Azure AD Connect, sélectionnez **mode intermédiaire**, puis désélectionnez **Démarrer la synchronisation** sur la dernière page de l’Assistant Installation. Cette opération permet d’exécuter manuellement le moteur de synchronisation.
-2. Déconnectez-vous puis connectez-vous et, dans le menu Démarrer, sélectionnez **Service de synchronisation**.
+1. Installez Azure AD Connect, sélectionnez **mode intermédiaire**, puis désélectionnez **Démarrer la synchronisation** sur la dernière page de l’Assistant Installation. Cette opération permet d'exécuter manuellement le moteur de synchronisation.![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
+2. Déconnectez-vous puis connectez-vous de nouveau et, dans le menu Démarrer, sélectionnez **Service de synchronisation**.
 
 **Importer et synchroniser**
 
 1. Sélectionnez **Connecteurs**, puis sélectionnez le premier connecteur de type **Services de domaine Active Directory**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**. Répétez l’opération pour tous les connecteurs de ce type.
 2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
-4. Vérifiez que l’option Connecteurs est toujours sélectionnée et pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
+4. Vérifiez que l'option Connecteurs est toujours sélectionnée et pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
 5. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis OK.
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
@@ -60,7 +60,7 @@ Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et A
 
 1. Démarrez une invite de commande et accédez à `%Program Files%\Microsoft Azure AD Sync\bin`
 2. Exécution : `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/> le nom du connecteur se trouve dans le service de synchronisation. Il possède un nom semblable à « contoso.com – AAD » pour Azure AD.
-3. Exécutez : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
+3. Exécuter : `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. Vous disposez maintenant d’un fichier dans %temp% nommé export.csv qui peuvent être examiné dans Microsoft Excel. Ce fichier contient toutes les modifications sur le point d’être exportées.
 5. Apportez les modifications nécessaires aux données ou à la configuration et réexécutez ces opérations (Importer, synchroniser et vérifier) jusqu’à ce que les modifications sur le point d’être exportées soient attendues.
 
@@ -76,7 +76,7 @@ Si la valeur d’attribut a plusieurs valeurs, toutes les modifications ne s’a
 **Changer de serveur actif**
 
 1. Sur le serveur actif, éteignez le serveur (DirSync/FIM/Azure AD Sync) pour qu’il ne soit pas exporté vers Azure AD ou définissez-le en mode intermédiaire (connexion à Azure AD).
-2. Exécutez l’Assistant Installation sur le serveur en « mode intermédiaire » et désactivez le mode « intermédiaire ».
+2. Exécutez l'Assistant Installation sur le serveur en **mode intermédiaire**, puis désactivez le **mode intermédiaire**. ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/additionaltasks.png)
 
 ## Récupération d'urgence
 Une partie de la conception de l’implémentation consiste à planifier les procédures à suivre en cas de sinistre et de perte du serveur de synchronisation. Il existe différents modèles et le choix de celui que vous devez utiliser dépend de plusieurs facteurs, notamment :
@@ -88,7 +88,7 @@ Une partie de la conception de l’implémentation consiste à planifier les pro
 Selon les réponses à ces questions et la stratégie de votre organisation, une des stratégies suivantes peut être mise en œuvre :
 
 -	Régénérer si nécessaire.
--	Disposer d’un serveur de secours en attente, appelé **mode intermédiaire**.
+-	Disposer d'un serveur de secours en attente, appelé **mode intermédiaire**.
 -	Utiliser les machines virtuelles.
 
 Windows Azure AD sync ayant une dépendance sur une base de données SQL, vous devez consulter la section Haute disponibilité SQL si vous n’utilisez pas SQL Express, qui est fourni avec Azure AD Connect.
@@ -96,12 +96,12 @@ Windows Azure AD sync ayant une dépendance sur une base de données SQL, vous d
 ### Régénérer lorsque nécessaire
 Une stratégie viable consiste à planifier une régénération du serveur si nécessaire. Dans de nombreux cas, l’installation du moteur de synchronisation et l’exécution de l’importation et la synchronisation initiales peuvent être complétées en quelques heures. Si aucun serveur n’est libre, il est possible d’utiliser provisoirement un contrôleur de domaine pour héberger le moteur de synchronisation.
 
-Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L’attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
+Le serveur de moteur de synchronisation ne stocke aucun état relatif aux objets de sorte que la base de données peut être recréée à partir des données présentes dans Active Directory et Azure AD. L'attribut **sourceAnchor** est utilisé pour associer les objets à partir du site et du cloud. Si vous régénérez le serveur avec les objets sur site et sur le cloud existants, le moteur de synchronisation les remettra en correspondance de nouveau. Vous devez documenter et enregistrer les modifications de configuration apportées au serveur, notamment aux règles de filtrage et de synchronisation. Elles doivent être de nouveau appliquées avant de lancer la synchronisation.
 
 ### Disposer d’un serveur de secours en attente, connu sous le nom de mode intermédiaire.
-Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l’installation, vous pouvez activer un serveur en **mode intermédiaire**.
+Si vous disposez d’un environnement plus complexe, il est recommandé d’avoir un ou plusieurs serveurs de secours. Lors de l'installation, vous pouvez activer un serveur en **mode intermédiaire**.
 
-Pour plus d’informations, consultez la section [mode intermédiaire](#staging-mode).
+Pour plus d'informations, consultez la section [mode intermédiaire](#staging-mode).
 
 ### Utiliser les machines virtuelles
 Une méthode courante et prise en charge consiste à exécuter le moteur de synchronisation sur une machine virtuelle. Si l’hôte rencontre un problème, l’image contenant le serveur de moteur de synchronisation peut être migrée vers un autre serveur.
@@ -110,8 +110,8 @@ Une méthode courante et prise en charge consiste à exécuter le moteur de sync
 En cas de non-utilisation de SQL Server Express livré avec Azure AD Connect, la haute disponibilité pour SQL Server doit également être prise ne compte. La seule solution haute disponibilité prise en charge est SQL clustering. Les solutions non prises en charge incluent la mise en miroir et Always On.
 
 ## Étapes suivantes
-En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

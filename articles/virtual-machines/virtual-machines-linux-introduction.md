@@ -25,7 +25,7 @@ Cette rubrique présente quelques aspects de l'utilisation de machines virtuelle
 
 ## Authentification : noms d’utilisateurs, mots de passe et clés SSH
 
-Lorsque vous créez une machine virtuelle Linux avec le portail de gestion Azure, il vous est demandé de fournir un nom d’utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
+Lorsque vous créez une machine virtuelle Linux avec le portail Azure, il vous est demandé de fournir un nom d'utilisateur, un mot de passe et (éventuellement) une clé publique SSH. Le choix de nom d'utilisateur pour le déploiement d'une machine virtuelle Linux sur Azure est soumis à la contrainte suivante : les noms des comptes système (UID <100) déjà présents sur la machine virtuelle ne sont pas autorisés ('root', par exemple).
 
 
  - Consultez la page [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md)
@@ -45,7 +45,7 @@ Vous pouvez éventuellement obtenir un interpréteur de commandes root avec **su
 
 ## Configuration du pare-feu
 
-Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail de gestion. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail de gestion :
+Azure fournit un filtre de paquets entrants qui limite la connectivité aux ports spécifiés dans le portail Azure. Par défaut, le seul port autorisé est SSH. Vous pouvez ouvrir l'accès à d'autres ports sur votre machine virtuelle Linux en configurant des points de terminaison dans le portail Azure :
 
  - Consultez la page [Configuration des points de terminaison sur une machine virtuelle](virtual-machines-set-up-endpoints.md)
 
@@ -81,7 +81,7 @@ Azure vous permet de capturer l'état d'une machine virtuelle existante dans une
 
 2. Arrêtez/mettez hors tension la machine virtuelle.
 
-3. Cliquez sur *Capture* dans le portail de gestion ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
+3. Cliquez sur *Capture* dans le portail Azure ou utilisez les outils Powershell ou d'interface de ligne de commande pour capturer la machine virtuelle en tant qu'image.
 
  - Consultez la page [Capture d’une machine virtuelle Linux à utiliser comme modèle](virtual-machines-linux-capture-image.md).
 
@@ -99,4 +99,4 @@ Sous Linux, le disque de données peut être nommé `/dev/sdc` par le noyau et 
 
  - **Voir aussi :** [Configuration d’un RAID logiciel sur Linux](virtual-machines-linux-configure-raid.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

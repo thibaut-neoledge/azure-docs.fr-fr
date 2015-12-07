@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Bien démarrer avec le portail du chiffrement transparent des données pour SQL Data Warehouse| Microsoft Azure" 
-	description="Bien démarrer avec le portail du chiffrement transparent des données pour SQL Data Warehouse" 
+	pageTitle="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse | Microsoft Azure" 
+	description="Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse" 
 	services="sql-data-warehouse" 
 	documentationCenter="" 
 	authors="twounder" 
-	manager="" 
+	manager="barbkess" 
 	editor=""/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2015" 
+	ms.date="11/20/2015" 
 	ms.author="twounder"/>
  
-# Prise en main du chiffrement transparent des données (TDE)
+# Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
 > [AZURE.SELECTOR]
 - [Azure Portal](sql-data-warehouse-encryption-tde.md)
 - [TSQL](sql-data-warehouse-encryption-tde-tsql.md)
@@ -49,7 +49,7 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 
 
 <!--Anchors-->
-[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/fr-FR/library/bb934049.aspx
+[Chiffrement transparent des données (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -61,4 +61,4 @@ Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

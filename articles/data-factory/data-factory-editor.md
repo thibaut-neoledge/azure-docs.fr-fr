@@ -62,7 +62,6 @@ La barre d'outils comporte quatre boutons, permettant de créer des entités Azu
 2. Le modèle JSON pour la création d'un service de calcul lié s’affiche dans la zone Éditeur sur la droite. Effectuez les actions suivantes :
 	1. Pour **Cluster HDInsight à la demande**, spécifiez des valeurs pour les propriétés suivantes : 
 		1. Pour la propriété **clusterSize**, indiquez la taille du cluster HDInsight que le service Data Factory doit créer lors de l'exécution. 
-		2. Pour **jobsContainer**, spécifiez le nom du conteneur d'objets blob par défaut où vous souhaitez stocker les journaux du cluster.
 		3. Pour la propriété **timeToLive**, spécifiez la durée d'inactivité autorisée pour le cluster HDInsight avant sa suppression. Par exemple : 00:05:00 indique que le cluster doit être supprimé après 5 minutes d'inactivité.
 		4. Pour la propriété **version**, spécifiez la version de HDInsight pour le cluster (par défaut : version 3.1).
 		5. Pour la propriété **linkedServiceName**, spécifiez le service de stockage Azure lié à associer avec le cluster HDInsight. 
@@ -221,4 +220,4 @@ Consultez la rubrique [Prise en main du service Azure Data Factory][data-factory
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

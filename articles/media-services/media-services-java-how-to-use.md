@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 #Utilisation de Media Services avec Java
@@ -272,4 +272,4 @@ Pour obtenir une documentation Javadoc sur Media Services, voir [Bibliothèques 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

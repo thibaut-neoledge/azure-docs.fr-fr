@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/28/2015"
+   ms.date="11/23/2015"
    ms.author="coreyp"/>
 
 # Gestion de machines avec Azure Automation DSC
@@ -36,7 +36,7 @@ Les sections suivantes décrivent la manière dont vous pouvez intégrer chaque 
 Avec Azure Automation DSC, vous pouvez facilement intégrer des machines virtuelles Azure (classiques) pour une gestion de configuration via le portail Azure ou via PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration enregistre la machine virtuelle avec Azure Automation DSC. Étant donné que cette extension s’exécute de façon asynchrone, la section [**Résolution des problèmes liés à l’intégration de machines virtuelles Azure**](#troubleshooting-azure-virtual-machine-onboarding) ci-dessous décrit la procédure à suivre pour contrôler sa progression ou résoudre les problèmes.
 
 
-### Machines virtuelles Azure
+### Portail Azure
 
 Dans le [portail Azure en version préliminaire](http://portal.azure.com/), cliquez sur **Parcourir**, puis sur **Machines virtuelles (classiques)**. Sélectionnez la machine virtuelle Windows que vous souhaitez intégrer. Dans le panneau du tableau de bord de la machine virtuelle, cliquez sur **Tous les paramètres** -> **Extensions** -> **Ajouter** -> **Azure Automation DSC** -> **Créer**. Entrez les [valeurs du gestionnaire de configuration locale de PowerShell DSC](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) requises, la clé et l’URL d’enregistrement de votre compte Automation, et, éventuellement, une configuration de nœud à attribuer à la machine virtuelle.
 
@@ -102,7 +102,7 @@ Pour trouver l’URL et la clé d’enregistrement pour le compte Automation, co
      -ExtensionName DSC `
      -Version 2.6 `
      -PublicConfiguration $PublicConfiguration `
-     -PrivateConfiguration $PrivateConfiguration
+     -PrivateConfiguration $PrivateConfiguration `
      -ForceUpdate
 
     $VM | Update-AzureVM
@@ -132,9 +132,9 @@ Les machines virtuelles Azure peuvent être déployées et intégrées sur Azure
 
 ### PowerShell
 
-Vous pouvez utiliser l’applet de commande [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) pour intégrer des machines virtuelles au portail Azure en version préliminaire par le biais de PowerShell.
+Vous pouvez utiliser l'applet de commande [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt603833.aspx) pour intégrer des machines virtuelles au portail Azure en version préliminaire par le biais de PowerShell.
 
-### Machines physiques / virtuelles Windows sur site ou dans un cloud autre qu’Azure
+## Machines physiques / virtuelles Windows sur site ou dans un cloud autre qu’Azure
 
 Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autres qu’Azure (comme Amazon Web Services) peuvent également être intégrés sur Azure Automation DSC à condition qu’ils disposent d’accès sortant à Internet. Leur intégration s’effectue très simplement, en quelques étapes :
 
@@ -158,7 +158,7 @@ Les ordinateurs Windows en local et les ordinateurs Windows dans des clouds autr
 
 8. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien en tant que nœuds DSC enregistrés dans votre compte Azure Automation.
 
-### Machines physiques / virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
+## Machines physiques / virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
 
 Les ordinateurs Linux en local, les ordinateurs dans Azure et les ordinateurs Linux dans des clouds autres qu’Azure peuvent également être intégrés à Azure Automation DSC à condition qu’ils disposent d’un accès sortant à Internet. Leur intégration s’effectue très simplement, en quelques étapes :
 
@@ -236,4 +236,4 @@ Une fois inscrit, chaque nœud négocie automatiquement un certificat unique pou
 * [Applets de commande Azure Automation DSC](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Tarification d’Azure Automation DSC](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

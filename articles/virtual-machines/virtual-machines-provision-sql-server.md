@@ -21,7 +21,7 @@
 # Approvisionnement d’une machine virtuelle SQL Server dans Azure
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-provision-sql-server.md)
+- [Azure portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Vue d'ensemble
@@ -32,18 +32,18 @@ La galerie de machines virtuelles Azure inclut différentes images contenant Mic
 
 Ce didacticiel présente les procédures suivantes :
 
-* [Se connecter au Portail de gestion Azure et approvisionner une machine virtuelle à partir de la galerie](#Provision)
+* [Se connecter au portail Azure et approvisionner une machine virtuelle à partir de la galerie](#Provision)
 * [Ouvrir la machine virtuelle à l’aide du Bureau à distance et achever la configuration](#RemoteDesktop)
 * [Suivre la procédure de configuration pour se connecter à la machine virtuelle en utilisant SQL Server Management Studio sur un autre ordinateur](#SSMS)
 * [Étapes suivantes](#Optional)
 
->[AZURE.NOTE]Cet article décrit la configuration d’une machine virtuelle SQL Server avec le portail de gestion Azure existant. Toutefois, il est également possible de créer et gérer des machines virtuelles SQL Server dans le [nouveau portail](https://manage.windowsazure.com). Le nouveau portail comporte plusieurs avantages, comment l’utilisation par défaut du stockage Premium, ainsi que d’autres options, comme l’application automatique de correctifs, la sauvegarde automatisée et les configurations AlwaysOn. Le contenu à venir fournira des instructions détaillées.
+>[AZURE.NOTE]Cet article décrit la configuration d'une machine virtuelle SQL Server avec le portail existant. Toutefois, il est également possible de créer et gérer des machines virtuelles SQL Server dans le [nouveau portail](https://manage.windowsazure.com). Le nouveau portail comporte plusieurs avantages, comment l’utilisation par défaut du stockage Premium, ainsi que d’autres options, comme l’application automatique de correctifs, la sauvegarde automatisée et les configurations AlwaysOn. Le contenu à venir fournira des instructions détaillées.
 
 ##<a id="Provision">Approvisionner une machine virtuelle SQL Server depuis la galerie</a>
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Connectez-vous au [portail Azure](http://manage.windowsazure.com) avec votre compte. Si vous n'avez pas de compte Azure, visitez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-2. Dans le portail de gestion Azure, en bas à gauche de la page Web, cliquez sur **+NEW**, sur **COMPUTE**, sur **VIRTUAL MACHINE**, puis sur **FROM GALLERY**.
+2. Dans le portail Azure, en bas à gauche de la page Web, cliquez sur **+NOUVEAU**, sur **CALCUL**, sur **MACHINE VIRTUELLE**, puis sur **À PARTIR DE LA GALERIE**.
 
 3. Sur la page **Choisir une image**, cliquez sur **SQL SERVER**. Sélectionnez ensuite une image SQL Server. Cliquez sur la flèche suivante en bas à droite de la page.
 
@@ -77,7 +77,7 @@ Pour obtenir les informations les plus récentes concernant les images SQL Serve
 	- Dans la zone **Service cloud**, sélectionnez **Créer un nouveau service de cloud computing**.
 	- Dans la zone **Nom du cloud Service DNS**, entrez la première partie d'un nom DNS de votre choix, pour qu'il complète un nom au format **TESTNAME.cloudapp.net** 
 	- Sélectionnez un **ABONNEMENT** s’il en existe plusieurs. Ce choix détermine les **comptes de stockage **disponibles.
-	- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
+- Dans la zone **REGION/AFFINITY GROUP/VIRTUAL NETWORK**, sélectionnez une région d'hébergement pour cette image virtuelle.
 	- Dans la zone **Compte de stockage**, générez automatiquement un compte ou sélectionnez-en un dans la liste. Modifiez l’**ABONNEMENT** pour voir plus de comptes. 
 	- Dans la zone **AVAILABILITY SET**, sélectionnez **(none)**.
 	- Lisez et acceptez les conditions juridiques.
@@ -155,4 +155,4 @@ La liste suivante fournit des ressources supplémentaires pour SQL Server dans d
 
 - [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

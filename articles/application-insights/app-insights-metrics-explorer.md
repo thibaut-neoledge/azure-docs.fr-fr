@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Exploration des mesures dans Application Insights
@@ -68,6 +68,8 @@ Les niveaux de granularité disponibles dépendent de la période que vous séle
 
 Cliquez sur les graphiques du panneau Vue d'ensemble pour afficher un jeu plus détaillé de graphiques et de grilles connexes. Vous pouvez modifier ces graphiques et ces grilles pour vous concentrer sur les détails qui vous intéressent.
 
+Ou vous pouvez simplement cliquer sur le bouton Metrics Explorer dans l'en-tête du panneau Vue d'ensemble.
+
 Par exemple, parcourez le graphique des demandes ayant échoué pour l'application web :
 
 ![Dans le panneau Vue d'ensemble, cliquez sur un graphique](./media/app-insights-metrics-explorer/14-trix.png)
@@ -81,9 +83,9 @@ Chaque point de données du graphique est un agrégat des valeurs de données re
 
 Les mesures sont agrégées de différentes façons :
 
- * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d’échantillonnage ou la période du graphique.
- * **Average** divise la somme par le nombre de points de données reçus durant l’intervalle.
- * **Unique** est utilisé pour comptabiliser les nombres d’utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
+ * **Sum** ajoute les valeurs de tous les points de données reçus pendant un intervalle d'échantillonnage ou la période du graphique.
+ * **Average** divise la somme par le nombre de points de données reçus durant l'intervalle.
+ * **Unique** est utilisé pour comptabiliser les nombres d'utilisateurs et de comptes. Sur l’intervalle d’échantillonnage ou sur la période du graphique, la figure indique le nombre d’utilisateurs différents dans cette période.
 
 
 Vous pouvez changer de méthode d’agrégation :
@@ -137,7 +139,7 @@ Notez le nombre d'événements en même temps que chaque valeur de propriété. 
 
 Vous souhaitez filtrer la télémétrie pour une catégorie de votre choix ? Par exemple, vous pouvez diviser vos utilisateurs en catégories différentes et segmenter vos données à l’aide de ces catégories.
 
-[Créez votre propriété](app-insights-api-custom-events-metrics.md#properties). Définissez-la dans un [Initialiseur de télémétrie](app-insights-api-custom-events-metrics.md#telemetry-initializers) pour qu’elle s’affiche dans toute la télémétrie, y compris dans la télémétrie standard envoyée par des modules différents du Kit de développement logiciel (SDK).
+[Créez votre propriété](app-insights-api-custom-events-metrics.md#properties). Définissez-la dans un [Initialiseur de télémétrie](app-insights-api-custom-events-metrics.md#telemetry-initializers) pour qu'elle s'affiche dans toute la télémétrie, notamment la télémétrie standard envoyée par différents modules de kit de développement logiciel (SDK).
 
 ## Supprimer le robot et tester le trafic web
 
@@ -212,4 +214,4 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

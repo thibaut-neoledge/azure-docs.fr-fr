@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/23/2015" 
 	ms.author="sdanie"/>
 
 # Création d'API dans Gestion des API Azure
@@ -38,24 +38,25 @@ Utilisez la fenêtre **Ajouter une nouvelle API** pour configurer la nouvelle AP
 
 ![Add new API][api-management-add-new-api]
 
-Les trois champs suivants permettent de configurer la nouvelle API.
+Les champs suivants permettent de configurer la nouvelle API.
 
 -	**Titre d'API web** fournit un nom descriptif unique pour l'API. Il s'affiche dans les portails des développeurs et de gestion.
 -	L'**URL du service web** indique le service HTTP implémentant l'API. La gestion des API transmet les demandes à cette adresse.
 -	Le **suffixe de l'URL d'API web** est ajouté à l'URL de base du service Gestion des API. L'URL de base est commune à toutes les API hébergées par une instance de service Gestion des API. Gestion des API distingue les API selon leur suffixe. Celui-ci doit donc être unique pour chaque API d'un éditeur donné.
 -	Le **schéma d’URL d’API web** détermine quels sont les protocoles qui peuvent être utilisés pour accéder à l’API. Le protocole HTTPS est spécifié par défaut.
+-	Pour ajouter éventuellement cette nouvelle API à un produit, cliquez sur la liste déroulante **Produits (facultatif)** et choisissez un produit. Cette étape peut être répétée plusieurs fois pour ajouter l'API à plusieurs produits.
 
-Une fois les trois valeurs configurées, cliquez sur **Enregistrer**. Une fois l'API créée, la page Résumé de l'API s'affiche dans le portail de gestion.
+Une fois les valeurs de votre choix configurées, cliquez sur **Enregistrer**. Une fois l'API créée, la page de résumé de l'API s'affiche dans le portail de publication.
 
 ![API summary][api-management-api-summary]
 
 ## <a name="configure-api-settings"> </a>Configuration des paramètres de l’API
 
-L'onglet **Paramètres** permet de vérifier et de modifier la configuration d'une API. Les options **Titre d'API web**, **URL du service web** et **Suffixe de l'URL d'API web** sont définis initialement lors de la création de l'API. Vous pouvez les modifier ici. **Description** contient une description facultative et **Schéma d’URL d’API web** détermine quels sont les protocoles qui peuvent être utilisés pour accéder à l’API.
+L'onglet **Paramètres** permet de vérifier et de modifier la configuration d'une API. Les options **Titre d'API web**, **URL du service web** et **Suffixe d'URL de l'API web** sont définis initialement lors de la création de l'API. Vous pouvez les modifier ici. **Description** contient une description facultative et **Schéma d’URL d’API web** détermine quels sont les protocoles qui peuvent être utilisés pour accéder à l’API.
 
 ![API settings][api-management-api-settings]
 
-Pour configurer **Authentification passerelle** pour le service web avec implémentation de l’API, sélectionnez l’onglet **Sécurité**. La liste déroulante **Avec informations d’identification** peut servir à configurer l’**Authentification de base** ou l’authentification **Certificats mutuels**. Pour utiliser l’authentification de base, entrez simplement les informations d’identification de votre choix. Pour plus d’informations sur l’utilisation de l’authentification avec certificats mutuels, consultez la page [Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure][].
+Pour configurer l'authentification de la passerelle pour le service principal avec mise en œuvre de l'API, sélectionnez l’onglet **Sécurité**. La liste déroulante **Avec informations d'identification** peut servir à configurer l'authentification **HTTP de base** ou par **Certificats client**. Pour utiliser l'authentification HTTP de base, entrez simplement les informations d'identification de votre choix. Pour plus d'informations sur l'utilisation de l'authentification avec certificats client, consultez la page [Comment sécuriser les services principaux à l’aide d’une authentification de certificat client dans la Gestion des API Azure][].
 
 L’onglet **Sécurité** peut également être utilisé pour configurer **Autorisation utilisateur** avec OAuth 2.0. Pour plus d’informations, consultez la page [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure][].
 
@@ -65,7 +66,7 @@ Cliquez sur **Enregistrer** pour enregistrer les modifications apportées aux pa
 
 ## <a name="next-steps"> </a>Étapes suivantes
 
-Une fois l'API créée et les paramètres configurés, l'étape suivante consiste à ajouter les opérations à l'API, à ajouter l'API à un produit et à la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les guides suivants :
+Une fois l'API créée et les paramètres configurés, l'étape suivante consiste à ajouter les opérations à l'API, à ajouter l'API à un produit et à la publier pour la mettre à disposition des développeurs. Pour plus d'informations, consultez les articles suivants.
 
 -	[Ajout d’opérations à une API][]
 -	[Création et publication d’un produit][]
@@ -95,7 +96,7 @@ Une fois l'API créée et les paramètres configurés, l'étape suivante consist
 
 [Prise en main de Gestion des API Azure]: api-management-get-started.md
 [Création d'une instance de service Gestion des API]: api-management-get-started.md#create-service-instance
-[Comment sécuriser les services principaux à l’aide d’une authentification de certificat mutuel dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
+[Comment sécuriser les services principaux à l’aide d’une authentification de certificat client dans la Gestion des API Azure]: api-management-howto-mutual-certificates.md
 [Comment autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure]: api-management-howto-oauth2.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

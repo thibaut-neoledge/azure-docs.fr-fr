@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration | Microsoft Azure"
 	description="Guide étape par étape permettant d’activer l’accès conditionnel à des applications locales à l’aide des services AD FS (Active Directory Federation Services) dans Windows Server 2012 R2"
@@ -14,8 +13,9 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
+
 
 # Configuration d’un accès conditionnel en local à l’aide du service d’inscription d’appareils Azure Active Directory
 
@@ -75,8 +75,7 @@ Suivez la liste de vérification ci-dessous pour activer et configurer le servic
 | Activer le service Device Registration dans votre client Azure Active Directory pour autoriser les appareils à rejoindre l’espace de travail. Par défaut, l’authentification multifacteur n’est pas activée pour le service. Toutefois, l’authentification multifacteur est recommandée au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur dans ADRS, vérifiez que les services AD FS sont configurés pour un fournisseur d’authentification multifacteur. | [Activer le service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md) |
 | Les appareils détectent votre service Azure Active Directory Device Registration en recherchant des enregistrements DNS connus. Vous devez configurer le DNS de votre entreprise afin que les appareils puissent détecter le service Azure Active Directory Device Registration. | [Configurer la découverte du service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md) |
 
-##2ème partie : Déployer et configurer Windows Server 2012 R2 Active Directory Federation Services et configurer une relation de fédération avec Azure Active Direct
-
+##2ème partie : Déployer et configurer Windows Server 2012 R2 Active Directory Federation Services et configurer une relation de fédération avec Azure AD
 
 | Task | Référence |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
@@ -179,7 +178,7 @@ Il existe de nombreux moyens de communiquer cette URL à vos utilisateurs. Nous 
 
 ###Joindre un appareil Windows 8.1 à l’aide du service Azure Active Directory Device Registration
 
-1. Sur votre appareil Windows 8.1, accédez à **Paramètres du PC** > **Réseau** > **Lieu de travail**.
+1. Sur votre appareil Windows 8.1, accédez à **Paramètres du PC** > **Réseau** > **Espace de travail**.
 2. Entrez votre nom d’utilisateur au format UPN. Par exemple, dan@contoso.com..
 3. Sélectionnez **Joindre**.
 4. Quand vous y êtes invité, connectez-vous avec vos informations d’identification. L’appareil est à présent joint.
@@ -212,7 +211,7 @@ Les étapes suivantes vous expliquent comment implémenter ce scénario.
 9. Sélectionnez **Terminer**, puis **Appliquer**.
 10. Supprimez les règles moins strictes que celle que vous venez de créer. Par exemple, supprimez la règle par défaut **Autoriser l'accès à tous les utilisateurs**.
 
-Votre application est à présent configurée pour autoriser l’accès uniquement quand une personne utilise un appareil qu’elle a inscrit et qu’elle a joint à l’espace de travail. Pour des stratégies d'accès avancées, consultez [Gérer les risques avec le contrôle d'accès multifacteur](https://technet.microsoft.com/fr-FR/library/dn280949.aspx).
+Votre application est à présent configurée pour autoriser l’accès uniquement quand une personne utilise un appareil qu’elle a inscrit et qu’elle a joint à l’espace de travail. Pour des stratégies d'accès avancées, consultez [Gérer les risques avec le contrôle d'accès multifacteur](https://technet.microsoft.com/library/dn280949.aspx).
 
 Vous allez ensuite configurer un message d’erreur personnalisé pour votre application. Ce message informe les utilisateurs qu’ils doivent joindre leurs appareils à l’espace de travail avant de pouvoir accéder à l’application. Vous pouvez créer un message personnalisé d’application de refus d’accès à l’aide de code HTML personnalisé et de Windows PowerShell.
 
@@ -228,7 +227,7 @@ Vous devez inscrire votre appareil avant d'accéder à cette application.
 Joindre cet appareil iOS à votre espace de travail.
 
 
-**Si vous utilisez un appareil Windows 8.1**, vous pouvez joindre votre appareil en accédant à **Paramètres du PC** > **Réseau** > **Lieu de travail**.
+**Si vous utilisez un appareil Windows 8.1**, vous pouvez joindre votre appareil en accédant à **Paramètres du PC** > **Réseau** > **Espace de travail**.
 
 
 Où « **relying party trust name** » correspond au nom de l'objet d'approbation de la partie de confiance de vos applications dans AD FS. Où **yourdomain.com** correspond au nom du domaine que vous avez configuré avec Azure Active Directory. Par exemple, contoso.com. Assurez-vous de supprimer les sauts de ligne (le cas échéant) dans le contenu HTML que vous transmettez à l'applet de commande **Set-AdfsRelyingPartyWebContent**.
@@ -238,4 +237,4 @@ Désormais, lorsque les utilisateurs accèdent à votre application à partir d'
 
 ![Capture d'écran d'une erreur lorsque les utilisateurs n'ont pas enregistré leur appareil auprès d'Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

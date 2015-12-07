@@ -78,11 +78,11 @@ Ceci n’est pas pris en charge. Envoyez-nous vos commentaires via le [Forum de 
 ## Prise en charge des versions
 
 ### Quelles sont les versions des hôtes et clusters Windows Server prises en charge ?
-Vous pouvez utiliser les logiciels Windows Server 2012 et Windows Server 2012 R2 lorsque vous choisissez le Réplica Hyper-V pour activer la réplication et la protection entre des sites Hyper-V.
+Vous pouvez utiliser les logiciels Windows Server 2012 et Windows Server 2012 R2 lorsque vous choisissez le Réplica Hyper-V pour activer la réplication et la protection entre deux sites Hyper-V locaux. Windows Server 2012 R2 est requis lorsque vous souhaitez configurer la réplication à partir d'un serveur Hyper-V vers Azure.
 
 
-### Quelles sont les versions des systèmes d'exploitation invités Hyper-V prises en charge ?
-La liste la plus à jour des systèmes d’exploitation invités prise en charge est disponible dans la rubrique [À propos des ordinateurs virtuels et des systèmes d’exploitation invités](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
+### Quelles sont les versions des systèmes d’exploitation prises en charge ?
+Pour la protection local-local, la liste la plus à jour des systèmes d'exploitation invités pris en charge est disponible dans la rubrique [À propos des machines virtuelles et des systèmes d'exploitation invités](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx). Pour les scénarios Hyper-V vers Azure, Azure Site Recovery prend en charge tous les systèmes d'exploitation invités pris en charge par Azure. Pour le scénario VMware vers Azure, consultez [cet article](site-recovery-vmware-to-azure.md#before-you-start).
 
 ### Puis-je configurer la protection des machines virtuelles quand Hyper-V s'exécute sur un système d'exploitation client ?
 
@@ -90,7 +90,7 @@ Vous ne pouvez pas configurer Hyper-V s'exécutant sur un système d'exploitatio
 
 ### ASR prend-il en charge les machines de génération 2 ?
 
-Oui, ASR prend en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. Pour plus d’informations, cliquez [ici](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Oui, ASR prend en charge la réplication des machines virtuelles de génération 2 sur Hyper-V dans Azure. ASR les convertit de la génération 2 à la génération 1 pendant le basculement. Au moment de la restauration automatique, la machine est reconvertie en génération 2. Pour plus d'informations, cliquez [ici](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ## Déploiement entre des sites de fournisseurs de services 
@@ -148,12 +148,6 @@ Aucun paramètre spécifique n'est requis. Les composants du fournisseur sur le 
 ### Le serveur Hyper-V doit-il être membre d'un domaine ?
 
 Non, le serveur n'a pas besoin de se trouver dans un domaine.
-
-### Quelles sont les versions des hôtes et clusters Windows Server prises en charge ?
-Vous pouvez utiliser Windows Server 2012 et Windows Server 2012 R2 quand vous choisissez ASR et la réplication Hyper-V entre des sites Hyper-V et Azure.
-
-### Quelles sont les versions des systèmes d’exploitation prises en charge ?
-La liste la plus à jour des systèmes d’exploitation invités pris en charge est disponible dans la rubrique [À propos des ordinateurs virtuels et des systèmes d’exploitation invités](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
 ## Déploiement entre deux centres de données VMM
 
@@ -256,4 +250,4 @@ Pour commencer à déployer ASR, effectuez les opérations suivantes :
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

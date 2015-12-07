@@ -92,7 +92,7 @@ Le Kit de développement logiciel (SDK) de service Microsoft Azure IoT pour Java
 
 ## CSharp
 
-Le [Kit de développement logiciel (SDK) d’appareils Microsoft Azure IoT pour .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md) a été testé sur les configurations suivantes :
+Le [Kit de développement logiciel (SDK) d'appareils Microsoft Azure IoT pour .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) a été testé sur les configurations suivantes :
 
 |Plateforme de système d’exploitation| Version|Protocoles|
 |:---------|:----------:|:----------:|
@@ -130,4 +130,4 @@ Chaque appareil a été certifié comme fonctionnant avec notre Kit SDK dans le 
 
 Pour en savoir plus sur le développement de solutions à l’aide des appareils **certifiés pour IoT**, cliquez [ici](http://azure.com/iotdev).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,23 +1,25 @@
-**1. How will customers be notified of the retiring SDK?**
+**1. Comment les clients vont-ils être informés du retrait du kit de développement logiciel ?**
 
-Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.
+Microsoft notifiera 12 mois à l’avance à la fin de l’assistance du kit de développement logiciel à retirer afin de faciliter une transition en douceur vers un kit de développement logiciel faisant l’objet d’une assistance. En outre, les clients sont informés par différents canaux de communication (portail de gestion Azure, centre de développement, billet de blog et communication directe avec des administrateurs de service affectés.
 
-**2. Can customers author applications using a "to-be" retired DocumentDB SDK during the 12 month period?** 
+**2. Les clients peuvent-ils créer des applications à l’aide d’un kit de développement DocumentDB destiné à être retiré pendant le préavis de 12 mois ?**
 
-Yes, customers will have full access to author, deploy and modify applications using the "to-be" retired DocumentDB SDK during the 12 month grace period. During the 12 month grace period, customers are advised to migrate to a newer supported version of DocumentDB SDK as appropriate.
+Oui, les clients ont un accès complet à créer, déployer et modifier des applications à l’aide du kit de développement logiciel DocumentDB dont le kit de développement logiciel va être retiré pendant le préavis de 12 mois. Pendant cette période de 12 mois, il est conseillé aux clients de migrer vers une version plus récente du kit de développement logiciel de la version Document DB prise en charge comme il convient.
 
-**3. Can customers author and modify applications using a retired DocumentDB SDK after the 12 month notification period?**
+**3. Les clients peuvent-ils créer et modifier des applications à l’aide d’un kit de développement logiciel DocumentDB après la période de notification de 12 mois ?**
 
-After the 12 month notification period, the SDK will be retired. Any access to DocumentDB by an applications using a retired SDK will not be permitted by the DocumentDB platform. Further, Microsoft will not provide customer support on the retired SDK.
+Après la période de notification de 12 mois, le kit de développement logiciel est retiré. Tout accès à DocumentDB par une application utilisant un kit de développement logiciel mis hors-service ne sera pas possible par la plateforme de DocumentDB. En outre, Microsoft ne fournira pas le support technique sur le kit de développement logiciel mis hors-service.
 
-**4. What happens to Customer’s running applications that are using unsupported DocumentDB SDK version?**
+**4. Que se passe-t-il pour les applications en cours d’exécution du client qui utilisent la version de kit de développement logiciel DocumentDB non prise en charge ?**
 
-Any attempts made to connect to the DocumentDB service with a retired SDK version will be rejected. 
+Toutes les tentatives de connexion au service DocumentDB avec une version de kit de développement logiciel mis hors-service sont rejetées.
 
-**5. Will new features and functionality be applied to all non-retired SDKs**
+**5. Les nouvelles fonctionnalités s’appliqueront à tous les kits de développement logiciel non mis hors-service**
 
-New features and functionality will only be added to new versions. If you are using an old, non-retired, version of the SDK your requests to DocumentDB will still function as previous but you will not have access to any new capabilities.  
+Les nouvelles fonctions et fonctionnalités seront ajoutées aux nouvelles versions uniquement. Si vous utilisez une version ancienne du kit de développement logiciel non mis hors-service, vos demandes de DocumentDB vont continuer de fonctionner comme avant, mais sans que vous ayez accès aux nouvelles possibilités.
 
-**6. What should I do if I cannot update my application before a cut-off date**
+**6. Que dois-je faire si je ne parviens pas à mettre à jour mon application avant la date limite**
 
-We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [DocumentDB Team](mailto:askdocdb@microsoft.com) and request their assistance before the cutoff date.
+Nous vous recommandons de mettre à niveau vers la dernière version du kit de développement logiciel dès que possible. Une fois le kit de développement logiciel marqué pour la mise hors-service, vous aurez 12 mois pour mettre à jour votre application. Si, pour une raison quelconque, vous ne pouvez pas terminer votre mise à jour de l’application au cours de cette période, puis contactez l’[équipe DocumentDB](mailto:askdocdb@microsoft.com) et demandez une assistance avant la date limite.
+
+<!---HONumber=AcomDC_1125_2015-->

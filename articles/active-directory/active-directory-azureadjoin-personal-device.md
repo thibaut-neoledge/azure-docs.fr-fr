@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="Association d’un appareil personnel à votre organisation | Microsoft Azure" 
-	description="Rubrique traitant de la façon dont les utilisateurs peuvent inscrire leurs ordinateurs Windows 10 personnels sur le réseau de leur entreprise, avec des étapes de déploiement pour un scénario de BYOD." 
+	description="Explique la manière dont les utilisateurs peuvent inscrire leurs ordinateurs Windows 10 personnels sur le réseau de leur entreprise, avec des étapes de déploiement pour un scénario de BYOD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Association d’un appareil personnel à votre organisation
@@ -28,7 +29,7 @@ Association d’un appareil Windows 10 à votre organisation
 5.	Vous devrez ensuite relever un défi Multi-Factor Authentication. Cette étape est configurable par le personnel informatique.
 6.	Azure AD vérifie ensuite si cet utilisateur/appareil exige une inscription Gestion des appareils mobiles (MDM). 
 7.	Windows enregistre ensuite l’appareil dans le répertoire de l'organisation dans Azure AD et l'inscrit dans MDM.
-8.	Dans ce cas, si vous êtes un utilisateur géré, Windows conclut le processus d'installation et vous dirige vers le bureau via la connexion automatique.
+8.	Alors, si vous êtes un utilisateur géré, Windows conclut le processus d'installation et vous dirige vers le bureau via la connexion automatique.
 9.	Si vous êtes un utilisateur fédéré, vous accédez à l'écran d'ouverture de session Windows et devez alors entrer vos informations d'identification.
 
 ## Informations supplémentaires
@@ -39,4 +40,4 @@ Association d’un appareil Windows 10 à votre organisation
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

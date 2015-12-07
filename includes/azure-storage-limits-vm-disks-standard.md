@@ -1,8 +1,9 @@
-**Virtual machine disks: per disk limits**
+**Disques de machine virtuelle : par limites de disques**
 
- VM Tier | Basic Tier VM | Standard Tier VM
+ Niveau Machine Virtuelle | Niveau de base - Machine virtuelle | Niveau standard - Machine virtuelle
 ---|---|---
-Disk size | 1023 GB | 1023 GB
-Max 8 KB IOPS per persistent disk | 300 | 500
-Max number of highly utilized disks | 66 | 40
+Taille du disque | 1 023 Go | 1 023 Go
+Maximum 8 Ko d'opérations d'E/S par seconde par disque | 300 | 500
+Nombre maximal de disques fortement utilisés | 66 | 40
 
+<!---HONumber=AcomDC_1125_2015-->

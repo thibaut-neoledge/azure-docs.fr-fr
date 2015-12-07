@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # RunAs : exécution d'une application Service Fabric avec des autorisations de sécurité différentes
@@ -86,26 +86,25 @@ Ensuite, sous la section **ServiceManifestImport**, configurez une stratégie po
 
 Nous allons maintenant ajouter le fichier MySetup.bat au projet Visual Studio pour tester les privilèges d'administrateur. Dans Visual Studio, cliquez avec le bouton droit sur le projet de service et ajoutez un nouveau fichier appelé MySetup.bat. Ensuite, il est nécessaire de s'assurer que ce fichier est inclus dans le package de service, ce qui n'est pas le cas par défaut. Pour vous assurer que le fichier MySetup.bat est inclus dans le package, sélectionnez le fichier, cliquez avec le bouton droit pour obtenir le menu contextuel, sélectionnez Propriétés, puis dans la boîte de dialogue Propriétés, vérifiez que l'option **Copier vers le répertoire de sortie** est définie sur **Copier si plus récent**. Ceci est présenté dans la capture d'écran ci-dessous.
 
-![Visual Studio CopyToOutput pour fichier batch SetupEntryPoint][Image1]
+![Visual Studio CopyToOutput pour fichier batch SetupEntryPoint][image1]
 
 Ouvrez le fichier MySetup.bat et ajoutez les commandes suivantes.
+
 ~~~
-REM Définissez une variable d'environnement système. Cela requiert des privilèges d'administrateur
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable définie sur > test.txt
+echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM Pour supprimer cette variable système utilisez
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l'Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et tapez
+Ensuite, générez et déployez la solution vers un cluster de développement local. Une fois que le service a démarré, comme illustré dans l'Explorateur Service Fabric, vous pouvez voir que le fichier MySetup.bat a réussi de deux façons. Ouvrez une invite de commandes PowerShell et entrez
+
 ~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-Comme ceci
-~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+MyValue
 ~~~
 
 Notez ensuite le nom du nœud où le service a été déployé et démarré dans l'Explorateur Service Fabric, par exemple Node 1, et naviguez vers le dossier de travail de l'instance d'application pour rechercher le fichier out.txt qui affiche la valeur de **TestVariable**. Par exemple, si ceci a été déployé sur Node 2, alors vous pouvez accéder à ce chemin d'accès pour MyApplicationType
@@ -117,18 +116,20 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Lancement des commandes PowerShell à partir de SetupEntryPoint
 Pour exécuter PowerShell à partir du point **SetupEntryPoint**, vous pouvez exécuter PowerShell.exe dans un fichier batch qui pointe vers un fichier PowerShell. Tout d'abord, ajoutez un fichier PowerShell au projet de service, par exemple MySetup.ps1. N'oubliez pas de définir la propriété *Copier si plus récent* afin que ce fichier soit également inclus dans le package de service. L'exemple suivant montre un exemple de fichier batch pour lancer un fichier PowerShell appelé MySetup.ps1 qui définit une variable d'environnement appelée *TestVariable*.
 
-MySetup.bat pour lancer le fichier PowerShell.
+MySetup.bat pour lancer le fichier de PowerShell.
+
 ~~~
-powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-Dans le fichier PowerShell, ajoutez ce qui suit pour définir une variable d'environnement système
-~~~
+Dans le fichier PowerShell, ajoutez la commande suivante pour définir une variable d'environnement système.
+
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
-## Application de RunAsPolicy aux services 
+## Application de RunAsPolicy aux services
 Dans les étapes ci-dessus, vous avez vu comment appliquer une stratégie RunAs à un point SetupEntryPoint. Allons plus loin et explorons comment créer des principaux différents qui peuvent être appliqués en tant que stratégies de service.
 
 ### Création de groupes d'utilisateurs locaux
@@ -168,7 +169,7 @@ Vous pouvez créer un utilisateur local qui peut être utilisé pour sécuriser 
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -183,8 +184,8 @@ La section **RunAsPolicy** pour un **ServiceManifestImport** spécifie le compte
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -265,7 +266,9 @@ Le manifeste d'application ci-dessous affiche un grand nombre des différents pa
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
@@ -285,6 +288,6 @@ Le manifeste d'application ci-dessous affiche un grand nombre des différents pa
 * [Spécification des ressources dans un manifeste de service](service-fabric-service-manifest-resources.md)
 * [Déployer une application](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

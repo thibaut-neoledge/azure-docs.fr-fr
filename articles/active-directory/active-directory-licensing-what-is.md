@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ? | Microsoft Azure"
-   description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ? | Microsoft Azure"
+    description="Description de la gestion des licences Microsoft Azure AD, de son mode de fonctionnement, de sa mise en route et des meilleures pratiques associées concernant les éditions Office 365, Microsoft Intune et Azure Active Directory Premium et Standard"
+    services="active-directory"
+	keywords="Gestion des licences Azure AD"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?
 
@@ -23,9 +24,9 @@ Azure Active Directory (AD) est une plateforme et une solution Microsoft de typ
 
 [Essayez Azure AD Premium maintenant.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-> [AZURE.NOTE]Le portail d’administration d’Azure AD fait partie intégrante du Portail de gestion Azure. Alors que l’utilisation d’Azure AD ne nécessite pas l’achat d’Azure, l’accès à ce portail requiert un abonnement Azure actif ou un [abonnement à la version d’évaluation d’Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.NOTE]Le portail d’administration d’Azure AD fait partie intégrante du Portail de gestion Azure. Alors que l'utilisation d'Azure AD ne nécessite pas l'achat d'Azure, l'accès à ce portail requiert un abonnement Azure actif ou un [abonnement à la version d’évaluation d’Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-Pour découvrir une présentation détaillée des fonctionnalités des services Azure AD, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](active-directory-whatis.md). [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
+Pour une présentation détaillée des fonctionnalités des services Azure AD, consultez l’article [Qu'est-ce qu'Azure Active Directory ?](active-directory-whatis.md). [En savoir plus sur les niveaux de service Azure AD](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Les abonnements Azure de type paiement à l’utilisation sont différents : bien qu’ils soient également représentés dans votre annuaire, ces abonnements activent la création de ressources Azure et les mappent sur votre mode de paiement. Dans ce cas, AUCUN nombre de licences n’est associé à l’abonnement. L’association d’utilisateurs à l’abonnement, qui définit l’accès des utilisateurs à la gestion des ressources d’abonnement, s’effectue en leur octroyant des autorisations de manipulation des ressources Azure mappées sur l’abonnement.
 
@@ -55,9 +56,9 @@ Avec l’attribution de licences par groupe, tout utilisateur non associé à un
 
 ##Prise en main de la gestion des licences Azure AD
 
-La prise en main d’Azure AD est d’une grande simplicité ; vous pouvez toujours créer votre annuaire dans le cadre de votre inscription à la version d’évaluation gratuite d’Azure. [En savoir plus sur l’inscription en tant qu’organisation](sign-up-organization.md). Les informations ci-après peuvent vous aider à vérifier que votre annuaire s’harmonise au mieux avec d’autres services Microsoft que vous consommez ou envisagez de consommer, ainsi qu’avec vos objectifs en obtenant le service.
+La prise en main d’Azure AD est d’une grande simplicité ; vous pouvez toujours créer votre annuaire dans le cadre de votre inscription à la version d’évaluation gratuite d’Azure. [En savoir plus sur l'inscription en tant qu'organisation](sign-up-organization.md). Les informations ci-après peuvent vous aider à vérifier que votre annuaire s’harmonise au mieux avec d’autres services Microsoft que vous consommez ou envisagez de consommer, ainsi qu’avec vos objectifs en obtenant le service.
 
-Voici quelques bonnes pratiques : - Si vous utilisez déjà l’un des services d’organisation de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans ce cas, vous devez continuer à utiliser le même annuaire pour les autres services, afin que la gestion des identités principales, y compris l’approvisionnement et l’authentification unique hybride, soit utilisable dans l’ensemble des services. Vos utilisateurs bénéficieront alors d’une expérience d’ouverture de session unique et de fonctionnalités enrichies dans tous les services. Par conséquent, si vous décidez d’acheter un service Azure AD payant pour vos ressources, nous vous recommandons d’utiliser le même annuaire pour effectuer cette opération. - Si vous prévoyez d’utiliser Azure AD pour un autre groupe d’utilisateurs (partenaires, clients, etc.), que vous souhaitez évaluer des services Azure AD indépendamment de votre service de production, ou que vous cherchez à configurer un environnement de bac à sable (sandbox) pour vos services, nous vous recommandons de commencer par créer un autre annuaire par le biais du Portail de gestion Azure. [En savoir plus sur la création d’un annuaire Azure AD dans le Portail de gestion Azure](active-directory-licensing-directory-independence.md). Ce nouvel annuaire sera créé avec votre compte en tant qu’utilisateur externe avec des autorisations d’administrateur globales. Lorsque vous vous connecterez au Portail de gestion Azure avec ce compte, vous pourrez voir cet annuaire et accéder à toutes les tâches d’administration d’annuaire. Nous vous recommandons de créer un compte local avec les privilèges appropriés pour gérer les autres services Microsoft (ceux qui ne sont pas accessibles par le biais du Portail de gestion Azure). [En savoir plus sur la création de comptes d’utilisateurs dans Azure AD](active-directory-create-users.md).
+Voici quelques bonnes pratiques : - Si vous utilisez déjà l’un des services d’organisation de Microsoft, vous disposez déjà d’un annuaire Azure AD. Dans ce cas, vous devez continuer à utiliser le même annuaire pour les autres services, afin que la gestion des identités principales, y compris l’approvisionnement et l’authentification unique hybride, soit utilisable dans l’ensemble des services. Vos utilisateurs bénéficieront alors d’une expérience d’ouverture de session unique et de fonctionnalités enrichies dans tous les services. Par conséquent, si vous décidez d’acheter un service Azure AD payant pour vos ressources, nous vous recommandons d’utiliser le même annuaire pour effectuer cette opération. - Si vous prévoyez d’utiliser Azure AD pour un autre groupe d’utilisateurs (partenaires, clients, etc.), que vous souhaitez évaluer des services Azure AD indépendamment de votre service de production, ou que vous cherchez à configurer un environnement de bac à sable (sandbox) pour vos services, nous vous recommandons de commencer par créer un autre annuaire par le biais du Portail de gestion Azure. [En savoir plus sur la création d'un annuaire Azure AD dans le Portail de gestion Azure](active-directory-licensing-directory-independence.md). Ce nouvel annuaire sera créé avec votre compte en tant qu’utilisateur externe avec des autorisations d’administrateur globales. Lorsque vous vous connecterez au Portail de gestion Azure avec ce compte, vous pourrez voir cet annuaire et accéder à toutes les tâches d’administration d’annuaire. Nous vous recommandons de créer un compte local avec les privilèges appropriés pour gérer les autres services Microsoft (ceux qui ne sont pas accessibles par le biais du Portail de gestion Azure). [En savoir plus sur la création de comptes d'utilisateurs dans Azure AD](active-directory-create-users.md).
 
 > [AZURE.NOTE]Azure AD prend en charge les « utilisateurs externes », qui correspondent aux comptes d’utilisateurs d’une instance Azure AD qui ont été créés à l’aide d’un compte Microsoft (MSA) ou d’une identité Azure AD à partir d’un autre annuaire. Bien que nous ayons entrepris d’étendre cette fonctionnalité à tous les services d’organisation Microsoft, ces comptes ne sont actuellement pas pris en charge dans les expériences de certains services ; par exemple, le portail d’administration d’Office 365 ne prend pas en charge ces utilisateurs pour l’instant. En conséquence, les utilisateurs externes dotés de comptes Microsoft ne seront pas en mesure d’accéder au portail d’administration d’Office 365, tandis que les utilisateurs externes d’autres annuaires Azure AD seront ignorés. Dans ce dernier cas, seuls le compte local de l’utilisateur, l’annuaire Azure AD ou l’annuaire Office 365 dans lesquels l’utilisateur a été créé, seront accessibles par le biais de ces expériences.
 
@@ -86,7 +87,7 @@ Pour attribuer une licence à un groupe ou à des utilisateurs spécifiques, sé
 
 ![Plans de licence de version d’évaluation actifs](./media/active-directory-licensing-what-is/assign_licenses.png)
 
-Une fois que la boîte de dialogue d’attribution pour le plan sélectionné s’est affichée, vous pouvez sélectionner des utilisateurs et les ajouter à la colonne **Attribuer** sur la droite. Vous pouvez parcourir la liste des utilisateurs ou rechercher des personnes spécifiques à l’aide de la loupe dans la partie supérieure droite de la grille des utilisateurs. Pour attribuer des groupes, sélectionnez « Groupes » dans le menu **Afficher**, puis cliquez sur le bouton représentant une coche sur la droite pour actualiser les attributions qui sont affichées.
+Une fois que la boîte de dialogue d'attribution pour le plan sélectionné s'est affichée, vous pouvez sélectionner des utilisateurs et les ajouter à la colonne **Attribuer** sur la droite. Vous pouvez parcourir la liste des utilisateurs ou rechercher des personnes spécifiques à l’aide de la loupe dans la partie supérieure droite de la grille des utilisateurs. Pour attribuer des groupes, sélectionnez « Groupes » dans le menu **Afficher**, puis cliquez sur le bouton représentant une coche sur la droite pour actualiser les attributions qui sont affichées.
 
 ![Attribution de licences à des groupes](./media/active-directory-licensing-what-is/assign_licenses_to_groups.png)
 
@@ -100,7 +101,7 @@ Lors de l’attribution des licences de portail Azure AD, des erreurs d’attri
 
 ###Visualiser les licences attribuées
 
-L’onglet **Licences** présente une vue récapitulative des licences attribuées, indiquant le nombre de licences disponibles et attribuées, et l’événement de cycle de vie d’abonnement suivant.
+L'onglet **Licences** présente une vue récapitulative des licences attribuées, notamment le nombre de licences disponibles et attribuées, ainsi que l'événement du cycle de vie d'abonnement suivant.
 
 ![Visualiser le nombre de licences attribuées](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
@@ -108,15 +109,15 @@ L’accès à un plan de licence permet de visualiser une liste détaillée des 
 
 ![Affichage détaillé des licences attribuées pour un plan de licence](./media/active-directory-licensing-what-is/assigned_licenses_detail.png)
 
-La suppression de licences se révèle tout aussi simple que l’attribution de licences. Si l’utilisateur est attribué directement ou dans le cas d’un groupe attribué, vous pouvez supprimer la licence en choisissant le type de licence, en sélectionnant **Supprimer**, en ajoutant l’utilisateur ou le groupe à la liste de suppression, puis en confirmant l’action. Une autre possibilité consiste à ouvrir un type de licence, à sélectionner l’utilisateur ou le groupe concernés, puis à appuyer sur **Supprimer** sur la barre de commandes. Pour mettre fin à l’héritage d’une licence par un utilisateur à partir d’un groupe, supprimez simplement l’utilisateur de ce groupe.
+La suppression de licences se révèle tout aussi simple que l’attribution de licences. Si l'utilisateur est attribué directement ou dans le cas d'un groupe attribué, vous pouvez supprimer la licence en choisissant le type de licence. Sélectionnez **Supprimer** en ajoutant l'utilisateur ou le groupe à la liste de suppression, puis confirmez l'action. Une autre possibilité consiste à ouvrir un type de licence, à sélectionner l'utilisateur ou le groupe concerné, puis à appuyer sur **Supprimer** dans la barre de commandes. Pour mettre fin à l’héritage d’une licence par un utilisateur à partir d’un groupe, supprimez simplement l’utilisateur de ce groupe.
 
 ###Extension des versions d’évaluation
 
-Des extensions de version d’évaluation pour les clients sont disponibles en libre service par le biais du portail Office 365. Un administrateur de client peut accéder au [portail Office](https://portal.office.com/#Billing) (l’accès dépend des autorisations relatives au portail Office) et sélectionner votre version d’évaluation d’Azure AD Premium. Cliquez sur le lien **Étendre la version d’évaluation** et suivez les instructions. Vous devrez entrer un numéro de carte de crédit, mais cette dernière ne sera pas facturée.
+Des extensions de version d’évaluation pour les clients sont disponibles en libre service par le biais du portail Office 365. Un administrateur de client peut accéder au [portail Office](https://portal.office.com/#Billing) (l'accès dépend des autorisations relatives au portail Office) et sélectionner votre version d'évaluation d'Azure AD Premium. Cliquez sur le lien **Étendre la version d'évaluation** et suivez les instructions. Vous devrez entrer un numéro de carte de crédit, mais cette dernière ne sera pas facturée.
 
 ![Extension d’une version d’évaluation avec licences dans le portail Office](./media/active-directory-licensing-what-is/extend_license_trial.png)
 
-Les clients peuvent également demander une extension de version d’évaluation en envoyant une demande de support. Un administrateur de client peut accéder à la [page de support](http://aka.ms/extendAADtrial) du portail Office (l’accès dépend des autorisations relatives à la page de support Office). Sur cette page, sélectionnez « Abonnements et versions d’évaluation » sous Fonctionnalités, et « Questions de version d’évaluation » sous Symptôme. Pour finir, entrez les informations sur les circonstances.
+Les clients peuvent également demander une extension de version d’évaluation en envoyant une demande de support. Un administrateur de client peut accéder à la [page de support](http://aka.ms/extendAADtrial) du portail Office (l'accès dépend des autorisations relatives à la page de support Office). Sur cette page, sélectionnez « Abonnements et versions d’évaluation » sous Fonctionnalités, et « Questions de version d’évaluation » sous Symptôme. Pour finir, entrez les informations sur les circonstances.
 
 ![Extension d’une version d’évaluation avec licences à l’aide d’une demande de support](./media/active-directory-licensing-what-is/alternate_office_aad_trial_extension.png)
 
@@ -131,4 +132,4 @@ Vous voilà prêt à configurer et à utiliser certaines fonctionnalités d’Az
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Achat direct de licences Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure" 
-	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises." 
-	services="" 
-	documentationCenter="" 
-	authors="vikdesai" 
-	manager="msmbaldwin" 
+<properties
+	pageTitle="Configurer des alertes de facturation pour vos abonnements Microsoft Azure | Microsoft Azure"
+	description="Describes how you can set up alerts on your Azure bill so you can avoid billing surprises."
+	services=""
+	documentationCenter=""
+	authors="vikdesai"
+	manager="msmbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="11/17/2015" 
 	ms.author="vikdesai"/>
 
 # Configurer des alertes de facturation pour vos abonnements Microsoft Azure
@@ -46,4 +46,4 @@ Une fois que vous avez configuré des alertes, le Centre des comptes les répert
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -28,7 +28,7 @@ Cet article décrit différentes façons d’ajouter des balises à une machine 
 
 Voyons d’abord le balisage via des modèles. [Ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) place des balises sur les ressources suivantes : Calcul (Machine virtuelle), Stockage (Compte de stockage) et Réseau (Adresse IP publique, Réseau virtuel et Interface réseau).
 
-Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Ceci permet d’accéder au [portail Azure en version préliminaire](http://portal.azure.com/), où vous pouvez déployer ce modèle.
+Cliquez sur le bouton **Déployer sur Azure** à partir du [lien du modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Ceci permet d'accéder au [portail Azure en version préliminaire](http://portal.azure.com/), où vous pouvez déployer ce modèle.
 
 ![Déploiement simple avec des balises](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@ Enregistrez le fichier de modèle après l’avoir modifié avec les balises de 
 
 Ensuite, dans la section **Modifier les paramètres**, vous pouvez entrer les valeurs de vos balises.
 
-![Modifier des balises dans le portail Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Modifier les balises dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Cliquez sur **Créer** pour déployer ce modèle avec vos valeurs pour les balises.
 
@@ -58,15 +58,15 @@ Après avoir créé vos ressources avec des balises, vous pouvez afficher, ajout
 
 Sélectionnez l’icône Balises pour afficher vos balises :
 
-![Icône Balises dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Icônes des balises dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Ajoutez une nouvelle balise via le portail en définissant votre propre paire clé/valeur, puis enregistrez-la.
 
-![Ajouter une nouvelle balise dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Ajouter une balise dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Votre nouvelle balise doit maintenant apparaître dans la liste des balises pour votre ressource.
 
-![Nouvelle balise enregistrée dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Nouvelle balise enregistrée dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Balisage avec PowerShell
@@ -107,7 +107,7 @@ La deuxième commande affiche les balises pour la variable donnée.
         Value		Production
         Name		Environment
 
-La troisième commande ajoute une balise supplémentaire à la variable *tags*. Notez l’utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *tags*.
+La troisième commande ajoute une balise supplémentaire à la variable *tags*. Notez l'utilisation de **+=** pour ajouter la nouvelle paire clé/valeur à la liste *tags*.
 
         PS C:\> $tags +=@{Name="Location";Value="MyLocation"}
 
@@ -141,7 +141,7 @@ Le balisage est également pris en charge pour les ressources qui sont déjà cr
 
         azure vm show -g MyResourceGroup -n MyVM
 
-Contrairement à PowerShell, si vous ajoutez des balises à une ressource qui contient déjà des balises, il est inutile de spécifier toutes les balises (anciennes et nouvelles) avant d’utiliser la commande `azure vm set`. Au lieu de cela, cette commande vous permet d’ajouter une balise à votre ressource. Pour ajouter une nouvelle balise de machine virtuelle via l’interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
+Contrairement à PowerShell, si vous ajoutez des balises à une ressource qui contient déjà des balises, il est inutile de spécifier toutes les balises (anciennes et nouvelles) avant d'utiliser la commande `azure vm set`. Au lieu de cela, cette commande vous permet d’ajouter une balise à votre ressource. Pour ajouter une nouvelle balise de machine virtuelle via l'interface de ligne de commande Azure, vous pouvez utiliser la commande `azure vm set` avec le paramètre de balise **-t** :
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -155,19 +155,19 @@ Maintenant que nous avons appliqué des balises à nos ressources via PowerShell
 
 ## Affichage de vos balises dans les détails d’utilisation
 
-Les balises placées sur des ressources Calcul, Réseau et Stockage via Azure Resource Manager apparaissent dans vos détails d’utilisation dans le [portail de facturation](https://account.windowsazure.com/).
+Les balises placées sur des ressources Calcul, Réseau et Stockage via Azure Resource Manager apparaissent dans vos détails d'utilisation dans le [portail de facturation](https://account.windowsazure.com/).
 
-Cliquez sur **Télécharger les détails d’utilisation** pour afficher les détails d’utilisation dans votre abonnement.
+Cliquez sur **Télécharger les détails d'utilisation** pour afficher les détails d'utilisation dans votre abonnement.
 
-![Détails d’utilisation dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Détails d'utilisation dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
-Sélectionnez votre relevé de facturation et les détails d’utilisation **Version 2** :
+Sélectionnez votre relevé de facturation et les détails d'utilisation **Version 2** :
 
-![Détails d’utilisation dans la version préliminaire 2 du portail Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Détails d'utilisation dans la version préliminaire 2 dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
-Dans les détails d’utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
+Dans les détails d'utilisation, vous pouvez voir toutes les balises dans la colonne **Balises** :
 
-![Colonne Balises dans le portail Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Colonne Balises dans le portail Azure en version préliminaire](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 En analysant ces balises ainsi que leur utilisation, les organisations sont en mesure de mieux comprendre leurs données de consommation.
 
@@ -190,4 +190,4 @@ En analysant ces balises ainsi que leur utilisation, les organisations sont en m
 [Comprendre votre facture Azure]: ../billing-understand-your-bill.md
 [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

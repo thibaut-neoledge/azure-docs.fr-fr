@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Utilisation de DocumentDB comme sortie Azure Stream Analytics
+# Présentation de DocumentDB comme sortie Azure Stream Analytics
 
 Azure Stream Analytics prend désormais en charge [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) comme sortie, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur les données JSON non structurées. Ce document décrit comment implémenter au mieux cette intégration. Pour ceux qui ne sont pas familiarisés avec DocumentDB, commençons par suivre le [parcours d'apprentissage de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
@@ -59,4 +59,4 @@ Lorsque vous créez une sortie DocumentDB dans Stream Analytics, vous devez four
 -   **Partition Key** : nom du champ dans les événements de sortie utilisé pour spécifier la clé de partitionnement de sortie sur les collections. Pour une sortie de collection unique, une colonne de sortie arbitraire peut être utilisée (par exemple, PartitionId).  
 -   **Document ID** : facultatif. Nom du champ dans les événements de sortie utilisé pour spécifier la clé primaire sur laquelle sont basées les opérations d’insertion ou de mise à jour.  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

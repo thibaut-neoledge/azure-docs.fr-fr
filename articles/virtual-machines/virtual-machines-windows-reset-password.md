@@ -24,14 +24,14 @@
 
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows en raison de l’oubli d’un mot de passe ou d’un problème avec la configuration du service Bureau à distance, utilisez le portail Azure en version préliminaire ou l’extension VMAccess pour réinitialiser le mot de passe de l’administrateur local ou la configuration du service Bureau à distance.
 
-## Portail en version préliminaire
+## Portail Azure en version préliminaire
 
-Pour réinitialiser le service Bureau à distance dans le [portail en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l’accès à distance**. La page suivante apparaît.
+Pour réinitialiser le service Bureau à distance dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Réinitialiser l'accès à distance**. La page suivante apparaît.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Pour réinitialiser le nom et le mot de passe du compte d’administrateur local dans le [portail en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles(classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. La page suivante apparaît.
+Pour réinitialiser le nom et le mot de passe du compte d'administrateur local dans le [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir** > **Machines virtuelles (classiques)** > *votre machine virtuelle Windows* > **Tous les paramètres** > **Réinitialisation du mot de passe**. La page suivante apparaît.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -57,7 +57,7 @@ Si vous ignorez le nom du service cloud et de la machine virtuelle, exécutez **
 
 Si la commande **write-host** affiche la valeur **True**, cela signifie que l’agent de machine virtuelle est installé. Si la commande présente la valeur **False**, accédez aux instructions et au lien de téléchargement dans le billet de blog Azure [Agent de machine virtuelle et extensions - 2e partie](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) (en anglais).
 
-Si vous créez la machine virtuelle avec le portail Azure, exécutez la commande supplémentaire suivante.
+Si vous créez la machine virtuelle avec le portail, exécutez la commande supplémentaire suivante.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -114,4 +114,4 @@ Si vous ne parvenez pas à exécuter le package de diagnostic Azure IaaS (Window
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

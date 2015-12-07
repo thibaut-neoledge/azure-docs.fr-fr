@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Mettez automatiquement à l’échelle les jeux de mise à l’échelle virtuelle | Microsoft Azure"
+	pageTitle="Mettre automatiquement à l’échelle les jeux de mise à l’échelle de machine virtuelle | Microsoft Azure"
 	description="Prise en main de la création et de la gestion de vos premiers ensembles de mise l’échelle de machine virtuelle Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="gbowerman"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,672 +14,596 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="guybo"/>
+	ms.date="11/19/2015"
+	ms.author="davidmu"/>
 
 # Mise à l’échelle automatique des machines dans un jeu de mise à l’échelle de machine virtuelle
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
-
-Ce document est un guide rapide servant à la prise en main de la création et de la gestion de vos jeux de mise à l’échelle de machine virtuelle Azure pendant l’essai public.
-
-Le guide suppose que vous êtes déjà familiarisé avec l’utilisation de modèles Azure Resource Manager (ARM) pour déployer des ressources Azure telles que les machines virtuelles et des réseaux virtuels. Dans le cas contraire, les 3 premiers liens de la section ressources fournissent une vue d’ensemble du Gestionnaire de ressources.
-
-## Que sont les jeux de mise à l’échelle de machine virtuelle et pourquoi les utiliser ?
-
-Les jeux de mise à l’échelle de machine virtuelle sont des ressources que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques.
-
-Avec toutes les machines virtuelles configurées de la même façon, les jeux de mise à l’échelle de machine virtuelle sont conçus pour prendre en charge la mise à niveau automatique réelle (aucun réapprovisionnement de machine virtuelle n’est requis) et en tant que tel, facilite la création de services à grande échelle ciblant les grands calculs, big data, les prises en charge en conteneurs et toute application qui a besoin de ressources de calcul adaptables dedans et dehors. Les opérations de mise à l’échelle sont équilibrées implicitement entre les domaines d’erreur et les domaines de mise à niveau. Pour accéder à une présentation des jeux de mise à l’échelle de machines virtuelles, reportez-vous aux récentes [Annonces de blog Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
-
-## Création et utilisation des jeux de mise à l’échelle de machine virtuelle
-
-Les jeux de mise à l’échelle de machine virtuelle peuvent être définis et déployés à l’aide de modèles JSON et d’appels REST comme des machines virtuelles de gestionnaire de ressources Azure. Par conséquent, les méthodes de déploiement Azure Resource Manager standard peuvent être utilisées, et ce document vous guidera parmi des exemples.
-
-Les zones d’intégration VMSS spécifiques telles que la prise en charge des commandes impératives dans les langages de script et de programmation, et une intégration de portail complète sont en cours de développement et seront libérés par phases pendant la visualisation.
-
-## Déploiement et gestion de jeux de mise à l’échelle de machine virtuelle à l’aide du portail Azure
-
-Initialement, vous pouvez créer un jeu de mise à l’échelle de machine virtuelle à partir de rien dans le portail Azure. La prise en charge du portail est en cours d’étude et lors de la première étape de ce travail, vous pouvez afficher uniquement les jeux de mise à l’échelle dans le portail que vous avez créé et devrez utiliser une approche de modèle/script pour les créer. Dans tous les cas « portail » est supposé signifier le nouveau portail Azure : [https://portal.azure.com/](https://portal.azure.com/).
-
-Vous pouvez utiliser la capacité du portail à déployer n’importe quel modèle ou ressource, jeux de mise à l’échelle inclus. Un moyen facile de déployer un jeu de mise à l’échelle consiste à utiliser un lien comme suit :
-
-_https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>_
-
-Vous trouverez un ensemble de modèles d’exemples de jeux de mise à l’échelle de machine virtuelle dans le référentiel Azure Quickstart teamplates GitHub ici : [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) -rechercher les modèles avec _vmss_ dans le titre.
-
-Dans les fichiers lisez-moi correspondant à ces modèles, vous pouvez voir un bouton tel que celui-ci associé à la fonction de déploiement de portail.
-
-Pour déployer le jeu de mise à l’échelle, cliquez sur le bouton et renseignez ensuite tous les paramètres requis dans le portail. Remarque : Si vous ne savez pas si une ressource prend en charge les majuscules ou les casses mixtes, il est préférable d’utiliser toujours les valeurs de paramètre en minuscules.
-
-**Surveillance de la ressource de jeu de mise à l’échelle de machine virtuelle dans le portail/l’explorateur de ressources**
-
-Après avoir déployé un jeu de mise à l’échelle, le portail va afficher une vue de base de ce dernier mais au départ, pendant la version préliminaire, il ne vous montrera pas les propriétés détaillées, ou vous permettra d’analyser les machines virtuelles s’exécutant sur le jeu de mise à l’échelle de machine virtuelle.
-
-Il est conseillé d’utiliser l’**Explorateur de ressources Azure** : [https://resources.azure.com](https://resources.azure.com) jusqu’à ce que l’intégration complète du portail soit en place. Les jeux de mise à l’échelle de machine virtuelle sont des ressources sous Microsoft.Compute, alors, à partir de ce site, vous pouvez les voir en étendant les liens suivants :
-
-Abonnements -> votre abonnement -> resourceGroups -> fournisseurs -> Microsoft.Compute -> virtualMachineScaleSets -> votre jeu de mise à l’échelle de machine virtuelle-> etc.
-
-## Déploiement et gestion de jeux de mise à l’échelle de machine virtuelle à l’aide de PowerShell
-
-Vous pouvez déployer des modèles VMSS et les ressources de requête à l’aide de n’importe quelle version d’Azure PowerShell actuelle.
-
-**Remarque importante :** les exemples ci-dessous concernent [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/), qui introduit le préfixe _AzureRm_ dans de nombreuses commandes. Si vous utilisez une version antérieure de PowerShell telle que 0.9.8 ou antérieure, « **Rm** » dans les exemples de commandes. Les exemples supposent également que vous avez déjà établi une connexion à Azure dans votre environnement PowerShell (_Login-AzureRmAccount_).
-
-Exemples :
-
-&#35; **Créer un groupe de ressources**
-
-New-AzureRmResourcegroup -name myrg -location « Asie du sud-est »
-
-&#35; **Créer un jeu de mise à l’échelle de machine virtuelle de 2 machines virtuelles**
-
-New-AzureRmResourceGroupDeployment -name dep1 -vmSSName myvmss -instanceCount 3 -ResourceGroupName myrg -TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-Vous serez invité à saisir les paramètres manquants (tels que l’emplacement, le nom d’utilisateur et le mot de passe dans cet exemple).
-
-&#35; **Obtenir les détails d’ensemble de mise à l’échelle de machine virtuelle**
-
-Get-AzureRmResource -name myvmss -ResourceGroupName myrg -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-
-&#35; ou pour plus de détails, placez-le dans les barres | ConvertTo-Json -Profondeur 10
-
-&#35; ou, si vous voulez d’autres détails, ajoutez –debug à votre commande.
-
-&#35; Mise à l’échelle vers le haut ou le bas
-
-New-AzureRmResourceGroupDeployment -name dep2 -vmSSName myvmss -instanceCount 2 -ResourceGroupName myrg –TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json)
-
-&#35; **Supprimer un jeu de mise à l’échelle**
-
-&#35; Facile : Supprimer le groupe de ressources complètes et tout ce qu’il contient :
-
-Remove-AzureRmResourceGroup-myrg nom
-
-&#35; Précis : Supprimer une ressource spécifique :
-
-Remove-AzureRmResource -Name myvmss -ResourceGroupName myrg -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
-
-### Commandes PowerShell impératives pour les jeux de mise à l’échelle
-
-Une version à venir d’Azure PowerShell inclut un ensemble de commandes impératives permettant de créer et gérer des jeux de mise n’utilisant pas les modèles. Cette version est disponible en version préliminaire ici : [https://github.com/AzureRT/azure-powershell/releases](https://github.com/AzureRT/azure-powershell/releases). Exemples montrant comment utiliser l’API impérative :
-
-[https://github.com/huangpf/Azure-PowerShell/BLOB/vmss/src/ResourceManager/COMPUTE/Commands.Compute.test/ScenarioTests/VirtualMachineScaleSetTests.ps1](https://github.com/huangpf/azure-powershell/blob/vmss/src/ResourceManager/Compute/Commands.Compute.Test/ScenarioTests/VirtualMachineScaleSetTests.ps1)
-
-## Déploiement et gestion des jeux de mise à l’échelle de machine virtuelle à l’aide de l’Interface de ligne de commande Azure.
-
-Vous pouvez déployer des modèles VMSS et les ressources de requête à l’aide de n’importe quelle version d’interface de ligne de commande Azure.
-
-Le moyen le plus simple consiste à installer l’interface de ligne de commande Azure à partir d’un conteneur Docker. Pour l’installation, voir  [https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/](https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/)
-
-Pour l’utilisation de l’Interface de ligne de commande, voir : [https://azure.microsoft.com/documentation/articles/xplat-cli/](https://azure.microsoft.com/documentation/articles/xplat-cli/)
-
-### Exemples CLI de définition de mise à l’échelle de machine virtuelle
-
-&#35; **créer un groupe de ressources**
-
-créer un groupe azure myrg « Asie du sud-est »
-
-&#35; **Créer un jeu de mise à l’échelle de machine virtuelle**
-
-créer un déploiement du groupe azure -g myrg - n dep2--modèle uri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-&#35; il doit demander des paramètres de façon dynamique, ou vous pouvez les spécifier en tant qu’arguments
-
-&#35; **obtenir les détails de jeu de mise à l’échelle**
-
-la ressource azure affiche -n vmssname -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g myrg
-
-&#35; ou pour plus de détails :
-
-la ressource azure affiche –n vmssname –r Microsoft.Compute/virtualMachineScaleSets –o 2015-06-15 –g myrg –json –vv
-
-Une version à venir de l’interface de ligne de commande Azure inclut des commandes impératives pour le déploiement et la gestion des jeux de mise à l’échelle de virtuelle directement sans modèle et effectuer des opérations sur des machines virtuelles dans les jeux de mise à l’échelle de machine virtuelle. Vous pouvez assurer le suivi de cette version ici : [https://github.com/AzureRT/azure-xplat-cli/releases/](https://github.com/AzureRT/azure-xplat-cli/releases/)
-
-## Modèles de jeu de mise à l’échelle de machine virtuelle
-
-Cette section vous guide à travers un modèle Azure simple pour créer un jeu de mise à l’échelle de machine virtuelle, et diffère par les modèles utilisés pour créer des machines virtuelles à instance unique. Il existe également un modèle de dissection de jeu de mise à l’échelle de machine virtuelle pratique : [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
-
-### Anatomie d’un modèle
-
-Nous allons commencer avec un modèle simple qui crée un jeu de mise à l’échelle de machines virtuelles Ubuntu et le divise en plusieurs composants. Cet exemple crée également les ressources dont dépend un jeu de mise à l’échelle de machine virtuelle comme un réseau virtuel, un compte de stockage etc.. L’exemple est disponible ici : [https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json](https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json) -Notez que dans cet exemple « hello world », il n’y aura pas de moyen direct de se connecter aux machines virtuelles dans la mise à l’échelle de machines virtuelles depuis l’extérieur de votre réseau virtuel, car les machines virtuelles se voient affecter des adresses IP internes. Consultez la section scénarios et exemples de [modèles Azure Quickstart](https://github.com/Azure/azure-quickstart-templates) pour trouver des moyens de vous connecter depuis l’extérieur à l’aide d’équilibreurs de zones de changement rapide.
-
-### En-tête de modèle.
-
-Spécifiez le schéma et la version de contenu :
-
-{
-
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json",
-
-   "contentVersion": "1.0.0.0",
-
-### Paramètres
-
-Comme avec n’importe quel modèle d’Azure Resource Manager (ARM), cette section définit les paramètres spécifiés au moment du déploiement, y compris, dans cet exemple, le nom de la machine virtuelle échelle définie, le nombre d’instances de machine virtuelle pour commencer, une chaîne unique à utiliser lors de la création de comptes de stockage (toujours utiliser minuscules lorsque vous entrez des valeurs pour les objets tels que les comptes de stockage sauf si vous savez comment les cas est traité) :
-
-````
- "parameters": {
-
-    "vmSSName": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Scale Set name, also used in this template as a base for naming resources (hence limited less than 10 characters)."
-
-      },
-
-      "maxLength": 10
-
-    },
-
-    "instanceCount": {
-
-      "type": "int",
-
-      "metadata": {
-
-        "description": "Number of VM instances"
-
-      },
-
-      "maxValue": 100
-
-    },
-
-    "adminUsername": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Admin username on all VMs."
-
-      }
-
-    },
-
-    "adminPassword": {
-
-      "type": "securestring",
-
-      "metadata": {
-
-        "description": "Admin password on all VMs."
-
-      }
-
-    }
-
-  },
-````
-
-### Variables
-
-Composant de modèle ARM standard qui définit des variables que vous référencerez plus loin dans le modèle. Dans cet exemple, nous allons utiliser des variables pour définir le système d’exploitation que nous voulons, certains détails de configuration réseau, les paramètres et l’emplacement de stockage. Pour l’emplacement, nous allons utiliser la fonction _location()_ pour le sélectionner dans le groupe de ressources dans lequel il est déployé.
-
-Notez qu’un tableau de chaînes uniques est défini pour un préfixe de compte de stockage. Consultez la section de stockage pour obtenir une explication.
-
-````
-  "variables": {
-
-    "apiVersion": "2015-06-15",
-
-    "newStorageAccountSuffix": "[concat(parameters('vmssName'), 'sa')]",
-
-    "uniqueStringArray": [
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '2')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '3')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '4')))]"
-
-    ],
-
-    "vmSize": "Standard\_A1",
-
-    "vhdContainerName": "[concat(parameters('vmssName'), 'vhd')]",
-
-    "osDiskName": "[concat(parameters('vmssName'), 'osdisk')]",
-
-    "virtualNetworkName": "[concat(parameters('vmssName'), 'vnet')]",
-
-    "subnetName": "[concat(parameters('vmssName'), 'subnet')]",
-
-    "nicName": "[concat(parameters('vmssName'), 'nic')]",
-
-    "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
-
-    "addressPrefix": "10.0.0.0/16",
-
-    "subnetPrefix": "10.0.0.0/24",
-
-    "storageAccountType": "Standard\_LRS",
-
-    "location": "[resourceGroup().location]",
-
-    "osType": {
-
-      "publisher": "Canonical",
-
-      "offer": "UbuntuServer",
-
-      "sku": "15.10",
-
-      "version": "latest"
-
-    },
-
-    "imageReference": "[variables('osType')]"
-
-  },
-````
-
-### Ressources
-
-Dans cette section, chaque type de ressource est défini.
-
-````
-   "resources": [
-````
-
-
-**Stockage.** Lorsque vous créez un jeu de mise à l’échelle de machine virtuelle, vous pouvez spécifier un tableau de comptes de stockage. Les disques du système d’exploitation d’instances de machine virtuelle sont ensuite distribués uniformément d’un compte à l’autre. À l’avenir, les jeux de mise à l’échelle de machine virtuelle passeront par l’utilisation d’une approche par disque géré ne nécessitant pas de votre part la gestion de comptes de stockage. À la place, vous devez simplement décrire les propriétés de stockage dans le cadre de la définition des jeux de mise à l’échelle. À ce stade, vous devez créer le nombre de comptes de stockage dont vous avez besoin à l’avance. Nous vous recommandons de créer 5 comptes de stockage qui prendront en charge facilement jusqu’à 100 machines virtuelles dans un jeu de mise à l’échelle (le maximum actuel).
-
-Lors de la création d’un ensemble de comptes de stockage, ils sont distribués sur plusieurs partitions dans une mémoire tampon de stockage et le schéma de distribution varie selon les premières lettres du nom du compte de stockage. Pour cette raison, pour obtenir des performances optimales, il est conseillé de faire en sorte que chaque compte de stockage créé commence par une lettre de l’alphabet différente. Vous pouvez les nommer manuellement, ou dans cet exemple, utiliser la fonction uniqueString() pour appliquer une distribution pseudo-aléatoire :
-
-````
-    {
-
-      "type": "Microsoft.Storage/storageAccounts",
-
-      "name": "[concat(variables('uniqueStringArray')[copyIndex()], variables('newStorageAccountSuffix'))]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "copy": {
-
-        "name": "storageLoop",
-
-        "count": 5
-
-      },
-
-      "properties": {
-
-        "accountType": "[variables('storageAccountType')]"
-
-      }
-
-    },
-````
-
-**Réseau virtuel.** Créer un réseau virtuel. Notez que vous pouvez avoir différents jeux de mise à l’échelle, ainsi que des machines virtuelles uniques dans le même réseau virtuel.
-
-````
-    {
-
-      "type": "Microsoft.Network/virtualNetworks",
-
-      "name": "[variables('virtualNetworkName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "properties": {
-
-        "addressSpace": {
-
-          "addressPrefixes": [
-
-            "[variables('addressPrefix')]"
-
-          ]
-
-        },
-
-        "subnets": [
-
-          {
-
-            "name": "[variables('subnetName')]",
-
-            "properties": {
-
-              "addressPrefix": "[variables('subnetPrefix')]"
-
-            }
-
-          }
-
-        ]
-
-      }
-
-    },
-````
-
-### La ressource virtualMachineScaleSets
-
-À bien des égards, la ressource _virtualMachineScaleSets_ est similaire à une ressource _virtualMachines_. Toutes les deux sont fournies par le fournisseur de ressources Microsoft.Compute et sont au même niveau. La différence principale est que vous fournissez une valeur de _capacité_ indiquant combien de machines virtuelles vous créez, et ce que vous définissez ici s’applique à toutes les machines virtuelles du jeu de mise à l’échelle de machine virtuelle.
-
-Notez comment la section _dependsOn_ référence les comptes de stockage et VNET créés ci-dessus, et la capacité fait référence le paramètre _instanceCount_.
-
-````
-    {
-
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-
-      "name": "[parameters('vmssName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "dependsOn": [
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-
-      ],
-
-      "sku": {
-
-        "name": "[variables('vmSize')]",
-
-        "tier": "Standard",
-
-        "capacity": "[parameters('instanceCount')]"
-
-      },
-````
-
-**Propriétés**
-
-Les jeux de mise à l’échelle de machine virtuelle ont un paramètre upgradePolicy. Les versions ultérieures vont prendre en charge les mises à jour partielles découpées (par exemple, modifiez la configuration de 20 % des machines virtuelles à la fois), mais pour le moment, l’élément upgradePolicy peut être défini sur manuel ou automatique. En mode manuel, si vous modifiez le modèle et le redéployez, les modifications ne prennent effet que lorsque les nouvelles machines virtuelles sont créées ou des extensions mises à jour, par exemple, si vous augmentez _capacité_. Automatique signifie la mise à jour de toutes les machines virtuelles « instantanément », et le redémarrage de tous les éléments. L’approche manuelle est en général la plus sûre. Vous pouvez supprimer des machines virtuelles individuelles et effectuer le redéploiement en fonction des besoins pour effectuer la mise jour progressivement.
-
-````
-      "properties": {
-
-         "upgradePolicy": {
-
-         "mode": "Manual"
-
-        },
-````
-
-**Propriétés -> virtualMachineProfile**
-
-Ici, vous pouvez référencer les comptes de stockage créés ci-dessus en tant que conteneurs de machines virtuelles. Vous n’avez pas besoin de créer au préalable les conteneurs réels, mais uniquement les comptes.
-
-````
-        "virtualMachineProfile": {
-
-          "storageProfile": {
-
-            "osDisk": {
-
-              "vhdContainers": [
-
-                "[concat('https://', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]"
-
-              ],
-
-              "name": "[variables('osDiskName')]",
-
-              "caching": "ReadOnly",
-
-              "createOption": "FromImage"
-
-            },
-
-            "imageReference": "[variables('imageReference')]"
-
-          },
-````
-
-**Propriétés -> osProfile**
-
-Une des différences pour les jeux de mise à l’échelle définis sur des machines virtuelles individuelles est que le nom d’ordinateur est un préfixe. Les instances de machine virtuelle dans le jeu de mise à l’échelle de machine virtuelle sont créées avec des noms tels que : myvm\_0, myvm\_1 etc.
-
-````
-          "osProfile": {
-
-            "computerNamePrefix": "[parameters('vmSSName')]",
-
-            "adminUsername": "[parameters('adminUsername')]",
-
-            "adminPassword": "[parameters('adminPassword')]"
-
-          },
-````
-
-**Propriétés -> networkProfile**
-
-Au moment de définir le profil de réseau pour un VMSS, n’oubliez pas que la configuration de la carte réseau et la configuration IP ont un nom. La configuration de la carte réseau comporte un paramètre « _principal_ » et les références d’id de sous-réseau qui reviennent à la ressource de sous-réseau créée dans le cadre du réseau virtuel ci-dessus.
-
-````
-          "networkProfile": {
-
-            "networkInterfaceConfigurations": [
-
-              {
-
-                "name": "[variables('nicName')]",
-
-                "properties": {
-
-                  "primary": "true",
-
-                  "ipConfigurations": [
-
-                    {
-
-                      "name": "[variables('ipConfigName')]",
-
-                      "properties": {
-
-                        "subnet": {
-
-                          "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'), '/subnets/', variables('subnetName'))]"
-
-                        }
-
-                      }
-
-                    }
-
-                  ]
-
-                }
-
-              }
-
-            ]
-
-          }
-````
-
-**Propriétés -> extensionProfile**
-
-L’exemple simple ci-dessus n’a pas besoin de profil d’extension. Vous pouvez le voir en action dans ce modèle, qui déploie Apache et PHP en utilisant l’extension CustomScript : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) - notez que dans cet exemple, les propriétés IP de réseau référencent également un équilibreur de charge. Les équilibreurs de charge se trouveront plus précisément dans la section Scénarios de jeux de mise à l’échelle de la machine virtuelle.
-
-## Scénarios de jeu de mise à l’échelle de machine virtuelle
-
-Cette section utilise certains scénarios de jeu de mise à l’échelle de machine virtuelle classique et des modèles d’exemple. Bien que dans l’immédiat, ils aient besoin de modèles, certains d’entre eux seront intégrés au portail dans le futur. Certains services Azure de niveau supérieur (comme les lots, fabrique de service, Service de conteneur Azure) utilisent également ces scénarios
-
-## RDP/SSH vers des instances de jeu de mise à l’échelle de machine virtuelle
-
-Un jeu de mise à l’échelle est créé à l’intérieur d’un réseau virtuel, et les machines individuelles ne se voient pas affecter des adresses IP publiques, ce qui est une bonne chose, car vous ne souhaitez généralement pas être soumis à des frais supplémentaires liés à l’affectation d’adresse IP séparées à toutes les ressources sans états dans la grille de calcul, et vous pouvez facilement vous connecter à ces ordinateurs virtuels à partir d’autres ressources de votre réseau virtuel, notamment celles qui possèdent des adresses IP publiques telles que les équilibreurs de charge ou les machines virtuelles autonomes.
-
-Deux moyens simples de se connecter aux machines virtuelles VMSS sont décrits ici :
-
-### Connectez-vous à des machines virtuelles à l’aide de règles NAT
-
-Vous pouvez créer une adresse IP publique, l’affecter à un équilibreur de charge et définir les règles NAT entrantes qui mappent un port de l’adresse IP sur un port de machine virtuelle dans le jeu de mise à l’échelle de machine virtuelle. Par exemple,
-
-Adresse IP publique -> Port 50000 -> vmss\_0 -> Adresse IP publique Port 22 -> Port 50001 -> vmss\_1 -> Adresse IP publique Port 22 ->Port 50002-> vmss\_2->Port 22
-
-Voici un exemple de création d’un jeu de mise à l’échelle de machine virtuelle qui utilise les règles NAT pour activer la connexion SSH à chaque machine virtuelle dans une échelle à l’aide d’une adresse IP publique unique : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
-
-Voici un exemple faisant la même chose avec RDP et Windows : [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
-
-### Connectez-vous à des machines virtuelles à l’aide d’une « jump box »
-
-Si vous créez un jeu de mise à l’échelle de machine virtuelle et un ordinateur virtuel dans le même réseau virtuel, la machine virtuelle autonome et les machines virtuelles VMSS peuvent se connecter entre elles en utilisant leurs adresses IP internes comme défini par le réseau virtuel/sous-réseau.
-
-Si vous créez une adresse IP publique et l’affectez à la machine virtuelle autonome, vous pouvez lancer un RDP ou un SSH sur la machine virtuelle autonome, puis vous connecter depuis cette machine à vos instances de VMSS. À ce stade, vous pouvez remarquer qu’un simple jeu de mise à l’échelle de machine virtuelle est intrinsèquement plus sûr qu’une machine virtuelle autonome simple avec une adresse IP publique dans sa configuration par défaut.
-
-Pour obtenir un exemple de cette approche, ce modèle crée un cluster Mesos simple composé d’une machine virtuelle Master qui gère un cluster de machines virtuelles de jeu de mise à l’échelle de machine virtuelle : [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
-
-## Équilibre de charge de répétition alternée vers des instances de jeu de mise à l’échelle de machine virtuelle
-
-Si vous souhaitez remettre un travail à un cluster de calcul des machines virtuelles à l’aide d’une approche de type « tourniquet », vous pouvez configurer un équilibreur de charge Azure avec règle d’équilibrage de charge en conséquence. Vous pouvez également définir des sondes pour vérifier que votre application s’exécute par le lancement d’une commande ping sur les ports avec un protocole spécifié, un intervalle et des chemins de requêtes.
-
-Voici un exemple qui crée le jeu de mise à l’échelle de machines virtuelles exécutant le serveur web IIS, et utilise un équilibreur de charge pour équilibrer la charge que chaque machine virtuelle reçoit. Il utilise également le protocole HTTP pour lancer une commande ping sur une URL spécifique sur chaque machine virtuelle : [https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) -examiner le type de ressource Microsoft.Network/loadBalancers et networkProfile et extensionProfile dans virtualMachineScaleSet.
-
-## Instances de jeu de mise à l’échelle de machine virtuelle avec mise à l’échelle automatique d’Azure
-
-Si vous souhaitez faire varier le nombre d’instances (_capacité_) du jeu de mise à l’échelle de votre machine virtuelle défini en fonction de l’utilisation d’UC/Mémoire/Disque ou d’autres événements, un ensemble de paramètres de mise à l’échelle sont disponibles à partir du fournisseur de ressources Microsoft.Insights. Vous pouvez consulter les paramètres disponibles dans la documentation Insights reste : [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx).
-
-La mise à l’échelle Insights automatique s’intègre directement aux jeux de mise à l’échelle de machine virtuelle. Pour le configurer, vous devez définir un type de ressource Microsoft.Insights/autoscaleSettings dont _targetResourceUri_ et _metricResourceUri_ font référence au jeu de mise à l’échelle. Lorsque vous définissez le jeu de mise à l’échelle, vous incluez un _extensionProfile_ qui installe l’agent de Diagnostics Windows Azure (WAD) sur Windows ou l’Extension de Diagnostic de Linux (LDE) sous Linux. Voici un exemple Linux qui ajoute des machines virtuelles jusqu’à une limite prédéfinie lorsque l’utilisation d’UC moyenne est >50 % avec une granularité d’une minute sur une période d’échantillonnage de 5 minutes :
-
-[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale).
-
-Les futures mises à l’échelle automatiques avec jeux de mises à l’échelle de machine virtuelle seront intégrées directement avec le portail Azure.
-
-## Déploiement d’un jeu de mise à l’échelle de machine virtuelle défini en tant que cluster de calcul dans le gestionnaire de cluster PaaS
-
-Les jeux de mise à l’échelle de machine virtuelle sont décrits comme un rôle de travail de prochaine génération. Il s’agit d’une description valide, mais elle peut être confondue avec les fonctionnalités du rôle de travail PaaS v1.
-
-Dans un sens, les jeux de mise à l’échelle de machine virtuelle fournissent un véritable « rôle » ou une ressource de travail, car ils fournissent une ressource de calcul générale indépendante de la plateforme/runtime, personnalisable et s’intègrent au Gestionnaire de ressources IaaS Azure.
-
-Un rôle de travail v1 PaaS, limité en termes de prise en charge de plate-forme/runtime (images de plateforme Windows) inclut également les services d’échange d’adresse IP virtuelle, de paramètres de mise à niveau configurables, des paramètres spécifiques de runtime/déploiement d’application spécifiques qui ne sont pas _encore_ disponibles dans les jeux de mise à l’échelle de machine virtuelle ou sera fournie par des services PaaS de plus haut niveau tels que Service Fabric. Avec cela à l’esprit, vous pouvez considérer les jeux de mise à l’échelle de machine virtuelle comme une infrastructure qui prend en charge de PaaS. par exemple, des solutions PaaS telles que Service Fabric ou gestionnaires de cluster comme Mesos peuvent se construire sur des jeux de mise à l’échelle de machine virtuelle en tant que couche de calcul évolutive.
-
-Voici un exemple de cluster Mesos qui déploie un jeu de mise à l’échelle de machine virtuelle définie dans le même réseau virtuel qu’une machine virtuelle autonome. La machine virtuelle autonome est un maître Mesos et l’ensemble de l’échelle de machine virtuelle représente un ensemble de nœuds esclaves : [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Les versions futures de [Service de conteneur Azure](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) déploieront des versions plus complexes/renforcées de ce scénario basées sur des jeux de mise à l’échelle de machine virtuelle.
-
-## Mise à l’échelle d’un jeu de mise à l’échelle de machine virtuelle
-
-Pour augmenter ou diminuer le nombre de machines virtuelles dans un jeu de mise à l’échelle de machine virtuelle, il suffit de changer la propriété _capacité_ et redéployez le modèle. Cette simplicité rend plus facile l’écriture de votre couche de mise à l’échelle personnalisée si vous souhaitez définir des événements d’échelle personnalisée qui ne sont pas pris en charge par l’échelle automatique Azure.
-
-Si vous redéployez un modèle pour modifier la capacité, vous pouvez définir un modèle beaucoup plus petit incluant uniquement la référence SKU et la capacité mise à jour. Un exemple de cela est indiqué ici : [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
-
-## La performance de mise à l’échelle de machine virtuelle et guide de mise à l’échelle
-
-- Au cours de l’évaluation publique, ne créez pas plus de 500 machines virtuelles dans plusieurs jeux de mise à l’échelle de machine virtuelle à la fois. Cette limite peut être repoussée par la suite.
-- Ne prévoyez pas plus de 40 machines virtuelles par compte de stockage.
-- Fractionnez le plus possible les premières lettres des noms de compte de stockage. Les modèles VMSS exemple [modèles Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/) fournissent des exemples montrant comment effectuer cette opération.
-- Si vous utilisez des machines virtuelles personnalisées, ne prévoyez pas plus de 40 machines virtuelles par jeu de mise à l’échelle de machine virtuelle, dans un seul compte de stockage. Vous aurez besoin de l’image pré copiée dans le compte de stockage avant de pouvoir commencer le déploiement du jeu de mise à l’échelle de machine virtuelle. Visitez le FAQ pour plus d’informations.
-- Ne prévoyez pas plus de 2 048 machines virtuelles par machine virtuelle. Cette limite peut être repoussée par la suite.
-- Le nombre de machines virtuelles que vous pouvez créer est limité par votre quota de cœurs de calcul dans n’importe quelle région. Vous devrez peut-être contacter le support technique pour augmenter votre limite de quota de calcul augmentée, même si vous avez une limite de cœurs haute à utiliser avec vos services cloud ou IaaS v1 dès aujourd’hui. Pour interroger votre quota, vous pouvez exécuter la commande CLI Azure suivante : _azure vm list-usage_, et la commande PowerShell suivante : _Get-AzureRmVMUsage_ (si vous utilisez une version de PowerShell 1.0, utilisez _Get-AzureVMUsage_).
-
-
-## FAQ sur le jeu de mise à l’échelle de machine virtuelle
-
-**Q. Le nombre de machines virtuelles peut avoir dans un jeu de mise à l’échelle de machine virtuelle ?**
-
-A. 100 si vous utilisez des images de plateforme qui peuvent être distribuées sur plusieurs comptes de stockage. Si vous utilisez des images personnalisées, jusqu’à 40, étant donné que les images personnalisées sont limitées à un seul compte de stockage lors de la visualisation.
-
-**Quelles autres limites de ressource existent pour les jeux de mise à l’échelle de machine virtuelle ?**
-
-A. Les limites de service Azure existantes s’appliquent : [https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)
-
-Vous pouvez également vous limiter à la création de 500 machines virtuelles dans plusieurs jeux de mise à l’échelle par région pendant la période d’évaluation.
-
-**Q. Les disques de données pris en charge dans les jeux de mise à l’échelle de machine virtuelle ?**
-
-A. Pas dans la version initiale. Vos options de stockage des données sont :
-
-- Fichiers Azure (lecteurs SMB partagés)
-
-- Système d’exploitation de lecteur
-
-- Lecteur temp (local, non sauvegardé par le stockage Azure)
-
-- Service de données externes (base de données distante, tables Azure, objets blobs Azure)
-
-**Q. Quelles sont les régions Azure qui prennent en charge VMSS ?**
-
-A. N’importe quelle région qui prend en charge Azure Resource Manager prend en charge les jeux de mise à l’échelle de machine virtuelle.
-
-**Q. Comment créer un VMSS à l’aide d’une image personnalisée ?**
-
-A. Laissez la propriété vhdContainers vide, par exemple :
-
-````
-"storageProfile": {
-   "osDisk": {
-      "name": "vmssosdisk",
-      "caching": "ReadOnly",
-      "createOption": "FromImage",
-      "image": {
-         "uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
-     },
-     "osType": "Windows"
-  }
-},
-````
-
-**Q. Si je réduis ma capacité VMSS de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?**
-
-A. Les 5 dernières machines virtuelles (index plus grands) seront supprimées.
-
-**Q. Que diriez-vous si j’augmente par la suite la capacité de 15 à 18 ?**
-
-Si vous augmentez jusqu’à 18, des machines virtuelles avec index 15, 16, 17 seront créées. Dans les deux cas, les machines virtuelles sont réparties entre FD et UD.
-
-**Q. Lorsque vous utilisez plusieurs extensions dans un jeu de mise à l’échelle de machine virtuelle, puis-je appliquer une séquence d’exécution ?**
-
-A. Indirectement, pour l’extension customScript, votre script peut attendre qu’une autre extension soit terminée (par exemple, en surveillant le journal d’extension- voir [https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install\_lap.sh](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
-
-**Q. Les jeux de mise à l’échelle de machine virtuelle fonctionnent-ils avec des ensembles haute disponibilité Azure ?**
-
-A. Oui. Un jeu de mise à l’échelle est un ensemble de disponibilité comprenant 3 FD et 5 UD. Vous n’avez pas besoin de configurer quoi que ce soit sous virtualMachineProfile. Dans les futures versions, les jeux de mise à l’échelle peuvent s’étendre sur plusieurs clients, mais dans l’immédiat, un jeu de mise à l’échelle est un ensemble de disponibilité unique.
-
-## Étapes suivantes
-
-Pendant la version préliminaire des jeux de mise à l’échelle de machine virtuelle, la documentation va évoluer et plusieurs fonctionnalités d’intégration telles que le portail et la mise à l’échelle automatique seront ouvertes.
-
-Vos commentaires sont très importants pour nous. Ils nous aident à créer un service qui fournit les fonctionnalités dont vous avez besoin. Faites-nous savoir ce qui fonctionne et ce qui pourrait être amélioré. Vous pouvez envoyer vos commentaires à [vmssfeedback@microsoft.com](mailto:vmssfeedback@microsoft.com).
-
-## Ressources
-
-| **Rubrique** | **Lien** |
-| --- | --- |
-| Présentation d’Azure Resource Manager | [https://azure.microsoft.com/documentation/articles/resource-group-Overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/) |
-| Modèles Azure Resource Manager | [https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) |
-| Fonctions des modèles de gestionnaire des ressources Azure | [https://Azure.Microsoft.com/documentation/articles/Resource-Group-Template-Functions/](https://azure.microsoft.com/documentation/articles/resource-group-template-functions/) |
-| Exemples de modèles (github) | [https://github.com/azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) |
-| Guide d’API REST d’ensemble de mise à l’échelle de machine virtuelle | [https://msdn.Microsoft.com/library/mt589023.aspx](https://msdn.microsoft.com/library/mt589023.aspx) |
-| Vidéos d’ensemble de mise à l’échelle de machine virtuelle | [https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) [https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman) [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player) |
-| Paramètres de mise à l’échelle automatique (MSDN) | [https://msdn.Microsoft.com/library/Azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx) |
-| Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure | [https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/](https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/) |
-
-<!---HONumber=Nov15_HO3-->
+Les jeux de mise à l’échelle de machine virtuelle facilitent le déploiement et la gestion de machines virtuelles identiques en tant qu’ensemble. Les jeux de mise à l’échelle fournissent une couche de calcul hautement évolutive et personnalisable pour les applications « hyperscale », et prennent en charge les images de plateforme Windows, les images de plateforme Linux, des images personnalisées et les extensions. Pour plus d’informations sur les jeux de mise à l’échelle, consultez [Jeux de mise à l’échelle de machine virtuelle](virtual-machines-vmss-overview.md).
+
+Ce didacticiel vous montre comment créer un jeu de mise à l’échelle des machines virtuelles avec des machines virtuelles Windows et de mettre automatiquement à l’échelle les machines de l’ensemble. Vous pouvez le faire en créant un modèle Azure Resource Manager et en le déployant à l’aide d’Azure PowerShell. Pour en savoir plus sur les modèles, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+
+Le modèle que vous créez dans ce didacticiel est similaire à un modèle qui se trouve dans la galerie de modèles. Pour plus d’informations, consultez [Déployer un jeu de mise à l’échelle de machine virtuelle avec des machines virtuelles Windows et une Jumpbox](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
+[AZURE.INCLUDE [Virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+
+## Étape 1 : Création d’un groupe de ressources et d’un compte de stockage
+
+1.	**Se connecter à Microsoft Azure**. Ouvrez la fenêtre Microsoft Azure PowerShell et exécutez **Login-AzureRmAccount**.
+
+2.	**Créer un groupe de ressources** : toutes les ressources doivent être déployées dans un groupe de ressources. Pour les besoins de ce didacticiel, nommez le groupe de ressources **vmss-test1**. Consultez la page [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+
+3.	**Déploie un compte de stockage dans le nouveau groupe de ressources** : ce didacticiel utilise plusieurs comptes de stockage afin de faciliter le jeu de mise à l’échelle de machine virtuelle. Utilisez [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) pour créer un compte de stockage nommé **vmssstore1**. Gardez la fenêtre Azure PowerShell ouverte en prévision pour d’autres opérations de ce didacticiel.
+
+## Étape 2 : Création de l’index
+Un modèle Azure Resource Manager permet de déployer et gérer des ressources Azure simultanément grâce à une description des ressources JSON et des paramètres de déploiement associés.
+
+1.	Dans votre éditeur de texte favori, créez le fichier C:\\VMSSTemplate.json et ajoutez la structure JSON initiale pour prendre en charge le modèle.
+
+	```
+	{
+		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+		}
+		"variables": {
+		}
+		"resources": [
+		]
+	}
+	```
+
+2.	Les paramètres ne sont pas toujours obligatoires, mais ils facilitent la gestion de modèle. Ils fournissent un moyen de spécifier les valeurs du modèle, décrivent le type de valeur, la valeur par défaut le cas échéant, et éventuellement les valeurs de paramètre autorisées.
+
+	Ajoutez ces paramètres sous l’élément parent des paramètres que vous avez ajouté au modèle :
+
+	- Nom de la machine virtuelle de changement rapide utilisée pour accéder au jeu de mise à l’échelle.
+	- Nom du compte de stockage dans lequel le modèle est stocké.
+	- Nombre d’instances de machines virtuelles à créer initialement dans le jeu de mise à l’échelle.
+	- Nom et mot de passe du compte d’administrateur sur les machines virtuelles.
+	- Préfixe destiné aux noms des comptes de stockage utilisés par les machines virtuelles dans l’ensemble de mise à l’échelle.
+
+
+	```
+	"vmName": {
+		"type": "string"
+	},
+	"vmSSName": {
+		"type": "string"
+	},
+	"instanceCount": {
+		"type": "string"
+	},
+	"adminUsername": {
+		"type": "string"
+	},
+	"adminPassword": {
+		"type": "securestring"
+	},
+	"storageAccountName": {
+		"type": "string"
+	},
+	"vmssStoragePrefix": {
+		"type": "string"
+	}
+	```
+
+
+3.	Des variables peuvent être utilisées dans un modèle pour spécifier des valeurs qui changent fréquemment ou qui doivent être créées à partir d’une combinaison de valeurs de paramètres.
+
+	Ajoutez ces variables sous l’élément parent des variables que vous avez ajouté au modèle :
+
+	- Noms DNS utilisés par les interfaces réseau.
+	- La taille des machines virtuelles utilisées dans le jeu de mise à l’échelle. Pour plus d’informations sur les tailles de machines virtuelles, voir [Tailles des machines virtuelles](virtual-machines-size-specs.md).
+	- Les informations d’image de plateforme définissant le système d’exploitation qui va s’exécuter sur les machines virtuelles dans le jeu de mise à l’échelle. Pour plus d’informations sur la sélection d’image, consultez [Rechercher et sélectionner des images de machines virtuelles Azure avec Windows PowerShell et l’interface de ligne de commande Azure](resource-groups-vm-searching.md).
+	- Les noms d’adresse IP et les préfixes destinés au réseau et aux sous-réseaux.
+	- Les noms et les identificateurs du réseau virtuel, de l’équilibreur de charge et des interfaces réseau.
+	- Les noms de compte de stockage pour les comptes associés aux machines du jeu de mise à l’échelle.
+	- Paramètres de l’extension de diagnostic qui est installé sur les machines virtuelles. Pour plus d’informations sur l’extension de diagnostic, consultez [Créer une machine virtuelle Windows avec surveillance et diagnostics à l’aide d’un modèle Azure Resource Manager](virtual-machines-extensions-diagnostics-windows-template.md).
+
+	```
+	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
+	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+	"vmSize": "Standard_A0",
+	"imagePublisher": "MicrosoftWindowsServer",
+	"imageOffer": "WindowsServer",
+	"imageVersion": "2012-R2-Datacenter",
+	"addressPrefix": "10.0.0.0/16",
+	"subnetName": "Subnet",
+	"subnetPrefix": "10.0.0.0/24",
+	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
+	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
+	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
+	"virtualNetworkName": "[concat(parameters('resourcePrefix'),'vn1')]",
+	"nicName1": "[concat(parameters('resourcePrefix'),'nc1')]",
+	"nicName2": "[concat(parameters('resourcePrefix'),'nc2')]",
+	"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+	"publicIPAddressID1": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP1'))]",
+	"publicIPAddressID2": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP2'))]",
+	"lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+	"nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
+	"frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+	"storageAccountType": "Standard_LRS",
+	"storageAccountPrefix": [ "a", "g", "m", "s", "y" ],
+	"diagnosticsStorageAccountName": "[concat('a', parameters('vmssStorageSuffix'))]",
+	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="fr-FR"/></PerformanceCounterConfiguration>",
+	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
+	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+	```
+
+4.	Dans ce didacticiel, vous allez déployer les ressources et les extensions suivantes :
+
+ - Microsoft.Storage/storageAccounts
+ - Microsoft.Network/virtualNetworks
+ - Microsoft.Network/publicIPAddresses
+ - Microsoft.Network/loadBalancers
+ - Microsoft.Network/networkInterfaces
+ - Microsoft.Compute/virtualMachines
+ - Microsoft.Compute/virtualMachineScaleSets
+ - Microsoft.Insights.VMDiagnosticsSettings
+ - Microsoft.Insights/autoscaleSettings
+
+	Pour plus d’informations sur les ressources de Resource Manager, consultez [Calcul, réseau et fournisseurs de stockage Azure sous Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md).
+
+	Ajoutez la ressource de compte de stockage sous l’élément parent de ressources que vous avez ajouté au modèle. Ce modèle utilise une boucle pour créer les 5 comptes de stockage recommandés dans lesquels les disques de système d’exploitation et les données de diagnostic sont stockés. Cet ensemble de comptes peut prendre en charge jusqu’à 100 machines virtuelles dans un jeu de mise à l’échelle qui est la valeur maximale actuelle. Chaque compte de stockage nommé par un indicateur de lettre a été défini dans les variables combinées au suffixe que vous fournissez dans les paramètres du modèle.
+
+	```
+	{
+		"type": "Microsoft.Storage/storageAccounts",
+		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
+		"apiVersion": "2015-05-01-preview",
+		"copy": {
+			"name": "storageLoop",
+			"count": 5
+		},
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"accountType": "[variables('storageAccountType')]"
+		}
+	},
+	```
+
+5.	Ajoutez la ressource de réseau virtuelle. Pour plus d’informations, consultez [Fournisseurs de ressources réseau](../virtual-network/resource-groups-networking.md).
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[variables('virtualNetworkName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[variables('addressPrefix')]"
+				]
+			},
+			"subnets": [
+				{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
+					}
+				}
+			]
+		}
+	},
+	```
+
+6.	Ajoutez des ressources d’adresse IP publiques qui sont utilisées par l’équilibrage de charge et l’interface réseau.
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP1')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName1')]"
+			}
+		}
+	},
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP2')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName2')]"
+			}
+		}
+	},
+	```
+
+7.	Ajoutez la ressource d’équilibrage de charge utilisée par l’ensemble de mise à l’échelle. Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](../load-balancer/oad-balancer-arm.md)
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"name": "[variables('loadBalancerName')]",
+		"type": "Microsoft.Network/loadBalancers",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP1'))]"
+		],
+		"properties": {
+			"frontendIPConfigurations": [
+				{
+					"name": "loadBalancerFrontEnd",
+					"properties": {
+						"publicIPAddress": {
+							"id": "[variables('publicIPAddressID1')]"
+						}
+					}
+				}
+			],
+			"backendAddressPools": [
+				{
+					"name": "bepool1"
+				}
+			],
+			"inboundNatPools": [
+				{
+					"name": "natpool1",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('frontEndIPConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPortRangeStart": 50000,
+						"frontendPortRangeEnd": 50500,
+						"backendPort": 3389
+					}
+				}
+			]
+		}
+	},
+	```
+
+8.	Ajoutez la ressource d’interface réseau qui est utilisée par la machine virtuelle jumpbox.
+
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[variables('nicName1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP2'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+		],
+		"properties": {
+			"ipConfigurations": [
+				{
+					"name": "ipconfig1",
+					"properties": {
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP2'))]"
+						},
+						"subnet": {
+							"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+						}
+					}
+				}
+			]
+		}
+	},
+	```
+
+
+9.	Ajoutez la ressource de machine virtuelle dans le même réseau que le jeu de mise à l’échelle. Les machines présentes dans le jeu de mise à l’échelle de machine virtuelle n’étant pas directement accessibles par le biais d’une adresse IP publique, une machine virtuelle jumpbox est créée dans le même réseau virtuel que l’échelle définie et est utilisée pour accéder à distance aux machines du jeu.
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Compute/virtualMachines",
+		"name": "[parameters('vmName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
+		],
+		"properties": {
+			"hardwareProfile": {
+				"vmSize": "[variables('vmSize')]"
+			},
+			"osProfile": {
+				"computername": "[parameters('vmName')]",
+				"adminUsername": "[parameters('adminUsername')]",
+				"adminPassword": "[parameters('adminPassword')]"
+			},
+			"storageProfile": {
+				"imageReference": {
+					"publisher": "[variables('imagePublisher')]",
+					"offer": "[variables('imageOffer')]",
+					"sku": "[variables('imageVersion')]",
+					"version": "latest"
+				},
+				"osDisk": {
+					"name": "davidmuos1",
+					"vhd": {
+						"uri":  "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
+					},
+					"caching": "ReadWrite",
+					"createOption": "FromImage"        
+				}
+			},
+			"networkProfile": {
+				"networkInterfaces": [
+					{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName1'))]"
+					}
+				]
+			}
+		}
+	},
+	```
+
+10.	Ajoutez la ressource de jeu de mise à l’échelle de machine virtuelle et spécifiez l’extension de Diagnostics installée sur toutes les machines virtuelles dans le jeu de mise à l’échelle. La plupart des paramètres de cette ressource sont similaires à la ressource d’ordinateur virtuel. Voici les principales différences :
+
+	- **capacité** : spécifie le nombre de machines virtuelles qui doivent être initialisées dans le jeu de mise à l’échelle. Vous avez défini cette valeur en spécifiant une valeur correspondant au paramètre instanceCount.
+
+	- **upgradePolicy** : spécifie comment les mises à jour sont apportées aux machines virtuelles dans le jeu de mise à l’échelle. Manuel indique que seules les nouvelles machines virtuelles sont affectées par les modifications d’un modèle lorsqu’il est redéployé. Automatique indique que toutes les machines du jeu de mise à l’échelle sont mises à jour et redémarrées.
+
+	La mise à l’échelle de machine virtuelle n’est pas créée tant que tous les comptes de stockage sont créés comme indiqué avec l’élément dependsOn.
+
+	```
+	{
+		"type": "Microsoft.Compute/virtualMachineScaleSets",
+		"apiVersion": "2015-06-15",
+		"name": "[parameters('vmSSName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Storage/storageAccounts/a', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/g', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/m', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/s', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+		],
+		"sku": {
+			"name": "[variables('vmSize')]",
+			"tier": "Standard",
+			"capacity": "[parameters('instanceCount')]"
+		},
+		"properties": {
+			"upgradePolicy": {
+				"mode": "Manual"
+			},
+			"virtualMachineProfile": {
+				"storageProfile": {
+					"osDisk": {
+						"vhdContainers": [
+							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
+						],
+						"name": "vmssosdisk",
+						"caching": "ReadOnly",
+						"createOption": "FromImage"
+					},
+					"imageReference": {
+						"publisher": "[variables('imagePublisher')]",
+						"offer": "[variables('imageOffer')]",
+						"sku": "[variables('imageVersion')]",
+						"version": "latest"
+					}
+				},
+				"osProfile": {
+					"computerNamePrefix": "[parameters('vmSSName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"networkProfile": {
+					"networkInterfaceConfigurations": [
+						{
+							"name": "[variables('nicName2')]",
+							"properties": {
+								"primary": "true",
+								"ipConfigurations": [
+									{
+										"name": "ip1",
+										"properties": {
+											"subnet": {
+												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+											},
+											"loadBalancerBackendAddressPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
+												}
+											],
+											"loadBalancerInboundNatPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				"extensionProfile": {
+					"extensions": [
+						{
+							"name": "Microsoft.Insights.VMDiagnosticsSettings",
+							"properties": {
+								"publisher": "Microsoft.Azure.Diagnostics",
+								"type": "IaaSDiagnostics",
+								"typeHandlerVersion": "1.5",
+								"autoUpgradeMinorVersion": true,
+								"settings": {
+									"xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+									"storageAccount": "[variables('diagnosticsStorageAccountName')]"
+								},
+								"protectedSettings": {
+									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
+									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+									"storageAccountEndPoint": "https://core.windows.net"
+								}
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	```
+
+11.	Ajoutez la ressource autoscaleSettings qui définit comment l’ensemble de mise à l’échelle s’ajuste en fonction de l’utilisation du processeur sur les machines du jeu. Pour ce didacticiel, il s’agit de valeurs importantes :
+
+ - **metricName** : il s’agit du même que le compteur de performance que nous avons défini dans la variable wadperfcounter. Grâce à cette variable, l’extension de diagnostic relève le compteur **Processeur(\_Total)\\% Temps processeur **.
+ - **metricResourceUri** : il s’agit de l’identificateur de ressource du jeu de mise à l’échelle de machine virtuelle.
+ - **timeGrain** : il s’agit de la granularité des mesures collectées. Dans ce modèle, il est défini à 1 minute.
+ - **statistiques** : ce paramètre détermine la façon dont les mesures sont combinées pour prendre en charge l’action de mise à l’échelle automatique. Les valeurs possibles sont : Moyenne, Min, Max. Dans ce modèle, que nous recherchons le taux d’utilisation totale du processeur entre les ordinateurs virtuels dans la mise à l’échelle.
+ - **timeWindow** : il s’agit de la plage de temps pendant laquelle les données d’instance sont collectées. Elle doit être comprise entre 5 minutes et 12 heures.
+ - **timeAggregation** : ce paramètre détermine la façon dont les données recueillies doivent être combinées sur la durée. La valeur par défaut est Average. Les valeurs possibles sont : Moyenne, Minimum, Maximum, Dernier, Total, Nombre.
+ - **opérateur** : opérateur utilisé pour comparer les données de mesure et le seuil. Les valeurs possibles sont : est égal à -Equals), différent de (NotEquals), supérieur à (GreaterThan), égal ou supérieur à (GreaterThanOrEqual), Inférieur à (LessThan), Inférieur ou égal à (LessThanOrEqual).
+ - **seuil** : il s’agit de la valeur qui déclenche l’action de mise à l’échelle. Dans ce modèle, les machines sont ajoutées au jeu de mise à l’échelle défini lorsque l’utilisation moyenne du processeur dans le jeu de machines des est supérieur à 50 %.
+ - **direction** : ce paramètre détermine l’opération qui est effectuée lorsque la valeur de seuil est atteinte. Les valeurs possibles sont Augmenter ou Diminuer. Dans ce modèle, le nombre de machines virtuelles dans le jeu de mise à l’échelle est augmenté si le seuil est supérieur à 50 % dans la fenêtre de temps définie.
+ - **type** : il s’agit du type d’action qui doit se produire. Il doit être défini sur ChangeCount.
+ - **valeur** : il s’agit du nombre de machines virtuelles qui sont ajoutées ou supprimées du jeu de mise à l’échelle. Cette valeur doit être définie sur 1 ou supérieur. La valeur par défaut est 1. Dans ce modèle, le nombre d’ordinateurs présent dans le jeu de mise à l’échelle augmente de 1 lorsque le seuil est atteint.
+ - **ralentissement** : durée d’attente depuis la dernière opération de mise à l’échelle avant que l’action se produise. Elle peut être comprise entre 1 minute et 1 semaine.
+
+	```
+	{
+		"type": "Microsoft.Insights/autoscaleSettings",
+		"apiVersion": "2015-04-01",
+		"name": "[concat(parameters('resourcePrefix'),'as1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		],
+		"properties": {
+			"enabled": true,
+			"name": "[concat(parameters('resourcePrefix'),'as1')]",
+			"profiles": [
+				{
+					"name": "Profile1",
+					"capacity": {
+						"minimum": "1",
+						"maximum": "10",
+						"default": "1"
+					},
+					"rules": [
+						{
+							"metricTrigger": {
+								"metricName": "\\Processor(_Total)\\% Processor Time",
+								"metricNamespace": "",
+								"metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
+								"timeGrain": "PT1M",
+								"statistic": "Average",
+								"timeWindow": "PT5M",
+								"timeAggregation": "Average",
+								"operator": "GreaterThan",
+								"threshold": 50.0
+							},
+							"scaleAction": {
+								"direction": "Increase",
+								"type": "ChangeCount",
+								"value": "1",
+								"cooldown": "PT5M"
+							}
+						}
+					]
+				}
+			],
+			"targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		}
+	}
+	```
+
+12.	Enregistrez le fichier de modèle.    
+
+## Étape 3 : Téléchargement du modèle de stockage
+
+Le modèle peut être téléchargé depuis la fenêtre Microsoft Azure PowerShell à condition que vous connaissiez le nom du compte et la clé primaire du compte de stockage que vous avez créé à l’étape 1.
+
+1.	Dans la fenêtre Microsoft Azure PowerShell, définissez une variable qui spécifie le nom du compte de stockage que vous avez déployé à l’étape 1.
+
+		$StorageAccountName = "vmssstore1"
+
+2.	Définissez une variable qui spécifie la clé primaire du compte de stockage.
+
+		$StorageAccountKey = "<primary-account-key>"
+
+	Vous pouvez obtenir cette clé en cliquant sur l’icône de clé lors de l’affichage de la ressource de compte de stockage dans le portail Azure.
+
+3.	Créez l’objet de contexte de compte de stockage utilisé pour valider les opérations avec le compte de stockage.
+
+		$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+
+4.	Créez un nouveau conteneur de modèles dans lequel le modèle que vous avez créé peut être stocké.
+
+		$ContainerName = "templates"
+		New-AzureStorageContainer -Name $ContainerName -Context $ctx  -Permission Blob
+
+5.	Téléchargez le fichier de modèle correspondant au nouveau conteneur.
+
+		$BlobName = "VMSSTemplate.json"
+		$fileName = "C:" + $BlobName
+		Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
+
+## Étape 4 : Déployer le modèle
+
+Maintenant que vous avez créé le modèle, vous pouvez commencer par le déploiement de ressources. Utilisez cette commande pour démarrer le processus :
+
+		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+
+Lorsque vous appuyez sur Entrée, vous êtes invité à fournir des valeurs pour les variables que vous avez affectées. Remplacez les valeurs suivantes :
+
+	vmName: vmssvm1
+	vmSSName: vmsstest1
+	instanceCount: 5
+	adminUserName: vmadmin1
+	adminPassword: vmadminpass1
+	storageAccountName: vmssstore1
+	resourcePrefix: vmsstest
+
+Il doit prendre environ 15 minutes pour que toutes les ressources soient déployées avec succès.
+
+>[AZURE.NOTE]Vous pouvez également utiliser la capacité du portail à déployer les ressources. Pour ce faire, utilisez ce lien : https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+
+## Étape 4 : Analyse des ressources
+
+Vous pouvez obtenir des informations sur les jeux de mise à l’échelle de machine virtuelle à l’aide des méthodes suivantes :
+
+ - Le portail Azure : vous pouvez en obtenir une quantité limitée d’informations sur l’utilisation du portail.
+ - [Azure Resource Explorer](https://resources.azure.com/) : il s’agit du meilleur outil pour déterminer l’état actuel de votre jeu de mise à l’échelle. Suivez ce chemin d’accès. Vous devriez voir la vue de l’instance du jeu de mise à l’échelle que vous avez créée :
+
+		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+
+ - Azure PowerShell : utilisez cette commande pour obtenir des informations :
+
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+
+ - Connectez-vous à la machine virtuelle jumpbox comme vous le feriez pour n’importe quel autre ordinateur et vous pouvez ensuite accéder à distance aux machines virtuelles de l’ensemble de mise à l’échelle pour surveiller les processus individuels.
+
+>[AZURE.NOTE]Vous trouverez une API REST complète permettant d’obtenir des informations sur les jeux de mise à l’échelle dans [Ensembles de mise à l’échelle de machine virtuelle](https://msdn.microsoft.com/library/mt589023.aspx)
+
+## Étape 5 : supprimer des ressources
+
+Étant donné que les ressources utilisées dans Microsoft Azure vous sont facturées, il est toujours conseillé de supprimer les ressources qui ne sont plus nécessaires. Vous n’avez pas besoin de supprimer séparément les ressources d’un groupe de ressources. Vous pouvez supprimer le groupe de ressources et toutes ses ressources seront automatiquement supprimées.
+
+	Remove-AzureRmResourceGroup -Name vmss-test1
+
+Si vous souhaitez conserver votre groupe de ressources, vous pouvez supprimer uniquement le jeu de mise à l’échelle.
+
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+
+<!---HONumber=AcomDC_1125_2015-->

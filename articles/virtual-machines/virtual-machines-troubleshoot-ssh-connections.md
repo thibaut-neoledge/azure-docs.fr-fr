@@ -41,7 +41,7 @@ Pour résoudre les échecs de connexion SSH les plus courants sur les machines v
 
 	![Capture d'écran qui affiche une réinitialisation de la configuration SSH](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. **Redémarrez** la machine virtuelle. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail de gestion Azure](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **Redémarrer**.
+2. **Redémarrez** la machine virtuelle. À partir du [portail Azure en version préliminaire](https://portal.azure.com), cliquez sur **Parcourir tout** > **Machines virtuelles (classiques)** > votre machine virtuelle Windows > **Redémarrer**. À partir du [portail Azure](https://manage.windowsazure.com), ouvrez **Machines virtuelles** > **Instances** et cliquez sur **Redémarrer**.
 
 3. [**Redimensionnez** la machine virtuelle](https://msdn.microsoft.com/library/dn168976.aspx).
 
@@ -174,9 +174,9 @@ Les sections suivantes vous aident à isoler la source du problème et à déter
 
 ### Étapes préalables à la résolution des problèmes
 
-Tout d’abord, vérifiez l’état de la machine virtuelle sur le portail Azure.
+Tout d'abord, vérifiez l'état de la machine virtuelle sur le portail.
 
-Dans le [portail de gestion Azure](https://manage.windowsazure.com), pour les machines virtuelles suivant un modèle de déploiement classique :
+Dans le [portail Azure](https://manage.windowsazure.com), pour les machines virtuelles suivant un modèle de déploiement classique :
 
 1. Cliquez sur **Machines virtuelles** > *Nom de la machine virtuelle*.
 2. Cliquez sur le **tableau de bord** de la machine virtuelle pour vérifier son état.
@@ -287,4 +287,4 @@ Pour les machines virtuelles suivant un modèle de déploiement classique, suive
 
 [Résoudre les problèmes d’accès à une application exécutée sur une machine virtuelle Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

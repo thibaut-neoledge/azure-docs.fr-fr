@@ -16,51 +16,43 @@
 	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-#Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
+# Intégration du Kit de développement logiciel du module Couverture des applications Windows Universal
 
 Vous devez suivre la procédure d'intégration décrite dans la rubrique [Intégration du Kit de développement logiciel Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) avant de suivre ce guide.
 
-##Intégration du Kit de développement logiciel (SDK) du module Couverture d’Engagement à votre projet Windows Universal
+## Intégration du Kit de développement logiciel (SDK) du module Couverture d’Engagement à votre projet Windows Universal
 
 Vous n'avez rien à ajouter. Les références et les ressources de `EngagementReach` se trouvent déjà dans votre projet.
 
 > [AZURE.TIP]Vous pouvez personnaliser les images situées dans le dossier `Resources` de votre projet, en particulier l'icône de marque (par défaut, il s'agit de l'icône d'Engagement). Sur les applications Universal, vous pouvez également déplacer le dossier `Resources` sur votre projet partagé pour partager son contenu entre les applications, mais vous devrez conserver le fichier `Resources\EngagementConfiguration.xml` à son emplacement par défaut, car il est dépendant de la plate-forme.
 
-##Activer le service de notification Windows
+## Activer le service de notification Windows
+
+### Windows 8.x et Windows Phone 8.1 uniquement
 
 Pour utiliser le **service de notification Windows** (WNS) dans votre fichier `Package.appxmanifest` sur `Application UI`, cliquez sur `All Image Assets` dans la zone de gauche. À droite de la zone dans `Notifications`, modifiez `toast capable` en remplaçant `(not set)` par `(Yes)`.
 
-Vous devez, par ailleurs, synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Pour ce faire, vous devez créer un compte ou vous connecter au [Centre de développement Windows](https://dev.windows.com). Ensuite, créez une application et recherchez le SID et la clé secrète. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push`, puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`. Vous devez simplement sélectionner l'application créée avant de la synchroniser.
+### Toutes les plateformes
 
-##Initialiser le SDK du module Couverture d'Engagement
+Vous devez synchroniser votre application avec votre compte Microsoft et la plateforme Engagement. Pour ce faire, vous devez créer un compte ou vous connecter au [Centre de développement Windows](https://dev.windows.com). Ensuite, créez une application et recherchez le SID et la clé secrète. Sur le serveur frontal Engagement, accédez au paramètre de votre application dans `native push`, puis collez vos informations d'identification. Ensuite, cliquez avec le bouton droit sur votre projet, puis sélectionnez `store` et `Associate App with the Store...`. Vous devez simplement sélectionner l'application créée avant de la synchroniser.
 
-Modifiez le `App.xaml.cs` :
+## Initialiser le SDK du module Couverture d'Engagement
 
--   Ajoutez à vos instructions `using` :
+Modifiez le fichier `App.xaml.cs` :
 
-		using Microsoft.Azure.Engagement;
+-   Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans votre méthode `InitEngagement` :
 
--   Insérez `EngagementReach.Instance.Init` juste après `EngagementAgent.Instance.Init` dans `OnLaunched` :
-
-		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		private void InitEngagement(IActivatedEventArgs e)
 		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
-		}
-
--   Si vous souhaitez activer Engagement Reach lorsque votre application est activée par une commande, une autre application ou un schéma personnalisé, remplacez la méthode `OnActivated` :
-
-		protected override void OnActivated(IActivatedEventArgs args)
-		{
-		  EngagementAgent.Instance.Init(args);
-		  EngagementReach.Instance.Init(args);
+		  EngagementAgent.Instance.Init(e);
+		  EngagementReach.Instance.Init(e);
 		}
 
 	`EngagementReach.Instance.Init` est exécuté dans un thread dédié. Vous n'avez pas à le faire vous-même.
 
-> [AZURE.TIP]Vous pouvez spécifier le nom du canal Push WNS de votre application dans le fichier `Resources\EngagementConfiguration.xml` de votre projet dans `<channelName></channelName>`. Par défaut, Engagement crée un nom basé sur l'ID de l'application. Il n'est pas nécessaire de spécifier le nom vous-même, sauf si vous prévoyez d'utiliser le canal Push en dehors d'Engagement.
+> [AZURE.NOTE]Si vous utilisez des notifications push ailleurs dans votre application, vous devez [partager votre canal push](#push-channel-sharing) avec Engagement Reach.
 
-##Intégration
+## Intégration
 
 Engagement permet d’implémenter les notifications et les annonces de Couverture de deux manières : l’intégration de superposition et l’intégration de vue web.
 
@@ -68,7 +60,7 @@ L’intégration de superposition ne nécessite pas l'écriture d'une grande qua
 
 L’intégration de vue web est plus compliquée à implémenter. Toutefois, si vos pages d’applications doivent hériter d’un objet autre que « Page », vous devrez intégrer la vue web et son comportement.
 
-> [AZURE.TIP]Vous pouvez envisager d’ajouter un élément `<Grid></Grid>` au niveau racine pour encadrer l’ensemble du contenu des pages. Pour l'intégration de vue web, il vous suffit d'ajouter Webview en tant qu'enfant de cette grille. Si vous devez définir un composant Engagement à un autre endroit, vous devrez gérer la taille de l'affichage vous-même.
+> [AZURE.TIP]Vous pouvez envisager d'ajouter un élément `<Grid></Grid>` au niveau racine pour encadrer l'ensemble du contenu des pages. Pour l'intégration de vue web, il vous suffit d'ajouter Webview en tant qu'enfant de cette grille. Si vous devez définir un composant Engagement à un autre endroit, vous devrez gérer la taille de l'affichage vous-même.
 
 ### Intégration de superposition
 
@@ -80,7 +72,7 @@ Dans le fichier .xaml, remplacez la référence EngagementPage par EngagementPa
 
 -   Ajoutez une déclaration d'espace de noms :
 
-			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   Remplacez `engagement:EngagementPage` par `engagement:EngagementPageOverlay` :
 
@@ -100,7 +92,7 @@ Dans le fichier .xaml, remplacez la référence EngagementPage par EngagementPa
 		    <!-- layout -->
 		</engagement:EngagementPageOverlay>
 
-> **Avec EngagementPageOverlay pour Windows 8.1 :**
+> **Avec EngagementPageOverlay pour 8.1+ :**
 
 		<engagement:EngagementPageOverlay 
 		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
@@ -161,22 +153,31 @@ Si vous voulez l’utiliser, n’utilisez pas l’intégration de superposition.
 
 Pour afficher le contenu Engagement, vous devez intégrer les deux vues web XAML à chaque page et afficher une notification et une annonce. Ajoutez le code suivant au fichier XAML :
 
-			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
+			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 
-> **Pour l'intégration Windows 8.1 :**
+> **Pour l'intégration Windows 8.1+ :**
 
 			<engagement:EngagementPage
 			    xmlns:engagement="using:Microsoft.Azure.Engagement">
 			    <Grid>
-			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
-			      <!-- layout -->
+			      <!-- Your layout -->
+			      <WebView x:Name="engagement_notification_content" Visibility="Collapsed" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+			      <WebView x:Name="engagement_announcement_content" Visibility="Collapsed"  HorizontalAlignment="Right" VerticalAlignment="Top"/> 
 			    </Grid>
 			</engagement:EngagementPage>
 
 Le fichier .cs associé doit ressembler à ce qui suit :
 
+    using Microsoft.Azure.Engagement;
+    using System;
+    using Windows.ApplicationModel.Core;
+    using Windows.UI.ViewManagement;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Navigation;
+
+    namespace My.Namespace.Example
+    {
 			/// <summary>
 			/// An empty page that can be used on its own or navigated to within a Frame.
 			/// </summary>
@@ -186,36 +187,48 @@ Le fichier .cs associé doit ressembler à ce qui suit :
 			  {
 			    this.InitializeComponent();
 			
-			   /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
-			
-			    Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
 			  }
 			
 			  #region to implement
-			  /* Allow webview script to notify system */
-			  private void scriptEvent(object sender, NotifyEventArgs e)
-			  {
-			  }
-			
-			  /* When page is left ensure to detach SizeChanged handler */
+              /* Attach events when page is navigated. */
+              protected override void OnNavigatedTo(NavigationEventArgs e)
+              {
+                /* Update the webview when the app window is resized. */
+                Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
+
+                /* Update the webview when the app/status bar is resized. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
+    #endif
+                base.OnNavigatedTo(e);
+              }
+
+			  /* When page is left ensure to detach SizeChanged handler. */
 			  protected override void OnNavigatedFrom(NavigationEventArgs e)
 			  {
 			    Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+                ApplicationView.GetForCurrentView().VisibleBoundsChanged -= DisplayProperties_VisibleBoundsChanged;
+    #endif
 			    base.OnNavigatedFrom(e);
 			  }
-			
-			  /* "width" is the current width of your application display */
-			  double width = Window.Current.Bounds.Width;
-			
-			  /* "height" is the current height of your application display */
-			  double height = Window.Current.Bounds.Height;
+			  
+			  /* "width" and "height" are the current size of your application display. */
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP
+			  double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+			  double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+    #else
+			  double width =  Window.Current.Bounds.Width;
+			  double height =  Window.Current.Bounds.Height;
+    #endif
 			
 			  /// <summary>
-			  /// Set your webview elements to the correct size
+			  /// Set your webview elements to the correct size.
 			  /// </summary>
-			  /// <param name="width">The width of your current display</param>
-			  /// <param name="height">The height of your current display</param>
+			  /// <param name="width">The width of your current display.</param>
+			  /// <param name="height">The height of your current display.</param>
 			  private void SetWebView(double width, double height)
 			  {
 			    #pragma warning disable 4014
@@ -229,24 +242,41 @@ Le fichier .cs associé doit ressembler à ce qui suit :
 			  }
 			
 			  /// <summary>
-			  /// Handler that take the Windows.Current.SizeChanged and indicate that webview have to be resized
+			  /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
 			  /// </summary>
-			  /// <param name="sender">Original event trigger</param>
-			  /// <param name="e">Window Size Changed Event argument</param>
+			  /// <param name="sender">Original event trigger.</param>
+			  /// <param name="e">Window Size Changed Event arguments.</param>
 			  private void DisplayProperties_OrientationChanged(object sender, Windows.UI.Core.WindowSizeChangedEventArgs e)
 			  {
 			    double width = e.Size.Width;
 			    double height = e.Size.Height;
 			
-			    /* Set your webview elements to the correct size */
+			    /* Set your webview elements to the correct size. */
 			    SetWebView(width, height);
 			  }
+
+    #if WINDOWS_PHONE_APP || WINDOWS_UWP			  
+			  /// <summary>
+			  /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
+			  /// </summary>
+			  /// <param name="sender">The related application view.</param>
+			  /// <param name="e">Related event arguments.</param>
+			  private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
+			  {
+			    double width = sender.VisibleBounds.Width;
+			    double height = sender.VisibleBounds.Height;
+			
+			    /* Set your webview elements to the correct size. */
+			    SetWebView(width, height);
+			  }
+    #endif
 			  #endregion
 			}
+    }
 
 > Cette implémentation intègre le redimensionnement des vues web quand l'orientation de l'écran de l'appareil change.
 
-##Gérer les Push de données (facultatif)
+## Gérer les Push de données (facultatif)
 
 Si vous voulez que votre application puisse recevoir les Push de données du module Couverture, vous devez implémenter deux événements de la classe EngagementReach :
 
@@ -269,7 +299,7 @@ Vous pouvez voir que le rappel de chaque méthode renvoie un booléen. Engagemen
 
 > [AZURE.WARNING]Engagement ne peut pas recevoir plusieurs feedbacks pour un Push de données. Si vous prévoyez de définir plusieurs gestionnaires pour un événement, sachez que le feedback correspondra au dernier envoyé. Dans ce cas, nous vous recommandons de toujours retourner la même valeur afin d'éviter un feedback prêtant à confusion sur le serveur frontal.
 
-##Personnaliser l'interface utilisateur (facultatif)
+## Personnaliser l'interface utilisateur (facultatif)
 
 ### Première étape
 
@@ -377,9 +407,38 @@ Vous pouvez définir le rappel dans la méthode « Public App(){} » du fichie
 
 > [AZURE.TIP]Chaque gestionnaire est appelé par le thread d'interface utilisateur. Vous n'avez pas de souci à vous faire quand vous utilisez un MessageBox ou autre objet d'interface utilisateur.
 
-##Astuce concernant les schémas personnalisés
+##<a id="push-channel-sharing"></a> Partage de canal Push
 
-Il est possible d'utiliser des schémas personnalisés. Vous pouvez envoyer un autre type d'URI depuis le serveur frontal Engagement, destiné à être utilisé dans l'application Engagement. Les schémas par défaut comme `http, ftp, ...` sont gérés par Windows. Une fenêtre vous informera si aucune application par défaut n'est installée sur l'appareil. Les autres schémas, comme les schémas d'application, peuvent également être utilisés. De plus, vous pouvez utiliser un schéma personnalisé pour votre application.
+Si vous utilisez des notifications Push à d'autres fins dans votre application, alors vous devez utiliser la fonctionnalité de partage de canal Push du Kit de développement logiciel (SDK) Engagement. Cela évite les notifications Push manquées.
+
+- Vous pouvez fournir votre propre canal Push à l'initialisation d'Engagement Reach. Le Kit de développement logiciel (SDK) l'utilisera au lieu d'en demander un nouveau.
+
+Mettez à jour l'initialisation d'Engagement Reach avec votre canal Push dans la méthode `InitEngagement` à partir du fichier `App.xaml.cs` :
+    
+    /* Your own push channel logic... */
+    var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+    
+    /*...Engagement initialization */
+    EngagementAgent.Instance.Init(e);
+	EngagementReach.Instance.Init(e,pushChannel);
+
+- Si vous souhaitez simplement utiliser le canal Push après l'initialisation Reach, vous pouvez également définir un rappel sur Engagement Reach pour récupérer le canal Push une fois celui-ci créé par le Kit de développement logiciel (SDK).
+
+Définissez le rappel en tout lieu **après** l'initialisation Reach :
+
+    /* Set action on the SDK push channel. */
+    EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
+    {
+      /* The forwarded channel can be null if its creation fails for any reason. */
+      if (channel != null)
+      {
+		/* Your own push channel logic... */
+      });
+	}
+
+## Astuce concernant les schémas personnalisés
+
+Il est possible d'utiliser des schémas personnalisés. Vous pouvez envoyer un autre type d'URI depuis le serveur frontal Engagement, destiné à être utilisé dans l'application Engagement. Les schémas par défaut comme `http, ftp, ...` sont gérés par Windows. Une fenêtre vous informera si aucune application par défaut n'est installée sur l'appareil. Vous pouvez également créer un schéma personnalisé pour votre application.
 
 Le moyen le plus simple de définir un schéma personnalisé dans votre application est d'ouvrir `Package.appxmanifest` et d'accéder au panneau `Declarations`. Sélectionnez `Protocol` dans la case de défilement Déclarations disponibles, puis ajoutez-le. Remplacez le contenu du champ `Name` par le nom du nouveau protocole.
 
@@ -410,4 +469,4 @@ Pour utiliser ce protocole, modifiez `App.xaml.cs` à l'aide de la méthode `OnA
 			  #endregion
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

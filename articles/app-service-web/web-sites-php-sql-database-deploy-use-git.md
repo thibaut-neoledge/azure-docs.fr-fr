@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # Création d’une application web PHP-SQL dans Azure App Service et déploiement à l’aide de Git
 
-Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), un serveur Web et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) se connectant à la base de données SQL Azure et comment la déployer à l’aide de Git. Pour ce didacticiel, [PHP][install-php], [SQL Server Express][install-SQLExpress], les [pilotes Microsoft SQL Server pour PHP](http://www.microsoft.com/download/en/details.aspx?id=20098) et [Git][install-git] doivent être installés sur votre ordinateur. À la fin de ce guide, vous disposerez d’une application web PHP-SQL s’exécutant dans Azure.
 
-> [AZURE.NOTE]Vous pouvez installer et configurer PHP, SQL Server Express, les pilotes Microsoft SQL Server pour PHP, ainsi qu’Internet Information Services (IIS) via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]Vous pouvez installer et configurer PHP, SQL Server Express et les pilotes Microsoft SQL Server pour PHP via [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -41,9 +41,9 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 1. Connectez-vous au [Portail Azure en version préliminaire](https://portal.azure.com/).
 
-2. Pour ouvrir Azure Marketplace, cliquez sur l’icône **Marketplace** ou sur l’icône **Nouveau** en bas à gauche du tableau de bord, sélectionnez **Web et mobilité**, puis **Azure Marketplace** en bas.
+2. Ouvrez Azure Marketplace en cliquant sur l'icône **Nouveau** dans le coin supérieur gauche du tableau de bord, cliquez sur **Sélectionner tout** en regard de Marketplace et sélectionnez **Web + Mobile**.
 	
-3. Dans Marketplace, sélectionnez **Web Apps**.
+3. Dans Marketplace, sélectionnez **Web + Mobile**.
 
 4. Cliquez sur l’icône **Application web et SQL**.
 
@@ -65,15 +65,15 @@ Suivez cette procédure pour créer une application web Azure et une base de don
 
 	![Groupe de ressources de l’application web](./media/web-sites-php-sql-database-deploy-use-git/resource-group-blade.png)
 
-5. Cliquez sur **Configurer le déploiement continu** > **Choisir la source**. Sélectionnez **Référentiel Git local**, puis cliquez sur **OK**.
+5. Dans les **Paramètres**, cliquez sur **Déploiement continu** > **Configurer les paramètres requis**. Sélectionnez **Référentiel Git local**, puis cliquez sur **OK**.
 
 	![où est votre code source](./media/web-sites-php-sql-database-deploy-use-git/setup-local-git.png)
 
-	Si vous n’avez pas encore configuré de référentiel Git, vous devez fournir un nom d’utilisateur et un mot de passe. Pour cela, cliquez sur **Définir les informations d’identification de déploiement** dans le panneau de l’application web.
+	Si vous n’avez pas encore configuré de référentiel Git, vous devez fournir un nom d’utilisateur et un mot de passe. Pour cela, cliquez sur **Paramètres** > **Informations d'identification de déploiement** dans le panneau de l'application web.
 
 	![](./media/web-sites-php-sql-database-deploy-use-git/deployment-credentials.png)
 
-6. Le paramètre **Configurer le déploiement continu** devient **Aucun déploiement trouvé**. Cliquez dessus pour afficher l’URL distante Git nécessaire pour déployer votre application PHP par la suite.
+6. Dans les **Paramètres**, cliquez sur **Propriétés** pour afficher l'URL distante Git nécessaire pour déployer votre application PHP par la suite.
 
 ##Obtention des informations de connexion à la base de données SQL
 
@@ -81,7 +81,7 @@ Pour établir la connexion à l’instance de base de données SQL liée à votr
 
 1. Revenez au panneau du groupe de ressources, puis cliquez sur l’icône de base de données SQL.
 
-2. Dans le panneau de la base de données SQL, cliquez sur **Propriétés** puis sur **Afficher les chaînes de connexion à la base de données**.
+2. Dans le panneau de la base de données SQL, cliquez sur **Paramètres** > **Propriétés**, puis sur **Afficher les chaînes de connexion à la base de données**.
 
 	![Afficher les propriétés de base de données](./media/web-sites-php-sql-database-deploy-use-git/view-database-properties.png)
 	
@@ -94,7 +94,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 * **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 * **createtable.php** : crée la table de base de données SQL pour l’application. Ce fichier sera utilisé une seule fois.
 
-Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, SQL Server Express et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l’[extension PDO pour SQL Server][pdo-sqlsrv].
+Pour exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et SQL Server Express sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour SQL Server][pdo-sqlsrv].
 
 1. Créez une base de données SQL Server nommée `registration`. Pour cela, utilisez l’invite de commandes `sqlcmd` avec ces commandes :
 
@@ -103,7 +103,7 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 		2> GO	
 
 
-2. Dans le répertoire racine de votre serveur web, créez un dossier nommé `registration` et deux fichiers à l’intérieur : un fichier nommé `createtable.php` et un autre nommé `index.php`.
+2. Dans le répertoire racine de votre application, créez deux fichiers : un fichier nommé `createtable.php` et un autre nommé `index.php`.
 
 3. Ouvrez le fichier `createtable.php` dans un éditeur de texte ou un environnement de développement intégré (IDE), puis ajoutez le code suivant. Ce code permet de créer la table `registration_tbl` dans la base de données `registration`.
 
@@ -132,7 +132,11 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 
 	Vous devrez mettre à jour les valeurs de <code>$user</code> et de <code>$pwd</code> avec votre nom d’utilisateur et votre mot de passe SQL Server locaux.
 
-4. Ouvrez un navigateur web et accédez à ****http://localhost/registration/createtable.php**. La table `registration_tbl` est créée dans la base de données.
+4. Sur un terminal dans le répertoire racine de l'application, tapez la commande suivante :
+
+		php -S localhost:8000
+
+4. Ouvrez un navigateur web et accédez à ****http://localhost:8000/createtable.php**. La table `registration_tbl` est créée dans la base de données.
 
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un IDE et ajoutez les codes HTML et CSS de base pour la page (le code PHP sera ajouté plus tard).
 
@@ -228,7 +232,7 @@ Pour exécuter l'application en local, procédez comme suit : notez que ces ét
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Vous pouvez à présent accéder à ****http://localhost/registration/index.php** pour tester l’application.
+Vous pouvez à présent accéder à ****http://localhost:8000/index.php** pour tester l'application.
 
 ##Publication de votre application
 
@@ -292,4 +296,4 @@ Pour publier des modifications apportées à votre application, procédez comme 
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

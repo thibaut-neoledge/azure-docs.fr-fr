@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Ajout de sorties | Microsoft Azure" 
-	description="Segment du parcours d'apprentissage Ajout de sorties."
+	description="Ajout de sorties à des tâches Stream Analytics | segment du parcours d'apprentissage."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Ajout de sorties
+# Comment **ajouter des sorties** à des tâches Stream Analytics
 
 Les tâches Azure Stream Analytics peuvent être connectées à une ou plusieurs sorties, qui définissent une connexion à un récepteur de données existant. Lorsque votre tâche Stream Analytics traite et transforme les données entrantes, un flux d'événements de sortie est écrit dans la sortie de votre tâche.
 
@@ -63,4 +63,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

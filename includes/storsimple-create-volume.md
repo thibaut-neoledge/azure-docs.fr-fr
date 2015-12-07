@@ -12,7 +12,7 @@
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
 
-3. Dans la boîte de dialogue **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d’accès (ACR) :
+3. Dans la page **Paramètres supplémentaires**, ajoutez un nouvel enregistrement de contrôle d'accès (ACR) :
    1. Saisissez un **Nom** pour votre ACR.
    2. Sous **Nom de l’initiateur iSCSI**, indiquez le nom qualifié iSCSI de votre hôte Windows. Si vous ne possédez pas le nom qualifié, accédez à [Obtenir le nom qualifié d’un hôte Windows Server](#get-the-iqn-of-a-windows-server-host).
    3. Nous vous recommandons d’activer la sauvegarde par défaut en cochant la case **Activer une sauvegarde par défaut pour ce volume**. La sauvegarde par défaut crée une stratégie qui s’exécute à 22h30 chaque jour (heure de l’appareil) et crée un instantané de cloud de ce volume.
@@ -27,4 +27,4 @@
 
 Pour visionner une vidéo qui montre comment créer un volume StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

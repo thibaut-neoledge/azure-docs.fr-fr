@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres| Microsoft Azure" 
-	description="Explique comment les utilisateurs peuvent rejoindre Azure AD via le menu Paramètres sous Windows 10." 
+	description="Explique comment les utilisateurs peuvent rejoindre Azure AD via le menu Paramètres." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configuration d’un appareil Windows 10 avec Azure AD à partir des paramètres
@@ -32,16 +32,17 @@ Joindre votre ordinateur à Azure AD à partir du menu Paramètres
 4. Indiquez vos informations d’identification de connexion. Ce processus de connexion inclut toutes les étapes requises pour l'authentification. Si vous faites partie d'un client fédéré, votre administrateur vous proposera un processus hébergé par votre organisation.
 <center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
 5. Si votre organisation a configuré l'authentification multifacteur pour joindre vos appareils à Azure AD, vous devrez fournir le second facteur avant de pouvoir continuer.
-6. Cliquez sur **Accepter** sur l’écran **Autoriser la gestion de ce périphérique**.
+6. Cliquez sur **Accepter** sur l'écran** Autoriser la gestion de ce périphérique**.
 7. Le message « Votre périphérique est maintenant joint à votre organisation dans Azure AD » doit apparaître.
 
 
 ## Informations supplémentaires
-* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
+* [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 * [Authentification des identités sans mot de passe avec Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

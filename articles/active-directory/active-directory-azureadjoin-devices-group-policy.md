@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10 | Microsoft Azure" 
-	description="Une rubrique qui explique comment les administrateurs peuvent configurer des stratégies de groupe pour activer les appareils à joindre au domaine du réseau d'entreprise." 
+	description="Explique comment les administrateurs peuvent configurer des stratégies de groupe pour activer les appareils à joindre au domaine du réseau d'entreprise." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -8,13 +8,10 @@
 	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/17/2015" 
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article"
+
+	ms.date="11/19/2015" 
+
 	ms.author="femila"/>
 
 # Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10
@@ -53,14 +50,16 @@ Pour permettre un accès conditionnel, vous pouvez créer une stratégie qui aut
 
 ## Instructions de déploiement
 
-1. Déployer Azure Connect Active Directory Connect : Azure AD Connect permettra aux ordinateurs locaux d'être configurés en tant qu'objets d’appareil dans le cloud. Pour déployer Azure AD Connect, consultez Activation de votre annuaire pour la gestion hybride avec Azure AD Connect.
 
+## Étape 1 : déploiement d'Azure Active Directory Connect
 
-Si vous avez effectué une [installation personnalisée pour Azure AD Connect](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect-get-started-custom/) (pas l'installation Express), vous devez suivre la procédure, **Créer un point de connexion de service (SCP) dans Active Directory sur site** décrite ci-dessous.
+Azure AD Connect permettra aux ordinateurs locaux d'être configurés en tant qu'objets Appareil dans le cloud. Pour déployer Azure AD Connect, consultez Activation de votre annuaire pour la gestion hybride avec Azure AD Connect.
 
-Si vous avez une configuration fédérée avec Azure AD avant l'installation d'Azure AD Connect (par exemple, si vous avez préalablement déployé les services de fédération Active Directory (AD FS)), vous devrez suivre la procédure **Configurer les règles de revendication AD FS** ci-dessous.
+ - Si vous avez effectué une [installation personnalisée pour Azure AD Connect](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-aadconnect-get-started-custom/) (pas l'installation Express), vous devez suivre la procédure, **Créer un point de connexion de service (SCP) dans Active Directory local** décrite ci-dessous.
+ - Si vous avez une configuration fédérée avec Azure AD avant l'installation d'Azure AD Connect (par exemple, si vous avez préalablement déployé des services de fédération Active Directory (AD FS)), vous devrez suivre la procédure **Configurer les règles de revendication AD FS** ci-dessous.
 
 ### Créer un point de connexion de service (SCP) dans Active Directory local
+
 Les appareils joints au domaine utiliseront cet objet pour découvrir des informations de locataire Azure AD au moment de l'enregistrement automatique avec le service d'enregistrement d'appareils Azure. Sur le serveur Azure AD Connect, exécutez les commandes PowerShell suivantes :
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
@@ -112,28 +111,30 @@ Sur le serveur AD FS (ou sur une session connectée au serveur AD FS), exécutez
 
 >[AZURE.NOTE]Les ordinateurs Windows 10 authentifieront à l'aide de l'authentification intégrée de Windows vers un point de terminaison WS-Trust actif hébergé par AD FS. Vous devez vérifier que ce point de terminaison est activé. Si vous utilisez le proxy de l'authentification Web, vous devez également vérifier que ce point de terminaison est publié via le proxy. Pour ce faire, vous devez vérifier que adfs/services/trust/13/windowstransport est affiché comme activé dans la console de gestion AD FS sous Service > Points de terminaison.
 
-## Configurer l'enregistrement automatique des appareils via la stratégie de groupe dans Active Directory
+
+## Étape 2 : configuration de l'inscription automatique des appareils via la stratégie de groupe dans Active Directory
+
 Vous pouvez utiliser une stratégie de groupe Active Directory pour configurer vos appareils Windows 10 joints au domaine de manière qu’ils s’inscrivent automatiquement auprès d’Azure AD. Pour cela, consultez les instructions pas à pas suivantes :
 
 1. 	Ouvrez le Gestionnaire de serveur et accédez à **Outils** > **Gestion des stratégies de groupe**.
-2.	Dans Gestion des stratégies de groupe, accédez au nœud du domaine qui correspond au domaine où vous voulez activer Joindre Azure AD.
+2.	Dans Gestion des stratégies de groupe, accédez au nœud du domaine qui correspond au domaine où vous voulez activer Rejoindre Azure AD.
 3.	Cliquez avec le bouton droit sur **Objets de stratégie de groupe** et sélectionnez **Nouveau**. Nommez votre objet de stratégie de groupe, par exemple Jonction automatique d'Azure AD. Cliquez sur **OK**.
 4.	Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
-5.	Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Jonction d’espace de travail**.
-6.	Cliquez avec le bouton droit sur **Joindre automatiquement les ordinateurs clients à l’espace de travail**, puis sélectionnez **Modifier**.
-7.	Sélectionnez la case d’option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
-8.	Vous pouvez maintenant lier l’objet de stratégie de groupe à un emplacement de votre choix. Pour activer cette stratégie pour tous les appareils Windows 10 joints au domaine de votre organisation, liez la stratégie de groupe au domaine. Par exemple :
- - Une unité d'organisation spécifique (UO) dans AD où les ordinateurs Windows 10 joints au domaine seront situés.
+5.	Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d'administration** > **Composants Windows** > **Jonction d'espace de travail**.
+6.	Cliquez avec le bouton droit sur **Joindre automatiquement les ordinateurs clients à l'espace de travail**, puis sélectionnez **Modifier**.
+7.	Sélectionnez la case d'option **Activé**, puis cliquez sur **Appliquer**. Cliquez sur **OK**.
+8.	Vous pouvez maintenant lier l’objet de stratégie de groupe à un emplacement de votre choix. Pour activer cette stratégie pour tous les appareils Windows 10 joints au domaine de votre organisation, liez la stratégie de groupe au domaine. Par exemple :
+ - Une unité d’organisation spécifique (UO) dans AD où les ordinateurs Windows 10 joints au domaine seront situés.
  - Un groupe de sécurité spécifique contenant des ordinateurs Windows 10 joints au domaine, qui sera enregistré automatiquement avec Azure AD.
  
->[AZURE.NOTE]Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous exécutez l'outil de stratégie de groupe à partir d'un ordinateur Windows 10, la stratégie s'affichera comme suit : <br> **Enregistrer les ordinateurs appartenant au domaine en tant qu'appareils** et la stratégie se trouvera sous l'emplacement suivant :<br> ***Configuration ordinateur/Stratégies/Modèles d'administration/Windows/Inscription d'appareil***
+>[AZURE.NOTE]Ce modèle de stratégie de groupe a été renommé dans Windows 10. Si vous exécutez l'outil de stratégie de groupe à partir d'un ordinateur Windows 10, la stratégie s'affichera comme suit : <br> **Enregistrer les ordinateurs appartenant au domaine en tant qu'appareils** et la stratégie se trouvera sous l'emplacement suivant :<br> ***Configuration ordinateur/Stratégies/Modèles d'administration/Windows/Inscription d'appareil***
 
  
 ## Informations supplémentaires
-* [Windows 10 pour l’entreprise : manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

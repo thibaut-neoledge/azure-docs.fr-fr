@@ -24,7 +24,7 @@
 
 L’extension CustomScript Microsoft Azure pour Linux vous permet de personnaliser vos machines virtuelles en exécutant du code arbitraire écrit dans n’importe quel langage de script pris en charge par la machine virtuelle (par exemple Python et Bash). Cela fournit un moyen très souple pour automatiser le déploiement d'application sur plusieurs machines.
 
-Vous pouvez déployer l’extension CustomScript à l’aide du portail Azure, de Windows PowerShell ou de l’interface de ligne de commande Azure.
+Vous pouvez déployer l'extension CustomScript à l'aide du portail Azure, de Windows PowerShell ou de l'interface de ligne de commande Azure.
 
 Dans cet article, nous allons utiliser l’interface de ligne de commande Azure pour déployer une machine virtuelle Ubuntu créée à l’aide du modèle de déploiement classique.
 
@@ -32,7 +32,7 @@ Dans cet article, nous allons utiliser l’interface de ligne de commande Azure 
 
 Pour l’exemple suivant, créez d’abord deux machines virtuelles Azure exécutant Ubuntu 14.04 ou version ultérieure. Ces machines virtuelles sont appelées *script-vm* et *lamp-vm*. Utilisez des noms uniques lorsque vous créez les machines virtuelles. L’une d’elles sert à exécuter les commandes de l’interface de ligne de commande, tandis que l’autre accueille l’application LAMP déployée.
 
-Vous avez également besoin d’un compte Azure Storage et d’une clé pour accéder à celui-ci (vous pouvez l’obtenir sur le portail Azure).
+Vous avez également besoin d'un compte Azure Storage et d'une clé pour accéder à celui-ci (vous pouvez l'obtenir sur le portail Azure).
 
 Si vous avez besoin d’aide pour créer des machines virtuelles Linux sur Azure, reportez-vous à [Création d’une machine virtuelle exécutant Linux](virtual-machines-linux-tutorial.md).
 
@@ -110,4 +110,4 @@ Voici quelques ressources supplémentaires pour l’interface de ligne de comman
 
 [Linux et informatique open-source sur Microsoft Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

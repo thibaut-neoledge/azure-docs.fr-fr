@@ -238,7 +238,6 @@ Le service Azure Data Factory prend en charge la création d’un cluster à la 
 1. Cliquez sur l’option **Nouveau calcul** de la barre de commandes et sélectionnez **Cluster HDInsight à la demande** dans le menu.
 2. Dans le script JSON, procédez comme suit : 
 	1. Pour la propriété **clusterSize**, spécifiez la taille du cluster HDInsight.
-	2. Pour la propriété **jobsContainer**, spécifiez le nom du conteneur par défaut dans lequel les journaux de cluster seront stockés. Pour les besoins de ce didacticiel, spécifiez **adfjobscontainer**.
 	3. Pour la propriété **timeToLive**, spécifiez la durée pendant laquelle le client peut être inactif avant d’être supprimé. 
 	4. Pour la propriété **version**, spécifiez la version de Microsoft Azure HDInsight que vous souhaitez utiliser. Si vous excluez cette propriété, la version la plus récente est utilisée.  
 	5. Pour **linkedServiceName**, spécifiez le service lié **HDInsightStorageLinkedService** que vous avez créé dans le didacticiel de prise en main. 
@@ -248,7 +247,6 @@ Le service Azure Data Factory prend en charge la création d’un cluster à la 
 				    "properties": {
 		    	    "type": "HDInsightOnDemandLinkedService",
 		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
 		    	    "timeToLive": "00:05:00",
 		    	    "version": "3.1",
 		    	    "linkedServiceName": "HDInsightStorageLinkedService"
@@ -328,7 +326,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 4. Répétez les étapes 1 à 3 pour le contenu provenant des fichiers suivants : 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d’accueil (panneau **DATA FACTORY **) de votre fabrique de données.
+4. Fermez les panneaux Data Factory en appuyant sur **X** (en haut à droite) pour afficher la page d'accueil (panneau **DATA FACTORY **) de votre fabrique de données.
 
 ### Vue schématique
 
@@ -394,7 +392,7 @@ Dans cette étape, vous allez créer les pipelines suivants :
 
 	![Panneau TRANCHE DE DONNÉES RawGameEventsTable][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l’état **Prêt** ou à l’état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
+	En cas d’erreur, vous voyez l’état **Échec **ici. Vous pouvez aussi voir les deux tranches à l'état **Ready** ou à l'état **PendingValidation**, en fonction de la vitesse de traitement des tranches.
 
 	Si la tranche n’a pas l’état **Prêt**, vous pouvez afficher les tranches en amont qui ne sont pas prêtes et qui empêchent l’exécution de la tranche actuelle dans la liste **Tranches en amont qui ne sont pas prêtes**.
  
@@ -526,4 +524,4 @@ Suivez la [procédure pas à pas sur l’utilisation d’une source de données 
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

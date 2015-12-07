@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +30,7 @@ Stream Analytics tire parti des années de travail de l’équipe Microsoft Rese
 De nos jours, d'importantes quantités de données transitent à haute vitesse sur les réseaux câblés. Les organisations qui peuvent traiter et agir sur ces données de diffusion en continu en temps réel peuvent considérablement améliorer leur efficacité et se démarquer de leurs concurrents. Les scénarios d’analyse de diffusion en continu en temps réel concernent tous les secteurs : l’analyse et les alertes personnalisées relatives aux transactions d’actions en temps réel proposées par des sociétés de services financiers ; la détection des fraudes en temps réel ; les services de protection des données et des identités ; la réception et l’analyse fiables des données générées par les capteurs et mécanismes de positionnement incorporés dans des objets physiques (Internet des objets) ; les analyses de flux des clics sur le web ; et les applications de gestion des relations avec les clients (CRM) émettant des alertes lorsque l’expérience client se dégrade pendant un certain temps. Les entreprises recherchent la méthode la plus flexible, fiable et économique pour mener de telles analyses de données de flux d'événements en temps réel pour réussir dans ce monde moderne extrêmement compétitif.
 
 ## Avantages et fonctionnalités clés
--   **Simplicité d’utilisation :** Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Afin d’optimiser la simplicité d’utilisation, Stream Analytics utilise une variante SQL et supprime la nécessité pour les clients de gérer les complexités techniques des systèmes de traitement de flux de données. À l’aide du [langage de requête de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) dans l’éditeur de requête du navigateur, la fonction de saisie semi-automatique IntelliSense vous aide à implémenter rapidement et facilement des requêtes de série chronologique, comme les jointures temporelles, les agrégats fenêtrés, les filtres temporels, ainsi que d’autres opérations courantes telles que les jointures, les agrégats, les projections et les filtres. En outre, le test de requête dans le navigateur par rapport à un fichier de données d’exemple permet un développement rapide et itératif.  
+-   **Simplicité d’utilisation :** Stream Analytics prend en charge un modèle de requête simple et déclaratif pour la description des transformations. Afin d’optimiser la simplicité d’utilisation, Stream Analytics utilise une variante SQL et supprime la nécessité pour les clients de gérer les complexités techniques des systèmes de traitement de flux de données. À l’aide du [langage de requête de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx) dans l’éditeur de requête du navigateur, la fonction de saisie semi-automatique IntelliSense vous aide à implémenter rapidement et facilement des requêtes de série chronologique, comme les jointures temporelles, les agrégats fenêtrés, les filtres temporels, ainsi que d’autres opérations courantes telles que les jointures, les agrégats, les projections et les filtres. En outre, le test de requête dans le navigateur par rapport à un fichier de données d'exemple permet un développement rapide et itératif.  
 
 -   **Évolutivité :** Stream Analytics est capable de gérer un débit d’événements élevé allant jusqu’à 1 Go/s. L’intégration à [Azure Event Hubs](http://azure.microsoft.com/services/event-hubs/) permet à la solution de recevoir des millions d’événements par seconde. Ces événements peuvent provenir d’appareils connectés, de flux de clics, de fichiers journaux, etc. Pour ce faire, Stream Analytics exploite la capacité de partitionnement d’Event Hubs, qui peut produire 1 Mo/s par partition. Les utilisateurs sont capables de partitionner le calcul en plusieurs étapes logiques au sein de la définition de requête. Chacune de ces étapes peut elle-même être partitionnée pour accroître l’évolutivité.
 
@@ -53,4 +53,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -24,14 +24,14 @@ Pour offrir la meilleure expérience possible à vos utilisateurs, nous vous rec
 | Comment activer ou désactiver la réinitialisation des mots de passe ? | [Paramétrage : utilisateurs autorisés à réinitialiser leur mot de passe](#users-enabled-for-password-reset) |
 | Comment appliquer la réinitialisation de mot de passe à un ensemble spécifique d’utilisateurs ? | [Restreindre la réinitialisation de mot de passe à certains utilisateurs](#restrict-access-to-password-reset) |
 | Comment modifier la liste des méthodes d’authentification prises en charge ? | [Paramétrage : méthodes d’authentification accessibles aux utilisateurs](#authentication-methods-available-to-users) |
-| Comment modifier le nombre de méthodes d’authentification requises ? | [Paramétrage : nombre de méthodes d’authentification requises](#number-of-authentication-methods-required) |
+| Comment modifier le nombre de méthodes d’authentification requis ? | [Paramétrage : nombre de méthodes d’authentification requises](#number-of-authentication-methods-required) |
 | Comment configurer les questions de sécurité personnalisées ? | [Paramétrage : questions de sécurité personnalisées](#custom-security-questions) |
-| Comment définir des questions de sécurité localisées préenregistrées ? | [Paramétrage : questions de sécurité basées sur des informations](#knowledge-based-security-questions) |
+| Comment définir des questions de sécurité localisées prédéfinies ? | [Paramétrage : questions de sécurité basées sur des informations](#knowledge-based-security-questions) |
 | Comment modifier le nombre de questions de sécurité requis ? | [Paramétrage : nombre de questions de sécurité pour l’inscription ou la réinitialisation](#number-of-questions-required-to-register) |
 | Comment obliger les utilisateurs à s’inscrire lorsqu’ils se connectent ? | [Inscription obligatoire lors de la réinitialisation de mot de passe](#require-users-to-register-when-signing-in) |
-| Comment obliger les utilisateurs à confirmer périodiquement qu’ils sont bien inscrits ? | [Paramétrage : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](#number-of-days-before-users-must-confirm-their-contact-data) |
+| Comment obliger mes utilisateurs à confirmer périodiquement qu'ils sont bien inscrits ? | [Paramétrage : nombre de jours avant que les utilisateurs ne doivent confirmer leurs données d’authentification](#number-of-days-before-users-must-confirm-their-contact-data) |
 | Comment personnaliser la façon dont un utilisateur contacte un administrateur ? | [Paramétrage : personnaliser le lien « Contactez votre administrateur »](#customize-the-contact-your-administrator-link) |
-| Comment autoriser les utilisateurs à déverrouiller les comptes Active Directory sans réinitialiser un mot de passe ? | [Paramétrage : autoriser les utilisateurs à déverrouiller leurs comptes Active Directory sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| Comment autoriser les utilisateurs à déverrouiller des comptes Active Directory sans réinitialiser un mot de passe ? | [Paramétrage : autoriser les utilisateurs à déverrouiller leurs comptes Active Directory sans réinitialiser un mot de passe](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | Comment activer les notifications de réinitialisation des mots de passe pour les utilisateurs ? | [Paramétrage : avertir les utilisateurs quand leurs mots de passe ont été réinitialisés](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | Comment activer les notifications de réinitialisation de mot de passe pour les administrateurs ? | [Paramétrage : avertir les autres administrateurs quand un administrateur réinitialise leur mot de passe](#notify-admins-when-other-admins-reset-their-own-passwords) |
 | Comment personnaliser l’apparence de la réinitialisation de mot de passe ? | [Paramétrage : nom, marque et logo de l’entreprise](#password-managment-look-and-feel) |
@@ -857,10 +857,10 @@ Le tableau suivant décrit comment chaque contrôle affecte l’expérience des 
 
 <br/> <br/> <br/>
 
-## Liens vers la documentation sur la réinitialisation des mots de passe
-Voici les liens vers toutes les pages de la documentation sur la réinitialisation des mots de passe :
+## Liens vers la documentation de réinitialisation du mot de passe
+Voici les liens vers toutes les pages de la documentation sur la réinitialisation de mot de passe Azure AD :
 
-* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password) : en savoir plus sur la procédure de réinitialisation ou la modification de votre mot de passe en tant qu’utilisateur du système
+* [**Réinitialiser votre mot de passe**](active-directory-passwords-update-your-own-password.md) : découvrez la procédure de réinitialisation ou de modification de votre mot de passe en tant qu'utilisateur du système.
 * [**Fonctionnement**](active-directory-passwords-how-it-works.md) : découvrez les six différents composants du service et la fonction de chacun d’eux.
 * [**Prise en main**](active-directory-passwords-getting-started.md) : découvrez comment permettre à vos utilisateurs de réinitialiser et de modifier leurs mots de passe dans le cloud et localement.
 * [**Meilleures pratiques**](active-directory-passwords-best-practices.md) : découvrez comment déployer et gérer rapidement et efficacement les mots de passe de votre organisation.
@@ -872,4 +872,4 @@ Voici les liens vers toutes les pages de la documentation sur la réinitialisati
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

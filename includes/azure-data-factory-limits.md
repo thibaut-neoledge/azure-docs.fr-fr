@@ -20,7 +20,7 @@ Nombre de nouvelles tentatives pour les exécutions d’activités de pipeline |
 
 **Ressource** | **Limite inférieure par défaut** | **Limite minimale**
 -------- | ------------------- | -------------
-Intervalle de planification | 15 minutes | 5 minutes
+Intervalle de planification | 15 minutes | 15 minutes
 Intervalle entre les nouvelles tentatives | 1 seconde | 1 seconde
 Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
@@ -29,4 +29,4 @@ Délai d’expiration des nouvelles tentatives | 1 seconde | 1 seconde
 
 Azure Resource Manager comprend des limites pour les appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

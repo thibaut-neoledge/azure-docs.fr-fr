@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Intégration d'applications dans Azure Active Directory
@@ -349,6 +349,6 @@ Afin de pouvoir supprimer l'accès d'une application à son répertoire (après 
 
 - Comprendre le [manifeste d’application Azure Active Directory](active-directory-application-manifest.md)
 
-- Consulter le [Guide du développeur Active Directory](active-directory-developer’s guide.md)
+- Lisez le [Guide du développeur Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

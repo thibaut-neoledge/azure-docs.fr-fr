@@ -60,7 +60,7 @@ Une fois les modifications effectuées, le manifeste doit se présenter comme su
 ```
 
 
-À présent, générez le projet en sélectionnant uniquement le projet **ActorService**, en effectuant un clic droit et en sélectionnant Générer dans Visual Studio (si vous sélectionnez Régénérer tout, vous devrez peut-être mettre à jour les versions pour les projets **VisualObjects.WebService** et **VisualObjects.Common, dans *ServiceManifest.xml* et *ApplicationManifest.xml*, étant donné que le code aura changé). Nous allons maintenant empaqueter l'application mise à jour en cliquant avec le bouton droit sur *VisualObjectsApplication*, en sélectionnant le menu Fabric Service et en choisissant Package. Cette action doit créer un package d'application susceptible d'être déployé. Votre application mise à jour est prête à être déployée dès maintenant.
+À présent, générez le projet en sélectionnant uniquement le projet **ActorService**, en effectuant un clic droit et en sélectionnant Générer dans Visual Studio (si vous sélectionnez Régénérer tout, vous devrez peut-être mettre à jour les versions pour les autres projets dans *ServiceManifest.xml* et dans *ApplicationManifest.xml*, étant donné que le code aura changé). Nous allons maintenant empaqueter l'application mise à jour en cliquant avec le bouton droit sur *VisualObjectsApplication*, en sélectionnant le menu Fabric Service et en choisissant Package. Cette action doit créer un package d'application susceptible d'être déployé. Votre application mise à jour est prête à être déployée dès maintenant.
 
 
 ## Étape 3 : Décider des stratégies de contrôle d'intégrité et des paramètres de mise à niveau
@@ -115,14 +115,14 @@ Vous souhaiterez peut-être essayer de modifier les versions et de passer de la 
 
 ## Étapes suivantes
 
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
+La [mise à niveau de votre application à l'aide de Visual Studio](service-fabric-application-upgrade-tutorial.md) vous guide à travers une mise à niveau de l'application à l'aide de Visual Studio.
 
 Contrôlez les mises à niveau de votre application à l'aide des [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md).
 
-Rendez les mises à niveau de votre application compatibles en apprenant à utilisez la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
+Rendez les mises à niveau de votre application compatibles en apprenant à utiliser la [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md).
 
 Apprenez à utiliser les fonctionnalités avancées lors de la mise à niveau de votre application en consultant les [Rubriques avancées](service-fabric-application-upgrade-advanced.md).
 
 Résolvez les problèmes courants de mise à niveau de l'application en vous reportant aux étapes de [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

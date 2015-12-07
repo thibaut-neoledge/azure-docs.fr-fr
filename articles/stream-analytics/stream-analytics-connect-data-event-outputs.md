@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Créer des sorties Stream Analytics | Microsoft Azure" 
+	pageTitle="Connexion de sorties Stream Analytics | Microsoft Azure" 
 	description="Découvrez comment vous connecter aux cibles de sortie et comment les configurer pour les solutions Stream Analytics." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,7 +16,7 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# Créer des sorties Stream Analytics
+# Connexion de cibles de sortie Stream Analytics
 
 ## Présentation des sorties Stream Analytics ##
 ---
@@ -306,4 +306,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

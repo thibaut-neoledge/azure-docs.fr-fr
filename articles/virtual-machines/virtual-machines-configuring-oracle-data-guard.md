@@ -313,7 +313,7 @@ Utilisez ensuite la commande de démarrage pour démarrer une instance :
 ##Créer une base de données de secours physique
 Cette section se concentre sur les étapes que vous devez effectuer sur Machine2 pour préparer la base de données de secours physique.
 
-Vous devez tout d’abord vous connecter à distance à Machine2 via le portail Azure.
+Vous devez tout d'abord vous connecter à distance à Machine2 via le portail Azure.
 
 Sur le serveur de secours (Machine2), créez ensuite tous les dossiers nécessaires pour la base de données de secours, tel que C:\\ <Votre\_dossier\_local>\\TEST. Pour poursuivre ce didacticiel, assurez-vous que la structure du dossier correspond à celle de Machine1 pour conserver tous les fichiers nécessaires, tels que le fichier de contrôle (controlfile), les fichiers de données (datafiles), les fichiers journaux de rétablissement (redologfiles) et les fichiers udump, bdump et cdump. Définissez également les variables d’environnement ORACLE\_HOME et ORACLE\_BASE sur Machine2. Dans le cas contraire, définissez-les en tant que variables d’environnement à l’aide de la boîte de dialogue Variables d’environnement. Pour accéder à cette boîte de dialogue, démarrez l’utilitaire **Système** en double-cliquant sur l’icône Système dans le **Panneau de configuration**, puis cliquez sous l’onglet **Avancé** et sélectionnez **Variables d’environnement**. Cliquez sur le bouton **Nouveau** de la section **Variables système** pour configurer les variables d’environnement. Une fois les variables d’environnement configurées, vous devez fermer l’invite de commande Windows existante et en ouvrir une nouvelle pour afficher les modifications.
 
@@ -625,4 +625,4 @@ Nous vous recommandons d’activer la fonction Flashback sur les bases de donné
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Modification des paramètres de délai d’inactivité TCP pour l’équilibrage de charge
@@ -166,4 +166,4 @@ Mettre à jour la configuration des points de terminaison d'entrée d'équilibra
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015" 
+	ms.date="11/19/2015" 
 	ms.author="robmcm"/>
 
 # Application locale avec stockage d’objets blob
@@ -358,7 +358,7 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
 - [API REST d’Azure Storage][]
 - [Blog de l'équipe Azure Storage][]
 
-  [Téléchargement du Kit de développement logiciel (SDK) Azure pour Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Création d'un compte de stockage]: storage-create-storage-account.md#create-a-storage-account
   [Gestion des comptes de stockage]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Utilisation du service de stockage d’objets blob à partir de Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Pour en savoir plus sur les tâches de stockage plus complexes, cliquez sur les 
   [API REST d’Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog de l'équipe Azure Storage]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

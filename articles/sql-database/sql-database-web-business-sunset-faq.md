@@ -60,10 +60,12 @@ Les bases de données SQL Azure De base, Standard et Premium sont facturées à 
 
 ## Voir aussi
 
-[Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+[Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+
+[Tarification Web et Business](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
 
 [Niveaux de service](sql-database-service-tiers.md)
 
 [Mise à niveau des bases de données SQL des éditions Web et Business vers les nouveaux niveaux de service](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

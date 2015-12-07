@@ -3,8 +3,8 @@
 	description="Explique comment publier des applications locales avec le Proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Publier des applications avec le Proxy d’application Azure AD
@@ -54,7 +54,7 @@ Pour terminer l’Assistant, cliquez sur la coche en bas de l’écran. L’appl
 
 1. Pour les applications qui ont été pré-authentifiées, vous devez affecter les utilisateurs et les groupes qui ont accès à l’application. <p>Pour les applications Passthrough, l’accès est possible pour tous les utilisateurs. Toutefois, pour que l’utilisateur puisse voir l’application dans sa liste d’applications, vous devez affecter l’application à cet utilisateur.
 2. Après avoir terminé l’Assistant Ajouter une application, la page Démarrage rapide Proxy d’application s’affiche. Pour affecter des utilisateurs, cliquez sur **Affecter des utilisateurs**. ![Écran de démarrage rapide du Proxy d’application](./media/active-directory-application-proxy-publish/quickstart.png)
-3. Sélectionnez chaque utilisateur ou groupe que vous souhaitez affecter à cette application et cliquez sur **Affecter**. 
+3. Sélectionnez chaque utilisateur ou groupe que vous souhaitez affecter à cette application et cliquez sur **Affecter**.
 
 > [AZURE.NOTE]Pour les applications avec authentification Windows intégrée, vous pouvez affecter uniquement les utilisateurs et les groupes qui ont été synchronisés à partir de votre Active Directory local. Il n’est pas possible d’affecter les utilisateurs qui se connectent à l’aide d’un compte Microsoft et les invités aux applications publiées avec le Proxy d’application Azure Active Directory. Vérifiez que les utilisateurs que vous affectez se connectent avec leurs informations d’identification qui doivent faire partie du même domaine que l’application que vous publiez.
 
@@ -71,12 +71,9 @@ URL externe | Il s’agit de l’URL du service cloud utilisé pour accéder à 
 Méthode de pré-authentification | Définissez le type de méthode de pré-authentification que l’application doit utiliser :<p>Active Directory : définit la méthode de pré-authentification sur Active Directory. Lorsqu’un utilisateur tente d’accéder à une application, le Proxy d’application le redirige pour qu’il se connecte avec le Proxy d’application qui authentifie alors l’utilisateur, garantissant ainsi qu’il dispose des autorisations nécessaires pour l’annuaire et l’application.</p><p> Passthrough : la pré-authentification n’est pas effectuée.</p>
 URL externe | Par défaut, les applications sont publiées avec le protocole HTTPS. Pour activer le protocole HTTP pour une application interne, vous devez définir la pré-authentification Passthrough. Vous serez alors en mesure de modifier le protocole de l’URL externe, de HTTPS en HTTP. Notez que la publication d’applications avec le protocole HTTP peut créer des problèmes de sécurité pour votre application et pour vos utilisateurs. Vous pouvez insérer un domaine personnalisé plutôt que d’utiliser la valeur par défaut (msappproxy.net). Pour plus d’informations, consultez la rubrique Utilisation des domaines personnalisés.
 URL interne | Il s’agit de l’URL interne utilisée par le connecteur Proxy d’application pour accéder à l’application en interne. Il doit s’agir de l’URL de l’application publiée qui est utilisée pour accéder à l’application depuis votre réseau privé. Il s’agit d’une URL valide sans aucun espace ni symbole. Vous pouvez définir un chemin d'accès spécifique sur le serveur principal à publier, tandis que le reste du serveur n'est pas publié. Cela vous permet de publier, par exemple, différents sites situés sur le même serveur SharePoint avec différents noms et règles d'accès.
-Le chemin d'accès est spécifié dans le champ URL interne et sera visible dans l'URL externe. Les chemins d'accès internes et externes doivent être identiques. Traduire des URL dans les en-têtes.
-Pour les applications qui nécessitent que les en-têtes d’hôte HTTP ne soient pas traduits (par exemple, certaines configurations de SharePoint), définissez ce paramètre sur Non. La traduction d’en-tête est alors désactivée pour les en-têtes de demande et de réponse. Méthode d’authentification interne | Si vous utilisez le Proxy d’application pour la pré-authentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique (SSO) pour cette application. <p> Sélectionnez l’**authentification Windows intégrée (IWA)** si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte (KCD) pour activer l’authentification unique pour cette application. <p> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. <p> Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne sera pas en mesure de les publier. <p> Pour plus d’informations, consultez la rubrique Authentification unique pour les applications avec authentification Windows intégrée locales en utilisant la délégation Kerberos contrainte avec le SPN d’application interne du proxy d’application | C’est le nom de principal du service (SPN) de l’application interne, tel qu’il est configuré dans le proxy d’application local. Le SPN est utilisé par le connecteur du Proxy d’application pour extraire les jetons Kerberos pour l’application à l’aide de la délégation Kerberos KCD. <p> Pour plus d’informations, consultez [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md).
+Le chemin d'accès est spécifié dans le champ URL interne et sera visible dans l'URL externe. Les chemins d'accès internes et externes doivent être identiques. Traduire des URL dans les en-têtes | Pour les applications qui nécessitent que les en-têtes d’hôte HTTP ne soient pas traduits (par exemple, certaines configurations de SharePoint), définissez ce paramètre sur Non. La traduction d’en-tête est alors désactivée pour les en-têtes de demande et de réponse. Méthode d’authentification interne | Si vous utilisez le Proxy d’application pour la pré-authentification, vous pouvez définir une méthode d’authentification interne pour permettre à vos utilisateurs de profiter de l’authentification unique (SSO) pour cette application. <p> Sélectionnez l’**authentification Windows intégrée (IWA)** si votre application l’utilise. Vous pouvez configurer la délégation Kerberos contrainte (KCD) pour activer l’authentification unique pour cette application. <p> Sélectionnez **Aucune** si votre application n’utilise pas l’authentification Windows intégrée. <p> Les applications qui utilisent l’authentification Windows intégrée doivent être configurées à l’aide de la délégation Kerberos contrainte, sinon le proxy d’application ne sera pas en mesure de les publier. <p> Pour plus d’informations, consultez la rubrique Authentification unique pour les applications avec authentification Windows intégrée locales en utilisant la délégation Kerberos contrainte avec le SPN d’application interne du proxy d’application | C’est le nom de principal du service (SPN) de l’application interne, tel qu’il est configuré dans le proxy d’application local. Le SPN est utilisé par le connecteur du Proxy d’application pour extraire les jetons Kerberos pour l’application à l’aide de la délégation Kerberos KCD. <p> Pour plus d’informations, consultez [Activer l’authentification unique](active-directory-application-proxy-sso-using-kcd.md).
 
-Une fois que vous avez publié des applications qui utilisent le Proxy d’application Azure Active Directory, elles apparaissent dans la liste des applications dans Azure AD et vous pouvez les gérer à partir de cet emplacement.
-Si vous désactivez les services de Proxy d’application après avoir publié des applications, les applications ne sont pas supprimées, mais elles ne seront plus accessibles hors de votre réseau privé.
-Pour afficher une application et vous assurer qu’elle est accessible, double-cliquez sur son nom. Si le service Proxy d’application est désactivé et que l’application n’est pas disponible, un message d’avertissement s’affiche en haut de l’écran. Pour supprimer une application, sélectionnez-la dans la liste, puis cliquez sur **Supprimer**.
+Une fois que vous avez publié des applications qui utilisent le Proxy d’application Azure Active Directory, elles apparaissent dans la liste des applications dans Azure AD et vous pouvez les gérer à partir de cet emplacement. Si vous désactivez les services de Proxy d’application après avoir publié des applications, les applications ne sont pas supprimées, mais elles ne seront plus accessibles hors de votre réseau privé. Pour afficher une application et vous assurer qu’elle est accessible, double-cliquez sur son nom. Si le service Proxy d’application est désactivé et que l’application n’est pas disponible, un message d’avertissement s’affiche en haut de l’écran. Pour supprimer une application, sélectionnez-la dans la liste, puis cliquez sur **Supprimer**.
 
 ## Voir aussi
 Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
@@ -97,4 +94,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
 * [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

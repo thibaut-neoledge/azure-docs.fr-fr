@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -383,13 +383,34 @@ Il s’agit d’un ensemble d’attributs qui peut être utilisé si l’annuair
 | mailNickName| X| X| X| |
 | member| | | X| |
 | objectSID| X| | | propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory.|
-| proxyAddresses| X| X| x| |
+| proxyAddresses| X| X| X| |
 | pwdLastSet| X| | | propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération.|
 | sn| X| X| | |
 | sourceAnchor| X| X| X| propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD.|
 | usageLocation| X| | | propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence.|
 | userPrincipalName| X| | | Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail].|
 
+## Windows 10
+Les ordinateurs (appareils devices) du domaine Windows 10 synchroniseront certains attributs sur Azure AD. Pour plus d'informations sur les scénarios, consultez [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md). Ces attributs sont toujours synchronisés et Windows 10 n'apparaît pas comme une application que vous pouvez désélectionner. Un ordinateur appartenant au domaine Windows 10 est identifié par l'attribut userCertificate.
+
+| Nom de l'attribut| Appareil| Commentaire |
+| --- | :-: | --- |
+| accountEnabled| X| |
+| deviceTrustType| X| Valeur codée en dur pour les ordinateurs appartenant au domaine. |
+| displayName | X| |
+| ms-DS-CreatorSID | X| Également appelé registeredOwnerReference.|
+| objectGUID | X| Également appelé deviceID.|
+| objectSID | X| Également appelé omPremisesSecurityIdentifier.|
+| operatingSystem | X| Également appelé deviceOSType.|
+| operatingSystemVersion | X| Également appelé deviceOSVersion.|
+| userCertificate | X| |
+
+Ces attributs pour l'utilisateur s'ajoutent aux autres applications que vous avez sélectionnées.
+
+| Nom de l'attribut| Utilisateur| Commentaire |
+| --- | :-: | --- |
+| domainFQDN| X| Également appelé dnsDomainName. Par exemple, contoso.com.|
+| domainNetBios| X| Également appelé netBiosName. Par exemple, CONTOSO.|
 
 ## Écriture différée d’Exchange hybride
 Ces attributs sont écrits en différé depuis Azure AD vers Active Directory local quand vous choisissez d’activer Exchange hybride. Selon votre version d’Exchange, il est possible que moins d’attributs soient synchronisés.
@@ -410,8 +431,8 @@ Ces attributs sont écrits en différé depuis Azure AD vers Active Directory lo
 
 
 ## Étapes suivantes
-En savoir plus sur la configuration d’[Azure AD Connect sync](active-directory-aadconnectsync-whatis.md).
+En savoir plus sur la configuration de la [synchronisation Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-En savoir plus sur l’[intégration de vos identités locales à Azure Active Directory](active-directory-aadconnect.md).
+En savoir plus sur l'[intégration de vos identités locales dans Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

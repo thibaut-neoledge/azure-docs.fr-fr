@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/04/2015" 
+	ms.date="11/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -80,7 +80,7 @@ Les erreurs temporaires doivent inviter le programme client à exécuter la *log
 |49919|16|Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 |49920|16|Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm\_operation\_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. |
 
-**Remarque :** les erreurs de fédération 10053 et 10054 peuvent également être incluses dans la logique de votre nouvelle tentative.
+**Remarque :** les erreurs 10053 et 10054 peuvent également être incluses dans la logique de votre nouvelle tentative.
 
 
 <a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
@@ -145,47 +145,6 @@ Pour plus d'informations sur la gouvernance des ressources et les erreurs associ
 
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md).
 
-
-<a id="bkmk_d_federation_errors" name="bkmk_d_federation_errors">&nbsp;</a>
-
-## Erreurs de fédération
-
-
-Le tableau suivant décrit les erreurs que vous pouvez rencontrer lorsque vous travaillez avec des fédérations.
-
-
-> [AZURE.IMPORTANT]L’implémentation actuelle des fédérations sera retirée en même temps que les niveaux de service Web et Business. La version V12 d’Azure SQL Database ne prend pas en charge les niveaux de service Web et Business.
-> 
-> La fonctionnalité de mise à l’échelle élastique est conçue pour créer des applications de partitionnement avec un minimum d'effort.
-> 
-> Pour plus d'informations sur la mise à l'échelle élastique, consultez [Rubriques sur l'infrastructure élastique de base de données SQL Azure](sql-database-elastic-scale-documentation-map.md). Considérez le déploiement de solutions de partitionnement personnalisées pour optimiser les performances, la flexibilité et l'évolutivité. Pour plus d'informations sur le partitionnement personnalisé, consultez [Vue d'ensemble des fonctionnalités de base de données élastique](sql-database-elastic-scale-introduction.md).
-
-
-|Numéro d'erreur|Niveau de gravité|Description|Atténuation|
-|---:|---:|:---|:---|
-|266|16|Instruction <statement> non autorisée dans une transaction à instructions multiples|Vérifiez que `@@trancount` est égal à 0 lors de la connexion avant d'émettre l'instruction.|
-|2072|16|La base de données ’%.&#x2a;ls’ n'existe pas|Consultez `sys.databases` pour connaître l'état de la base de données avant d'émettre `USE FEDERATION`.|
-|2209|16|Erreur de syntaxe %s près de ‘%ls’|`FEDERATED ON` peut uniquement servir à la création de tables dans les membres de la fédération.|
-|2714|16|Il existe déjà un objet nommé ’%.&#x2a;ls’ dans la base de données|Ce nom de fédération existe déjà.|
-|10054, 10053|20|Une erreur de niveau du transport s'est produite lors de la réception des résultats à partir du serveur. Une connexion établie a été abandonnée par le logiciel sur votre ordinateur hôte|Mettez en place la logique de nouvelle tentative dans votre application.|
-|40530|15|<statement> doit être la seule instruction du lot|Vérifiez qu'aucune autre instruction ne figure dans le lot|
-|40604|16|Opération `CREATE DATABASE` impossible, car elle dépasse le quota du serveur|Augmentez le quota du nombre de bases de données serveur|
-|45000|16|L'opération <statement> a échoué. Le nom de fédération spécifié <federation_name> n'est pas valide|Federation\_name ne respecte pas les règles de nom de fédération ou n'est pas un identificateur valide|
-|45001|16|L'opération <statement> a échoué. Le nom de fédération spécifié n’existe pas|Le nom de fédération n’existe pas|
-|45002|16|L'opération <statement> a échoué. Le nom de la clé de fédération spécifié <distribution_name> n'est pas valide.|Clé de fédération inexistante ou non valide|
-|45004|16|L’opération <statement> a échoué. La valeur spécifiée n'est pas valide pour la clé de fédération <distribution_name> et la fédération <federation_name>|`USE FEDERATION` : utilisez une valeur limite figurant dans le domaine du type de données de la clé de fédération, ou qui n'est pas NULL.<br/><br/>`ALTER FEDERATION SPLIT` : utilisez une valeur valide dans le domaine de la clé de fédération qui n'est pas déjà un point de fractionnement existant.<br/><br/>`ALTER FEDERATION DROP` : utilisez une valeur valide dans le domaine de la clé de fédération qui est déjà un point de fractionnement.|
-|45005|16|L'opération <statement> ne peut pas être exécutée si une autre opération de fédération est en cours sur la fédération <federation_name> et le membre dont l'ID est <member_id>.|Attendez la fin de l'opération exécutée en parallèle.|
-|45006|16|Les opérations <statement> ont échoué. Les relations de clé étrangère dans les tables de référence désignant des tables fédérées ne sont pas autorisées dans les membres de la fédération|Non pris en charge.|
-|45007|16|L'opération <statement> a échoué. Les relations de clé étrangère entre des tables fédérées doivent inclure les colonnes de clé de fédération.|Non pris en charge|
-|45008|16|L'opération <statement> a échoué. Le type de données de clé de fédération ne correspond pas au type de données de la colonne|Non pris en charge.|
-|45009|16|L'opération <statement> a échoué. L'opération n'est pas prise en charge sur le filtrage des connexions|Non pris en charge.|
-|45010|16|L'opération <statement> a échoué. La clé de fédération ne peut pas être mise à jour|Non pris en charge.|
-|45011|16|L’opération <statement> a échoué. Le schéma de la clé de fédération ne peut pas être mis à jour|Non pris en charge.|
-|45012|16|La valeur spécifiée pour la clé de fédération n'est pas valide|La valeur doit figurer dans la plage utilisée par la connexion.<br/><br/>Si elle est filtrée, il s'agit de la valeur de la clé de fédération spécifiée.<br/><br/>Si elle est non filtrée, il s'agit de la plage couverte par le membre de la fédération.|
-|45013|16|Le SID existe déjà sous un autre nom d'utilisateur|Le SID d'un utilisateur dans un membre de la fédération est copié à partir du SID du même compte utilisateur dans la racine de fédération. Dans certaines conditions, le SID peut déjà être en cours d'utilisation.|
-|45014|16|%ls n’est pas pris en charge sur %ls|Opération non prise en charge.|
-|45022|16|L'opération <statement> a échoué. La valeur limite spécifiée existe déjà pour la clé de fédération <distribution_name> et la fédération <federation_name>|Spécifiez une valeur qui est déjà une valeur limite.|
-|45023|16|L'opération <statement> a échoué. La valeur limite spécifiée n'existe pas pour la clé de fédération <distribution_name> et la fédération <federation_name>|Spécifiez une valeur qui n’est pas déjà une valeur limite.|
 
 
 <a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
@@ -268,4 +227,4 @@ Le tableau suivant répertorie toutes les erreurs générales qui n'appartiennen
 - [Consignes et limitations générales de base de données SQL Azure](sql-database-general-limitations.md)
 - [Limites de ressources de base de données SQL Azure](sql-database-resource-limits.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

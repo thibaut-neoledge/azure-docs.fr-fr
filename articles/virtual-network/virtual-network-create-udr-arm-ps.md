@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Création d'itinéraires définis par l'utilisateur (UDR) dans PowerShell
@@ -38,29 +38,29 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 3. Créez un itinéraire pour que tout le trafic destiné au sous-réseau principal (192.168.2.0/24) soit acheminé vers l’équipement virtuel **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Créez une table de routage nommée **UDR-FrontEnd** dans la région **westus** qui contient l’itinéraire créé ci-dessus.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Créez une variable qui contient le réseau virtuel où se situe le sous-réseau. Dans notre scénario, le réseau virtuel est nommé **TestVNet**.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Associez la table de routage créée précédemment au sous-réseau **FrontEnd**.
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 >[AZURE.WARNING]La sortie de la commande ci-dessus affiche le contenu de l’objet de configuration de réseau virtuel, qui existe uniquement sur l’ordinateur sur lequel vous exécutez PowerShell. Vous devez exécuter l’applet de commande **Set-AzureVirtualNetwork** pour enregistrer ces paramètres dans Azure.
 
 7. Enregistrez la nouvelle configuration de sous-réseau dans Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Sortie attendue :
 
@@ -115,23 +115,23 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
 
 1. Créez un itinéraire pour que tout le trafic destiné au sous-réseau frontal (192.168.1.0/24) soit acheminé vers l’équipement virtuel **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Créez une table de routage nommée **UDR-BackEnd** dans la région **uswest** qui contient l’itinéraire créé ci-dessus.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Associez la table de routage créée précédemment au sous-réseau **BackEnd**.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. Enregistrez la nouvelle configuration de sous-réseau dans Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Sortie attendue :
 
@@ -185,12 +185,12 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 
 1. Créez une variable qui contient les paramètres de la carte réseau utilisée par FW1. Dans notre scénario, la carte réseau est nommée **NICFW1**.
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Activez le transfert IP et enregistrez les paramètres de la carte réseau.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
 	Sortie attendue :
 
@@ -236,4 +236,4 @@ Pour activer le transfert IP sur la carte réseau utilisée par **FW1**, suivez
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

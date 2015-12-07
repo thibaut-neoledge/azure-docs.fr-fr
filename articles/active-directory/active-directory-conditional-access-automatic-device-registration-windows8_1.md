@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.
@@ -52,4 +52,9 @@ Le journal des événements Windows sur l’ordinateur Windows 8.1 affiche des 
 
 La stratégie de groupe autorise une tâche planifiée sur le système qui s’exécute dans le contexte de l’utilisateur et qui est déclenchée à la connexion de l’utilisateur. La tâche inscrit l’utilisateur et l’appareil auprès d’Azure AD en mode silencieux une fois que le processus de connexion est terminé. La tâche planifiée se trouve sur les appareils Windows 8.1 dans la bibliothèque du Planificateur de tâches, sous **Microsoft** > **Windows** > **Jonction d’espace de travail**. La tâche s’exécute et inscrit tous les utilisateurs Active Directory qui s’y connectent.
 
-<!---HONumber=Oct15_HO3-->
+## Rubriques supplémentaires
+- [Vue d’ensemble du service Azure Active Directory Device Registration](active-directory-conditional-access-device-registration-overview.md)
+- [Inscription automatique d’appareils auprès d’Azure Active Directory pour les appareils joints à un domaine Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+<!---HONumber=AcomDC_1125_2015-->

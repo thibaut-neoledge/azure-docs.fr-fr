@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Récupération d'urgence avec SQL Server et Azure Site Recovery" 
+	pageTitle="Récupération d’urgence avec SQL Server et Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération de SQL Server sur un site local secondaire ou sur Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/09/2015" 
+	ms.date="11/18/2015" 
 	ms.author="raynew"/>
 
 
@@ -27,12 +27,12 @@ Azure Site Recovery est un service Azure qui met en œuvre la stratégie de cont
 
 ## Vue d'ensemble
 
-De nombreuses charges de travail utilisent SQL Server comme base. Les applications SharePoint, Dynamics et SAP utilisent SQL Server pour mettre en œuvre des services de données. Les fonctionnalités de haute disponibilité et de récupération d'urgence de SQL Server, comme les groupes de disponibilité SQL Server, sont utilisées pour protéger et récupérer des bases de données SQL Server. Déploiement d'applications SQL Server dans les configurations suivantes
+De nombreuses charges de travail utilisent SQL Server comme base. Les applications SharePoint, Dynamics et SAP utilisent SQL Server pour mettre en œuvre des services de données. Les fonctionnalités de haute disponibilité et de récupération d’urgence de SQL Server, tels que les groupes de disponibilité SQL Server, sont utilisées pour protéger et récupérer des bases de données SQL Server. Déploiement d'applications SQL Server dans les configurations suivantes
 
 
 1. SQL Server autonome : le serveur SQL et toutes les bases de données sont hébergés sur un seul ordinateur (physique ou une machine virtuelle). Lorsqu'il est virtualisé, le clustering d'hôtes est utilisé pour la haute disponibilité (HA) locale. Aucune haute disponibilité de niveau Invité n'est mise en œuvre. 
-2.	Les instances de Clustering de basculement SQL Server (également appelées Always ON FC) : dans cette configuration, 2 ou plusieurs nœuds d'instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si l'une des instances de cluster de basculement SQL est défaillante, le cluster peut basculer vers une autre instance SQL. Ce paramétrage est généralement utilisé pour la haute disponibilité sur le site principal. Cela ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Le disque partagé peut être mis en œuvre à l'aide d'iSCSI, de Fibre Channel ou de VHDx partagé.
-3.	Groupes de disponibilité SQL Always ON : dans ce cas de figure, 2 nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
+2.	Les instances de Clustering de basculement SQL Server (également appelées Always ON FC) : dans cette configuration, 2 ou plusieurs nœuds d'instances SQL Server avec des disques partagés sont configurés dans un cluster de basculement Windows. Si l'une des instances de cluster de basculement SQL est défaillante, le cluster peut basculer vers une autre instance SQL. Ce paramétrage est généralement utilisé pour la haute disponibilité sur le site principal. Cela ne protège pas contre la défaillance ou une panne dans la couche de stockage partagé. Le disque partagé peut être mis en œuvre avec iSCSI, Fibre Channel ou VHDx partagé.
+3.	Groupes de disponibilité SQL Always ON : dans ce cas de figure, 2 nœuds sont configurés dans un cluster sans partage avec des bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.
 
 SQL Server fournit également des technologies de récupération d'urgence natives dans les éditions Enterprise pour la récupération des bases de données vers un site distant. Le cas échéant, nous exploiterons et intégrerons les technologies de récupération d'urgence SQL natives suivantes pour la création d'un plan de récupération d'urgence basé sur Azure Site Recovery
 
@@ -56,17 +56,17 @@ La récupération de sites peut protéger le serveur SQL exécuté sur une machi
 Les versions et éditions de SQL Server suivantes s'appliquent à cet article :
 
 
-- SQL Server 2014 Enterprise et Standard
-- SQL Server 2012 Enterprise et Standard
-- SQL Server 2008 R2 Enterprise et Standard
+- SQL Server 2014 Entreprise et Standard
+- SQL Server 2012 Entreprise et Standard
+- SQL Server 2008 R2 Entreprise et Standard
 
 
-La récupération de sites peut être intégrée aux technologies BCDR SQL Server natives résumées dans le tableau ci-dessous pour fournir une solution de récupération d'urgence.
+La récupération de sites peut être intégrée aux technologies BCDR SQL Server natives résumées dans le tableau ci-dessous pour fournir une solution de récupération d’urgence.
 
 **Fonctionnalité** |**Détails** | **Version de SQL Server** 
 ---|---|---
-**Groupe de disponibilité AlwaysOn** | <p>Plusieurs instances autonomes de SQL Server s’exécutent dans un cluster de basculement qui comporte plusieurs nœuds.</p> <p>Les bases de données peuvent être regroupées dans des groupes de basculement qui peuvent être copiés (mis en miroir) sur des instances de SQL Server, pour éviter tout stockage partagé.</p> <p>Cette fonction assure une récupération d'urgence entre un site principal et un ou plusieurs sites secondaires. Il est possible de configurer deux nœuds dans un cluster sans partage avec les bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.</p> | Édition SQL Server 2014/2012 Enterprise
-**Cluster de basculement (instance de cluster de basculement AlwaysOn)** | <p>SQL Server exploite les clusters de basculement Windows pour une haute disponibilité des charges de travail SQL Server locales. </p><p>Les nœuds qui exécutent des instances de SQL Server avec des disques partagés sont configurés dans un cluster de basculement. Si une instance est arrêtée, le cluster bascule vers un autre.</p> <p>Le cluster ne protège pas contre les défaillances ou les pannes en stockage partagé. Le disque partagé peut être implémenté avec iSCSI, Fibre Channel ou VHDX partagé.</p> | Éditions SQL Server Enterprise</p> <p> Éditions SQL Server Standard (limitée à deux nœuds)
+**Groupe de disponibilité AlwaysOn** | <p>Plusieurs instances autonomes de SQL Server s’exécutent dans un cluster de basculement qui comporte plusieurs nœuds.</p> <p>Les bases de données peuvent être regroupées dans des groupes de basculement pouvant être copiés (mis en miroir) sur des instances de SQL Server, pour éviter de recourir au stockage partagé.</p> <p>Cette fonction assure la récupération d’urgence entre un site principal et un ou plusieurs sites secondaires. Il est possible de configurer deux nœuds dans un cluster sans partage avec les bases de données SQL Server configurées dans un groupe de disponibilité avec réplication synchrone et basculement automatique.</p> | Édition SQL Server 2014/2012 Enterprise
+**Cluster de basculement (instance de cluster de basculement AlwaysOn)** | <p>SQL Server exploite les clusters de basculement Windows pour une haute disponibilité des charges de travail SQL Server locales. </p><p>Les nœuds qui exécutent des instances de SQL Server avec des disques partagés sont configurés dans un cluster de basculement. Si une instance est arrêtée, le cluster bascule vers un autre.</p> <p>Le cluster ne protège pas contre les défaillances ou les pannes en stockage partagé. Le disque partagé peut être implémenté avec iSCSI, Fibre Channel ou VHDX partagé.</p> | Éditions SQL Server Enterprise</p> <p>Éditions SQL Server Standard (limitée à deux nœuds)
 **Mise en miroir de base de données (mode haute sécurité)** | Protège une base de données sur une seule copie secondaire. Disponible dans les modes de réplication haute sécurité (synchrone) et hautes performances (asynchrone). Cluster de basculement non requis. | <p>SQL Server 2008 R2</p><p>SQL Server Enterprise (toutes les éditions)</p>
 **Serveur SQL autonome** | SQL Server et la base de données sont hébergés sur un seul serveur (physique ou virtuel). Le cluster hôte est utilisé pour la haute disponibilité, si le serveur est virtuel. Aucune haute disponibilité pour le niveau invité. | Édition Enterprise ou Standard
 
@@ -95,7 +95,7 @@ Voici ce dont vous avez besoin pour commencer :
 - Si vous souhaitez configurer la récupération dans Azure, vous devez exécuter l’outil [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) sur vos ordinateurs virtuels SQL Server pour vous assurer qu'ils sont compatibles avec Azure et Site Recovery.
 
 
-## Configurer la protection d'AD
+## Configurer la protection d’AD
 
 Vous avez besoin d’Active Directory sur le site de récupération secondaire pour que SQL Server fonctionne correctement. Deux cas de figure peuvent se présenter :
 
@@ -105,7 +105,7 @@ Vous avez besoin d’Active Directory sur le site de récupération secondaire p
 
 Les instructions fournies dans ce document supposent qu'un contrôleur de domaine est disponible sur l'emplacement secondaire. Vous pouvez vous référer au guide de la solution de récupération d'urgence AD DR solution guidance [ici](http://aka.ms/asr-ad).
 
-##Configuration de la protection de groupes de disponibilité SQL AlwaysOn
+## Intégration à SQL AlwaysOn sur Azure
 
 ### Local vers Azure
 
@@ -113,7 +113,7 @@ Azure Site Recovery (ASR) prend en charge SQL AlwaysOn en mode natif. Si vous a
 
 Cette fonctionnalité est actuellement en version préliminaire et disponible lorsque le centre de données principal est géré par System Center Virtual Machine Manager (VMM).
 
-#### Environnements gérés par le serveur VMM
+#### Environnements gérés par un serveur VMM
 Si vous accédez à l’intérieur d’un coffre ASR, vous devez voir un onglet pour les serveurs SQL sous l’onglet Éléments protégés.
 
 ![Éléments protégés](./media/site-recovery-sql/protected-items.png)
@@ -135,7 +135,7 @@ Voici la procédure permettant d’intégrer SQL AlwaysOn à ASR.
 	- MODIFIER LE GROUPE DE DISPONIBILITÉ - [référence 1](https://msdn.microsoft.com/fr-FR/library/hh231018.aspx), [référence 2](https://msdn.microsoft.com/fr-FR/library/ff878601.aspx#Anchor_3)
 	- MODIFIER LA BASE DE DONNÉES - [référence 1](https://msdn.microsoft.com/fr-FR/library/ff877956.aspx#Security)
 
-##### Ajout d’un serveur SQL Server
+##### 1\. Ajout d’un serveur SQL Server
 
 Cliquez sur Ajouter un serveur SQL pour ajouter un nouveau serveur SQL Server.
 
@@ -146,17 +146,17 @@ Indiquez les informations relatives au serveur SQL Server et à VMM, ainsi que 
 ![Boîte de dialogue Ajouter un serveur SQL](./media/site-recovery-sql/add-sql-dialog.png)
 
 ###### Paramètres
-1. Nom : nom convivial que vous voulez indiquer pour faire référence à ce serveur SQL Server
-2. SQL Server (FQDN) : nom de domaine complet (FQDN) du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster. 
-3. Instance SQL Server : choisissez l’instance SQL par défaut ou indiquez le nom de l’instance SQL personnalisée.
-4. Serveur VMM  sélectionnez l’un des serveurs VMM déjà inscrits auprès d’Azure Site Recovery (ASR). ASR utilisera ce serveur VMM pour communiquer avec le serveur SQL Server.
-5. COMPTE D’IDENTIFICATION : indiquez le nom de l’un comptes d’identification créés sur le serveur VMM sélectionné ci-dessus. Ce compte d’identification sera utilisé pour accéder au serveur SQL Server et devra être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur le serveur SQL Server. 
+ - Nom : nom convivial que vous voulez indiquer pour faire référence à ce serveur SQL Server
+ - SQL Server (FQDN) : nom de domaine complet (FQDN) du serveur SQL Server source que vous souhaitez ajouter. Si le serveur SQL Server est installé sur un cluster de basculement, indiquez le nom de domaine complet du cluster et non celui des nœuds de cluster. 
+ - Instance SQL Server : choisissez l’instance SQL par défaut ou indiquez le nom de l’instance SQL personnalisée.
+ - Serveur VMM  sélectionnez l’un des serveurs VMM déjà inscrits auprès d’Azure Site Recovery (ASR). ASR utilisera ce serveur VMM pour communiquer avec le serveur SQL Server.
+ - COMPTE D’IDENTIFICATION : indiquez le nom de l’un comptes d’identification créés sur le serveur VMM sélectionné ci-dessus. Ce compte d’identification sera utilisé pour accéder au serveur SQL Server et devra être doté des autorisations Lecture et Basculement sur les groupes de disponibilité présents sur le serveur SQL Server. 
 
 Une fois ajouté, le serveur SQL Server doit apparaître sous l’onglet Serveurs SQL Server.
 
 ![Liste des serveurs SQL Server](./media/site-recovery-sql/sql-server-list.png)
 
-##### Ajout d’un groupe de disponibilité SQL
+##### 2\. Ajout d’un groupe de disponibilité SQL
 
 Une fois le serveur SQL Server ajouté, l’étape suivante consiste à ajouter le groupe de disponibilité à ASR. Pour cela, descendez dans la hiérarchie du serveur SQL Server ajouté à l’étape précédente et cliquez sur Ajouter un groupe de disponibilité SQL.
 
@@ -170,7 +170,7 @@ Dans l’exemple ci-dessus, le groupe de disponibilité DB1-AG devient Principal
 
 >[AZURE.NOTE]Seuls les groupes de disponibilité ayant le statut Principal sur le serveur SQL Server ajouté à l’étape précédente peuvent être ajoutés à ASR. Si vous avez défini un groupe de disponibilité comme principal sur le serveur SQL Server ou si vous avez ajouté d’autres groupes de disponibilité au serveur SQL Server une fois celui-ci ajouté, actualisez-le à l’aide de l’option Actualiser figurant dans le serveur SQL Server.
 
-#### Création d’un plan de récupération
+#### 3\. Création d’un plan de récupération
 
 L’étape suivante consiste à créer un plan de récupération à l’aide des machines virtuelles et des groupes de disponibilité. Sélectionnez le serveur VMM utilisé à l’étape 1 comme source, et Microsoft Azure comme cible.
 
@@ -184,7 +184,7 @@ Vous pouvez personnaliser davantage le plan de récupération en déplaçant les
 
 ![Personnaliser un plan de récupération](./media/site-recovery-sql/customize-rp.png)
 
-#### Basculement
+#### 4\. Basculement
 
 Différentes options de basculement sont disponibles une fois le groupe de disponibilité ajouté à un plan de récupération.
 
@@ -201,7 +201,7 @@ Le test de basculement pour le groupe de disponibilité SQL n’est pas pris en
 
 En guise d'alternative, considérez ces options :
 
-######Option 1 :
+###### Option 1 :
 
 
 
@@ -209,12 +209,12 @@ En guise d'alternative, considérez ces options :
 
 2. Mettez à jour la couche applicative pour accéder à la copie du réplica en lecture seule et effectuez un test en lecture seule de l'application.
 
-######Option 2 :
+###### Option 2 :
 
 1.	Créez une copie de l'instance d’ordinateur virtuel SQL Server répliquée (à l'aide de clone VMM pour la sauvegarde Azure ou de site à site), et copiez-la dans un réseau de test.
 2.	Testez le basculement à l'aide du plan de récupération.
 
-##### Restauration automatique
+#### Restauration automatique
 
 Si vous voulez définir de nouveau le groupe de disponibilité comme primaire sur le serveur SQL Server local, vous devez déclencher un basculement planifié sur le plan de récupération et choisir le sens de Microsoft Azure vers le serveur VMM local.
 
@@ -223,7 +223,7 @@ Si vous voulez définir de nouveau le groupe de disponibilité comme primaire su
 Après un basculement non planifié, la réplication inverse doit être déclenchée sur le groupe de disponibilité pour reprendre la réplication. La réplication est interrompue jusqu’à ce que cette opération soit terminée.
 
 
-### Environnements non gérés par le serveur VMM
+### Environnements non gérés par un serveur VMM
 
 Pour les environnements qui ne sont pas gérés par un serveur VMM, les runbooks Azure Automation peuvent être utilisés pour configurer un basculement de groupes de disponibilité SQL par script. Pour configurer cela, procédez comme suit :
 
@@ -312,9 +312,9 @@ Si le serveur SQL utilise des groupes de disponibilité pour la haute disponibil
 6. Créez un écouteur de groupe de disponibilité ou modifiez l'écouteur existant pour inclure l’ordinateur virtuel de réplica asynchrone.
 7. Vérifiez que la batterie de serveurs d'application est configurée pour utiliser l'écouteur. Si elle est configurée pour utiliser le nom du serveur de base de données, mettez-la à jour pour qu’elle utilise l'écouteur, afin de ne pas avoir à la reconfigurer après le basculement.
 
-Pour les applications qui utilisent des transactions distribuées, nous vous recommandons d'utiliser la [récupération de sites avec la réplication SAN](site-recovery-vmm-san.md) ou la [réplication de site à site VMWare](site-recovery-vmware-to-vmware.md).
+Pour les applications qui utilisent des transactions distribuées, nous vous recommandons d’utiliser [Site Recovery avec la réplication SAN](site-recovery-vmm-san.md) ou [de réplication de site à site VMware](site-recovery-vmware-to-vmware.md).
 
-####Considérations concernant le plan de récupération
+#### Considérations concernant le plan de récupération
 
 1. Ajoutez cet exemple de script à la bibliothèque VMM sur les sites primaire et secondaire.
 
@@ -328,19 +328,19 @@ Pour les applications qui utilisent des transactions distribuées, nous vous rec
 
 
 
-## Configuration de la protection d'un serveur SQL autonome
+## Configuration de la protection d’un serveur SQL autonome
 
 
 Dans cette configuration, nous vous recommandons d’utiliser la réplication Site Recovery pour protéger l'ordinateur SQL Server. La procédure varie selon que SQL Server est configuré comme un ordinateur virtuel ou un serveur physique, et que vous souhaitez répliquer sur Azure ou un site local secondaire. Obtenez des instructions pour tous les scénarios de déploiement dans [Présentation d’Azure Site Recovery](site-recovery-overview.md).
 
 
-## Configuration de la protection du cluster SQL Server (Standard ou 2008 R2)
+## Configuration de la protection du cluster SQL Server (Standard ou 2008 R2)
 
 Pour un cluster exécutant SQL Server Standard Edition ou SQL Server 2008 R2, nous vous recommandons d’utiliser la réplication Site Recovery pour protéger SQL Server.
 
 #### Local vers local
 
-- Si l'application utilise des transactions distribuées, nous vous recommandons de déployer [la récupération de sites avec la réplication SAN](site-recovery-vmm-san.md) pour les environnements Hyper-V et [VMware vers VMware](site-recovery-vmware-to-vmware.md) pour les environnements VMware.
+- Si l’application utilise des transactions distribuées, nous vous recommandons de déployer [la récupération de sites avec la réplication SAN](site-recovery-vmm-san.md) pour les environnements Hyper-V et [VMware vers VMware](site-recovery-vmware-to-vmware.md) pour les environnements VMware.
 
 - Pour les applications non-DTC, tirez parti de l'approche ci-dessus pour récupérer le cluster comme un serveur autonome en exploitant une mise en miroir de base de données locale haute sécurité.
 
@@ -359,9 +359,9 @@ La figure suivante illustre cette configuration.
 ![Cluster standard](./media/site-recovery-sql/BCDRStandaloneClusterLocal.png)
 
 
-### Considérations en matière de restauration automatique
+### Considérations relatives à la restauration automatique
 
-Pour les clusters SQL standard, la restauration automatique après un basculement non planifié nécessite une sauvegarde SQL, une restauration à partir de l'instance miroir sur le cluster d'origine, puis le rétablissement de la copie miroir.
+Pour les clusters SQL standard, la restauration automatique après un basculement non planifié nécessite une sauvegarde SQL, une restauration à partir de l’instance miroir sur le cluster d’origine, puis le rétablissement de la copie miroir.
 
 
 
@@ -374,4 +374,4 @@ Pour les clusters SQL standard, la restauration automatique après un basculemen
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

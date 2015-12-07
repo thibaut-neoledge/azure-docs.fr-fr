@@ -44,6 +44,8 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 
 ### Dossier /overlay
 
+- `EngagementBaseOverlay.cs` : le code de base utilisé par les superpositions `Announcement` et `Notification`.
+
 - `EngagementOverlayAnnouncement.xaml` : la conception XAML de `Announcement`.
 
 - `EngagementOverlayAnnouncement.xaml.cs` : le code relatif à `EngagementOverlayAnnouncement.xaml`.
@@ -55,4 +57,4 @@ Ce dossier contient toutes les ressources dont Mobile Engagement a besoin. Vous
 - `EngagementPageOverlay.cs` : le code d'affichage de la superposition des annonces et des notifications `Overlay`.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

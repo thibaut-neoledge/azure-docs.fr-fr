@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2015" 
+	ms.date="11/23/2015" 
 	ms.author="bradsev;gopitk" />
 
 
@@ -27,7 +27,7 @@ Voici les étapes du **processus d’analyse Cortana ** :
 
 Le processus est **itératif** : la connaissance des nouveautés, des données existantes, ou des adaptations du modèle évolue et nécessite une reprise des opérations déjà terminées dans la séquence. Les processus de planification et de développement organisationnel du projet sont **facilement adaptables**, et peuvent donc fonctionner avec des suites d’opérations définies par CAP.
 
-Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/fr-FR/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
+Les étapes du processus sont représentées et rassemblées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et décrites ci-dessous.
 
 ## Étapes de préparation 
 
@@ -83,7 +83,7 @@ Une fois que notre ensemble de modèles fonctionne correctement, il peut être *
 
 ## Résumé et étapes suivantes
 
-Le [Traitement Cortana Analytics](https://azure.microsoft.com/fr-FR/documentation/learning-paths/cortana-analytics-process/) est construit comme une suite d'étapes itérées qui **fournissent des conseils** sur les tâches indispensables à l'utilisation d'analyses avancées permettant de construire des applications intelligentes. Chaque étape fournit également des détails sur l’utilisation de diverses technologies Microsoft pour effectuer les tâches décrites.
+Le [processus d'analyse Cortana](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) est construit comme une suite d'étapes itérées qui **fournissent des conseils** sur les tâches indispensables à l'utilisation d'analyses avancées permettant de construire des applications intelligentes. Chaque étape fournit également des détails sur l’utilisation de diverses technologies Microsoft pour effectuer les tâches décrites.
 
 CAP n'impose pas de types d'artefacts de **documentation** spécifiques. Cependant, il est recommandé de documenter les résultats de l'examen, de la modélisation et de l'évaluation des données et d'enregistrer le code pertinent afin que l'analyse puisse être itérée le cas échéant. Ceci permet également de réutiliser le travail d’analyse lorsque vous travaillez sur d’autres applications impliquant des données et tâches de prévision similaires.
 
@@ -91,4 +91,4 @@ Des procédures pas à pas complètes illustrant toutes les étapes de **scénar
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

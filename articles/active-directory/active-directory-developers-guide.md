@@ -31,7 +31,9 @@ En tant que plateforme de gestion des identités en tant que service (IDMaaS), A
 
 1. [API Graph Azure Active Directory](active-directory-graph-api.md) : utilisez l’API Graph Azure Active Directory pour accéder par programmation à Azure Active Directory via des points de terminaison d’API REST.
 
-1. [Bibliothèques d’authentification Azure Active Directory](active-directory-authentication-libraries.md) : facilitez l’authentification des utilisateurs pour l’obtention de jetons d’accès avec les bibliothèques d’authentification Azure.
+    > [AZURE.IMPORTANT]La fonctionnalité API Graph Azure AD est également disponible au moyen de [Microsoft Graph](https://graph.microsoft.io/), une API unifiée qui inclut des API d'autres services Microsoft tels qu'Outlook, OneDrive, OneNote, Planner et Office Graph, accessible à travers un point de terminaison unique et avec un jeton d'accès unique.
+
+1. [Bibliothèques d'authentification d'Azure Active Directory](active-directory-authentication-libraries.md) : facilitez l'authentification des utilisateurs pour l'obtention de jetons d'accès à l'aide des bibliothèques d'authentification Azure.
 
 
 ## Prise en main
@@ -80,34 +82,34 @@ Ces articles décrivent comment effectuer des tâches spécifiques avec Azure Ac
 Ces articles fournissent une référence de base pour les API REST et de bibliothèque d’authentification, les protocoles, les erreurs, les exemples de code et les points de terminaison.
 
 ###  Support
-- [Questions marquées](http://stackoverflow.com/questions/tagged/azure-active-directory) : trouvez des solutions Azure Active Directory en cas de dépassement de la capacité de la pile en effectuant des recherches avec les mots-clés [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) et [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Questions balisées](http://stackoverflow.com/questions/tagged/azure-active-directory) : recherchez des solutions Azure Active Directory en cas de dépassement de la capacité de la pile en effectuant des recherches avec les mots-clés [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) et [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Code
 
-- [Bibliothèques open source Azure Active Directory](http://github.com/AzureAD) : le moyen le plus simple de trouver la source d’une bibliothèque est d’utiliser notre [liste de bibliothèques](active-directory-authentication-libraries.md).
+- [Bibliothèques open source Azure Active Directory](http://github.com/AzureAD) : le moyen le plus simple de trouver la source d'une bibliothèque est d'utiliser notre [liste de bibliothèques](active-directory-authentication-libraries.md).
 
-- [Exemples Azure Active Directory](http://github.com/AzureADSamples) : le moyen le plus simple de parcourir la liste d’exemples est d’utiliser l’[index des exemples de code](active-directory-code-samples.md).
+- [Exemples Azure Active Directory](http://github.com/AzureADSamples) : le moyen le plus simple de parcourir la liste d'exemples est d'utiliser l'[index des exemples de code](active-directory-code-samples.md).
 
 
 ### API Graph
 
-- [Informations de référence sur l’API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) : informations de référence REST pour l’API Graph Azure Active Directory. [Découvrez l’expérience interactive de référence de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Référence de l'API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx) : informations de référence REST pour l'API Graph Azure Active Directory. [Découvrez l'expérience interactive de référence de l'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Étendues d’autorisation de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes) : étendues d’autorisation OAuth 2.0 utilisées pour contrôler l’accès d’une application aux données d’annuaire d’un client.
+- [Étendues d'autorisation de l'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes) : étendues d'autorisation OAuth 2.0 utilisées pour contrôler l'accès d'une application aux données d'annuaire d'un client.
 
 
 ### Protocoles d’authentification
 
-- [Informations de référence sur le protocole SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx) : le protocole SAML 2.0 permet aux applications de fournir une expérience d’authentification unique à leurs utilisateurs.
+- [Référence du protocole SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx) : le protocole SAML 2.0 permet aux applications de fournir une expérience d'authentification unique à leurs utilisateurs.
 
 
-- [Informations de référence sur le protocole OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) : vous pouvez utiliser le protocole OAuth 2.0 pour autoriser l’accès aux applications web et aux API web dans votre client Azure Active Directory.
+- [Référence du protocole OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx) : vous pouvez utiliser le protocole OAuth 2.0 pour autoriser l'accès aux applications Web et aux API Web dans votre client Azure Active Directory.
 
 
-- [Informations de référence sur le protocole OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d’authentification.
+- [Référence du protocole OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx) : le protocole OpenID Connect 1.0 étend OAuth 2.0 pour une utilisation comme protocole d'authentification.
 
 
-- [Informations de référence sur le protocole WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) : le protocole WS-Federation 1.2 est spécifié dans la spécification Web Services Federation Version 1.2.
+- [Référence du protocole WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) : le protocole WS-Federation 1.2 est spécifié dans la spécification Web Services Federation Version 1.2.
 
 - [Types de jeton et de revendication pris en charge](active-directory-token-and-claims.md) : vous pouvez utiliser ce guide pour comprendre et évaluer les revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT).
 
@@ -122,7 +124,7 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 - [Développement d’applications web natives avec Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous proposent de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) est une série hebdomadaire de vidéos au format 1:1 qui vous propose de courts entretiens (10 à 15 minutes) avec des experts sur divers sujets relatifs à Azure. Utilisez la fonctionnalité Filtre des services sur la page pour afficher toutes les vidéos Azure Active Directory.
 
 - [Identité Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Identité Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -130,12 +132,12 @@ Ces présentations sur le développement d'applications à l'aide d'Azure Active
 
 ## Réseaux sociaux
 
-- [Blog de l’équipe Active Directory](http://blogs.technet.com/b/ad/) : les derniers développements dans l’univers d’Azure Active Directory.
+- [Blog de l'équipe Active Directory](http://blogs.technet.com/b/ad/) : les derniers développements dans l'univers d'Azure Active Directory.
 
-- [Blog de l’équipe Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam) : informations Azure Active Directory propres à l’API Graph.
+- [Blog de l'équipe Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam) : informations Azure Active Directory propres à l'API Graph.
 
 - [Cloud Identity](http://www.cloudidentity.net) : réflexions sur la gestion des identités en tant que service, par un directeur de programme Azure Active Directory.
 
 - [Azure Active Directory sur Twitter](https://twitter.com/azuread) : annonces Azure Active Directory de moins de 140 caractères.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

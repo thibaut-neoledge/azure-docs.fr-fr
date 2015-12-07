@@ -58,7 +58,7 @@ Pour générer la clé d’authentification SSH, procédez comme suit.
 6.	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé privateKey.ppk.
 
 ###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
-Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l’image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
+Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches pour créer une image, en choisissant l'image Linux selon vos besoins. L’exemple suivant utilise l’image Ubuntu 14.04. ![][3]
 
 Pour **Nom d’hôte**, spécifiez le nom de l’URL que les clients Internet utiliseront pour accéder à cette machine virtuelle. Définissez la dernière partie du nom DNS, par exemple tomcatdemo, et Azure génère l’URL comme tomcatdemo.cloudapp.net.
 
@@ -90,7 +90,7 @@ Le port TCP 8080 est le numéro de port par défaut sur lequel tomcat écoute. 
 ###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n’importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
+Tout d'abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. **Cliquez sur Parcourir** -> **Machines virtuelles**-> nom de votre machine virtuelle -> **Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple. ![][8]
 
@@ -306,4 +306,4 @@ Une fois connecté, vous devez voir quelque chose de similaire à ce qui suit :
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

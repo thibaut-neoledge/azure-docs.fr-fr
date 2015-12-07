@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="11/19/2015"
 	ms.author="tomfitz"/>
 
 #Création d’une application web PHP-MySQL dans Azure App Service et déploiement à l’aide de Git.
@@ -27,7 +27,7 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l’outil en ligne de commande MySQL (inclus dans [MySQL][install-mysql]), un serveur web et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s'appliquent à n'importe quel système d'exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
+Ce didacticiel vous explique comment créer une application web PHP-MySQL et déployer dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide de Git. Vous allez utiliser [PHP][install-php], l'outil de ligne de commande MySQL (inclus dans [MySQL][install-mysql]) et [Git][install-git] qui sont installés sur votre ordinateur. Les instructions de ce didacticiel s’appliquent à n’importe quel système d’exploitation, notamment Windows, Mac et Linux. À la fin de ce guide, vous disposerez d’une application web PHP/MySQL s’exécutant dans Azure.
 
 Vous apprendrez à effectuer les opérations suivantes :
 
@@ -40,20 +40,19 @@ En suivant ce didacticiel, vous allez générer une application web d’inscript
 
 ##Configuration de l’environnement de développement
 
-Ce didacticiel part du principe que [PHP][install-php], l’outil en ligne de commande MySQL (qui fait partie de [MySQL][install-mysql]), un serveur Web et [Git][install-git] sont installés sur votre ordinateur.
+Ce didacticiel part du principe que [PHP][install-php], l'outil de ligne de commande MySQL (qui fait partie de [MySQL][install-mysql]) et [Git][install-git] sont installés sur votre ordinateur.
 
-> [AZURE.NOTE]Si vous suivez ce didacticiel sur Windows, vous pouvez configurer votre ordinateur pour PHP et configurer automatiquement IIS (serveur web intégré dans Windows) en installant le <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">Kit de développement logiciel (SDK) Azure pour PHP</a>.
 
 ##<a id="create-web-site-and-set-up-git"></a>Créer une application web et configurer la publication Git
 
 Pour créer une application web et une base de données MySQL, suivez la procédure ci-après :
 
 1. Connectez-vous au [portail Azure][management-portal].
-2. Cliquez sur l’icône **Nouveau**.
+2. Cliquez sur l'icône **Nouveau**.
 
-3. Cliquez sur **Web et mobilité** puis sur **Azure Marketplace**.
+3. Cliquez sur **Afficher tout** en regard de **Marketplace**.
 
-4. Cliquez sur **Web Apps** puis sur **Application web et MySQL**. Cliquez sur **Créer**.
+4. Cliquez sur **Web et mobilité**, puis sur **Application web et MySQL**. Cliquez sur **Créer**.
 
 4. Entrez un nom valide pour votre groupe de ressources.
 
@@ -67,9 +66,9 @@ Pour créer une application web et une base de données MySQL, suivez la procéd
 
 	![Créer une base de données MySQL][new-mysql-db]
 
-7. Une fois que l’application web a été créée, vous voyez apparaître le nouveau groupe de ressources. Cliquez sur le nom de l’application web pour en configurer les paramètres.
+7. Une fois que l'application web a été créée, vous voyez apparaître le nouveau volet d'application web.
 
-7. Cliquez sur **Configurer le déploiement continu**.
+7. Dans les **Paramètres**, cliquez sur **Déploiement continu**, puis cliquez sur _Configurer les paramètres requis_.
 
 	![Configuration de la publication Git][setup-publishing]
 
@@ -91,7 +90,7 @@ Pour vous connecter à la base de données MySQL qui s’exécute dans Web Apps
 
 	![Sélectionner la base de données][select-database]
 
-2. Dans le résumé de la base de données, sélectionnez **Propriétés**.
+2. Dans les **Paramètres** de la base de données, sélectionnez **Propriétés**.
 
     ![Sélectionner les propriétés][select-properties]
 
@@ -107,7 +106,7 @@ L'application d'inscription est une simple application PHP qui vous permet de vo
 
 * **index.php** : affiche un formulaire d’inscription et un tableau contenant les informations des inscrits.
 
-Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP, l'outil en ligne de commande MySQL (inclus dans MySQL) et un serveur Web sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
+Pour générer et exécuter l'application en local, procédez comme suit : notez que ces étapes partent du principe que PHP et l'outil de ligne de commande MySQL (inclus dans MySQL) sont configurés sur votre machine locale, et que vous avez activé l'[extension PDO pour MySQL][pdo-mysql].
 
 1. Connectez-vous au serveur MySQL distant en utilisant les valeurs `Data Source`, `User Id`, `Password` et `Database` récupérées précédemment :
 
@@ -119,9 +118,9 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 
 3. Copiez la commande `CREATE TABLE` suivante pour créer la table `registration_tbl` dans votre base de données :
 
-		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
+		CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. Dans le répertoire racine de votre serveur web, créez un dossier nommé `registration` puis un fichier nommé `index.php` dans ce dernier.
+4. Dans la racine de votre dossier d'application en local, créez le fichier **index.php**.
 
 5. Ouvrez le fichier **index.php** dans un éditeur de texte ou un environnement de développement intégré (IDE), puis ajoutez le code suivant en y apportant les modifications nécessaires, indiquées par les commentaires `//TODO:`.
 
@@ -210,7 +209,11 @@ Pour générer et exécuter l'application en local, procédez comme suit : note
 		</body>
 		</html>
 
-Vous pouvez à présent accéder à ****http://localhost/registration/index.php** pour tester l’application.
+4.  Sur un terminal, accédez à votre dossier d'application et tapez la commande suivante :
+
+		php -S localhost:8000
+
+Vous pouvez à présent accéder à ****http://localhost:8000/** pour tester l'application.
 
 
 ##Publier votre application
@@ -300,4 +303,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](/develo
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

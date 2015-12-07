@@ -12,14 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="09/27/2015"
+   ms.date="11/17/2015"
    ms.author="tamram" />
 
 # Objectifs de performance et évolutivité d'Azure Storage
 
+## Vue d'ensemble
+
 Cet article décrit l’extensibilité et les performances de Microsoft Azure Storage. Pour prendre connaissance des autres informations relatives aux limites Azure, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../azure-subscription-service-limits.md).
 
->[AZURE.NOTE]Tous les comptes de stockage s’exécutent sur la nouvelle topologie de réseau plat et prennent en charge les objectifs d’extensibilité et de performances décrits ci-après, quel que soit le moment où ils ont été créés. Pour plus d’informations sur l’architecture de réseau plat Azure Storage et sur son extensibilité, consultez le billet de blog [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+>[AZURE.NOTE]Tous les comptes de stockage s’exécutent sur la nouvelle topologie de réseau plat et prennent en charge les objectifs d’extensibilité et de performances décrits ci-après, quel que soit le moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Azure Storage et sur son extensibilité, consultez le billet de blog [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
 <!-- -->
 
@@ -29,15 +31,26 @@ Cet article décrit l’extensibilité et les performances de Microsoft Azure 
 
 Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage et partitionner vos objets de données sur ces comptes. Pour plus d'informations sur la tarification des licences en volume, consultez la page [Tarification Azure Storage](http://azure.microsoft.com/pricing/details/storage/).
 
-## Objectifs d’extensibilité des comptes de stockage standard
+
+## Objectifs d'évolutivité pour les objets Blob, les files d'attente, les tables et les fichiers
 
 [AZURE.INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
-## Objectifs d’extensibilité pour les comptes de stockage Premium
+## Objectifs d'évolutivité pour les disques de machines virtuelles 
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../../includes/azure-storage-limits-premium-storage.md)]
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-## Limites de stockage - Azure Resource Manager
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../virtual-machines/virtual-machines-size-specs.md).
+
+### Comptes de stockage standard
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
+
+### Comptes de stockage Premium
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../../includes/azure-storage-limits-vm-disks-premium.md)]
+
+## Objectifs d'évolutivité pour Azure Resource Manager
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -45,7 +58,7 @@ Si les besoins de votre application dépassent les objectifs d’extensibilité 
 
 Chaque objet contenant des données stockées dans Azure Storage (blobs, messages, entités et fichiers) appartient à une partition et est identifié par une clé de partition. La partition détermine la manière dont Azure Storage équilibre la charge des blobs, des messages, des entités et des fichiers sur les serveurs pour répondre aux besoins de trafic de ces objets. La clé de partition est unique dans le compte de stockage. Elle permet de localiser un blob, un message ou une entité.
 
-Le tableau présenté plus haut dans la section [Objectifs d’extensibilité des comptes de stockage standard](#scalability-targets-for-standard-storage-accounts) répertorie les objectifs de performance pour une seule partition pour chaque service.
+Le tableau présenté plus haut dans la section [Objectifs d'évolutivité des comptes de stockage standard](#scalability-targets-for-standard-storage-accounts) répertorie les objectifs de performance pour une seule partition pour chaque service.
 
 Les partitions affectent l’extensibilité et l’équilibrage de charge de chacun des services de stockage comme suit :
 
@@ -72,8 +85,4 @@ Les partitions affectent l’extensibilité et l’équilibrage de charge de cha
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](storage-performance-checklist.md)
 - [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

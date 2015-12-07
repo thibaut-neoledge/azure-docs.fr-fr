@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/10/2015"
+	ms.date="11/19/2015"
 	ms.author="tdykstra"/>
 
 # Comparaison entre Azure App Service, Azure Cloud Services et Azure Virtual Machines
@@ -153,11 +153,11 @@ Déploiement de code avec Web Deploy|X||X|Cloud Services prend en charge l'utili
 Prise en charge de WebMatrix|X||X|
 Accès aux services tels que Service Bus, Storage et Base de données SQL|X|X|X|
 Hébergement des services Web ou niveaux d'une architecture multiniveau|X|X|X|
-Hébergement du niveau intermédiaire d'une architecture multiniveau|X|X|X|Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [API apps](../app-service-api/app-service-api-apps-why-best-platform/) offre encore plus de fonctionnalités pour l’hébergement de services REST.
+Hébergement du niveau intermédiaire d'une architecture multiniveau|X|X|X|Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. La version préliminaire de la fonctionnalité [API apps](../app-service-api/app-service-api-apps-why-best-platform.md) offre encore plus de fonctionnalités pour l’hébergement de services REST.
 Prise en charge intégrée de MySQL-as-a-service|X|X|X|Cloud Services peut intégrer MySQL en tant que service via les offres ClearDB, mais pas dans le cadre du workflow du portail de gestion.
 Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python|X|X|X|
 Montée en charge vers plusieurs instances sans redéploiement|X|X|X|Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un programme d'équilibrage de la charge pour acheminer les demandes entre les machines et créer un groupe d'affinités afin d'empêcher les redémarrages simultanés de toutes les instances en cas de maintenance ou de panne matérielle.
-Prise en charge de SSL|X|X|X|Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](../app-service-web/web-sites-configure-ssl-certificate/).
+Prise en charge de SSL|X|X|X|Pour les applications web App Service, le protocole SSL pour les noms de domaine personnalisés est pris en charge uniquement en mode De base et Standard. Pour plus d’informations sur l’utilisation de SSL avec les applications web, consultez la page [Configuration d’un certificat SSL pour un site web Azure](../app-service-web/web-sites-configure-ssl-certificate.md).
 Intégration de Visual Studio|X|X|X|
 Débogage à distance|X|X|X|
 Déploiement de code avec TFS|X|X|X|
@@ -204,4 +204,4 @@ Pour choisir une ou plusieurs de ces options pour votre application, consultez l
   [Azure Storage]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

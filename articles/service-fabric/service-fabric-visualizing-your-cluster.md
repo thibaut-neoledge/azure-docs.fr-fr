@@ -32,13 +32,19 @@ Vous pouvez naviguer dans Service Fabric Explorer à l'aide de l'arborescence su
 
 ![Tableau de bord de cluster de Service Fabric Explorer][sfx-cluster-dashboard]
 
-Le cluster contient deux sous-arborescences : une pour les applications, l'autre pour les nœuds.
+### Le mappage du cluster
+
+Les nœuds d'un cluster Service Fabric sont placés sur une grille 2D de domaines d'erreur et de domaines de mise à niveau pour s'assurer que vos applications restent disponibles en cas de défaillances matérielles et durant les mises à niveau de l'application. Vous pouvez voir la disposition actuelle du cluster à l'aide du mappage du cluster.
+
+![Mappage de cluster de Service Fabric Explorer][sfx-cluster-map]
 
 ### Affichage des applications et des services
 
+Le cluster contient deux sous-arborescences : une pour les applications, l'autre pour les nœuds.
+
 La vue des applications vous permet de naviguer dans la hiérarchie logique de Service Fabric : applications, services, partitions et réplicas.
 
-Dans l'exemple ci-dessous, l'application **MyApp** est constituée de deux services, **MyStatefulService** et **WebSvcService**. Étant donné que **MyStatefulService** est une application avec état, elle inclut une partition avec un réplica principal et deux réplicas secondaires. En revanche, WebSvcService est une application sans état et contient une seule instance.
+Dans l'exemple ci-dessous, l'application **MyApp** est constituée de deux services, **MyStatefulService** et **WebService**. Étant donné que **MyStatefulService** est une application avec état, elle inclut une partition avec un réplica principal et deux réplicas secondaires. En revanche, WebSvcService est une application sans état et contient une seule instance.
 
 ![Affichage des applications de Service Fabric Explorer][sfx-application-tree]
 
@@ -70,9 +76,11 @@ Par exemple, pour supprimer une instance d'application, choisissez simplement l'
 
 ### Découverte du point de terminaison de Service Fabric Explorer pour un Cluster à distance
 
-Vous pouvez découvrir le point de terminaison de votre cluster à partir du portail Service Fabric. Pour atteindre Service Fabric Explorer pour un cluster donné, il vous suffit de vous connecter à ce point de terminaison sur le port 19007 :
+Pour atteindre Service Fabric Explorer pour un cluster donné, il vous suffit de diriger votre navigateur vers :
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+L'URL complète est également disponible dans le volet des éléments essentiels du cluster dans le portail Azure.
 
 ### Connexion à un cluster sécurisé
 
@@ -87,14 +95,10 @@ Si vous essayez de vous connecter à Service Fabric Explorer sur un cluster séc
 - [Déploiement d’application Service Fabrix à l’aide de PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

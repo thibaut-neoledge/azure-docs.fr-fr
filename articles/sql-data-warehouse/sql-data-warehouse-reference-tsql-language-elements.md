@@ -21,7 +21,7 @@
 ## Éléments fondamentaux
 
 - [conventions de syntaxe](https://msdn.microsoft.com/library/ms177563.aspx)
-- Règles d'affectation des noms aux objets
+- [Règles d'affectation des noms aux objets](https://msdn.microsoft.com/library/ms175874.aspx)
 - [mots-clés réservés](https://msdn.microsoft.com/library/ms189822.aspx)
 - [classements](https://msdn.microsoft.com/library/ff848763.aspx)
 - [commentaires](https://msdn.microsoft.com/library/ms181627.aspx)
@@ -38,7 +38,7 @@
 
 - [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
 - [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
-- DECLARE
+- [DECLARE @local\_variable](https://msdn.microsoft.com/library/ms188927.aspx)
 - [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 - [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 - [SET@local\_variable](https://msdn.microsoft.com/library/ms189484.aspx)
@@ -70,7 +70,6 @@
 - [IS [NOT] NULL](https://msdn.microsoft.com/library/ms188795.aspx)
 - [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 - [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
-- NULL et UNKNOWN
 - [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### Opérateurs au niveau du bit
@@ -80,8 +79,8 @@
 - [^ (Opérateur OR exclusif au niveau du bit)](https://msdn.microsoft.com/library/ms190277.aspx)
 - [~ (Opérateur NOT au niveau du bit)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (Opérateur OR EQUALS exclusif au niveau du bit)](https://msdn.microsoft.com/library/cc627413.aspx)
-- |= (Opérateur OR EQUALS au niveau du bit)
-- ? (Opérateur AND EQUALS au niveau du bit)
+- [|= (Opérateur OR EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627409.aspx)
+- [&= (Opérateur AND EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
 ## Fonctions
 
@@ -172,7 +171,7 @@
 - [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 - [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
 - [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
-- VRANK
+- [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
 - [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
 - [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)
 - [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
@@ -183,8 +182,7 @@
 - [SCHEMA\_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 - [SCHEMA\_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 - [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
-- SESSION\_ID
-- SESSION\_USER
+- [SESSION\_USER](https://msdn.microsoft.com/library/ms177587.aspx)
 - [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 - [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 - [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
@@ -219,7 +217,6 @@
 - [USER\_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 - [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 - [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-- VERSION
 - [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 - [XACT\_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
@@ -290,4 +287,4 @@ Pour plus d’informations, consultez la [vue d’ensemble de référence de SQL
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

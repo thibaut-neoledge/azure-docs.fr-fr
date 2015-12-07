@@ -95,34 +95,36 @@ Une API Web peut recevoir des jetons d’accès de tous types d’applications,
 
 ![Images de couloirs d’API Web d’application Web](../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
-Pour en savoir plus sur les codes d’autorisation, les jetons d’actualisation et la procédure détaillée de récupération des jetons d’accès, consultez cette rubrique sur le [protocole OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Pour en savoir plus sur les codes d'autorisation, les jetons d'actualisation et la procédure détaillée de récupération des jetons d’accès, consultez cette rubrique sur le [protocole OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Pour savoir comment sécuriser une API Web avec le modèle d’application v2.0 et les jetons d’accès OAuth 2.0, consultez les exemples de code d’API Web de notre [section Prise en main](active-directory-appmodel-v2-overview.md#getting-started).
 
 
 ## Applications mobiles et natives
-Les applications installées sur un appareil, comme les applications de bureau et les applications mobiles nécessitent bien souvent l’accès à des services principaux ou des API Web, qui stockent les données et exécutent différentes fonctions pour le compte d’un utilisateur. Ces applications peuvent ajouter des fonctionnalités de connexion et d’autorisation à des services principaux à l’aide du modèle v2.0 et du [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow).
+Les applications installées sur un appareil, comme les applications de bureau et les applications mobiles nécessitent bien souvent l’accès à des services principaux ou des API Web, qui stockent les données et exécutent différentes fonctions pour le compte d’un utilisateur. Ces applications peuvent ajouter des fonctionnalités de connexion et d'autorisation à des services principaux à l'aide du modèle v2.0 et du [flux de code d'autorisation OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
 Dans ce flux, l’application reçoit un code d’autorisation du point de terminaison v2.0 lors de la connexion de l’utilisateur. Cette étape correspond à l’octroi à l’application de l’autorisation d’appeler les services principaux pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger le code d’autorisation dans l’arrière-plan, contre un jeton d’accès et un jeton d’actualisation OAuth 2.0. L’application peut utiliser le jeton d’accès pour s’authentifier sur les API Web dans les requêtes HTTP et solliciter le jeton d’actualisation afin de récupérer de nouveaux jetons d’accès une fois les anciens expirés.
 
 ![Images de couloirs d’application native](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
+## Applications à page unique (Javascript)
+Plusieurs applications modernes présentent une application frontale à page unique écrite principalement en Javascript, utilisant bien souvent des infrastructures d’application à page unique comme AngularJS, Ember.js, Durantal, etc. Le modèle d'application Azure AD v2.0 prend en charge ces applications à l'aide du [flux implicite OAuth 2.0](active-directory-v2-protocols-implicit.md).
+
+Dans ce flux, l'application reçoit des jetons directement du point de terminaison d'autorisation v2.0, sans exécuter de serveur principal pour des échanges de serveurs. Cela permet d'exécuter tout traitement de logique d'authentification et de gestion de sessions entièrement dans le client javascript, sans effectuer de redirections de pages supplémentaires.
+
+Pour voir ce scénario en action, exécutez l'un des exemples de code de page unique de la section [Mise en route](active-directory-appmodel-v2-overview.md#getting-started).
+
 ## Limites actuelles de la version préliminaire
-Ces types d’applications ne sont actuellement pas pris en charge par la version préliminaire du modèle d’application v2.0, mais seront pris en charge lors de la mise à disposition générale. Les autres limites et restrictions associées à la version préliminaire publique du modèle d’application v2.0 sont décrites dans l’[article sur les limites de la version préliminaire v2.0](active-directory-v2-limitations.md).
-
-### Applications à page unique (Javascript)
-Plusieurs applications modernes présentent une application frontale à page unique écrite principalement en Javascript, utilisant bien souvent des infrastructures d’application à page unique comme AngularJS, Ember.js, Durantal, etc. Le service Azure AD disponible généralement prend en charge ces applications à l’aide du [flux implicite OAuth 2.0](active-directory-v2-protocols.md#oauth2-implicit-flow). Néanmoins, ce flux n’est pas encore disponible dans le modèle d’application v2.0. Il le sera très prochainement.
-
-Si vous vous inquiétez à propos de l’utilisation d’une application à page unique avec le modèle d’application v2.0, vous pouvez implémenter l’authentification à l’aide du [flux d’application Web](#web-apps) décrit ci-dessus. Néanmoins, cette approche n’est pas recommandée, et vous disposerez d’une documentation limitée pour ce scénario. Si vous souhaitez bénéficier d’une présentation plus détaillée du scénario d’application à page unique, nous vous invitons à consulter [l’exemple de code d’application à page unique du service Azure AD généralement disponible](active-directory-devquickstarts-angular.md).
+Ces types d’applications ne sont actuellement pas pris en charge par la version préliminaire du modèle d’application v2.0, mais seront pris en charge lors de la mise à disposition générale. Les autres limites et restrictions associées à la version préliminaire publique du modèle d'application v2.0 sont décrites dans l'[article sur les limites de la version préliminaire v2.0](active-directory-v2-limitations.md).
 
 ### Applications côté démons/serveur
-Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s’authentifier et récupérer des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), avec le [flux des informations d’identification du client OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
+Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API Web. Ces applications peuvent s'authentifier et récupérer des jetons à l'aide de l'identité de l'application (plutôt qu'avec l'identité déléguée d'un utilisateur), avec le [flux d'informations d'identification du client OAuth 2.0](active-directory-v2-protocols.md#oauth2-client-credentials-grant-flow).
 
-Ce flux n’est pas actuellement pas pris en charge par le modèle d’application v2.0. Concrètement, cela signifie que les applications peuvent récupérer des jetons uniquement après l’exécution d’un flux interactif de connexion utilisateur. Le flux des informations d’identification du client sera ajouté très prochainement. Si vous souhaitez consulter le flux des informations d’identification du client dans le service Azure AD disponible généralement, consultez l’[exemple de démon sur GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
+Ce flux n’est pas actuellement pas pris en charge par le modèle d’application v2.0. Concrètement, cela signifie que les applications peuvent récupérer des jetons uniquement après l’exécution d’un flux interactif de connexion utilisateur. Le flux des informations d’identification du client sera ajouté très prochainement. Si vous souhaitez consulter le flux d'informations d'identification du client dans le service Azure AD généralement disponible, consultez l'[exemple de démon sur GitHub](https://github.com/AzureADSamples/Daemon-DotNet).
 
 ### API Web chaînées (On-Behalf-Of)
 De nombreuses architectures incluent une API Web qui doit appeler une autre API Web en aval, toutes deux sécurisées par le modèle d’application v2.0. Ce scénario est courant dans les clients natifs qui disposent d’une API Web principale, qui à son tour appelle un service Microsoft Online, comme Office 365 ou l’API Graph.
 
-Ce scénario d’API Web chaînée peut être pris en charge à l’aide de la concession des informations d’identification du porteur OAuth 2.0 Jwt, également appelé [flux On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Toutefois, le flux On-Behalf-Of n’est pas actuellement implémenté dans la version d’évaluation du modèle d’application v2.0. Pour observer le fonctionnement de ce flux dans le service Azure AD disponible généralement, consultez l’[’exemple de code On-Behalf-Of sur GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
+Ce scénario d'API Web chaînée peut être pris en charge à l'aide de la concession d'informations d'identification du porteur OAuth 2.0 Jwt, également appelée [flux On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Toutefois, le flux On-Behalf-Of n’est pas actuellement implémenté dans la version d’évaluation du modèle d’application v2.0. Pour observer le fonctionnement de ce flux dans le service Azure AD généralement disponible, consultez l'[exemple de code On-Behalf-Of sur GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="11/10/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 # Gestion des zones DNS à l'aide de PowerShell
@@ -25,11 +25,12 @@
 
 Ce guide explique comment gérer votre zone DNS. Il vous permettra de comprendre la séquence des opérations à effectuer pour administrer votre zone DNS.
 
+
 ## Création d’une zone DNS
 
-Pour créer une zone DNS pour héberger votre domaine, utilisez l’applet de commande New-AzureDnsZone :
+Pour créer une zone DNS pour héberger votre domaine, utilisez l'applet de commande New-AzureRmDnsZone :
 
-		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+		PS C:\> $zone = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 L’opération crée une zone DNS dans Azure DNS et renvoie un objet local correspondant à cette zone. Vous pouvez éventuellement spécifier un tableau de balises Azure Resource Manager. Pour plus d’informations, consultez la section [Balises et Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -39,20 +40,23 @@ Le même nom de zone peut être réutilisé dans un autre groupe de ressources o
 
 ## Obtention d’une zone DNS
 
-Pour récupérer une zone DNS, utilisez l’applet de commande Get-AzureDnsZone :
+Pour récupérer une zone DNS, utilisez l'applet de commande Get-AzureRmDnsZone :
 
-		PS C:\> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+		PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 L’opération renvoie un objet de zone DNS correspondant à une zone existante dans Azure DNS. Cet objet contient des données sur la zone (par exemple, le nombre de jeux d’enregistrements), mais ne contient pas les jeux d’enregistrement eux-mêmes.
 
 ## Création de la liste des zones DNS
-En omettant le nom de la zone dans Get-AzureDnsZone, vous pouvez énumérer toutes les zones d’un groupe de ressources :
 
-	PS C:\> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
+En omettant le nom de la zone dans Get-AzureDnsZone, vous pouvez énumérer toutes les zones d'un groupe de ressources :
+
+	PS C:\> $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
+
 Cette opération renvoie un tableau d’objets de la zone.
 
 ## Mise à jour d’une zone DNS
-Vous pouvez apporter des modifications à une ressource de zone DNS à l’aide de Set-AzureDnsZone. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+
+Vous pouvez apporter des modifications à une ressource de zone DNS à l'aide de Set-AzureRmDnsZone. Cette commande ne met pas à jour les jeux d’enregistrements DNS dans la zone (voir [Gestion des enregistrements DNS](dns-operations-recordsets.md)). Elle est utilisée uniquement pour mettre à jour les propriétés de la ressource de zone elle-même. Elle est actuellement limitée aux balises Azure Resource Manager de la ressource de zone. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 Utilisez une des options suivantes pour mettre à jour la zone DNS :
 
@@ -60,20 +64,20 @@ Utilisez une des options suivantes pour mettre à jour la zone DNS :
  
 Spécifiez la zone à l’aide du nom de zone et du groupe de ressources.
 
-	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+	PS C:\> Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
-### Option 2
-Spécifiez la zone à l’aide d’un objet $zone à partir de Get-AzureDnsZone :
+### Option 2 :
+Spécifiez la zone à l'aide d'un objet $zone à partir de Get-AzureRmDnsZone :
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 	PS C:\> <..modify $zone.Tags here...>
-	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
+	PS C:\> Set-AzureRmDnsZone -Zone $zone [-Overwrite]
 
-Lors de l’utilisation de Set-AzureDnsZone avec un objet $zone, les vérifications « Etag » sont utilisées afin de s’assurer que les modifications simultanées ne sont pas remplacées. Vous pouvez utiliser le commutateur facultatif « -Overwrite » pour supprimer ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+Lors de l’utilisation de Set-AzureRmDnsZone avec un objet $zone, les vérifications « Etag » sont utilisées afin de s'assurer que les modifications simultanées ne sont pas remplacées. Vous pouvez utiliser le commutateur facultatif « -Overwrite » pour supprimer ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 ## Suppression d’une zone DNS
 
-Les zones DNS peuvent être supprimées à l’aide de l’applet de commande Remove-AzureDnsZone.
+Les zones DNS peuvent être supprimées à l'aide de l'applet de commande Remove-AzureRmDnsZone.
  
 Avant de supprimer une zone DNS dans Azure DNS, vous devez supprimer tous les jeux d’enregistrements, sauf les enregistrements NS et SOA à la racine de la zone qui ont été créés automatiquement en même temps que cette dernière.
 
@@ -83,23 +87,24 @@ Utilisez une des options suivantes pour supprimer une zone DNS :
 
 Spécifiez la zone à l’aide du nom de zone et du nom de groupe de ressources :
 
-	PS C:\> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+	PS C:\> Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 Cette opération comporte un commutateur « -Force » qui supprime l’invite pour confirmer que vous souhaitez supprimer la zone DNS.
-### Option 2
 
-Spécifiez la zone à l’aide d’un objet $zone à partir de Get-AzureDnsZone :
+### Option 2 :
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
+Spécifiez la zone à l'aide d'un objet $zone à partir de Get-AzureRmDnsZone :
+
+	PS C:\> $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureRmDnsZone -Zone $zone [-Force] [-Overwrite]
 
 Le commutateur « -Force » est identique à celui de l’option 1.
 
-Comme avec Set-AzureDnsZone, la spécification de la zone à l’aide d’un objet $zone permet aux vérifications « etag » de s’assurer que les modifications simultanées ne sont pas supprimées. <BR> L’indicateur facultatif « -Overwrite » supprime ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+Comme pour Set-AzureRmDnsZone, la spécification de la zone à l’aide d’un objet $zone permet aux vérifications « etag » de s'assurer que les modifications simultanées ne sont pas supprimées. <BR> L’indicateur facultatif « -Overwrite » supprime ces vérifications. Pour plus d’informations, consultez la section [Balises et Etags](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
 L’objet de zone peut également être redirigé au lieu d’être transmis en tant que paramètre :
 
-	PS C:\> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
+	PS C:\> Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureRmDnsZone [-Force] [-Overwrite]
 
 ## Étapes suivantes
 
@@ -108,4 +113,4 @@ L’objet de zone peut également être redirigé au lieu d’être transmis en 
 
 [Automatisation des opérations à l’aide du Kit de développement (SDK) .NET](dns-sdk.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

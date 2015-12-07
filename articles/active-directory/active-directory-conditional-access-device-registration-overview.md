@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Vue d’ensemble du service Azure Active Directory Device Registration
@@ -77,6 +77,10 @@ Par exemple, si vous utilisez deux suffixes UPN dans votre organisation nommés 
 
 ## Rubriques supplémentaires
 
-Le service Azure Active Directory Device Registration vous permet d’inscrire vos appareils Windows 7 et Windows 8.1 joints à un domaine. La rubrique suivante fournit des informations supplémentaires sur les conditions préalables et les étapes requises pour configurer l’inscription de l’appareil sur des appareils Windows 7 et Windows 8.1. Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine
+Le service Azure Active Directory Device Registration vous permet d’inscrire vos appareils Windows 7 et Windows 8.1 joints à un domaine. La rubrique suivante fournit des informations supplémentaires sur les conditions préalables et les étapes requises pour configurer l’inscription de l’appareil sur des appareils Windows 7 et Windows 8.1.
 
-<!---HONumber=Oct15_HO3-->
+- [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](active-directory-conditional-access-automatic-device-registration.md) 
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Configurer l’inscription automatique des appareils pour les appareils joints à un domaine Windows 8.1.](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->
