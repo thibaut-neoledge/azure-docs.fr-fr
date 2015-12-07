@@ -134,7 +134,8 @@ passport.use(new OIDCStrategy({
 Passport utilise un modèle semblable pour toutes ses stratégies (Twitter, Facebook, etc.), que respectent tous les enregistreurs de stratégie. Comme vous pouvez le voir dans la stratégie, nous transmettons une function() dont les paramètres sont un jeton et un done. La stratégie revient vers nous une fois le travail terminé. Il est alors intéressant de stocker l’utilisateur et le jeton afin de ne pas avoir à les redemander.
 
 
-> [AZURE.IMPORTANT]Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
+> [AZURE.IMPORTANT]
+Le code ci-dessus note tout utilisateur s’authentifiant sur notre serveur. C’est ce qu’on appelle l’enregistrement automatique. Dans les serveurs de production, il est préférable de faire passer toute personne qui essaie de se connecter par un processus d’inscription de votre choix. C’est généralement le modèle des applications consommateur qui vous permettent de vous inscrire via Facebook, mais vous demandent ensuite de renseigner des informations supplémentaires. S’il ne s’agissait pas d’un exemple d’application, nous aurions pu simplement extraire l’adresse de messagerie à partir de l’objet de jeton retourné, avant de les inviter à entrer des informations supplémentaires. Étant donné qu’il s’agit d’un serveur de test, nous les ajoutons simplement à la base de données en mémoire.
 
 - Ensuite, nous allons ajouter les méthodes qui assureront le suivi des utilisateurs connectés, comme requis par Passport. Cela inclut la sérialisation et la désérialisation des informations d’utilisateur :
 
@@ -252,21 +253,33 @@ Your app is now properly configured to communicate with the v2.0 endpoint using 
 
 //Itinéraires (Section 4)
 
-app.get('/', function(req, res){ res.render('index', { user: req.user }); });
+app.get('/', function(req, res){
+  res.render('index', { user: req.user });
+});
 
-app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
+app.get('/account', ensureAuthenticated, function(req, res){
+  res.render('account', { user: req.user });
+});
 
-app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Login was called in the Sample'); res.redirect('/'); });
+app.get('/login',
+  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
+  function(req, res) {
+    log.info('Login was called in the Sample');
+    res.redirect('/');
+});
 
-app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
 
 ```
 
--	Let's review these in detail:
-    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
-    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
-    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
-    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
+-	Examinons-les en détail :
+    -	L'itinéraire `/` redirige vers la vue index.ejs en transmettant l'utilisateur dans la demande (le cas échéant).
+    - L'`/account` itinéraire ***s'assure d’abord que nous sommes authentifiés*** (nous implémentons cela ci-dessous), puis transmet l'utilisateur dans la demande afin que nous puissions obtenir plus d'informations sur l'utilisateur.
+    - L'itinéraire `/login` appelle notre authentificateur azuread-openidconnect de `passport-azuread` , et en cas d'échec, il redirige l'utilisateur vers /login.
+    - Le `/logout` appelle simplement logout.ejs (et l'itinéraire) qui efface les cookies, puis renvoie l'utilisateur à index.ejs.
 
 
 - For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
@@ -275,7 +288,15 @@ app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 // Intergiciel de routage simple afin de s'assurer que l'utilisateur est authentifié. (Section 4)
 
-// Utilisez cet intergiciel de routage sur n'importe quelle ressource qui doit être protégée. Si // la requête est authentifiée (généralement via une session de connexion persistante), // la requête se poursuit. Dans le cas contraire, l'utilisateur sera redirigé vers la // page de connexion. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
+//   Utilisez cet intergiciel de routage sur n'importe quelle ressource qui doit être protégée.  Si
+//   la requête est authentifiée (généralement via une session de connexion persistante),
+//   la requête se poursuit. Dans le cas contraire, l'utilisateur sera redirigé vers la
+//   page de connexion.
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/login')
+}
+```
 
 - Enfin, nous créons le serveur proprement dit dans `app.js` :
 

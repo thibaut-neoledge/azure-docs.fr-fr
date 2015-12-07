@@ -86,7 +86,16 @@ Maintenant que l’application Microsoft Azure Active Directory est créée et
 
 1.	Ouvrez le fichier Program.cs du projet que vous avez créé, puis ajoutez les instructions using suivantes au début du fichier :
 
-    using Microsoft.Azure; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Azure.Management.Resources; using Microsoft.Azure.Management.Resources.Models; using Microsoft.Azure.Management.Storage; using Microsoft.Azure.Management.Storage.Models; using Microsoft.Azure.Management.Network; using Microsoft.Azure.Management.Network.Models; using Microsoft.Azure.Management.Compute; using Microsoft.Azure.Management.Compute.Models;
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Ajoutez la méthode suivante à la classe Program pour obtenir le jeton nécessaire à la création des informations d’identification :

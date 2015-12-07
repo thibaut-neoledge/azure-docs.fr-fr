@@ -67,11 +67,13 @@ Dans cette section, nous allons créer un projet Visual Studio à l’aide d’u
 
 Pour utiliser les opérations de stockage, vous avez besoin d’un compte Azure Storage. Pour en créer un, procédez comme suit :
 
-1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure].
 
 2. Cliquez sur l'icône **Nouveau** en haut à gauche du portail, puis cliquez sur **Données + stockage** > **Compte de stockage**. Cliquez sur le bouton **Créer**, puis attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
+
+	Une fois le compte de stockage créé, le bouton **Notifications** affiche la mention **RÉUSSITE** en vert clignotant et le panneau du compte de stockage s’ouvre pour indiquer qu’il appartient au groupe de ressources créé.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 

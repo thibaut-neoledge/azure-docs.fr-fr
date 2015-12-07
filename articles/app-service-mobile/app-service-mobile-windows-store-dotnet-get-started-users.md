@@ -18,7 +18,9 @@
 
 # Ajout de l'authentification à votre application Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Cette rubrique indique comment ajouter l'authentification basée sur le cloud à votre application mobile. Dans ce didacticiel, vous ajoutez l'authentification au projet de démarrage rapide Mobile Apps à l'aide d'un fournisseur d'identité pris en charge par Azure App Service. Une fois l'utilisateur authentifié et autorisé par votre backend d'application Mobile, la valeur de l'ID utilisateur s'affiche.
 
@@ -62,4 +64,4 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1125_2015--->
