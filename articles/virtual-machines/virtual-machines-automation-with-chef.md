@@ -204,7 +204,7 @@ Les paramètres sont clairs. Remplacez vos variables particulières et exécutez
 
 > [AZURE.NOTE]À l’aide de la ligne de commande, nous automatisons également les règles de filtrage du réseau de point de terminaison à l’aide du paramètre –tcp-endpoints. Nous avons ouvert les ports 80 et 3389 pour fournir l’accès à notre page Web et à la session RDP.
 
-Après avoir exécuté la commande, naviguez sur le portail Azure et vous verrez votre machine commencer à se configurer.
+Après avoir exécuté la commande, naviguez sur le portail Azure en version préliminaire et vous verrez votre machine commencer à se configurer.
 
 ![][13]
 
@@ -239,4 +239,4 @@ Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

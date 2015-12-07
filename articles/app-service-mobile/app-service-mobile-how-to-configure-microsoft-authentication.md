@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="10/30/2015"
+	ms.date="11/20/2015"
 	ms.author="mahender"/>
 
 # Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
@@ -25,8 +25,7 @@
 Cette rubrique montre comment configurer Azure App Service pour utiliser un compte Microsoft comme fournisseur d’authentification.
 
 
-	> [AZURE.NOTE]
-	This topic demonstrates use of the App Service Authentication / Authorization feature. This replaces the App Service gateway for most applications. Differences that apply to using the gateway are called out in notes throughout the topic.
+> [AZURE.NOTE]Cette rubrique décrit l'utilisation de la fonctionnalité Authentification/autorisation d'App Service. Elle remplace la passerelle App Service pour la plupart des applications. Les différences qui s'appliquent à l'utilisation de la passerelle sont signalées dans des notes tout au long de cette section.
 
 
 ## <a name="register"> </a>Inscrivez votre application avec un compte Microsoft
@@ -53,20 +52,20 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
 ## <a name="secrets"> </a>Ajout des informations de compte Microsoft à votre application
 
-
-	> [AZURE.NOTE]
-	If using the App Service Gateway, ignore this section and instead navigate to your gateway in the portal. Select **Settings**, **Identity**, and then **Microsoft Account**. Paste in the values you obtained earlier and click **Save**.
+> [AZURE.NOTE]Si vous utilisez la passerelle App Service, ignorez cette section et accédez à votre passerelle dans le portail. Sélectionnez **Paramètres**, **Identité**, puis **Compte Microsoft**. Collez les valeurs obtenues précédemment et cliquez sur **Enregistrer**.
 
 
 7. Revenez au [portail de gestion Azure] et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification / Autorisation**.
 
-8. Si la fonction Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **Activer**.
+8. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
 
 9. Cliquez sur **Compte Microsoft**. Collez les valeurs d’ID de l’application et App Secret que vous avez obtenues précédemment et activez éventuellement les étendues que votre application requiert. Cliquez ensuite sur **OK**.
 
     ![][1]
 	
-11. Par défaut, App Service fournit la connexion, mais ne restreint pas l’accès au contenu de votre site et des API : c’est la responsabilité de votre code d’application. Si vous souhaitez que le site soit complètement protégé par une connexion via un compte Microsoft, modifiez le choix dans le menu déroulant **Action to take when request is not authenticated (Action à entreprendre lorsque la demande n’est pas authentifiée)** et choisissez l’option **Microsoft Account (Compte Microsoft)**. Ainsi, toutes les demandes devront être authentifiées ; les demandes non authentifiées seront redirigées vers l’écran de connexion avec le compte Microsoft.
+	Par défaut, App Service fournit une authentification, mais ne restreint pas l'accès autorisé à votre contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.
+
+17. (Facultatif) Pour restreindre l'accès à votre site aux seuls utilisateurs authentifiés par votre compte Microsoft, définissez **Action à exécuter lorsque la demande n'est pas authentifiée** sur **Compte Microsoft**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers le compte Micrososft pour être authentifiées.
 
 11. Cliquez sur **Save**.
 
@@ -91,4 +90,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [portail de gestion Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

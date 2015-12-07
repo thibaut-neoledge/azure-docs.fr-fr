@@ -33,7 +33,7 @@ Pour intégrer votre application dans Azure AD, suivez les [instructions pour d�
 
 * Fournissez des informations d'identification pour votre application pour un locataire ou un compte de test pouvant être utilisées par l'équipe Azure AD pour tester l'intégration.  
 
-* Fournissez des instructions sur la manière dont l'équipe Azure AD peut se connecter et connecter une instance d'Azure AD à votre application à l'aide de l'[infrastructure de consentement d'Azure AD](https://azure.microsoft.com/fr-FR/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
+* Fournissez des instructions sur la manière dont l'équipe Azure AD peut se connecter et connecter une instance d'Azure AD à votre application à l'aide de l'[infrastructure de consentement d'Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/#overview-of-the-consent-framework).
 
 * Fournissez toute instruction supplémentaire nécessaire pour permettre à l'équipe Azure AD de tester l'authentification unique avec votre application.
 
@@ -65,11 +65,11 @@ Pour intégrer votre application dans Azure AD, suivez les [instructions pour d�
 
 ##Intégration de SAML
 
-Toute application prenant en charge SAML 2.0 peut être intégrée directement dans un locataire Azure AD à l'aide de [ces instructions pour ajouter une application personnalisée](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Une fois que vous avez testé que l'intégration de votre application fonctionne avec Azure AD, envoyez les informations suivantes à l'adresse <waadpartners@microsoft.com>.
+Toute application prenant en charge SAML 2.0 peut être intégrée directement dans un locataire Azure AD à l'aide de [ces instructions pour ajouter une application personnalisée](active-directory-saas-custom-apps.md). Une fois que vous avez testé que l'intégration de votre application fonctionne avec Azure AD, envoyez les informations suivantes à l'adresse <waadpartners@microsoft.com>.
 
 * Fournissez des informations d'identification pour votre application pour un locataire ou un compte de test pouvant être utilisées par l'équipe Azure AD pour tester l'intégration.  
 
-* Fournissez l'URL de connexion SAML, l'URL de l'émetteur (ID d'entité) et l'URL de réponse (Assertion Consumer Service) pour votre application, comme indiqué [ici](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx). Si vous fournissez généralement ces valeurs dans un fichier de métadonnées SAML, envoyez également ce dernier.
+* Fournissez l'URL de connexion SAML, l'URL de l'émetteur (ID d'entité) et l'URL de réponse (Assertion Consumer Service) pour votre application, comme indiqué [ici](active-directory-saas-custom-apps.md). Si vous fournissez généralement ces valeurs dans un fichier de métadonnées SAML, envoyez également ce dernier.
 
 * Fournissez une brève description de la configuration d'Azure AD comme fournisseur d'identité dans votre application à l'aide de SAML 2.0. Si votre application prend en charge la configuration d'Azure AD comme fournisseur d'identité via un portail d'administration en libre-service, assurez-vous que les informations d'identification fournies vous le permettent.
 
@@ -89,7 +89,7 @@ Toute application prenant en charge SAML 2.0 peut être intégrée directement d
 > 
 > URL d’inscription d’application à laquelle les clients accèdent pour s’inscrire et/ou acheter l’application :
 > 
-> Sélectionnez jusqu'à trois catégories à répertorier pour votre application sous (pour connaître les catégories disponibles, consultez le site [Azure Active Directory Marketplace](https://azure.microsoft.com/fr-FR/marketplace/active-directory/)) :
+> Sélectionnez jusqu'à trois catégories à répertorier pour votre application sous (pour connaître les catégories disponibles, consultez le site [Marketplace Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/)) :
 > 
 > Attacher une petite icône d’application (fichier PNG, 45 px par 45 px, couleur d’arrière-plan unie) :
 > 
@@ -97,4 +97,4 @@ Toute application prenant en charge SAML 2.0 peut être intégrée directement d
 > 
 > Attacher un grand logo d’application (fichier PNG, 150 px par 122 px, couleur d’arrière-plan unie) :
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

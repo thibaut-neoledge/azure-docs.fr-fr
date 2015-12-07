@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
+	ms.date="11/13/2015"
 	ms.author="huguesv"/>
 
 
@@ -139,7 +139,7 @@ Modifiez la définition de `DATABASES` pour utiliser les valeurs ci-dessus.
 
 1.  Dans l’Explorateur de solutions, sous **Environnements Python**, cliquez avec le bouton droit sur l’environnement virtuel et sélectionnez **Installer le package Python**.
 
-1.  Installez le package `pyodbc` en utilisant **easy\_install**.
+1.  Installez le package `pyodbc` en utilisant **pip**.
 
   	![Boîte de dialogue Installer le package Python](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -220,4 +220,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Django
 [Documentation Django]: https://www.djangoproject.com/
 [Base de données SQL]: /documentation/services/sql-database/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/23/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Vue d’ensemble des performances et de la mise à l’échelle
-En plaçant votre solution Data Warehouse dans le cloud, vous éliminez les problématiques matérielles de niveau inférieur. L’époque où vous deviez identifier les types de processeurs, le volume de mémoire et le type de stockage nécessaires à la satisfaction des besoins en performances de votre entrepôt de données est désormais révolue. Aujourd’hui, SQL Data Warehouse vous pose cette question : À quelle vitesse souhaitez-vous traiter vos données ?
+En plaçant votre solution Data Warehouse dans le cloud, vous éliminez les problématiques matérielles de niveau inférieur. L’époque où vous deviez identifier les types de processeurs, le volume de mémoire et le type de stockage nécessaires à la satisfaction des besoins en performances de votre entrepôt de données est désormais révolue. Aujourd'hui, SQL Data Warehouse vous pose cette question : À quelle vitesse souhaitez-vous analyser vos données ?
 
 SQL Data Warehouse est une plateforme de base de données distribuée, de type cloud qui est conçue pour offrir de hauts niveaux de performances à l’échelle dans un contexte où vous êtes pleinement maître des ressources utilisées pour la résolution de vos requêtes. En ajustant simplement le nombre d’unités allouées à votre entrepôt de données, vous pouvez mettre en toute flexibilité à l’échelle la taille de vos ressources en quelques secondes. En vous dotant de SQL Data Warehouse, plateforme distribuée et évolutive, vous disposez d’un entrepôt de données qui traite efficacement d’importants volumes de données et conservez toute latitude sur le coût de votre solution.
 
@@ -77,4 +77,4 @@ Consultez la [vue d’ensemble sur le développement][] afin de bénéficier de 
 
 <!--Other web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

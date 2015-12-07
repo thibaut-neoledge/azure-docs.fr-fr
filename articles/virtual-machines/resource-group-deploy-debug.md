@@ -136,7 +136,7 @@ La commande **azure group log show** risque de renvoyer un grand nombre d'inform
       },
       "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name
           mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
           "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
       },
@@ -259,7 +259,7 @@ Pour l’interface de ligne de commande Azure, vous pouvez utiliser **azure loca
     }
 
 ### API REST
-        
+
 Pour l'API REST, consultez [Obtention d'informations sur un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Création de noms de ressources uniques
@@ -315,7 +315,7 @@ Concrètement, vous pouvez par exemple vérifier les régions pour lesquelles vo
 
 ## Vérification de l’inscription du fournisseur de ressources
 
-Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement peut être activé pour utiliser un fournisseur particulier. Si vous êtes configuré pour utiliser un fournisseur, il doit également être enregistré pour être utilisé. La plupart des fournisseurs sont enregistrés automatiquement par le portail Azure ou l’interface de ligne de commande que vous utilisez, mais pas tous.
+Les ressources sont gérées par les fournisseurs de ressources, et un compte ou un abonnement peut être activé pour utiliser un fournisseur particulier. Si vous êtes configuré pour utiliser un fournisseur, il doit également être enregistré pour être utilisé. La plupart des fournisseurs sont enregistrés automatiquement par le portail Azure en version préliminaire ou l'interface de ligne de commande que vous utilisez, mais pas tous.
 
 ### PowerShell
 
@@ -434,4 +434,4 @@ Pour maîtriser la création de modèles, lisez le document [Création de modèl
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

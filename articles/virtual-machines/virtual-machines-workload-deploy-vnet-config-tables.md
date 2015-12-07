@@ -36,7 +36,7 @@ La procédure suivante référencie les informations contenues dans ces tables p
 
 ## Création d’un nouveau réseau virtuel intersite Azure avec vos paramètres de configuration de table
 
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com/).
+1. Connectez-vous au [portail Azure].
 2. Dans la barre des tâches, cliquez sur **Nouveau > Services réseau > Réseau virtuel > Création personnalisée**.
 3. Dans la page **Détails du réseau virtuel** :
 	- Entrez le nom de l'élément 1 dans la table V sous **Nom**.
@@ -69,4 +69,4 @@ La procédure suivante référencie les informations contenues dans ces tables p
 
 [Configurer une connexion de site à site intersite sur un réseau virtuel Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

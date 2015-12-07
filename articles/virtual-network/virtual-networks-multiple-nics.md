@@ -64,7 +64,7 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |D11|2|
 |D12|4|
 |D13|8|
-|D14|16|
+|D14|8|
 |DS1|1|
 |DS2|2|
 |DS3|4|
@@ -81,12 +81,12 @@ Actuellement, les exigences et contraintes liées à la fonctionnalité Multi-NI
 |D11\_v2|2|
 |D12\_v2|4|
 |D13\_v2|8|
-|D14\_v2|16|
+|D14\_v2|8|
 |G1|1|
 |G2|2|
 |G3|4|
 |G4|8|
-|G5|16|
+|G5|8|
 |Tous les autres tailles|1|
 
 ## Groupes de sécurité réseau (NSG)
@@ -265,4 +265,4 @@ Pour les machines virtuelles Linux, dans la mesure où le comportement par défa
 - Déploiement de [machines virtuelles MultiNIC dans un scénario d'application à 2 couches pour un déploiement avec gestionnaire de ressources](virtual-network-deploy-multinic-arm-template).
 - Déploiement de [machines virtuelles MultiNIC dans un scénario d'application à 2 couches pour un déploiement classique](virtual-network-deploy-multinic-classic-ps).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

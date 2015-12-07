@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Authentification des identités sans mot de passe avec Microsoft Passport
@@ -29,6 +29,7 @@ La clé privée est accessible uniquement par le biais d’un mouvement utilisat
 La clé publique est inscrite auprès d’Azure Active Directory et de Windows Server Active Directory (en local). Les fournisseurs d’identité valident l’utilisateur en mappant sa clé publique avec la clé privée et fournissent des informations de connexion via un mécanisme de notification tel que le mot de passe à usage unique ou Phonefactor.
 
 ## Pourquoi les entreprises doivent-elles adopter Microsoft Passport ?
+
 En activant Microsoft Passport, les entreprises peuvent sécuriser davantage leurs ressources comme suit :
 
 * en configurant Microsoft Passport avec une option de matériel préféré, ce qui signifie que les clés sont générées sur TPM 1.2 ou TPM 2.0 lorsque ces derniers sont disponibles ou par logiciel lorsque TPM n’est pas disponible ; 
@@ -52,7 +53,7 @@ Le schéma ci-dessus illustre la paire de clés publique-privée et la validatio
 
 1. L’utilisateur prouve son identité via plusieurs méthodes de vérification intégrées (mouvements, cartes à puce physiques, authentification multifacteur) et envoie ces informations au fournisseur d’identité comme Azure Active Directory ou Active Directory.
 
-2.  Ensuite, l’appareil crée et atteste la clé, prend la partie publique de cette clé, l’associe aux instructions du poste de travail, se connecte et l’envoie au fournisseur d’identité pour que celui-ci inscrive cette clé.
+2. Ensuite, l'appareil crée et atteste la clé, prend la partie publique de cette clé, l'associe aux instructions du poste de travail, se connecte et l'envoie au fournisseur d'identité pour que celui-ci inscrive cette clé.
 
 3. Dès que la partie publique de la clé est inscrite dans le fournisseur d’identité, celui-ci demande à l’appareil de se connecter avec la partie privée de la clé. Le fournisseur d’identité valide et émet ensuite le jeton d’authentification qui permet à l’utilisateur d’accéder aux ressources protégées.
 
@@ -71,13 +72,13 @@ Au niveau de l’utilisateur
 
 Pour obtenir des instructions de déploiement détaillées, consultez [Activer Microsoft Passport for Work dans l’organisation](active-directory-azureadjoin-passport-deployment.md).
 
+
 ## Informations supplémentaires
 
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Activer Microsoft Passport for Work dans l’organisation](active-directory-azureadjoin-passport-deployment.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

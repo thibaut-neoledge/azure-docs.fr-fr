@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Si vous recherchez un modèle de déploiement classique Azure, accédez à la page [Prise en main de la création d’un équilibreur de charge accessible sur Internet à l’aide d’un déploiement classique](load-balancer-get-started-internet-classic-portal.md)
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]Cet article traite du modèle de déploiement de Resource Manager. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l'aide du déploiement classique](load-balancer-get-started-internet-classic-portal.md).
 
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
@@ -39,9 +39,9 @@ Vous devez créer et configurer les objets suivants pour déployer un équilibre
 
 - Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibreur de charge.
 
-- Règles d’équilibrage de la charge : contient des règles de mappage d’un port public situé sur l’équilibreur de charge sur les ports situés sur le pool d’adresses principales.
+- Règles d’équilibrage de la charge : contient des règles de mappage d’un port public situé sur l’équilibreur de charge pour le pool d’adresses principales.
 
-- Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibreur de charge sur un port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
+- Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibreur de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 
 - Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
@@ -328,4 +328,4 @@ Où **nrprg** correspond au groupe de ressources et **nrplb** au nom de l’équ
 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

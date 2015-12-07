@@ -74,11 +74,10 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 * [Envoyer des travaux à un cluster HPC Pack dans Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Ajouter des nœuds de rôle de travail à un cluster HPC Pack
 
 
-* [Intégration à Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Intégration à des instances de travail Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Didacticiel : configurer un cluster hybride avec HPC Pack dans Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ Tirez parti de Microsoft HPC Pack et des services de calcul et d’infrastructur
 
 * [Agrandir et réduire les ressources de calcul Azure dans un cluster HPC Pack](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Bénéficiez d'une intégration avec Azure Batch 
+
+* [Intégration à Azure Batch avec HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Créer des clusters RDMA pour des charges de travail MPI
 
 * [Configuration d’un cluster Windows RDMA avec HPC Pack pour exécuter des applications MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [Didacticiel : Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

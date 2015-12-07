@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Meilleures pratiques pour l’utilisation de l’authentification multifacteur Azure avec des comptes Azure AD
@@ -121,4 +121,4 @@ Bien que cet article mette en évidence quelques-unes des meilleures pratiques d
 - [Configuration de l’expérience Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Forum Aux Questions d’Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

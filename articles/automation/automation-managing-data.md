@@ -3,7 +3,7 @@
    description="Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation. Il inclut actuellement Conservation des données, Sauvegarde Azure Automation et Récupération d'urgence dans Azure Automation."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -35,14 +35,14 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 |Runbooks|Supprimés définitivement 90 jours après suppression de la ressource par un utilisateur ou 90 jours après la suppression par un utilisateur du compte qui contient la ressource.|
 |Travaux|Effacés et supprimés définitivement 90 jours après la dernière modification. Cela peut avoir lieu après la fin du travail, son arrêt ou sa suspension.|
 |Configurations de nœud/fichiers MOF| L’ancienne configuration de nœud est supprimée définitivement 90 jours après la génération d'une nouvelle configuration de nœud.|
-|Nœuds DSC| Supprimés définitivement 90 jours après l’annulation de l’enregistrement du nœud dans le compte Automation à l'aide du portail Azure ou de l’applet de commande Windows PowerShell [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx). Les nœuds sont aussi supprimés définitivement 90 jours après la suppression du nœud par un utilisateur. |
-|Rapports sur le nœud| Supprimés définitivement 90 jours après la création d’un nouveau rapport pour le nœud en question.|
+|Nœuds DSC| Supprimés définitivement 90 jours après l’annulation de l’enregistrement du nœud dans le compte Automation à l'aide du portail Azure ou de l’applet de commande Windows PowerShell [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx). Les nœuds sont également supprimés définitivement 90 jours après la suppression du compte comprenant le nœud par un utilisateur. |
+|Rapports sur le nœud| Supprimés définitivement 90 jours après la création d'un nouveau rapport pour le nœud en question.|
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
 
 ## Sauvegarde d’Azure Automation
 
-Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, y compris les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments. Il est impossible de récupérer les objets une fois que le compte a été supprimé. Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer.
+Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé. Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer.
 
 ### Runbooks
 
@@ -65,7 +65,7 @@ Vous ne pouvez pas exporter de certificats depuis Azure Automation. Vous devez 
 
 ### Configurations DSC
 
-Vous pouvez exporter vos configurations vers vos fichiers de script en utilisant soit le portail de gestion Azure, soit l’applet de commande [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) dans Windows PowerShell. Ces configurations peuvent être importées et utilisées dans un autre compte Automation.
+Vous pouvez exporter vos configurations vers vos fichiers de script en utilisant soit le portail de gestion Azure, soit l'applet de commande [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) dans Windows PowerShell. Ces configurations peuvent être importées et utilisées dans un autre compte Automation.
 
 
 ##Géo-réplication dans Azure Automation
@@ -84,4 +84,4 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

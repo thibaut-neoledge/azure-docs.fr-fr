@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Connexion et déconnexion de l’application web avec Azure AD
@@ -40,7 +40,7 @@ Le code associé à ce didacticiel est stocké [sur GitHub](https://github.com/A
 
 L'application terminée est également fournie à la fin de ce didacticiel.
 
-## 1. Enregistrez une application
+## 1\. Enregistrez une application
 - Connectez-vous au portail de gestion Azure.
 - Cliquez sur **Active Directory** dans la partie de gauche.
 - Sélectionnez le client dans lequel vous souhaitez inscrire l’application.
@@ -51,7 +51,7 @@ L'application terminée est également fournie à la fin de ce didacticiel.
     - Un **URI ID d’application** est un identificateur unique pour votre application. L’usage est d’utiliser `https://<tenant-domain>/<app-name>`, par exemple `https://contoso.onmicrosoft.com/my-first-aad-app`.
 - Une fois l’inscription terminée, AAD affecte un identificateur client unique à votre application. Copiez cette valeur à partir de l’onglet Configurer, car vous en aurez besoin dans les sections suivantes.
 
-## 2. Ajoutez des éléments requis à votre répertoire
+## 2\. Ajoutez des éléments requis à votre répertoire
 
 Dans la ligne de commande, placez les répertoires dans votre dossier racine s’ils n’y sont pas encore et exécutez les commandes suivantes :
 
@@ -70,7 +70,7 @@ Dans la ligne de commande, placez les répertoires dans votre dossier racine s�
 
 Cela installera les bibliothèques dont dépend passport-azure-ad.
 
-## 3. Configurez votre application pour utiliser la stratégie passport-nod-js
+## 3\. Configurez votre application pour utiliser la stratégie passport-nod-js
 Ici, nous allons configurer l’intergiciel Express pour utiliser le protocole d’authentification OpenID Connect. Passport sera utilisé notamment pour émettre des demandes de connexion et de déconnexion, gérer la session utilisateur et obtenir des informations concernant l’utilisateur.
 
 -	Pour commencer, ouvrez le fichier `config.js` dans la racine du projet, puis entrez les valeurs de configuration de votre application dans la section `exports.creds`.
@@ -298,7 +298,7 @@ function ensureAuthenticated(req, res, next) {
 }
 ```
 
-- Enfin, nous allons créer le serveur lui-même dans `app.js` :
+- Enfin, nous créons le serveur proprement dit dans `app.js` :
 
 ```JavaScript
 
@@ -307,7 +307,7 @@ app.listen(3000);
 ```
 
 
-## 5. Créer des vues et des itinéraires dans Express pour afficher notre utilisateur dans le site Web
+## 5\. Créer des vues et des itinéraires dans Express pour afficher notre utilisateur dans le site Web
 
 Notre `app.js` est complet. À présent, il suffit d'ajouter les itinéraires et les vues qui affichent les informations que nous obtenons de l'utilisateur et traitent les itinéraires `/logout` et `/login` que nous avons créés.
 
@@ -348,7 +348,6 @@ Ces itinéraires simples transmettent simplement la demande à nos vues, en incl
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Créez la vue `/views/account.ejs` sous le répertoire racine, afin d’afficher les informations supplémentaires que `passport-azuread` a placées dans la demande de l’utilisateur.
@@ -368,7 +367,6 @@ Ces itinéraires simples transmettent simplement la demande à nos vues, en incl
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Enfin, améliorez-en l’apparence à l’aide d’une mise en page. Créez l’affichage « /views/layout.ejs » sous le répertoire racine
@@ -416,4 +414,4 @@ Vous pouvez maintenant aborder des rubriques plus sophistiquées. Par exemple :
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

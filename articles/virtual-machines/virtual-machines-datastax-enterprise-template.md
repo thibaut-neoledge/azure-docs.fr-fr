@@ -5,8 +5,9 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
-<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
 <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
@@ -250,7 +251,7 @@ Lors du déploiement, n’oubliez pas qu’un nouveau compte Azure Storage doit 
 
 Pendant et après le déploiement, vous pouvez vérifier toutes les requêtes effectuées durant la configuration et notamment toutes les erreurs survenues.
 
-Pour ce faire, accédez au [Portail Azure](https://portal.azure.com), puis procédez comme suit :
+Pour ce faire, accédez au [portail Azure en version préliminaire](https://portal.azure.com), puis procédez comme suit :
 
 - Dans la barre de navigation de gauche, cliquez sur « Parcourir », faites défiler vers le bas, puis cliquez sur « Groupes de ressources ».
 - Une fois que vous avez cliqué sur le groupe de ressources que vous venez de créer, le panneau « Groupe de ressources » s’affiche.
@@ -502,4 +503,4 @@ Cette approche suggère de :
 
 Pour plus d’informations, consultez [Langage du modèle Azure Resource Manager](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

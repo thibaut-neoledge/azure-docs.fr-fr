@@ -55,7 +55,7 @@ Un réseau est créé et un sous-réseau est créé à l'intérieur de ce dernie
 
 La première machine virtuelle Ubuntu 13.10 est créée à l’aide d’une image de la galerie Ubuntu prise en charge, appelée `hadb01`. Un service cloud est créé au cours du processus. Il se nomme hadb. Nous l'avons appelé ainsi pour illustrer la nature partagée et l'équilibre de charge du service lorsque nous lui ajouterons des ressources supplémentaires. La création de `hadb01` est sans incident. Elle est réalisée à l’aide du portail. Un point de terminaison est automatiquement créé pour SSH et notre réseau créé est sélectionné. Nous choisissons également de créer un groupe à haute disponibilité pour les machines virtuelles.
 
-Une fois la première machine virtuelle créée (techniquement, lors de la création du service cloud), nous créons la deuxième machine virtuelle, `hadb02`. Pour celle-ci, nous utilisons également la machine virtuelle Ubuntu 13.10 de la galerie à l’aide du portail, mais nous choisissons d’utiliser un service cloud existant, `hadb.cloudapp.net`, au lieu d’en créer un. Le réseau et le groupe à haute disponibilité doivent être automatiquement sélectionnés. Un point de terminaison SSH est également créé.
+Une fois la première machine virtuelle créée (techniquement, lors de la création du service cloud), nous créons la deuxième machine virtuelle, `hadb02`. Pour celle-ci, nous utilisons également la machine virtuelle Ubuntu 13.10 de la galerie à l'aide du portail, mais nous choisissons d'utiliser un service cloud existant, `hadb.cloudapp.net`, au lieu d'en créer un. Le réseau et le groupe à haute disponibilité doivent être automatiquement sélectionnés. Un point de terminaison SSH est également créé.
 
 Une fois les deux machines virtuelles créées, nous notons le port SSH pour `hadb01` (TCP 22) et `hadb02` (attribués automatiquement par Azure).
 
@@ -153,7 +153,7 @@ Vous devez également activer la mise en réseau pour MySQL si vous souhaitez ef
 
 ### Création du jeu d'équilibrage de la charge MySQL
 
-Retournons au portail Azure et accédons à la machine virtuelle `hadb01`, puis aux points de terminaison. Créons un point de terminaison, puis choisissons MySQL (TCP 3306) dans la liste déroulante et cochons la case *Créer un jeu d'équilibrage de la charge*. Nous appellerons notre point de terminaison à charge équilibrée `lb-mysql`. Laissez la plupart des options telles quelles, hormis le délai, qu'il faut réduire à 5 (secondes, minimum).
+Retournons au portail et accédons à la machine virtuelle `hadb01`, puis aux points de terminaison. Créons un point de terminaison, puis choisissons MySQL (TCP 3306) dans la liste déroulante et cochons la case *Créer un jeu d'équilibrage de la charge*. Nous appellerons notre point de terminaison à charge équilibrée `lb-mysql`. Laissez la plupart des options telles quelles, hormis le délai, qu'il faut réduire à 5 (secondes, minimum).
 
 Une fois le point de terminaison créé, accédez à `hadb02`, Points de terminaison, et créez un nouveau point de terminaison. Cependant, choisissez `lb-mysql`, puis sélectionnez MySQL dans le menu déroulant. Vous pouvez aussi utiliser l'interface de ligne de commande Azure pour cette étape.
 
@@ -340,4 +340,4 @@ Les limites suivantes s'appliquent :
 - Un réglage de MySQL est nécessaire pour veiller à ce que l'écriture soit effectuée à un rythme raisonnable et que les caches soient vidés le plus souvent possible afin de limiter la perte de mémoire.
 - Les performances d'écriture dépendront de l'interconnexion des machines virtuelles dans le commutateur virtuel, car il s'agit du mécanisme utilisé par DRBD pour répliquer le périphérique.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

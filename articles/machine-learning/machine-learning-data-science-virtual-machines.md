@@ -3,7 +3,7 @@
 	description="Configurer une machine virtuelle pour la science des données"
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/23/2015"
 	ms.author="mohabib;xibingao;bradsev" />
 
 # Machine virtuelle pour la science des données dans Azure
 
-Ce menu pointe vers des rubriques qui décrivent comment configurer les différents environnements de science de données utilisés par le processus d’analyse Cortana (CAP).
+Ce menu pointe vers des rubriques qui décrivent comment configurer les différents environnements de science de données utilisés par le processus d'analyse Cortana (CAP).
 
 [AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
@@ -34,10 +34,10 @@ Les instructions fournies décrivent la procédure de configuration d’une mach
 
 * L’article [Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées](machine-learning-data-science-setup-sql-server-virtual-machine.md) indique comment approvisionner une machine virtuelle Azure SQL Server avec Notebook IPython et d’autres outils utilisés pour des projets de science des données permettant de recourir à une base de données SQL pour le stockage des données.
 
-Une fois approvisionnées et configurées, ces machines virtuelles sont utilisables sous forme de serveurs Notebook IPython pour l’exploration et le traitement des données, ainsi que pour l’exécution d’autres tâches avec Azure Machine Learning et le processus de science des données dans le cloud. Les étapes suivantes du processus de science des données sont présentées dans le [Guide d’apprentissage : traitement des données avancé dans Microsoft Azure](machine-learning-data-science-advanced-data-processing.md) et peuvent inclure des étapes de déplacement de données dans SQL Server ou HDInsight, de traitement et d’échantillonnage des données en vue d’en extraire de l’information pertinente avec Azure Machine Learning.
+Une fois approvisionnées et configurées, ces machines virtuelles sont utilisables sous forme de serveurs Notebook IPython pour l'exploration et le traitement des données, ainsi que pour l'exécution d'autres tâches avec Azure Machine Learning et le processus d'analyse Cortana (CAP). Les étapes suivantes du processus de science des données sont présentées dans le [parcours d'apprentissage CAP](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) et peuvent inclure des étapes de déplacement de données dans SQL Server ou HDInsight, de traitement et d'échantillonnage des données en vue d'en extraire de l'information pertinente avec Azure Machine Learning.
 
 
 > [AZURE.NOTE]Le service Azure Virtual Machines est facturé au tarif du **paiement à l’utilisation**. Pour vous assurer que vous n’êtes pas facturé lorsque vous n’utilisez pas votre machine virtuelle, elle doit être définie sur l’état **Arrêté (désalloué)** à partir du [Portail de gestion Azure](http://manage.windowsazure.com/). Pour obtenir des instructions détaillées sur la libération de votre machine virtuelle, consultez la page [Arrêter et libérer une machine virtuelle inutilisée](machine-learning-data-science-setup-virtual-machine.md#shutdown)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

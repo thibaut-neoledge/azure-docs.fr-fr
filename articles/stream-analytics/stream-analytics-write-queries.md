@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Écriture de requêtes | Microsoft Azure" 
-	description="Segment du parcours d'apprentissage Écriture de requêtes."
+	description="Écriture de requêtes dans Stream Analytics | segment du parcours d'apprentissage."
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Écriture de requêtes
+# Écriture de requêtes dans Stream Analytics
 
 La logique de traitement de flux dans Azure Stream Analytics est implémentée en tant que « requête permanente » qui est définie avant que la tâche ne démarre et exécutée sur les données qui atteignent la tâche. La transformation des données est exprimée dans un langage de requête semblable à SQL, qui est principalement un sous-ensemble de T-SQL avec certaines extensions de langage ajoutées, comme [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) qui est utilisé pour exprimer la sémantique temporelle.
 
@@ -70,4 +70,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 - [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Références sur l'API REST de gestion d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

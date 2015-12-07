@@ -101,8 +101,36 @@ Le problème, c’est que le mode DSRM n’est pas présent dans Azure. Pour res
 
 En savoir plus sur le [problème de restauration USN](https://technet.microsoft.com/library/dd363553) et les stratégies suggérées pour le corriger.
 
+## Restauration de machines virtuelles avec des configurations de réseau spéciales
+Azure Backup prend en charge la sauvegarde pour les configurations de réseau spéciales de machines virtuelles.
+
+- Machines virtuelles sous un équilibreur de charge (interne et externe)
+- Machines virtuelles avec plusieurs adresses IP réservées
+- Machines virtuelles avec plusieurs cartes d'interface réseau
+
+Les considérations suivantes doivent être prises en compte lors de la restauration de ces configurations.
+
+>[AZURE.TIP]Utilisez le flux de restauration basé sur PowerShell pour recréer la configuration de réseau spéciale de machines virtuelles restaurées.
+
+### Restauration à partir de l'interface utilisateur :
+Lors de la restauration à partir de l'interface utilisateur, **choisissez toujours un service cloud**. Veuillez noter que, le portail n'utilisant que des paramètres obligatoires pendant le processus de restauration, les machines virtuelles restaurées à l'aide de l'interface utilisateur perdent la configuration de réseau spéciale dont ils disposent. En d'autres termes, les machines virtuelles restaurées seront normales sans configuration d'un équilibreur de charge ou de plusieurs cartes réseau ou plusieurs adresses IP réservées.
+
+### Restauration de PowerShell :
+PowerShell ne peut restaurer que des disques de machine virtuelle à partir d'une sauvegarde et non créer la machine virtuelle. Cela est utile lors de la restauration de machines virtuelles qui nécessitent les configurations de réseau spéciales mentionnées ci-dessus.
+
+Pour pouvoir recréer entièrement des disques de machine virtuelle restaurés, procédez comme suit :
+
+1. Restaurer les disques à partir de l'archivage de sauvegarde à l'aide d'[Azure Backup PowerShell](https://azure.microsoft.com/en-in/documentation/articles/backup-azure-vms-automation/#restore-an-azure-vm)
+
+2. Créer la configuration de machine virtuelle requise pour l'équilibreur de charge/plusieurs cartes réseau/plusieurs adresse IP réservée à l'aide des applets de commande PowerShell et utilisez-la pour créer la machine virtuelle avec la configuration souhaitée.
+	- Créer une machine virtuelle dans le service cloud avec un [équilibreur de charge interne ](https://azure.microsoft.com/fr-FR/documentation/articles/load-balancer-internal-getstarted/)
+	- Créer une machine virtuelle pour vous connecter à l'[équilibreur de charge accessible sur Internet](https://azure.microsoft.com/fr-FR/documentation/articles/load-balancer-internet-getstarted)
+	- Créer une machine virtuelle avec [plusieurs cartes d’interface réseau](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-multiple-nics)
+	- Créer des machines virtuelles avec [plusieurs adresses IP réservées](https://azure.microsoft.com/en-in/documentation/articles/virtual-networks-reserved-public-ip/)
+  
+
 ## Étapes suivantes
 - [Résolution des erreurs](backup-azure-vms-troubleshoot.md#restore)
 - [Gestion des machines virtuelles](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

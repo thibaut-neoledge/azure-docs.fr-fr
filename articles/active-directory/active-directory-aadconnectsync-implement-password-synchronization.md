@@ -129,10 +129,12 @@ La colonne d'état peut avoir les valeurs suivantes et également indiquer le pr
 
 | Statut | Description |
 | ---- | ----- |
-| Succès | Le mot de passe a été correctement synchronisé |
-| SourceConnectorNotPresent | Aucun objet trouvé dans l'espace de connecteur Active Directory local |
-| NoTargetConnection | Aucun objet dans le métaverse ou dans l'espace de connecteur Azure AD |
-| TargetNotExportedToDirectory | L'objet dans l'espace de connecteur Azure AD n'a pas encore été exporté |
+| Succès | Le mot de passe a été correctement synchronisé. |
+| FilteredByTarget | Le mot de passe est défini sur **L'utilisateur doit changer de mot de passe à la prochaine connexion**. Mot de passe n'a pas été synchronisé. |
+| NoTargetConnection | Aucun objet dans le métaverse ou dans l'espace de connecteur Azure AD. |
+| SourceConnectorNotPresent | Aucun objet trouvé dans l'espace de connecteur Active Directory local. |
+| TargetNotExportedToDirectory | L'objet dans l'espace de connecteur Azure AD n'a pas encore été exporté. |
+| MigratedCheckDetailsForMoreInfo | L'entrée de journal a été créée avant la version 1.0.9125.0 et est affichée dans son état hérité. |
 
 
 ### Déclencher une synchronisation complète de tous les mots de passe
@@ -158,4 +160,4 @@ Il ne doit pas être nécessaire de forcer une synchronisation complète de tous
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
 * [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

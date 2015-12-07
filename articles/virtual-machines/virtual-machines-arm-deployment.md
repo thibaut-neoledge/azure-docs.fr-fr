@@ -48,7 +48,7 @@ Pour pouvoir utiliser Microsoft Azure AD afin d’authentifier les demandes po
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Prenez note de l’identificateur d’application fourni une fois l’application créée. Vous en aurez besoin pour l’étape suivante. Vous trouverez également l’identificateur d’application dans le champ d’ID client de la section Active Directory du portail.
+	>[AZURE.NOTE]Prenez note de l’identificateur d’application fourni une fois l’application créée. Vous en aurez besoin pour l’étape suivante. Vous trouverez également l'identificateur d'application dans le champ d'ID client de la section Active Directory du portail Azure en version préliminaire.
 
 3. Remplacez {application-id} par l’identificateur que vous venez d’enregistrer, puis créez le principal du service pour l’application :
 
@@ -349,7 +349,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 2.	Ajoutez le code suivant à la méthode Main pour appeler la méthode que vous venez d’ajouter :
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Étape 5 : Ajouter du code pour supprimer les ressources
 
@@ -384,4 +384,4 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
 
 	![Création d'une application Active Directory](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure | Microsoft Azure"
+   pageTitle="Créer un nom de domaine complet pour une machine virtuelle dans le portail Azure en version préliminaire | Microsoft Azure"
    description="Apprenez à créer un nom de domaine complet pour une machine virtuelle Resource Manager dans le portail Azure en version préliminaire."
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@ Cet article suppose que vous vous êtes connecté à votre abonnement dans le po
 
     Vous pouvez maintenant vous connecter à distance à la machine virtuelle à l’aide de ce nom DNS. Par exemple, utilisez `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` lorsque vous vous connectez à une machine virtuelle Linux qui présente le nom de domaine complet `testdnslabel.eastus.cloudapp.azure.com` et le nom d’utilisateur `adminuser`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

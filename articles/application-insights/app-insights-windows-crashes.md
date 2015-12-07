@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="11/21/2015" 
 	ms.author="awills"/>
 
 # Détection et diagnostic des incidents dans les applications Windows Store et Windows Phone avec Application Insights
@@ -102,4 +102,4 @@ Si vous développez en configuration de version finale, les événements sont st
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

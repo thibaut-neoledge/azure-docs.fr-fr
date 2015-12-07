@@ -3,9 +3,9 @@
 	description="Apprenez à utiliser une application web dans Azure App Service avec io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # Utilisation de io.js avec Azure App Service Web Apps
 
@@ -27,9 +27,9 @@ Bien que de nombreuses versions de Node.js soient préinstallées dans [Azure Ap
 
 À l'occasion du déploiement d'une application Node.js, App Service Web Apps exécute un certain nombre de petites commandes pour s'assurer que l'environnement est configuré correctement. En utilisant un script de déploiement, ce processus peut être personnalisé pour inclure le téléchargement et la configuration de io.js.
 
-Le [script de déploiement de io.js] est disponible sur GitHub. Pour activer io.js sur votre application web, il vous suffit de copier **.deployment**, **deploy.cmd** et **IISNode.yml** à la racine du dossier de votre application et de le déployer vers Web Apps.
+Le [script de déploiement de io.js](https://github.com/felixrieseberg/iojs-azure) est disponible sur GitHub. Pour activer io.js sur votre application web, il vous suffit de copier **.deployment**, **deploy.cmd** et **IISNode.yml** à la racine du dossier de votre application et de le déployer vers Web Apps.
 
-Le premier fichier, **.deployment**, donne comme instruction à Web Apps d'exécuter **deploy.cmd** au moment du déploiement. Ce script exécute non seulement toutes les étapes habituelles pour une application Node.js, mais télécharge aussi la dernière version de io.js. Enfin, **IISNode.yml** configure le Web Apps pour qu'il utilise le binaire io.js que vous venez de télécharger à la place d'un binaire Node.js préinstallé.
+Le premier fichier, **.deployment**, donne comme instruction à Web Apps d'exécuter **deploy.cmd** au moment du déploiement. Ce script exécute non seulement toutes les étapes habituelles pour une application Node.js, mais télécharge aussi la dernière version de io.js. Enfin, **IISNode.yml** configure Web Apps pour qu'il utilise le binaire io.js que vous venez de télécharger à la place d'un binaire Node.js préinstallé.
 
 > [AZURE.NOTE]Pour mettre à jour le binaire io.js utilisé, il vous suffit de redéployer votre application (le script télécharge une nouvelle version de io.js chaque fois que l'application est déployée).
 
@@ -58,7 +58,7 @@ Dans cet article, vous avez appris à utiliser io.js avec App Service Web Apps, 
 [io.js]: https://iojs.org
 [distribution io.js]: https://iojs.org/dist/
 [io.js sur GitHub]: https://github.com/iojs/io.js
-[script de déploiement de io.js]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

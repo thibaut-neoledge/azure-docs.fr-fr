@@ -1,10 +1,20 @@
-<properties pageTitle="Spécification d'une version Node.js" description="Découvrez comment spécifier la version de Node.js utilisée par Azure Web Sites et Azure Cloud Services" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties
+	pageTitle="Spécification d'une version Node.js"
+	description="Découvrez comment spécifier la version de Node.js utilisée par Azure Web Sites et Azure Cloud Services"
+	services=""
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
-
-
-
-
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Spécification d'une version Node.js dans une application Azure
 
@@ -12,13 +22,7 @@ Pendant l'hébergement d'une application Node.js, vous pouvez vous assurer que v
 
 ##Versions par défaut
 
-Les versions de Node.js fournies par Azure sont constamment mises à jour. Sauf indication contraire, la dernière version disponible sera utilisée. Les versions actuellement incluses sont les suivantes :
-
-- 4\.x.x : 4.0.0
-- 0\.12.x : 0.12.6, 0.12.3, 0.12.2, 0.12.0
-- 0\.10.x : 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
-- 0\.8.x : 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
-- 0\.6.x : 0.6.20, 0.6.17
+Les versions de Node.js fournies par Azure sont constamment mises à jour. Sauf indication contraire, la dernière version disponible sera utilisée.
 
 > [AZURE.NOTE]Si vous hébergez votre application dans un service cloud Azure (rôle Web ou de travail) et que c'est la première fois que vous la déployez, Azure essaiera d'utiliser la même version de Node.js que celle que vous avez installée dans votre environnement de développement si elle correspond à l'une des versions par défaut disponibles dans Azure.
 
@@ -98,4 +102,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [utiliser des modules]: nodejs-use-node-modules-azure-apps.md
 [créer et déployer un site Web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

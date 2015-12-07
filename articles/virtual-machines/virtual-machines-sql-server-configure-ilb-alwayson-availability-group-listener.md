@@ -84,7 +84,7 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 1. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche >>, appuyez sur Entrée pour vous assurer que le script s'exécute. Remarque
 
->[AZURE.NOTE]Le portail de gestion Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibrage de charge s’y exécute. Sinon, la valeur renvoyée est null.
+>[AZURE.NOTE]Le portail Azure ne prend pas en charge l'équilibrage de charge interne actuellement. Vous ne verrez donc pas l'équilibrage de charge interne ou les points de terminaison dans le portail Azure. En revanche, **Get-AzureEndpoint** retourne une adresse IP interne si l’équilibrage de charge s’y exécute. Sinon, la valeur renvoyée est null.
 
 ## Vérifiez que KB2854082 est installé le cas échéant
 
@@ -138,4 +138,4 @@ Pour l'équilibrage de charge interne, vous devez commencer par créer le systè
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

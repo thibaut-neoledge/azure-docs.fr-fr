@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/19/2015"
 	ms.author="heidist"/>
 
 # Limites de service d’Azure Search
@@ -40,6 +40,8 @@ Nombre maximal d’indexeurs|3
 Nombre maximal de sources de données d’indexeur|3
 Nombre maximal de documents indexés par appel d'indexeur|10 000
 Durée d'exécution maximale de l'indexeur|3 minutes
+Nombre maximal de profils de score par index|16
+Nombre maximal de fonctions par profil|8
 
 Vous constaterez qu’aucun quota ou limite maximale n’est associé aux requêtes. Les requêtes par seconde (QPS) varient en fonction de la bande passante disponible et des ressources système concurrentes. Les ressources de calcul et de stockage Azure, qui réalise une sauvegarde de votre service partagé, sont partagées par plusieurs abonnés. Les requêtes par seconde de votre solution varie donc selon le nombre de charges de travail supplémentaires exécutées simultanément.
 
@@ -62,6 +64,8 @@ Nombre maximal de services de recherche|12 par abonnement Azure
 Nombre maximal d’indexeurs|50 par service de recherche
 Nombre maximal de sources de données d’indexeur|50 par service de recherche
 Nombre maximal de documents indexés par appel d'indexeur|Illimité
+Nombre maximal de profils de score par index|16
+Nombre maximal de fonctions par profil|8
 
 La capacité d’Azure Search peut être achetée par incréments (appelés unités de recherche). Le niveau de tarification standard autorise jusqu’à 36 unités de recherche par service de recherche. Cette limite remplace les limites individuelles des réplicas et des partitions. Par exemple, vous ne pouvez pas mettre à l’échelle votre service jusqu'à 12 partitions et 6 réplicas, car il vous faudrait 72 unités de recherche (12 x 6), et cela dépasserait les 36 unités de recherche autorisées par service.
 
@@ -134,4 +138,4 @@ Les clés API sont utilisées pour l'authentification de service. Il existe deux
 - 1 000 documents maximum retournés par page de résultats de recherche
 - 100 suggestions maximum retournées par requête d’API de suggestion
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

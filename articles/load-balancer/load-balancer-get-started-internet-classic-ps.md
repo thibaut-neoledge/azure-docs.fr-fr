@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Création d’un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell | Microsoft Azure"
+   pageTitle="Création d'un équilibreur de charge accessible sur Internet dans le mode classique à l'aide de PowerShell | Microsoft Azure"
    description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans le mode classique à l’aide de PowerShell"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="09/23/2015"
    ms.author="joaoma" />
 
-# Création d’un équilibreur de charge accessible sur Internet (classique) dans PowerShell
+# Création d'un équilibreur de charge accessible sur Internet (classique) dans PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -64,6 +64,6 @@ Vous pouvez utiliser Remove-AzureEndpoint pour supprimer un point de terminaison
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+[Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

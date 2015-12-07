@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/20/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma"/>
 # Création des zones DNS et de jeux d’enregistrements à l’aide du Kit de développement logiciel (SDK) .NET
 Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones DNS, des recordsets et des enregistrements à l'aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
@@ -102,10 +102,6 @@ L'exemple suivant montre comment obtenir une liste de zones DNS et des jeux d’
 	}
 ## Étapes suivantes
 
-[Qu’est-ce que Traffic Manager ?](traffic-manager-overview.md)
-
-[Présentation d’Azure DNS](dns-overview.md)
-
 [Exemple de projet du Kit de développement logiciel (SDLK) Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

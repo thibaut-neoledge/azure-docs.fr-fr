@@ -33,11 +33,12 @@ Les rubriques suivantes décrivent le modèle d'application Service Fabric ainsi
 ## Mettre à niveau une application
 Lisez les articles suivants pour en savoir plus sur la mise à niveau d'une application :
 
-- [Mise à niveau des applications Service Fabric](service-fabric-application-upgrade.md)
-- [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
-- [Rubriques avancées](service-fabric-application-upgrade-advanced.md)
-- [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md)
+- [Mise à niveau d'une application Service Fabric à l'aide de Visual Studio](service-fabric-application-upgrade.md)
+- [Mise à niveau d’applications Service Fabric à l’aide de PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Guide pas à pas sur la mise à niveau des applications](service-fabric-application-upgrade-tutorial.md)
+- [Paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md)
+- [Mise à niveau manuelle et mise à niveau avec un package différentiel](service-fabric-application-upgrade-advanced.md)
+- [Résolution des problèmes de mise à niveau des applications](service-fabric-application-upgrade-troubleshooting.md)
 - [Mise à niveau d'une application Service Fabric : sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
 
 ## Mise à l'échelle et partitionnement des services d'applications
@@ -49,4 +50,4 @@ Les articles suivants décrivent la mise à l'échelle et le partitionnement :
 ## Gérer un cluster
 - [Visualisation de votre cluster à l'aide de l'outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

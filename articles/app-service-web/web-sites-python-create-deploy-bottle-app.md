@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 
 # Création d’applications web avec Bottle dans Azure
@@ -56,7 +56,7 @@ Vous devez avoir installé Python et Git, mais vérifiez que vous disposez de Py
 La première étape consiste à créer votre application web via le [portail Azure en version préliminaire](https://portal.azure.com).
 
 1. Connectez-vous au portail Azure en version préliminaire et cliquez sur le bouton **NOUVEAU** en bas à gauche. 
-2. Cliquez sur **Web et mobilité** > **Azure Marketplace** > **Web Apps**.
+2. Cliquez sur **web + Mobile**.
 3. Dans le champ de recherche, tapez « python ».
 4. Dans les résultats de recherche, sélectionnez **Bottle**, puis cliquez sur **Créer**.
 5. Configurez la nouvelle application Bottle en créant un nouveau plan App Service et un nouveau groupe de ressources pour celui-ci. Cliquez sur **Créer**.
@@ -158,7 +158,7 @@ Appuyez sur F5 pour lancer le débogage. Votre navigateur ouvrira automatiquemen
 
 ![](./media/web-sites-python-create-deploy-bottle-app/windows-browser-bottle.png)
 
-Vous pouvez définir des points d’arrêt dans les sources, utiliser les fenêtres de surveillance, etc.. Pour plus d’informations sur les différentes fonctionnalités, consultez la [Documentation de Python Tools pour Visual Studio].
+Vous pouvez définir des points d’arrêt dans les sources, utiliser les fenêtres de surveillance, etc.. Pour plus d'informations sur les différentes fonctionnalités, consultez la [Documentation de Python Tools pour Visual Studio].
 
 ### Apporter des modifications
 
@@ -297,6 +297,7 @@ Pour Python 2.7 :
 Pour Python 3.4 :
 
     python -m venv env
+or pyvenv env
 
 Installez tous les packages externes requis par votre application. Vous pouvez utiliser le fichier requirements.txt à la racine du référentiel pour installer les packages dans votre environnement virtuel :
 
@@ -399,4 +400,4 @@ Pour obtenir des informations concernant l’utilisation du stockage de tables A
 [Documentation relative à Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

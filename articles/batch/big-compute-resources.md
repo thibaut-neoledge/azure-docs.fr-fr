@@ -50,14 +50,16 @@ Déployez ou étendez votre cluster HPC Windows ou Linux existant dans Azure pou
 
 HPC Pack est la solution HPC gratuite de Microsoft construite autour des technologies Microsoft Azure et Windows Server, capable d'exécuter des charges de travail HPC Windows et Linux.
 
-* [Téléchargez la mise à jour 2 de HPC Pack 2012 R2](https://www.microsoft.com/fr-FR/download/details.aspx?id=47755)
+* [Téléchargez la mise à jour 3 de HPC Pack 2012 R2](https://www.microsoft.com/fr-FR/download/details.aspx?id=49922)
 
 * [Documentation](https://technet.microsoft.com/library/jj899572.aspx)
 
 
 * [Options de cluster HPC avec Microsoft HPC Pack dans Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-* [Intégration à Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+* [Intégration à des instances de travail Azure avec HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [Intégration à Azure Batch avec HPC Pack](https://technet.microsoft.com/library/mt612877.aspx)
 
 
 * [Forums Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -92,7 +94,7 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 
 ## Plans d'architecture
 
-* Le document [Calculs à grande échelle - Services financiers](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) montre comment effectuer et orchestrer les calculs et l'analyse de données à grande échelle dans le cloud pour la gestion des risques, la création de rapports et les simulations.
+* Le document [Calculs à grande échelle - Services financiers](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF, en anglais) montre comment effectuer et orchestrer des calculs et l'analyse de données à grande échelle dans le cloud pour la gestion des risques, la création de rapports et les simulations.
 
 ## Exemples et démonstrations
 
@@ -121,4 +123,4 @@ Azure propose [plusieurs tailles](../virtual-machines/virtual-machines-size-spec
 * Pour les dernières annonces, consultez le [blog de l'équipe Microsoft HPC et Batch](http://blogs.technet.com/b/windowshpc/) et le [blog Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Consultez également les [nouveautés de Batch](http://azure.microsoft.com/updates/?service=batch) ou abonnez-vous au [flux RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Utilisation de l’interface de ligne de commande Azure avec Resource Manager | Microsoft Azure"
 	description="Découvrez comment utiliser l’interface CLI Azure pour Mac, Linux et Windows pour gérer les ressources Azure dans le mode Azure Resource Manager."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager
@@ -45,16 +45,16 @@ La configuration requise permettant d’utiliser le mode Resource Manager avec l
 
 - un compte Azure ([obtenir une version d'évaluation gratuite ici](http://azure.microsoft.com/pricing/free-trial/))
 - [installation de l'interface CLI Azure](../xplat-cli-install.md)
-- [configuration de l'interface CLI Azure](../xplat-cli-connect.md) pour utiliser une identité Azure Active Directory ou un principal du service
+
 
 Dès que vous disposez d'un compte et que vous avez installé l'interface CLI Azure, vous devez
 
+- [configurer Azure CLI](../xplat-cli-connect.md) pour utiliser un travail ou compte professionnel ou scolaire ou une identité de compte Microsoft 
 - basculer en mode Resource Manager en tapant `azure config mode arm`.
-- Connectez-vous à votre compte Azure en tapant `azure login` et en utilisant votre identité professionnelle ou étudiante quand vous y êtes invité
 
 
-## azure account : gérer vos informations de compte et les paramètres de publication
-L'outil se sert des informations sur votre abonnement Azure pour se connecter à votre compte. Ces informations peuvent être obtenues depuis le portail Azure dans un fichier de paramètres de publication, comme décrit dans ce document. Vous pouvez importer le fichier de paramètres de publication en tant que paramètre de configuration local persistant dont l'outil se servira pour les opérations ultérieures. Vous importez vos paramètres de publication une fois pour toutes.
+## compte azure : gérer vos informations de compte
+L'outil se sert des informations sur votre abonnement Azure pour se connecter à votre compte.
 
 **Répertorier les abonnements importés**
 
@@ -1760,4 +1760,4 @@ Options de paramètre :
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

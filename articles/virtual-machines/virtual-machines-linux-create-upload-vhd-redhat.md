@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Création et téléchargement d’un disque dur virtuel Red Hat Enterprise Linux pour une utilisation dans Azure" 
-	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation RedHat Linux." 
+	description="Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Red Hat Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="SuperScottz" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="11/23/2015" 
 	ms.author="mingzhan"/>
 
 
-# Préparation d'une machine virtuelle RedHat pour Azure
-Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Les versions de RHEL couvertes dans cet article sont 6.6, 6.7, 7.0 et 7.1, et hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM et VMWare.
+# Préparation d'une machine virtuelle Red Hat pour Azure
+Dans cet article, vous allez apprendre à préparer une Machine virtuelle Red Hat Enterprise Linux (RHEL) à utiliser dans Azure. Les versions de RHEL couvertes dans cet article sont 6.7 et 7.1, et les hyperviseurs de préparation abordés dans cet article sont Hyper-V, KVM et VMWare.
 
 
 
@@ -40,7 +40,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 - Lorsque vous utilisez qemu-img pour convertir les images de disque au format VHD, notez qu'un bogue connu touche la version 2.2.1 et versions supérieures de qemu-img. Celui-ci entraîne un formatage incorrect du disque dur virtuel. Le problème sera résolu dans la prochaine version de qemu-img. Pour l’instant, nous vous recommandons d’utiliser la version 2.2.0 de qemu-img ou ses versions antérieures.
 
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
 1.	Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -134,7 +134,7 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 16.	Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1. Dans le Gestionnaire Hyper-V, sélectionnez la machine virtuelle.
 
@@ -214,9 +214,9 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 
 ##Préparation d'une image à partir de KVM 
-###RHEL 6.6/6.7
+###RHEL 6.7
 
-1.	Téléchargez l'image KVM de RHEL 6.6/6.7 depuis le site web de Red Hat.
+1.	Téléchargez l'image KVM de RHEL 6.7 depuis le site web de Red Hat.
 
 2.	Définissez un mot de passe racine
 
@@ -325,26 +325,19 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
 18.	Convertissez l'image qcow2 au format vhd : convertissez tout d'abord l'image au format RAW :
          
-         # qemu-img convert -f qcow2 –O raw rhel-6.6.qcow2 rhel-6.6.raw
-    Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
+         # qemu-img convert -f qcow2 –O raw rhel-6.7.qcow2 rhel-6.7.raw
+    Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo : # MB=$((1024*1024)) # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \\ gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}') # rounded\_size=$((($size/$MB + 1)*$MB))
 
-         # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
-                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-         # rounded_size=$((($size/$MB + 1)*$MB))
-
-         # qemu-img resize rhel-6.6.raw $rounded_size
+         # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
-
- 
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
 
-###RHEL 7.0/7.1
+###RHEL 7.1
 
-1.	Téléchargez l'image KVM de RHEL 7.0 depuis le site web Red Hat.
+1.	Téléchargez l'image KVM de RHEL 7.1 depuis le site web Red Hat.
 
 2.	Définissez un mot de passe racine
 
@@ -458,25 +451,25 @@ Cette section suppose que vous avez déjà installé une image RHEL à partir d'
 
     Convertissez tout d'abord l'image au format RAW :
 
-         # qemu-img convert -f qcow2 –O raw rhel-7.0.qcow2 rhel-7.0.raw
+         # qemu-img convert -f qcow2 –O raw rhel-7.1.qcow2 rhel-7.1.raw
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
          # MB=$((1024*1024))
-         # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+         # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                   gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
          # rounded_size=$((($size/$MB + 1)*$MB))
 
-         # qemu-img resize rhel-7.0.raw $rounded_size
+         # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
-         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+         # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Préparation d'une image à partir de VMWare
 ###Composants requis
-Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d'informations sur la manière d'installer un système d'exploitation dans VMWare, consultez le [Guide d'Installation de système d'exploitation invité VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
+Cette section suppose que vous avez déjà installé une machine virtuelle RHEL dans VMWare. Pour plus d'informations sur la manière d'installer un système d'exploitation dans VMWare, consultez le [Guide d'installation de système d'exploitation invité VMWare](http://partnerweb.vmware.com/GOSIG/home.html).
  
 - Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. Les techniques LVM ou RAID peuvent être utilisées sur des disques de données si vous préférez.
 
@@ -484,7 +477,7 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 - Lors de la création du disque dur virtuel, sélectionnez **Stocker le disque virtuel en un seul fichier**.
 
-###RHEL 6.6/6.7
+###RHEL 6.7
 1.	Exécutez la commande suivante pour désinstaller NetworkManager :
 
          # sudo rpm -e --nodeps NetworkManager
@@ -571,23 +564,21 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
     Convertissez tout d'abord l'image au format RAW :
 
-        # qemu-img convert -f vmdk –O raw rhel-6.6.vmdk rhel-6.6.raw
+        # qemu-img convert -f vmdk –O raw rhel-6.7.vmdk rhel-6.7.raw
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-6.6.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-6.7.raw" | \
                 gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-6.6.raw $rounded_size
+        # qemu-img resize rhel-6.7.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.6.raw rhel-6.6.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-6.7.raw rhel-6.7.vhd
 
-
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	Créez un fichier nommé **network** dans le répertoire /etc/sysconfig/ contenant le texte suivant :
 
@@ -675,24 +666,23 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
     Convertissez tout d'abord l'image au format RAW :
 
-        # qemu-img convert -f vmdk –O raw rhel-7.0.vmdk rhel-7.0.raw
+        # qemu-img convert -f vmdk –O raw rhel-7.1.vmdk rhel-7.1.raw
 
     Assurez-vous que la taille des images RAW est alignée sur 1 Mo. Sinon, arrondissez la taille pour l'aligner sur 1 Mo :
 
         # MB=$((1024*1024))
-        # size=$(qemu-img info -f raw --output json "rhel-7.0.raw" | \
+        # size=$(qemu-img info -f raw --output json "rhel-7.1.raw" | \
                  gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
         # rounded_size=$((($size/$MB + 1)*$MB))
-
-        # qemu-img resize rhel-7.0.raw $rounded_size
+        # qemu-img resize rhel-7.1.raw $rounded_size
 
     Convertissez le disque brut sur disque dur virtuel à taille fixe :
 
-        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.0.raw rhel-7.0.vhd
+        # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.1.raw rhel-7.1.vhd
 
 
 ##Préparation automatique à partir d'un fichier ISO Kickstart
-###RHEL 7.0/7.1
+###RHEL 7.1
 
 1.	Créez le fichier Kickstart avec le contenu ci-dessous et enregistrez le fichier. Pour plus d'informations sur l'installation du fichier de démarrage, reportez-vous au [Guide d'installation Kickstart](https://access.redhat.com/documentation/fr-FR/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
@@ -824,28 +814,20 @@ Cette section suppose que vous avez déjà installé une machine virtuelle RHEL 
 
 7.	Attendez que l'installation se termine. Lorsqu'elle est terminée, la machine virtuelle sera automatiquement arrêtée. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-##Problèmes connus :
-Il existe 2 problèmes connus liés à l'utilisation de RHEL 6.6, 7.0 et 7.1 dans Hyper-V et Azure.
+##Problèmes connus
+Il existe des problèmes connus liés à l'utilisation de RHEL 7.1 dans Hyper-V et Azure.
 
-###Problème n°1: délai d'attente de l'approvisionnement
-Ce problème peut se produire au cours du démarrage avec RHEL dans Hyper-V et Azure. Il est plus courant avec RHEL 6.6.
+###Problème : blocage des E/S du disque 
 
-Fréquence :
-
-le problème est intermittent. Se produit plus souvent sur des machines virtuelles plus petites avec un processeur virtuel unique et plus souvent sur des serveurs plus occupés.
-
-
-###Problème n°2 : blocage des E/S du disque 
-
-Ce problème peut se produire au cours d'activités des E/S de stockage fréquentes avec RHEL 6.6, 7.0 et 7.1 dans Hyper-V et Azure.
+Ce problème peut se produire au cours d'activités des E/S du disque de stockage fréquentes avec RHEL 7.1 dans Hyper-V et Azure.
 
 Fréquence :
 
-le problème est aléatoire. Toutefois, il se produit plus souvent lors d'opérations d'E/S du disque fréquentes dans Hyper-V et Azure.
+le problème est aléatoire. Toutefois, il se produit plus souvent lors d'opérations E/S du disque fréquentes dans Hyper-V et Azure.
 
     
-[AZURE.NOTE]Ces 2 problèmes connus sont déjà traités par Red Hat. Pour installer les correctifs associés, vous pouvez exécuter commande ci-dessous :
+[AZURE.NOTE]Ce problème a déjà été résolu par Red Hat. Pour installer les correctifs associés, exécutez la commande ci-dessous :
 
     # sudo yum update
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

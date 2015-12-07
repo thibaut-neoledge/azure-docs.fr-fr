@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015" 
+	ms.date="11/23/2015" 
 	ms.author="wesmc"/>
 
 # Ajouter des notifications Push à votre application Xamarin.iOS
@@ -24,7 +24,7 @@
 
 ##Vue d'ensemble
 
-Dans ce didacticiel, vous ajoutez des notifications Push au projet [Démarrage rapide Xamarin.iOS] afin qu’une notification Push soit envoyée chaque fois qu’un enregistrement est inséré. Ce didacticiel est basé sur le didacticiel [Démarrage rapide de Xamarin.iOS], que vous devez effectuer en premier. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Ce didacticiel est basé sur le [didacticiel Démarrage rapide de Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md), que vous devez effectuer en premier. Vous ajoutez des notifications Push au projet Démarrage rapide Xamarin.iOS afin qu'une notification Push soit envoyée chaque fois qu'un enregistrement est inséré. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter le package d’extension de notification Push à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 Le [simulateur iOS ne prend pas en charge les notifications push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), vous devez donc utiliser un appareil iOS physique. Vous devrez également vous inscrire au [programme pour développeurs Apple](https://developer.apple.com/programs/ios/).
 
@@ -32,39 +32,46 @@ Le [simulateur iOS ne prend pas en charge les notifications push](https://develo
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous n’avez pas encore un compte, inscrivez-vous pour obtenir une version d’évaluation Azure et jusqu’à 10 applications mobiles gratuites. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’avez pas encore un compte, inscrivez-vous pour obtenir une version d’évaluation Azure et jusqu’à 10 applications mobiles gratuites. Vous pouvez continuer à les utiliser même après la fin de votre période d’évaluation. Consultez [Version d’évaluation Azure gratuite](http://azure.microsoft.com/pricing/free-trial/).
 
-* Un Mac sur lequel sont installés [Xamarin Studio] et [Xcode] v4.4 ou version ultérieure. Il est plus facile d’exécuter votre application Xamarin.iOS sur un Mac à l’aide de Xamarin Studio. Vous pouvez exécuter l’application Xamarin.iOS à l’aide de Visual Studio sur votre ordinateur Windows si vous le souhaitez, mais c’est un peu plus compliqué, car vous devez vous connecter à un Mac en réseau. Si vous souhaitez effectuer cette opération, consultez la rubrique [Installation de Xamarin.iOS sur Windows].
+* Un Mac sur lequel sont installés [Xamarin Studio] et [Xcode] v4.4 ou version ultérieure. Vous pouvez exécuter l'application Xamarin.Forms à l'aide de Visual Studio sur un ordinateur Windows si vous le souhaitez. Mais c'est une opération peu plus compliqué, car vous devez vous connecter à un Mac en réseau exécutant l'hôte de build Xamarin.iOS. Si vous souhaitez effectuer cette opération, consultez la rubrique sur l'[installation de Xamarin.iOS sur Windows].
 
-* Un appareil iOS physique.
+* Un appareil iOS physique. Les notifications Push ne sont pas prises en charge par le simulateur iOS.
 
-* Suivez le [didacticiel de démarrage rapide](../app-service-mobile-xamarin-ios-get-started.md).
+* Terminez le [didacticiel de démarrage rapide Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md).
 
-##<a name="create-hub"></a>Créer un concentrateur de notification
 
-[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+##Inscrire l'application pour les notifications push dans le portail de développeurs d'Apple
 
-## <a id="register"></a>Inscrire une application pour les notifications Push
+[AZURE.INCLUDE [Notification Hubs Xamarin - Activer les notifications Push Apple](../../includes/notification-hubs-xamarin-enable-apple-push-notifications.md)]
 
-[AZURE.INCLUDE [Activer les notifications Push Apple](../../includes/enable-apple-push-notifications.md)]
+##Configuration de votre application mobile pour l'envoi de notifications push
 
-## Configurer Azure pour l’envoi de notifications Push
+Pour configurer l'envoi de notifications depuis votre application, créez un Hub et configurez-le pour les services de notification de plateforme que vous utiliserez.
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
+1. Dans le portail Azure, cliquez sur **Parcourir **> **Mobile Apps** > votre application mobile > **Paramètres** > **Mobile** > **Push** > **Notification Hub** > +** Notification Hub**, indiquez un nom et un espace de noms associés à un nouveau Notification Hub, puis cliquez sur le bouton **OK**.
 
-##<a id="update-server"></a>Mettre à jour le projet de serveur pour l'envoi de notification Push
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-configure-notification-hub.png)
 
-[AZURE.INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
+2. Dans le panneau Créer un concentrateur de notification, cliquez sur **Créer**.
 
-## <a name="publish-the-service"></a>Déployer le projet de serveur dans Azure
+3. Cliquez sur **Push** > **Apple (APNS)** > **Télécharger le certificat**. Chargez le fichier de certificat push .p12 exporté précédemment. Veillez à sélectionner **Bac à sable (sandbox)** si vous avez créé un certificat push de développement pour le développement et le test. Sinon, sélectionnez **Production**. Votre service est désormais configuré et prêt à fonctionner avec les notifications Push sur iOS !
+
+	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+##Mettre à jour le projet de serveur pour l'envoi de notification Push
+
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+
+##Déployer le projet de serveur dans Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
-## <a name="configure-app"></a>Configurer votre projet Xamarin.iOS
+##Configurer votre projet Xamarin.Forms
 
 [AZURE.INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
-## <a name="add-push"></a>Ajout de notifications Push à votre application
+##Ajout de notifications Push à votre application
 
 1. Dans **QSTodoService**, ajoutez la propriété suivante pour qu'**AppDelegate** puisse acquérir le client mobile :
         
@@ -131,13 +138,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 L’application est mise à jour et prend en charge les notifications Push.
 
-## <a name="test"></a>Tester les notifications push dans votre application
+## <a name="test"></a>Test des notifications Push dans votre application
 
 1. Cliquez sur le bouton **Exécuter** pour générer le projet et démarrer l'application sur un appareil compatible iOS, puis cliquez sur **OK** pour accepter les notifications Push.
 	
 	> [AZURE.NOTE]Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-2. Dans l'application, tapez une tâche, puis cliquez sur l'icône plus (**+**).
+2. Dans l'application, saisissez une tâche, puis cliquez sur l'icône plus (**+**).
 
 3. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
@@ -151,11 +158,11 @@ Vous avez terminé ce didacticiel.
 [Xamarin Studio]: http://xamarin.com/platform
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
-[Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
+[installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015--->

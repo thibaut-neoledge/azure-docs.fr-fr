@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Appeler une application API à partir d'un client authentifié" 
 	description="Découvrez comment appeler une application API Azure à partir d'un client d'application web authentifié par Azure Active Directory." 
+	keywords="app service,azure app service,authentication,authentification azure,api,api d'authentification"
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
@@ -36,11 +37,11 @@ Vous allez effectuer les étapes suivantes :
 
 ### Authentification du flux client
 
-Le code que vous ajoutez à l'application web implémente un processus appelé authentification du [flux client](../app-service/app-service-authentication-overview.md#client-flow). Le diagramme suivant illustre le processus d'obtention du jeton d'accès AAD et d’échange contre un jeton d'application API (Zumo).
+Le code que vous ajoutez à l'application web met en œuvre un processus appelé authentification du [flux client](../app-service/app-service-authentication-overview.md#client-flow). Le diagramme suivant illustre le processus d'obtention du jeton d'accès AAD et d’échange contre un jeton d'application API (Zumo).
 
 ![](./media/app-service-api-authentication-client-flow/clientflow.png)
 
-Si vous n'êtes pas familiarisé avec le rôle de la passerelle d'application API dans l'authentification pour les applications API, consultez la section [Authentification pour les applications API et les applications mobiles](../app-service/app-service-authentication-overview.md).
+Si vous n'êtes pas familiarisé avec le rôle de la passerelle d'application API dans l'authentification pour les applications API, consultez la section [Authentification pour les applications d'API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
 ## Composants requis
 
@@ -64,19 +65,19 @@ Ce didacticiel suppose que vous savez utiliser les projets web dans Visual Studi
 
 	Suivez les instructions dans la section [Déployer une application API](app-service-dotnet-deploy-api-app.md).
 
-	Dans le [portail Azure en version préliminaire], le panneau **Définition d'API** de l'application API affiche à présent les méthodes Get et Post du projet d'API web que vous avez déployé.
+	Dans le [portail Azure en version préliminaire], le panneau **Définition d'API** de l'application API affiche à présent les méthodes Get et Post du projet d'API Web que vous avez déployé.
 
 	![](./media/app-service-api-authentication-client-flow/apiappinportal.png)
 
 4. Sécuriser l'application API à l'aide d'Azure Active Directory (AAD) en tant que fournisseur d'identité.
  
-	Suivez les instructions pour AAD dans la section [Protéger une application API](app-service-api-dotnet-add-authentication.md). Vous n'avez pas besoin de faire la section **Utiliser Postman pour envoyer une demande Post** du didacticiel.
+	Suivez les instructions pour AAD dans la section [Protéger une application API](app-service-api-dotnet-add-authentication.md). Vous n'avez pas besoin d'exécuter la section **Utiliser Postman pour envoyer une demande Post** du didacticiel.
 
-	Lorsque vous avez terminé, le panneau **Azure Active Directory** de l’application API dans le [portail Azure en version préliminaire] possède l’ID client de l'application AAD et votre locataire AAD.
+	Lorsque vous avez terminé, le panneau **Azure Active Directory** de l'application API dans le [portail Azure en version préliminaire] possède l'ID client de l'application AAD et votre locataire AAD.
 
 	![](./media/app-service-api-authentication-client-flow/aadblade.png)
 
-	Et l'onglet **Configurer** de l’application AAD dans le [portail Azure] possède l’URL ID de l’application API et l’URL de réponse.
+	Et l'onglet **Configurer** de l'application AAD dans le [portail Azure] a l'URL d'ID d'application API et l'URL de réponse.
 
 	![](./media/app-service-api-authentication-client-flow/aadconfig.png)
 
@@ -88,15 +89,15 @@ Dans cette section, vous téléchargez et configurez un projet web configuré po
 
 Plus tard, vous modifierez cette page en ajoutant une section pour afficher les informations de contact extraites de l'application API.
 
-1. Téléchargez le projet web à partir du [référentiel WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)
+1. Téléchargez le projet Web à partir du [référentiel WebApp-GroupClaims-DotNet](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)
  
-2. Suivez les instructions sur l’**Exécution de l'exemple** dans le [fichier Lisez-moi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), avec les exceptions suivantes :
+2. Suivez les instructions sur l'**exécution de l'exemple** dans le [fichier Lisez-moi](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), avec les exceptions suivantes :
  
 	* Vous pouvez utiliser Visual Studio 2015 bien que le fichier Lisez-moi indique d'utiliser Visual Studio 2013. 
 
 	* Utilisez l'application AAD déjà créée au lieu d’en créer une nouvelle.
  
-	* Conservez l’**URI ID d'application** que vous avez déjà pour l'application AAD. (Ne pas modifier au format spécifié dans le fichier Lisez-moi.)
+	* Conservez l'**URI d'ID d'application** que vous avez déjà pour l'application AAD. (Ne pas modifier au format spécifié dans le fichier Lisez-moi.)
 	
 	* Modifiez les autres paramètres d'application AAD comme indiqué ; plus précisément, définissez les URL d'authentification et de réponse vers l’URL de base pour l’application exemple.
 
@@ -106,9 +107,9 @@ Vous conservez l’URI ID d'application que vous avez créé pour l'application 
 
 Dans cette section, vous ajoutez du code généré automatiquement pour une interface typée pour l’appel de l'application API.
 
-8.	Dans l’**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet WebApp-GroupClaims-DotNet, puis cliquez sur **Ajouter > Client d’application API Azure**.
+8.	Dans l'**Explorateur de solutions** de Visual Studio, cliquez avec le bouton droit sur le projet WebApp-GroupClaims-DotNet, puis cliquez sur **Ajouter > Client d'application API Azure**.
 
-9.	Dans la boîte de dialogue **Ajouter un client d’application API Microsoft Azure**, sélectionnez l'application API sécurisée avec AAD.
+9.	Dans la boîte de dialogue **Ajouter un client d'application API Microsoft Azure**, sélectionnez l'application API sécurisée avec AAD.
 
 	Une fois la génération de code terminée, un nouveau dossier s'affiche dans l'**Explorateur de solutions**, avec le nom de l'application API. Ce dossier contient le code qui implémente les classes et les modèles de données du client.
 
@@ -116,7 +117,7 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
  
 ## Ajoutez du code pour échanger le jeton AAD contre un jeton Zumo
 
-1.	Dans HomeController.cs, ajoutez `using` instructions pour le kit de développement logiciel App Service et le sérialiseur JSON.
+1.	Dans HomeController.cs, ajoutez des instructions `using` pour le kit de développement logiciel App Service et le sérialiseur JSON.
 
 		using Microsoft.Azure.AppService;
 		using Newtonsoft.Json.Linq;
@@ -154,14 +155,14 @@ Dans cette section, vous ajoutez du code généré automatiquement pour une inte
 
 	Dans ce code, `ConfigHelper.Authority` correspond à « https://login.microsoftonline.com/{votre locataire} », par exemple : « https://login.microsoftonline.com/contoso.onmicrosoft.com ».
 
-2.	Ajoutez le code juste avant l’instruction `return View()` à la fin de la méthode `About` pour appeler l'application API. (Dans l'étape suivante, vous ajouterez du code à l’affichage `About` pour afficher les données renvoyées.)
+2.	Ajoutez le code directement avant l’instruction `return View()` à la fin de la méthode `About` pour appeler l'application API. (Dans l'étape suivante, vous ajouterez du code à l'affichage `About` pour afficher les données renvoyées.)
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
 		var contacts = client.Contacts.Get();
 		ViewData["contacts"] = contacts;
 
-3. Dans *Views/Home/About.cshtml*, ajoutez le code juste après le titre `h2` pour afficher les informations de contact.
+3. Dans *Views/Home/About.cshtml*, ajoutez le code directement après le titre `h2` pour afficher les informations de contact.
 
 		<h3>Contacts</h3>
 		<table class="table table-striped table-bordered table-condensed table-hover">
@@ -222,9 +223,9 @@ Merci à Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav)) pou
 
 ## Étapes suivantes
 
-Vous avez vu comment procéder à l'authentification du flux client pour les applications API Service App. Pour plus d’informations sur d’autres façons de gérer l’authentification dans les applications API, consultez la page [Authentification pour les applications API et les applications mobiles](../app-service/app-service-authentication-overview.md).
+Vous avez vu comment procéder à l'authentification du flux client pour les applications API Service App. Pour plus d'informations sur d'autres manières de gérer l'authentification dans des applications API, consultez la page [Authentification pour les applications d'API et les applications mobiles](../app-service/app-service-authentication-overview.md).
 
 [portail Azure]: https://manage.windowsazure.com/
 [portail Azure en version préliminaire]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

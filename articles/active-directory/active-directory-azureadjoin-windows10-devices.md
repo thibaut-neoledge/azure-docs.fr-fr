@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Utilisation d’appareils Windows 10 sur votre lieu de travail | Microsoft Azure" 
-	description="présente un aperçu des fonctionnalités offertes aux utilisateurs et services informatiques, en mettant en contraste les différentes façons dont un appareil peut être approvisionné et utilisé dans une entreprise dotée de Windows 10." 
+	description="Fournit une vue d'ensemble des fonctionnalités offertes aux utilisateurs et services informatiques, en mettant en contraste les différentes manières dont un appareil peut être approvisionné et utilisé dans une entreprise dotée de Windows 10." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Utilisation d’appareils Windows 10 sur votre lieu de travail
@@ -173,4 +173,4 @@ Les utilisateurs procédant à la mise à niveau depuis les appareils Windows 8
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

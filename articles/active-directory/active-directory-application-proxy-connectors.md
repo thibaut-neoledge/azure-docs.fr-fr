@@ -3,7 +3,7 @@
 	description="Explique comment créer et gérer des groupes de connecteurs dans le proxy d’Application Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
@@ -59,4 +59,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
 * [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

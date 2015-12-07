@@ -14,7 +14,7 @@
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
 
-	
+
 #Configuration de GoldenGate Oracle pour Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
@@ -95,7 +95,7 @@ Pour les versions ultérieures d’Oracle Database et d’Oracle GoldenGate, i
 ##1\. Configurer la base de données sur les sites A et B
 Cette section explique comment configurer la base de données sur les sites A et B. Vous devez effectuer toutes les étapes décrites sur les deux sites.
 
-Commencez par vous connecter à distance aux sites A et B à l’aide du portail de gestion. Ouvrez une invite de commandes Windows et créez un répertoire de base pour les fichiers de configuration d’Oracle GoldenGate :
+Tout d'abord, connectez-vous à distance aux sites A et B via le portail Azure. Ouvrez une invite de commandes Windows et créez un répertoire de base pour les fichiers de configuration d’Oracle GoldenGate :
 
 	mkdir C:\OracleGG
 
@@ -285,7 +285,7 @@ Démarrez le processus de Manager :
 
 ###Créer des processus Extract et Data Pump sur le site A
 
-Vous devez créer les processus d’extraction et Data Pump sur les sites A et B. Connectez-vous à distance aux sites A et B via le portail de gestion. Ouvrez la fenêtre de l’interpréteur de commande GGSCI. Exécutez les commandes suivantes sur le site A :
+Vous devez créer les processus d'extraction et Data Pump sur les sites A et B. Connectez-vous à distance aux sites A et B via le portail Azure. Ouvrez la fenêtre de l’interpréteur de commande GGSCI. Exécutez les commandes suivantes sur le site A :
 
 	GGSCI (MachineGG1) 14> add extract ext1 tranlog begin now
 	EXTRACT added.
@@ -602,4 +602,4 @@ Connectez-vous à distance au site A et vérifiez la bonne réplication :
 ##Ressources supplémentaires
 [Liste des images de machine virtuelle Oracle](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

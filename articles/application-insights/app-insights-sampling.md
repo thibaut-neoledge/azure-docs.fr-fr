@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
 
 #  Échantillonnage dans Application Insights
@@ -20,47 +20,67 @@
 *Application Insights est à l'état de version préliminaire.*
 
 
-L’échantillonnage est une option d’Application Insights qui vous permet de collecter et stocker un ensemble réduit de données de télémétrie tout en assurant une analyse statistique correcte des données d’application. Vous utiliserez généralement cette fonctionnalité dans le but de réduire le trafic et d’éviter la [limitation de bande passante](app-insights-pricing.md#data-rate). Les données sont filtrées de telle manière à faire apparaître les éléments associés, afin de vous permettre d’effectuer des enquêtes de diagnostics sur un ensemble réduit de données. Les données côté client et côté serveur sont automatiquement coordonnées pour filtrer les éléments associés. Lorsque les données de mesure apparaissent sur le portail, elles sont renormalisées pour tenir compte de l’échantillonnage, afin de réduire tout effet sur les statistiques.
+L’échantillonnage est une fonctionnalité d’Application Insights qui vous permet de collecter et de stocker un ensemble réduit de données de télémétrie tout en assurant une analyse statistique correcte des données d’application. Il réduit le trafic et permet d’éviter les [limitations](app-insights-pricing.md#data-rate). Les données sont filtrées de manière à faire apparaître les éléments associés, afin de vous permettre de naviguer entre les éléments lorsque vous effectuez des enquêtes de diagnostics. Lorsque les données de mesure apparaissent sur le portail, elles sont renormalisées pour tenir compte de l’échantillonnage, afin de réduire tout effet sur les statistiques.
 
+L’échantillonnage adaptatif est activé par défaut dans le Kit de développement logiciel (SDK) Application Insights pour ASP.NET, version 2.0.0-beta3 ou version ultérieure. La fonction d’échantillonnage, actuellement disponible en version bêta, est susceptible d’être modifiée.
 
-La fonction d’échantillonnage, actuellement disponible en version bêta, est susceptible d’être modifiée.
+Il existe deux autres modules d’échantillonnage :
 
-## Configuration de l’échantillonnage pour votre application
+* L’échantillonnage adaptatif ajuste automatiquement le pourcentage d’échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur.  
+* Une option d’échantillonnage à débit fixe est également disponible. Vous spécifiez le pourcentage d’échantillonnage. Disponible pour le code d’application web ASP.NET et les pages web JavaScript. Le client et le serveur synchronisent l’échantillonnage de façon à ce que, dans Search, vous puissiez naviguer entre les demandes et les affichages de pages associés.
 
-L’échantillonnage est actuellement disponible pour le kit de développement logiciel (SDK) ASP.NET ou pour [n’importe quelle page Web](#other-web-pages).
+## Activation de l’échantillonnage adaptatif
 
-### Serveur ASP.NET
+**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d’Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
-1. Mettez à jour les packages NuGet de votre projet vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
+Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez définir un certain nombre de paramètres dans le nœud `AdaptiveSamplingTelemetryProcessor`. Les chiffres indiqués correspondent aux valeurs par défaut :
 
-2. Ajoutez cet extrait de code à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) :
+* `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
 
-```XML
+    Taux cible que l’algorithme adaptatif tente d’atteindre **sur un serveur hôte unique**. Si votre application web s’exécute sur plusieurs hôtes, réduisez cette valeur afin de ne pas dépasser votre débit de trafic cible sur le portail Application Insights.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+* `<EvaluationInterval>00:00:15</EvaluationInterval>`
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    Intervalle auquel le taux actuel de télémétrie est réévalué. L’évaluation est effectuée sous forme de moyenne mobile. Vous souhaiterez peut-être raccourcir cet intervalle si vos données de télémétrie sont soumises à des pics soudains.
 
-```
+* `<SamplingPercentageDecreaseTimeout>00:02:00</SamplingPercentageDecreaseTimeout>`
 
-> [AZURE.NOTE]Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
+    En cas de modification du pourcentage d’échantillonnage, délai avant que le pourcentage d’échantillonnage puisse de nouveau être réduit pour capturer moins de données.
+
+* `<SamplingPercentageIncreaseTimeout>00:15:00</SamplingPercentageDecreaseTimeout>`
+
+    En cas de modification du pourcentage d’échantillonnage, délai avant que le pourcentage d’échantillonnage puisse de nouveau être augmenté pour capturer plus de données.
+
+* `<MinSamplingPercentage>0.1<\MinSamplingPercentage>`
+
+    Lors des variations du pourcentage d’échantillonnage, valeur minimale autorisée.
+
+* `<MaxSamplingPercentage>100.0<\MaxSamplingPercentage>`
+
+    Lors des variations du pourcentage d’échantillonnage, valeur maximale autorisée.
+
+* `<MovingAverageRatio>0.25</MovingAverageRatio>`
+
+    Lors du calcul de la moyenne mobile, poids affecté à la valeur la plus récente. Utilisez une valeur inférieure ou égale à 1. Plus les valeurs sont petites, moins l’algorithme est réactif en cas de modifications brusques.
+
+* `<InitialSamplingPercentage>100<\InitialSamplingPercentage>`
+
+    Valeur affectée lorsque l’application vient de démarrer. Ne diminuez pas cette valeur pendant le débogage.
 
 <a name="other-web-pages"></a>
-### Pages Web avec JavaScript
+## Échantillonnage pour les pages web avec JavaScript
 
-Vous pouvez configurer des pages Web pour l’échantillonnage à partir de n’importe quel serveur. Pour les serveurs ASP.NET, configurez vos pages Web côté client et côté serveur.
+Vous pouvez configurer des pages Web pour l’échantillonnage à débit fixe à partir de n’importe quel serveur.
 
-Lorsque vous [configurez les pages web pour Application Insights](app-insights-javascript.md), modifiez l'extrait de code que vous obtenez à partir du portail Application Insights. (dans ASP.NET, cet extrait de code se trouve dans \_Layout.cshtml). Insérez une ligne de type `samplingPercentage: 10,` avant la clé d'instrumentation :
+Lorsque vous [configurez les pages web pour Application Insights](app-insights-javascript.md), modifiez l’extrait de code que vous obtenez à partir du portail Application Insights. (Dans les applications ASP.NET, l’extrait de code passe généralement dans \_Layout.cshtml.) Insérez une ligne de type `samplingPercentage: 10,` avant la clé d’instrumentation :
 
     <script>
 	var appInsights= ... 
 	}({ 
 
+
+    // Value must be 100/N where N is an integer.
+    // Valid examples: 50, 25, 20, 10, 5, 1, 0.1, ...
 	samplingPercentage: 10, 
 
 	instrumentationKey:...
@@ -70,15 +90,52 @@ Lorsque vous [configurez les pages web pour Application Insights](app-insights-j
 	appInsights.trackPageView(); 
 	</script> 
 
-Veillez à fournir le même pourcentage d’échantillonnage dans JavaScript que celui indiqué côté serveur.
+Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
 
-[En savoir plus sur l’API](app-insights-api-custom-events-metrics.md)
+Si vous avez activé l’échantillonnage à débit fixe sur le serveur, les clients et le serveur se synchronisent de façon à ce que, dans Search, vous puissiez naviguer entre les demandes et les affichages de pages associés.
+
+
+## Activation de l’échantillonnage à débit fixe sur le serveur
+
+1. **Mettez à jour les packages NuGet de votre projet** vers la dernière version *préliminaire* d’Application Insights. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
+
+2. **Désactivez l’échantillonnage adaptatif** : dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), supprimez ou commentez le nœud `AdaptiveSamplingTelemetryProcessor`.
+
+    ```xml
+
+    <TelemetryProcessors>
+    <!-- Disabled adaptive sampling:
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    -->
+    
+
+    ```
+
+2. **Activez le module d’échantillonnage à débit fixe.** Ajoutez cet extrait de code à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) :
+
+    ```XML
+
+    <TelemetryProcessors>
+     <Add  Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+      <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+      <SamplingPercentage>10</SamplingPercentage>
+      </Add>
+    </TelemetryProcessors>
+
+    ```
+
+> [AZURE.NOTE]Pour le pourcentage d’échantillonnage, choisissez un pourcentage proche de 100/N, où N est un nombre entier. L’échantillonnage ne prend actuellement en charge aucune autre valeur.
+
 
 
 ### Autre solution : définir l’échantillonnage dans le code serveur
 
 
-Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, vous pouvez utiliser le code. Cette méthode vous permet d’activer et de désactiver l’échantillonnage.
+Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, vous pouvez utiliser le code.
 
 *C#*
 
@@ -86,26 +143,42 @@ Au lieu de définir le paramètre d’échantillonnage dans le fichier .config, 
 
     using Microsoft.ApplicationInsights.Extensibility;
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+    ...
 
-    // It's recommended to set SamplingPercentage in the .config file instead.
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.UseSampling(10.0); // percentage
 
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+    // If you have other telemetry processors:
+    builder.Use((next) => new AnotherProcessor(next));
+
+    builder.Build();
 
 ```
 
+([En savoir plus sur les processeurs de télémétrie](app-insights-api-filtering-sampling/#filtering).)
 
 ## Quand utiliser l’échantillonnage ?
+
+L’échantillonnage adaptatif est automatiquement activé si vous utilisez la version 2.0.0-beta3 du Kit de développement logiciel (SDK) ASP.NET, ou une version ultérieure.
 
 L’échantillonnage n’est pas utile pour la plupart des applications de taille petite à moyenne. Pour obtenir les informations de diagnostic les plus utiles et les statistiques les plus précises, le mieux est de collecter les données sur toutes vos activités utilisateur.
 
  
-L’échantillonnage est essentiellement utilisé pour les raisons suivantes :
-
+Les principaux avantages de l’échantillonnage sont les suivants :
 
 * Si le service Application Insights supprime (« limite ») des points de données lorsque votre application envoie un taux de télémétrie très élevé dans un court laps de temps. 
-* Vous souhaitez respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
+* Pour respecter le [quota](app-insights-pricing.md) de points de données pour votre niveau tarifaire. 
 * Pour réduire le trafic réseau généré par la collecte de données de télémétrie. 
+
+### Échantillonnage fixe ou adaptatif ?
+
+Utilisez l’échantillonnage à débit fixe si :
+
+* Vous voulez disposer d’un échantillonnage synchronisé entre le client et le serveur afin de pouvoir naviguer entre les événements connexes sur le client et le serveur (tels que les affichages de pages et les requêtes http) lorsque vous étudiez des événements dans [Search](app-insights-diagnostic-search.md).
+* Vous êtes sûr du pourcentage d’échantillonnage approprié pour votre application. Il doit être suffisamment élevé pour obtenir des mesures précises, mais inférieur au pourcentage engendrant le dépassement de votre quota de tarification et des limites de limitation. 
+* Vous ne déboguez pas votre application. Lorsque vous appuyez sur F5 et testez quelques pages de votre application, vous souhaitez voir l’ensemble des données de télémétrie.
+
+Dans le cas contraire, nous vous recommandons d’utiliser l’échantillonnage adaptatif.
 
 ## Comment fonctionne l’échantillonnage ?
 
@@ -120,6 +193,10 @@ Lorsque les données de télémétrie vous sont restituées, le service Applicat
 La précision de l’approximation dépend en grande partie du pourcentage d’échantillonnage configuré. Elle est également plus précise pour les applications qui gèrent un grand nombre de requêtes globalement similaires générées par un grand nombre d’utilisateurs. En revanche, pour les applications qui ne sont pas soumises à une charge importante, l’échantillonnage n’est pas nécessaire, car ces applications peuvent généralement envoyer toutes leurs données de télémétrie sans dépasser leur quota ni entraîner de perte de données liée à une limitation de la bande passante.
 
 Notez qu’Application Insights n’échantillonne pas les données de télémétrie de type Mesures et Sessions car il peut être préférable d’être moins précis pour ces types de données.
+
+### Échantillonnage adaptatif
+
+L’échantillonnage adaptatif ajoute un composant qui contrôle la vitesse de transmission actuelle à partir du Kit de développement logiciel (SDK) et ajuste le pourcentage d’échantillonnage afin de le maintenir en dessous du taux maximal cible. L’ajustement est recalculé à intervalles réguliers en fonction d’une moyenne mobile de la vitesse de transmission sortante.
 
 ## Échantillonnage et kit de développement logiciel JavaScript
 
@@ -140,11 +217,15 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 *Le pourcentage d’échantillonnage peut-il évoluer au fil du temps ?*
 
- * Dans l’implémentation actuelle, vous ne serez généralement pas amené à modifier le pourcentage d’échantillonnage après l’avoir configuré au démarrage de l’application. Même si vous pouvez contrôler l’exécution du pourcentage d’échantillonnage, il n’existe aucun moyen de déterminer le pourcentage d’échantillonnage optimal qui pourra collecter « le volume de données parfaitement adéquat » avant que la logique de limitation n’intervienne ou que le quota de volume de données mensuel soit atteint. Les versions ultérieures du kit de développement logiciel Application Insights incluront un échantillonnage adaptatif qui ajustera à la volée le pourcentage d’échantillonnage en fonction du volume de données de télémétrie actuellement observé ainsi que d’autres facteurs. 
+ * Oui, l’échantillonnage adaptatif modifie progressivement le pourcentage d’échantillonnage en fonction du volume de données de télémétrie constaté.
 
-*Comment déterminer le pourcentage d’échantillonnage optimal pour mon application ?*
+*Puis-je déterminer le taux de l’échantillonnage adaptatif ?*
 
-* Pour l’heure, vous devez procéder par tâtonnements. Analysez votre utilisation actuelle des données de télémétrie dans AI, observez les suppressions de données associées à la limitation, puis estimez le volume de données de télémétrie collectées. Ces trois entrées, combinées au niveau tarifaire sélectionné, vous indiqueront dans quelle mesure vous devrez réduire le volume de données de télémétrie collectées. Un changement de modèle au niveau du volume de télémétrie peut toutefois invalider le pourcentage d’échantillonnage optimal configuré (en cas d’augmentation du nombre de vos utilisateurs, par exemple). Une fois implémenté, l’échantillonnage adaptatif ajuste automatiquement le pourcentage d’échantillonnage à son niveau optimal, compte tenu du volume de télémétrie observé.
+ * Pas dans la version actuelle.
+
+*Si j’utilise l’échantillonnage à débit fixe, comment déterminer le pourcentage d’échantillonnage optimal pour mon application ?*
+
+* Pour l’heure, vous devez procéder par tâtonnements. Analysez votre utilisation actuelle des données de télémétrie dans AI, observez les suppressions de données associées à la limitation, puis estimez le volume de données de télémétrie collectées. Ces trois entrées, combinées au niveau tarifaire sélectionné, vous indiqueront dans quelle mesure vous devrez réduire le volume de données de télémétrie collectées. Un changement de modèle au niveau du volume de télémétrie peut toutefois invalider le pourcentage d’échantillonnage optimal configuré (en cas d’augmentation du nombre de vos utilisateurs, par exemple).
 
 *Que se passe-t-il si je configure le pourcentage d’échantillonnage à un niveau trop faible ?*
 
@@ -156,12 +237,10 @@ Le SDK (JavaScript) côté client participe à l’échantillonnage parallèleme
 
 *Sur quelles plates-formes puis-je utiliser l’échantillonnage ?*
 
-* L’échantillonnage est actuellement disponible pour toutes les pages Web ainsi que pour les applications Web .NET côté client et côté serveur.
+* Actuellement, l’échantillonnage adaptatif est disponible pour les côtés serveur des applications web ASP.NET (hébergées dans Azure ou sur votre propre serveur). L’échantillonnage à débit fixe est disponible pour toutes les pages web, ainsi que pour les applications web .NET côté client et côté serveur.
 
-*Puis-je utiliser l’échantillonnage avec des applications d’appareils mobiles (Windows Phone, iOS ou Android) ou avec des applications de bureau ?*
+*Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
-* Non, l’échantillonnage pour les applications d’appareils mobiles ou de bureau n’est pas pris en charge actuellement. 
+ * Créez une instance distincte de TelemetryClient avec un paramètre TelemetryConfiguration différent. Utilisez cette instance pour envoyer vos événements rares.
 
->>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

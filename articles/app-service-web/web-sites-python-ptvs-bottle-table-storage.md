@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/18/2015"
+	ms.author="huvalo"/>
 
 
 # Bottle et stockage de tables Azure sur Azure avec Python Tools 2.2 pour Visual Studio 
@@ -69,7 +69,7 @@ Pour utiliser les opérations de stockage, vous avez besoin d’un compte Azure 
 
 1.  Connectez-vous au [portail Azure].
 
-2. Cliquez sur l’icône **Nouveau** en bas à gauche du portail, puis cliquez sur **Données + stockage** > **Stockage**. Attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
+2. Cliquez sur l'icône **Nouveau** en haut à gauche du portail, puis cliquez sur **Données + stockage** > **Compte de stockage**. Cliquez sur le bouton **Créer**, puis attribuez un nom unique au compte de stockage et créez un [groupe de ressources](../resource-group-overview.md).
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
 
@@ -102,6 +102,8 @@ Dans cette section, nous allons configurer notre application pour utiliser le co
 1.  Le code qui implémente le référentiel du stockage de tables Azure se trouve dans **models/azuretablestorage.py**. Consultez la [documentation] pour plus d’informations sur la manière d’utiliser le service de Table de Python.
 
 1.  Exécutez l’application avec `F5`. Les sondages créés à l’aide de la fonction **Créer un exemple de sondage** et les données soumises par vote sont sérialisés dans le stockage de tables Azure.
+
+	> [AZURE.NOTE]L'environnement virtuel Python 2.7 peut provoquer un arrêt exceptionnel dans Visual Studio. Appuyez sur `F5` pour continuer à charger le projet web.
 
 1.  Accédez à la page **À propos** pour vérifier que l’application utilise le référentiel **Stockage de tables Azure**.
 
@@ -215,4 +217,4 @@ Suivez ces liens pour en savoir plus sur Python Tools pour Visual Studio, Bottle
 [Kit de développement logiciel (SDK) Azure pour Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

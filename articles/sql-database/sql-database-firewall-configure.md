@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Comment créer et configurer une base de données SQL Azure
@@ -133,7 +133,9 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 [Procédure : configuration des paramètres du pare-feu de base de données (Base de données SQL Azure)](sql-database-configure-firewall-settings.md)
 
+[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

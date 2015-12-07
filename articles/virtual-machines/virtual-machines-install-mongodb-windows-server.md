@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Modèle Resource Manager
 
 
-[MongoDB][MongoDB] est une base de données NoSQL open-source qui offre des performances élevées. Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail Azure][AzureManagementPortal], à l’aide du modèle de déploiement classique. Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
+[MongoDB][MongoDB] est une base de données NoSQL open-source qui offre des performances élevées. Vous pouvez créer une machine virtuelle exécutant Windows Server à partir de la bibliothèque d'images du [portail Azure][AzurePortal], à l’aide du modèle de déploiement classique. Vous pouvez alors installer et configurer une base de données MongoDB sur la machine virtuelle.
 
 
 ## Création d’une machine virtuelle exécutant Windows Server
@@ -49,6 +49,6 @@ Ce didacticiel vous a montré comment créer une machine virtuelle exécutant Wi
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzureManagementPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

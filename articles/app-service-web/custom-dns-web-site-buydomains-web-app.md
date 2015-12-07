@@ -4,7 +4,7 @@
 	description="Découvrez comment acheter un nom de domaine personnalisé avec une application web dans Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Acheter et configurer un nom de domaine personnalisé dans Azure App Service
 
@@ -56,7 +56,7 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
-4. Dans le volet **Acheter des domaines**, utilisez la zone de texte pour taper le nom de domaine que vous voulez acheter et appuyez sur Entrée. Les domaines disponibles proposés s'affichent simplement dans la zone de texte. Sélectionnez le domaine que vous souhaitez acheter. Vous pouvez choisir d'acheter plusieurs domaines à la fois.
+4. Dans le volet **Acheter des domaines**, utilisez la zone de texte pour taper le nom de domaine que vous voulez acheter et appuyez sur Entrée. Les domaines disponibles proposés s'affichent simplement en-dessous de la zone de texte. Sélectionnez le domaine que vous souhaitez acheter. Vous pouvez choisir d'acheter plusieurs domaines à la fois.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
@@ -93,9 +93,9 @@ Procédez comme suit pour acheter des noms de domaine et les attribuer à votre 
 
 > [AZURE.NOTE]Vous pouvez « Annuler l'achat » dans les 5 jours pour obtenir un remboursement intégral. Au bout de 5 jours, vous ne pouvez plus « Annuler l'achat », mais vous pouvez « Supprimer » le domaine. La suppression du domaine le retire de votre abonnement sans remboursement, et le domaine devient disponible.
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+Une fois la configuration terminée, le nom de domaine personnalisé est répertorié dans la section **Liaisons de nom d'hôte** de votre application web.
 
 À ce stade, vous devez pouvoir entrer le nom de domaine personnalisé dans votre navigateur et vérifier que vous êtes bien dirigé vers votre application web.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

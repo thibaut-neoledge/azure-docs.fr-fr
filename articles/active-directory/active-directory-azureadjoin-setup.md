@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Configuration d’Azure AD Join dans votre organisation
@@ -27,7 +27,7 @@ Des instructions détaillées pour la synchronisation de vos utilisateurs locaux
 Pour créer et gérer manuellement des utilisateurs dans Azure AD, reportez-vous à [Gestion des utilisateurs dans Azure AD](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
 ## Configuration de l’inscription des appareils 
-1. Ouvrez une session sur le portail Azure en tant qu’administrateur.
+1. Ouvrez une session sur le portail Azure en tant qu'administrateur.
 2. Dans le volet gauche, sélectionnez Active Directory.
 3. Dans l’onglet **Annuaire**, sélectionnez votre annuaire.
 4. Sélectionnez l'onglet **Configurer**.
@@ -48,11 +48,10 @@ Voici trois scénarios expliquant comment vous pouvez autoriser les utilisateurs
 - Les utilisateurs ajoutent des comptes professionnels à Windows sur un appareil personnel 
 
 ## Informations supplémentaires
-
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [En savoir plus sur les scénarios d’utilisation pour Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -68,13 +68,15 @@ Cet article décrit les différents paramètres qui s'appliquent pendant la mise
 ## Étapes suivantes
 
 
-[Didacticiel de mise à niveau](service-fabric-application-upgrade-tutorial.md)
+[Mise à niveau d'une application Service Fabric à l'aide de Visual Studio](service-fabric-application-upgrade.md)
 
-[Rubriques avancées](service-fabric-application-upgrade-advanced.md)
+[Mise à niveau d’applications Service Fabric à l’aide de PowerShell](service-fabric-application-upgrade-powershell.md)
+
+[Mise à niveau manuelle et mise à niveau avec un package différentiel](service-fabric-application-upgrade-advanced.md)
 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
 
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

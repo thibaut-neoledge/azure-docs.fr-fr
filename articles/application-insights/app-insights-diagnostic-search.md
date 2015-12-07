@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Utilisation de Recherche de diagnostic dans Application Insights
@@ -36,6 +36,9 @@ Par exemple, si votre application est un service web, le panneau Vue d’ensembl
 La partie principale de Recherche de diagnostic est une liste d’éléments de télémétrie : demandes serveur, pages vues, événements personnalisés que vous avez codés, et ainsi de suite. En haut de la liste se trouve un graphique de synthèse indiquant le nombre d’événements au fil du temps.
 
 Les événements s’affichent généralement dans Recherche de diagnostic avant d’apparaître dans Metrics Explorer. Même si le panneau est actualisé à intervalles réguliers, vous pouvez cliquer sur Actualiser si vous attendez un événement spécifique.
+
+
+> [AZURE.NOTE]Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
 
 ## Inspecter les éléments un par un
@@ -200,4 +203,4 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -80,14 +80,13 @@ Afin que l'application de la tâche iOS communique avec Azure AD B2C, vous devez
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -233,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -256,50 +253,16 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 Vous constatez que la méthode est relativement simple. Elle prend comme entrée l’objet `samplesPolicyData` que nous avons créé il y a quelques instants, le ViewController parent, puis un rappel. Le rappel est intéressant et nous allons l'examiner en détail.
 
 1. Vous constatez que le `completionBlock` contient ADProfileInfo en tant que type qui sera retourné avec un objet `userInfo`. ADProfileInfo est le type qui contient l'ensemble de la réponse du serveur, en particulier les revendications. 
-
 2. Vous pouvez constater que nous utilisons `readApplicationSettings`. Ceci permet de lire les données fournies dans `settings.plist`.
-3. Vous verrez que nous avons une méthode `convertPolicyToDictionary:policy` qui utilise notre stratégie et la met en forme en tant qu’URL à envoyer au serveur. Nous écrirons cette méthode d'assistance ultérieurement.
-4. Enfin, nous avons une méthode `getClaimsWithPolicyClearingCache` plutôt volumineuse. Il s'agit de l'appel réel à la bibliothèque ADAL pour iOS que nous devons écrire. Nous ferons cela plus tard.
+3. Enfin, nous avons une méthode `getClaimsWithPolicyClearingCache` plutôt volumineuse. Il s'agit de l'appel réel à la bibliothèque ADAL pour iOS que nous devons écrire. Nous ferons cela plus tard.
 
-
-Ensuite, nous allons écrire cette méthode `convertPolicyToDictionary` sous le code que nous venons d’écrire :
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-Ce code relativement simple ajoute un p à notre stratégie afin que l’aspect de la requête soit ?p=<policy>.
-
-Maintenant, écrivons notre méthode volumineuse `getClaimsWithPolicyClearingCache`. Elle est suffisamment volumineuse pour mériter sa propre section
+Écrivons maintenant notre méthode volumineuse `getClaimsWithPolicyClearingCache`. Elle est suffisamment volumineuse pour mériter sa propre section
 
 #### Création de notre appel à la bibliothèque ADAL pour iOS
 
-Si vous avez téléchargé la structure de GitHub, vous verrez que nous en avons déjà plusieurs en place pour nous aider avec l'exemple d'application. Ils suivent tous le modèle de `get(Claims|Token)With<verb>ClearningCache`. En utilisant des conventions Objetive C, ceci se lit presque normalement. Par exemple « obtenir un jeton avec des paramètres supplémentaires que je donne et effacer le cache ». Cela équivaut à `getTokenWithExtraParamsClearingCache()`. Plutôt simple.
+Si vous avez téléchargé la structure de GitHub, vous verrez que nous en avons déjà plusieurs en place pour nous aider avec l'exemple d'application. Ils suivent tous le modèle suivant : `get(Claims|Token)With<verb>ClearningCache`. En utilisant des conventions Objetive C, ceci se lit presque normalement. Par exemple « obtenir un jeton avec des paramètres supplémentaires que je donne et effacer le cache ». Cela équivaut à `getTokenWithExtraParamsClearingCache()`. Plutôt simple.
 
-Nous allons écrire « obtenir des revendications et un jeton avec la stratégie que je fournis et ne pas effacer le cache » ou `getClaimsWithPolicyClearingCache`. Nous obtenons toujours un jeton à partir de la bibliothèque ADAL, donc il n'est pas nécessaire de spécifier « Revendications et jeton » dans la méthode. Cependant, parfois vous voulez simplement le jeton sans la surcharge de l’analyse des revendications, donc nous avons fourni une méthode sans Revendications appelée `getTokenWithPolicyClearingCache` dans la structure.
+Nous allons écrire « obtenir des revendications et un jeton avec la stratégie que je fournis et ne pas effacer le cache » ou `getClaimsWithPolicyClearingCache`. Nous obtenons toujours un jeton à partir de la bibliothèque ADAL, donc il n'est pas nécessaire de spécifier « Revendications et jeton » dans la méthode. Cependant, vous voulez parfois simplement le jeton sans la surcharge de l'analyse des revendications, donc nous avons fourni une méthode sans Revendications appelée `getTokenWithPolicyClearingCache` dans la structure.
 
 Écrivons ce code maintenant :
 
@@ -349,7 +312,7 @@ Nous allons écrire « obtenir des revendications et un jeton avec la stratégi
 
 ```
 
-La première partie doit vous sembler familière. Nous chargeons les paramètres qui ont été fournis dans `Settings.plist` et les assignons à `data`. Nous configurons ensuite une `ADAuthenticationError` qui prendra toute erreur provenant de la bibliothèque ADAL pour iOS. Nous créons également un `authContext` qui consiste à configurer notre appel à la bibliothèque ADAL. Nous lui transmettons notre *autorité* pour démarrer. Nous donnons également au `authContext` une référence à notre contrôleur parent, afin de pouvoir le retourner. Nous convertissons également notre `redirectURI` qui était une chaîne dans notre `settings.plist` dans le type NSURL attendu par la bibliothèque ADAL. Enfin, nous définissons un `correlationId` qui est simplement un UUID qui peut suivre l’appel vers le client et le serveur, et vice versa. Cela est utile pour le débogage.
+La première partie doit vous sembler familière. Nous chargeons les paramètres qui ont été fournis dans `Settings.plist` et les assignons à `data`. Nous configurons ensuite une `ADAuthenticationError` qui traitera toute erreur provenant de la bibliothèque ADAL pour iOS. Nous créons également un `authContext` qui configure notre appel à la bibliothèque ADAL. Nous lui transmettons notre *autorité* pour démarrer. Nous donnons également au `authContext` une référence à notre contrôleur parent, afin de pouvoir le retourner. Nous convertissons également notre `redirectURI` qui était une chaîne dans notre `settings.plist` en type NSURL attendu par la bibliothèque ADAL. Enfin, nous définissons un `correlationId` qui est simplement un UUID qui peut suivre l'appel vers le client et le serveur, et vice versa. Cela est utile pour le débogage.
 
 À présent, passons à l'appel à la bibliothèque ADAL. C'est à ce moment-là que l'appel diffère de ce à quoi vous pourriez vous attendre avec les utilisations précédentes de la bibliothèque ADAL pour iOS :
 
@@ -368,9 +331,9 @@ La première partie doit vous sembler familière. Nous chargeons les paramètres
 
 Vous pouvez voir ici que l'appel est assez simple.
 
-**scopes** : étendues que nous transmettons au serveur, que nous souhaitons demander au serveur, pour l’utilisateur qui se connecte. Pour la version préliminaire de B2C, nous transmettons la valeur client\_id. Toutefois, ceci sera modifié pour la lecture des étendues à l'avenir. Ce document sera alors mis à jour. **addtionalScopes** : étendues supplémentaires que vous pourriez vouloir utiliser pour votre application. Elles seront utilisées à l’avenir. **clientId** : ID de l’application vous avez obtenu du portail. **redirectURI** : redirection où nous nous attendons à ce que le jeton soit publié. **identifier** : moyen d’identifier l’utilisateur. Ainsi, nous pouvons voir s’il existe un jeton utilisable dans le cache plutôt que de toujours demander un autre jeton au serveur. Vous constatez que ceci est exécuté dans un type appelé `ADUserIdentifier` et nous pouvons spécifier ce que nous voulons utiliser en tant qu’ID. Vous devriez utiliser le nom d’utilisateur. **promptBehavior** : ceci est obsolète et doit être remplacé par AD\_PROMPT\_ALWAYS **extraQueryParameters** : tout contenu supplémentaire que vous souhaitez transmettre au serveur dans un format codé de type URL. **policy** : stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
+**scopes** : étendues transmises au serveur, que nous souhaitons demander au serveur, pour l'utilisateur qui se connecte. Pour la version préliminaire de B2C, nous transmettons la valeur client\_id. Toutefois, ceci sera modifié pour la lecture des étendues à l'avenir. Ce document sera alors mis à jour. **addtionalScopes** : étendues supplémentaires que vous pourriez utiliser pour votre application. Elles seront utilisées à l'avenir. **clientId** : ID de l'application que vous avez obtenu du portail. **redirectURI** : redirection où nous nous attendons à ce que le jeton soit publié. **identifier** : moyen d'identifier l'utilisateur. Ainsi, nous pouvons voir s'il existe un jeton utilisable dans le cache plutôt que de toujours demander un autre jeton au serveur. Vous constatez que ceci est exécuté dans un type appelé `ADUserIdentifier` et nous pouvons spécifier ce que nous voulons utiliser en tant qu'ID. Vous devez utiliser le nom d'utilisateur. **promptBehavior**. Ceci est obsolète et doit être remplacé par AD\_PROMPT\_ALWAYS **extraQueryParameters** : tout contenu supplémentaire que vous souhaitez transmettre au serveur dans un format codé de type URL. **policy** : stratégie que vous appelez. La partie la plus importante de cette procédure pas à pas.
 
-Vous pouvez voir dans completionBlock que nous transmettons le `ADAuthenticationResult` qui contient notre jeton et les informations de profil (si l’appel a réussi)
+Vous pouvez voir dans completionBlock que nous transmettons le `ADAuthenticationResult` qui contient notre jeton et les informations de profil (si l'appel a réussi)
 
 À l'aide du code ci-dessus, vous pouvez obtenir un jeton pour la stratégie que vous fournissez. Nous allons utiliser ce jeton pour appeler l'API.
 
@@ -393,9 +356,9 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
    completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 ```
 
-Notre `getTasksList` fournit un tableau qui représente les tâches dans notre serveur. `addTask` et `deleteTask` effectuent l’action suivante et renvoient TRUE ou FALSE en cas de réussite.
+Notre `getTasksList` fournit un tableau qui représente les tâches dans notre serveur. `addTask` et `deleteTask` effectuent l'action suivante et renvoient TRUE ou FALSE en cas de réussite.
 
-Tout d’abord, écrivons notre `getTaskList` :
+Tout d'abord, écrivons notre `getTaskList` :
 
 ```
 
@@ -457,7 +420,7 @@ Tout d’abord, écrivons notre `getTaskList` :
 
 ```
 
-Le cadre de cette procédure pas-à-pas n’inclut pas le code de tâche, mais il y a quelque chose d’intéressant que vous avez peut-être remarqué : une méthode `craftRequest` qui prend l’URL de notre tâche. Cette méthode est ce que nous utilisons pour créer la requête, avec le jeton d'accès que nous avons reçu, pour le serveur. Écrivons cela maintenant.
+Le cadre de cette procédure pas-à-pas n'inclut pas le code de tâche, mais vous avez peut-être remarqué la chose suivante : une méthode `craftRequest` qui prend l'URL de notre tâche. Cette méthode est ce que nous utilisons pour créer la requête, avec le jeton d'accès que nous avons reçu, pour le serveur. Écrivons cela maintenant.
 
 Ajoutons le code suivant au fichier `samplesWebAPIConnector.m' :
 
@@ -488,7 +451,7 @@ Ajoutons le code suivant au fichier `samplesWebAPIConnector.m' :
 }
 ```
 
-Comme vous pouvez le voir, cette opération prend un URI de site web, lui ajoute le jeton avec l’en-tête `Bearer` dans HTTP, puis nous le retourne. Nous appelons l’API `getTokenClearingCache`, ce qui peut sembler bizarre au premier abord, mais nous utilisons simplement cet appel pour obtenir un jeton à partir du cache et nous assurer qu’il est toujours valide (les appels getToken* font cela pour nous en demandant à la bibliothèque ADAL). Nous utilisons ce code dans chaque appel. Maintenant, revenons à la création de nos méthodes de tâche supplémentaires.
+Comme vous pouvez le voir, cette opération prend un URI de site web, lui ajoute le jeton avec l'en-tête `Bearer` dans HTTP, puis nous le retourne. Nous appelons l'API `getTokenClearingCache`, ce qui peut sembler bizarre au premier abord. Mais nous utilisons simplement cet appel pour obtenir un jeton à partir du cache et nous assurer qu'il est toujours valide (les appels getToken* font cela pour nous en effectuant une demande à la bibliothèque ADAL). Nous utilisons ce code dans chaque appel. Maintenant, revenons à la création de nos méthodes de tâche supplémentaires.
 
 Écrivons notre `addTask` :
 
@@ -545,7 +508,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 }
 ```
 
-Cette opération suit le même modèle, mais introduit une autre méthode (finale) que nous devons implémenter : `convertTaskToDictionary` qui utilise notre tableau et en fait un objet de dictionnaire qui est plus facilement transformé pour les paramètres de requête que nous devons transmettre au serveur. Ce code est très simple :
+Cette opération suit le même modèle, mais introduit une autre méthode (finale) que nous devons mettre en œuvre (`convertTaskToDictionary`) qui utilise notre tableau et en fait un objet de dictionnaire qui est plus facilement transformé par les paramètres de requête que nous devons transmettre au serveur. Ce code est très simple :
 
 ```
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
@@ -617,7 +580,7 @@ Enfin, écrivons notre `deleteTask` :
 
 ### Ajouter la déconnexion à notre application.
 
-La dernière chose à faire est d'implémenter la déconnexion pour notre application. Ceci est plutôt simple. De nouveau, dans notre fichier `sampleWebApiConnector.m` :
+La dernière chose à faire est d'implémenter la déconnexion pour notre application. Ceci est plutôt simple. De nouveau dans notre fichier `sampleWebApiConnector.m` :
 
 ```
 +(void) signOut
@@ -640,7 +603,7 @@ Pour terminer, générez et exécutez les applications dans xCode. Inscrivez-vou
 
 Notez la façon dont les tâches sont stockées par utilisateur sur l'API, dans la mesure où l'API extrait l'identité de l'utilisateur à partir du jeton d'accès qu'il reçoit.
 
-Pour référence, l’exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
+Pour référence, l'exemple terminé [est fourni au format .zip ici](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Vous pouvez également le cloner à partir de GitHub :
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
@@ -652,4 +615,4 @@ Vous pouvez maintenant aborder des rubriques B2C plus sophistiquées. Par exempl
 
 [Personnalisation de l'UX de l'application B2C >>]()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

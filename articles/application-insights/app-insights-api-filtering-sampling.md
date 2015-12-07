@@ -24,7 +24,9 @@ Vous pouvez écrire et configurer des plug-ins pour le Kit de développement log
 Actuellement, ces fonctionnalités sont disponibles pour le Kit de développement logiciel (SDK) ASP.NET.
 
 * L'[échantillonnage](#sampling) réduit le volume des données de télémétrie sans affecter les statistiques. Il maintient ensemble les points de données liés de sorte que vous pouvez naviguer entre eux pour diagnostiquer un problème. Dans le portail, les nombres totaux sont multipliés pour compenser l'échantillonnage.
-* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant l'envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
+ * L'échantillonnage à débit fixe vous permet de déterminer le pourcentage d'événements qui sont transmis.
+ * L'échantillonnage adaptatif (la valeur par défaut pour ASP.NET SDK de 2.0.0-beta3) ajuste automatiquement le débit d'échantillonnage en fonction du volume de vos données de télémétrie. Vous pouvez définir un volume cible.
+* Le [filtrage](#filtering) vous permet de sélectionner ou de modifier la télémétrie dans le Kit de développement logiciel (SDK) avant son envoi au serveur. Par exemple, vous pouvez réduire le volume de la télémétrie en excluant les demandes émanant de robots. Il s'agit d'une approche plus simple que l'échantillonnage pour réduire le trafic. Cela vous permet de mieux contrôler ce qui est transmis, mais vous devez être conscient que cela affectera vos statistiques ; par exemple, si vous filtrez toutes les demandes réussies.
 * [Ajoutez des propriétés](#add-properties) à n'importe quelle télémétrie envoyée à partir de votre application, notamment les données de télémétrie fournies par les modules standard. Par exemple, vous pouvez ajouter des valeurs calculées ou des numéros de version permettant de filtrer les données dans le portail.
 * [L'API SDK](app-insights-api-custom-events-metrics.md) est utilisée pour envoyer des événements et des mesures personnalisés.
 
@@ -38,27 +40,22 @@ Avant de commencer :
 
 *Cette fonctionnalité est en version bêta.*
 
-La méthode recommandée pour réduire le trafic tout en conservant des statistiques précises. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments en cours de diagnostic. Le nombre d’événements est ajusté dans Metrics Explorer pour compenser les éléments filtrés.
+L'[échantillonnage](app-insights-sampling.md) est la méthode recommandée pour réduire le trafic tout en conservant la précision des statistiques. Le filtre sélectionne les éléments associés afin que vous puissiez naviguer entre les éléments en cours de diagnostic. Le nombre d’événements est ajusté dans Metrics Explorer pour compenser les éléments filtrés.
 
-1. Mettez à jour les packages NuGet de votre projet vers la dernière version *préliminaire* d'Application Insights. Cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web. 
+* L'échantillonnage adaptatif est recommandé. Il ajuste automatiquement le pourcentage d'échantillonnage de façon à obtenir un volume spécifique de demandes. Actuellement uniquement disponible pour la télémétrie ASP.NET côté serveur.  
+* Une option d'échantillonnage à débit fixe est également disponible. Vous spécifiez le pourcentage d'échantillonnage. Disponible pour le code d'application web ASP.NET et les pages Web JavaScript. Le client et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
 
-2. Ajoutez cet extrait de code à [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) :
+### Pour activer l'échantillonnage
 
-```XML
+**Mettez à jour les packages NuGet** de votre projet vers la version *préliminaire* d'Application Insights la plus récente : cliquez avec le bouton droit sur le projet dans l'Explorateur de solutions, sélectionnez Gérer les packages NuGet, cochez **Inclure la version préliminaire** et recherchez Microsoft.ApplicationInsights.Web.
 
-    <TelemetryProcessors>
-     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+Dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), vous pouvez ajuster le taux maximal de télémétrie défini comme objectif de l'algorithme adaptatif :
 
-     <!-- Set a percentage close to 100/N where N is an integer. -->
-     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 10, 1 (=100/100), 0.1 (=100/1000) ... -->
-     <SamplingPercentage>10</SamplingPercentage>
-     </Add>
-   </TelemetryProcessors>
+    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
 
-```
+### Échantillonnage côté client
 
-
-Pour obtenir un échantillonnage de données de pages web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
+Pour obtenir un échantillonnage à débit fixe de données de pages Web, ajoutez une ligne supplémentaire dans l'[extrait de code Application Insights](app-insights-javascript.md) que vous avez inséré (généralement dans une page maître telle que \_Layout.cshtml) :
 
 *JavaScript*
 
@@ -72,10 +69,8 @@ Pour obtenir un échantillonnage de données de pages web, ajoutez une ligne sup
 	}); 
 ```
 
-* Définissez un pourcentage (10 dans ces exemples) qui est égal à 100/N, où N est un entier ; par exemple 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) ou 10 (= 100/10). 
-* Si vous avez beaucoup de données, vous pouvez utiliser des taux d'échantillonnage très faibles, comme 0,1.
-* Si vous définissez l’échantillonnage sur la page web et sur le serveur, veillez à définir le même pourcentage d’échantillonnage des deux côtés.
-* Les côtés client et serveur s’accorderont pour sélectionner des éléments associés.
+* Définissez un pourcentage (10 dans cet exemple) qui est égal à 100/N, où N est un entier. Par exemple 50 (= 100/2), 33,33 (= 100/3), 25 (= 100/4) ou 10 (= 100/10). 
+* Si vous avez activé l'[échantillonnage à débit fixe](app-insights-sampling.md) côté serveur, les clients et le serveur synchronisent leur échantillonnage de façon à ce que vous puissiez naviguer entre les demandes et les affichages de pages associés dans Search.
 
 [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
@@ -164,7 +159,7 @@ Vous pouvez transférer des valeurs de chaîne depuis le fichier .config en four
  
 Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d’initialisation appropriée (par exemple, AppStart dans Global.asax.cs), insérez votre processeur dans la chaîne :
 
-    ```C#
+```C#
 
     var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
     builder.Use((next) => new SuccessfulDependencyFilter(next));
@@ -174,7 +169,7 @@ Vous pouvez **également** initialiser le filtre dans le code. Dans une classe d
 
     builder.Build();
 
-    ```
+```
 
 Les clients de télémétrie créés après ce point utiliseront vos processeurs.
 
@@ -363,7 +358,7 @@ Insérer un initialiseur de télémétrie immédiatement après le code d’init
     </script>
 ```
 
-Pour obtenir un résumé des propriétés non personnalisées disponibles sur le telemetryItem, consultez le [modèle de données](app-insights-export-data-model.md/#lttelemetrytypegt).
+Pour obtenir un résumé des propriétés non personnalisées disponibles dans le telemetryItem, consultez le [modèle de données](app-insights-export-data-model.md/#lttelemetrytypegt).
 
 Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
@@ -409,4 +404,4 @@ Vous pouvez ajouter autant d'initialiseurs que vous le souhaitez.
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

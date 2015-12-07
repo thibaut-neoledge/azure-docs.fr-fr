@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="jroth"/>
 
 # Abonnement Azure et limites, quotas et contraintes du service
@@ -117,19 +117,27 @@ Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager 
 
 ### Limites de stockage
 
-#### Limites de stockage standard
+Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et d’extensibilité Azure Storage](../articles/storage/storage-scalability-targets.md).
+
+#### Limites de service de stockage
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et évolutivité d'Azure Storage](../articles/storage/storage-scalability-targets.md).
+#### Limites du nombre de disques de machine virtuelle 
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-#### Limites Premium Storage
+Pour plus d'informations, consultez [Tailles des machines virtuelles](../articles/virtual-machines/virtual-machines-size-specs.md).
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+**Comptes de stockage standard**
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-#### Limites de stockage - Azure Resource Manager
+**Comptes de stockage Premium**
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
+#### Limites de fournisseur de ressources de stockage
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -172,7 +180,7 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Pour plus d'informations sur les limites d'Azure Search, consultez la page [Limites et contraintes](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Pour plus d’informations sur les limites maximales pour le service partagé, ou une répartition des limites sur les clés, les demandes et les réponses, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Limites de Media Services
 
@@ -263,4 +271,4 @@ Pour connaître les limites de la base de données SQL, consultez [Limites de re
 
 [Tailles de machines virtuelles et services cloud pour Windows Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

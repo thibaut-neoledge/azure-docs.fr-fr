@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # Personnalisation des clusters HDInsight à l'aide d'une action de script (Linux)
@@ -60,7 +60,7 @@ Nom | Script
 
 2. Dans __Configuration facultative__, sur le panneau **Actions de script**, cliquez sur **ajouter l’action de script** pour fournir des informations sur l’action de script, comme illustré ci-dessous :
 
-	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Utilisation d’une action de script pour personnaliser un cluster")
+	![Utilisation d’une action de script pour personnaliser un cluster](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| Propriété | Valeur |
 	| -------- | ----- |
@@ -80,12 +80,12 @@ Dans cette section, nous utilisons des modèles Azure Resource Manager (ARM) pou
 ### Avant de commencer
 
 * Pour plus d’informations sur la configuration d’un poste de travail pour exécuter des applets de commande HDInsight Powershell, consultez la rubrique [Installation et configuration d’Azure PowerShell](../powershell-install-configure.md).
-* Pour obtenir des instructions sur la façon de créer des modèles ARM, consultez [modèles de programmation Azure Resource Manager](resource-group-authoring-templates.md).
-* Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](powershell-azure-resource-manager).
+* Pour obtenir des instructions sur la création de modèles ARM, consultez [Création de modèles Azure Resource Manager](../resource-group-authoring-templates.md).
+* Si vous n’avez pas déjà utilisé Azure PowerShell avec Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### Création de clusters à l'aide d'une action de script
 
-1. Copiez le modèle suivant vers un emplacement sur votre ordinateur. Ce modèle installe R sur le nœud principal, ainsi que des nœuds de travail dans le cluster. Vous pouvez également vérifier si le modèle JSON est valide. Collez le contenu dans votre modèle de [JSONLint](http://jsonlint.com/), un outil de validateur JSON en ligne.
+1. Copiez le modèle suivant vers un emplacement sur votre ordinateur. Ce modèle installe R sur le nœud principal, ainsi que des nœuds de travail dans le cluster. Vous pouvez également vérifier si le modèle JSON est valide. Collez le contenu de votre modèle dans [JSONLint](http://jsonlint.com/), un outil de validation JSON en ligne.
 
 			{
 		    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -329,15 +329,31 @@ Procédez comme suit :
 	| --------- | ---------- |
 	| Configuration | Objet de configuration auquel des informations d'action de script sont ajoutées. |
 	| Nom | Nom de l'action de script. |
-	| NodeType | Spécifie le nœud sur lequel le script de personnalisation est exécuté. Les valeurs correctes sont **HeadNode** (pour une installation sur le nœud principal), le **WorkerNode** (pour une installation sur l’ensemble des nœuds de données) ou **ZookeeperNode** (pour installer le nœud zookeeper). |
+	| NodeType | Spécifie le nœud sur lequel le script de personnalisation est exécuté. Les valeurs correctes sont **HeadNode** (pour une installation sur le nœud principal), **WorkerNode** (pour une installation sur l'ensemble des nœuds de données) ou **ZookeeperNode** (pour une installation sur le nœud zookeeper). |
 	| Paramètres | Paramètres requis par le script. |
 	| Uri | Spécifie l’URI du script qui est exécuté. |
 
+4. Définir l'utilisateur admin/HTTPS pour le cluster :
+
+        $httpCreds = get-credential
+        
+    Lorsque vous y êtes invité, entrez « admin » comme nom et saisissez un mot de passe.
+
+5. Définir les informations d'identification SSH :
+
+        $sshCreds = get-credential
+    
+    Lorsque vous y êtes invité, entrez le nom d'utilisateur et le mot de passe SSH. Si vous souhaitez sécuriser le compte SSH avec un certificat au lieu d'un mot de passe, utilisez un mot de passe vide et définissez `$sshPublicKey` sur le contenu de la clé publique du certificat à utiliser. Par exemple :
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. Enfin, créez le cluster :
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    Si vous utilisez une clé publique pour sécuriser votre compte SSH, vous devez également spécifier `-SshPublicKey $sshPublicKey` en tant que paramètre.
 
-Lorsque vous y êtes invité, entrez les informations d'identification du cluster. La création du cluster peut prendre plusieurs minutes.
+La création du cluster peut prendre plusieurs minutes.
 
 ## Utilisez une action de Script dans le Kit de développement .NET HDInsight
 
@@ -350,7 +366,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 
 1. Créez une application console C# dans Visual Studio.
-2. À partir de la **console du gestionnaire de package** Nuget, exécutez les commandes suivantes :
+2. À partir de la **console du gestionnaire de package** NuGet, exécutez les commandes suivantes :
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
 		Install-Package Microsoft.Azure.Management.HDInsight -Pre
@@ -380,7 +396,7 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -478,11 +494,11 @@ Vous pouvez utiliser l’interface utilisateur web de Ambari pour afficher les i
 
 	Lorsque vous y êtes invité, saisissez le nom de compte (admin) et le mot de passe correspondant au cluster. Vous devrez peut-être saisir de nouveau les informations d’identification d’administrateur dans un formulaire web.
 
-2. Dans la barre située en haut de la page, sélectionnez l’entrée __ops__. Cette opération permet d’afficher une liste des opérations en cours et précédentes effectuées sur le cluster via Ambari.
+2. Dans la barre située en haut de la page, sélectionnez l'entrée __ops__. Cette opération permet d’afficher une liste des opérations en cours et précédentes effectuées sur le cluster via Ambari.
 
 	![Barre de l’interface utilisateur web Ambari avec ops sélectionné](./media/hdinsight-hadoop-customize-cluster-linux/ambari-nav.png)
 
-3. Recherchez les entrées comportant __run\_customscriptaction__ dans la colonne __Opérations__. Ceux-ci sont créés lors de l’exécution des actions de Script.
+3. Recherchez les entrées comportant __run\_customscriptaction__ dans la colonne __Operations__. Ceux-ci sont créés lors de l’exécution des actions de Script.
 
 	![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/ambariscriptaction.png)
 
@@ -549,4 +565,4 @@ Consultez la rubrique suivante pour obtenir des informations et des exemples sur
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Procédure de création d’un cluster"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

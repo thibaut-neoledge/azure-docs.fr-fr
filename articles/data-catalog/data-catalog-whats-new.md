@@ -24,9 +24,9 @@ Les mises à jour d’**Azure Data Catalog** sont publiées régulièrement. Com
 
 Depuis la semaine du 20 novembre 2015, les fonctionnalités suivantes ont été ajoutées à **Azure Data Catalog** :
 
-- La possibilité d’afficher et de copier les chaînes de connexion depuis le portail **Azure Data Catalog** pour les sources de données SQL Server (y compris Base de données SQL Azure). Les utilisateurs peuvent cliquer sur le lien « Afficher les chaînes de connexion » dans les informations de connexion d’une table, vue ou base de données SQL Server pour voir les chaînes de connexion ADO.NET, ODBC, OLEDB et JDBC utilisées pour se connecter à la source de données.
+- La possibilité d'afficher et de copier des chaînes de connexion depuis le portail **Azure Data Catalog** pour des sources de données SQL Server (notamment la base de données SQL Azure) et Oracle. Les utilisateurs peuvent cliquer sur le lien « Afficher les chaînes de connexion » dans les informations de connexion d'une table, vue ou base de données SQL Server ou Oracle pour voir les chaînes de connexion utilisées pour se connecter à la source de données. Les chaînes de connexion ADO.NET, ODBC, OLEDB et JDBC sont fournies pour les sources de données SQL Server. Les chaînes de connexion ODBC et OLEDB sont fournies pour les sources de données Oracle.
 - Prise en charge de l’inclusion des profils de données lors de l’inscription des tables et vues Teradata.
-- Prise en charge de la fonction « Ouvrir dans Power BI Desktop » pour les sources de données SQL Server (y compris Base de données SQL Azure et Azure SQL Data Warehouse) et SQL Server Analysis Services.
+- Prise en charge de la fonction « Ouvrir dans Power BI Desktop » pour les sources SQL Server (notamment la base de données SQL Azure et Azure SQL Data Warehouse), SQL Server Analysis Services, Azure Storage et HDFS.  
 
 > [AZURE.NOTE]« Ouvrir dans Power BI Desktop » requiert l’installation d’une version actuelle de l’application Power BI Desktop. Si vous rencontrez des problèmes ou des erreurs en utilisant cette fonctionnalité, vérifiez que vous disposez de la dernière version de Power BI Desktop à la page [PowerBI.com](https://powerbi.com).
 
@@ -147,4 +147,4 @@ Depuis la semaine du 21 août 2015, les fonctionnalités suivantes ont été a
 - Édition Standard uniquement : quand vous ajoutez des propriétaires à des ressources de données, **Azure Data Catalog** prend désormais en charge les comptes d’utilisateurs et les groupes de sécurité en tant que propriétaires. Pour ajouter un groupe de sécurité en tant que propriétaire pour des ressources de données sélectionnées, vous pouvez entrer le nom d’affichage du groupe ou l’adresse de messagerie UPN du groupe, le cas échéant.
 - Prise en charge des sources de données de stockage d’objets blob Azure. Les utilisateurs peuvent désormais s’inscrire et découvrir des objets blob Azure Storage et des répertoires.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

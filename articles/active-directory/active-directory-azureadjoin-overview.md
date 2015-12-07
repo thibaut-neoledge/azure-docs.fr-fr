@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join | Microsoft Azure" 
-	description="Rubrique décrivant Azure AD Join." 
+	description="Fournit une présentation détaillée de la manière dont les appareils Windows 10 peuvent utiliser Azure AD Join pour s'inscrire à Azure Active Directory." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join
@@ -68,6 +68,7 @@ Azure AD Join a les caractéristiques suivantes :
 | Authentification unique du Bureau aux sites web/applications/ressources d’entreprise, à la fois localement et dans le cloud. Applications qui utilisent Azure AD pour l'authentification. | Inscription automatique dans l'annuaire d'entreprise (Azure AD) et inscription automatique dans GPM. (fonctionnalité Azure AD Premium) | Fournit l'authentification unique sur les appareils et aux applications/sites web/ressources avec ce compte professionnel. |
 | Les utilisateurs peuvent ajouter leur MSA personnel pour accéder à leurs images/fichiers personnels sans incidence sur les données d'entreprise (les paramètres d'itinérance continuent de fonctionner avec un compte professionnel). Le compte MSA permet l'authentification unique et ne fait plus appel à l’itinérance des paramètres. | Réinitialisation de mot de passe libre-service sur winlogon (possibilité de réinitialiser un mot de passe oublié) (Azure AD Premium est requis). | Fournit l'accès au Store de l’entreprise afin que les utilisateurs puissent acquérir et utiliser des applications métier sur leurs appareils personnels. | |
 
+
 ## Informations supplémentaires
 * [Windows 10 pour l’entreprise : plusieurs manières d’utiliser des appareils professionnels](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extension des fonctionnalités du cloud aux appareils Windows 10 via Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
@@ -76,4 +77,4 @@ Azure AD Join a les caractéristiques suivantes :
 * [Connecter des appareils joints au domaine à Azure AD pour des expériences Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuration d’Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Pile de communication WCF pour les services fiables
-L'infrastructure de services fiables permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix via le `ICommunicationListener` retourné à partir de la méthode [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). L'infrastructure fournit une implémentation WCF de la pile de communication pour les auteurs de service qui souhaitent utiliser une communication WCF.
+L'infrastructure de services fiables permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix via le `ICommunicationListener` retourné à partir des méthodes [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). L'infrastructure fournit une implémentation WCF de la pile de communication pour les auteurs de service qui souhaitent utiliser une communication WCF.
 
 ## Écouteur de communication WCF
 L'implémentation WCF spécifique de `ICommunicationListener` est fournie par la classe `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Écriture de clients pour la pile de communication WCF
-Pour écrire des clients afin qu'ils communiquent avec les services à l'aide de la méthode WCF, l'infrastructure fournit `WcfClientCommunicationFactory`, qui est l'implémentation WCF spécifique de [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md).
+Pour écrire des clients afin qu'ils communiquent avec les services à l'aide de la méthode WCF, l'infrastructure fournit `WcfClientCommunicationFactory`, qui est l'implémentation WCF spécifique de [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 
 * [API Web avec OWIN dans Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

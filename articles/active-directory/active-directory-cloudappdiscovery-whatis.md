@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Détection des applications cloud non approuvées avec Cloud App Discovery | Microsoft Azure"
-	description="Cette rubrique explique ce qu’est Cloud App Discovery et pourquoi l’utiliser."
+	description="Fournit une vue d'ensemble de la recherche et de la gestion d'applications avec Cloud App Discovery, ainsi que des informations sur ses avantages et son fonctionnement."
 	services="active-directory"
+	keywords="détection d'applications cloud, gestion d'applications"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/20/2015"
 	ms.author="markusvi"/>
 
 # Détection des applications cloud non approuvées avec Cloud App Discovery
@@ -47,4 +48,4 @@ Pour prendre en main Cloud App Discovery, consultez [Prise en main de Cloud App 
 - [Cloud App Discovery - Agent Changelog ](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Cloud App Discovery - Forum aux Questions](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

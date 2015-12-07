@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 # Présentation des sorties Stream Analytics
@@ -159,7 +159,7 @@ Pour résoudre ce problème, arrêtez votre tâche en cours d'exécution et acc�
 
 ## Stockage de tables
 
-Le [stockage de tables Azure](./articles/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu’une application puisse être mise à l’échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
+Le [stockage de tables Azure](./articles/storage-introduction.md) offre un stockage hautement disponible et massivement évolutif, afin qu'une application puisse être mise à l'échelle automatiquement pour répondre à la demande des utilisateurs. Le stockage de tables est le magasin de clés/attributs NoSQL de Microsoft, qui peut être utilisé pour les données structurées avec moins de contraintes au niveau du schéma. Le stockage des données sur les tables Azure permet d’assurer leur persistance et une récupération efficace.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -171,11 +171,11 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 | Nom de la table | Nom de la table. La table sera créée s’il n’existe pas. |
 | Partition Key | Nom de la colonne de sortie contenant la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table donnée qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut atteindre 1 Ko. |
 | Row Key | Nom de la colonne de sortie contenant la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition donnée. Elle constitue la deuxième partie de la clé primaire d’une entité. La clé de ligne est une valeur de chaîne qui peut atteindre 1 Ko. |
-| Taille du lot | Nombre d’enregistrements d’une opération par lot. En général, la valeur par défaut est suffisante pour la plupart des tâches. Pour plus d’informations sur la modification de ce paramètre, consultez [Spécifications des opérations par lot des tables](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
+| Taille du lot | Nombre d’enregistrements d’une opération par lot. En général, la valeur par défaut est suffisante pour la plupart des tâches. Pour plus d'informations sur la modification de ce paramètre, consultez [Spécifications des opérations par lot des tables](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx). |
 
 ## Files d'attente Service Bus
 
-Les [files d’attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) permettent de livrer des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents. En général, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
+Les [files d'attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) permettent de livrer des messages selon le principe du premier entré, premier sorti (FIFO) à un ou plusieurs destinataires concurrents. En général, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente ; chaque message est reçu et traité par un seul consommateur de message uniquement.
 
 La table ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de file d’attente.
 
@@ -193,7 +193,7 @@ La table ci-dessous répertorie les noms de propriétés et leur description pou
 
 ## Rubriques Service Bus
 
-Les files d’attente Service Bus offrent une communication de type un-à-un entre l’expéditeur et le destinataire, alors que les [rubriques Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrent une communication de type un-à-plusieurs.
+Les files d'attente Service Bus offrent une communication de type un-à-un entre l'expéditeur et le destinataire, alors que les [rubriques Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrent une communication de type un-à-plusieurs.
 
 Le tableau ci-dessous répertorie les noms de propriétés et leur description pour la création d’une sortie de table.
 
@@ -210,7 +210,7 @@ Le tableau ci-dessous répertorie les noms de propriétés et leur description p
 
 ## Base de données de documents
 
-[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d’utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
+[Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) est un service de base de données de documents NoSQL entièrement géré qui permet d'utiliser des données de requêtes et de transactions sans schéma, offre des performances prévisibles et fiables, et permet un développement rapide.
 
 Le tableau ci-dessous répertorie les noms et les descriptions des propriétés pour la création d’une sortie DocumentDB.
 
@@ -267,4 +267,4 @@ Stream Analytics, un service géré d’analyse de diffusion en continu des donn
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="robmcm"/>
 
 # Exécution d’un serveur d’applications Java sur une machine virtuelle créée avec le modèle de déploiement classique.
@@ -63,7 +63,7 @@ Ce didacticiel nécessite l’installation d’un serveur d’applications Apach
 
 ## Connexion distante à votre machine virtuelle
 
-1. Ouvrez une session sur le [portail de gestion](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle à laquelle vous souhaitez vous connecter.
 4. Une fois que la machine virtuelle a démarré, un menu contextuel au bas de la page autorise les connexions.
@@ -89,7 +89,7 @@ Tomcat doit maintenant démarrer lorsque vous lancez le navigateur de la machine
 Pour démarrer Tomcat depuis des machines externes, vous devez créer un point de terminaison et ouvrir un port.
 
 ## Création d'un point de terminaison pour votre machine virtuelle
-1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com).
+1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
 2. Cliquez sur **Machines virtuelles**.
 3. Cliquez sur le nom de la machine virtuelle exécutant votre serveur d'applications Java.
 4. Cliquez sur **Endpoints**.
@@ -114,7 +114,7 @@ Pour démarrer Tomcat depuis des machines externes, vous devez créer un point d
 9. Dans l’écran **Profil**, vérifiez que les options **Domaine**, **Privé** et **Public** sont sélectionnées, puis cliquez sur **Suivant**. ![Profil de nouvelle règle de trafic entrant][NewRuleProfile]
 10. Dans l’écran **Name**, indiquez un nom pour la règle, par exemple **HttpIn** (il n’est pas nécessaire que ce nom corresponde à celui du point de terminaison), puis cliquez sur **Terminer**. ![Nom de nouvelle règle de trafic entrant][NewRuleName]
 
-À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format **http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
+À ce stade, vous pouvez afficher votre site web Tomcat dans un navigateur externe, en utilisant une URL au format ****http://*your\_DNS\_name*.cloudapp.net**, où ***votre\_nom\_DNS*** correspond au nom DNS que vous avez indiqué lors de la création de la machine virtuelle.
 
 ## Considérations relatives au cycle de vie de l'application
 * Vous pouvez créer votre propre archive web d’application (WAR) et l’ajouter au dossier **webapps**. Par exemple, créez un projet Web dynamique JSP (Java Service Page) de base et exportez-le en tant que fichier WAR, copiez celui-ci dans le dossier **webapps** d'Apache Tomcat sur la machine virtuelle, puis exécutez-le dans un navigateur.
@@ -146,4 +146,4 @@ Pour en savoir plus sur les autres services (Azure Storage, bus des services, ba
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

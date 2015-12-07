@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,7 +60,7 @@ Dans l'exemple suivant, nous allons montrer comment créer un jeu d'enregistreme
 
 Créez un jeu d'enregistrements et assignez-le à une variable $rs :
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 Le jeu d’enregistrements ayant le nom relatif « www » dans la zone DNS « contoso.com », le nom complet des enregistrements est « www.contoso.com ». Le type d’enregistrement est « A » et la durée de vie est de 60 secondes.
 
@@ -72,21 +72,21 @@ Le jeu d'enregistrements est vide et vous devez ajouter des enregistrements pour
 
 Ajoutez des enregistrements IPv4 A au jeu d’enregistrements « www » à l’aide de la variable $rs attribuée lors de la création du jeu d’enregistrements à l’étape 1 :
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-L’ajout d’enregistrements à un jeu d’enregistrements à l’aide de Add-AzureDnsRecordConfig est une opération hors connexion. Seule la variable locale $rs est mise à jour.
+L'ajout d'enregistrements à un jeu d'enregistrements à l'aide de Add-AzureRmDnsRecordConfig est une opération hors connexion. Seule la variable locale $rs est mise à jour.
 
 ### Étape 3
-Validez les modifications apportées au jeu d’enregistrements. Utilisez Set-AzureDnsRecordSet pour télécharger les modifications apportées au jeu d’enregistrements dans Azure DNS :
+Validez les modifications apportées au jeu d’enregistrements. Utilisez Set-AzureRmDnsRecordSet pour charger les modifications apportées au jeu d’enregistrements dans Azure DNS :
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-Les modifications sont terminées. Vous pouvez récupérer l’enregistrement à partir d’Azure DNS à l’aide de Get-AzureDnsRecordSet :
+Les modifications sont terminées. Vous pouvez récupérer le jeu d'enregistrements à partir d'Azure DNS à l'aide de Get-AzureRmDnsRecordSet :
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -117,6 +117,7 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 
 
 ## Étapes suivantes
+
 [Gestion des zones DNS](dns-operations-dnszones.md)
 
 [Gestion des enregistrements DNS](dns-operations-recordsets.md)<BR>
@@ -124,4 +125,4 @@ Vous pouvez également utiliser nslookup ou d’autres outils DNS pour interroge
 [Automatisation des opérations Azure avec le Kit de développement (SDK) .NET](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Déploiement d’une application existante dans Azure Service Fabric | Microsoft Azure"
+   pageTitle="Déploiement d'une application personnalisée dans Azure Service Fabric | Microsoft Azure"
    description="Procédure pas à pas pour empaqueter une application existante afin de la déployer sur un cluster Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Déploiement d'une application existante dans Service Fabric
+# Déploiement d'une application personnalisée dans Service Fabric
 
 Vous pouvez exécuter n'importe quel type d'application existante, comme Node.js, Java ou des applications natives dans Service Fabric. Service Fabric traite ces applications comme des services sans état et place celles-ci sur les nœuds d'un cluster en fonction de la disponibilité et d'autres mesures. Cet article décrit comment empaqueter et déployer une application existante dans un cluster Service Fabric.
 
-## Avantages de l'exécution d'une application existante dans Service Fabric
+## Avantages de l'exécution d'une application personnalisée dans Service Fabric
 
 Il existe quelques avantages en ce qui concerne l'exécution de l'application dans un cluster Service Fabric :
 
@@ -46,7 +46,6 @@ Avant d'entrer dans les détails du déploiement d'une application existante, il
 
   Le manifeste de service décrit les composants d'un service. Il comprend des données telles que le nom et le type de service (informations que Service Fabric utilise pour gérer le service), son code, les composants de configuration et de données ainsi que des paramètres supplémentaires permettant de configurer le service une fois qu'il est déployé. Nous n’étudierons pas en détail tous les différents paramètres disponibles dans le manifeste de service. Nous examinerons le sous-ensemble requis pour s'exécuter une application existante sur Service Fabric
 
-Pour plus d'informations sur le format d'empaquetage de Service Fabric, lisez [ceci](service-fabric-develop-your-service-index.md).
 
 ## Structure de fichier d'un package d'application
 Pour déployer une application dans Service Fabric, l'application doit respecter une structure de répertoires prédéfinie. Vous trouverez ci-dessous un exemple de cette structure :
@@ -79,7 +78,7 @@ Le processus d'empaquetage d'une application existante est basé sur les étapes
 - Mise à jour du fichier de manifeste de service
 - Mise à jour du manifeste d’application
 
->[AZURE.NOTE]\: nous fournissons un outil d'empaquetage qui vous permet de créer ApplicationPackage automatiquement. Cet outil est actuellement en version préliminaire. Vous trouverez plus d'informations [ici](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]\: nous fournissons un outil d'empaquetage qui vous permet de créer ApplicationPackage automatiquement. Cet outil est actuellement en version préliminaire. Vous pouvez le télécharger [ici](http://aka.ms/servicefabricpacktool).
 
 ### Création de la structure de répertoires du package
 Vous pouvez commencer par créer la structure de répertoires, comme décrit auparavant.
@@ -275,8 +274,8 @@ Si vous accédez au répertoire à l'aide de l'Explorateur de serveurs, vous tro
 ## Étapes suivantes
 Dans cet article, vous avez appris à empaqueter une application existante et la déployer dans Service Fabric. Pour continuer, vous pouvez consulter du contenu supplémentaire sur ce sujet.
 
-- Exemple pour empaqueter et déployer une application existante sur [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), y compris la version préliminaire de l'outil d'empaquetage
-- Exemple pour empaqueter plusieurs applications sur [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- Mise en route avec la [création de votre première application Service Fabric à l'aide de Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Exemple pour empaqueter et déployer une application personnalisée sur [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), y compris un lien vers la version préliminaire de l'outil d'empaquetage.
+- Découvrez comment [déployer plusieurs applications personnalisées](service-fabric-deploy-multiple-apps.md).
+- Procédure de mise en route avec la [création de votre première application Service Fabric à l'aide de Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

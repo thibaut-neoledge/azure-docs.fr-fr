@@ -58,7 +58,7 @@ L'organigramme ci-dessous facilite la compréhension du processus de mise à niv
 
 [Sérialisation des données](service-fabric-application-upgrade-data-serialization.md)
 
-[Rubriques avancées](service-fabric-application-upgrade-advanced.md)
+[Mise à niveau manuelle et mise à niveau avec un package différentiel](service-fabric-application-upgrade-advanced.md)
 
 [Résolution des problèmes de mise à niveau d'une application](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@ L'organigramme ci-dessous facilite la compréhension du processus de mise à niv
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

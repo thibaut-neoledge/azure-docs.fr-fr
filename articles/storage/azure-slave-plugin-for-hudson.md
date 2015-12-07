@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/19/2015" 
 	ms.author="v-dedomi"/>
 
 #Utilisation du plug-in esclave Azure avec la solution d'intégration continue Hudson
@@ -213,4 +213,4 @@ Hudson crée ensuite un nœud subordonné à l'aide du modèle créé dans la se
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

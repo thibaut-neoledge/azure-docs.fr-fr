@@ -123,7 +123,7 @@ En vue de permettre une expérience transparente et unifiée dans l’ensemble d
 Les développeurs Mobile Apps peuvent utiliser Notification Hubs avec le flux de travail suivant :
 
 1. Récupération du handle PNS de l’appareil
-2. Inscription de l’appareil et des [modèles](optional) auprès de Notification Hubs via l’API d’inscription du Kit de développement logiciel (SDK) client Mobile Apps
+2. Inscription de l'appareil et des [modèles] auprès de Notification Hubs via l'API d'inscription du Kit de développement logiciel (SDK) client Mobile Apps
     + Notez que Mobile Apps supprime tous les mots clés des inscriptions pour des raisons de sécurité. Utilisez Notification Hubs directement depuis votre serveur principal pour associer des mots clés aux appareils.
 3. Envoyez des notifications de votre serveur principal d’application avec Notification Hubs
 
@@ -161,8 +161,8 @@ Les références d’API managées .NET pertinentes pour les notifications Push 
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [App Service Mobile Apps]: https://azure.microsoft.com/fr-FR/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/fr-FR/library/azure/dn530748.aspx
+  [modèles]: https://msdn.microsoft.com/fr-FR/library/azure/dn530748.aspx
   [portail Azure]: https://portal.azure.com
   [cette page]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

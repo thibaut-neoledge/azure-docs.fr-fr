@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Instructions et limitations de sécurité d’Azure SQL Database
@@ -109,4 +109,6 @@ Considérez les points suivants pour réduire la vulnérabilité de vos applicat
 
 [Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[Centre de sécurité pour le moteur de base de données SQL Server et la base de données SQL Azure](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

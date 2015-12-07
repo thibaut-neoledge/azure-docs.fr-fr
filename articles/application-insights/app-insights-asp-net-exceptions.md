@@ -78,6 +78,9 @@ Pour afficher ces événements, ouvrez [Recherche][diagnostic], ouvrez Filtre, p
 
 ![Extraire](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
+
+> [AZURE.NOTE]Si votre application génère un volume important de télémétrie, le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Les événements qui font partie de la même opération seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l'échantillonnage.](app-insights-sampling.md)
+
 ### Affichage des données POST de la demande
 
 Les détails de la demande n'incluent pas les données envoyées à votre application dans un appel POST. Pour que ces données soient signalées :
@@ -431,9 +434,9 @@ Ajoutez l'attribut aux implémentations de service :
 
 ## Compteurs de performance des exceptions
 
-Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir un graphique du taux d’exceptions, mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
+Si vous avez [installé Status Monitor][redfield] sur votre serveur, vous pouvez obtenir une représentation graphique du taux d'exceptions mesuré par .NET. Celui-ci comprend les exceptions .NET gérées et non gérées.
 
-Ouvrez un panneau Metric Explorer, ajoutez un nouveau graphique, puis sélectionnez **Taux d’exception** sous Compteurs de performances.
+Ouvrez un panneau d'explorateur de mesures, ajoutez un nouveau graphique, puis sélectionnez **Taux d'exception** sous Compteurs de performances.
 
 .NET Framework calcule le taux en comptant le nombre d’exceptions sur un intervalle et en divisant ce nombre par la longueur de l’intervalle.
 
@@ -452,4 +455,4 @@ Notez que ce chiffre sera différent du nombre d’« exceptions » calculé p
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

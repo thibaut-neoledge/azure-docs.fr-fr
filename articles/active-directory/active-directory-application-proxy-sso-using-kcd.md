@@ -3,8 +3,8 @@
 	description="Explique comment fournir l’authentification unique à l’aide du proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 
@@ -62,10 +62,10 @@ La configuration d’Active Directory varie selon que votre connecteur de proxy 
 
 
 
-1. Dans Active Directory, accédez à **Outils** > **Utilisateurs et ordinateurs**. 
-2. Sélectionnez le serveur exécutant le connecteur. 
-3. Cliquez avec le bouton droit et sélectionnez **Propriétés** > **Délégation**. 
-4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés** puis, sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications. 
+1. Dans Active Directory, accédez à **Outils** > **Utilisateurs et ordinateurs**.
+2. Sélectionnez le serveur exécutant le connecteur.
+3. Cliquez avec le bouton droit et sélectionnez **Propriétés** > **Délégation**.
+4. Sélectionnez **N’approuver cet ordinateur que pour la délégation aux services spécifiés** puis, sous **Services auxquels ce compte peut présenter des informations d’identification déléguées**, ajoutez la valeur de l’identité du nom de principal du service (SPN) du serveur d’applications.
 5. Ceci permet au connecteur de proxy d’application d’emprunter l’identité des utilisateurs dans Active Directory pour les applications définies dans la liste.
 
 ![Capture d’écran de la fenêtre Propriétés du connecteur-SVR](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
@@ -111,7 +111,7 @@ Le flux de délégation Kerberos dans le proxy d’application Azure AD démarre
 ### Identité de délégué partielle
 Les applications non Windows obtiennent généralement l’identité de l’utilisateur sous la forme d’un nom d’utilisateur ou d’un nom de compte SAM, pas d’une adresse de messagerie (username@domain). Elles diffèrent de la plupart des systèmes basés sur Windows, qui préfèrent recourir à un UPN, dispositif plus efficace qui garantit l’absence de duplication entre les domaines. Pour cette raison, le proxy d’application vous permet de sélectionner les identités qui doivent s’afficher dans le ticket Kerberos, par application. Certaines de ces options sont adaptées pour les systèmes qui n’acceptent pas le format d’adresse de messagerie.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png) Si une identité partielle est utilisée et que cette identité peut ne pas être unique pour tous les domaines ou forêts dans votre organisation, vous pouvez publier ces applications deux fois à l’aide de deux groupes de connecteurs distincts ; dans la mesure où chaque application possède sa propre audience utilisateur, vous pouvez joindre ses connecteurs à un autre domaine.
 
- 
+
 ## Utilisation de l’authentification unique quand des identités locales et sur le cloud ne sont pas identiques
 Sauf s’il est configuré différemment, le proxy d’application suppose que les utilisateurs ont exactement la même identité dans le cloud et localement. Vous pouvez configurer, pour chaque application, l’identité qui doit être utilisée pendant l’exécution de l’authentification unique. Grâce à cette fonctionnalité, de nombreuses organisations qui ont des identités différentes localement et sur le cloud peuvent mettre en œuvre l’authentification unique à partir du cloud vers les applications locales sans obliger les utilisateurs à entrer des noms d’utilisateur et des mots de passe différents. Cela inclut les organisations qui :
 
@@ -128,7 +128,7 @@ Sauf s’il est configuré différemment, le proxy d’application suppose que l
 - utilisent différents alias localement et dans le cloud. Par exemple, joe-johns@contoso.com et joej@contoso.com. Cette configuration convient également dans les applications qui n’acceptent pas d’adresses sous la forme d’adresse de messagerie, scénario très courant pour les serveurs principaux non Windows.
 ### Configuration de l’authentification unique pour différentes identités sur le cloud et localement
 1. Configurez les paramètres Azure AD Connect de manière à ce que l’identité principale soit l’adresse de messagerie (courrier). Cette opération est effectuée dans le cadre du processus de personnalisation, en modifiant le champ Nom d’utilisateur principal dans les paramètres de synchronisation.<br>![](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png) REMARQUE : ces paramètres déterminent également comment les utilisateurs se connectent à Office 365, aux appareils Windows 10 et autres applications qui utilisent Azure AD comme magasin d’identités.
-2. Dans les paramètres de configuration de l’application à modifier, sélectionnez l’**Identité de connexion déléguée** à utiliser : 
+2. Dans les paramètres de configuration de l’application à modifier, sélectionnez l’**Identité de connexion déléguée** à utiliser :
 
 
 - Nom d’utilisateur principal : joe@contoso.com
@@ -169,4 +169,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 - [Consultez le blog sur le Proxy d’application](http://blogs.technet.com/b/applicationproxyblog/)
 - [Regardez nos vidéos sur Channel 9](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

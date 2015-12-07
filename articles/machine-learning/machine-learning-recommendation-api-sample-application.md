@@ -3,7 +3,7 @@
 	description="Exemple d'application Azure ML Recommendation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="jaymathe" 
+	authors="luisca" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -89,4 +89,4 @@ Pour une description complète de l’API, consultez la documentation de Microso
 La version d’évaluation n’est pas conçue pour être exécutée dans un environnement de production. Les données fournies dans le catalogue ne sont pas nombreuses et ne fournissent pas un modèle de recommandation éloquent. Elles sont seulement fournies à titre de démonstration.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

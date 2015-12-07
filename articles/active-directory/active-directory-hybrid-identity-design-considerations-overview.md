@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="11/24/2015"
 	ms.author="yuridio"/>
 
 # Considérations relatives à la conception d'identités hybrides Azure Active Directory
@@ -49,6 +49,10 @@ Vous n'atteindrez la conception idéale en fonction de vos exigences qu'après a
 | Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide | [Déterminer les exigences en matière de protection des données](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Déterminer les exigences en matière de gestion de contenu](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Déterminer les exigences en matière de contrôle d'accès](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Déterminer les exigences en matière de réponse aux incidents](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Définir la stratégie de protection des données](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Planifier le cycle de vie des identités hybrides | [Déterminer les tâches de gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [Gestion de la synchronisation](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [Déterminer la stratégie d'adoption de la gestion des identités hybrides](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
 
+
+##Télécharger ce guide
+Vous pouvez télécharger une version pdf du guide sur les considérations pour la conception d'une identité hybride à partir de la [galerie Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288).
+
                                                              
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -165,14 +165,14 @@ Vous serez invité à fournir les informations d'identification d'un compte d'ad
 
 Vous devez ensuite mettre à jour les serveurs DNS de votre réseau virtuel afin qu'Azure affecte aux machines virtuelles les adresses IP des deux nouveaux contrôleurs de domaine à utiliser en tant que serveurs DNS. Notez que cette procédure utilise les valeurs de la table V (pour vos paramètres de réseau virtuel) et de la table M (pour vos machines virtuelles).
 
-1.	Dans le volet gauche du [Portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Parcourir tout > Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
+1.	Dans le volet gauche du portail Azure en version préliminaire, cliquez sur **Parcourir tout > Réseaux virtuels**, puis cliquez sur le nom de votre réseau virtuel (Table V – Élément 1 – Colonne Valeur).
 2.	Dans le volet de votre réseau virtuel, cliquez sur **Tous les paramètres**.
 3.	Dans le volet **Paramètres**, cliquez sur **Serveurs DNS**.
 4.	Dans le volet **Serveurs DNS**, tapez la commande suivante :
 	- Pour **Serveur DNS principal** : Table V – Élément 6 – Colonne Valeur
 	- Pour **Serveur DNS secondaire** : Table V – Élément 7 – Colonne Valeur
 5.	Dans le volet gauche du portail Azure en version préliminaire, cliquez sur **Parcourir tout > Machines virtuelles**.
-6.	Dans le volet **Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
+6.	Dans le **volet Machines virtuelles**, cliquez sur le nom de votre premier contrôleur de domaine (Table M – Élément 1 - Colonne Nom de machine virtuelle).
 7.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**.
 8.	Une fois le premier contrôleur de domaine démarré, cliquez sur le nom de votre second contrôleur de domaine dans le volet **Machines virtuelles** (Table M – Élément 2 - Colonne Nom de machine virtuelle).
 9.	Dans le volet de la machine virtuelle, cliquez sur **Redémarrer**. Attendez le démarrage du second contrôleur de domaine.
@@ -196,7 +196,7 @@ Ce schéma illustre la configuration résultant de la réussite de cette phase, 
 
 ## Étape suivante
 
-Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : Configurer l’infrastructure SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
+Pour poursuivre la configuration de cette charge de travail, passez à la [Phase 3 : configurer l'infrastructure SQL Server](virtual-machines-workload-high-availability-LOB-application-phase3.md).
 
 ## Ressources supplémentaires
 
@@ -210,4 +210,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : batterie de serveurs SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

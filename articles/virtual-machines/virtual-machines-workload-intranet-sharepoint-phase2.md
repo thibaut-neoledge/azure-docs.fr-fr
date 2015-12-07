@@ -111,11 +111,11 @@ Ouvrez une session sur le premier contrôleur de domaine en utilisant les inform
 1.	Dans le portail Azure, cliquez sur **Machines virtuelles** dans le volet gauche.
 2.	Pour vous connecter à une machine virtuelle, cliquez sur **En cours d'exécution** dans la colonne **État** en regard de son nom.
 3.	Dans la barre de commandes en bas de la page, cliquez sur **Connexion**.
-4.	Le portail vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
+4.	Le portail Azure vous informe que le fichier .rdp est en cours de récupération. Cliquez sur **OK**.
 5.	La boîte de dialogue de navigateur s'affiche et vous demande « Voulez-vous ouvrir ou enregistrer ComputerName.rdp depuis manage.windowsazure.com ? » Cliquez sur **Ouvrir**.
 6.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Connecter**.
 7.	Dans la boîte de dialogue **Sécurité de Windows**, cliquez sur **Utiliser un autre compte**.
-8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName**LocalAdministratorAccountName*
+8.	Sous **Nom d'utilisateur**, saisissez le nom de la machine virtuelle et le nom d'utilisateur du compte administrateur local créé avec la machine virtuelle (un compte d'ordinateur local). Utilisez le format suivant : *ComputerName*\*LocalAdministratorAccountName*
 9.	Sous **Mot de passe**, tapez le mot de passe pour le compte administrateur local.
 10.	Cliquez sur **OK**.
 11.	Dans la boîte de dialogue **Connexion Bureau à distance**, cliquez sur **Oui**. Le bureau de la nouvelle machine s'affiche dans une fenêtre de session Bureau à distance.
@@ -248,4 +248,4 @@ Pour poursuivre la configuration de cette charge de travail, passez à la [Phase
 
 [Charge de travail des services d’infrastructure Azure : applications métier à haute disponibilité](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

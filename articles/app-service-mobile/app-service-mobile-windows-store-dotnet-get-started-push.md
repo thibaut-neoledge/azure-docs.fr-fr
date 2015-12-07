@@ -45,41 +45,21 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Pour pouvoir envoyer des notifications Push vers des applications Windows à partir d’Azure, vous devez soumettre votre application au Windows Store. Vous pouvez ensuite configurer votre projet de serveur pour l’intégrer à WNS.
 
-1. Dans l'Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le projet d'application Windows Store, cliquez sur **Store**, puis sur **Associer l'application au Windows Store...**. 
+[AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
-    ![Associer une application au Windows Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-win8-app.png)
-    
-2. Dans l'Assistant, cliquez sur **Suivant**, connectez-vous à votre compte Microsoft, tapez un nom pour votre application dans **Réserver un nouveau nom d'application**, puis cliquez sur **Réserver**.
-
-3. Une fois l'inscription de l'application créée, sélectionnez le nouveau nom de l'application, cliquez sur **Suivant**, puis sur **Associer**. Cela ajoute les informations d'inscription Windows Store requises au manifeste de l'application.
-
-7. Répétez les étapes 1 et 3 pour le projet d'application Windows Phone Store à l'aide de la même inscription que vous avez créée précédemment pour l'application Windows Store.
-
-7. Accédez au [Centre de développement Windows](https://dev.windows.com/fr-FR/overview), connectez-vous à l'aide de votre compte Microsoft, cliquez sur la nouvelle inscription d'application dans **Mes applications**, puis développez **Services** > **Notifications Push**.
-
-8. Sur la page **Notifications Push**, cliquez sur **Site des services Live** sous **Microsoft Azure Mobile Services**.
-
-9. Dans l'onglet **Paramètres de l'application**, notez les valeurs des options **Clé secrète client** et **SID du package**.
-
-    ![Paramètre d’application dans le centre de développement](./media/app-service-mobile-windows-store-dotnet-get-started-push/mobile-services-win8-app-push-auth.png)
-
-    > [AZURE.IMPORTANT]La clé secrète client et le SID du package sont des informations d'identification de sécurité importantes. Ne partagez pas ces valeurs avec quiconque et ne les distribuez pas avec votre application.
 
 ##Configuration de l'application mobile pour l'envoi de demandes push
 
-1. Connectez-vous au [portail Azure], sélectionnez **Parcourir** > **Application mobile** > votre application > **Services de notification Push**.
+[AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-2. Dans **Service de notification Windows**, entrez la **clé de sécurité** (clé secrète client) et le **SID du package** que vous avez obtenus à partir du site des services Live, puis cliquez sur **Enregistrer**.
-
-Votre serveur principal d’applications mobiles est maintenant configuré pour fonctionner avec WNS.
 
 ##<a id="update-service"></a>Mise à jour du serveur pour l'envoi de notifications Push
 
 Maintenant que les notifications push sont activées dans l'application, vous devez mettre à jour votre backend d'application pour envoyer des notifications push.
 
-1. Dans Visual Studio, cliquez avec le bouton droit sur le projet de serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs`, et cliquez enfin sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
+1. Dans Visual Studio, cliquez avec le bouton droit sur le projet serveur, puis cliquez sur **Gérer les packages NuGet**, recherchez `Microsoft.Azure.NotificationHubs` et cliquez enfin sur **Installer**. Cette commande installe la bibliothèque cliente Notification Hubs.
 
-2. Dans le serveur de projet, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions using suivantes :
+2. Dans le projet serveur, ouvrez **Contrôleurs** > **TodoItemController.cs** et ajoutez les instructions Using suivantes :
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
@@ -146,7 +126,7 @@ Maintenant que les notifications push sont activées dans l'application, vous de
     
     Ce code récupère l'URI de canal ChannelURI pour l'application dans WNS et l'inscrit avec votre application App Service Mobile App.
     
-3. En haut du gestionnaire d’événements **OnLaunched** dans **App.xaml.cs**, ajoutez le modificateur **async** à la définition de méthode et ajoutez l’appel suivant à la nouvelle méthode **InitNotificationsAsync**, comme dans l’exemple suivant :
+3. En haut du gestionnaire d'événements **OnLaunched** dans **App.xaml.cs**, ajoutez le modificateur **async** à la définition de méthode et ajoutez l'appel suivant à la nouvelle méthode **InitNotificationsAsync**, comme dans l'exemple suivant :
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -172,13 +152,13 @@ Votre application est maintenant prête à recevoir des notifications toast.
 ##<a id="more"></a>En savoir plus
 
 * Les modèles vous apportent la souplesse nécessaire pour envoyer des notifications push multiplateformes et localisées. [Utilisation du client géré pour Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md) vous montre comment enregistrer des modèles.
-* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l’installation d’un périphérique.
+* Les balises vous permettent de vous permettent de cibler des clients segmentés avec des notifications push. [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) vous montre comment ajouter des balises à l'installation d'un périphérique.
 
 <!-- Anchors. -->
 
 <!-- URLs. -->
-[portail Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 <!-- Images. -->
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015--->

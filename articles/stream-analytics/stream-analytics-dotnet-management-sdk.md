@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -48,7 +48,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 		
 
--	Configurez une source d’entrée et une cible de sortie à utiliser. Pour plus d’informations, consultez [Ajouter des entrées](stream-analytics-add-inputs.md) pour configurer un exemple d’entrée et [Ajouter des sorties](stream-analytics-add-outputs.md) pour configurer un exemple de sortie.
+-	Configurez une source d’entrée et une cible de sortie à utiliser. Pour plus d'informations, consultez [Ajouter des entrées](stream-analytics-add-inputs.md) pour configurer un exemple d'entrée et [Ajouter des sorties](stream-analytics-add-outputs.md) pour configurer un exemple de sortie.
 
 
 ## Configuration d’un projet
@@ -365,4 +365,4 @@ Vous avez appris les principes de base de l’utilisation d’un Kit de dévelop
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

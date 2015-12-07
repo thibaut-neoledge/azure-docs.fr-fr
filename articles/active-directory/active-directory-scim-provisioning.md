@@ -92,8 +92,13 @@ Fonctionnement :
 
 Pour faciliter ce processus, un ensemble d'[exemples de code](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) qui crée un point de terminaison de service Web SCIM et illustre l'attribution automatique est fourni. Exemple : un fournisseur qui gère un fichier avec des lignes de valeurs séparées par des virgules représentant des utilisateurs et des groupes. L’autre exemple est un fournisseur qui opère sur le service de gestion des identités et des accès des services web Amazon.
 
+**Configuration requise**
 
-**Conditions préalables** * Visual Studio 2013 ou version ultérieure * [Azure SDK for .NET](https://azure.microsoft.com/fr-FR/downloads/) * Ordinateur Windows qui prend en charge l'infrastructure ASP.NET 4.5 à utiliser comme point de terminaison SCIM. Cet ordinateur doit être accessible à partir du cloud * [Un abonnement Azure avec une version d'évaluation ou sous licence d'Azure AD Premium](https://azure.microsoft.com/fr-FR/services/active-directory/) * L'exemple d'Amazon AWS requiert des bibliothèques à partir d'[AWS Toolkit AWS for Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consultez le fichier README inclus dans l’exemple pour plus de détails
+* Visual Studio 2013 ou une version ultérieure
+* [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/fr-FR/downloads/)
+* Machine Windows qui prend en charge l’infrastructure ASP.NET 4.5 à utiliser comme point de terminaison SCIM. Cet ordinateur doit être accessible à partir du cloud
+* [Dans un abonnement Azure avec une version d’évaluation ou sous licence d’Azure AD Premium](https://azure.microsoft.com/fr-FR/services/active-directory/)
+* L'exemple d'Amazon AWS exige des bibliothèques du [kit d'outils AWS pour Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Consultez le fichier README inclus dans l’exemple pour plus de détails
 
 ###Mise en route
 
@@ -104,35 +109,35 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 1.	Téléchargez le package d'exemple de code à l’adresse [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2.	Décompressez le package et placez-le sur votre machine Windows à un emplacement tel que C:\\AzureAD-BYOA-Provisioning-Samples.
 3.	Dans ce dossier, lancez la solution FileProvisioningAgent dans Visual Studio.
-4.	Sélectionnez **Outils > Library Package Manager > Console du Gestionnaire de Package**, puis exécutez les commandes ci-dessous afin que le projet FileProvisioningAgent résolve les références de la solution :
+4.	Sélectionnez **Outils > Gestionnaire de Package de bibliothèque > Console du Gestionnaire de Package**, puis exécutez les commandes ci-dessous afin que le projet FileProvisioningAgent résolve les références de la solution :
 
     Install-Package Microsoft.SystemForCrossDomainIdentityManagement Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory Install-Package Microsoft.Owin.Diagnostics Install-Package Microsoft.Owin.Host.SystemWeb
 
 5.	Générez le projet FileProvisioningAgent.
-6.	Lancez l'application d’invite de commandes de Windows (en tant qu'administrateur) et utilisez la commande **cd** pour changer le répertoire en votre dossier **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug**.
-7.	Exécutez la commande ci-dessous en remplaçant <ip-address> par l’IP ou le nom de domaine de l'ordinateur Windows.
+6.	Lancez l'application d'invite de commandes de Windows (en tant qu'administrateur) et utilisez la commande **cd** pour modifier le répertoire en votre dossier **\\AzureAD-BYOA-Provisioning-Samples\\ProvisioningAgent\\bin\\Debug**.
+7.	Exécutez la commande ci-dessous en remplaçant <ip-address> par l'IP ou le nom de domaine de l'ordinateur Windows.
 
     FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
 
-8.	Dans Windows, sous **Paramètres Windows > Paramètres Internet & réseau**, sélectionnez le **Pare-feu Windows > Paramètres avancés**, et créez une **règle de trafic entrant** qui autorise l’accès entrant au port 9000.
+8.	Dans Windows, sous **Paramètres Windows > Paramètres Internet & réseau**, sélectionnez **Pare-feu Windows > Paramètres avancés**, et créez une **règle de trafic entrant** qui autorise l’accès entrant au port 9000.
 9.	Si l’ordinateur Windows est placé derrière un routeur, ce dernier doit être configuré pour exécuter une traduction NAT entre son port 9000 présenté à Internet et le port 9000 sur la machine Windows. Cela est obligatoire si l’on veut qu’Azure AD puisse accéder à ce point de terminaison dans le cloud.
 
 
 **Pour enregistrer le point de terminaison SCIM exemple dans Azure AD :**
 
 1.	Dans un navigateur Web, lancez le portail de gestion Azure à https://manage.windowsazure.com.
-2.	Accédez à **Active Directory > Directory > [votre répertoire] > Applications**, puis sélectionnez **Ajouter > Ajouter une application à partir de la galerie**.
-3.	Sélectionnez l’onglet **Personnaliser** à gauche, entrez un nom tel qu'« Application de Test SCIM » et cliquez sur l'icône de coche pour créer un objet d'application. Notez que l’objet d’application créé doit représenter l’application cible de que vous devez configurer et sur laquelle mettre en œuvre l’authentification unique. Il ne s’agit pas d’un simple point de terminaison SCIM.
+2.	Accédez à **Active Directory > Répertoire > [votre répertoire] > Applications**, puis sélectionnez **Ajouter > Ajouter une application à partir de la galerie**.
+3.	Sélectionnez l’onglet **Personnaliser** à gauche, entrez un nom tel qu'« Application de Test SCIM », puis cliquez sur l'icône de coche pour créer un objet d'application. Notez que l’objet d’application créé doit représenter l’application cible de que vous devez configurer et sur laquelle mettre en œuvre l’authentification unique. Il ne s’agit pas d’un simple point de terminaison SCIM.
 
 ![][2]
 
 4.	Dans l'écran qui s'affiche, sélectionnez le deuxième bouton **Configurer l'approvisionnement de comptes**.
-5.	Dans la boîte de dialogue, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Il devrait ressembler à ce qui suit http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l'adresse IP exposée à Internet.  
-6.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory essaie de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
+5.	Dans la boîte de dialogue, saisissez l’URL côté Internet et le port de votre point de terminaison SCIM. Le résultat pourrait être le suivant http://testmachine.contoso.com:9000 ou http://<ip-address>:9000/, où <ip-address> est l'adresse IP Internet exposée.  
+6.	Cliquez sur **Suivant**, puis sur le bouton **Démarrer le test** pour qu'Azure Active Directory tente de se connecter au point de terminaison SCIM. Si les tentatives échouent, les informations de diagnostic seront affichées.  
 7.	Si les tentatives de connexion à votre service Web aboutissent, cliquez sur **Suivant** sur les écrans restants, puis cliquez sur **Terminer** pour quitter la boîte de dialogue.
 8.	Dans l'écran qui s'affiche, sélectionnez le troisième bouton **Affecter des comptes**. Dans la section Utilisateurs et groupes qui en résulte, affectez les utilisateurs ou les groupes que vous souhaitez configurer pour lesquels vous souhaitez configurer l’application.
 9.	Une fois les utilisateurs et les groupes affectés, cliquez sur l'onglet **Configurer** près du bord supérieur de l'écran.
-10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé. 
+10.	Sous **Approvisionnement de compte**, vérifiez que l'état est défini sur activé (On). 
 11.	Sous **Outils**, cliquez sur **Redémarrer l'approvisionnement de compte** pour lancer le processus d'approvisionnement.
 
 Notez que 5 à 10 minutes peuvent s’écouler avant que le processus de déploiement commence à envoyer des demandes au point de terminaison SCIM. Un récapitulatif des tentatives de connexion est fourni sur l’onglet tableau de bord de l’application, et un rapport d’activité sur l’approvisionnement et les erreurs de configuration peut être téléchargé depuis l’onglet Rapports de l’annuaire.
@@ -147,11 +152,11 @@ Pour développer un service web conforme à la spécification SCIM, commencez pa
 
 ![][3]
 
-**2 :** [les gestionnaires de routeur Express](http://expressjs.com/guide/routing.html) sont disponibles pour les objets de requête node.js d'analyse représentant des appels (comme défini par la spécification SCIM) envoyés à un service Web node.js.
+**2 :** [des gestionnaires de routeur Express](http://expressjs.com/guide/routing.html) sont disponibles pour les objets de requête node.js d'analyse représentant des appels (comme défini par la spécification SCIM) envoyés à un service Web node.js.
 
 ###Création d’un point de terminaison SCIM personnalisé
 
-Grâce aux bibliothèques décrites ci-dessus, les développeurs utilisant ces bibliothèques peuvent héberger leurs services dans un assembly Common Language Infrastructure exécutable ou au sein des services Internet (IIS). Voici un exemple de code pour l'hébergement d’un service dans un assembly exécutable, à l'adresse http://localhost:9000 :
+Grâce aux bibliothèques décrites ci-dessus, les développeurs utilisant ces bibliothèques peuvent héberger leurs services dans un assembly Common Language Infrastructure exécutable ou au sein des services Internet (IIS). Voici un exemple de code pour l'hébergement d'un service dans un assembly exécutable, à l'adresse http://localhost:9000 :
 
     private static void Main(string[] arguments)
     {
@@ -272,11 +277,11 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 
 ###Gestion de l’authentification du point de terminaison
 
-Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0. Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory. Dans le jeton, l’émetteur est identifié par une revendication iss, comme "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/". Dans cet exemple, l'adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d'adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du client Azure Active Directory au nom duquel le jeton a été émis. Si le jeton a été émis pour accéder au service web du graphique Azure Active Directory, l’identificateur de ce service, 00000002-0000-0000-c000-000000000000, doit être dans la valeur de revendication du jeton AD.
+Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0. Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory. Dans le jeton, l’émetteur est identifié par une revendication iss, comme "iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/". Dans cet exemple, l'adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu'émetteur, tandis que le segment d'adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du client Azure Active Directory au nom duquel le jeton a été émis. Si le jeton a été émis pour accéder au service web du graphique Azure Active Directory, l’identificateur de ce service, 00000002-0000-0000-c000-000000000000, doit être dans la valeur de revendication du jeton AD.
 
 Les développeurs qui utilisent les bibliothèques Common Language Infrastructure fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes :
 
-**1 :** dans un fournisseur, implémentez la propriété Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior lui faisant retourner une méthode à appeler à chaque démarrage du service :
+**1 :** dans un fournisseur, mettez en œuvre la propriété Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior lui faisant retourner une méthode à appeler à chaque démarrage du service :
 
     public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
     {
@@ -292,7 +297,7 @@ Les développeurs qui utilisent les bibliothèques Common Language Infrastructur
     {
     }
 
-**2 :** ajoutez le code suivant à cette méthode pour que toute demande à l'un des points de terminaison de service authentifié comme portant un jeton émis par Azure Active Directory pour le compte d’un client spécifié puisse accéder au service Web du graphique d’Azure Active Directory :
+**2 :** ajoutez le code suivant à cette méthode pour que toute demande à l'un des points de terminaison de service authentifié comme portant un jeton émis par Azure Active Directory pour le compte d'un client spécifié puisse accéder au service Web du graphique d’Azure Active Directory :
 
     private void OnServiceStartup(
       Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
@@ -327,9 +332,9 @@ Les développeurs qui utilisent les bibliothèques Common Language Infrastructur
 
 Azure Active Directory peut configurer deux types de ressources pour les services web SCIM. Ces types de ressources sont des utilisateurs et des groupes.
 
-Les ressources de l’utilisateur sont identifiées par l’identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http://tools.ietf.org/html/draft-ietf-scim-core-schema. Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.
+Les ressources de l'utilisateur sont identifiées par l'identificateur de schéma urn:ietf:params:scim:schemas:extension:enterprise:2.0:User inclus dans cette spécification de protocole : http://tools.ietf.org/html/draft-ietf-scim-core-schema. Le mappage par défaut des attributs utilisateurs dans Azure Active Directory sur les attributs des ressources urn:ietf:params:scim:schemas:extension:enterprise:2.0:User est fourni dans le tableau 1 ci-dessous.
 
-Les ressources du groupe sont identifiées par l’identificateur de schéma http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group. Le tableau 2 ci-dessous montre le mappage par défaut des attributs de groupes dans Azure Active Directory avec les attributs de http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group ressources.
+Les ressources du groupe sont identifiées par l'identificateur de schéma http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group. Le tableau 2 ci-dessous montre le mappage par défaut des attributs de groupes dans Azure Active Directory avec les attributs de ressources http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.
 
 ###Tableau 1 : Mappage d’attributs utilisateur par défaut
 
@@ -370,9 +375,9 @@ Les ressources du groupe sont identifiées par l’identificateur de schéma htt
 
 La figure ci-dessous contient les messages qu’Azure Active Directory va envoyer à un service SCIM pour gérer le cycle de vie d’un utilisateur dans un autre magasin d’identités. Le diagramme montre également comment un service SCIM implémenté à l’aide des bibliothèques Common Language Infrastructure fournies par Microsoft traduira ces requêtes pour en faire des appels aux méthodes d’un fournisseur.
 
-![][4] Figure : séquence d'attribution et d'annulation d'attribution d'utilisateurs
+![][4] *Figure : séquence d'approvisionnement et d'annulation de l'approvisionnement d'utilisateurs*
 
-**1:** Azure Active Directory interrogera le service pour trouver un utilisateur avec une valeur d'attribut externalId correspondant à la valeur d’attribut mailNickname d'un utilisateur dans Active Directory de Azure. La requête sera exprimée dans le protocole Http (Hypertext Transfer Protocol) comme suit, jyoung étant un exemple de mailNickname d’utilisateur dans Azure Active Directory :
+**1 :** Azure Active Directory interrogera le service pour trouver un utilisateur avec une valeur d'attribut externalId correspondant à la valeur d'attribut mailNickname d'un utilisateur dans Azure Active Directory. La requête sera exprimée dans le protocole Http (Hypertext Transfer Protocol) comme suit, jyoung étant un exemple de mailNickname d’utilisateur dans Azure Active Directory :
 
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
@@ -433,7 +438,7 @@ Dans l’exemple de requête pour un utilisateur avec une valeur d’attribut ex
 * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
 * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-**2 :** si la réponse à une requête au service pour trouver un utilisateur avec une valeur d'attribut externalId correspondant à la valeur d'attribut mailNickname d’un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demandera que le service attribue un utilisateur correspondant à celui-ci dans Azure Active Directory. Voici un exemple de requête :
+**2 :** si la réponse à une requête envoyée au service pour la recherche d'un utilisateur avec une valeur d'attribut externalId correspondant à la valeur d'attribut mailNickname d'un utilisateur dans Azure Active Directory ne renvoie aucun utilisateur, Azure Active Directory demandera que le service attribue un utilisateur correspondant à celui-ci dans Azure Active Directory. Voici un exemple de requête :
 
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -476,7 +481,7 @@ Les bibliothèques Common Language Infrastructure fournies par Microsoft pour l�
 
 Dans le cas d’une demande d’approvisionnement d’utilisateur, la valeur de l’argument de la ressource sera une instance de Microsoft.SystemForCrossDomainIdentityManagement. La classe Core2EnterpriseUser, définie dans la bibliothèque Microsoft.SystemForCrossDomainIdentityManagement.Schemas. Si la demande d’approvisionnement de l’utilisateur aboutit, l’implémentation de la méthode renvoie une instance de Microsoft.SystemForCrossDomainIdentityManagement. La classe Core2EnterpriseUser, avec la valeur de la propriété d’identificateur définie sur l’identificateur unique du nouvel utilisateur venant d’être approvisionné.
 
-**3 :** pour mettre à jour un utilisateur dont on sait qu'il existe dans un magasin d'identités avec SCIM en façade, Azure Active Directory continuera en demandant au service l'état actuel de cet utilisateur avec une demande comme celle-ci :
+**3 :** pour mettre à jour un utilisateur qui existe dans un magasin d'identités avec SCIM frontal, Azure Active Directory continuera en demandant au service l'état actuel de cet utilisateur avec une requête telle que celle-ci :
 
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -514,7 +519,7 @@ Dans le cas de l’exemple qui précède d’une requête servant à récupérer
 * Identificateur "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier : "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-**4 :** si un attribut de référence doit être mis à jour, Azure Active Directory interrogera le service pour déterminer si la valeur actuelle de l'attribut de référence dans le magasin d’identités avec le service en façade correspond ou non déjà à la valeur de cet attribut dans Azure Active Directory. Dans le cas d’utilisateurs, le seul attribut dont la valeur actuelle est interrogée de cette manière est l’attribut manager. Voici un exemple de requête visant à déterminer si l’attribut manager d’un objet utilisateur particulier a actuellement une certaine valeur :
+**4 :** si un attribut de référence doit être mis à jour, Azure Active Directory interrogera le service pour déterminer si la valeur actuelle de l'attribut de référence dans le magasin d'identités avec le service frontal correspond ou non déjà à la valeur de cet attribut dans Azure Active Directory. Dans le cas d’utilisateurs, le seul attribut dont la valeur actuelle est interrogée de cette manière est l’attribut manager. Voici un exemple de requête visant à déterminer si l’attribut manager d’un objet utilisateur particulier a actuellement une certaine valeur :
 
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
@@ -649,7 +654,7 @@ Dans le cas de l’exemple précédent de demande de mise à jour d’un utilisa
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-**6 :** pour annuler l'attribution d’un utilisateur à partir d'un magasin d’identités avec un service SCIM en façade, Azure Active Directory envoie une demande comme celle-ci :
+**6 :** pour annuler le l'approvisionnement d'un utilisateur à partir d'un magasin d'identités avec un service SCIM frontal, Azure Active Directory envoie une demande similaire à celle-ci :
 
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -673,11 +678,11 @@ L’objet fourni comme valeur d’argument resourceIdentifier a ces valeurs de p
 
 La figure ci-dessous contient les messages qu’Azure Active Directory va envoyer à un service SCIM pour gérer le cycle de vie d’un groupe dans un autre magasin d’identités. Ces messages diffèrent des messages appartenant aux utilisateurs de trois manières :
 
-* Le schéma d’une ressource de groupe est identifié en tant que http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
+* Le schéma d'une ressource de groupe est identifié en tant que http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  
 * Les demandes d’extraction de groupes préciseront que l’attribut des membres doit être exclu des ressources fournies en réponse à la demande.  
 * Les requêtes permettant de déterminer si un attribut de référence a une certaine valeur seront des requêtes sur les attributs membres.  
 
-![][5] Figure : séquence d'attribution et d'annulation d'attribution d'utilisateurs
+![][5] *Figure : séquence d'approvisionnement et d'annulation de l'approvisionnement d'un groupe*
 
 	
 <!--Image references-->
@@ -687,4 +692,4 @@ La figure ci-dessous contient les messages qu’Azure Active Directory va envoye
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

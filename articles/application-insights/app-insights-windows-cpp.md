@@ -1,4 +1,4 @@
-<properties pageTitle="Application Insights pour les applications en C++" description="Analysez l’utilisation et les performances de votre application en C++ avec Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
+<properties pageTitle="Application Insights pour les applications en C++" description="Analysez l'utilisation et les performances de votre application en C++ avec Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="douge""/>
 
 <tags 
     ms.service="application-insights" 
@@ -6,7 +6,7 @@
     ms.tgt_pltfrm="universal" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="11/17/2015" 
     ms.author="crystk"/>
 
 # Application Insights pour les applications en C++
@@ -27,7 +27,7 @@ Dans le [portail Azure][portal], créez une ressource Application Insights. Choi
 
 ![Cliquez sur Nouveau, Services de développement, Application Insights](./media/app-insights-windows-cpp/01-universal.png)
 
-Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l'écran d'accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
+Dans le panneau qui s’ouvre, vous trouverez des données relatives à l’utilisation et aux performances de votre application. Vous devriez trouver une vignette sur l’écran d’accueil pour accéder à ces informations, la prochaine fois que vous vous connecterez à Azure. Sinon, cliquez sur Parcourir.
 
 ####  Copiez la clé d'instrumentation.
 
@@ -140,4 +140,4 @@ Cliquez sur n’importe quel graphique pour obtenir plus de détails. Par exempl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

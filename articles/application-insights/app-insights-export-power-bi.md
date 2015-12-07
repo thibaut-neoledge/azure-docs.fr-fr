@@ -12,23 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # Utiliser Stream Analytics pour alimenter Power BI à partir d’Application Insights
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) présente vos données dans des graphiques riches et variés, avec la possibilité de rassembler des informations provenant de plusieurs sources. Vous pouvez diffuser des données télémétriques sur les performances et l’utilisation de vos applications web ou pour appareil à partir d’Application Insights vers Power BI.
+Cet article explique comment utiliser [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) pour traiter des données [exportées](app-insights-export-telemetry.md) depuis [Visual Studio Application Insights](app-insights-overview.md). Comme exemple de cible, nous envoyons les données à [Microsoft Power BI](https://powerbi.microsoft.com/).
 
-> [AZURE.NOTE]Le moyen le plus simple pour obtenir des données dans Power BI à partir d’Application Insights consiste à [utiliser l'adaptateur](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-application-insights/) que vous trouverez dans Power BI Gallery sous Services. Ce que nous décrivons dans cet article est actuellement plus souple, mais cela vous indique également comment utiliser Stream Analytics avec Application Insights.
+
+> [AZURE.NOTE]Le moyen le plus simple d'obtenir des données dans Power BI à partir d'Application Insights consiste à [utiliser l'adaptateur](https://powerbi.microsoft.com/fr-FR/documentation/powerbi-content-pack-application-insights/) que vous trouverez dans la galerie Power BI sous Services. Ce que nous décrivons dans cet article est actuellement plus souple, mais cela vous indique également comment utiliser Stream Analytics avec Application Insights.
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) présente vos données dans des graphiques riches et variés, avec la possibilité de rassembler des informations provenant de plusieurs sources.
+
 
 ![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-power-bi/010.png)
 
-Dans cet article, nous allons vous montrer comment exporter des données à partir d’Application Insights et utiliser Stream Analytics pour déplacer les données dans Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) est un service Azure que nous utiliserons comme adaptateur.
+[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) est un service Azure qui fonctionne comme un adaptateur et traite les données exportées depuis Application Insights.
 
 ![Exemple de vue Power BI de données d’utilisation Application Insights](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE]Vous avez besoin d'un compte professionnel ou scolaire (compte professionnel MSDN) pour envoyer des données de Stream Analytics vers Power BI.
+
 
 ## Vidéo
 
@@ -44,7 +48,7 @@ Si vous n’avez pas encore essayé, c’est le moment ou jamais. Application In
 
 Comme l’exportation continue génère toujours des données vers un compte de stockage Azure, vous devez commencer par créer ce stockage.
 
-1. Créez un compte de stockage « classique » dans votre abonnement sur le [portail Azure](https://portal.azure.com).
+1. Créez un compte de stockage « classique » dans votre abonnement dans le [portail Azure](https://portal.azure.com).
 
     ![Sur le portail Azure, choisissez Nouveau, Données, Stockage.](./media/app-insights-export-power-bi/030.png)
 
@@ -83,7 +87,7 @@ L'[exportation continue](app-insights-export-telemetry.md) déplace des données
 
     Les données seront également exportées vers votre stockage.
 
-4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
+4. Inspectez les données exportées. Dans Visual Studio, sélectionnez **Afficher / Cloud Explorer**, puis ouvrez Azure / Stockage. (Si vous n'avez pas cette option, vous devez installer le SDK Azure : Ouvrez la boîte de dialogue Nouveau projet et ouvrez Visual C# / Cloud / Obtenir Microsoft Azure SDK pour .NET.)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -132,7 +136,7 @@ Dans cet exemple :
 
 * `webapplication27` est le nom de la ressource Application Insights, **tout en minuscules**.
 * `1234...` est la clé d'instrumentation de la ressource Application Insights, **sans les tirets**. 
-* `PageViews` est le type de données à analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d’exportation de données](app-insights-export-data-model.md).
+* `PageViews` est le type de données à analyser. Les types disponibles varient selon le filtre que vous définissez dans l’exportation continue. Examinez les données exportées pour voir les autres types disponibles et consultez le [modèle d'exportation de données](app-insights-export-data-model.md).
 * `/{date}/{time}` est une séquence écrite de manière littérale.
 
 > [AZURE.NOTE]Vérifiez le stockage pour être sûr d'avoir le chemin d'accès approprié.
@@ -185,7 +189,7 @@ Collez cette requête :
 
 * export-input est l’alias que nous avons donné au flux d’entrée
 * pbi-output est l’alias de sortie que nous avons défini
-* Nous utilisons [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](https://msdn.microsoft.com/library/azure/dn835023.aspx) regroupe les éléments en périodes d'1 minute.
+* Nous utilisons [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), car le nom de l'événement se trouve dans un tableau JSON imbriqué. Ensuite, l’instruction Select récupère le nom de l’événement, ainsi que le nombre d’instances portant ce nom dans la période donnée. La clause [Regrouper par](https://msdn.microsoft.com/library/azure/dn835023.aspx) regroupe les éléments en intervalles d'1 minute.
 
 
 #### Requête d'affichage des valeurs de mesure
@@ -262,4 +266,4 @@ Noam Ben Zeev montre comment exporter vers Power BI.
 * [Application Insights](app-insights-overview.md)
 * [Plus d'exemples et de procédures pas à pas](app-insights-code-samples.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

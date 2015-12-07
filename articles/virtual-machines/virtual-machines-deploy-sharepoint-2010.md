@@ -73,11 +73,11 @@ Sur le portail Azure, les utilisateurs peuvent également charger l’image sur 
 
 **Figure 2 : Vue d’ensemble des étapes de chargement d’une image**
 
-## Déploiement de SharePoint 2010 sur Azure 
+## Déploiement de SharePoint 2010 sur Azure
 
 Vous pouvez déployer SharePoint 2010 sur Azure à l'aide du modèle de déploiement classique en suivant ces étapes :
 
-1. Connectez-vous au [portail de gestion Azure](http://manage.windowsazure.com/) en utilisant le compte lié à votre abonnement Azure. Si vous n'avez pas de compte Azure, [obtenez une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+1. Connectez-vous au [portail Azure](http://manage.windowsazure.com/) en utilisant le compte lié à votre abonnement Azure. Si vous n'avez pas de compte Azure, [obtenez une version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 2. Pour créer une machine virtuelle avec le système d’exploitation de base, dans le portail Azure, cliquez sur **Nouveau > Calcul > Machine virtuelle > À partir de la galerie**.
 3. La boîte de dialogue **Choisir une image** s'affiche. Cliquez sur l'image de la plateforme **Windows Server 2008 R2 SP1**, puis sur la flèche droite.
 4. La boîte de dialogue **Virtual machine configuration** s’affiche. Fournissez les informations suivantes :
@@ -225,7 +225,7 @@ Pour monter en charge un environnement décisionnel sur Azure, procédez comme s
 1. Mettre en service :
 	- Configurez une connexion VPN entre les éléments locaux et Azure à l’aide d’Azure Virtual Network. Pour plus d’informations, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).
 	- Utilisez le portail Microsoft Azure pour configurer une nouvelle machine virtuelle en utilisant une image stockée provenant de la bibliothèque d’images. Vous pouvez charger des images de charge de travail décisionnelles SharePoint Server ou SQL Server dans la bibliothèque d’images, et tout utilisateur autorisé peut sélectionner ces machines virtuelles de composants décisionnels pour créer l’environnement monté en charge.
-2. Installer : 
+2. Installer :
 	- si votre organisation ne possède pas d’images prégénérées des composants décisionnels SharePoint Server ou SQL Server, installez SharePoint Server et SQL Server sur les machines virtuelles à l’aide d’une connexion Bureau à distance.
 	- Pour plus d’informations sur l’installation de SharePoint, consultez les pages [Installer SharePoint Server 2010 à l’aide de Windows PowerShell](http://technet.microsoft.com/library/cc262839.aspx) ou [CodePlex : AutoSPInstaller](http://autospinstaller.codeplex.com/).
 	- Pour plus d'informations sur l'installation de SQL Server, consultez la page [Installation de SQL Server à l'aide de SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
@@ -288,4 +288,4 @@ Un déploiement réussi de SharePoint Server sur Azure Virtual Machines requiert
 
 [Test the SharePoint Server 2016 IT Preview in Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

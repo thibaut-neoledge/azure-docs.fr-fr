@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
@@ -181,8 +181,6 @@ La stratégie de rétention définit la durée de conservation des points de ré
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]Les applets de commande PowerShell ne prennent actuellement pas en charge la configuration de stratégies de rétention à long terme. Pour définir ces dernières, utilisez la console de l'interface utilisateur Azure Backup.
 
 La stratégie de rétention doit être associée à la stratégie principale à l'aide de l'applet de commande [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405) :
 
@@ -595,4 +593,4 @@ Pour plus d’informations sur Azure Backup pour client/serveur Windows, consult
 - [Présentation d’Azure Backup](backup-configure-vault.md)
 - [Sauvegarder des serveurs Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

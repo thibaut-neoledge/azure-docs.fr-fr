@@ -3,8 +3,8 @@
 	description="Explique comment publier des applications locales avec le Proxy d’application Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="StevenPo"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Publier des applications avec le Proxy d’application Azure AD
@@ -54,7 +54,7 @@ Pour terminer l’Assistant, cliquez sur la coche en bas de l’écran. L’appl
 
 1. Pour les applications qui ont été pré-authentifiées, vous devez affecter les utilisateurs et les groupes qui ont accès à l’application. <p>Pour les applications Passthrough, l’accès est possible pour tous les utilisateurs. Toutefois, pour que l’utilisateur puisse voir l’application dans sa liste d’applications, vous devez affecter l’application à cet utilisateur.
 2. Après avoir terminé l’Assistant Ajouter une application, la page Démarrage rapide Proxy d’application s’affiche. Pour affecter des utilisateurs, cliquez sur **Affecter des utilisateurs**. ![Écran de démarrage rapide du Proxy d’application](./media/active-directory-application-proxy-publish/quickstart.png)
-3. Sélectionnez chaque utilisateur ou groupe que vous souhaitez affecter à cette application et cliquez sur **Affecter**. 
+3. Sélectionnez chaque utilisateur ou groupe que vous souhaitez affecter à cette application et cliquez sur **Affecter**.
 
 > [AZURE.NOTE]Pour les applications avec authentification Windows intégrée, vous pouvez affecter uniquement les utilisateurs et les groupes qui ont été synchronisés à partir de votre Active Directory local. Il n’est pas possible d’affecter les utilisateurs qui se connectent à l’aide d’un compte Microsoft et les invités aux applications publiées avec le Proxy d’application Azure Active Directory. Vérifiez que les utilisateurs que vous affectez se connectent avec leurs informations d’identification qui doivent faire partie du même domaine que l’application que vous publiez.
 
@@ -97,4 +97,4 @@ Vous pouvez faire bien d’autres choses encore avec le Proxy d’application :
 
 * [À propos de la délégation Kerberos contrainte](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!----HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

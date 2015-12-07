@@ -53,8 +53,8 @@ Pour générer la clé d'authentification SSH, procédez comme suit.
 -	Sélectionnez et copiez la clé publique dans **Key**, et enregistrez-la dans un fichier nommé **publicKey.pem**. Ne cliquez pas sur **Save public key**, car le format de fichier de la clé publique enregistrée est différent de la clé publique que nous voulons.
 -	Cliquez sur **Save private key** et enregistrez-la dans un fichier nommé **privateKey.ppk**.
 
-###Étape 2 : Créer l’image dans le portail Azure.
-Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l’image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
+###Étape 2 : Créer l’image dans le portail Azure en version préliminaire.
+Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau** dans la barre des tâches et créez une image conformément à ces instructions, en choisissant l'image Linux selon vos besoins. Cet exemple utilise l'image Ubuntu 14.04.
 
 ![][3]
 
@@ -76,7 +76,7 @@ Les points de terminaison dans Azure se composent d'un protocole (TCP ou UDP) et
 
 Le port TCP 80 est le numéro de port par défaut sur lequel Apache écoute. L'ouverture de ce port avec un point de terminaison Azure vous permettra (à vous et à d'autres clients Internet) d'accéder au serveur web Apache.
 
-Dans le portail Azure, cliquez sur **Parcourir -> Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.
+Dans le portail Azure en version préliminaire, cliquez sur **Parcourir -> Machine virtuelle**, puis cliquez sur la machine virtuelle que vous avez créée.
 
 ![][5]
 
@@ -102,7 +102,7 @@ Cliquez sur **OK** pour ajouter le point de terminaison à votre machine virtuel
 ###Étape 2 : Connexion à l’image que vous avez créée
 Vous pouvez choisir n'importe quel outil SSH pour vous connecter à votre machine virtuelle. Dans cet exemple, nous utilisons Putty.
 
-Tout d’abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure. Cliquez sur **Parcourir -> Machines virtuelles->** nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
+Tout d'abord, obtenez le nom DNS de votre machine virtuelle à partir du portail Azure en version préliminaire. Cliquez sur **Parcourir -> Machines virtuelles->** nom de votre machine virtuelle **-> Propriétés**, puis regardez dans le champ **Nom de domaine** de la vignette **Propriétés**.
 
 Obtenez le numéro de port pour les connexions SSH à partir du champ **SSH**. Voici un exemple.
 
@@ -456,4 +456,4 @@ Une fois la pile LAMP configurée avec succès, vous pouvez déployer votre appl
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

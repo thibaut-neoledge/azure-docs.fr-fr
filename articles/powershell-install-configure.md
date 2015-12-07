@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="coreyp"/>
 
 # Installation et configuration d’Azure PowerShell#
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Azure CLI">Azure CLI</a></div>
-
-> [AZURE.NOTE]**Azure PowerShell 1.0 en version préliminaire** est à présent disponible dans [PowerShell Gallery](http://www.powershellgallery.com/). Cette version préliminaire a subi de nombreuses modifications. Nous souhaitons l’utiliser pour recueillir des remarques que nous prendrons en compte dans Azure PowerShell 1.0. **Cette version préliminaire n’est pas conçue pour les applications critiques**. Si vous exécutez de telles applications, continuez à utiliser Azure PowerShell 0.9.8. Si vous souhaitez utiliser la version préliminaire 1.0, vous pouvez la désinstaller à tout moment et revenir à la version 0.9.8. Pour connaître la procédure d’installation, consultez cet [article de blog](https://azure.microsoft.com/fr-FR/blog/azps-1-0-pre/).
 
 Windows PowerShell permet d’effectuer de nombreuses tâches dans Azure, de façon interactive (via l’invite de commandes) ou automatique (via des scripts). Azure PowerShell est un module fournissant des cmdlets pour gérer Azure via Windows PowerShell. Ces cmdlets permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure. Dans la plupart des cas, les cmdlets permettent d’effectuer les mêmes tâches que celles du portail de gestion Azure. Par exemple, vous pouvez créer et configurer des services cloud, des machines virtuelles, des réseaux virtuels et des applications web.
 
@@ -49,7 +47,7 @@ L’installation du module entraîne celle d’une console personnalisée pour A
 
 La méthode utilisée pour l’ouverture d’une console ou de l’autre dépend de votre version de Windows :
 
-- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’accueil, commencez à taper **power**. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell et Azure PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran d’accueil, cliquez avec le bouton droit sur l’icône.)
+- Sur un ordinateur exécutant au moins Windows 8 ou Windows Server 2012, vous pouvez utiliser l’outil de recherche intégré. Dans l’écran d’accueil, commencez par taper **power**. Ceci entraîne l’affichage d’une liste d’applications, notamment Windows PowerShell et Azure PowerShell. Cliquez sur une application pour ouvrir la console. (Pour épingler l’application à l’écran d’accueil, cliquez avec le bouton droit sur l’icône.)
 
 - Sur un ordinateur exécutant une version antérieure à Windows 8 ou Windows Server 2012, utilisez le menu Démarrer. Dans le menu Démarrer, cliquez sur **Tous les programmes**, sur **Azure**, puis sur **Azure PowerShell**.
 
@@ -262,4 +260,4 @@ Voici certaines des ressources disponibles pour apprendre à utiliser Azure et W
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

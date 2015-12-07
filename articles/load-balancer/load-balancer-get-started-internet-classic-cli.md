@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Création d’un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide de l’interface de ligne de commande Azure | Microsoft Azure"
+   pageTitle="Création d'un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l'aide de l'interface de ligne de commande Azure | Microsoft Azure"
    description="Découvrez comment créer un équilibreur de charge accessible sur Internet dans un modèle de déploiement classique à l’aide de l’interface de ligne de commande Azure"
    services="load-balancer"
    documentationCenter="na"
@@ -17,7 +17,7 @@
    ms.date="11/06/2015"
    ms.author="joaoma" />
 
-# Création d’un équilibreur de charge accessible sur Internet (classique) dans l’interface de ligne de commande CLI Azure
+# Création d'un équilibreur de charge accessible sur Internet (classique) dans l'interface de ligne de commande CLI Azure
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
@@ -139,8 +139,8 @@ Vous devez supprimer le point de terminaison associé à l'équilibreur de charg
 
 [Configuration d'un mode de distribution d'équilibrage de charge](load-balancer-distribution-mode.md)
 
-[Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
+[Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

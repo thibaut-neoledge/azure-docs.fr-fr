@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Modèle ARM des services de domaine Active Directory à haute disponibilité | Microsoft Azure"
-	description="Déployez facilement deux serveurs utilisés comme contrôleurs de domaine Active Directory Domain Services à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
+	description="Déployez facilement deux serveurs utilisés comme contrôleurs de domaine Active Directory Domain Services à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, d'Azure PowerShell ou de l'interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -30,7 +30,7 @@ Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire
 
 ## Portail Azure en version préliminaire
 
-Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l'aide d'un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@ Lorsque l’exécution du modèle est terminée, vous disposez d’une nouvelle 
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

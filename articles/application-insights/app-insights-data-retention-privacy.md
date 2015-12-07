@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # Collecte, rétention et stockage des données dans Application Insights 
@@ -64,6 +64,11 @@ Le nombre d’utilisateurs et de sessions n’est pas inclus dans le quota à de
 * Ouvrez Paramètres/Quota et tarification pour découvrir le graphique du volume de données.
 * Ou dans Metrics Explorer, ajoutez un nouveau graphique et sélectionnez la mesure **Volume du point de données**. Basculez sur le regroupement et regroupez par **Type de données**.
 
+*Comment puis-je réduire le volume de données envoyé par mon application ?*
+
+* Utilisez l'[échantillonnage](app-insights-sampling.md). Cette technologie réduit le débit de données sans fausser vos mesures et sans impacter la capacité à naviguer entre les éléments associés dans la recherche.
+* [Désactivez les collecteurs de données de télémétrie](app-insights-configuration-with-applicationinsights-config.md) dont vous n'avez pas besoin.
+
 
 #### Combien de temps sont conservées les données ? 
 
@@ -107,7 +112,7 @@ Microsoft n’utilise les données que pour vous fournir le service.
 
 #### Mes données sont-elles sécurisées ? 
 
-Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions correspondantes sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure.](http://go.microsoft.com/fwlink/?linkid=392408) Pour les comptes du portail Visual Studio Team Services, le document [relatif à la protection des données dans Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) s’applique.
+Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions correspondantes sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure.](http://go.microsoft.com/fwlink/?linkid=392408) Pour les comptes du portail Visual Studio Team Services, le document [relatif à la protection des données dans Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf) s'applique.
 
 L'accès à vos données par le personnel Microsoft est limité. Nous n'accédons à vos données qu'avec votre autorisation, et seulement pour vous aider à utiliser Application Insights.
 
@@ -250,4 +255,4 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponible sur [
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

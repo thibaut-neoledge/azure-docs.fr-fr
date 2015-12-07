@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/12/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma" />
 
 # Configuration de l'équilibrage de charge pour SQL Always On
@@ -53,7 +53,7 @@ Dans l'exemple suivant, nous allons configurer un réseau virtuel qui contient u
 
 Dans l'exemple ci-dessus, la machine virtuelle 2 est appelée « sqlsvc1 » et « sqlsvc2 » en cours d'exécution dans le service de cloud « Sqlsvc ». Après avoir créé l'équilibre de charge avec le commutateur « DirectServerReturn », vous allez ajouter des points de terminaison d'équilibrage de charge pour permettre à SQL de configurer les écouteurs pour les groupes de disponibilité.
 
-Vous trouverez plus de détails sur la création d'un SQL Alwayson dans [Didacticiel : groupes de disponibilité AlwaysOn dans Azure](https://msdn.microsoft.com/library/dn249504.aspx) ou [Utilisation de la galerie de portail](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Vous trouverez plus de détails sur la création d'un SQL AlwaysOn dans [Didacticiel : groupes de disponibilité AlwaysOn dans Azure](https://msdn.microsoft.com/library/dn249504.aspx) ou [Utilisation de la galerie de portail](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## Voir aussi
@@ -67,4 +67,4 @@ Vous trouverez plus de détails sur la création d'un SQL Alwayson dans [Didacti
 [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

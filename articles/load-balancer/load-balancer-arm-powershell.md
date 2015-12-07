@@ -109,7 +109,7 @@ Créez une adresse IP publique à utiliser par le pool d’adresses IP de serveu
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]La propriété étiquette de nom de domaine d’adresse IP publique correspond au nom de domaine complet de l’équilibreur de charge.
+>[AZURE.NOTE]La propriété étiquette de nom de domaine d'adresse IP publique correspond au préfixe du nom de domaine complet de l'équilibreur de charge.
 
 ## Création du pool d’adresses IP frontales et du pool d’adresses principales
 
@@ -282,4 +282,4 @@ Utilisez la commande Remove-AzureLoadBalancer pour supprimer un équilibreur de 
 [Configuration des paramètres de délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -181,6 +181,10 @@ L’extension de sauvegarde est installée si la machine virtuelle est en cours 
   - **Linux** : la liste des distributions approuvées par Azure est disponible [ici](../virtual-machines-linux-endorsed-distributions.md). D’autres distributions « Bring-Your-Own-Linux » fonctionnent également tant que l’agent de machine virtuelle est disponible sur la machine virtuelle.
   - **Windows Server** : les versions antérieures à Windows Server 2008 R2 ne sont pas prises en charge.
 - La restauration d'une machine virtuelle de contrôleur de domaine qui fait partie d'une configuration à plusieurs contrôleurs de domaine est prise en charge uniquement par le biais de PowerShell. En savoir plus sur la [restauration d’un contrôleur de domaine dans un environnement à plusieurs contrôleurs de domaine](backup-azure-restore-vms.md#restoring-domain-controller-vms)
+- La restauration de machines virtuelles qui ont des configurations réseau spéciales suivantes est prise en charge uniquement par le biais de PowerShell. Les machines virtuelles que vous créez à l'aide du flux de travail de restauration dans l'interface utilisateur n'aura pas ces configurations réseau une fois l'opération de restauration terminée. Pour plus d'informations, consultez la rubrique [Restauration de machines virtuelles avec des configurations de réseau spéciales](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations). 
+	- Machines virtuelles avec configuration d'un équilibreur de charge (internes et externes)
+	- Machines virtuelles avec plusieurs adresses IP réservées
+	- Machines virtuelles avec plusieurs cartes réseau
 
 ## Des questions ?
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](http://aka.ms/azurebackup_feedback).
@@ -191,4 +195,4 @@ Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités s
 - [Sauvegarde de machines virtuelles](backup-azure-vms.md)
 - [Gestion de la sauvegarde de machine virtuelle](backup-azure-manage-vms.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

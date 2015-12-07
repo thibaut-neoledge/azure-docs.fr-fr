@@ -25,7 +25,7 @@ Souhaitez-vous :
 - Déplacer votre abonnement Azure d’un répertoire vers un autre ?
 - Consolider les différents clients que vous avez actuellement pour Azure et Office 365 ?
 
-Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation ou MSDN. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte sur n'importe quel abonnement de type paiement à l'utilisation ou MSDN dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez.
+Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes Microsoft Azure pour les abonnements de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark. Nous avons ajouté une fonction permettant de transférer votre abonnement vers un autre utilisateur. En d'autres termes, vous pouvez maintenant modifier l'administrateur de compte pour n'importe quel abonnement de type paiement à l'utilisation, MSDN, Action Pack ou BizSpark dont vous êtes titulaire, quel que soit le pays dans lequel vous travaillez.
 
 ## Transfert d’un abonnement Azure
 
@@ -71,7 +71,7 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 
     Cette liste n’est pas exhaustive. Le destinataire doit envisager la mise à jour des clés secrètes associées au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour comme suit :
 
-    1.   Accédez au portail Azure : [**https://portal.azure.com*](https://portal.azure.com)
+    1.   Accédez au portail Azure : [*https://portal.azure.com*](https://portal.azure.com)
 
     2.    Cliquez sur Parcourir tout -&gt; Toutes les ressources.
 
@@ -111,4 +111,4 @@ Vous pouvez désormais effectuer aisément ces actions via le Centre des comptes
 4. Mettez à jour les alertes de facturation pour cet abonnement, sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions) [En savoir plus](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Si vous collaborez avec un partenaire, envisagez la mise à jour de l’ID de partenaire pour cet abonnement. Vous pouvez effectuer cette opération sur le [Centre des comptes Azure](https://account.windowsazure.com/Subscriptions).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

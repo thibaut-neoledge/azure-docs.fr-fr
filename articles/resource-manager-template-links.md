@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/31/2015"
+   ms.date="11/19/2015"
    ms.author="tomfitz"/>
 
 # Liens vers les ressources - schéma de modèle
@@ -54,7 +54,7 @@ Les tableaux suivants décrivent les valeurs que vous devez définir dans le sch
 
 | Nom | Type | Requis | Valeurs autorisées | Description |
 | ------- | ---- | ---------------- | -------- | ----------- |
-| tagetId | string | Oui | | Identificateur de la ressource cible à lier. |
+| targetId | string | Oui | | Identificateur de la ressource cible à lier. |
 | HDInsight | string | Non | 512 caractères | Description du verrou. |
 
 
@@ -129,4 +129,4 @@ L'exemple suivant applique un verrou ReadOnly à une application web.
 
 - Pour plus d'informations sur la structure du modèle, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

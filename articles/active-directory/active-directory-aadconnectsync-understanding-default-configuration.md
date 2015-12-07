@@ -148,6 +148,6 @@ Nous en savons maintenant assez sur les règles de synchronisation pour comprend
 ## Ressources supplémentaires
 
 * [Azure AD Connect Sync : personnalisation des options de synchronisation](active-directory-aadconnectsync-whatis.md)
-* [Intégration des identités locales dans Azure Active Directory](active-directory-aadconnect.md)
+* [Intégration de vos identités locales avec Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

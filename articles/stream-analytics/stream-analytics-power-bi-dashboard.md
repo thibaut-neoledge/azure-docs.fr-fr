@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 	
 # Azure Stream Analytics & Power BI : tableau de bord en direct pour analyser en temps réel les flux de données
@@ -164,11 +164,11 @@ Notez que ce didacticiel ne vous a montré la création que d’un seul type de 
 Pour plus d'informations sur la configuration d'une sortie Power BI et pour utiliser des groupes Power BI, passez en revue la [section Power BI](stream-analytics-define-outputs.md#power-bi) dans [Présentation des sorties Stream Analytics](stream-analytics-define-outputs.md "Présentation des sorties Stream Analytics"). Vous pouvez également consulter la page [Tableaux de bord dans Power BI en version préliminaire](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview) pour en savoir plus sur la création des tableaux de bord avec Power BI.
 
 ## Limites et meilleures pratiques ##
-Power BI utilise des contraintes d’accès concurrentiel et de débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
+Power BI utilise des contraintes d'accès concurrentiel et de débit comme indiqué ici : [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Tarification de Power BI")
 
-C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l’utilisation de TumblingWindow ou HoppingWindow pour garantir que le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l’équation suivante pour calculer la valeur à donner à votre fenêtre en secondes : ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+C’est pour cette raison que Power BI s’applique naturellement dans les cas où l’analyse de flux de données Windows Azure débouche sur une réduction significative de la charge des données. Nous recommandons l'utilisation de TumblingWindow ou HoppingWindow pour garantir que le push de données est au plus de 1 push/seconde et que votre requête respecte les exigences en matière de débit. Vous pouvez utiliser l'équation suivante pour calculer la valeur à donner à votre fenêtre en secondes : ![equation1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Par exemple, si 1 000 appareils envoient des données chaque seconde, il s’agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) : ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Par exemple, si 1 000 appareils envoient des données chaque seconde, il s'agit de la référence Pro Power BI qui prend en charge 1 000 000 lignes/heure et si vous souhaitez obtenir la moyenne des données par appareil sur Power BI, vous pouvez exécuter un push toutes les 4 secondes par appareil (comme indiqué ci-dessous) : ![equation2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Cela signifie que nous pouvons modifier la requête d’origine :
 
@@ -221,4 +221,4 @@ Pour obtenir une assistance, essayez notre [forum Azure Stream Analytics](https:
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -11,5 +11,7 @@ Nombre maximal de services de recherche|12 par abonnement Azure
 Nombre maximal d’indexeurs|10 par service de recherche
 Nombre maximal de sources de données|10 par service de recherche
 Nombre maximal de documents pouvant être indexés dans un appel unique d’indexeur|Illimité
+Nombre maximal de profils de score par index|16
+Nombre maximal de fonctions par profil|8
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
