@@ -396,7 +396,7 @@ Ceci concerne l'ensemble de l'installation et de la configuration initiales. Ven
 		
 		module.exports = config;
 
-3. Dans le fichier **config.js**, mettez à jour les valeurs des paramètres HOST et AUTH\_KEY avec les valeurs trouvées dans le panneau Clés de votre compte DocumentDB, dans le [portail Microsoft Azure en version préliminaire](http://portal.azure.com) :
+3. Dans le fichier **config.js**, modifiez les valeurs de HOST et AUTH\_KEY avec les valeurs trouvées dans le volet Clés de votre compte DocumentDB, dans le [portail Microsoft Azure](http://portal.azure.com) :
 
 4. Enregistrez et fermez le fichier **config.js**.
  
@@ -569,4 +569,4 @@ Pour plus d'informations, consultez le [Centre pour développeurs Node.js](/deve
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

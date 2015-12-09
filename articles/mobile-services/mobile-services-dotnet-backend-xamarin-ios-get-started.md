@@ -18,13 +18,18 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
 
 Ce didacticiel vous montre comment ajouter un service principal cloud à une application Xamarin iOS en utilisant Azure Mobile Services. Dans ce didacticiel, vous allez créer un service mobile et une simple application _To do list_ qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la [version du backend JavaScript] de cette rubrique.
 
->[AZURE.NOTE]Cette rubrique montre comment créer un projet de service mobile à l’aide du portail de gestion Azure. Visual Studio 2013 Update 2 vous permet également d'ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d’informations, consultez la page [Démarrage rapide : ajouter un service mobile (.NET principal)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]Cette rubrique montre comment créer un projet de service mobile à l’aide du portail Azure Classic. Visual Studio 2013 Update 2 vous permet également d'ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d’informations, consultez la page [Démarrage rapide : ajouter un service mobile (.NET principal)](http://msdn.microsoft.com/library/windows/apps/dn629482.aspx)
 
 Voici une capture d'écran de l'application terminée :
 
@@ -41,11 +46,11 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 
 ## Création d'une application Xamarin iOS
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez télécharger une nouvelle application Xamarin iOS et un projet de service pour votre service mobile.
 
-1. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1. Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Xamarin** sous **Choisissez une plateforme** et développez **Créer une application Xamarin**.
 
@@ -85,7 +90,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 2. Appuyez sur le bouton **Exécuter** pour générer le projet client et démarrer l'application dans l'émulateur iPhone.
 
-3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_ , puis cliquez sur l'icône plus (**+**).
+3. Dans l'application, tapez un texte explicite, comme _Suivre le didacticiel_, puis cliquez sur l'icône plus (**+**).
 
 	![][10]
 
@@ -129,7 +134,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [version du backend JavaScript]: mobile-services-ios-get-started.md
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
@@ -138,4 +143,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

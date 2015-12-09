@@ -19,7 +19,7 @@
 
 ## Configurer Scheduler à l’aide du portail Azure pour créer rapidement et facilement des travaux
 
-Pour suivre ce didacticiel, vous devez disposer d'un compte Azure avec la fonctionnalité Azure Scheduler activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/fr-FR/pricing/free-trial/).
+Pour suivre ce didacticiel, vous devez disposer d'un compte Azure avec la fonctionnalité Azure Scheduler activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Prise en main
 
@@ -261,4 +261,4 @@ Enfin, pour tous les types d'actions, vous pouvez modifier la planification prop
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

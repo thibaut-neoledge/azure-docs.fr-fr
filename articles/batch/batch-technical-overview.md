@@ -54,7 +54,7 @@ Consultez [Présentation de la fonction Azure Batch](batch-api-basics.md) pour 
 
 + **Compte et abonnement Azure** : si vous ne possédez pas de compte, vous pouvez activer les [avantages de votre abonnement MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou obtenir un [essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
-+ **Compte Batch** : utilisez le nom et l’URL d’un compte Batch et une clé d’accès comme informations d’identification lorsque vous effectuez des appels de l’API Batch. Toutes vos ressources Batch, telles que les nœuds de calcul, les pools, les travaux et les tâches, sont associées à un compte Batch. Une méthode pour créer un compte Batch et gérer des clés d’accès pour le compte est d’utiliser le [portail Azure en version préliminaire](batch-account-create-portal.md).
++ **Compte Batch** : utilisez le nom et l’URL d’un compte Batch et une clé d’accès comme informations d’identification lorsque vous effectuez des appels de l’API Batch. Toutes vos ressources Batch, telles que les nœuds de calcul, les pools, les travaux et les tâches, sont associées à un compte Batch. Une des méthodes qui permet de créer un compte Batch et de gérer les clés d’accès pour le compte consiste à utiliser le [portail Azure](batch-account-create-portal.md).
 
 + **Compte de stockage** : pour la plupart des scénarios Batch, vous aurez besoin d’un compte de stockage Azure pour stocker vos entrées et sorties de données et les scripts ou exécutables qui s’exécutent sur les nœuds de calcul. Pour créer un compte de stockage, consultez l’article [À propos des comptes de stockage Azure](../storage/storage-create-storage-account.md).
 
@@ -103,4 +103,4 @@ La figure 2 illustre un flux de travail qui utilise une application cliente .NE
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

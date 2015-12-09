@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/09/2015"
+	ms.date="12/01/2015"
 	ms.author="jeffreyg"/>
 
 # Didacticiel sur la base de données SQL : Créer une base de données SQL en quelques minutes à l’aide d’exemples de données et du portail Azure
@@ -27,7 +27,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Ce didacticiel sur la base de données SQL vous explique comment créer une base de données SQL en quelques minutes à l’aide d’exemples de données et du portail Azure en version préliminaire. Vous découvrirez comment effectuer les actions suivantes :
+Ce didacticiel sur la base de données SQL vous explique comment créer une base de données SQL en quelques minutes à l’aide d’exemples de données et du portail Azure. Vous découvrirez comment effectuer les actions suivantes :
 
 - Créez un serveur pour héberger la base de données que vous créez, puis définissez une règle de pare-feu pour celle-ci.
 - Créez une base de données SQL à partir d’un exemple AdventureWorks, qui inclut des données que vous pouvez manipuler.
@@ -37,7 +37,7 @@ Avant de commencer, vous avez besoin d’un compte Azure et d’un abonnement. S
 > [AZURE.NOTE]Ce didacticiel sur la base de données SQL explique comment configurer une base de données à l’aide du service de gestion de base de données relationnelle du cloud, Azure SQL Database. Une autre option consiste à exécuter SQL Server sur une machine virtuelle Azure. Voir [Connaissance de la base de données Azure et SQL Server dans des machines virtuelles Azure](data-management-azure-sql-database-and-sql-server-iaas.md) pour une comparaison rapide, ou vous pouvez consulter [Configurer une machine virtuelle SQL server](virtual-machines-provision-sql-server.md) pour être initié avec une machine virtuelle.
 
 ## Étape 1 : Se connecter et démarrer la configuration de la base de données SQL
-1. Connectez-vous à la [version préliminaire du portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [portail Azure](http://portal.azure.com/).
 2. Cliquez sur **Nouveau** > **Données et stockage** > **Base de données SQL**.
 
 	![Didacticiel sur la base de données SQL : Créer une base de données SQL](./media/sql-database-get-started/create-db.png)

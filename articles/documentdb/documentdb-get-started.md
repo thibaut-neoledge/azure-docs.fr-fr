@@ -78,9 +78,9 @@ Tout d’abord, ajoutez ces références au début de votre application C#, dans
 
 > [AZURE.IMPORTANT]Pour pouvoir exécuter ce didacticiel NoSQL, veillez à ajouter les dépendances ci-dessus.
 
-Ensuite, enregistrez le point de terminaison du compte DocumentDB et la clé d’accès primaire ou secondaire, qui se trouve sur le [portail Azure en version préliminaire](https://portal.azure.com).
+Ensuite, enregistrez le point de terminaison du compte DocumentDB et la clé d’accès primaire ou secondaire, qui se trouve sur le [portail Azure](https://portal.azure.com).
 
-![Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
+![Capture d’écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";

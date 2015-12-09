@@ -20,7 +20,7 @@
 # Créer une base de données SQL Data Warehouse à l’aide de Transact-SQL (TSQL).
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 - Un abonnement Azure. Si vous avez besoin d'un abonnement Azure, cliquez simplement sur **VERSION D'ÉVALUATION GRATUITE** en haut de cette page, puis continuez la lecture de cet article.
 - Visual Studio. Pour obtenir une copie gratuite de Visual Studio, consultez la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Un serveur logique SQL V12. Vous aurez besoin d’un serveur SQL V12 pour créer l’entrepôt SQL Data Warehouse. Si vous ne disposez pas d’un serveur SQL logique V12, le [didacticiel de la version préliminaire du portail Azure][] vous montre comment en créer un.
+- Un serveur logique SQL V12. Vous aurez besoin d’un serveur SQL V12 pour créer l’entrepôt SQL Data Warehouse. Si vous ne disposez pas d’un serveur SQL logique V12, le [didacticiel du portail Azure][] vous montre comment en créer un.
 
 ## Créer une base de données avec Visual Studio
 
@@ -53,7 +53,7 @@ SERVICE\_OBJECTIVE indique le nombre de DWU avec lequel votre instance démarre 
 ## Étapes suivantes
 Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger les données d’exemple][] ou découvrir comment [développer][], [charger][] ou [migrer][] les données.
 
-[didacticiel de la version préliminaire du portail Azure]: ./sql-data-warehouse-get-started-provision.md
+[didacticiel du portail Azure]: ./sql-data-warehouse-get-started-provision.md
 [connexions et requêtes]: ./sql-data-warehouse-get-started-connect.md
 [migrer]: ./sql-data-warehouse-overview-migrate.md
 [développer]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@ Une fois votre entrepôt SQL Data Warehouse approvisionné, vous pouvez [charger
 [charger les données d’exemple]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [page de tarification]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

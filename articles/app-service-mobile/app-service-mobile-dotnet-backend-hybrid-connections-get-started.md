@@ -29,7 +29,7 @@ Au cours de ce didacticiel, vous apprendrez à modifier un serveur principal .NE
 
 Ce didacticiel requiert les éléments suivants :
 
-- **Un serveur principal d'application mobile existant** <br/>Suivez le [didacticiel de démarrage rapide](app-service-mobile-windows-store-dotnet-get-started.md) pour créer et télécharger un serveur principal .NET d'application mobile à partir du [portail Azure].
+- **Un serveur principal d’application mobile existant** <br/>Suivez le [didacticiel de démarrage rapide](app-service-mobile-windows-store-dotnet-get-started.md) pour créer et télécharger un serveur principal .NET d’application mobile à partir du [portail Azure].
 
 [AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
@@ -113,7 +113,7 @@ Dans cette étape, vous définissez une chaîne de connexion pour la base de don
 
 À présent, vous devez ajouter un paramètre d'application pour cette nouvelle chaîne de connexion afin qu'elle puisse être utilisée à partir d'Azure.
 
-1. Dans le [portail Azure] dans le code principal d'application Web pour votre application mobile, cliquez sur **Tous les paramètres**, puis **Paramètres de l'application**.
+1. Dans le [portail Azure] dans le code principal d’application web de votre application mobile, cliquez sur **Tous les paramètres**, puis sur **Paramètres de l’application**.
 
 3. Dans le panneau **Paramètres d'application web**, faites défiler jusqu'à **Chaînes de connexion** et ajoutez une chaîne de connexion **SQL Server** nommée `OnPremisesDBConnection` avec une valeur telle que `Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>`.
 
@@ -159,7 +159,7 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 
 <!-- Links -->
 [portail Azure]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
 <!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs pour les applications iOS
@@ -37,7 +37,7 @@ Le code complet de ce didacticiel est disponible sur GitHub [ici](https://github
 
 Ce didacticiel requiert les éléments suivants :
 
-+ [Kit de développement logiciel (SDK) Mobile Services iOS]
++ [Kit de développement logiciel (SDK) Mobile Services iOS version 1.2.4]
 + [Xcode 7][Install Xcode]
 + Un appareil compatible iOS 8 (ou version ultérieure)
 + Un abonnement au programme pour développeurs iOS
@@ -86,7 +86,7 @@ Votre Notification Hub est configuré pour APNS, et vous disposez des chaînes d
 
    	![][9]
 
-4. Téléchargez la version 1.2.4 du [kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
+4. Téléchargez la [version 1.2.4 du kit de développement logiciel (SDK) Mobile Services iOS] et décompressez le fichier. Dans Xcode, cliquez avec le bouton droit de la souris sur votre projet et sélectionnez l’option **Add Files to** pour ajouter le dossier **WindowsAzureMessaging.framework** à votre projet Xcode. Sélectionnez **Copy items if needed**, puis cliquez sur **Add**.
 
    	![][10]
 
@@ -486,8 +486,9 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 
 
 <!-- URLs. -->
-[Kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[kit de développement logiciel (SDK) Mobile Services iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Kit de développement logiciel (SDK) Mobile Services iOS version 1.2.4]: http://aka.ms/kymw2g
+[version 1.2.4 du kit de développement logiciel (SDK) Mobile Services iOS]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -498,11 +499,10 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Utilisation de Notification Hubs pour transmettre les notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
 
 [Guide de programmation des notifications locales et Push]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

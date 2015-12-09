@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Prise en main d'Application Insights dans un projet web Java
@@ -267,7 +267,7 @@ Publiez maintenant votre application sur le serveur, laissez le temps aux usager
 
 Les exceptions non gérées sont collectées automatiquement :
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Faites défiler et cliquez sur la vignette Défaillances](./media/app-insights-java-get-started/21-exceptions.png)
 
 Pour collecter les données concernant d’autres exceptions, vous disposez de deux options :
 
@@ -364,11 +364,13 @@ Maintenant que vous avez installé le Kit de développement logiciel (SDK), vous
 
 ## Tests web de disponibilité
 
-Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour cela, cliquez sur les graphiques de tests web vides dans le panneau Vue d’ensemble et indiquez votre URL publique.
+Application Insights peut tester votre site web à intervalles réguliers pour vérifier qu’il fonctionne et répond correctement. Pour exécuter la [configuration][availability], faites défiler la liste pour cliquer sur Disponibilité.
+
+![Faites défiler vers le bas, cliquez sur Disponibilité, puis sur Ajouter un test web](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Vous obtenez des graphiques du temps de réponse, ainsi que des notifications par courrier électronique si votre site ne fonctionne plus.
 
-![Exemple de test web](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Exemple de test web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [En savoir plus sur les tests de disponibilité web.][availability]
 
@@ -396,4 +398,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

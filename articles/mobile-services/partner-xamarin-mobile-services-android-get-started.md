@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Prise en main de Mobile Services pour Xamarin.Android | Microsoft Azure" 
-	writer="craigd" 
-	description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android." 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Prise en main de Mobile Services pour Xamarin.Android | Microsoft Azure"
+	writer="craigd"
+	description="Découvrez comment utiliser Azure Mobile Services avec votre application Xamarin.Android."
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/05/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Prise en main de Mobile Services
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
@@ -47,11 +52,11 @@ Le projet de démarrage rapide téléchargé contient le composant Azure Mobile 
 
 ## Création d'une application Xamarin.Android
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le Portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application Xamarin.Android connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [Portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Sous l'onglet de démarrage rapide, cliquez sur **Xamarin.Android** sous **Choisissez une plateforme** et développez **Créer une application Android**.
 
@@ -87,7 +92,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier ToDoActivity.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-6. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+6. De retour dans le [Portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItems**.
 
 	![][11]
 
@@ -138,7 +143,6 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
-[Management Portal]: https://manage.windowsazure.com/
- 
+[Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

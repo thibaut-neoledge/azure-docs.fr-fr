@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/20/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Créer une base de données SQL et effectuer des tâches courantes d’installation de base de données avec les applets de commande PowerShell 
@@ -22,7 +22,7 @@
 **Base de données unique**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 

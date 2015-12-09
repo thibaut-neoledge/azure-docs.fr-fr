@@ -244,8 +244,7 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 - Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente :
     - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
-- Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la page [Stockage et accessibilité des données dans Windows Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
-- Découvrez comment simplifier le code que vous écrivez pour le stockage Azure, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../websites-dotnet-webjobs-sdk/)
+- Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../websites-dotnet-webjobs-sdk/).
 - Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
     - Utilisez le [stockage de table](storage-dotnet-how-to-use-tables.md) pour stocker des données structurées. 
     - Utilisez le [stockage d'objets blob](storage-dotnet-how-to-use-blobs.md) pour stocker des données non structurées.
@@ -255,7 +254,6 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

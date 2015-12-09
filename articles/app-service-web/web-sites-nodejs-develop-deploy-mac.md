@@ -30,7 +30,7 @@ Ce didacticiel explique comment créer une simple application [Node.js](http://n
 
 Vous apprendrez ce qui suit :
 
-* Comment créer une application web dans Azure App Service à l’aide du portail Azure en version préliminaire.
+* Comment créer une application web dans Azure App Service à l’aide du portail Azure.
 * Comment déployer une application Node.js sur l’application web par transmission de type push au référentiel Git de l’application web.
 
 L’application terminée écrit une courte chaîne « Hello World » dans le navigateur.
@@ -39,7 +39,7 @@ L’application terminée écrit une courte chaîne « Hello World » dans le 
 
 Pour des didacticiels et exemples de code avec des applications Node.js plus complexes, ou pour d’autres rubriques sur l’utilisation de Node.js dans Azure, consultez le [Centre de développement Node.js](/develop/nodejs/).
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir une évaluation gratuite](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio](/fr-FR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) ou [obtenir un essai gratuit](/fr-FR/pricing/free-trial/?WT.mc_id=A261C142F).
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -49,9 +49,9 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 [Git](http://git-scm.com/%20target="_blank) est un système de contrôle de version distribué permettant de déployer votre site web Azure. Vous stockerez le code que vous écrivez pour votre application Web dans un référentiel Git local, et vous déploierez votre code dans Azure par transmission de type Push vers un référentiel distant. Cette méthode de déploiement est une fonctionnalité des applications web App Service.
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Cliquez sur l’icône **+ NOUVEAU** dans le coin supérieur gauche du portail.
+2. Cliquez sur l’icône **+ NOUVEAU** dans le coin supérieur gauche du portail Azure.
 
 3. Cliquez sur **Web + mobile**, puis cliquez sur **Application web**.
 
@@ -65,7 +65,7 @@ Pour créer une application web dans Azure App Service et activer la publication
 
 6. Sélectionnez un **Groupe de ressources** ou créez-en un.
 
-	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../resource-group-portal.md).
+	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
 
 7. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
@@ -224,4 +224,4 @@ Pour plus d’informations sur le développement d’applications Node.js dans A
 [deployment-credentials]: ./media/web-sites-nodejs-develop-deploy-mac/deployment-credentials.png
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

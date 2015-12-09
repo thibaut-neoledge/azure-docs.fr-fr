@@ -24,7 +24,7 @@
 
 Les concentrateurs d’événements constituent un service qui traite de grandes quantités de données d'événement à partir de périphériques et d'applications connectés. Après avoir collecté des données dans les concentrateurs d’événements, vous pouvez les stocker à l’aide d’un cluster de stockage ou les transformer à l’aide d’un fournisseur d’analyses en temps réel. Cette fonctionnalité de collecte et de traitement d’événements à grande échelle représente un élément clé des architectures d’applications modernes, notamment l’Internet des objets (IoT).
 
-Ce didacticiel montre comment utiliser le portail Azure pour créer un concentrateur d'événements. Il montre également comment collecter les messages dans un concentrateur d’événements à l’aide d’une application console en C# et les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements] en C#.
+Ce didacticiel montre comment utiliser le portail Azure Classic pour créer un concentrateur d’événements. Il montre également comment collecter les messages dans un concentrateur d’événements à l’aide d’une application console en C# et les récupérer en parallèle en utilisant la bibliothèque de l’[hôte du processeur d’événements] en C#.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d’un concentrateur d’événements
 
-1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
 
 2. Cliquez successivement sur **App Services**, **Service Bus**, **Concentrateur d'événements**, puis sur **Création rapide**.
 
@@ -100,7 +100,7 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[portail Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [hôte du processeur d’événements]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Vue d’ensemble des concentrateurs d’événements]: event-hubs-overview.md
 [exemple d'application complet qui utilise des hubs d’événements]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

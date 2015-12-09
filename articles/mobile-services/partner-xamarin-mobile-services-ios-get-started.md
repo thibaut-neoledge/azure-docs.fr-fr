@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -36,7 +41,7 @@ Voici une capture d'écran de l'application terminée :
 
 Ce didacticiel nécessite XCode et [Xamarin Studio] pour OS X ou le plug-in Xamarin Visual Studio pour Visual Studio sur Windows. L'exemple s'exécute sur iOS 5.0 et les versions plus récentes.
 
-> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+> [AZURE.IMPORTANT]Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 services mobiles gratuits que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Création d'un service mobile
 
@@ -44,11 +49,11 @@ Ce didacticiel nécessite XCode et [Xamarin Studio] pour OS X ou le plug-in Xam
 
 ## Création d'une application Xamarin.iOS
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le Portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application Xamarin.iOS connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [Portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Sous l'onglet de démarrage rapide, cliquez sur **Xamarin.iOS** sous **Choisissez une plateforme** et développez **Créer une application Xamarin.iOS**.
 
@@ -86,7 +91,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier TodoService.cs C# et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+4. De retour dans le [Portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table **TodoItems**.
 
 	![][11]
 
@@ -105,7 +110,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 * [Prise en main des notifications Push] Découvrez comment envoyer une notification Push très basique à votre application.
 
 * [Comment utiliser le client Xamarin Component pour Azure Mobile Services](partner-xamarin-mobile-services-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
-  
+
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -134,6 +139,6 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
+[Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

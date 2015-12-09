@@ -34,7 +34,7 @@ Les niveaux de service De base, Standard et Premium proposent un contrat SLA ga
 >[AZURE.NOTE]Les éditions « Web et Business » seront retirées. Découvrez comment [mettre à niveau les éditions « Web et Business »](sql-database-upgrade-new-service-tiers.md). Si vous souhaitez continuer à utiliser ces éditions, reportez-vous à la [FAQ Sunset](http://azure.microsoft.com/pricing/details/sql-database/web-business/).
 
 ### Niveau de service et niveau de performances d’une base de données unique
-Pour des bases de données uniques, il existe plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir celui qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter le système en puissance ou de réduire son échelle, vous pouvez très simplement modifier ses niveaux dans le portail Microsoft Azure, sans occasionner de coupure de service pour votre application. Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
+Pour des bases de données uniques, il existe plusieurs niveaux de performances au sein de chaque niveau de service. Vous avez la possibilité de choisir celui qui répond le mieux aux besoins de votre charge de travail. Si vous avez besoin de faire monter le système en puissance ou de réduire son échelle, vous pouvez très simplement modifier ses niveaux dans le Portail Azure Classic, sans occasionner de coupure de service pour votre application. Pour en savoir plus, voir [Modification des niveaux de service et de performances de base de données](sql-database-scale-up.md).
 
 Les caractéristiques de performances répertoriées ici s’appliquent aux bases de données créées à l’aide de [SQL Database V12](sql-database-v12-whats-new.md). Dans les situations où le matériel sous-jacent d’Azure héberge plusieurs bases de données SQL, votre base de données obtiendra un ensemble de ressources garanti, et les caractéristiques de performance attendues de la base de données n’est pas affectée.
 
@@ -63,11 +63,11 @@ Chaque base de données au sein d'un pool respecte également les caractéristiq
 ## Surveillance des performances de la base de données
 L’analyse des performances d’une base de données SQL démarre par l’analyse de l’utilisation des ressources par rapport au niveau de performances que vous avez choisi pour votre base de données. Ces données pertinentes sont exposées comme suit :
 
-1.	Le portail de gestion Microsoft Azure.
+1.	Le Portail Microsoft Azure Classic.
 
 2.	Vues de gestion dynamique dans la base de données utilisateur et dans la base de données master du serveur qui contient la base de données utilisateur.
 
-Dans le [portail Azure en version préliminaire](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre **Mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [portail Azure](https://portal.azure.com/), vous pouvez surveiller l’utilisation d’une base de données unique en sélectionnant votre base de données et en cliquant sur le graphique **Analyse**. Une fenêtre **Mesure** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU

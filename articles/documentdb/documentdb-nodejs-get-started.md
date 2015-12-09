@@ -74,9 +74,9 @@ Parfait ! Vous avez terminé l’installation, nous pouvons donc passer à l’
 
 Ouvrez *config.js* dans l’éditeur de texte de votre choix.
 
-Ensuite, créez un objet vide intitulé *config* et définissez les propriétés *config.endpoint* et *config.authKey* pour votre point de terminaison et votre clé d’autorisation DocumentDB. Ces deux configurations se trouvent dans le [portail Azure en version préliminaire](https://portal.azure.com).
+Ensuite, créez un objet vide intitulé *config* et définissez les propriétés *config.endpoint* et *config.authKey* pour votre point de terminaison et votre clé d’autorisation DocumentDB. Ces deux configurations se trouvent dans le [portail Azure](https://portal.azure.com).
 
-![Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
+![Capture d’écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
     var config = {}
 

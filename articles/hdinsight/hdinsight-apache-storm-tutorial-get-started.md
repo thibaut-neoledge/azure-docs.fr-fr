@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Didacticiel Apache Storm : prise en main de Storm | Microsoft Azure"
 	description="Prise en main de l'analyse des big data avec Apache Storm et les exemples Starter Storm sur HDInsight. Découvrez comment utiliser Storm pour traiter les données en temps réel."
-	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+	keywords="apache storm,didacticiel apache storm,analyses big data,prise en main storm"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -23,7 +23,7 @@
 
 Apache Storm est un système de calcul en temps réel, évolutif, distribué, à tolérance de panne, qui permet de traiter des flux de données. Avec Storm sur Microsoft Azure HDInsight, vous pouvez créer un cluster Storm basé sur le cloud qui effectue l’analyse de Big Data en temps réel.
 
-[AZURE.INCLUDE [portail en version préliminaire](../../includes/hdinsight-azure-preview-portal.md)]
+[AZURE.INCLUDE [Portail](../../includes/hdinsight-azure-preview-portal.md)]
 
 * [Didacticiel Apache Storm : prise en main d’exemples Storm Starter pour l’analyse de données volumineuses (« Big Data ») sur HDInsight](hdinsight-apache-storm-tutorial-get-started-v1.md)
 
@@ -41,13 +41,13 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel St
 
 Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fichiers journaux et les topologies envoyés au cluster. Utilisez les étapes suivantes pour créer un compte de stockage Azure à utiliser avec votre cluster :
 
-1. Connectez-vous au [portail Azure en version préliminaire][preview-portal].
+1. Connectez-vous au [portail Azure][preview-portal].
 
-2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__.
+2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__
 
-	![Créer un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
+	![Créer un cluster dans le portail Azure](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez __Storm__ pour __Type de cluster__. Une coche verte s’affiche en regard du __Nom de cluster__ s’il est disponible.
+3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez __Storm__ pour __Type de cluster__. Une coche verte s’affiche en regard de __Nom de cluster__ s’il est disponible.
 
 	![Nom du cluster, type de cluster et type de système d’exploitation](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
@@ -65,13 +65,13 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 
 	![Panneau Source de données](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
 
-	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre les entrées du panneau __Source de données__.
+	Actuellement, vous pouvez sélectionner un compte de stockage Azure comme source de données pour un cluster HDInsight. Lisez ce qui suit pour comprendre à quoi correspondent les entrées du panneau __Source de données__.
 
-	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __nom de stockage__ et la __clé d’accès__ d’un compte de stockage existant.
+	- __Méthode de sélection__ : définissez cette propriété sur la valeur __De tous les abonnements__ pour permettre l’exploration des comptes de stockage de tous vos abonnements. Affectez-lui la valeur __Clé d’accès__ si vous souhaitez saisir le __Nom de stockage__ et la __Clé d’accès__ d’un compte de stockage existant.
 
-	- __Créer un compte__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
+	- __Créer nouveau__ : utilisez cette option pour créer un autre compte de stockage. Utilisez le champ qui s’affiche pour saisir le nom du compte de stockage. Une coche verte s’affiche si le nom est disponible.
 
-	- __Choisir le conteneur par défaut__ : utilisez cette option pour saisir le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
+	- __Choisir un conteneur par défaut__ : utilisez cette option pour entrer le nom du conteneur par défaut à utiliser pour le cluster. Vous pouvez saisir n’importe quel nom, mais nous vous conseillons d’utiliser le même nom que le cluster pour pouvoir facilement reconnaître le conteneur utilisé pour ce cluster spécifique.
 
 	- __Emplacement__ : zone géographique dans laquelle le compte de stockage se trouve ou dans laquelle il sera créé.
 
@@ -95,7 +95,7 @@ Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fi
 	| ------------------ | --------------------- |
 	| ![Indicateur d’approvisionnement sur le Tableau d’accueil](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![Vignette de cluster approvisionné](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la vignette du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour suivre la progression du processus d’approvisionnement.
+	> [AZURE.NOTE]La création du cluster prend un certain temps (en règle générale, environ 15 minutes). Utilisez la mosaïque du tableau d’accueil ou l’entrée __Notifications__ à gauche de la page pour vérifier le processus d’approvisionnement.
 
 ## Exécution d’un exemple Starter Storm sur HDInsight
 
@@ -203,7 +203,7 @@ L’interface utilisateur Storm peut servir à analyser la topologie.
 		2015-01-27 14:18:02 b.s.d.executor [INFO] Processing received message source: split:21, stream: default, id: {}, [seven]
 		2015-01-27 14:18:02 b.s.d.task [INFO] Emitting: count default [seven, 1493957]
 
-	À partir de ces données, vous pouvez voir qu’il y a 1 493 957 occurrences du mot **seven**. C’est le nombre de fois où il a été détecté depuis le démarrage de cette topologie.
+	À partir de ces données, vous pouvez voir qu’il y a 1,493,957 occurrences du mot **seven**. C’est le nombre de fois où il a été détecté depuis le démarrage de cette topologie.
 
 ### Arrêt de la topologie
 
@@ -245,4 +245,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

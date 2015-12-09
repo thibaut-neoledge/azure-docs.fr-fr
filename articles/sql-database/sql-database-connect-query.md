@@ -46,7 +46,7 @@ Pour exécuter l’exemple de code de requête C#, vous devez disposer des élé
 - Visual Studio 2013 Update 4 (ou version ultérieure). Microsoft propose désormais Visual Studio Community *gratuitement*.
  - [Visual Studio Community, téléchargement](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Plus d’options gratuites Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure en version préliminaire](http://portal.azure.com/) vous guide dans l’installation de Visual Studio.
+ - Ou laissez l’[étape](#InstallVSForFree), plus loin dans cette rubrique, décrire comment le [portail Azure](http://portal.azure.com/) vous guide dans l’installation de Visual Studio.
 
 
 <a name="InstallVSForFree" id="InstallVSForFree"></a>
@@ -59,13 +59,13 @@ Pour exécuter l’exemple de code de requête C#, vous devez disposer des élé
 Si vous devez installer Visual Studio, vous pouvez :
 
 - Installer Visual Studio Community gratuitement en accédant dans votre navigateur aux pages web de produit Visual Studio qui fournissent des téléchargements gratuits et d’autres options
-- Laisser le [portail Azure en version préliminaire](http://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
+- Laissez le [portail Azure](http://portal.azure.com/) vous guider vers la page web de téléchargement, dont la description est fournie ci-après.
 
 
-### Visual Studio via le portail Azure en version préliminaire
+### Visual Studio via le portail Azure
 
 
-1. Connectez-vous par le biais du [portail Azure en version préliminaire](http://portal.azure.com/), http://portal.azure.com/.
+1. Connectez-vous par le biais du [portail Azure](http://portal.azure.com/), http://portal.azure.com/.
 
 2. Cliquez sur **PARCOURIR* TOUT** > **Bases de données SQL**. Un volet s’ouvre pour la recherche des bases de données.
 
@@ -127,7 +127,7 @@ Notre exemple de code C# utilise l’assembly .NET Framework **System.Configurat
 ## Étape 4 : Obtenir la chaîne de connexion
 
 
-Utilisez le [portail Azure en version préliminaire](http://portal.azure.com/) pour copier la chaîne de connexion à la base de données SQL.
+Utilisez le [portail Azure](http://portal.azure.com/) pour copier la chaîne de connexion nécessaire pour la connexion à la base de données SQL.
 
 Votre première utilisation permettra de connecter Visual Studio à votre base de données SQL Azure **AdventureWorksLT**.
 
@@ -316,7 +316,7 @@ Nous essayons de préserver la concision de l’exemple de code C#. Toutefois, n
 Votre programme C# client ne peut pas se connecter à la base de données SQL avant que l’adresse IP de l’ordinateur client ait été ajoutée dans le pare-feu de la base de données SQL. Votre programme échouera avec un message d’erreur pratique indiquant l’adresse IP nécessaire.
 
 
-Vous pouvez utiliser le [portail Azure en version préliminaire](http://portal.azure.com/) pour ajouter l’adresse IP.
+Vous pouvez utiliser le [portail Azure](http://portal.azure.com/) pour ajouter l’adresse IP.
 
 
 

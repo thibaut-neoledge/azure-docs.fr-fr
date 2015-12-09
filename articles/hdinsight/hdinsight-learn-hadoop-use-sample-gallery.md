@@ -40,11 +40,11 @@ La vidéo suivante montre comment exécuter l’exemple d’analyse de tendances
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Le tableau de bord est accessible si l'on accède à http://<YourHDInsightClusterName>.azurehdinsight.net/ ou depuis la version préliminaire du portail Azure.
+Le tableau de bord est accessible via l’adresse http://<YourHDInsightClusterName>.azurehdinsight.net/ ou depuis le portail Azure.
 
 **Exécution d’un exemple depuis la galerie de prise en main**
 
-1. Connectez-vous à la [version préliminaire du portail Azure][azure.portal].
+1. Connectez-vous au [portail Azure][azure.portal].
 2. Cliquez sur **Parcourir** dans le menu de gauche, sur **Clusters HDInsight**, puis sur votre nom de cluster.
 3. Cliquez sur **Tableau de bord** dans le menu du haut.
 4. Saisissez le nom d'utilisateur et le mot de passe HTTP (également appelé utilisateur de cluster).
@@ -68,4 +68,4 @@ D’autres façons d’apprendre à utiliser HDInsight comprennent :
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

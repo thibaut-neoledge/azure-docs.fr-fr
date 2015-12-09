@@ -18,6 +18,10 @@
 
 # Prendre en main Mobile Services pour Android (backend JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
@@ -32,7 +36,7 @@ Voici une capture d’écran de l’application terminée :
 
 ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
-## Configuration requise
+## Composants requis
 
 Pour suivre ce didacticiel, vous avez besoin des [Outils de développement Android](https://developer.android.com/sdk/index.html), qui incluent l’environnement de développement intégré Android Studio et la dernière plateforme Android. Android 4.2 ou une version ultérieure est nécessaire.
 
@@ -47,11 +51,11 @@ Le projet de démarrage rapide téléchargé contient le Kit de développement l
 
 ## Création d’une application Android
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application Android connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le portail Azure Classic, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Android** sous **Choisissez une plateforme** et développez **Créer une application Android**.
 
@@ -66,7 +70,7 @@ Dans cette section, vous allez créer une application Android connectée à votr
 4. Cliquez sur **Create TodoItem table** pour créer une table permettant de stocker les données d'application.
 
 
-5. Téléchargez alors votre application en appuyant sur le bouton **Télécharger**.
+5. Téléchargez maintenant votre application en appuyant sur le bouton **Télécharger**.
 
 ## Exécution de votre application Android
 
@@ -93,6 +97,4 @@ Maintenant que vous avez effectué le démarrage rapide, découvrez comment exé
 [Prise en main des notifications Push]: mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

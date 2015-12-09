@@ -135,6 +135,7 @@ Ouvrez ces ports pour le trafic sortant dans le pare-feu de votre serveur :
 
 Consultez cet article de [résolution des problèmes](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+> [AZURE.NOTE]Si votre application génère un volume important de télémétrie (et si vous utilisez le kit de développement logiciel ASP.NET version 2.0.0-beta3 ou ultérieure), le module d'échantillonnage adaptatiif réduit automatiquement le volume qui est envoyé vers le portail en envoyant uniquement une fraction représentative des événements. Cependant, les événements liés à la même demande seront activés ou désactivés en tant que groupe, afin que vous puissiez naviguer entre les événements connexes. [En savoir plus sur l’échantillonnage.](app-insights-sampling.md)
 
 
 ## 5\. Ajout d'un suivi des dépendance (et compteurs de performances IIS)
@@ -149,7 +150,7 @@ Connectez-vous à votre serveur avec des droits d’administrateur, puis install
 
 Vous devrez peut-être [ouvrir des ports sortants supplémentaires dans votre pare-feu](app-insights-monitor-performance-live-website-now.md#troubleshooting).
 
-Cette étape permet aussi d’établir un [rapport des compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters), tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
+Cette étape permet aussi de rédiger un [rapport des compteurs de performance](app-insights-web-monitor-performance.md#system-performance-counters), tels que le taux d’utilisation du processeur, de la mémoire et du réseau.
 
 #### Si votre application est une application web Azure
 
@@ -189,7 +190,7 @@ Assurez-vous que `buildinfo.config` est généré par votre processus MSBuild. D
     </PropertyGroup> 
 ```
 
-Quand il détient les informations de build, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version pendant l’exécution de [recherches de diagnostic][diagnostic] ou l’[exploration de métriques][metrics].
+Quand il détient les informations de version, le module web Application Insights ajoute automatiquement la **version de l’application** en tant que propriété à chaque élément de télémétrie. Cela vous permet de filtrer par version pendant l’exécution de [recherches de diagnostic][diagnostic] ou l’[exploration de métriques][metrics].
 
 Toutefois, notez que le numéro de version de build est uniquement généré par MS Build, et non par la build de développement dans Visual Studio.
 
@@ -220,7 +221,7 @@ Si votre projet a des pages web, Visual Studio ajoute également le [Kit de dév
 
 #### ... ou s'il s'agit d'un projet existant
 
-Cliquez avec le bouton droit de la souris sur le projet dans l'Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
+Cliquez avec le bouton droit de la souris sur le projet dans l’Explorateur de solutions, puis sélectionnez **Ajouter Application Insights**.
 
 ![Sélection de Ajouter Application Insights](./media/app-insights-start-monitoring-app-health-usage/appinsights-03-addExisting.png)
 
@@ -268,4 +269,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

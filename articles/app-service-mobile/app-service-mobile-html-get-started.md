@@ -19,11 +19,9 @@
 
 #Créer une page HTML
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Nous vous remercions pour votre patience pendant que nous terminons la version d’évaluation de Mobile Apps.
+>[AZURE.IMPORTANT]Cette rubrique n’est pas prise en charge actuellement par Mobile Apps, car le démarrage rapide pour les applications HTML/JavaScript a été temporairement supprimé du portail Azure. Nous prévoyons de le rétablir très prochainement. Merci de votre patience.
 
 ##Vue d'ensemble
 
@@ -43,7 +41,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Visual Studio Community 2013] ou version ultérieure.
 
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ##Création d'un backend Mobile App
 
@@ -127,4 +125,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

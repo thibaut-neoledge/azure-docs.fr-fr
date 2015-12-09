@@ -18,9 +18,7 @@
 
 #Créer une application Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Vue d'ensemble
 
@@ -38,7 +36,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un Mac sur lequel sont installés [Xcode] 7.0 ou version ultérieure et [Xamarin Studio]. Si vous envisagez de créer votre application sur un ordinateur Windows à l’aide de Visual Studio, vous devez quand même avoir accès à un Mac en réseau pour effectuer cette opération.
  
->[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), où vous pouvez créer immédiatement une première application Mobile App temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE]Si vous voulez prendre en main Azure App Service avant de créer un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile), où vous pouvez créer immédiatement une première application mobile temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 ## Créer un serveur principal d'applications mobiles Azure
 
@@ -84,7 +82,7 @@ Puis, procédez comme suit :
 
 	![][8]
 
-###(Facultatif) Exécuter le projet iOS
+##(Facultatif) Exécuter le projet iOS
 
 Cette section s’applique à l’exécution du projet iOS Xamarin pour les appareils iOS. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils iOS.
 
@@ -107,7 +105,7 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 
 > [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
-###(Facultatif) Exécuter le projet Android
+##(Facultatif) Exécuter le projet Android
 
 Cette section s’applique à l’exécution du projet Xamarin pour Android. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Android.
 
@@ -131,7 +129,7 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 > [AZURE.NOTE]Vous trouverez le code qui vous permet d’accéder à votre serveur principal d’applications mobiles dans le fichier C# TodoItemManager.cs du projet de bibliothèque de classes portables de votre solution.
 
 
-###(Facultatif) Exécuter le projet Windows
+##(Facultatif) Exécuter le projet Windows
 
 
 Cette section s’applique à l’exécution du projet WinApp Xamarin pour les appareils Windows. Vous pouvez ignorer cette section si vous n’utilisez pas d’appareils Windows.
@@ -179,4 +177,4 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

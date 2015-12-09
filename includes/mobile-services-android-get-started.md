@@ -10,7 +10,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Attendez que l’activité de synchronisation Gradle se termine. Si l’erreur « Impossible de trouver la cible » s’affiche, c’est que la version utilisée dans Android Studio ne correspond pas à celui de l’échantillon. Le moyen le plus simple de résoudre ce problème consiste à cliquer sur le lien **Installer les plateformes manquantes et le projet de synchronisation** dans le message d’erreur. Vous pouvez obtenir des messages d’erreur au sujet des versions supplémentaires et répéter simplement ce processus jusqu’à ce que plus aucune erreur n’apparaisse.
+4. Attendez que l’activité de synchronisation Gradle se termine. Si l’erreur « Impossible de trouver la cible » s’affiche, c’est que la version utilisée dans Android Studio ne correspond pas à celui de l’échantillon. Le moyen le plus simple de résoudre ce problème consiste à cliquer sur le lien **Installer les plateformes manquantes et le projet de synchronisation** dans le message d’erreur. Vous pouvez obtenir des messages d’erreur au sujet des versions supplémentaires. Vous devez alors répéter simplement ce processus jusqu’à ce que plus aucune erreur n’apparaisse.
     - Il existe une autre façon de résoudre ce problème si vous souhaitez exécuter avec la version « plus récente et plus performante » d’Android. Vous pouvez mettre à jour **targetSdkVersion** dans le fichier *build.gradle* du répertoire *application* correspondant à la version déjà installée sur votre ordinateur. Vous pouvez l’identifier en cliquant sur l’icône **Gestion des kits de développement logiciels** et en affichant la version répertoriée. Appuyez ensuite sur l’option **Synchronisation du projet avec les fichiers Gradle**. Vous pouvez obtenir un message d’erreur concernant la version des outils de génération et corriger cela de la même façon.
 
 ### Exécution de l'application
@@ -31,7 +31,7 @@ Vous pouvez exécuter l’application en utilisant l’émulateur ou un périph�
 
 	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier ToDoActivity.java et permet d'accéder au service mobile pour exécuter une requête et insérer des données.
 
-8. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+8. De retour dans le portail Azure Classic, cliquez sur l’onglet **Données**, puis sur le tableau **TodoItems**.
 
    	![](./media/mobile-services-android-get-started/mobile-data-tab1.png)
 
@@ -39,4 +39,4 @@ Vous pouvez exécuter l’application en utilisant l’émulateur ou un périph�
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

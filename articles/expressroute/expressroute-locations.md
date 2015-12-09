@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc" />
 
 # Partenaires ExpressRoute et emplacements d’homologation
@@ -43,8 +43,8 @@ Le tableau ci-dessous fournit des informations sur les régions et les limites g
 
 |**Région géopolitique**|**Régions Azure**|**Emplacements ExpressRoute**|
 |---|---|---|---|
-|**Cloud du gouvernement des États-Unis**|Gouvernement américain|Iowa, Virginie|Ashburn, Chicago|
-|**Cloud de Chine**|Chine|Pékin, Shanghai +|
+|**Cloud du gouvernement des États-Unis**|Gouvernement américain - Iowa, Gouvernement américain - Virginie|Iowa, Virginie|Chicago, Washington DC|
+|**Cloud de Chine**|Chine du Nord, Chine orientale|Pékin, Shanghai +|
 
 
 La connectivité entre les régions géopolitiques n’est pas prise en charge dans la référence ExpressRoute Standard. Vous devez activer le module complémentaire ExpressRoute Premium pour prendre en charge la connectivité globale. La connectivité à des environnements de cloud nationaux n’est pas prise en charge. En cas de besoin, vous pouvez collaborer avec votre fournisseur de connectivité.
@@ -60,16 +60,16 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Pris en charge | Pris en charge | Amsterdam, Dallas, Londres, Silicon Valley, Singapour, Washington DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Pris en charge | Pris en charge | Amsterdam, Hong Kong, Londres, Silicon Valley, Singapour, Tokyo, Washington DC |
 |**China Telecom Global** | Bientôt disponible | Non pris en charge | Hong Kong |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Non pris en charge | Amsterdam, Londres |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **Comcast** | Pris en charge | Pris en charge | Silicon Valley, Washington DC |
-| **CoreSite** | Pris en charge | Non pris en charge | Los Angeles | 
+| **CoreSite** | Pris en charge | Pris en charge | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Pris en charge | Pris en charge | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londres, Los Angeles, Melbourne, New York, Sao Paulo, Seattle, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | Pris en charge | Non pris en charge | Osaka, Tokyo |
 | **[InterCloud](https://www.intercloud.com/)** | Pris en charge | Pris en charge | Amsterdam+, Londres, Singapour, Washington DC |
 | **Internet Solutions - Cloud Connect** | Pris en charge | Pris en charge | Amsterdam, Londres |
 | **Interxion** | Pris en charge | Pris en charge | Amsterdam |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Pris en charge | Non pris en charge | Amsterdam, Chicago, Dallas, Londres, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Pris en charge | Non pris en charge | Melbourne, Sydney |
+| **Megaport** | Pris en charge | Pris en charge | Melbourne, Sydney |
 | **MTN** | Pris en charge | Non pris en charge | Londres |
 | **NEXTDC** | Pris en charge | Pris en charge | Melbourne, Sydney+ |
 | **NTT Communications** | Pris en charge | Non pris en charge | Londres +, Tokyo |
@@ -137,4 +137,4 @@ L’activation de la connectivité privée pour l’adapter à vos besoins peut 
 - Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
 - Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

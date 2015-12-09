@@ -57,11 +57,11 @@ Les éléments suivants sont requis pour suivre ce didacticiel :
 
 ## Création d'une application HTML
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application HTML connectée à votre appareil mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application HTML**.
@@ -108,7 +108,7 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 
 	> [AZURE.NOTE]Vous pouvez vérifier le code qui se trouve dans le fichier page.js et permet d’accéder au service mobile pour exécuter une requête et insérer des données.
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+4. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis cliquez sur la table **TodoItems**.
 
    	![][11]
 
@@ -119,9 +119,9 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 ## <a name="next-steps"> </a>Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* **[Ajouter l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* **[Ajout de l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* **[Guide de fonctionnement Mobile Services HTML/JavaScript]** Découvrez plus en détail comment utiliser Mobile Services avec le HTML/JavaScript.
+* **[Guide de fonctionnement Mobile Services HTML/JavaScript]** Découvrez plus en détail comment utiliser Mobile Services avec HTML/JavaScript.
 
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
@@ -145,13 +145,13 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 
 <!-- URLs. -->
-[Ajouter l’authentification à votre application]: mobile-services-html-get-started-users.md
+[Ajout de l’authentification à votre application]: mobile-services-html-get-started-users.md
 
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [programme d'installation de la plate-forme Web Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [dernière version de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Guide de fonctionnement Mobile Services HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

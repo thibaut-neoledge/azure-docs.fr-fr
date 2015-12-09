@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/17/2015"
+	ms.date="11/29/2015"
 	ms.author="awills"/>
 
 # Application Insights : langages et plateformes
@@ -23,7 +23,7 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 
 ## Langues
 
-+ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (.NET)](app-insights-asp-net.md)
 + [C#|VB (Windows Store)](app-insights-windows-get-started.md)
 + [C++ (Windows Store)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
@@ -37,7 +37,7 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 ## Plateformes
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
-+ [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET : pour les applications déjà actives](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
@@ -45,6 +45,7 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 + [Azure Cloud Services](app-insights-cloudservices.md) incluant les rôles web et de travail
 + [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 + [CRM Online pour Microsoft Dynamics](app-insights-sample-mscrm.md)
++ [Docker](app-insights-docker.md)
 + [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
@@ -78,14 +79,5 @@ Il s’agit d’implémentations dont nous avons entendu parler, y compris par d
 ## <a name="projects"></a> Génération de votre propre kit de développement logiciel (SDK)
 
 S’il n’existe pas encore de kit de développement logiciel (SDK) pour votre langage ou plateforme, peut-être souhaitez-vous créer un ? Examinons le code des kits de développement logiciel (SDK) existants répertoriés dans le [projet Kit de développement logiciel (SDK) Application Insights sur GitHub](https://github.com/Microsoft/AppInsights-Home)
-
-
-
-
-[Cordova](http://cordova.apache.org/)
-
-[Applications Windows Store en JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
-
-<!--Link references-->
 
 <!---HONumber=Nov15_HO4-->

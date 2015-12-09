@@ -87,7 +87,7 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
@@ -99,7 +99,7 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 	
 	Propriété | Description
 	-------- | -----------
-	Version | Cette propriété indique que la version du service HDInsight doit être la version 3.1. 
+	Version | Cette propriété indique que la version de service HDInsight doit être la version 3.2. 
 	ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud. 
 	TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression.
 	linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight.
@@ -236,11 +236,11 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 2. Dans le volet gauche, sélectionnez **Mises à jour**, puis **Galerie Visual Studio**.
 3. Sélectionnez **Outils Azure Data Factory pour Visual Studio**, puis cliquez sur **Mettre à jour**. Si cette entrée n’est pas affichée, c’est que vous possédez déjà la dernière version de ces outils. 
 
-Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure en version préliminaire afin de surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
+Consultez [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir des instructions sur l’utilisation du portail Azure et surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
  
 
 ## Étapes suivantes
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

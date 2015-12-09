@@ -18,6 +18,11 @@
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -35,9 +40,9 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 
 ## Création d'une application iOS
 
-Vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application connectée à votre service mobile :
+Vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application connectée à votre service mobile :
 
-1. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1. Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l’onglet de démarrage rapide, cliquez sur **iOS** sous **Choisir une plateforme**, puis développez **Créer une application iOS**. Cette opération affiche les étapes permettant de créer une application iOS connectée à votre service mobile.
 
@@ -49,7 +54,7 @@ Vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour c
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>De retour dans le portail de gestion, cliquez sur l’onglet **DONNÉES**, puis sur la table **TodoItem**. Cela vous permet de parcourir les données insérées par l’application dans la table.<p></li></ol></p>
+<ol start="4"> <li><p>De retour dans le [portail Azure Classic], cliquez sur l’onglet **DONNÉES**, puis cliquez sur la table **TodoItem**. Cela vous permet de parcourir les données insérées par l’application dans la table.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>Étapes suivantes
 Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
@@ -86,8 +91,8 @@ Apprenez à effectuer d’autres tâches importantes dans Mobile Services :
 
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [version de serveur principal .NET]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

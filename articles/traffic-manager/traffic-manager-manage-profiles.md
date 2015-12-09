@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/18/2015"
+   ms.date="12/01/2015"
    ms.author="joaoma" />
 
 # Gestion d’un profil Azure Traffic Manager
@@ -85,4 +85,4 @@ Vous pouvez afficher l’historique des modifications de votre profil Traffic Ma
 
 [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

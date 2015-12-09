@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="adamkr; sstein"/>
 
 # Créer un pool de base de données élastique avec PowerShell pour mettre à l’échelle les ressources sur plusieurs bases de données SQL 

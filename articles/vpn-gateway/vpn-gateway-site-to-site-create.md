@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Créer un réseau virtuel avec une connexion VPN site à site à l’aide du portail Azure | Microsoft Azure"
+   pageTitle="Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic | Microsoft Azure"
    description="Créez un réseau virtuel avec une connexion VPN de site à site pour les configurations entre locaux et hybrides à l’aide du modèle de déploiement classique."
    services="vpn-gateway"
    documentationCenter=""
@@ -17,10 +17,10 @@
    ms.date="10/21/2015"
    ms.author="cherylmc"/>
 
-# Créer un réseau virtuel avec une connexion VPN site à site à l’aide du portail Azure
+# Créer un réseau virtuel avec une connexion VPN site à site à l’aide du Portail Azure Classic
 
 > [AZURE.SELECTOR]
-- [Azure portal](vpn-gateway-site-to-site-create.md)
+- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Cet article vous guidera tout au long de la création d’un réseau virtuel et d’une connexion VPN site à site à votre réseau local. Cet article s’applique au modèle de déploiement classique.
@@ -43,7 +43,7 @@ Vérifiez que vous disposez des éléments suivants avant de commencer la config
 
 ## Création de votre réseau virtuel
 
-1. Connectez-vous au **portail Azure**.
+1. Connectez-vous au **Portail Azure Classic**.
 
 2. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 
@@ -84,13 +84,13 @@ Entrez les informations suivantes, puis cliquez sur la coche située dans le coi
 - **Ajouter un sous-réseau** : inclut l’adresse IP de départ et le nombre d’adresses. Des sous-réseaux supplémentaires ne sont pas requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui ont des adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
 - **Ajouter un sous-réseau de passerelle** : cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel et est nécessaire pour cette configuration.
 
-Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du portail Azure. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
+Cliquez sur la coche en bas de la page pour créer votre réseau virtuel. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page **Réseaux** du Portail Azure Classic. Après avoir créé le réseau virtuel, vous pouvez ensuite configurer votre passerelle de réseau virtuel.
 
 [AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Configuration de votre passerelle de réseau virtuel
 
-Vous devez ensuite configurer la passerelle du réseau virtuel pour créer une connexion site à site sécurisée. Consultez [Configurer une passerelle de réseau virtuel dans le portail Azure](vpn-gateway-configure-vpn-gateway-mp.md).
+Vous devez ensuite configurer la passerelle du réseau virtuel pour créer une connexion site à site sécurisée. Consultez [Configurer une passerelle de réseau virtuel dans le Portail Azure Classic](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Étapes suivantes
 
@@ -102,4 +102,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous souhaitez configurer une connexion entre votre réseau virtuel classique et un réseau virtuel créé en mode Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques à des réseaux virtuels Azure Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

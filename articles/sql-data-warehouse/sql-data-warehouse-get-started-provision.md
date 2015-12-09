@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créer une base de données SQL Data Warehouse dans le portail Azure en version préliminaire | Microsoft Azure"
-	description="Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure en version préliminaire"
+	pageTitle="Créer une base de données SQL Data Warehouse dans le portail Azure | Microsoft Azure"
+	description="Découvrez comment créer une base de données Azure SQL Data Warehouse dans le portail Azure"
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Créer un entrepôt de données SQL
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Ce didacticiel vous explique comment créer une base de données Azure SQL Data Warehouse en quelques minutes à l’aide du portail Azure en version préliminaire.
+Ce didacticiel vous explique comment créer une base de données Azure SQL Data Warehouse en quelques minutes à l’aide du portail Azure.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -34,7 +34,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## Étape 1 : Se connecter et se mettre en route
 
-1. Connectez-vous au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Cliquez sur **Nouveau** > **Données et stockage** > **SQL Data Warehouse**.
 
@@ -49,12 +49,7 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 Dans la base de données SQL et SQL Data Warehouse, chaque base de données est affectée à un serveur, et chaque serveur est affecté à un emplacement géographique. Le serveur est appelé serveur SQL logique.
 
-> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique :
-  >
-  > + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique.
-  > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*.
-  > + Peut héberger plusieurs bases de données sans affecter leurs performances.
-  > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
+> [AZURE.NOTE]<a name="note"></a>Un serveur SQL logique : >> + Fournit un moyen cohérent de configurer plusieurs bases de données dans le même emplacement géographique. > + N’est pas un matériel physique comme pour un serveur local. Il fait partie du logiciel de service. C’est pourquoi nous l’appelons *serveur logique*. > + Peut héberger plusieurs bases de données sans affecter leurs performances. > + Utilise un *s* minuscule dans son nom. Un **s**erveur SQL est un serveur logique Azure, tandis que SQL **S**erver est un produit de base de données local de Microsoft.
 
 1. Cliquez sur **Serveur** > **Créer un serveur**. Aucuns frais ne s’appliquent pour le serveur. Si vous avez déjà un serveur SQL logique V12 que vous souhaitez utiliser, sélectionnez votre serveur existant et passez à l’étape suivante. 
 
@@ -99,7 +94,7 @@ Maintenant que vous avez sélectionné votre serveur SQL logique, vous êtes pr�
 
 1. Cliquez sur **Créer** pour créer votre base de données SQL Data Warehouse.
 
-1. Patientez quelques minutes et votre base de données est prête. Une fois que vous avez terminé, vous êtes en principe redirigé vers le [portail Azure en version préliminaire](https://portal.azure.com). Comme vous pouvez le constater, votre base de données SQL Data Warehouse a été ajoutée au tableau de bord.
+1. Patientez quelques minutes et votre base de données est prête. Une fois que vous avez terminé, vous êtes en principe redirigé vers le [portail Azure](https://portal.azure.com). Comme vous pouvez le constater, votre base de données SQL Data Warehouse a été ajoutée au tableau de bord.
 
     ![Vue du portail](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +125,4 @@ Maintenant que vous avez configuré le pare-feu, vous devriez être en mesure d�
 
 Maintenant que vous avez créé une base de données exemple pour SQL Data Warehouse, vous êtes prêt à vous [connecter](./sql-data-warehouse-get-started-connect.md) à votre base de données.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

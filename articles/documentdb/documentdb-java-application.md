@@ -52,7 +52,7 @@ Pour configurer un compte de base de données DocumentDB dans Azure :
 1. Si vous ne disposez pas d'un compte de base de données, créez-en un en suivant les instructions de la page [Création d'un compte de base de données](documentdb-create-account.md). Si vous disposez déjà d'un compte, passez à l'étape 2.
 2. À l'aide du panneau **Clés** indiqué dans l'illustration suivante, copiez l'**URI** et la **CLÉ PRIMAIRE** de votre point de terminaison dans votre Presse-papiers et conservez-les à portée de main, car nous utiliserons ces valeurs dans l'application web que nous allons créer.
 
-![Création d’un compte DocumentDB – Didacticiel de base de données Capture d’écran du portail Azure en version préliminaire, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
+![Création d’un compte DocumentDB – Didacticiel de base de données Capture d’écran du portail Azure, présentant un compte DocumentDB, avec le hub ACTIF et le bouton Clés mis en surbrillance dans le panneau du compte DocumentDB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][1]
 
 
 ##<a id="CreateJSP"></a>Étape 2 : Création de l’application JSP Java
@@ -786,4 +786,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

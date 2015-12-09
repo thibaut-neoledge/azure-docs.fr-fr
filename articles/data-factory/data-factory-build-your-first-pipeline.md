@@ -30,7 +30,7 @@ Cet article va vous aider à vous familiariser avec la création de votre premi�
 ## Vue d'ensemble du didacticiel
 Ce didacticiel présente les étapes nécessaires pour obtenir votre première fabrique de données avec un pipeline. Vous allez créer un pipeline et indiquer toutes les ressources nécessaires depuis le début.
 
-Si vous souhaitez explorer rapidement les différentes fonctionnalités de la fabrique de données, sans partir de zéro, vous pouvez utiliser les exemples que nous mettons à disposition dans le portail Azure en version préliminaire. Voir [Mise à jour d’Azure Data Factory : exemple de déploiement simplifié](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) pour connaître la procédure à suivre pour déployer un exemple de projet concret à l'aide du portail Azure en version préliminaire.
+Si vous souhaitez explorer rapidement les différentes fonctionnalités de la fabrique de données sans partir de zéro, vous pouvez utiliser les exemples que nous mettons à disposition dans le portail Azure. Voir [Mise à jour d’Azure Data Factory : exemple de déploiement simplifié](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/) pour connaître la procédure à suivre pour déployer un exemple de projet concret à l’aide du portail Azure.
 
 ## Conditions préalables
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
@@ -168,7 +168,7 @@ En premier lieu, vous devez préparer le compte de stockage Azure et ses fichier
 
 Effectuez les actions suivantes :
 
-- Cliquez sur le lien [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide de Data Factory Editor, qui fait partie du portail Azure.
+- Cliquez sur le lien [Utilisation de Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md) situé dans la partie supérieure pour effectuer le didacticiel à l’aide de Data Factory Editor, qui fait partie du portail Azure Classic.
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio. 
 

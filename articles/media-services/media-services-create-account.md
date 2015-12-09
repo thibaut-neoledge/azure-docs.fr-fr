@@ -24,7 +24,7 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 
-Le portail Azure permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
+Le portail Azure Classic permet de créer rapidement un compte Azure Media Services. Vous pouvez utiliser ce dernier pour accéder à Media Services afin de stocker, de chiffrer, d'encoder, de gérer et de diffuser du contenu multimédia dans Azure. Lorsque vous créez un compte Media Services, vous créez également un compte de stockage associé ou en utilisez un existant, situé dans la même zone géographique que le compte Media Services.
 
 Cet article présente l'utilisation de la méthode Création rapide pour créer un compte Media Services, puis l'associer au compte de stockage.
 
@@ -35,12 +35,12 @@ L'accès à Media Services requiert deux comptes associés :
 
 -   **Un compte Media Services**. Votre compte vous donne accès à un ensemble de services Media Services sur le cloud, disponibles dans Azure. Un compte Media Services ne stocke pas de contenu multimédia à proprement parler. Il stocke des métadonnées relatives au contenu multimédia et aux travaux de traitement multimédia dans votre compte. Lorsque vous créez le compte, vous sélectionnez une région Media Services disponible. Cette dernière est un centre de données qui stocke les enregistrements de métadonnées pour votre compte.
 
-    > [AZURE.NOTE]Les régions de disponibilité des Media Services (AMS) sont les suivantes : Europe du Nord, Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis, Sud-Est de l’Asie, Est de l’Asie, Ouest du Japon, Est du Japon. Media Services n'utilise pas de groupes d'affinités.
-    >
-	> AMS est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l’Inde, sud de l’Inde et Inde centrale. Vous pouvez maintenant utiliser le portail de gestion Azure pour [créer des comptes Media Services](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
-	>
-	>- Sud du Brésil : seules les unités réservées d'encodage standard et de base sont disponibles
-	>- Ouest de l’Inde, sud de l’Inde et Inde centrale : seules les unités réservées d’encodage de base sont disponibles
+> [AZURE.NOTE]Les régions de disponibilité des Media Services (AMS) sont les suivantes : Europe du Nord, Europe de l’Ouest, Ouest des États-Unis, Est des États-Unis, Sud-Est de l’Asie, Est de l’Asie, Ouest du Japon, Est du Japon. Media Services n'utilise pas de groupes d'affinités.
+>
+> AMS est désormais également disponible dans les centres de données suivants : sud du Brésil, ouest de l’Inde, sud de l’Inde et Inde centrale. Vous pouvez maintenant utiliser le portail Azure Classic pour [créer des comptes Media Services](media-services-create-account.md#create-a-media-services-account-using-quick-create) et effectuer les diverses tâches décrites [ici](https://azure.microsoft.com/documentation/services/media-services/). La fonctionnalité Live Encoding n'est cependant pas activée dans ces centres de données. En outre, tous les types d'unités réservées d'encodage ne sont pas disponibles dans ces centres de données.
+>
+>- Sud du Brésil : seules les unités réservées d'encodage standard et de base sont disponibles
+>- Ouest de l’Inde, sud de l’Inde et Inde centrale : seules les unités réservées d’encodage de base sont disponibles
 
 
 -   **Un compte de stockage associé**. Il s'agit d'un compte de stockage Azure associé à votre compte Media Services. Il permet de stocker des objets blob pour les fichiers multimédia et doit se trouver dans la même zone géographique que le compte Media Services. Lorsque vous créez un compte Media Services, vous pouvez choisir un compte de stockage existant dans la même région ou en créer un. Si vous supprimez un compte Media Services, les objets blob de votre compte de stockage associé ne seront pas supprimés.
@@ -48,9 +48,9 @@ L'accès à Media Services requiert deux comptes associés :
 <a id="quick"></a>
 ## Création d'un compte Media Services grâce à la méthode Création rapide
 
-1. Dans le [portail Azure][], cliquez sur **Nouveau**, **Service multimédia**, puis sur **Création rapide**.
+1. Dans le [portail Azure Classic][], cliquez sur **Nouveau**, **Service de média**, puis sur **Création rapide**.
 
-	![Media Services - Création rapide](./media/media-services-create-account/wams-QuickCreate.png)
+![Media Services - Création rapide](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. Dans **NAME**, entrez le nom du nouveau compte. Un nom de compte Media Services se compose de chiffres ou de lettres en minuscules, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
 
@@ -62,17 +62,17 @@ L'accès à Media Services requiert deux comptes associés :
 
 6. Cliquez sur **Création rapide** en bas du formulaire.
 
-	Vous pouvez surveiller l’état du processus dans la zone de message en bas de la fenêtre.
+Vous pouvez surveiller l’état du processus dans la zone de message en bas de la fenêtre.
 
-	L’état devient Active lorsque que le compte a été correctement créé. La page **Services de média** s'ouvre et affiche le nouveau compte.
+L’état devient Active lorsque que le compte a été correctement créé. La page **Services de média** s'ouvre et affiche le nouveau compte.
 
-	Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une page avec le nom du compte Media Services et les clés primaire et secondaire s'affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
+Au bas de la page, le bouton **GÉRER LES CLÉS** s’affiche. Lorsque vous cliquez sur ce bouton, une page avec le nom du compte Media Services et les clés primaire et secondaire s'affiche. Vous devez disposer du nom de compte et des informations de clé primaire pour accéder par programme au compte Media Services.
 
-	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
+![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
 
-	Lorsque vous double-cliquez sur le nom du compte, la page **Démarrage rapide** s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez charger un fichier vidéo depuis cette page ou depuis la page **CONTENU**.
+Lorsque vous double-cliquez sur le nom du compte, la page **Démarrage rapide** s’affiche par défaut. Elle vous permet d'effectuer des tâches de gestion également disponibles sur d'autres pages du portail. Par exemple, vous pouvez télécharger un fichier vidéo depuis cette page ou depuis la page **CONTENU**.
 
-	De plus, vous pouvez afficher du code utilisant le Kit de développement logiciel (SDK) Azure Media Services pour effectuer les tâches suivantes : télécharger, encoder et publier des vidéos. Vous pouvez cliquer sur l’un des liens présents sous la section **ÉCRIRE DU CODE**, copier le code et l’utiliser dans votre application.
+De plus, vous pouvez afficher du code utilisant le Kit de développement logiciel (SDK) Azure Media Services pour effectuer les tâches suivantes : télécharger, encoder et publier des vidéos. Vous pouvez cliquer sur l’un des liens présents sous la section **ÉCRIRE DU CODE**, copier le code et l’utiliser dans votre application.
 
 
 
@@ -101,6 +101,6 @@ L'accès à Media Services requiert deux comptes associés :
 <!-- URLs. -->
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 
-  [portail Azure]: http://manage.windowsazure.com/
+  [portail Azure Classic]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

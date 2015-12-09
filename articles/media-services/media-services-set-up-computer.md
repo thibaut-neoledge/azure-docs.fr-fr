@@ -26,7 +26,7 @@
 
 ## Créer un compte Media Services
 
-Utilisez le portail Azure, le Kit de développement logiciel (SDK) .NET ou l’API REST pour créer un compte Azure Media Services.
+Utilisez le portail Azure Classic, le Kit de développement logiciel (SDK) .NET ou l’API REST pour créer un compte Azure Media Services.
 
 <a id="setup_dev_env"></a>
 ## Configuration de l’environnement de développement  
@@ -43,7 +43,7 @@ Choisissez .NET ou l’API REST pour vous connecter par programme à Azure Media
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Étapes suivantes : Parcours d’apprentissage Azure Media Services
+##Étapes suivantes : parcours d’apprentissage Azure Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -51,4 +51,4 @@ Choisissez .NET ou l’API REST pour vous connecter par programme à Azure Media
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

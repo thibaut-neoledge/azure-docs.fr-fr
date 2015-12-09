@@ -237,7 +237,7 @@ Cliquer pour déployer est une autre manière d’utiliser les modèles ARM. C�
 
 
 ### Étape 1 
-Le lien [Cliquez pour déployer la passerelle Application Gateway](https://azure.microsoft.com/fr-FR/documentation/templates/101-application-gateway-public-ip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
+Le lien [Cliquez pour déployer la passerelle Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
 
 
 ### Étape 2 

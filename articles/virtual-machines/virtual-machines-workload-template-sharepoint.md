@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Déploiement de batteries de serveurs SharePoint avec des modèles Azure Resource Manager | Microsoft Azure"
-	description="Déployez facilement une batterie SharePoint à trois ou à neuf serveurs à l’aide de modèles du Gestionnaire de ressources et du portail Azure en version préliminaire, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
+	description="Déployez facilement une batterie SharePoint à trois ou à neuf serveurs à l’aide de modèles du Gestionnaire de ressources et du portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -29,13 +29,13 @@ Pour une batterie de base SharePoint Server 2013, un modèle Resource Manag
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-Vous pouvez exécuter le modèle avec le portail Azure en version préliminaire, Azure PowerShell ou l’interface de ligne de commande Azure.
+Vous pouvez exécuter le modèle avec le portail Azure, Azure PowerShell ou l’interface de ligne de commande Azure.
 
 > [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 non hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) dans Azure Marketplace au niveau du portail Azure.
 
-### Portail Azure en version préliminaire
+### Portail Azure
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -105,9 +105,9 @@ Pour une batterie de base SharePoint Server 2013 à haute disponibilité, un 
 
 > [AZURE.NOTE]Vous pouvez également créer cette configuration à l’aide de l’élément [Batterie de serveurs SharePoint 2013 hautement disponible](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) dans Azure Marketplace au niveau du portail Azure.
 
-### Portail Azure en version préliminaire
+### Portail Azure
 
-Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure en version préliminaire, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Pour déployer cette charge de travail à l’aide d’un modèle Resource Manager et du portail Azure, cliquez [ici](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -186,4 +186,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=Nov15_HO4-->

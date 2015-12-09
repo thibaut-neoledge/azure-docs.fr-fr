@@ -12,22 +12,27 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Prise en main de Mobile Services
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 >[AZURE.TIP]Si vous êtes novice en matière de développement mobile avec Microsoft Azure, [commencez avec Azure Mobile Apps](app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md) plutôt qu’avec Azure Mobile Services. Vous bénéficierez ainsi d’[avantages supplémentaires](app-service-mobile-value-prop-migration-from-mobile-services-preview.md).
- 
+
 Ce didacticiel présente l’ajout d’un service principal cloud à une application Windows universelle à l’aide d’Azure Mobile Services. Les solutions d'application Windows universelles incluent des projets pour Windows Store 8.1 et Windows Phone Store 8.1, et un projet partagé commun. Pour plus d'informations, consultez la page [Créer des applications Windows universelles qui ciblent Windows et Windows Phone](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx).
 
 Dans ce didacticiel, vous allez créer un service mobile et une simple application *To do list* qui stocke les données d'application dans le nouveau service mobile. Le service mobile que vous allez créer utilise les langages .NET pris en charge à l'aide de Visual Studio pour la logique métier côté serveur et pour la gestion du service mobile. Pour créer un service mobile vous permettant d'écrire votre logique métier côté serveur en JavaScript, consultez la version du backend JavaScript de cette rubrique.
 
->[AZURE.NOTE]Cette rubrique vous présente la création d’un projet de service mobile et d’une application Windows universelle à l’aide du portail de gestion Azure. Visual Studio 2013 Update 3 vous permet également d’ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d’informations, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+>[AZURE.NOTE]Cette rubrique vous présente la création d’un projet de service mobile et d’une application Windows universelle à l’aide du portail Azure Classic. Visual Studio 2013 Update 3 vous permet également d’ajouter un nouveau projet de service mobile dans une solution Visual Studio existante. Pour plus d’informations, consultez la rubrique [Ajout de Mobile Services à une application existante](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 >Pour ajouter un service mobile à un projet d’application Windows Phone 8.0 ou Windows Phone Silverlight 8.1, consultez la rubrique [Ajout de Mobile Services à une application Windows Phone existante](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
@@ -36,7 +41,7 @@ Dans ce didacticiel, vous allez créer un service mobile et une simple applicati
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous ne disposez pas déjà d'un compte Azure, vous pouvez obtenir une évaluation gratuite et 10 services mobiles gratuits que vous pouvez utiliser même après l'expiration de l'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started%2F).
-* [Visual Studio 2013].
+* [Visual Studio 2013].
 
 ## Création d’un service mobile
 
@@ -44,11 +49,11 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d’une application Windows universelle
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application ou modifier une application existante afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application Windows universelle connectée à votre service mobile.
 
-1. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1. Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application Windows Store**.
 
@@ -94,7 +99,7 @@ Maintenant que le service mobile est publié et que le client est connecté au s
 ## Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* [Ajout de Mobile Services à une application existante][Get started with data] <br/>En savoir plus sur le stockage et l’interrogation des données à l’aide de Mobile Services.
+* [Ajout de Mobile Services à une application existante][Get started with data] <br/>En savoir plus sur le stockage et l’interrogation des données à l’aide de services mobiles.
 
 * [Prise en main de la synchronisation des données hors connexion] <br/>Découvrez comment utiliser la synchronisation des données hors connexion pour rendre votre application réactive et robuste.
 
@@ -116,6 +121,7 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 
 <!-- URLs. -->
 [Visual Studio 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
+[Visual Studio 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Get started with data]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md
 [Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Prise en main de la synchronisation des données hors connexion]: mobile-services-windows-store-dotnet-get-started-offline-data.md
@@ -124,8 +130,7 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript and HTML]: mobile-services-win8-javascript/
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
- 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

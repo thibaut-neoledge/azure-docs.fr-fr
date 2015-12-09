@@ -18,13 +18,18 @@
 
 # <a name="getting-started"></a>Prise en main de Mobile Services et de Sencha Touch
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Vue d'ensemble
 
-Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l’aide de Sencha Touch, vous allez créer une simple application *To Do List* qui utilise un service mobile que vous allez définir dans le Portail de gestion. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.
+Ce didacticiel vous montre comment exploiter Azure Mobile Services dans votre application Sencha Touch. À l’aide de Sencha Touch, vous allez créer une application *To Do List* simple qui utilise un service mobile que vous allez définir dans le Portail Azure Classic. Ce didacticiel s'adresse aux développeurs d'applications Web de niveau intermédiaire ou avancé qui ont une bonne compréhension de JavaScript et sont familiarisés avec l'infrastructure Sencha Touch.
 
 Si vous préférez regarder une vidéo, ce clip suit la même procédure que ce didacticiel. Dans cette vidéo, Arthur Kay explique comment créer une application Sencha Touch à l'aide d'un serveur principal Azure Mobile Services.
 
@@ -50,9 +55,9 @@ Voici une capture d'écran de l'application terminée :
 
 ##Création d'une table TodoItems
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une table de base de données à utiliser dans votre service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le Portail Azure Classic pour créer une table de base de données à utiliser dans votre service mobile.
 
-1. Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1. Dans le [Portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **HTML** sous **Choisissez une plateforme** et développez **Créer une application HTML**.
 
@@ -64,10 +69,10 @@ Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapid
 
 3. Cliquez sur **Create TodoItems table** pour créer une table permettant de stocker les données d'application.
 
-	> [AZURE.NOTE]Ne téléchargez PAS l'application HTML à partir du portail de gestion. Nous allons créer manuellement une application Sencha Touch dans la section suivante.
+	> [AZURE.NOTE]Ne téléchargez PAS l’application HTML à partir du Portail Azure Classic. Nous allons créer manuellement une application Sencha Touch dans la section suivante.
 
 
-1. Notez les éléments **appKey** et **appUrl** dans le portail de gestion. Nous les utiliserons dans d'autres sections de ce didacticiel.
+1. Notez les éléments **appKey** et **appUrl** dans le Portail Azure Classic. Nous les utiliserons dans d'autres sections de ce didacticiel.
 
     ![clé d’application](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
 
@@ -101,7 +106,7 @@ Vous pouvez ajouter manuellement les extensions Azure à votre application en pr
 
         $ cd /path/to/application
 	    $ mv /download-location/azure.zip .
-    	$ unzip azure.zip  
+    	$ unzip azure.zip
 
     Un dossier **azure** contenant les exemples, la documentation et la source du package est créé. La source résidera dans le répertoire **azure/src**.
 
@@ -678,7 +683,7 @@ La dernière étape de ce didacticiel consiste à héberger et exécuter votre n
 
     Ceci envoie une demande POST vers le nouveau service mobile hébergé dans Azure. Les données de la requête sont insérées dans la table TodoItem.
 
-  5. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table TodoItems.
+  5. De retour dans le [Portail Azure Classic], cliquez sur l’onglet **Données**, puis sur la table TodoItems.
 
     ![Todo Items table](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
 
@@ -717,4 +722,6 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Nov15_HO3-->
+[Portail Azure Classic]: https://manage.windowsazure.com/
+
+<!---HONumber=Nov15_HO4-->

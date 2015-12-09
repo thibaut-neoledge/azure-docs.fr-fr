@@ -39,11 +39,11 @@ Avant d'utiliser Service Bus Relay dans Azure, vous devez créer un espace de no
 
 Pour créer un espace de noms de service :
 
-1.  Connectez-vous au [portail Azure][].
+1.  Connectez-vous au [Portail Azure Classic][].
 
-2.  Dans le volet de navigation gauche du portail Azure, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail Azure, cliquez sur **Créer**.
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@ Pour créer un espace de noms de service :
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	L’espace de noms créé s’affiche alors dans le portail Azure. Son activation peut prendre un certain temps. Patientez jusqu’à ce que l’état soit **Actif** avant de continuer.
+	L’espace de noms créé s’affiche alors dans le portail. Son activation peut prendre un certain temps. Patientez jusqu’à ce que l’état soit **Actif** avant de continuer.
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
@@ -273,9 +273,9 @@ Maintenant que vous avez appris les principes de base du service Service Bus Rel
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [portail Azure]: http://manage.windowsazure.com
+  [Portail Azure Classic]: http://manage.windowsazure.com
   [Authentification par signature d'accès partagé avec Service Bus]: service-bus-shared-access-signature-authentication.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [vue d’ensemble des exemples Service Bus]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

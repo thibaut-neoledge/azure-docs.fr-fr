@@ -131,7 +131,7 @@ Pour exécuter l'application dans le cloud, procédez comme suit :
 
 Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 
-1. Dans votre navigateur, ouvrez le [portail Azure](http://manage.windowsazure.com).
+1. Dans votre navigateur, ouvrez le [portail Azure Classic](http://manage.windowsazure.com).
 
 2. Cliquez sur **Nouveau > Calculer > Service cloud > Création rapide**.
 
@@ -153,7 +153,7 @@ Un service cloud Azure est l'environnement dans lequel l'application s'exécute.
 
 Lorsque l'application s'exécute dans le cloud, elle utilise une base de données basée sur le cloud.
 
-1. Dans le [portail Azure](http://manage.windowsazure.com), cliquez sur **Nouveau > Services de données > Base de données SQL > Création rapide**.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), cliquez sur **Nouveau > Services de données > Base de données SQL > Création rapide**.
 
 1. Dans la zone **Nom de la base de données**, entrez *contosoads*
 
@@ -189,7 +189,7 @@ Un compte de stockage Azure fournit des ressources pour stocker les données de 
 
 Dans une application réelle, on crée généralement des comptes distincts pour les données d'application et les données de journalisation, et des comptes distincts pour les données de test et les données de production. Pour ce didacticiel, vous allez utiliser un seul compte.
 
-1. Dans le [portail Azure](http://manage.windowsazure.com), cliquez sur **Nouveau > Services de données > Stockage > Création rapide**.
+1. Dans le [portail Azure Classic](http://manage.windowsazure.com), cliquez sur **Nouveau > Services de données > Stockage > Création rapide**.
 
 4. Dans la zone **URL**, entrez un préfixe d'URL.
 
@@ -228,7 +228,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
 
 	Laissez le fichier ouvert pour le modifier.
 
-2. Dans le [portail Azure](http://manage.windowsazure.com), cliquez successivement sur **Bases de données SQL** dans le volet gauche, sur la base de données que vous avez créée pour ce didacticiel, sur l'onglet **Tableau de bord**, puis sur **Afficher les chaînes de connexion**.
+2. Dans le [portail Azure Classic](http://manage.windowsazure.com), cliquez successivement sur **Bases de données SQL** dans le volet gauche, sur la base de données que vous avez créée pour ce didacticiel, sur l’onglet **Tableau de bord**, puis sur **Afficher les chaînes de connexion**.
 
 	![Afficher les chaînes de connexion](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Utilisez une [transformation Web.config](http://www.asp.net/mvc/tutorials/deploy
 
 	![Chaînes de connexion](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. Dans le fichier de transformation *Web.Release.config*, supprimez `{connectionstring}` et collez à la place la chaîne de connexion ADO.NET du portail Azure.
+4. Dans le fichier de transformation *Web.Release.config*, supprimez `{connectionstring}` et collez à la place la chaîne de connexion ADO.NET du portail Azure Classic.
 
 5. Dans la chaîne de connexion que vous avez collée dans le fichier de transformation *Web.Release.config*, remplacez `{your_password_here}` par le mot de passe que vous avez créé pour la nouvelle base de données SQL.
 
@@ -345,7 +345,7 @@ Le paramètre `<Instances>` spécifie le nombre de machines virtuelles sur lesqu
 
 9. À ce stade, vous pouvez tester l'application en créant, affichant et modifiant des publicités, comme lorsque vous avez exécuté l'application localement.
 
->[AZURE.NOTE]À l'issue du test, supprimez ou arrêtez le service cloud. Même si vous n'utilisez pas le service cloud, il accumule des frais, car les ressources de la machine virtuelle lui sont réservées. Si vous le laissez s'exécuter, toute personne qui trouve votre URL peut créer et afficher des publicités. Dans le [portail Azure](http://manage.windowsazure.com), ouvrez l'onglet **Tableau de bord** de votre service cloud, puis cliquez sur le bouton **Supprimer** en bas de la page. Si vous voulez juste empêcher temporairement l'accès au site, cliquez sur **Arrêter**. Dans ce cas, les frais continuent de s'accumuler. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE]À l'issue du test, supprimez ou arrêtez le service cloud. Même si vous n'utilisez pas le service cloud, il accumule des frais, car les ressources de la machine virtuelle lui sont réservées. Si vous le laissez s'exécuter, toute personne qui trouve votre URL peut créer et afficher des publicités. Dans le [portail Azure Classic](http://manage.windowsazure.com), ouvrez l’onglet **Tableau de bord** de votre service cloud, puis cliquez sur le bouton **Supprimer** en bas de la page. Si vous voulez juste empêcher temporairement l'accès au site, cliquez sur **Arrêter**. Dans ce cas, les frais continuent de s'accumuler. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ## Créer l’application à partir de zéro
 
@@ -813,4 +813,4 @@ Pour plus d’informations, consultez les ressources suivantes :
 * [Gestion des services cloud](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

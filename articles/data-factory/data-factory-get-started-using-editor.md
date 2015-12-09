@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Didacticiel : Créer un pipeline avec l'activité de copie à l'aide de Data Factory Editor" 
-	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l'aide de Data Factory Editor dans le portail Azure." 
+	description="Dans ce didacticiel, vous allez créer un pipeline Azure Data Factory avec une activité de copie à l’aide de Data Factory Editor dans le portail Azure Classic." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@ Ce didacticiel comprend les étapes suivantes :
 [Étape 2 : créer des services liés](#CreateLinkedServices) | Dans cette étape, vous allez créer deux services liés : **StorageLinkedService** et **AzureSqlLinkedService**. StorageLinkedService lie le stockage Azure et AzureSqlLinkedService lie la base de données SQL Azure à ADFTutorialDataFactory. Les données d'entrée pour le pipeline se trouvent dans un conteneur d'objets blob dans le stockage d'objets blob Azure et les données de sortie sont stockées dans une table dans la base de données SQL Azure. Par conséquent, vous ajoutez ces deux magasins de données en tant que services liés à la fabrique de données.      
 [Étape 3 : créer des tables d'entrée et de sortie](#CreateInputAndOutputDataSets) | Dans l'étape précédente, vous avez créé des services liés qui font référence à des magasins de données contenant des données d'entrée/sortie. Dans cette étape, vous allez définir deux tables de fabrique de données, **EmpTableFromBlob** et **EmpSQLTable**, qui représentent les données d'entrée/sortie qui sont stockées dans les magasins de données. Pour la table EmpTableFromBlob, vous devez spécifier le conteneur d'objets blob qui contient un objet blob avec la source de données ; pour la table EmpSQLTable, vous spécifiez la table SQL qui stocke les données de sortie. Vous devez également spécifier d'autres propriétés telles que la structure des données, la disponibilité des données, etc. 
 [Étape 4 : créer et exécuter un pipeline](#CreateAndRunAPipeline) | Dans cette étape, vous allez créer un pipeline nommé **ADFTutorialPipeline** dans la fabrique de données ADFTutorialDataFactory. Le pipeline effectue une **activité de copie** qui copie les données d'entrée de l'objet blob Azure vers la table SQL Azure de sortie.
-[Étape 5 : surveiller les tranches et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les tranches de tables d'entrée et de sortie à l'aide du portail Azure en version préliminaire.
+[Étape 5 : surveiller les tranches et le pipeline](#MonitorDataSetsAndPipeline) | Dans cette étape, vous allez surveiller les tranches de tables d’entrée et de sortie à l’aide du portail Azure.
  
 
 ## <a name="CreateDataFactory"></a>Étape 1 : créer une fabrique de données Azure
-Dans cette étape, vous utilisez le portail Azure en version préliminaire pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
+Dans cette étape, vous utilisez le portail Azure pour créer une fabrique de données Azure nommée **ADFTutorialDataFactory**.
 
-1.	Une fois connecté au [portail Azure en version préliminaire][azure-preview-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**. 
+1.	Une fois connecté au [portail Azure][azure-portal], cliquez dans le coin inférieur gauche sur **NOUVEAU**, sélectionnez **Analyse de données** dans le panneau **Créer**, puis cliquez sur **Fabrique de données** dans le panneau **Analyse de données**. 
 
 	![Nouveau -> DataFactory][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@ Dans cette étape, vous créez un pipeline avec une **activité de copie** qui u
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Étape 5 : surveiller les jeux de données et le pipeline
-Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour la surveillance, consultez [Surveiller et gérer Data Factory à l'aide des applets de commande PowerShell][monitor-manage-using-powershell].
+Dans cette étape, vous allez utiliser le portail Azure Classic pour surveiller ce qui se passe dans une fabrique de données Azure. Vous pouvez également utiliser les applets de commande PowerShell pour surveiller les jeux de données et les pipelines. Pour plus d'informations sur l'utilisation des applets de commande pour la surveillance, consultez [Surveiller et gérer Data Factory à l'aide des applets de commande PowerShell][monitor-manage-using-powershell].
 
-1. Accédez au [portail Azure (en version préliminaire)][azure-preview-portal] s'il n'est pas déjà ouvert. 
+1. Accédez au [portail Azure Classic (en version préliminaire)][azure-portal] s’il n’est pas déjà ouvert. 
 2. Si le panneau pour **ADFTutorialDataFactory** n'est pas ouvert, ouvrez-le en cliquant sur **ADFTutorialDataFactory** dans le **Tableau d'accueil**. 
 3. Vous devez voir le nombre et les noms des tables et du pipeline que vous avez créés sur ce panneau.
 
@@ -371,7 +371,7 @@ Dans cette étape, vous allez utiliser le portail Azure pour surveiller ce qui s
 
 
 ## Résumé 
-Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé le portail Azure en version préliminaire pour créer la fabrique de données, les services liés, les tables et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :
+Dans ce didacticiel, vous avez créé une fabrique de données Azure pour copier des données d'objet blob Azure dans une base de données SQL Azure. Vous avez utilisé le portail Azure pour créer la fabrique de données, les services liés, les tables et un pipeline. Voici les étapes de premier niveau que vous avez effectuées dans ce didacticiel :
 
 1.	Créer une **fabrique de données** Azure.
 2.	Créer des **services liés** qui lient des magasins de données et des calculs (appelés **Services liés**) à la fabrique de données.
@@ -393,7 +393,7 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

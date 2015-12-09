@@ -24,7 +24,7 @@
 
 ## Prise en main
 
-[Créer une machine virtuelle exécutant Windows dans le portail Azure](virtual-machines-windows-tutorial-classic-portal.md)
+[Créer une machine virtuelle exécutant Windows dans le Portail Azure Classic](virtual-machines-windows-tutorial-classic-portal.md)
 
 [Création d’une machine virtuelle exécutant Windows dans Azure](virtual-machines-windows-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Informations de référence sur l’API REST de la gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

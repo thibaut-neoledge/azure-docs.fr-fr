@@ -414,24 +414,13 @@ Si vous lisez un grand nombre d’entités et souhaitez traiter ou afficher les 
 
 Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez consulter les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-<ul>
-<li>Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table&#160;:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Référence de la bibliothèque cliente de stockage pour&#160;.NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Référence d’API REST</a></li>
-  </ul>
-</li>
-<li>Pour plus d’informations sur les tâches avancées que vous pouvez effectuer avec le stockage Azure, consultez la <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">documentation Azure Storage</a>.</li>
-<li>Découvrez comment simplifier le code que vous écrivez pour travailler avec Azure Storage à l’aide du <a href="../websites-dotnet-webjobs-sdk/">Kit de développement logiciel (SDK) Azure WebJobs</a>.</li>
-<li>Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités&#160;:
-  <ul>
-    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">stockage d’objets blob</a> pour stocker des données non structurées.</li>
-    <li>Utilisez le <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">stockage des files d’attente</a> pour stocker des données structurées.</li>
-    <li>Utilisez une <a href="/documentation/articles/sql-database-dotnet-how-to-use/">base de données SQL</a> pour stocker des données relationnelles.</li>
-  </ul>
-</li>
-</ul>
+- Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
+    - [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+- Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
+- Pour plus d'informations sur les autres options de stockage de données dans Azure, consultez d'autres guides de fonctionnalités.
+    - Utilisez le [stockage d’objets blob](storage-dotnet-how-to-use-blobs.md) pour stocker des données non structurées.
+    - Utilisez une [base de données SQL](sql-database-dotnet-how-to-use.md) pour stocker des données relationnelles.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,7 +433,6 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
 
   [Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -452,4 +440,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

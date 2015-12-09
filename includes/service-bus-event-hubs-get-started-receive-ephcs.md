@@ -4,7 +4,7 @@
 
 Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Storage] :
 
-1. Connectez-vous au [portail Azure] et cliquez sur **NOUVEAU** en bas de l’écran.
+1. Connectez-vous au [portail Azure Classic][] et cliquez sur **NOUVEAU** en bas de l’écran.
 
 2. Cliquez sur **Services de données**, sur **Stockage**, puis sur **Création rapide**, et tapez un nom pour votre compte de stockage. Sélectionnez la région de votre choix, puis cliquez sur **Créer un compte de stockage**.
 
@@ -42,10 +42,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Insérez ensuite le code suivant dans le corps de la classe :
 
-	```
-    class SimpleEventProcessor : IEventProcessor
-	{
-	        Stopwatch checkpointStopWatch;
+	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -81,8 +78,7 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
                 this.checkpointStopWatch.Restart();
             }
 	    }
-	}
-    ````
+	} ````
 
 	Cette classe sera appelée par **EventProcessorHost** pour traiter les événements envoyés par le hub d'événements. Notez que la classe `SimpleEventProcessor` utilise un chronomètre pour appeler régulièrement la méthode de point de contrôle sur le contexte **EventProcessorHost**. Cette opération garantit que, en cas de redémarrage du récepteur, la perte de traitement de travail ne sera pas supérieure à cinq minutes.
 
@@ -96,36 +92,22 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Ensuite, modifiez la méthode **Main** en spécifiant la classe **Program** comme indiqué ci-dessous, en remplaçant le nom du Event Hub, la chaîne de connexion, le compte de stockage et la clé que vous avez copiée dans les sections précédentes :
 
-    ```
-	static void Main(string[] args)
-    {
-      string eventHubConnectionString = "{event hub connection string}";
-      string eventHubName = "{event hub name}";
-      string storageAccountName = "{storage account name}";
-      string storageAccountKey = "{storage account key}";
-      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+    ``` static void Main(string args) { string eventHubConnectionString = "{event hub connection string}"; string eventHubName = "{event hub name}"; string storageAccountName = "{storage account name}"; string storageAccountKey = "{storage account key}"; string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
-      string eventProcessorHostName = Guid.NewGuid().ToString();
-      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-      Console.WriteLine("Registering EventProcessor...");
-      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString(); EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString); Console.WriteLine("Registering EventProcessor..."); eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-      Console.WriteLine("Receiving. Press enter key to stop worker.");
-      Console.ReadLine();
-      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-    }
-	````
+      Console.WriteLine("Receiving. Press enter key to stop worker."); Console.ReadLine(); eventProcessorHost.UnregisterEventProcessorAsync().Wait(); } ````
 
-> [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d'informations sur ces sujets, consultez les rubriques [Vue d'ensemble d'Event Hubs][] et [Guide de programmation Event Hubs][].
+> [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][] et [Guide de programmation Event Hubs][].
 
 <!-- Links -->
-[Vue d'ensemble d'Event Hubs]: event-hubs-overview.md
+[Vue d’ensemble d’Event Hubs]: event-hubs-overview.md
 [Guide de programmation Event Hubs]: event-hubs-programming-guide.md
 [traitement d'événement mis à l'échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [traitement d’événement mis à l’échelle]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [compte Azure Storage]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portail Azure]: http://manage.windowsazure.com
+[portail Azure Classic]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -134,4 +116,4 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

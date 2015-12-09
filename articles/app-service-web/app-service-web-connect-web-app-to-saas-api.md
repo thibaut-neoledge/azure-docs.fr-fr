@@ -30,7 +30,7 @@ Ce didacticiel s'appuie sur la série de didacticiels sur les applications API 
 
 ## Rendre l'application API accessible au public
 
-Dans le [portail Azure en version préliminaire](http://go.microsoft.com/fwlink/?LinkId=529715), sélectionnez l’application API. Cliquez sur le bouton **Paramètres** dans la barre de commandes. Dans le panneau **Paramètres de l’application**, définissez **Niveau d’accès** sur **Public (anonyme)**.
+Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), sélectionnez l’application API. Cliquez sur le bouton **Paramètres** dans la barre de commandes. Dans le panneau **Paramètres de l’application**, définissez **Niveau d’accès** sur **Public (anonyme)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -91,7 +91,6 @@ Suivez les instructions fournies dans [Comment déployer une application web Azu
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez : [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

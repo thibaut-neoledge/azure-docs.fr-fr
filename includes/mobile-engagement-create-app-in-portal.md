@@ -17,12 +17,10 @@
 
 4. Sélectionnez l'application que vous venez de créer sous l'onglet **Applications**.
 
-5. Ensuite, cliquez sur **Informations de connexion** pour afficher les paramètres de connexion que vous voulez ajouter à l'intégration de votre Kit de développement logiciel (SDK) dans votre application mobile.
+5. Ensuite, cliquez sur **INFORMATIONS DE CONNEXION** pour afficher les paramètres de connexion que vous voulez ajouter à l’intégration de votre Kit de développement logiciel (SDK) dans votre application mobile.
 
-   	![](./media/mobile-engagement-create-app-in-portal/app-main-page-select-connection-info.png)
-
-6. Copiez la **chaîne de connexion** : cela vous sert à identifier cette application dans votre code d'application et à vous connecter avec Mobile Engagement à partir de votre application.
+6. Copiez la **CHAÎNE DE CONNEXION** : cette opération permet d’identifier cette application dans votre code d’application et à vous connecter avec Mobile Engagement à partir de votre application.
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

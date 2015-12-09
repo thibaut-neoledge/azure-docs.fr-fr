@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2015"
+   ms.date="11/25/2015"
    ms.author="seanmck"/>
 
 # Gestion des paramètres d’application pour plusieurs environnements
@@ -55,11 +55,12 @@ Les attributs DefaultValue spécifient la valeur à utiliser en l’absence d’
 
 >[AZURE.NOTE]Tous les paramètres d’instance de service conviennent à la configuration par environnement. Dans l’exemple ci-dessus, les valeurs LowKey et HighKey du schéma de partitionnement du service sont explicitement définies pour toutes les instances du service dans la mesure où la plage de partition est une fonction de votre domaine de données et non de l’environnement.
 
+
 ### Paramètres de configuration de service par environnement
 
 Le [modèle d’application Service Fabric](service-fabric-application-model.md) permet aux services d’inclure des packages de configuration contenant des paires clé-valeur personnalisées lisibles lors de l’exécution. Les valeurs de ces paramètres peuvent également être différenciées par l’environnement en spécifiant un `ConfigOverride` dans le manifeste d’application.
 
-Supposez que vous utilisez le paramètre suivant dans le manifeste de service du service `Stateful1` :
+Supposez que vous utilisez le paramètre suivant dans Config\\Settings.xml pour le service `Stateful1` :
 
 
     <Section Name="MyConfigSection">
@@ -81,6 +82,7 @@ Pour remplacer cette valeur par une paire application/environnement spécifique,
 Ce paramètre peut ensuite être configuré par l’environnement comme indiqué ci-dessus, par la déclaration dans la section Paramètres du manifeste d’application et la spécification des valeurs spécifiques à l’environnement dans les fichiers de paramètres d’application.
 
 >[AZURE.NOTE]Dans le cas de paramètres de configuration de service, il existe trois emplacements où la valeur d’une clé peut être définie : le package de configuration du service, le manifeste d’application et le fichier de paramètres d’application. Service Fabric choisira toujours dans le fichier de paramètres d’application en premier (si spécifié), puis le manifeste d’application et enfin, le package de configuration.
+
 
 ### Fichiers de paramètre d’application
 

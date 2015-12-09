@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="11/11/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Vue d'ensemble
 
-Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. La bibliothèque cliente de stockage est un kit de développement logiciel qui simplifie l’interaction avec l’API de stockage d’objets blobs REST. Les scénarios traités dans ce guide incluent le **téléchargement**, la **liste**, le **chargement** et la **suppression** d’objets blobs et devraient vous prendre environ une heure. Si vous souhaitez visionner une vidéo de prise en main, consultez [Introduction au stockage en cinq minutes](https://azure.microsoft.com/fr-FR/documentation/videos/azure-storage-5-minute-overview/). Vous pouvez également lire le guide [Prise en main du stockage en cinq minutes](https://azure.microsoft.com/fr-FR/documentation/articles/storage-getting-started-guide/).
+Ce guide explique le déroulement des scénarios courants dans le cadre de l’utilisation du service de stockage d’objets blob Azure. Les exemples ont été écrits en C# et utilisent la bibliothèque du client de stockage Azure pour .NET. La bibliothèque cliente de stockage est un kit de développement logiciel qui simplifie l’interaction avec l’API de stockage d’objets blobs REST. Les scénarios traités dans ce guide incluent le **téléchargement**, la **liste**, le **chargement** et la **suppression** d’objets blobs et devraient vous prendre environ une heure. Si vous souhaitez visionner une vidéo de prise en main, consultez [Introduction à Azure Storage en cinq minutes](https://azure.microsoft.com/documentation/videos/azure-storage-5-minute-overview/). Vous pouvez également lire [Prise en main d’Azure Storage en cinq minutes](storage-getting-started-guide.md).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -359,7 +359,6 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409

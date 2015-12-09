@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="11/03/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs à l’aide de Baidu
@@ -187,7 +187,7 @@ Le message **保存成功！** (**Enregistrement réussi !**) apparaîtra.
 
     ![][26]
 
-5. Téléchargez et décompressez le [Kit de développement logiciel (SDK) Mobile Services pour Android], ouvrez le dossier **notificationhubs**, copiez le fichier **notification-hubs-x.y.jar** dans le dossier **libs** de votre projet Eclipse, puis actualisez le dossier *libs*.
+5. Téléchargez le fichier notification-hubs-0.4.jar à partir de l’onglet **Fichiers** du [Notification-Hubs-Android-SDK sur Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Ajoutez le fichier au dossier **libs** de votre projet Eclipse, puis actualisez le dossier *libs*.
 
 6. Téléchargez et décompressez le [Kit de développement logiciel (SDK) Android pour transmissions push Baidu], ouvrez le dossier **libs**, puis copiez le fichier jar **pushservice-x.y.z** et les dossiers **armeabi** et **mips** dans le dossier **libs** de votre application Android.
 
@@ -504,4 +504,4 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 [portail Azure]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

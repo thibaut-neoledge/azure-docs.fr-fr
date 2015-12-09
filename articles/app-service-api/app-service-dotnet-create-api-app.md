@@ -18,17 +18,13 @@
 
 # Créer une application API ASP.NET dans Azure App Service
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
-## Vue d’ensemble
+## Vue d'ensemble
 
 Ce didacticiel montre comment créer un projet d’API web ASP.NET configuré pour un déploiement dans le cloud en tant qu’[application API dans Azure App Service](app-service-api-apps-why-best-platform.md). Pour plus d'informations sur la configuration d'un projet d'API web existant pour le déploiement en tant qu'application API, consultez la rubrique [Configurer un projet d'API web comme une application API](app-service-dotnet-create-api-app-visual-studio.md).
 
-Il s’agit d’un didacticiel rapide et simple qui affiche uniquement la création d’un projet Visual Studio à l’aide d’un modèle. C’est le premier d’une série qui montre également comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API que vous créez dans ce didacticiel. Pour plus d’informations approfondies sur l’utilisation des applications API, consultez la section [Étapes suivantes](#next-steps) à la fin du didacticiel.
+Il s’agit d’un didacticiel rapide et simple qui affiche uniquement la création d’un projet Visual Studio à l’aide d’un modèle. C’est le premier d’une série qui montre également comment [déployer](app-service-dotnet-deploy-api-app.md) et [déboguer](../app-service-dotnet-remotely-debug-api-app.md) le projet d’application API créé dans ce didacticiel. Pour obtenir des informations approfondies sur l’utilisation des applications API, consultez la section [Étapes suivantes](#next-steps) à la fin du didacticiel.
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
@@ -60,4 +56,4 @@ Pour plus d’informations sur l’authentification des utilisateurs des applica
 
 Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

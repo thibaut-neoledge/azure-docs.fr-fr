@@ -25,9 +25,9 @@
 - [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
 - [Python](web-sites-python-ptvs-django-mysql.md)
 
-Ce didacticiel vous explique comment créer une [application web Java dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide du portail [Azure en version préliminaire](https://portal.azure.com/). La version préliminaire du portail Azure est une interface web que vous pouvez utiliser pour gérer les ressources Azure.
+Ce didacticiel vous explique comment créer une [application web Java dans Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) à l’aide du [portail Azure](https://portal.azure.com/). Le portail Azure est une interface web que vous pouvez utiliser pour gérer les ressources Azure.
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN][] ou [obtenir une évaluation gratuite][].
+> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Microsoft Azure. Si vous ne possédez pas de compte, vous pouvez [activer les avantages de votre abonnement Visual Studio][] ou [obtenir un essai gratuit][].
 >
 > Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service][]. Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -41,7 +41,7 @@ Vous pouvez utiliser différentes méthodes pour configurer une application Java
  
 1. Créer une application, puis configure les **paramètres de l’application**
 
-	App Service fournit plusieurs versions de Tomcat et Jetty configurées par défaut. Si l’application que vous allez héberger doit fonctionner avec l’une des versions intégrées, cette méthode de configuration d’un conteneur web sera la plus simple à utiliser, mais vous ne disposerez pas des capacités de configuration des autres méthodes. Pour cette méthode, créez une application dans le portail et accédez au panneau **Paramètres de l’application** pour choisir votre version de Java ainsi que le conteneur web Java souhaité. Lorsque vous utilisez cette méthode, l’application s’exécute à partir du disque dur local utilisé par le processus de travail pour héberger l’application. Celui-ci n’utilise pas l’espace disque du client. Lorsque vous utilisez ce modèle, vous ne disposez pas d’un accès en modification dans cette partie du système de fichiers, ce qui signifie par exemple que vous ne pouvez pas configurer le fichier *server.xml* ou placer des fichiers de bibliothèque dans le dossier */lib*. Pour plus d’informations, consultez la section [Créer et configurer une application web Java](#appsettings) de ce didacticiel.
+	App Service fournit plusieurs versions de Tomcat et Jetty configurées par défaut. Si l’application que vous allez héberger doit fonctionner avec l’une des versions intégrées, cette méthode de configuration d’un conteneur web sera la plus simple à utiliser, mais vous ne disposerez pas des capacités de configuration des autres méthodes. Pour cette méthode, créez une application dans le portail Azure et accédez au panneau **Paramètres de l’application** pour choisir votre version de Java ainsi que le conteneur web Java souhaité. Lorsque vous utilisez cette méthode, l’application s’exécute à partir du disque dur local utilisé par le processus de travail pour héberger l’application. Celui-ci n’utilise pas l’espace disque du client. Lorsque vous utilisez ce modèle, vous ne disposez pas d’un accès en modification dans cette partie du système de fichiers, ce qui signifie par exemple que vous ne pouvez pas configurer le fichier *server.xml* ou placer des fichiers de bibliothèque dans le dossier */lib*. Pour plus d’informations, consultez la section [Créer et configurer une application web Java](#appsettings) de ce didacticiel.
   
 3. Créer une application, puis copier et modifier manuellement les fichiers de configuration
 
@@ -52,13 +52,13 @@ Vous pouvez utiliser différentes méthodes pour configurer une application Java
 	* Vous souhaitez configurer vous-même le conteneur web de A à Z. 
 	* Vous souhaitez utiliser une version de Java qui n’est pas pris en charge dans App Service et voulez la télécharger vous-même.
 
-	Dans ces cas-là, vous pouvez créer une application à l’aide du portail et fournir ensuite manuellement les fichiers d’exécution appropriés. Dans ce cas, les fichiers seront comptabilisés par rapport à vos quotas d’espace de stockage associé à votre plan App Service. Pour plus d’informations, consultez [Charger une application web Java personnalisée dans Azure](https://acom-sandbox.azurewebsites.net/fr-FR/documentation/articles/web-sites-java-custom-upload/).
+	Dans ces cas-là, vous pouvez créer une application à l’aide du portail Azure et fournir ensuite manuellement les fichiers d’exécution appropriés. Dans ce cas, les fichiers seront comptabilisés par rapport à vos quotas d’espace de stockage associé à votre plan App Service. Pour plus d’informations, consultez [Charger une application web Java personnalisée dans Azure](https://acom-sandbox.azurewebsites.net/fr-FR/documentation/articles/web-sites-java-custom-upload/).
 
 ## <a name="marketplace"></a> Utiliser un modèle Java à partir d’Azure Marketplace
 
 Cette section vous montre comment utiliser Microsoft Azure Marketplace pour créer une application web Java. Le même processus général peut également servir à créer une application mobile ou API Java.
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur **Nouveau > Marketplace**.
 
@@ -84,7 +84,7 @@ Cette section vous montre comment utiliser Microsoft Azure Marketplace pour cr
 
 8. Sélectionnez un **Groupe de ressources** ou créez-en un.
 
-	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../resource-group-portal.md).
+	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
 
 9. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
@@ -116,7 +116,7 @@ Maintenant que vous avez créé l’application web avec un conteneur d’appli
 
 Cette section explique comment créer une application web et la configurer pour Java à l’aide du panneau **Paramètres de l’application** du portail.
 
-1. Connectez-vous à la [version préliminaire du portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur **Nouveau > Web + Mobile > Application web**.
 
@@ -128,7 +128,7 @@ Cette section explique comment créer une application web et la configurer pour 
 
 5. Sélectionnez un **Groupe de ressources** ou créez-en un.
 
-	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure en version préliminaire pour gérer vos ressources Azure](../resource-group-portal.md).
+	Pour plus d’informations sur les groupes de ressources, consultez [Utilisation du portail Azure pour gérer vos ressources Azure](../resource-group-portal.md).
 
 6. Sélectionnez un **plan App Service/emplacement** ou créez-en un.
 
@@ -171,9 +171,9 @@ Cette section explique comment créer une application web et la configurer pour 
 Pour plus d’informations sur le développement des applications Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
 <!-- External Links -->
-[activer les avantages de votre abonnement MSDN]: http://go.microsoft.com/fwlink/?LinkId=623901
-[obtenir une évaluation gratuite]: http://go.microsoft.com/fwlink/?LinkId=623901
+[activer les avantages de votre abonnement Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[obtenir un essai gratuit]: http://go.microsoft.com/fwlink/?LinkId=623901
 
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

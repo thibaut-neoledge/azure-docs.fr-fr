@@ -54,7 +54,7 @@ Dans les deux cas, vous pouvez récupérer votre chaîne de connexion en utilisa
 
 ### Configuration de votre chaîne de connexion lors de l'utilisation des services cloud
 
-Le mécanisme de configuration de service est propre aux projets de services cloud Azure et vous permet de modifier les paramètres de configuration de façon dynamique à partir du portail Azure sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué dans l’exemple qui suit :
+Le mécanisme de configuration de service est propre aux projets Azure Cloud Services et vous permet de modifier les paramètres de configuration de façon dynamique à partir du [Portail Azure Classic][] sans avoir à redéployer votre application. Par exemple, ajoutez une étiquette `Setting` à votre fichier de définition de service (****.csdef**), comme indiqué dans l’exemple qui suit :
 
 ```
 <ServiceDefinition name="Azure1">
@@ -83,7 +83,7 @@ Vous devez ensuite spécifier des valeurs dans le fichier de configuration de se
 </ServiceConfiguration>
 ```
 
-Utilisez le nom de clé et les valeurs de clé de signature d’accès partagé (SAP) récupérés sur le portail Azure, comme dans la section précédente décrite.
+Utilisez le nom de clé et les valeurs de clé de signature d’accès partagé (SAP) récupérés sur le Portail Azure Classic, comme décrit dans la section précédente.
 
 ### Configurer votre chaîne de connexion dans le cadre de l’utilisation de sites web Azure ou Machines virtuelles Azure
 
@@ -98,7 +98,7 @@ Quand vous utilisez sites web ou Machines virtuelles, il est recommandé d’uti
 </configuration>
 ```
 
-Utilisez le nom et les valeurs de clé SAP que vous avez récupérées sur le portail Azure, comme décrit dans la section précédente.
+Utilisez le nom et les valeurs de clé SAP que vous avez récupérés sur le Portail Azure Classic, comme décrit dans la section précédente.
 
 ## Création d'une rubrique
 
@@ -126,7 +126,7 @@ if (!namespaceManager.TopicExists("TestTopic"))
 }
 ```
 
-Les surcharges de la méthode [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) vous permettent de paramétrer les propriétés de la rubrique (par exemple, pour faire en sorte que la valeur par défaut de durée de vie [time-to-live-TTL] soit appliquée aux messages envoyés à la rubrique). Ces paramètres sont appliqués à l'aide de la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L’exemple suivant montre comment créer une rubrique nommée **TestTopic** d’une taille maximale de 5 Go et un message TTL par défaut d’une minute.
+Les surcharges de la méthode [CreateTopic](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createtopic.aspx) vous permettent de paramétrer les propriétés de la rubrique, par exemple, pour faire en sorte que la valeur par défaut de durée de vie « time-to-live » (TTL) soit appliquée aux messages envoyés à la rubrique. Ces paramètres sont appliqués à l'aide de la classe [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx). L’exemple suivant montre comment créer une rubrique nommée **TestTopic** d’une taille maximale de 5 Go et un message TTL par défaut de 1 minute.
 
 ```
 // Configure Topic Settings.
@@ -220,7 +220,7 @@ Client.Send(new BrokeredMessage());
 
 Les messages envoyés aux rubriques Service Bus sont des instances de la classe [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Les objets [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) possèdent un ensemble de propriétés standard (telles que [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) et [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu'un corps de données d'application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) ; le sérialiseur **DataContractSerializer** approprié est alors utilisé pour sérialiser l’objet. Une autre possibilité consiste à fournir un **System.IO.Stream**.
 
-L’exemple suivant montre comment envoyer cinq messages de test à l’objet **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) obtenu dans l’exemple de code précédent. Notez que la valeur de la propriété [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) de chaque message varie en fonction de l’itération de la boucle (ce qui détermine les abonnements qui le reçoivent) :
+L’exemple suivant montre comment envoyer cinq messages de test à l’objet **TestTopic** [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) obtenu dans l’exemple de code précédent. Notez que la valeur de la propriété [MessageNumber](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) de chaque message varie en fonction de l’itération de la boucle (ce qui détermine les abonnements qui le reçoivent).
 
 ```
 for (int i=0; i<5; i++)
@@ -283,7 +283,7 @@ Client.OnMessage((message) =>
 }, options);
 ```
 
-Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel du moment de l’appel de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute, le client attend donc un message jusqu’à une minute avant que l’appel expire et que le client effectue un nouvel appel de recherche des messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
+Cet exemple configure le rappel [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) à l’aide d’un objet [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) est défini sur **false** pour permettre le contrôle manuel du moment de l’appel de [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) sur le message reçu. [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) est défini sur 1 minute, le client attend donc un message jusqu’à une minute avant que l’appel expire et qu’il effectue un nouvel appel de recherche des messages. La valeur de cette propriété permet de réduire le nombre de fois où le client effectue des appels facturables qui ne récupèrent aucun message.
 
 ## Gestion des blocages d’application et des messages illisibles
 
@@ -317,7 +317,7 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
 -   Créez une application opérationnelle, capable d’envoyer et de recevoir des messages à destination et en provenance d’une file d’attente Service Bus : [Didacticiel .NET sur la messagerie répartie Service Bus][].
 -   Exemples Service Bus : téléchargement depuis la page [Exemples Azure][] ou consultation de la [présentation](service-bus-samples.md).
 
-  [Azure portal]: http://manage.windowsazure.com
+  [Portail Azure Classic]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -327,4 +327,4 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   [Didacticiel .NET sur la messagerie répartie Service Bus]: service-bus-brokered-tutorial-dotnet.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

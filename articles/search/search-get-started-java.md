@@ -28,7 +28,7 @@ Nous avons utilisé les logiciels suivants pour générer et tester cet exemple 
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail de gestion Azure](https://portal.azure.com).
+Pour exécuter cet exemple, vous devez disposer d’un service Azure Search, auquel vous pouvez vous connecter dans le [Portail Azure Classic](https://portal.azure.com).
 
 > [AZURE.TIP]Téléchargez le code source de ce didacticiel dans la [démonstration Java d'Azure Search](http://go.microsoft.com/fwlink/p/?LinkId=530197).
 
@@ -55,7 +55,7 @@ La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
 
 ## Créer le service
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
@@ -123,7 +123,7 @@ Toutes les modifications et instructions d'exécution ultérieures seront effect
 
 1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration qui contient le nom du serveur et la clé API.
 
-2. Reportez-vous aux étapes précédentes dans cet article, où vous avez trouvé l'URL et la clé API du service dans le [portail Azure](https://portal.azure.com), afin d'obtenir les valeurs que vous devez maintenant saisir dans **config.properties**.
+2. Reportez-vous aux étapes précédentes dans cet article, où vous avez trouvé l’URL et la clé API du service dans le [Portail Azure Classic](https://portal.azure.com), afin d’obtenir les valeurs que vous devez maintenant saisir dans **config.properties**.
 
 3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service (le premier composant de l'URL http://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
 
@@ -231,4 +231,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

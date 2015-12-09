@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Mappage réseau Azure Site Recovery | Microsoft Azure"
-	description="Azure Site Recovery coordonne la réplication, le basculement et la récupération des ordinateurs virtuels et services physiques situés en local vers Azure ou vers un site local secondaire."
+	pageTitle="Préparer le mappage réseau pour la protection des machines virtuelles Hyper-V avec VMM dans Azure Site Recovery | Microsoft Azure"
+	description="Configurez le mappage réseau pour la réplication de machines virtuelles Hyper-V à partir d’un centre de données local sur Azure ou sur un site secondaire."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,48 +13,36 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
+	ms.date="12/01/2015"
 	ms.author="raynew"/>
 
 
-# Mappage réseau d’Azure Site Recovery
+# Préparer le mappage réseau pour la protection des machines virtuelles Hyper-V avec VMM dans Azure Site Recovery
+
+Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques.
+
+Cet article décrit le mappage réseau, qui vous aide à configurer de façon optimale les paramètres réseau lorsque vous utilisez Site Recovery pour répliquer des machines virtuelles Hyper-V situées dans des clouds VMM entre deux centres de données locaux ou entre le centre de données local et Azure. Notez que si vous répliquez des machines virtuelles Hyper-V sans cloud VMM, ou que si vous répliquez des machines virtuelles VMware ou des serveurs physiques, cet article ne s’applique pas.
+
+Après avoir lu cet article, posez des questions sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
 
-Azure Site Recovery contribue à mettre en œuvre la stratégie de continuité des activités et de récupération d'urgence de votre entreprise en coordonnant la réplication, le basculement et la récupération de machines virtuelles et de serveurs physiques. Pour obtenir des instructions sur les différents scénarios de déploiement possibles, voir [Vue d’ensemble de Microsoft Azure Site Recovery](site-recovery-overview.md).
+## Vue d'ensemble
 
+Le mappage réseau est utilisé lorsqu’Azure Site Recovery est déployé pour répliquer des machines virtuelles Hyper-V sur Azure ou sur un centre de données secondaire à l’aide de Réplica Hyper-V ou de la réplication SAN.
 
-## À propos de cet article
-
-Le mappage réseau est un élément important à prendre en compte lors du déploiement de VMM et de Microsoft Azure Site Recovery. Il positionne de manière optimale les machines virtuelles répliquées sur des serveurs hôtes Hyper-V cibles et vérifie que les machines virtuelles répliquées sont connectées aux réseaux appropriés après le basculement. Cet article décrit le mappage réseau et fournit quelques exemples pour vous aider à en comprendre le fonctionnement.
-
-
-Posez vos questions éventuelles sur le [forum Microsoft Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## Vue d’ensemble
-
-La configuration du mappage réseau dépend du scénario de déploiement de Microsoft Azure Site Recovery.
-
-
-
-- **Mappage entre un serveur VMM local et un autre serveur VMM local** : le mappage réseau effectue le mappage entre des réseaux de machines virtuelles sur un serveur VMM source et des réseaux de machines virtuelles sur un serveur VMM cible, afin d’obtenir les résultats décrits ci-après.
+- **Machines virtuelles Hyper-V de réplication dans les clouds VMM entre deux centres de données locaux** : le mappage réseau effectue le mappage entre des réseaux de machines virtuelles sur un serveur VMM source et des réseaux de machines virtuelles sur un serveur VMM cible, afin d’obtenir les résultats décrits ci-après.
 
 	- **Connexion des machines virtuelles après basculement** : le système vérifie que les machines virtuelles sont connectées aux réseaux appropriés après le basculement. L’ordinateur virtuel de réplication sera connecté au réseau cible mappé au réseau source.
 	- **Positionnement des ordinateurs virtuels de réplication sur les serveurs hôtes** : les ordinateurs virtuels de réplication sont positionnés de manière optimale sur les serveurs hôtes Hyper-V. Ces ordinateurs sont placés sur des hôtes ayant accès aux réseaux de machines virtuelles mappés.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, les ordinateurs virtuels de réplication ne sont pas connectés aux réseaux de machines virtuelles après le basculement.
+	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, les machines virtuelles répliquées ne sont pas connectés aux réseaux de machines virtuelles après le basculement.
 
-- **Mappage entre un serveur VMM local et Microsoft Azure** : le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Microsoft Azure cibles, afin d’obtenir les résultats décrits ci-après.
+- **Réplication de machines virtuelles Hyper-V dans un cloud VMM local vers Azure** : le mappage réseau effectue un mappage entre les réseaux de machines virtuelles sur le serveur VMM source et les réseaux Azure cible, afin d’obtenir les résultats décrits ci-après.
 	- **Connexion des machines virtuelles après le basculement** : toutes les machines qui basculent sur le même réseau peuvent se connecter les unes aux autres, quel que soit le plan de récupération qui leur est associé.
-	- **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Microsoft Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
-	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération peuvent se connecter les unes aux autres après le basculement vers Microsoft Azure.
+	- **Passerelle réseau** : si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter à d’autres machines virtuelles locales.
+	- **Aucun mappage réseau** : si vous ne configurez pas le mappage réseau, seules les machines virtuelles ayant basculé au sein d’un même plan de récupération peuvent se connecter les unes aux autres après le basculement vers Azure.
 
-## Réseaux de machines virtuelles
 
-Un réseau logique VMM fournit une vue abstraite de l’infrastructure réseau physique. Les réseaux de machines virtuelles fournissent une interface réseau, afin de permettre la connexion des machines virtuelles aux réseaux logiques. Un réseau logique requiert au minimum un réseau de machines virtuelles. Lorsque vous placez une machine virtuelle dans un cloud à des fins de protection, elle doit être connectée à un réseau de machines virtuelles relié à un réseau logique, lui-même associé au cloud. Pour en savoir plus, consultez les billets de blog suivants :
-
-- [Logical Networks (Part 1)](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx)
-- [Virtual Networking in VMM 2012 SP1](http://blogs.technet.com/b/scvmm/archive/2013/01/08/virtual-networking-in-vmm-2012-sp1.aspx)
-
-## Exemples
+## Exemple de mappage réseau
 
 Le mappage réseau peut être configuré entre des réseaux de machines virtuelles sur deux serveurs VMM, ou sur un seul serveur VMM, lorsque deux sites sont gérés par le même serveur. Lorsque le mappage réseau est correctement configuré et que la réplication est activée, une machine virtuelle située à l’emplacement principal est connectée à un réseau, et son réplica (à l’emplacement cible) est connecté à son réseau mappé.
 
@@ -133,6 +121,6 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 ## Étapes suivantes
 
-Maintenant que vous avez une meilleure compréhension du mappage réseau, lisez les [meilleures pratiques](site-recovery-best-practices.md) relatives à la préparation du déploiement.
+Maintenant que vous comprenez mieux le mappage réseau, consultez [Meilleures pratiques du déploiement de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

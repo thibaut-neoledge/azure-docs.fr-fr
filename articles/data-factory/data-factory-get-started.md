@@ -38,7 +38,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ### Collecter le nom et la clé de votre compte de stockage Azure
 Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre compte de stockage Azure. Notez le **nom** et la **clé** de votre compte de stockage Azure en suivant les instructions ci-dessous :
 
-1. Connectez-vous au [portail Azure en version préliminaire][azure-preview-portal].
+1. Connectez-vous au [portail Azure][azure-portal].
 2. Cliquez sur le hub **PARCOURIR** situé à gauche et sélectionnez **Comptes de stockage**.
 3. Dans le panneau **Comptes de stockage**, sélectionnez le **compte de stockage Azure** que vous souhaitez utiliser dans ce didacticiel.
 4. Dans le panneau **STOCKAGE**, cliquez sur la vignette **CLÉS**.
@@ -49,7 +49,7 @@ Pour réaliser ce didacticiel, vous avez besoin du nom et de la clé de votre co
 ### Collecter le nom du serveur, le nom de la base de données et le compte d'utilisateur pour votre base de données SQL Azure
 Pour réaliser ce didacticiel, vous avez besoin des noms du serveur SQL Azure, de la base de données et de l'utilisateur. Notez les noms du **serveur**, de la **base de données** et de l'**utilisateur** pour votre base de données SQL Azure en suivant les instructions ci-dessous :
 
-1. Dans le **portail Azure en version préliminaire**, cliquez sur **PARCOURIR** sur la gauche et sélectionnez **Bases de données SQL**.
+1. Dans le **portail Azure**, cliquez sur **PARCOURIR** dans le volet gauche et sélectionnez **Bases de données SQL**.
 2. Dans le panneau **Bases de données SQL**, sélectionnez la **base de données** que vous souhaitez utiliser dans le cadre de ce didacticiel. Notez le **nom de la base de données**.  
 3. Dans le panneau **BASE DE DONNÉES SQL**, cliquez sur la vignette **PROPRIÉTÉS**.
 4. Notez les valeurs de **NOM DU SERVEUR** et de **CONNEXION D'ADMINISTRATEUR DU SERVEUR**.
@@ -88,14 +88,14 @@ Vérifiez que le paramètre **Autoriser l'accès aux services Azure** est **ACTI
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise la version commerciale du portail de gestion (http://manage.windowsazure.com)), et non la version préliminaire du portail (http://portal.azure.com)), pour configurer le pare-feu d'un serveur SQL Azure.
+	**Si SQL Server 2012/2014 est installé sur votre ordinateur :** suivez les instructions de l'[Étape 2 : connexion à la base de données SQL de l'article Gestion de la base de données SQL Azure au moyen de SQL Server Management Studio][sql-management-studio] pour vous connecter à votre serveur SQL Azure et exécuter le script SQL. Notez que cet article utilise le [portail Azure Classic](http://manage.windowsazure.com), et non le [portail Azure](http://portal.azure.com), pour configurer le pare-feu d’un serveur SQL Azure.
 
-	**Si Visual Studio 2013 est installé sur votre ordinateur :** dans le [portail Azure en version préliminaire](http://portal.azure.com), cliquez sur le hub **PARCOURIR** situé à gauche, puis sur **Serveurs SQL**, sélectionnez ensuite votre base de données, puis cliquez sur le bouton **Ouvrir dans Visual Studio** dans la barre d'outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
+	**Si Visual Studio 2013 est installé sur votre ordinateur :** dans le [portail Azure](http://portal.azure.com), cliquez sur le hub **PARCOURIR** situé à gauche, puis sur **Serveurs SQL**, sélectionnez ensuite votre base de données, puis cliquez sur le bouton **Ouvrir dans Visual Studio** dans la barre d’outils pour vous connecter à votre serveur SQL Azure et exécuter le script. Si votre client n’est pas autorisé à accéder au serveur SQL Azure, vous devez configurer le pare-feu pour votre serveur SQL Azure afin d’autoriser l’accès à partir de votre ordinateur (adresse IP). Consultez l'article ci-dessus pour savoir comment configurer le pare-feu pour votre serveur SQL Azure.
 
 
 Effectuez les actions suivantes :
 
-- Cliquez sur le lien [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide de Data Factory Editor, qui fait partie du portail Azure.
+- Cliquez sur le lien [Utilisation de Data Factory Editor](data-factory-get-started-using-editor.md) situé dans la partie supérieure pour effectuer le didacticiel à l’aide de Data Factory Editor, qui fait partie du portail Azure Classic.
 - Cliquez sur le lien [Utilisation de PowerShell](data-factory-monitor-manage-using-powershell.md) situé dans la partie supérieure pour effectuer le didacticiel à l'aide d'Azure PowerShell.
 - Cliquez sur le lien [Utilisation de Visual Studio](data-factory-get-started-using-vs.md) situé dans la partie supérieure pour suivre le didacticiel à l’aide de Visual Studio 2013.
  
@@ -103,7 +103,7 @@ Effectuez les actions suivantes :
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
@@ -111,4 +111,4 @@ Effectuez les actions suivantes :
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->
