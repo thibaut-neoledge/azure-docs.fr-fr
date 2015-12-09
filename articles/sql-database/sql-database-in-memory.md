@@ -276,7 +276,8 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 Pour exécuter la ligne de commande ostress.exe précédente :
 
 
-1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS, pour supprimer toutes les données insérées lors des exécutions précédentes : ```
+1. Réinitialisez le contenu de la base de données en exécutant la commande suivante dans SSMS, pour supprimer toutes les données insérées lors des exécutions précédentes :
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -301,7 +302,8 @@ Lorsque ostress.exe est terminé, la durée d’exécution est indiquée à la d
 Une fois le résultat de l’exécution de \_inmem obtenu, effectuez les opérations suivantes pour l’exécution de \_indisk :
 
 
-1. Réinitialisez la base de données en exécutant la commande suivante dans SSMS, et ce, pour supprimer toutes les données insérées lors de l’exécution précédente : ```
+1. Réinitialisez la base de données en exécutant la commande suivante dans SSMS, et ce, pour supprimer toutes les données insérées lors de l’exécution précédente :
+```
 EXECUTE Demo.usp_DemoReset;
 ```
 

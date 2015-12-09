@@ -499,7 +499,7 @@ Pour obtenir des informations plus générales sur Notification Hubs, consultez 
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Utilisation de Notification Hubs pour transmettre les notifications aux utilisateurs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Utilisation de Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-ios-send-breaking-news.md
 

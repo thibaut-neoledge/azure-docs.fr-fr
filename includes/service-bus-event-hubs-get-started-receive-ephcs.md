@@ -42,7 +42,9 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Insérez ensuite le code suivant dans le corps de la classe :
 
-	``` class SimpleEventProcessor : IEventProcessor { Stopwatch checkpointStopWatch;
+		class SimpleEventProcessor : IEventProcessor
+	    {
+	        Stopwatch checkpointStopWatch;
 
 	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	    {
@@ -92,13 +94,27 @@ Pour utiliser [EventProcessorHost], vous devez disposer d'un [compte Azure Stora
 
 	Ensuite, modifiez la méthode **Main** en spécifiant la classe **Program** comme indiqué ci-dessous, en remplaçant le nom du Event Hub, la chaîne de connexion, le compte de stockage et la clé que vous avez copiée dans les sections précédentes :
 
-    ``` static void Main(string args) { string eventHubConnectionString = "{event hub connection string}"; string eventHubName = "{event hub name}"; string storageAccountName = "{storage account name}"; string storageAccountKey = "{storage account key}"; string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
+    ```
+	static void Main(string[] args)
+    {
+      string eventHubConnectionString = "{event hub connection string}";
+      string eventHubName = "{event hub name}";
+      string storageAccountName = "{storage account name}";
+      string storageAccountKey = "{storage account key}";
+      string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
-      string eventProcessorHostName = Guid.NewGuid().ToString(); EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString); Console.WriteLine("Registering EventProcessor..."); eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+      string eventProcessorHostName = Guid.NewGuid().ToString();
+      EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+      Console.WriteLine("Registering EventProcessor...");
+      eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
 
-      Console.WriteLine("Receiving. Press enter key to stop worker."); Console.ReadLine(); eventProcessorHost.UnregisterEventProcessorAsync().Wait(); } ````
+      Console.WriteLine("Receiving. Press enter key to stop worker.");
+      Console.ReadLine();
+      eventProcessorHost.UnregisterEventProcessorAsync().Wait();
+    }
+	````
 
-> [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][] et [Guide de programmation Event Hubs][].
+> [AZURE.NOTE]Ce didacticiel utilise une seule instance d'[EventProcessorHost][]. Pour augmenter le débit, il est recommandé d'exécuter plusieurs instances d'[EventProcessorHost][], comme illustré dans l'exemple de [traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup**. Au moment de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances d'[EventProcessorHost][] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d'informations sur ces sujets, consultez les rubriques [Vue d'ensemble d'Event Hubs][] et [Guide de programmation Event Hubs][].
 
 <!-- Links -->
 [Vue d’ensemble d’Event Hubs]: event-hubs-overview.md
