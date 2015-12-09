@@ -330,4 +330,4 @@ Maintenant que vous connaissez les bases, consultez les liens suivants pour en s
 
 [Version d'évaluation gratuite d'Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

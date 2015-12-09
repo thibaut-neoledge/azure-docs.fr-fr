@@ -327,4 +327,4 @@ Maintenant que vous avez appris les principes de base des rubriques et des abonn
   [Didacticiel .NET sur la messagerie répartie Service Bus]: service-bus-brokered-tutorial-dotnet.md
   [Exemples Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

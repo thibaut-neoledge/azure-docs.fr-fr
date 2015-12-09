@@ -514,4 +514,4 @@ public bool IsTransient(Exception ex)
 
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

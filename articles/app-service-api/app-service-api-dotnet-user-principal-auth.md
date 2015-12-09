@@ -345,4 +345,4 @@ Dans les sections suivantes, vous allez configurer les projets et AAD pour exéc
 
 Dans ce didacticiel, vous avez utilisé l’authentification/autorisation App Service pour restreindre l’accès à une application API pour que seuls les utilisateurs authentifiés puissent l’appeler. Dans le didacticiel suivant de la série, vous allez découvrir comment [restreindre l’accès à votre application API pour les scénarios de service à service](app-service-api-dotnet-service-principal-auth.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

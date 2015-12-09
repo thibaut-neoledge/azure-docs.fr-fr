@@ -110,4 +110,4 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
 * Automatisez le déploiement et la gestion des machines virtuelles et charges de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

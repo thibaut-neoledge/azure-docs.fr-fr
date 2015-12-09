@@ -797,4 +797,4 @@ Ce didacticiel a été écrit par [Rick Anderson](http://blogs.msdn.com/b/rickan
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

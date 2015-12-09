@@ -272,4 +272,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

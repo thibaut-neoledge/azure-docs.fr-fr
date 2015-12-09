@@ -162,4 +162,4 @@ Enfin, vous devez publier le serveur principal d'application mobile sur Azure et
 [Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

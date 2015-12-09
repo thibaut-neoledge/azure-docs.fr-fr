@@ -177,4 +177,4 @@ Ceci envoie une demande POST vers le nouveau backend d'application mobile héber
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

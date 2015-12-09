@@ -220,4 +220,4 @@ Prise en charge d’IIS : IIS 7, 7.5, 8, 8.5 (IIS requis)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

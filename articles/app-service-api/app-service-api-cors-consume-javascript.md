@@ -235,4 +235,4 @@ Pour utiliser les services d’authentification Azure intégrés dans les didact
 
 Dans ce didacticiel, vous avez vu deux façons d’activer la prise en charge de CORS pour que le code JavaScript client puisse appeler une API dans un autre domaine. Dans le didacticiel suivant, vous allez voir comment [restreindre l’accès à votre application API pour que seuls les utilisateurs authentifiés puissent y accéder](app-service-api-dotnet-user-principal-auth.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

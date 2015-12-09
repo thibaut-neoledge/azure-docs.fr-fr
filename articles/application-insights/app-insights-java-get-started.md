@@ -398,4 +398,4 @@ Pour plus d’informations, consultez le [Centre pour développeurs Java](/devel
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

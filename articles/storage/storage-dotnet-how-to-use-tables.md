@@ -440,4 +440,4 @@ Comme vous connaissez maintenant les bases du stockage des tables, vous pouvez c
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

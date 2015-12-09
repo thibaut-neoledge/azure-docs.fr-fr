@@ -39,4 +39,4 @@ Vous pouvez exécuter l’application en utilisant l’émulateur ou un périph�
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

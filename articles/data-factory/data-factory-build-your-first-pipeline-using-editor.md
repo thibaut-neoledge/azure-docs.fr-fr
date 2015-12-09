@@ -233,4 +233,4 @@ Dans cette étape, vous allez créer votre premier pipeline.
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

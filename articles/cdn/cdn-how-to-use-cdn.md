@@ -141,4 +141,4 @@ Pour plus d'informations sur le mappage d'un domaine personnalisé, consultez la
 - [Vue d’ensemble du réseau de distribution de contenu (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

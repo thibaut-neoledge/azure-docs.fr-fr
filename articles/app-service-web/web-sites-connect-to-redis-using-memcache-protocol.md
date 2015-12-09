@@ -197,4 +197,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

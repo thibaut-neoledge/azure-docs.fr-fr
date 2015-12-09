@@ -202,4 +202,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 [11]: ./media/sql-database-elastic-pool-portal/recommended-pool.png
 [12]: ./media/sql-database-elastic-pool-portal/pools-message.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

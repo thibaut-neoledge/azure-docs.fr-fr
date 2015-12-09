@@ -83,4 +83,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

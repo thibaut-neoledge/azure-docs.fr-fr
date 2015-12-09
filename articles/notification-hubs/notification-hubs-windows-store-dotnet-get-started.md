@@ -283,4 +283,4 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la se
 [catalogue de vignettes]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [vue d'ensemble des badges]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

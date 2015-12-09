@@ -281,4 +281,4 @@ Il s’agit du dernier de la série de didacticiels de prise en main d’API App
 	* [Configuration d’un nom de domaine personnalisé dans Azure App Service](web-sites-custom-domain-name.md)
 	* [Activation du protocole HTTPS pour un site web Azure](web-sites-configure-ssl-certificate.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

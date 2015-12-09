@@ -98,4 +98,4 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [portail Azure Classic]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

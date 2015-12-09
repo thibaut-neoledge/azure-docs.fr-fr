@@ -140,4 +140,4 @@ Présentation d’Ignite 2015 sur l'extension de vos répertoires locaux dans l
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -98,4 +98,4 @@ MV5 | C:\\ClusterStorage\\SourceVolume3 | N/A | Aucun mappage. Donc, l’emplace
 
 Maintenant que vous comprenez mieux le mappage de stockage, consultez [Meilleures pratiques du déploiement de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

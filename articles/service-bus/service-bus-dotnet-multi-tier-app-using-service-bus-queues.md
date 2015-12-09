@@ -544,4 +544,4 @@ Pour plus d’informations sur le déploiement du composant frontal sur un site 
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

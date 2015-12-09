@@ -12,4 +12,4 @@ Cette section montre comment connecter votre application au serveur principal Mo
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

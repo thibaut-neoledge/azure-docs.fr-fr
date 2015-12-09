@@ -216,4 +216,4 @@ Pour plus d’informations, consultez le [Centre de développement Python](/deve
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

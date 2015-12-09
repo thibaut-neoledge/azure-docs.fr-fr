@@ -236,4 +236,4 @@ Après avoir créé un pool élastique de bases de données, vous pouvez gérer 
 
 Pour en savoir plus sur les bases de données et les pools de bases de données élastiques, y compris les détails des API et des erreurs, consultez [Référence du pool de bases de données élastique](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

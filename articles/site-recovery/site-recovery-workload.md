@@ -108,4 +108,4 @@ Utilisez Site Recovery pour protéger votre déploiement SAP :
 
 [En savoir plus](http://aka.ms/asr-sap)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

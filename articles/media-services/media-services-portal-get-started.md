@@ -260,4 +260,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

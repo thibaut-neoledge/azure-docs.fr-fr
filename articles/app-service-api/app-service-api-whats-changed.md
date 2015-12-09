@@ -125,4 +125,4 @@ Pour en savoir plus, lisez les articles de la [section Documentation API Apps](h
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/fr-FR/home?forum=AzureAPIApps)
 - [Dépassement de capacité de la pile](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

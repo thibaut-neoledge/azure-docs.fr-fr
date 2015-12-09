@@ -442,4 +442,4 @@ Ensuite, dans le fichier *config.js*, mettez à jour les valeurs config.endpoint
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -152,4 +152,4 @@
 
 [Informations de référence sur l’API REST de la gestion des services](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

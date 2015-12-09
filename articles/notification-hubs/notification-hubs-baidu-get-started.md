@@ -504,4 +504,4 @@ Pour envoyer une notification de test, vous pouvez utiliser l’onglet de débog
 [portail Azure]: https://manage.windowsazure.com/
 [portail Baidu]: http://www.baidu.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

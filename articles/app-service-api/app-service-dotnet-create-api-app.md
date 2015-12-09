@@ -56,4 +56,4 @@ Pour plus d’informations sur l’authentification des utilisateurs des applica
 
 Pour en savoir plus sur les fonctionnalités des applications API, consultez [Que sont les applications API ?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

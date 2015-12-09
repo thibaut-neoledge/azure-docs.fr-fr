@@ -51,4 +51,4 @@ Choisissez .NET ou l’API REST pour vous connecter par programme à Azure Media
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

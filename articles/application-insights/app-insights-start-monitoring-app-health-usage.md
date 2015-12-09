@@ -269,4 +269,4 @@ Si cette application fait partie d'une application plus importante, vous pouvez 
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

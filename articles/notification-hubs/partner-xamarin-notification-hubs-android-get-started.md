@@ -523,4 +523,4 @@ Dans cet exemple simple, vous avez diffusé des notifications à tous vos appare
 [Composant Client Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Composant Azure Messaging]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

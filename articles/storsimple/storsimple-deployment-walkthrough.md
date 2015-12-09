@@ -290,4 +290,4 @@ Procédez comme suit dans le Portail Azure Classic pour créer une sauvegarde ma
 
 - Utilisez le [service StorSimple Manager](https://msdn.microsoft.com/library/azure/dn772396.aspx) pour gérer votre appareil StorSimple.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

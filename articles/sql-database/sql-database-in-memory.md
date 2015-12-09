@@ -525,4 +525,4 @@ Si une base de données contient l’une des sortes d’objets ou de types In-Me
 
 - [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md) pour In-Memory OLTP.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

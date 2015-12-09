@@ -71,4 +71,4 @@ Si vous souhaitez en savoir plus sur la gestion de l’entrepôt SQL Data Wareho
 [firewall rules]: https://azure.microsoft.com/fr-FR/documentation/articles/sql-database-configure-firewall-settings/
 [Comment installer et configurer Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

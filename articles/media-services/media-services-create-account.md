@@ -103,4 +103,4 @@ De plus, vous pouvez afficher du code utilisant le Kit de développement logicie
 
   [portail Azure Classic]: http://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

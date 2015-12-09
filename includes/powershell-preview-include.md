@@ -4,4 +4,4 @@
 >
 > De nouvelles fonctionnalités seront ajoutées à la version 1.0 uniquement. Pour plus d’informations sur la version 1.0, notamment sur la procédure d’installation et de désinstallation de la version, consultez [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

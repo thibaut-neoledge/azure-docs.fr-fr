@@ -293,4 +293,4 @@ Dans cet article, vous avez pu commencer avec un fichier Swagger JSON et un code
 
 Pour plus d’informations sur l’utilisation de Java dans Azure, consultez le [Centre de développement Java](/develop/java/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

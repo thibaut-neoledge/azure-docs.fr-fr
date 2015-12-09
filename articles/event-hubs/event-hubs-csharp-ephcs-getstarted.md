@@ -108,4 +108,4 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 [solution de messages de file d'attente]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

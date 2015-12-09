@@ -133,4 +133,4 @@ Pour plus d'informations sur les applications Windows universelles, consultez la
 [portail Azure Classic]: https://manage.windowsazure.com/
 [Résolution des problèmes d'un backend .NET Mobile Services ]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

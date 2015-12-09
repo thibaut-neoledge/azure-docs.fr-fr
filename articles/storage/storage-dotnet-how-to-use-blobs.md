@@ -365,4 +365,4 @@ Maintenant que vous connaissez les bases du stockage d’objets blob, consultez 
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

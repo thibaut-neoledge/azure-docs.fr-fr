@@ -172,4 +172,4 @@ Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le ta
 - Pour en savoir plus sur Azure Storage, consultez la documentation de référence Azure Storage sur [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

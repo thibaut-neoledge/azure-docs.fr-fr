@@ -190,4 +190,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

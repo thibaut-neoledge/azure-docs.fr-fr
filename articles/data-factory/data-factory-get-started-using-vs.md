@@ -236,4 +236,4 @@ Pour mettre à jour des outils Azure Data Factory pour Visual Studio, procéd
 
 Consultez [Surveiller les jeux de données et le pipeline](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline) pour obtenir des instructions sur l’utilisation du portail Azure et surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

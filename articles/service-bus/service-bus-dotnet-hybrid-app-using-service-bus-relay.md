@@ -610,4 +610,4 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

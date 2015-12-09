@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

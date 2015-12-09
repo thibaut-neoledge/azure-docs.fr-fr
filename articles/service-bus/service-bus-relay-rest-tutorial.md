@@ -584,4 +584,4 @@ Maintenant que vous avez créé une application qui utilise le service de relais
 
 [Portail Azure Classic]: http://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -633,4 +633,4 @@ Pour ajouter des fonctionnalités supplémentaires à votre application, passez 
 [Opérations CRUD de base dans ASP.NET MVC.]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

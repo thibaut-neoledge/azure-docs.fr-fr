@@ -74,4 +74,4 @@ L’opération d’importation des données que vous venez de terminer crée un 
 
 Dans le tableau de bord des services, double-cliquez sur la vignette Indexeur pour extraire une liste de tous les indexeurs créés pour votre abonnement. Double-cliquez sur l’un des indexeurs pour l’exécuter, le modifier ou le supprimer.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

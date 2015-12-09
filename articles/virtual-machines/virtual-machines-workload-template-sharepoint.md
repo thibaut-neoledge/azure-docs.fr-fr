@@ -186,4 +186,4 @@ Une fois que l’exécution du modèle est terminée, vous disposez d’une nouv
 
 [Installation et configuration d’Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

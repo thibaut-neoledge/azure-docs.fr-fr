@@ -786,4 +786,4 @@ Tous les exemples de ce didacticiel sont inclus dans le projet [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -123,4 +123,4 @@ Le mappage réseau de VMNetwork1-Chicago est modifié. | La machine VM1 est conn
 
 Maintenant que vous comprenez mieux le mappage réseau, consultez [Meilleures pratiques du déploiement de Site Recovery](site-recovery-best-practices.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

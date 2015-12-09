@@ -42,4 +42,4 @@ Consultez billet de blog de Eric Golpe [Procédure pas à pas de la suppression 
 [lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-delete-aad-tennant]: http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -724,4 +724,4 @@ Pour plus d'informations sur la prise en main de Sencha Touch, consultez l'ensem
 
 [Portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

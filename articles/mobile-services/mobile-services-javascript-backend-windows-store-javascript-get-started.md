@@ -89,4 +89,4 @@ Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mob
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

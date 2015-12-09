@@ -108,4 +108,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

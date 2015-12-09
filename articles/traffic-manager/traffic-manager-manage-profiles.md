@@ -85,4 +85,4 @@ Vous pouvez afficher l’historique des modifications de votre profil Traffic Ma
 
 [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

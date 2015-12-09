@@ -144,4 +144,4 @@ Une fois que vous avez créé une base de données SQL et effectué les tâches 
 
 - [Base de données SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

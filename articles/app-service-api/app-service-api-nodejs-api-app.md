@@ -240,4 +240,4 @@ Grâce aux fonctionnalités intégrées de remise continue fournies par Azure Ap
 ## Résumé
 À ce stade, vous avez créé et déployé votre première application API à l’aide de Node.js. Vous pourriez maintenant ajouter du code aux gestionnaires pour stocker vos données dans une base de données ou sur le disque de votre instance d’application API. Maintenant que le déploiement continu est configuré, pour étendre ou changer les fonctionnalités de votre application API, il vous suffit de modifier et de pousser votre code vers votre dépôt Git.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

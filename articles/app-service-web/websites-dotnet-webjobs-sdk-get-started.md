@@ -799,4 +799,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

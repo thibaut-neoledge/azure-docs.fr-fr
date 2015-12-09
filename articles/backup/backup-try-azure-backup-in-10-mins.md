@@ -46,4 +46,4 @@ Passez en revue les étapes présentées dans la vidéo [Prise en main d’Azure
 - [Sauvegarder Windows Server](backup-azure-backup-windows-server.md)
 - Consultez le [forum Azure Backup](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

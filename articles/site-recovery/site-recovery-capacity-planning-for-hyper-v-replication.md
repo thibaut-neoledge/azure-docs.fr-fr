@@ -137,4 +137,4 @@ Les principales métriques sont indiquées ci-dessous. Vous pouvez ignorer celle
 - [Configuration de la protection entre un site local Hyper-V et Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configuration de la protection entre des sites VMM locaux](site-recovery-vmm-to-vmm.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

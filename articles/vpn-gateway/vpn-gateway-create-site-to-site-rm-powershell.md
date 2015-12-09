@@ -248,4 +248,4 @@ Vous pouvez utiliser l'exemple suivant comme référence.
 
 Ajoutez une machine virtuelle à votre réseau virtuel. [Créez une machine virtuelle](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

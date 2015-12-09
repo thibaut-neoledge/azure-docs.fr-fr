@@ -23,4 +23,4 @@
 
    	![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

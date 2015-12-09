@@ -33,4 +33,4 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-ps-include](../../includes/virtual-networks-create-vnet-arm-ps-include.md)]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

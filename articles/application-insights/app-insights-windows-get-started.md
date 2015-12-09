@@ -231,4 +231,4 @@ Lorsqu'une [nouvelle version du Kit de développement logiciel est publiée](app
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

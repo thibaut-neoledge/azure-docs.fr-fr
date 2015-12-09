@@ -358,4 +358,4 @@ Pour plus d’informations, voir <br/> [Procédure : configuration des paramèt
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

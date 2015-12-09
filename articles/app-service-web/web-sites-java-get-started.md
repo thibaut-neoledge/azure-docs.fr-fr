@@ -176,4 +176,4 @@ Pour plus d’informations sur le développement des applications Java dans Azu
 
 [Essayer App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

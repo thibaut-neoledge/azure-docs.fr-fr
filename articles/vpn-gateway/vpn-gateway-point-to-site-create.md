@@ -193,4 +193,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous voulez d’autres informations sur les réseaux virtuels, consultez la page [Document de réseau virtuel Azure](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

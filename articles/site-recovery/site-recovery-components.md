@@ -155,4 +155,4 @@ Dans ce scénario, les modifications de la réplication différentielle sont env
 
 [Préparer le déploiement](site-recovery-best-practices.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

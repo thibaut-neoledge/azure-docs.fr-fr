@@ -48,4 +48,4 @@ Une fois dans le portail Mobile Engagement, vous pouvez analyser, créer et gér
 
 [Prise en main d’Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (vous pouvez sélectionner d’autres plateformes mobiles en haut de la page).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

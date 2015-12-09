@@ -46,4 +46,4 @@ Pour en savoir plus sur DocumentDB, explorez les ressources suivantes :
 
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

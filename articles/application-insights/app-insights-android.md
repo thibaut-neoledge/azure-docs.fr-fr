@@ -26,4 +26,4 @@ Pour une analyse de l’utilisation, utilisez le [Kit de développement logiciel
 * [Prise en main d'Application Insights pour Android](https://github.com/Microsoft/ApplicationInsights-Android).
 * [Prise en main de HockeyApp pour Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

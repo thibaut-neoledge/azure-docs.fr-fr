@@ -211,4 +211,4 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

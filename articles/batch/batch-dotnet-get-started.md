@@ -495,4 +495,4 @@ Une fois le travail créé, vous pouvez y ajouter des tâches. Chaque tâche s�
 
 2. Certaines applications génèrent de grandes quantités de données qui peuvent se révéler difficiles à traiter. L’un des moyens de contourner ce problème consiste à utiliser des [requêtes de liste efficaces](batch-efficient-list-queries.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -499,4 +499,4 @@ Pour réaliser ce didacticiel en utilisant Azure PowerShell, consultez [Créer e
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -103,4 +103,4 @@ La figure 2 illustre un flux de travail qui utilise une application cliente .NE
 [parallel]: ./media/batch-technical-overview/parallel.png
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

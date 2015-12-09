@@ -76,4 +76,4 @@ Une fois que l’appareil est inscrit correctement et n’est pas en ligne, vous
 
 Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

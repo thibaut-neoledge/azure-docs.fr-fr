@@ -480,4 +480,4 @@ Pour restaurer les références au Kit de développement logiciel (SDK) .NET de 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

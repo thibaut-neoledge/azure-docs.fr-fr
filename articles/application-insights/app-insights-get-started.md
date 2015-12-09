@@ -74,4 +74,4 @@ Ce que vous voulez | Ce que vous devez faire | Ce que vous obtenez
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

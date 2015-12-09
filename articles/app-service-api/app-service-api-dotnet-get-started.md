@@ -410,4 +410,4 @@ Avant de déployer vers Azure, modifiez le point de terminaison d’API dans le 
 
 Dans ce didacticiel, vous avez vu comment créer des applications API, y déployer du code et les consommer à partir de clients .NET. Le didacticiel suivant de cette série de prise en main montre comment [consommer des applications API à partir de clients JavaScript à l’aide de CORS](app-service-api-cors-consume-javascript.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

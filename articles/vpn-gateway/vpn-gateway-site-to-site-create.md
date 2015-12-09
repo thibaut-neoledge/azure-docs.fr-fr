@@ -102,4 +102,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous souhaitez configurer une connexion entre votre réseau virtuel classique et un réseau virtuel créé en mode Azure Resource Manager, consultez [Connexion de réseaux virtuels classiques à des réseaux virtuels Azure Resource Manager](../virtual-network/virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

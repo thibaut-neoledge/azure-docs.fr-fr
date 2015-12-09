@@ -231,4 +231,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

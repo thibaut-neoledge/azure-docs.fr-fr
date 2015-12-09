@@ -125,4 +125,4 @@ Ensuite, vous allez déployer votre projet CORS dans Azure.
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

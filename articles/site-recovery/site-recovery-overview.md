@@ -67,4 +67,4 @@ En savoir plus en consultant [Aide relative à la charge de travail Site Recover
 Une fois que vous avez fini de consulter cette présentation, vous pouvez [en savoir plus](site-recovery-components.md) sur l’architecture Site Recovery.
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
