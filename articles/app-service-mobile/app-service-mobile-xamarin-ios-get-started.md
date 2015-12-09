@@ -41,7 +41,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
  
 * Si vous envisagez de générer votre application sur un ordinateur Windows exécutant Visual Studio, vous devrez toujours avoir accès à un Mac en réseau exécutant l’hôte Xamarin.iOS Build pour pouvoir générer et déployer votre application. Pour plus d’informations, consultez la rubrique [Installation de Xamarin.iOS sur Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/).
 
->[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
+>[AZURE.NOTE]Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://tryappservice.azure.com/?appServiceName=mobile). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
 ## Créer un serveur principal d'applications mobiles Azure
 
@@ -121,4 +121,4 @@ Si vous avez choisi une configuration de serveur principal .NET ci-dessus, vous 
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Installation de Xamarin.iOS sur Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015--->

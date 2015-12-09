@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Didacticiel HBase : prise en main de HBase dans Hadoop | Microsoft Azure"
 	description="Suivez ce didacticiel HBase pour apprendre à utiliser Apache HBase avec Hadoop dans HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive."
-	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+	keywords="apache hbase,hbase,shell hbase,didacticiel hbase"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="12/02/2015"
 	ms.author="jgao"/>
 
 
 
 # Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight
 
-Découvrez comment approvisionner un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide de Hive. Pour obtenir des informations générales sur HBase, consultez la page [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
+Découvrez comment créer un cluster HBase dans HDInsight, créer des tables HBase et les interroger à l’aide de Hive. Pour obtenir des informations générales sur HBase, consultez la page [Vue d’ensemble de HDInsight HBase][hdinsight-hbase-overview].
 
 [AZURE.INCLUDE [portail Azure hdinsight](../../includes/hdinsight-azure-portal.md)]
 
@@ -43,26 +43,26 @@ Avant de commencer ce didacticiel sur HBase, vous devez disposer des éléments 
 - **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Une station de travail** avec Visual Studio 2013 : pour obtenir des instructions, consultez [Installation de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Approvisionnement d’un cluster HBase
+## Créer un cluster HBase
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
-**Approvisionnement d’un cluster HBase en utilisant le portail Azure**
+**Pour créer un cluster HBase à l’aide du portail Azure**
 
 
 1. Connectez-vous au [portail Azure][azure-management-portal].
 2. Cliquez sur **Nouveau** dans le coin inférieur gauche, puis sur **Services de données** > **HDInsight** > **HBase**.
 
-	>[AZURE.NOTE]Vous pouvez également utiliser l'option **Création personnalisée**.
+	>[AZURE.NOTE]Vous pouvez également utiliser l’option **Création personnalisée**.
 3. Renseignez les champs **Nom du cluster**, **Taille du cluster**, Mot de passe utilisateur HTTP et **Compte de stockage**.
 
-	![Approvisionnement d’un cluster HBase dans HDInsight][img-hdinsight-hbase-cluster-quick-create]
+	![Créer un cluster HBase dans HDInsight][img-hdinsight-hbase-cluster-quick-create]
 
 	Le NOM D’UTILISATEUR HTTP par défaut est admin. Vous pouvez personnaliser le nom à l'aide de l'option CRÉATION PERSONNALISÉE.
 
-	Un compte de stockage Azure est nécessaire pour utiliser le processus d’approvisionnement HBase par défaut. Consultez la page [Création d’un compte de stockage Azure][azure-create-storageaccount] pour en créer un. L’option Création personnalisée permet de créer un compte de stockage avec le processus d’approvisionnement de cluster.
+	Un compte de stockage Azure est nécessaire pour utiliser le processus de création HBase par défaut. Consultez la page [Création d’un compte de stockage Azure][azure-create-storageaccount] pour en créer un. L’option Création personnalisée permet de créer un compte de stockage avec le processus de création de cluster.
 
-	> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez configurer un cluster qui contient au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
+	> [AZURE.WARNING]Pour la haute disponibilité des services HBase, vous devez créer un cluster contenant au moins **trois** nœuds. Cela garantit que si un nœud tombe en panne, les régions de données HBase sont disponibles sur d'autres nœuds.
 
 	> Si vous commencez à découvrir HBase, sélectionnez toujours 1 pour la taille de cluster, puis supprimez le cluster après chaque utilisation pour réduire les coûts.
 
@@ -179,7 +179,7 @@ Vous pouvez interroger les données des tables HBase à l’aide de Hive. Cette 
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters s’affiche, avec celui que vous avez créé précédemment dans ce didacticiel.
 3. Cliquez sur le nom du cluster où vous voulez exécuter la tâche Hive
 4. Cliquez sur **CONSOLE DE REQUÊTE** en bas de la page pour ouvrir le tableau de bord du cluster. Une page Web s'ouvre dans un autre onglet du navigateur.
-5. Entrez le nom d'utilisateur et le mot de passe du compte d'utilisateur Hadoop. Le nom d'utilisateur par défaut est **admin**, le mot de passe est celui que vous avez entré pendant l'approvisionnement. Un nouvel onglet de navigateur s'ouvre.
+5. Entrez le nom d'utilisateur et le mot de passe du compte d'utilisateur Hadoop. Le nom d’utilisateur par défaut est **admin** et le mot de passe est celui que vous avez entré pendant le processus de création. Un nouvel onglet de navigateur s'ouvre.
 6. Cliquez sur **Éditeur Hive** en haut de la page. L'éditeur Hive se présente comme suit :
 
 	![Tableau de bord de cluster HDInsight.][img-hdinsight-hbase-hive-editor]
@@ -329,12 +329,12 @@ Vous devez télécharger la bibliothèque cliente API REST de HBase pour .NET à
 
 
 ## Et ensuite ?
-Dans ce didacticiel HBase pour HDInsight, vous avez appris à approvisionner un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
+Dans ce didacticiel HBase pour HDInsight, vous avez appris à créer un cluster HBase, à créer des tables et à afficher les données de ces tables à partir de l’interpréteur de commandes HBase. Vous avez également appris à utiliser une requête Hive pour interroger les données des tables HBase et à utiliser les API REST C# HBase pour créer une table HBase et en extraire les données.
 
 Pour plus d'informations, consultez les rubriques suivantes :
 
 - [Vue d'ensemble de HDInsight HBase][hdinsight-hbase-overview] : HBase est une base de données NoSQL open source Apache basée sur Hadoop qui fournit un accès aléatoire et une forte cohérence pour de grandes quantités de données non structurées et semi-structurées.
-- [Approvisionnement de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] :avec l'intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
+- [Création de clusters HBase sur Azure Virtual Network][hdinsight-hbase-provision-vnet] :avec l’intégration du réseau virtuel, les clusters HBase peuvent être déployés sur le même réseau virtuel que vos applications pour permettre à celles-ci de communiquer directement avec HBase.
 - [Configurer la réplication HBase dans HDInsight](hdinsight-hbase-geo-replication.md) : découvrez comment configurer la réplication HBase entre deux centres de données Azure.
 - [Analyse de sentiments Twitter avec HBase dans HDInsight][hbase-twitter-sentiment] : découvrez comment effectuer une [analyse de sentiments](http://en.wikipedia.org/wiki/Sentiment_analysis) en temps réel des données volumineuses à l'aide de HBase dans un cluster Hadoop sous HDInsight.
 
@@ -365,4 +365,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

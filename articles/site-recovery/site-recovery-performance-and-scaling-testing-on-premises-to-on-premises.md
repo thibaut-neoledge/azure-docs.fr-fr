@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Microsoft Azure Site Recovery - Test des performances et de l’évolutivité : depuis un site local vers un site local"
-	description="Cet article détaille les tests relatifs à l’impact, sur les performances, d’une réplication effectuée via Microsoft Azure Site Recovery dans le cadre du déploiement d’un site local vers un autre site local."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery : test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre"
+	description="Cet article fournit des informations sur les tests des performances pour la réplication d’un site local à un autre à l’aide d’Azure Site Recovery."
+	services="site-recovery" 
 	documentationCenter=""
-	authors="csilauraa"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
@@ -13,24 +13,25 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="10/07/2015"
-	ms.author="lauraa"/>
+	ms.date="12/01/2015"
+	ms.author="raynew"/>
 
-# Test des performances et de l’évolutivité : depuis un site local vers un site local
+# Azure Site Recovery : test des performances et résultats de mise à l’échelle pour la réplication Hyper-V d’un site local à un autre
 
-Microsoft Azure Site Recovery orchestre et gère la réplication de votre centre de données principal vers un autre emplacement, afin que les données soient enregistrées et puissent être récupérées en cas d’interruption planifiée ou non planifiée. Vous pouvez sauvegarder les données de clouds privés se trouvant sur System Center Virtual Machine Manager (VMM) vers un autre emplacement local ou sur Microsoft Azure Storage. Pour effectuer la réplication, VMM utilise un mécanisme de réplication appelé Réplica Hyper-V, qui est intégré dans la fonction Hyper-V de Windows Server 2012 et Windows Server 2012 R2. Il assure la réplication asynchrone des machines virtuelles Hyper-V entre deux serveurs d’hébergement. Toute charge de travail de serveur susceptible d’être virtualisée dans Hyper-V peut être répliquée. La réplication fonctionne sur n’importe quel réseau IP ordinaire. Le Réplica Hyper-V fonctionne avec les serveurs autonomes, les clusters de basculement, ou un mélange des deux.
+Vous pouvez utiliser Microsoft Azure Site Recovery pour orchestrer et gérer la réplication des machines virtuelles et des serveurs physiques sur Azure ou sur un centre de données secondaire. Cet article présente les résultats des tests de performances que nous avons effectués lors de la réplication de machines virtuelles Hyper-V entre deux centres de données locaux.
 
-Cette rubrique détaille les tests relatifs à l’impact, sur les performances, d’une réplication effectuée via Microsoft Azure Site Recovery dans le cadre du déploiement d’un site local vers un autre site local. Il fournit des informations détaillées sur les paramètres et réglages de configuration utilisés dans le test, détaille l’étape de déploiement et fournit les résultats détaillés de ce test.
 
-## Objectifs du test
 
-Ce test évalue le comportement de Microsoft Azure Site Recovery lors d’une réplication à l’état stationnaire. Ce type de réplication se produit une fois que les machines virtuelles ont terminé la réplication initiale des données et effectuent une synchronisation du delta des changements. Il est important d’évaluer les performances à l’état stationnaire, car il s’agit de l’état que présentent la plupart des machines virtuelles, sauf en cas d’interruption inattendue.
+## Vue d'ensemble
 
-## Exécution d’un déploiement de test
+Ce test visait à évaluer le comportement d’Azure Site Recovery lors d’une réplication à l’état stationnaire. Ce type de réplication se produit une fois que les machines virtuelles ont terminé la réplication initiale des données et effectuent une synchronisation du delta des changements. Il est important d’évaluer les performances à l’état stationnaire, car il s’agit de l’état que présentent la plupart des machines virtuelles, sauf en cas d’interruption inattendue.
 
-Le déploiement de test comprend deux sites locaux, dotés d’un serveur VMM chacun. Les deux serveurs VMM sont inscrits au sein d’un coffre Microsoft Azure Site Recovery. Ce déploiement de test est un exemple classique de déploiement de systèmes d’un siège social vers une succursale, le bureau de direction jouant le rôle de site principal et la succursale, de site de récupération ou secondaire.
 
-### Étapes du déploiement de test
+Le déploiement de test comprend deux sites locaux, dotés d’un serveur VMM dans chaque site. Ce déploiement de test est un exemple classique de déploiement de systèmes d’un siège social vers une succursale, le bureau de direction jouant le rôle de site principal et la succursale, de site de récupération ou secondaire.
+
+### Nos actions
+
+Voici ce que nous avons fait lors des tests :
 
 1. Création des machines virtuelles à l’aide de modèles VMM.
 
@@ -104,9 +105,9 @@ Le graphique suivant affiche le débit des machines virtuelles exécutant divers
 
 ### Conclusion
 
-Les résultats indiquent clairement que la solution Microsoft Azure Site Recovery, utilisée avec le Réplica Hyper-V, s’adapte bien à la surcharge minimale d’un cluster volumineux. Microsoft Azure Site Recovery offre des fonctions simples de déploiement, de réplication, de gestion et de surveillance. Le Réplica Hyper-V fournit l’infrastructure nécessaire pour assurer la réussite de la montée en charge de la réplication. Pour planifier un déploiement optimal, nous vous suggérons de télécharger l’outil [Capacity Planner pour Réplica Hyper-V](https://www.microsoft.com/fr-FR/download/details.aspx?id=39057).
+Les résultats indiquent clairement que la solution Microsoft Azure Site Recovery, utilisée avec le Réplica Hyper-V, s’adapte bien à la surcharge minimale d’un cluster volumineux. Microsoft Azure Site Recovery offre des fonctions simples de déploiement, de réplication, de gestion et de surveillance. Le Réplica Hyper-V fournit l’infrastructure nécessaire pour assurer la réussite de la montée en charge de la réplication. Pour planifier un déploiement optimal, nous vous suggérons de télécharger l’outil [Capacity Planner pour Réplica Hyper-V](https://www.microsoft.com/download/details.aspx?id=39057).
 
-## Environnement du déploiement de test
+## Détails de l’environnement de test
 
 ### Site principal
 
@@ -205,13 +206,8 @@ Ce tableau récapitule les mesures de performances et les compteurs utilisés lo
 
 ## Étapes suivantes
 
-Pour commencer à déployer ASR, effectuez les opérations suivantes :
-
-- [Configuration de la protection entre un site local VMM et Azure](site-recovery-vmm-to-azure.md)
-- [Configuration de la protection entre un site local Hyper-V et Azure](site-recovery-hyper-v-site-to-azure.md)
 - [Configuration de la protection entre des sites VMM locaux](site-recovery-vmm-to-vmm.md)
-- [Configuration de la protection entre des sites locaux VMM avec SAN](site-recovery-vmm-san.md)
-- [Configuration de la protection avec un seul serveur VMM](site-recovery-single-vmm.md)
+
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

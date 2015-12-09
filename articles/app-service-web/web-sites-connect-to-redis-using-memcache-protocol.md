@@ -37,7 +37,7 @@ Dès lors que le site WordPress évolutif est déployé et qu’une instance de 
 
 ## Activer le shim Web Apps Memcache
 
-Pour configurer le shim Memcache, vous devez créer trois paramètres d’application. Cette opération peut être effectuée à l’aide de différentes méthodes, notamment le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), l’[ancien portail][3], les [applets de commande Azure PowerShell][5] ou l’[interface de ligne de commande Azure][5]. Pour ce billet, je vais utiliser le [portail Azure][4] pour définir les paramètres d’application. Les valeurs suivantes peuvent être récupérées à partir du panneau **Paramètres** de votre instance de Cache Redis.
+Pour configurer le shim Memcache, vous devez créer trois paramètres d’application. Cette opération peut être effectuée à l’aide de différentes méthodes, notamment le [portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715), le [portail Classic][3], les [applets de commande Azure PowerShell][5] ou l’[interface de ligne de commande Azure][5]. Pour ce billet, je vais utiliser le [portail Azure][4] pour définir les paramètres d’application. Les valeurs suivantes peuvent être récupérées à partir du panneau **Paramètres** de votre instance de Cache Redis.
 
 ![Panneau Paramètres de Cache Redis Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -180,7 +180,6 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et son impact sur les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
 [0]: http://bit.ly/1F0m3tw
@@ -198,4 +197,4 @@ Félicitations ! L’application WordPress dispose maintenant d’un cache en m
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

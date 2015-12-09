@@ -36,7 +36,7 @@ Cette procédure pas à pas vous explique comment vous connecter à une base de 
 
 Pour vous connecter à votre base de données, vous devez disposer du nom complet du serveur (****servername**.database.windows.net*) contenant la base de données à laquelle vous souhaitez vous connecter.
 
-1. Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à la base de données à laquelle vous souhaitez vous connecter.
 3. Recherchez le nom complet du serveur (nous allons l’utiliser dans les étapes à suivre) :
 
@@ -83,4 +83,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configurer des connexions ExpressRoute et VPN de site à site qui peuvent coexister | Microsoft Azure"
-   description="Ce didacticiel vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister."
+   description="Cet article vous guide tout au long de la configuration d’une connexion ExpressRoute et d’une connexion VPN de site à site pouvant coexister."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/02/2015"
    ms.author="cherylmc"/>
 
 # Configurer des connexions ExpressRoute et VPN de site à site pour qu’elles coexistent pour un réseau virtuel
@@ -29,7 +29,8 @@ Les circuits ExpressRoute doivent être préconfigurés avant que vous suiviez l
 
 - **Le routage de transit n’est pas pris en charge :** vous ne pouvez pas créer d’itinéraire (via Azure) entre votre réseau local connecté via le VPN de site à site et votre réseau local connecté via ExpressRoute.
 - **Les connexions point à site ne sont pas prises en charge :** vous ne pouvez pas activer de connexions VPN point à site avec le même réseau virtuel connecté à ExpressRoute. Des connexions VPN point à site et ExpressRoute ne peuvent pas coexister pour le même réseau virtuel.
-- **Passerelles standards ou hautes performances uniquement :** vous devez utiliser une passerelle standard ou hautes performances pour la passerelle ExpressRoute comme pour la passerelle VPN de site à site. Consultez [SKU de passerelle](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur les références de passerelle.
+- **Le tunneling forcé ne peut pas être activé sur la passerelle VPN de site à site :** vous pouvez uniquement utiliser ExpressRoute pour « forcer » l’ensemble du trafic Internet vers votre réseau local. 
+- **Passerelles standard ou hautes performances uniquement :** vous devez utiliser une passerelle standard ou hautes performances pour la passerelle ExpressRoute comme pour la passerelle VPN de site à site. Consultez [SKU de passerelle](../vpn-gateway/vpn-gateway-about-vpngateways.md) pour plus d’informations sur les références de passerelle.
 - **Condition requise d’itinéraire statique :** si votre réseau local est connecté à ExpressRoute et à un VPN de site à site, vous devez avoir configuré un itinéraire statique sur votre réseau local pour acheminer la connexion VPN de site à site vers l’Internet public.
 - **La passerelle ExpressRoute doit d’abord être configurée :** vous devez commencer par créer la passerelle ExpressRoute avant d’ajouter la passerelle VPN de site à site.
 
@@ -68,7 +69,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
 1. Vérifiez que vous disposez de la dernière version des applets de commande PowerShell. Vous pouvez télécharger et installer les dernières applets de commande PowerShell à partir de la section PowerShell de la [page de téléchargement](http://azure.microsoft.com/downloads/).
 
-2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Créez un schéma pour votre réseau virtuel. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 	Lorsque vous créez votre schéma, veillez à utiliser les valeurs suivantes :
 
@@ -141,7 +142,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et dans l�
 
 7. Créez une entité de passerelle VPN de site local. Cette commande ne configure pas votre passerelle VPN locale. Elle vous permet d’indiquer les paramètres de la passerelle locale, par exemple l’adresse IP publique et l’espace d’adressage local afin que la passerelle VPN Azure puisse s’y connecter.
 
-	> [AZURE.IMPORTANT]Le site local du réseau privé virtuel de site à site n’est pas défini dans le fichier netcfg. Vous devez utiliser cette applet de commande pour spécifier les paramètres du site local. Vous ne pouvez pas le définir à l’aide du portail de gestion ou du fichier netcfg.
+	> [AZURE.IMPORTANT]Le site local du réseau privé virtuel de site à site n’est pas défini dans le fichier netcfg. Vous devez utiliser cette applet de commande pour spécifier les paramètres du site local. Vous ne pouvez pas le définir à l’aide du portail Azure Classic ou du fichier netcfg.
 
 	Utilisez l’exemple suivant en remplaçant les valeurs par les vôtres.
 
@@ -188,7 +189,7 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
 
-3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 ou un préfixe plus court (comme /26 ou /25). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Modifiez le schéma du fichier de configuration réseau pour que le sous-réseau de passerelle soit défini sur /27 ou un préfixe plus court (comme /26 ou /25). Consultez l’exemple qui suit. Pour plus d’informations sur l’utilisation du fichier de configuration réseau, consultez la rubrique [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Pour plus d’informations sur le schéma de configuration, consultez la page [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
@@ -208,6 +209,6 @@ Si vous disposez d’un réseau virtuel connecté via ExpressRoute ou une connex
 
 ## Étapes suivantes
 
-Pour plus d’informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).
+Pour plus d’informations sur ExpressRoute, consultez la [FAQ sur ExpressRoute](expressroute-faqs.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

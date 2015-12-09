@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Administration de votre annuaire Azure AD"
+	pageTitle="Administration de votre annuaire Azure AD | Microsoft Azure"
 	description="Cette rubrique explique ce qu’est un client Azure AD et comment gérer un annuaire Azure AD"
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # Administration de votre annuaire Azure AD
@@ -145,4 +145,4 @@ Les conditions à remplir sont les suivantes :
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

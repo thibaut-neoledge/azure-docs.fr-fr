@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2015"
+   ms.date="12/01/2015"
    ms.author="alkohli" />
 
 # Déployer et gérer un appareil virtuel StorSimple dans Azure
@@ -55,7 +55,7 @@ Gardez à l’esprit les considérations de sécurité suivantes lorsque vous ut
 
 - L’appareil virtuel est sécurisé via votre abonnement Microsoft Azure. Cela signifie que si vous utilisez l’appareil virtuel et que votre abonnement Azure est compromis, les données stockées sur votre appareil virtuel sont également vulnérables.
 
-- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le portail Azure, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
+- La clé publique du certificat permettant de chiffrer les données stockées dans Azure StorSimple est accessible en toute sécurité dans le Portail Azure Classic, et la clé privée est conservée avec l’appareil StorSimple. Sur l’appareil virtuel StorSimple, les clés publiques et privées sont stockées dans Azure.
 
 - L’appareil virtuel est hébergé dans le centre de données Microsoft Azure.
 
@@ -94,7 +94,7 @@ Apportez les mises à jour suivantes à votre service Azure StorSimple avant de 
 
 Assurez-vous de disposer des informations suivantes avant de commencer :
 
-- Vous disposez d’un compte avec les informations d’identification d’accès au portail Azure.
+- Vous disposez d’un compte avec les informations d’identification d’accès au Portail Azure Classic.
 
 - Vous disposez des informations d’identification d’accès au compte de stockage Azure.
 
@@ -115,7 +115,7 @@ Après avoir créé un réseau virtuel, configuré un service StorSimple Manager
 
 Procédez comme suit pour créer l’appareil virtuel StorSimple.
 
-1.  Dans le portail Azure, accédez au service **StorSimple Manager**.
+1.  Dans le Portail Azure Classic, accédez au service **StorSimple Manager**.
 
 2. Accédez à la page **Appareils**.
 
@@ -285,7 +285,7 @@ Toutefois, si vous souhaitez vous connecter directement à l’appareil virtuel 
 
 Procédez comme suit pour créer un point de terminaison public sur l’appareil virtuel :
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous à la version classique du portail Azure.
 
 - Cliquez sur **Machines virtuelles**, puis sélectionnez la machine virtuelle utilisée comme appareil virtuel.
 
@@ -369,7 +369,7 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 ### Arrêt de l’appareil virtuel StorSimple
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous à la version classique du portail Azure.
 
 2. Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 
@@ -377,7 +377,7 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 ### Suppression de l’appareil virtuel StorSimple
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous à la version classique du portail Azure.
 
 - Cliquez sur **Virtual Machines**, puis sélectionnez l’appareil virtuel.
 
@@ -388,4 +388,4 @@ Si vous supprimez ou arrêtez l’appareil virtuel, il apparaît comme **Hors co
 
 Pour administrer votre appareil virtuel, reportez-vous à la liste détaillée des flux de travail de la section [Administrer l’appareil StorSimple à l’aide du service StorSimple Manager](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

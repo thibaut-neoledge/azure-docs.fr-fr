@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ajout de votre propre domaine à Azure AD | Microsoft Azure"
-	description="Cette rubrique explique comment ajouter votre propre nom de domaine à Azure AD et comporte des informations connexes."
+	pageTitle="Ajout de votre propre domaine à Azure Active Directory | Microsoft Azure"
+	description="Explique comment ajouter votre propre nom de domaine à Azure Active Directory et d’autres informations connexes."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/16/2015"
+	ms.date="12/01/2015"
 	ms.author="curtand"/>
 
-# Ajout de votre propre domaine à Azure AD
+# Ajout de votre propre domaine à Azure Active Directory
 
-Quand vous vous inscrivez à un service cloud Microsoft, vous bénéficiez d’un nom de domaine au format suivant : contoso.onmicrosoft.com. Vous pouvez continuer à utiliser ce nom de domaine initial, ou vous pouvez ajouter votre propre nom de domaine personnalisé au service cloud. Cette rubrique explique comment ajouter votre propre nom de domaine et comporte des informations connexes.
+Quand vous vous inscrivez à un service cloud Microsoft, vous bénéficiez d’un nom de domaine au format suivant : contoso.onmicrosoft.com. Vous pouvez continuer à utiliser ce nom de domaine initial, ou vous pouvez ajouter votre propre nom de domaine personnalisé au service cloud. Cette rubrique explique comment ajouter votre propre nom de domaine et comporte des informations associées à Azure Active Directory (Azure AD).
 
 Les utilisateurs Office 365 peuvent également être intéressés par les rubriques suivantes :
 
@@ -40,7 +40,7 @@ Si votre organisation possède déjà un nom de domaine personnalisé, en tant q
 
 Vous pouvez ajouter jusqu’à 900 noms de domaine à votre client Azure AD à l’aide :
 
-- du portail de gestion Azure, du portail Office 365 ou du portail Microsoft Intune ;
+- du portail Azure Classic, du portail Office 365 ou du portail Microsoft Intune ;
 - du module Azure Active Directory pour Windows PowerShell. Pour plus d’informations sur les applets de commande à utiliser, consultez la page [Gérer les domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 Vous devez déjà avoir enregistré un nom de domaine et disposer des informations de connexion nécessaires pour le bureau d’enregistrement de votre nom de domaine (par exemple, Go Daddy ou Register.com).
@@ -51,13 +51,13 @@ Pour utiliser l’authentification unique avec le service cloud, nous vous recom
 
 > [AZURE.NOTE]Vous utilisez Office 365 ? Une fois que vous avez configuré votre domaine, vous pouvez commencer à créer des adresses de messagerie, des comptes Lync Online et des groupes de distribution qui utilisent le nom de votre domaine personnalisé. Vous pouvez également utiliser votre nom de domaine pour un site web public hébergé sur SharePoint Online.
 
-- [Ajouter et vérifier un domaine à l’aide du portail de gestion Azure](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [Ajouter et vérifier un domaine à l’aide du portail Azure Classic](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Modifier des enregistrements DNS pour vos services cloud](#edit-dns-records-for-your-cloud-services)
 - [Vérifier un domaine auprès de n’importe quel bureau d’enregistrement de noms de domaine](#verify-a-domain-at-any-domain-name-registrar)
 
-### Ajouter et vérifier un domaine à l’aide du portail de gestion Azure
+### Ajouter et vérifier un domaine à l’aide du portail Azure Classic
 
-1. Dans le portail, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation. Vous pouvez effectuer l’une des opérations suivantes :
+1. Dans le portail Azure Classic, cliquez sur **Active Directory**, puis sur le nom de l’annuaire de votre organisation. Vous pouvez effectuer l’une des opérations suivantes :
     1. Dans la page de répertoire par défaut, cliquez sur **Ajouter un domaine** dans la section **Améliorer l’expérience de connexion utilisateur**.
 2. Cliquez sur **Domaines**, puis sur **Ajouter un domaine client** ou sur le bouton **Ajouter**.
 2. Sur la page **Ajouter un domaine**, tapez le nom de domaine que vous souhaitez ajouter et effectuez l’une des opérations suivantes :
@@ -79,7 +79,7 @@ Après avoir ajouté et vérifié votre nom de domaine personnalisé, l’étape
 
 Si vous venez de terminer l’Assistant **Ajout d’un domaine**, cliquez sur **Configurer les enregistrements DNS**. Sinon, effectuez les étapes suivantes :
 
-1. Dans le portail, dans le volet gauche, cliquez sur **Domaines**.
+1. Dans le portail Azure Classic, dans le volet gauche, cliquez sur **Domaines**.
 2. Selon le portail que vous utilisez, cliquez sur le nom de domaine que vous souhaitez configurer, puis cliquez sur **Paramètres DNS** ou **Afficher les paramètres DNS**. La page **Paramètres DNS** répertorie les enregistrements DNS pour le service cloud.
 
     Si vous souhaitez configurer un service qui n’apparaît pas sous l’onglet Paramètres DNS, vérifiez vos sélections de services de domaine pour vous assurer que vous avez choisi ce service pour ce nom de domaine. Pour modifier les paramètres, par exemple, pour ajouter Lync Online, consultez la section Spécifier les services que vous allez utiliser avec votre domaine.
@@ -110,9 +110,9 @@ Si vous utilisez Microsoft Intune ou le portail de compte Azure :
 
 4. À partir de la table, copiez ou enregistrez les informations **Adresse de destination ou de pointage**.
 
-Si vous utilisez le portail de gestion :
+Si vous utilisez le portail Azure Classic :
 
-1. Dans le portail, cliquez sur **Active Directory**, sur le nom de votre annuaire, puis sur **Domaines**.
+1. Dans le portail Azure Classic, cliquez sur **Active Directory**, sur le nom de l’annuaire de votre organisation, puis cliquez sur **Domaines**.
 2. Sur la page **Domaines**, dans la liste des noms de domaine, cliquez sur le domaine que vous souhaitez vérifier, puis sur **Vérifier**.
 2. Sur la page **Vérifier**, dans la liste déroulante **Type d’enregistrement**, sélectionnez **Enregistrement TXT** ou **Enregistrement MX**.
 3. Copiez ou enregistrez les informations qu’il contient.
@@ -143,7 +143,7 @@ Une fois créé l’enregistrement TXT ou l’enregistrement MX et une fois effe
 
 Une fois l’enregistrement que vous avez créé pour votre domaine propagé dans le système DNS, procédez comme suit pour terminer la vérification de votre domaine avec Azure AD.
 
-1. Dans le portail, cliquez sur **Domaines**.
+1. Dans Azure Active Directory dans le portail Azure Classic, cliquez sur **Domaines**.
 2. Dans la liste **Domaines**, recherchez le domaine que vous vérifiez et, selon le portail que vous utilisez, cliquez sur **Cliquez pour vérifier le domaine** ou **Vérifiez**.
 3. Suivez les instructions fournies pour terminer le processus de vérification.
     - Si la vérification du domaine réussit, vous êtes averti que votre domaine a été ajouté à votre compte.
@@ -157,7 +157,7 @@ Une fois votre domaine vérifié, vous pouvez le configurer pour qu’il fonctio
 
 Après avoir ajouté votre nom de domaine à Azure AD, vous pouvez modifier le nom de domaine qui doit s’afficher par défaut quand vous créez un compte d’utilisateur. Pour ce faire, procédez comme suit :
 
-1. Sur la page du portail, en haut à gauche, cliquez sur le nom de votre organisation.
+1. Sur le portail Azure Classic, dans le coin supérieur gauche, cliquez sur le nom de votre organisation.
 2. Cliquez sur **Modifier**.
 3. Choisissez un nouveau nom de domaine par défaut, tel que le nom de domaine personnalisé que vous avez ajouté.
 
@@ -173,7 +173,7 @@ Avant de supprimer un nom de domaine, nous vous recommandons de lire les informa
 
 Pour supprimer un nom de domaine :
 
-1. Sur la page du portail, dans le volet gauche, cliquez sur **Domaines**.
+1. Dans Azure AD, dans le portail Azure Classic, dans le volet de gauche, cliquez sur **Domaines**.
 2. Sur la page **Domaines** sélectionnez le nom de domaine que vous souhaitez supprimer, puis cliquez sur **Supprimer le domaine**.
 3. Sur la page **Supprimer le domaine**, cliquez sur **Oui**.
 
@@ -197,7 +197,7 @@ En outre, les informations des paramètres doivent être réellement correctes s
 
 ### Je ne peux pas vérifier mon nom de domaine. Comment puis-je savoir ce qui ne va pas ?
 
-Pour détecter les problèmes, vous pouvez utiliser l’Assistant Résolution des problèmes des domaines. Pour démarrer l’Assistant, procédez comme suit : dans le portail du service cloud, sur la page Admin, cliquez sur **Domaines**, puis double-cliquez sur le nom de domaine que vous souhaitez vérifier. Ensuite, sous **Résolution des problèmes**, cliquez sur **Dépanner le domaine**.
+Pour détecter les problèmes, vous pouvez utiliser l’Assistant Résolution des problèmes des domaines. Pour démarrer l’Assistant, procédez comme suit : dans le portail Azure Classic, sur la page Admin, cliquez sur **Domaines**, puis double-cliquez sur le nom de domaine que vous souhaitez vérifier. Ensuite, sous **Résolution des problèmes**, cliquez sur **Dépanner le domaine**.
 
 L’Assistant Résolution des problèmes vous demande où vous vous trouvez dans le processus de vérification, puis fournit des informations pour vous permettre de terminer la vérification.
 
@@ -212,4 +212,4 @@ Si vous ajoutez votre nom de domaine personnalisé au service cloud après avoir
 - [Inscription à Azure en tant qu’organisation](sign-up-organization.md)
 - [Gestion de domaines dans Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

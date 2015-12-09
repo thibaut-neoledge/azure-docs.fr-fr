@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Vue d’ensemble de Microsoft Azure Site Recovery" 
+	pageTitle="Qu’est-ce que Site Recovery ?" 
 	description="Microsoft Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et serveurs physiques situés en local sur Microsoft Azure, ou sur un site local secondaire." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -10,68 +10,61 @@
 <tags 
 	ms.service="site-recovery" 
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="11/29/2015" 
 	ms.author="raynew"/>
 
-#  Vue d’ensemble de Microsoft Azure Site Recovery
+#  Qu’est-ce que Site Recovery ?
 
-Le service Site Recovery offre une solution fiable de continuité d’activité et de récupération d’urgence, qui protège vos machines virtuelles et vos serveurs physiques locaux en orchestrant et en automatisant la réplication et le basculement vers Microsoft Azure ou un centre de données secondaire local.
+Site Recovery est un service Azure qui met en œuvre la stratégie de continuité des activités et de récupération d’urgence (ou BCDR pour Business Continuity and Disaster Recovery) de votre entreprise en coordonnant la réplication de vos serveurs locaux et machines virtuelles sur un centre de données local secondaire ou sur Azure. Site Recovery gère la réplication, et vous pouvez lancer le basculement et la récupération d’un simple clic. Parcourez une liste de questions courantes dans le [FAQ](site-recovery-faq.md)
 
-- **Simplification** : Microsoft Azure Site Recovery vous permet de simplifier votre stratégie de continuité d’activité et de récupération d’urgence en facilitant la configuration de la réplication et en exécutant des tâches de basculement et de récupération pour les applications et charges de travail locales.
-- **Réplication** : vous pouvez répliquer des charges de travail locales vers Microsoft Azure Storage ou un centre de données secondaire. 
-- **Coffre** : pour gérer la réplication, vous configurez un coffre Microsoft Azure Site Recovery dans la région Microsoft Azure que vous sélectionnez. Toutes les métadonnées sont conservées dans cette région.
-- **Métadonnées** : aucune donnée d’application n’est envoyée à Microsoft Azure. Microsoft Azure Site Recovery requiert certaines métadonnées, telles que les noms des clouds VMM et des machines virtuelles, pour orchestrer le basculement et la réplication. 
-- **Connexion à Microsoft Azure** : les serveurs de gestion communiquent avec Microsoft Azure en fonction de votre scénario de déploiement. Par exemple, si vous effectuez une réplication des machines virtuelles situées sur un cloud VMM local, le serveur VMM communique avec Site Recovery via une connexion HTTPS sortante chiffrée. Aucune connexion n’est requise sur les machines virtuelles ou les hôtes Hyper-V.
-- **Réplica Hyper-V** : Microsoft Azure Site Recovery s’appuie sur le réplica Hyper-V pour effectuer la gestion du processus de réplication. Il peut également utiliser la réplication SAN si vous effectuez une réplication entre deux sites VMM locaux. Site Recovery utilise la réplication intelligente : seuls les blocs de données sont répliqués, et non l’ensemble du disque dur virtuel, lors de la réplication initiale. Lors de la réplication en continu, seul le delta des changements est répliqué. Site Recovery prend en charge le transfert de données hors ligne et utilise des optimiseurs WAN.
-- **Tarification** : vous pouvez [découvrir plus d’informations](http://azure.microsoft.com/pricing/details/site-recovery/) sur la tarification relative à Site Recovery.
+
+## Pourquoi utiliser Azure Site Recovery ? 
+- **Récit de continuité d’activité et récupération d’urgence simplifiées (Business Continuity Disaster Recovery, BCDR)** : Site Recovery facilite la gestion de la réplication, du basculement et de la récupération pour vos charges de travail et applications locales.
+- **Réplication flexible** : vous pouvez répliquer des serveurs locaux, des machines virtuelles Hyper-V et des machines virtuelles VMware. Site Recovery utilise la réplication intelligente : seuls les blocs de données sont répliqués, et non l’ensemble du disque dur virtuel, lors de la réplication initiale. Lors de la réplication en continu, seul le delta des changements est répliqué. Site Recovery prend en charge le transfert de données hors ligne et utilise des optimiseurs WAN. 
+- **Éliminer le besoin d’un centre de données secondaire** : Site Recovery peut automatiser la réplication entre les centres de données, mais offre également la possibilité d’ignorer un emplacement local secondaire en effectuant la réplication sur Azure. Les données répliquées sont stockées dans Azure Storage, avec toute la résilience que cela implique.
 
 
 ## Scénarios de déploiement
 
 Ce tableau récapitule les scénarios de réplication pris en charge par Site Recovery.
 
-**Réplication vers** | **Réplication depuis (en local)** | **Détails** | **Article**
+**REPLICATE** | **RÉPLICATION DEPUIS** | **RÉPLICATION VERS** | **ARTICLE**
 ---|---|---|---
-Microsoft Azure | Site Hyper-V | Répliquez une machine virtuelle sur un ou plusieurs serveurs hôtes Hyper-V locaux, définis en tant que sites Hyper-V sur Microsoft Azure. Aucun serveur VMM n’est requis. | [En savoir plus](site-recovery-hyper-v-site-to-azure.md)
-Microsoft Azure| Serveur VMM | Répliquez des machines virtuelles sur un ou plusieurs serveurs hôtes Hyper-V locaux, situés sur un cloud VMM dans Microsoft Azure. | [En savoir plus](site-recovery-vmm-to-azure.md) 
-Microsoft Azure | Serveur Windows physique | Répliquez un serveur Windows ou Linux physique vers Microsoft Azure. | [En savoir plus](site-recovery-vmware-to-azure.md)
-Microsoft Azure | Machine virtuelle VMware | Répliquez des machines virtuelles VMware sur Microsoft Azure. | [En savoir plus](site-recovery-vmware-to-azure.md)
-Centre de données secondaire | Serveur VMM | Répliquez des machines virtuelles sur des serveurs hôtes Hyper-V locaux situés sur un cloud VMM vers un serveur VMM secondaire, dans un autre centre de données. | [En savoir plus](site-recovery-vmm-to-vmm.md)
-Centre de données secondaire | Serveur VMM avec SAN | Répliquez des machines virtuelles sur des serveurs hôtes Hyper-V locaux situés sur un cloud VMM vers un serveur VMM secondaire, dans un autre centre de données, au moyen de la réplication SAN.| [En savoir plus](site-recovery-vmm-san.md)
-Centre de données secondaire | Serveur VMM unique | Répliquez des machines virtuelles sur des serveurs hôtes Hyper-V locaux situés sur un cloud VMM vers un serveur VMM secondaire, sur le même serveur VMM. | [En savoir plus](site-recovery-single-vmm.md) 
+Machines virtuelles VMware | Serveur VMware local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure.md)
+Serveur Windows/Linux physique | Serveur physique local | Stockage Azure | [Déployer](site-recovery-vmware-to-azure.md)
+Machines virtuelles Hyper-V | Serveur hôte Hyper-V local dans le cloud VMM | Stockage Azure | [Déployer](site-recovery-vmm-to-azure.md)
+Machines virtuelles Hyper-V | Site Hyper-V local (un ou plusieurs serveurs hôte Hyper-V) | Stockage Azure | [Déployer](site-recovery-hyper-v-site-to-azure.md)
+Machines virtuelles Hyper-V locales| Serveur hôte Hyper-V local dans le cloud VMM | Serveur hôte Hyper-V local dans le cloud VMM dans le centre de données secondaire | [Déployer](site-recovery-vmm-to-vmm)
+Machines virtuelles Hyper-V | Serveur hôte Hyper-V local dans le cloud VMM avec le stockage SAN| Serveur hôte Hyper-V local dans le cloud VMM avec le stockage SAN dans le centre de données secondaire | [Déployer](site-recovery-vmm-san.md)
+Machines virtuelles VMware | Serveur VMware local | Centre de données secondaire exécutant VMware | [Déployer](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+Serveur Windows/Linux physique | Serveur physique local | Centre de données secondaire | [Déployer](https://microsoft.sharepoint.com/sites/academy/media/AEVD-3-85237) 
+
+Ils sont résumés dans les schémas suivants.
+
+![Local vers local](./media/site-recovery-overview/asr-overview-graphic.png)
+
+## Quelles charges de travail puis-je protéger ?
+
+Site Recovery vous assiste dans la continuité d’activité tenant compte des appliances. Vous pouvez utiliser Site Recovery pour orchestrer la récupération d’urgence pour Windows et les applications tierces. Cette protection tenant compte des applications fournit les éléments suivants :
 
 
-## Aide relative à la charge de travail
+- Réplication presque synchrone avec des RPO de 30 secondes pour Hyper-V et la réplication continue pour VMware afin de répondre aux besoins des applications les plus critiques.
+- Captures instantanées cohérentes de l’application pour les applications uniques ou multiniveau.
+- Intégration avec SQL Server AlwaysOn, partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication Active Directory, les groupes de disponibilité de base de données (DAG) Exchange et Oracle Data Guard.
+- Les plans de récupération flexibles qui vous permettent de récupérer une pile de l’application entière en un seul clic, et incluent les scripts externes ou des actions manuelles. 
+- La gestion réseau avancée dans Site Recovery et Azure simplifie la configuration réseau requise pour une application, notamment la réservation d’adresses IP, la configuration d’équilibreurs de charge ou l’intégration d’Azure Traffic Manager pour les commutations réseau à RTO faible.
+- Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec Site Recovery.  
 
-Reportez-vous à [ce document](site-recovery-workload.md) pour obtenir des conseils sur l’utilisation d’Azure Site Recovery pour différentes charges de travail.
 
-## Fonctionnalités et conditions requises 
+En savoir plus en consultant [Aide relative à la charge de travail Site Recovery](site-recovery-workload.md).
 
-Ce tableau récapitule les principales fonctionnalités du logiciel Site Recovery et indique de quelle manière elles sont traitées lors de la réplication vers Microsoft Azure, de la réplication vers un site secondaire au moyen de la réplication via le Réplica Hyper-V par défaut, et via SAN.
-
-Fonctionnalité|Réplication vers Microsoft Azure|Réplication vers un site secondaire (Réplica Hyper-V)|Réplication vers un site secondaire (SAN)
----|---|---|---
-Réplication de données|Les métadonnées relatives aux serveurs locaux et aux machines virtuelles sont stockées dans le coffre Azure Site Recovery.</p> <p>Les données répliquées sont stockées dans Azure Storage.|Les métadonnées relatives aux serveurs locaux et aux machines virtuelles sont stockées dans le coffre Azure Site Recovery.</p> <p>Les données répliquées sont stockées à l’emplacement spécifié par le serveur Hyper-V cible.|Les métadonnées relatives aux serveurs locaux et aux machines virtuelles sont stockées dans le coffre Azure Site Recovery.</p> <p>Les données répliquées sont stockées dans le stockage à baies cible.
-Conditions requises pour les coffres|Compte Microsoft Azure (avec service Site Recovery).|Compte Microsoft Azure (avec service Site Recovery).|Compte Microsoft Azure (avec service Site Recovery).
-Réplication|Répliquer la machine virtuelle à partir de l’hôte Hyper-V source vers Microsoft Azure Storage. Récupération automatique vers l’emplacement source.|Réplication de la machine virtuelle à partir de l’hôte Hyper-V source vers un hôte Hyper-V cible. Récupération automatique vers l’emplacement source.|Réplication des machines virtuelles depuis l’appareil de stockage SAN source vers un appareil SAN cible. Récupération automatique vers l’emplacement source.
-Machine virtuelle|Disque dur de machine virtuelle stocké dans un stockage Azure|Disque dur de machine virtuelle stocké sur un hôte Hyper-V.|Disque dur de machine virtuelle stocké dans une baie de stockage SAN.
-Stockage Azure|Requis pour stocker les disques durs des machines virtuelles répliquées.|Non applicable|Non applicable
-Baie de stockage SAN|Non applicable|Non applicable|Une baie de stockage SAN doit être disponible sur le site source comme sur le site cible. Elle doit être gérée par VMM.
-Serveur VMM|Un seul serveur VMM est requis sur le site source uniquement.|L’utilisation de serveurs VMM sur les sites source et cible est recommandée. Vous pouvez effectuer la réplication entre des clouds sur un seul serveur VMM.|Présence d’un serveur VMM sur les sites VMM source et cible. Les clouds doivent contenir au moins un cluster Hyper-V.
-Version de VMM|System Center 2012 R2<p>System Center 2012 avec SP1|System Center 2012 R2|System Center 2012 R2 avec VMM Update Rollup 5.0
-Configuration des serveurs VMM|Configurer des clouds sur les sites source et cible</p><p>Configurer des réseaux de machines virtuelles sur les sites source et cible<p>Configurer les classifications de stockage sur les sites source et cible <p>Installer le fournisseur sur les serveurs VMM source et cible|Configurer des clouds sur le site source</p><p>Configurer le stockage SAN</p><p>Configurer les réseaux de machines virtuelles sur le site source</p><p>Installer le fournisseur sur le serveur VMM source</p><p>Activer la protection de la machine virtuelle|Configurer des clouds sur les sites source et cible</p><p>Configurer des réseaux de machines virtuelles sur les sites source et cible</p><p>Installer le fournisseur sur les serveurs VMM source et cible</p><p>Activer la protection de la machine virtuelle
-Fournisseur Azure Site Recovery</p><p>Utilisé pour la connexion à Site Recovery via le protocole HTTPS|Installer sur le serveur VMM source|Installer sur les serveurs VMM source et cible|Installer sur les serveurs VMM source et cible
-Agent Azure Recovery Services</p><p>Utilisé pour la connexion à Site Recovery via le protocole HTTPS|Installer sur les serveurs hôtes Hyper-V|Non requis|Non requis
-Points de récupération de machine virtuelle|Définir des points de récupération par heure.</p> <p>Détermine la période de conservation d’un point de récupération (entre 0 et 24 heures).|Définir les points de récupération par quantité.</p> <p>Spécifie le nombre de points de récupération supplémentaires à conserver (0-15). Par défaut, un point de récupération est créé toutes les heures.|Configuré dans les paramètres de stockage sur baie.
-Mappage réseau|Mapper les réseaux de machines virtuelles vers des réseaux Azure.</p> <p>Le mappage réseau garantit que toutes les machines virtuelles qui basculent dans le même réseau de machines virtuelles source peuvent se connecter après le basculement. Par ailleurs, si une passerelle réseau est configurée sur le réseau Azure cible, les machines virtuelles peuvent se connecter aux machines virtuelles locales. </p><p>Si le mappage n’est pas activé, seules les machines virtuelles qui basculent dans le même plan de récupération peuvent se connecter l’une à l’autre après le basculement vers Azure.|Mapper les réseaux de machines virtuelles sources aux réseaux de machines virtuelles cibles.</p> <p>Le mappage réseau est utilisé pour placer les machines virtuelles répliquées sur des serveurs hôtes Hyper-V optimaux et veiller à ce que les machines virtuelles associées au réseau de machines virtuelles source soient associées au réseau cible mappé après le basculement. </p><p>Si le mappage n’est pas activé, les machines virtuelles répliquées ne sont pas connectées au réseau.|Mapper les réseaux de machines virtuelles sources aux réseaux de machines virtuelles cibles.</p> <p>Le mappage réseau garantit que les machines virtuelles associées au réseau de machines virtuelles source sont associées au réseau cible mappé après le basculement. </p><p>Si le mappage n’est pas activé, les machines virtuelles répliquées ne sont pas connectées au réseau.
-Mappage de stockage|Non applicable|Mappe les classifications de stockage sur les serveurs VMM sources aux classifications de stockage sur les serveurs VMM cibles.</p> <p>Lorsque le mappage est activé, les disques durs des machines virtuelles de la classification de stockage source sont situés dans la classification de stockage cible après le basculement.</p><p>Si le mappage de stockage n’est pas activé, les disques durs virtuels répliqués sont stockés dans l’emplacement par défaut, sur le serveur hôte Hyper-V cible.|Mappages entre les baies et les pools de stockage des sites principal et secondaire.
 
 ## Étapes suivantes
 
-Une fois que vous avez fini de consulter cette présentation, [lisez les meilleures pratiques](site-recovery-best-practices.md) pour vous aider à prendre en main la planification du déploiement.
+Une fois que vous avez fini de consulter cette présentation, vous pouvez [en savoir plus](site-recovery-components.md) sur l’architecture Site Recovery.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

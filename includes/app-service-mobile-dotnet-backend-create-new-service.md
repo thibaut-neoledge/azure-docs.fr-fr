@@ -12,7 +12,7 @@
 
     > [AZURE.NOTE]Dans ce didacticiel, vous créez une instance et un serveur de base de données SQL. Vous pouvez réutiliser cette nouvelle base de données et la gérer comme une autre instance de base de données SQL. Si vous avez déjà une base de données dans le même emplacement que le nouveau serveur principal d’application mobile, vous pouvez choisir **Utiliser une base de données** et sélectionner la base de données. Il est déconseillé d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes et de frais de bande passante supplémentaires. D’autres options de stockage de données sont disponibles.
 
-6. Dans le panneau **Paramètres** du serveur principal Mobile App, faites défiler jusqu’à Mobile et cliquez sur **Mise en route ** > Votre plateforme d’application cliente > **Se connecter à une base de données**.
+6. Dans le panneau **Paramètres** du nouveau serveur principal Mobile, cliquez sur **Démarrage rapide** > Votre plateforme d’application cliente > **Se connecter à une base de données**.
 
 	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
@@ -30,4 +30,4 @@
 <!-- URLs. -->
 [portail Azure]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

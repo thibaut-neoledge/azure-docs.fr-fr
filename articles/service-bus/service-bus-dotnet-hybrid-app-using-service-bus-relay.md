@@ -73,15 +73,15 @@ Avant de commencer à développer votre application Azure, procurez-vous les out
 
 Pour commencer à utiliser les fonctionnalités de Service Bus dans Azure, vous devez d'abord créer un espace de noms de service. Ce dernier fournit un conteneur d'étendue pour l'adressage des ressources Service Bus au sein de votre application.
 
-Vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l’aide du [portail Azure][] ou de l’Explorateur de serveurs Visual Studio, mais vous ne pouvez créer d’espaces de noms que depuis le portail.
+Vous pouvez également gérer les espaces de noms et les entités de messagerie Service Bus à l’aide du [Portail Azure Classic][] ou de l’Explorateur de serveurs Visual Studio, mais vous ne pouvez créer d’espaces de noms que depuis le portail.
 
-### Pour créer un espace de noms à l’aide du portail :
+### Créer un espace de noms à l’aide du Portail Azure Classic :
 
-1.  Connectez-vous au [portail Azure][].
+1.  Connectez-vous au [Portail Azure Classic][].
 
-2.  Dans le volet de navigation gauche du portail Azure, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail Azure, cliquez sur **Créer**.
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
 
     ![][5]
 
@@ -95,7 +95,7 @@ Vous pouvez également gérer les espaces de noms et les entités de messagerie 
 
 	![][38]
 
-L’espace de noms créé s’affichera dans le portail Azure, même si son activation peut prendre un certain temps. Patientez jusqu'à ce que l'état soit **Actif** avant de continuer.
+L’espace de noms créé s’affichera dans le Portail Azure Classic, même si son activation peut prendre un certain temps. Patientez jusqu'à ce que l'état soit **Actif** avant de continuer.
 
 ## Obtention d'informations d'identification de gestion par défaut pour l'espace de noms
 
@@ -247,7 +247,7 @@ Ce projet démarre comme une application console Visual Studio. Il utilise le pa
             }
         }
 
-13. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le contenu de **&lt;system.ServiceModel&gt;** par le code XML suivant. Assurez-vous de remplacer *yourServiceNamespace* par le nom de votre espace de noms de service, puis *yourKey* par la clé SAP que vous avez récupérée précédemment sur le portail Azure :
+13. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. Remplacez le contenu de **&lt;system.ServiceModel&gt;** par le code XML suivant. Assurez-vous de remplacer *yourServiceNamespace* par le nom de votre espace de noms de service, puis *yourKey* par la clé SAP que vous avez récupérée précédemment sur le Portail Azure Classic :
 
         <system.serviceModel>
           <extensions>
@@ -541,7 +541,7 @@ Azure facture les instances de rôle Web par heure de serveur consommée. Une fo
 
 La procédure suivante présente l'arrêt et la suppression de l'application.
 
-1.  Connectez-vous au [portail Azure], cliquez sur **Cloud Services**, puis sur le nom du service.
+1.  Connectez-vous au [Portail Azure Classic][], cliquez sur **Cloud Services**, puis sur le nom de votre service.
 
 2.  Sélectionnez l’onglet **Tableau de bord**, puis cliquez sur **Arrêter** pour suspendre momentanément l’application. Vous pouvez la redémarrer en cliquant simplement sur **Démarrer**. Cliquez sur **Supprimer** pour supprimer complètement l'application d'Azure, sans aucune possibilité de la restaurer.
 
@@ -563,7 +563,7 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
-  [portail Azure]: http://manage.windowsazure.com
+  [Portail Azure Classic]: http://manage.windowsazure.com
   [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
   [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
 
@@ -610,4 +610,4 @@ Pour en savoir plus sur Service Bus, consultez les ressources suivantes :
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

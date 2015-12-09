@@ -1,12 +1,10 @@
-Cette section montre comment vérifier que votre application est connectée au serveur principal Mobile Engagement et ce, grâce à la fonctionnalité de surveillance en temps réel de Mobile Engagement.
+Cette section montre comment connecter votre application au serveur principal Mobile Engagement et ce, grâce à la fonctionnalité de surveillance en temps réel de Mobile Engagement.
 
-1. Accédez au portail Mobile Engagement. Vérifiez que vous vous trouvez dans l’application utilisée pour ce projet, puis cliquez sur le bouton **Engager** situé en bas.
+1. Dans votre compte **Azure Mobile Engagement**, veillez à sélectionner l’application que vous souhaitez analyser et gérer dans le portail **Mobile Engagement**. Accédez au portail Mobile Engagement en cliquant sur le bouton **Engager** au bas de la page. 
 
 	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. Vous accéderez au portail de Mobile Engagement. Cliquez sur l’onglet **Surveiller**.
-	 
-	![](./media/mobile-engagement-connect-app-with-monitor/click-monitor-tab.png)
+2. Vous accéderez au portail de Mobile Engagement. Si l’onglet Moniteur n’est pas sélectionné, cliquez sur **Analyser**.
 
 3. Le moniteur est prêt à afficher en temps réel tous les appareils qui démarrent votre application.
 	 
@@ -14,4 +12,4 @@ Cette section montre comment vérifier que votre application est connectée au s
 	
 	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

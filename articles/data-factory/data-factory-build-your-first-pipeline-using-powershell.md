@@ -42,10 +42,10 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 Dans cette étape, vous utilisez Azure PowerShell pour créer une fabrique de données Azure nommée ADFTutorialDataFactoryPSH.
 
-1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous le fermez puis le rouvrez, vous devez réexécuter ces commandes à nouveau.
-	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure en version préliminaire.  
+1. Démarrez Azure PowerShell et exécutez les commandes suivantes. Conservez Azure PowerShell ouvert jusqu’à la fin de ce didacticiel. Si vous la fermez, puis la rouvrez, vous devez exécuter ces commandes à nouveau.
+	- Exécutez **Add-AzureAccount**, puis saisissez le nom d’utilisateur et le mot de passe que vous avez utilisés pour la connexion au portail Microsoft Azure.  
 	- Exécutez **Get-AzureSubscription** pour afficher tous les abonnements de ce compte.
-	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail en version préliminaire.
+	- Exécutez **Select-AzureSubscription** pour sélectionner l’abonnement que vous souhaitez utiliser. Cet abonnement doit être identique à celui utilisé dans le portail Azure.
 2. Passez en mode AzureResourceManager, car les cmdlets Azure Data Factory sont disponibles uniquement dans ce mode.
 
 		Switch-AzureMode AzureResourceManager
@@ -109,7 +109,7 @@ Vous allez maintenant créer un service lié pour le cluster Azure HDInsight à 
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -121,7 +121,7 @@ Vous allez maintenant créer un service lié pour le cluster Azure HDInsight à 
 
 	Propriété | Description
 	-------- | -----------
-	Version | Cette propriété indique que la version du service HDInsight doit être la version 3.1.
+	Version | Cette propriété indique que la version de service HDInsight doit être la version 3.2.
 	ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud.
 	TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression.
 	linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight.
@@ -272,4 +272,4 @@ Dans cet article, vous avez créé un pipeline avec une activité de transformat
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

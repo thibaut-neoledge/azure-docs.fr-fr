@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 9/17/15-->
+<!--author=alkohli last changed: 12/01/15-->
 
 
 #### Configuration et inscription de l’appareil
@@ -61,7 +61,7 @@
 
 13. Quittez la console en série.
 
-14. Revenez au portail de gestion et procédez comme suit :
+14. Revenez au portail Azure Classic et procédez comme suit :
   1. Double-cliquez sur le service StorSimple Manager pour accéder à la page **Démarrage rapide**.
   2. Cliquez sur **Afficher les appareils connectés**.
   3. Sur la page **Appareils**, vérifiez que l’appareil s’est bien connecté au service en vérifiant son état. L’état de l’appareil doit être **En ligne**. Si l’état de l’appareil est **Hors ligne**, attendez quelques minutes qu’il soit en ligne.
@@ -76,4 +76,4 @@ Une fois que l’appareil est inscrit correctement et n’est pas en ligne, vous
 
 Pour visionner une vidéo qui montre comment configurer et inscrire votre appareil via Windows PowerShell pour StorSimple, cliquez [ici](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

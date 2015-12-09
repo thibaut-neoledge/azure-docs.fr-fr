@@ -22,7 +22,7 @@ Apprenez à créer une application NodeJS personnalisée, qui utilise Azure Sear
 
 Nous avons utilisé [NodeJS](https://nodejs.org) et NPM, [Sublime Text 3](http://www.sublimetext.com/3) et Windows PowerShell sur Windows 8.1 pour développer et tester ce code.
 
-Pour exécuter cet exemple, vous devez disposer d'un service Azure Search, auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com).
+Pour exécuter cet exemple, vous devez disposer d’un service Azure Search, auquel vous pouvez vous connecter dans le [Portail Azure Classic](https://portal.azure.com).
 
 > [AZURE.TIP]Téléchargez le code source de ce didacticiel à l’adresse [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@ Dans cette application, le programme **DataIndexer** crée et charge l'index à 
 
 ## Créer le service
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
@@ -147,4 +147,4 @@ Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres dida
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

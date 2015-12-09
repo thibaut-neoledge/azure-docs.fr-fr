@@ -20,7 +20,7 @@
 # Réinitialiser une passerelle VPN Azure à l’aide de PowerShell
 
 
-Cet article vous guidera dans la réinitialisation de votre passerelle VPN Azure à l’aide des applets de commande PowerShell. Ces instructions s’appliquent au modèle de déploiement classique. Nous n’avons pas encore d’applet de commande ou d’API REST pour réinitialiser une passerelle VPN pour les réseaux virtuels créés à l’aide du modèle de déploiement de Resource Manager. Ils sont en cours d’élaboration. Vous pouvez savoir si votre passerelle VPN a été créée à l’aide du modèle de déploiement classique en consultant votre réseau virtuel dans la version préliminaire du portail. Les réseaux virtuels créés à l’aide du modèle de déploiement classique sont affichés dans la partie Réseau virtuel (classique) du de la version préliminaire du portail.
+Cet article vous guidera dans la réinitialisation de votre passerelle VPN Azure à l’aide des applets de commande PowerShell. Ces instructions s’appliquent au modèle de déploiement classique. Nous n’avons pas encore d’applet de commande ou d’API REST pour réinitialiser une passerelle VPN pour les réseaux virtuels créés à l’aide du modèle de déploiement de Resource Manager. Ils sont en cours d’élaboration. Vous pouvez savoir si votre passerelle VPN a été créée à l’aide du modèle de déploiement classique en consultant votre réseau virtuel dans le portail Azure. Les réseaux virtuels créés à l’aide du modèle de déploiement classique sont affichés dans la partie Réseau virtuel (classique) du portail Azure.
 
 La réinitialisation de la passerelle VPN Azure est utile lorsque vous perdez une connexion VPN entre locaux sur un ou plusieurs tunnels VPN S2S. Dans ce cas, vos périphériques VPN sur site fonctionnent tous correctement, mais ils ne sont pas en mesure d’établir des tunnels IPsec avec les passerelles VPN Azure. Lorsque vous utilisez l’applet de commande *Reset-AzureVNetGateway*, elle redémarre la passerelle et lui réapplique les configurations entre locaux. La passerelle conserve l’adresse IP publique qu’elle a déjà. Cela signifie que vous n’avez pas à mettre à jour la configuration du routeur VPN avec une nouvelle adresse IP publique pour la passerelle VPN Azure.
 
@@ -52,11 +52,11 @@ L’exemple qui suit permet de réinitialiser la passerelle VPN Azure du réseau
 
 Si la connexion n’est pas restaurée après le premier redémarrage, exécutez de nouveau la commande pour redémarrer la deuxième instance de machine virtuelle (la nouvelle passerelle active). Si les deux redémarrages sont demandés à la suite, il s’écoulera un délai un peu plus long pendant lequel les deux instances de machine virtuelle machine virtuelles (active/veille) sont en cours de redémarrage. Dans ce cas, l’intervalle de connectivité VPN permettant aux machines virtuelles de terminer les redémarrages sera un peu plus long, jusqu’à 2 à 4 minutes.
 
-Après deux redémarrages, si vous continuez de rencontrer des problèmes de connectivité entre locaux, ouvrez un ticket de support à partir du portail Azure pour contacter le support technique de Microsoft Azure.
+Après deux redémarrages, si vous continuez de rencontrer des problèmes de connectivité entre locaux, ouvrez un ticket de support à partir du Portail Azure Classic pour contacter le support technique de Microsoft Azure.
 
 
 ## Étapes suivantes
 	
 Consultez la [référence PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx) pour plus d’informations sur cette applet de commande.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

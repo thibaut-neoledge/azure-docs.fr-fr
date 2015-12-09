@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/17/2015"
+	ms.date="11/30/2015"
 	ms.author="genemi"/>
 
 
@@ -134,17 +134,53 @@ Pour mettre cela en pratique, votre programme peut reconnaître un paramètre d�
 ## Connexion : chaîne de connexion
 
 
-La chaîne de connexion nécessaire à la connexion à la base de données SQL Azure est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure en version préliminaire](http://portal.azure.com/).
+La chaîne de connexion nécessaire à la connexion à la base de données SQL Azure est légèrement différente de celle qui sert à se connecter à Microsoft SQL Server. Il est possible de copier la chaîne de connexion de votre base de données à partir du [portail Azure](http://portal.azure.com/).
 
 
 [AZURE.INCLUDE [sql-database-include-connection-string-20-portalshots](../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
 
 
-#### 30 secondes de délai de connexion
+### Paramètres de connexion .NET Sql pour les nouvelles tentatives de connexion
 
 
-Une connexion via Internet est moins fiable qu’une connexion via un réseau privé. Par conséquent, nous vous conseillons, pour votre chaîne de connexion, de : - définir le paramètre **Délai de connexion** sur **30** secondes (au lieu de 15).
+Si votre programme client se connecte à la base de données SQL Azure à l’aide de la classe .NET Framework **System.Data.SqlClient.SqlConnection**, vous devez utiliser .NET 4.5.1 ou une version ultérieure afin de tirer parti de sa fonctionnalité de nouvelle tentative de connexion. Les détails de la fonctionnalité sont disponibles [ici](http://go.microsoft.com/fwlink/?linkid=393996).
+
+
+<!--
+2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
+-->
+
+
+Lorsque vous générez la [chaîne de connexion](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) pour votre objet **SqlConnection**, vous devez coordonner les valeurs entre les paramètres suivants :
+
+- ConnectRetryCount &nbsp;&nbsp;*(La valeur par défaut est 0. La plage s’étend de 0 à 255.)*
+- ConnectRetryInterval &nbsp;&nbsp;*(La valeur par défaut est 1 seconde. La plage s’étend de 1 à 60.)*
+- Délai d’expiration de connexion &nbsp;&nbsp;*(La valeur par défaut est 15 secondes. La plage s’étend de 0 à 2 147 483 647.)*
+
+
+Plus précisément, les valeurs que vous choisissez doivent vérifier la formule suivante :
+
+- Délai d’expiration de connexion = ConnectRetryCount × ConnectionRetryInterval
+
+Par exemple, si ConnectRetryCount = 3 et ConnectionRetryInterval = 10 secondes, un délai d’expiration de 29 secondes seulement ne laissera pas suffisamment de temps au système pour sa 3e et dernière tentative de connexion, 29 étant inférieur à 3 × 10.
+
+
+#### Connexion ou commande
+
+
+Les paramètres **ConnectRetryCount** et **ConnectRetryInterval** permettent à votre objet **SqlConnection** de recommencer l’opération de connexion sans notification à votre programme ou renvoi du contrôle à celui-ci. Les nouvelles tentatives peuvent se produire dans les situations suivantes :
+
+- Appel de méthode mySqlConnection.Open
+- Appel de méthode mySqlConnection.Execute
+
+Il existe une subtilité. Si une erreur temporaire se produit pendant que votre *requête* est en cours d’exécution, votre objet **SqlConnection** ne reprend pas l’opération de connexion, et ne relance certainement pas votre requête. Toutefois, **SqlConnection** vérifie très rapidement la connexion avant d’envoyer votre requête pour exécution. Si la vérification rapide détecte un problème de connexion, **SqlConnection** réessaye l’opération de connexion. Si la nouvelle tentative réussit, votre requête est envoyée pour exécution.
+
+
+#### Le paramètre ConnectRetryCount doit-il être combiné avec la logique de nouvelle tentative d’application ?
+
+Supposons que votre application possède une logique de nouvelle tentative personnalisée robuste. Elle peut réessayer l’opération de connexion 4 fois. Si vous ajoutez **ConnectRetryInterval** et **ConnectRetryCount** = 3 à votre chaîne de connexion, vous augmentez le nombre de nouvelles tentatives à 4 × 3, soit 12 nouvelles tentatives. Vous ne souhaitez peut-être pas un si grand nombre de nouvelles tentatives.
+
 
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
@@ -152,7 +188,7 @@ Une connexion via Internet est moins fiable qu’une connexion via un réseau pr
 ## Connexion : adresse IP
 
 
-Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour ce faire, vous devez modifier les paramètres du pare-feu via le [portail Azure en version préliminaire](http://portal.azure.com/).
+Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour ce faire, vous devez modifier les paramètres du pare-feu via le [portail Azure](http://portal.azure.com/).
 
 
 Si vous oubliez de configurer l’adresse IP, votre programme échouera en envoyant un message d’erreur pratique indiquant l’adresse IP nécessaire.
@@ -184,10 +220,10 @@ Par exemple, lorsque votre programme client est hébergé sur un ordinateur Wind
 7. &gt; Nouvelle règle
 
 
-Si votre programme client est hébergé sur une machine virtuelle Azure, voir <br/>[Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
+Si votre programme client est hébergé sur une machine virtuelle Azure, consultez <br/>[Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 
-Pour obtenir des informations générales sur la configuration des ports et l’adresse IP, voir [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
+Pour obtenir des informations générales sur la configuration des ports et l’adresse IP, consultez [Pare-feu de la base de données SQL Azure](sql-database-firewall-configure.md)
 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
@@ -204,7 +240,7 @@ ADO.NET 4.5 : ajoute la prise en charge du protocole TDS 7.4. Cela inclut des
 Lorsque vous utilisez un objet de connexion à partir d’un pool de connexions, nous conseillons de faire en sorte que votre programme interrompe temporairement la connexion lorsque vous ne l’utilisez pas immédiatement. La réouverture d’une connexion n’est pas aussi coûteuse que la création d’une nouvelle connexion.
 
 
-Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis juillet 2015, vous pouvez [télécharger 4.6 ADO.NET](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons d’effectuer une mise à niveau vers la dernière version d’ADO.NET. Depuis juillet 2015, vous pouvez [télécharger ADO.NET 4.6](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
 
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
@@ -215,7 +251,7 @@ Si vous utilisez ADO.NET 4.0 ou une version antérieure, nous vous recommandons
 Si votre programme ne peut pas se connecter à la base de données SQL Azure, une option de diagnostic consiste à essayer de se connecter à un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
 
 
-Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants : - SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET. - sqlcmd.exe, qui se connecte à l’aide de [ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
+Sur un ordinateur Windows, vous pouvez essayer les utilitaires suivants : - SQL Server Management Studio (ssms.exe), qui se connecte à l’aide d’ADO.NET. - sqlcmd.exe, qui se connecte à l’aide d’[ODBC](http://msdn.microsoft.com/library/jj730308.aspx).
 
 
 Une fois connecté, faites un test avec une courte requête SQL SELECT.
@@ -357,7 +393,7 @@ Les classes EntLib60 suivantes sont particulièrement utiles pour la logique de 
 - Classe **ExponentialBackoff**
 
 
-- Classe **SqlDatabaseTransientErrorDetectionStrategy**.
+- Classe **SqlDatabaseTransientErrorDetectionStrategy**
 
 
 - Classe **ReliableSqlConnection**
@@ -373,9 +409,9 @@ Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHa
 
 Voici des liens vers des informations sur EntLib60 :
 
-- [Livre électronique : Guide du développeur de Microsoft Enterprise Library, deuxième édition](http://www.microsoft.com/download/details.aspx?id=41145) gratuit.
+- [Livre électronique : Guide du développeur de Microsoft Enterprise Library, 2e édition](http://www.microsoft.com/download/details.aspx?id=41145) gratuit.
 
-- Meilleures pratiques : [Conseils généraux sur les nouvelles tentatives](best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
+- Meilleures pratiques : [Conseils généraux sur les nouvelles tentatives](best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
 
 - Téléchargement NuGet de [Bibliothèque d’entreprise - Bloc applicatif de gestion des erreurs 6.0 temporaires de Microsoft](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)
 
@@ -392,7 +428,7 @@ Voici des liens vers des informations sur EntLib60 :
 - Le bloc de journalisation extrait les fonctionnalités issues de la destination de journalisation de façon que le code d’application soit cohérent, quels que soient l’emplacement et le type du magasin de journalisation cible.
 
 
-Pour plus de détails, voir [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
+Pour plus de détails, consultez [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)
 
 
 ### Code source de la méthode EntLib60 IsTransient
@@ -476,6 +512,6 @@ public bool IsTransient(Exception ex)
 - [Regroupement de connexions SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
 
 
-- [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche consistant d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
+- [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage **Python**, pour simplifier la tâche d’ajout de comportement de nouvelle tentative dans toutes les situations.](https://pypi.python.org/pypi/retrying)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

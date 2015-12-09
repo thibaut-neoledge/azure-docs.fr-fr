@@ -13,10 +13,10 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	Notez que les données enregistrées à l'étape précédente sont chargées à partir du service mobile après le démarrage de l'application.
  
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+4. De retour dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur l’onglet **Données**, puis sur le tableau **TodoItems**.
 
    	Cela vous permet de parcourir les données insérées par l'application dans la table.
 
    	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

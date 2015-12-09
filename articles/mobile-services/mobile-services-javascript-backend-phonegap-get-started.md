@@ -50,7 +50,7 @@ L'exécution de ce didacticiel nécessite les éléments suivants :
 
 Dans cette section, vous allez créer une application PhoneGap connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **PhoneGap** sous **Choisissez une plateforme** et développez **Créer une application PhoneGap**.
 
@@ -111,7 +111,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 	> [AZURE.IMPORTANT]Les modifications apportées à ce projet de plateforme seront écrasées si le projet principal est régénéré à l'aide des outils PhoneGap. Par conséquent, il est impératif d'apporter ces modifications dans le répertoire www racine du projet, comme décrit à la section suivante.
 
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItem**.
+4. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis cliquez sur la table **TodoItem**.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -153,9 +153,9 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 ## Étapes suivantes
 Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment effectuer d’autres tâches importantes dans Mobile Services :
 
-* **[Ajouter l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.  
+* **[Ajout de l’authentification à votre application]** Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.  
 
-* **[Ajouter des notifications Push à votre application](https://msdn.microsoft.com/magazine/dn879353.aspx)** Découvrez comment vous inscrire à des notifications Push et les envoyer à votre application.
+* **[Ajout de notifications Push à votre application](https://msdn.microsoft.com/magazine/dn879353.aspx)** Découvrez comment vous inscrire à des notifications Push et les envoyer à votre application.
 
 * **[Informations de références conceptuelles et procédurales sur HTML/JavaScript pour Mobile Services](mobile-services-html-how-to-use-client-library.md)** Découvrez comment utiliser la bibliothèque cliente JavaScript pour accéder aux données, appeler des API personnalisées et effectuer l’authentification.
 
@@ -169,11 +169,11 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Ajouter l’authentification à votre application]: mobile-services-html-get-started-users.md
+[Ajout de l’authentification à votre application]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

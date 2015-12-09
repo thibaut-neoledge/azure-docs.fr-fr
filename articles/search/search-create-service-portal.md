@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Créer un service Azure Search dans le portail Azure | Microsoft Azure | Service de recherche cloud hébergé"
-	description="Ajouter un service Azure Search gratuit ou standard à un abonnement existant à l’aide du portail Azure. Azure Search est un service de recherche hébergé dans le cloud dédié aux applications personnalisées."
+	description="Ajouter un service Azure Search gratuit ou standard à un abonnement existant à l’aide du Portail Azure Classic. Azure Search est un service de recherche hébergé dans le cloud dédié aux applications personnalisées."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -17,15 +17,15 @@
 	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
-# Créer un service Azure Search dans le portail Azure
+# Création d’un service Azure Search dans le Portail Azure Classic
 
-Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du portail Azure, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la navigation à facettes, les profils de score et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](seach-what-is-search.md).
+Microsoft Azure Search est un service de recherche cloud hébergé qui permet d'incorporer des fonctionnalités de recherche dans des applications personnalisées. Il fournit un moteur de recherche et assure le stockage de vos données de recherche, dont l’accès et la gestion peuvent s’effectuer à l’aide du Portail Azure Classic, d’un Kit de développement logiciel (SDK) .NET ou d’une API REST. Les principales fonctionnalités incluent la saisie semi-automatique des requêtes, les correspondances, la mise en surbrillance des résultats, la navigation à facettes, les profils de score et le support multilingue. Pour plus d’informations sur Azure Search, consultez [Présentation d’Azure Search](seach-what-is-search.md).
 
 ## Ajouter gratuitement Azure Search à votre abonnement
 
 En tant qu’administrateur, vous pouvez ajouter le service Azure Search à un abonnement Azure existant gratuitement quand vous choisissez le service partagé, ou à un tarif standard quand vous choisissez des ressources dédiées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure Classic](https://portal.azure.com).
 
 2. Dans la barre de lancement, cliquez sur **Nouveau** > **Données + stockage** > **Recherche**.
 
@@ -78,7 +78,7 @@ Vous pouvez consulter les [Informations de tarification](http://go.microsoft.com
 <a id="sub-2"></a>
 ## Recherche du nom du service et des clés api de votre service Azure Search
 
-Une fois le service créé, vous pouvez revenir au portail Azure pour obtenir l’URL ou la `api-key`. Pour vous connecter à votre service Azure Search, vous devez entrer l’URL et une `api-key` afin d’authentifier l’appel.
+Une fois le service créé, vous pouvez revenir au Portail Azure Classic pour obtenir l’URL ou la `api-key`. Pour vous connecter à votre service Azure Search, vous devez entrer l’URL et une `api-key` afin d’authentifier l’appel.
 
 1. Dans la barre de lancement, cliquez sur **Accueil** puis sur le service Azure Search pour ouvrir le tableau de bord du service.
 
@@ -123,4 +123,4 @@ Les informations suivantes vous expliquent comment créer et gérer des applicat
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/21/2015"
+	ms.date="11/30/2015"
 	ms.author="jgao"/>
 
 # Prise en main des outils Hadoop de Visual Studio pour HDInsight pour exécuter une requête Hive
@@ -43,7 +43,7 @@ Pour suivre ce didacticiel et utiliser les outils Hadoop dans Visual Studio, vou
 
 ## Installer les outils HDInsight pour Visual Studio
 
-HDInsight Tools pour Visual Studio et le pilote ODBC Microsoft Hive sont packagés avec le Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5.1 ou ultérieure. Vous pouvez l’installer via [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). Vous devez choisir celui qui correspond à votre version de Visual Studio. Si vous n’avez pas installé Visual Studio, vous pouvez installer la dernière version de Visual Studio Community et le Kit de développement logiciel (SDK) Azure à l’aide de [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) ou en suivant les liens suivants :
+HDInsight Tools pour Visual Studio et le pilote ODBC Microsoft Hive sont packagés avec le Kit de développement logiciel (SDK) Microsoft Azure pour .NET version 2.5.1 ou ultérieure. Vous pouvez l’installer via [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). Vous devez choisir celui qui correspond à votre version de Visual Studio. Si vous n’avez pas installé Visual Studio, vous pouvez installer la dernière version de Visual Studio Community et le Kit de développement logiciel (SDK) Azure à l’aide de [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386) ou en utilisant les liens suivants :
 
 - [Visual Studio Community 2015 avec Kit de développement logiciel (SDK) Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
 - [Visual Studio Community 2013 avec Kit de développement logiciel (SDK) Microsoft Azure](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
@@ -66,9 +66,9 @@ Avec HDInsight Tools pour Visual Studio, vous pouvez vous connecter à vos clust
 2.	Dans le menu **Affichage**, cliquez sur **Explorateur de serveurs** pour ouvrir la fenêtre du même nom.
 3.	Développez **Azure**, puis **HDInsight**.
 
-	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, cliquez sur **Fenêtre de liste des tâches HDInsight**.  
+	>[AZURE.NOTE]Notez que la fenêtre **Liste des tâches HDInsight** doit s’ouvrir. Si vous ne la voyez pas, cliquez sur **Autres fenêtres** dans le menu **Affichage**, puis cliquez sur **Fenêtre de liste des tâches HDInsight**.  
 4.	Entrez les informations d’identification de votre abonnement Azure, puis cliquez sur **Connexion**. Cette étape n’est nécessaire que si vous ne vous êtes jamais connecté à l’abonnement Azure à partir de Visual Studio sur cette station de travail.
-5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne voyez aucun cluster, vous pouvez en configurer un à l’aide du portail Aperçu d’Azure, d’Azure PowerShell ou du kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
+5.	Dans l’explorateur de serveurs, vous verrez une liste des clusters HDInsight existants. Si vous ne possédez aucun cluster, vous pouvez en approvisionner un dans le portail Azure, avec Azure PowerShell ou à l’aide du Kit de développement logiciel (SDK) HDInsight. Pour plus d’informations, consultez la rubrique [Configuration de clusters HDInsight][hdinsight-provision].
 
 	![Outils Hadoop : liste de clusters de l’explorateur de serveurs de HDInsight Tools pour Visual Studio][5]
 6.	Développez un cluster HDInsight. Vous devez voir les **bases de données Hive**, un compte de stockage par défaut, les comptes de stockage liés et le **journal Hadoop Service**. Vous pouvez développer davantage les entités.
@@ -194,6 +194,17 @@ Les journaux sont également diffusés en temps réel et les graphiques de tâch
  
 ![hdinsight visual studio tools exécution rapide hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
 
+**Différence entre l’exécution de requêtes via HiveServer2 et l’envoi de requêtes via WebHCat**
+
+Même si l’exécution de requêtes via HiveServer2 présente de nombreux avantages en termes de performances, elle s’accompagne également de certaines restrictions. Certaines de ces restrictions ne conviennent pas pour une utilisation en production. Le tableau suivant répertorie les différences :
+
+| |Exécution via HiveServer2 |Envoi via WebHCat|
+|---|---|---|
+|Exécuter des requêtes|Élimine la surcharge de WebHCat (qui lance une tâche MapReduce nommée « TempletonControllerJob »).|Tant qu’une requête est exécutée via WebHCat, WebHCat lancera une tâche MapReduce qui introduira une latence supplémentaire.|
+|Diffuser des journaux en continu|En temps quasi-réel.|Les journaux d’exécution de la tâche sont disponibles uniquement une fois la tâche terminée.|
+|Afficher l’historique des tâches|Si une requête est exécutée via HiveServer2, son historique des tâches (journal des tâches, résultat de la tâche) n’est pas conservé. L’application est consultable dans l’interface utilisateur YARN, mais avec des informations limitées.|Si une requête est exécutée via WebHCat, son historique des tâches (journal des tâches, résultat de la tâche) est conservé et peut être affiché à l’aide de Visual Studio, du Kit de développement logiciel HDInsight ou de PowerShell. |
+|Fermer la fenêtre| 	L’exécution via HiveServer2 repose sur un mode « synchrone ». Vous devez laisser les fenêtres ouvertes ; si les fenêtres sont fermées, l’exécution de la requête sera annulée.|L’envoi via WebHCat repose sur un mode « asynchrone » ce qui vous permet de soumettre la requête via WebHCat et de fermer Visual Studio. Vous pouvez y revenir et consulter les résultats à tout moment.|
+
 
 ### Graphique de performances des travaux Hive sur Tez
 
@@ -258,4 +269,4 @@ Dans cet article, vous avez appris à établir une connexion à des clusters HDI
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

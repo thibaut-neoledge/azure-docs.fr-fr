@@ -40,7 +40,7 @@ Une connexion de point à site nécessite un réseau virtuel avec une passerelle
 
 ### Créez un réseau virtuel
 
-1. Connectez-vous au **portail Azure** (et non au portail en version préliminaire).
+1. Connectez-vous au **Portail Azure Classic** (et non au portail Azure).
 1. Dans le coin inférieur gauche de l’écran, cliquez sur **Nouveau**. Dans le volet de navigation, cliquez sur **Services réseau**, puis sur **Réseau virtuel**. Cliquez sur **Custom Create** pour démarrer l'Assistant Configuration.
 1. Sur la page **Détails du réseau virtuel**, entrez les informations suivantes, puis cliquez sur la flèche Suivant située dans le coin inférieur droit.
 	- **Nom** : nommez votre réseau virtuel. Par exemple, attribuez-lui le nom « VNetEast ». Il s’agit du nom auquel vous ferez référence lors du déploiement des machines virtuelles et des instances PaaS (platform as a service) sur ce réseau virtuel.
@@ -57,13 +57,13 @@ Une connexion de point à site nécessite un réseau virtuel avec une passerelle
  - **Espace d’adressage** : ajoutez la plage d’adresses IP internes que vous voulez utiliser pour ce réseau virtuel, notamment l’adresse IP de départ et le nombre d’adresses. Il est important de sélectionner une plage qui ne chevauche aucune des plages utilisées pour votre réseau local. Pour ce faire, vous devez contacter votre administrateur réseau, qui peut avoir besoin d’extraire une plage d’adresses IP de l’espace d’adressage de votre réseau local pour que vous puissiez l’utiliser pour votre réseau virtuel.
  - **Ajouter un sous-réseau** : aucun sous-réseau supplémentaire n’est requis, mais vous pouvez créer un sous-réseau distinct pour les machines virtuelles qui disposeront d’adresses IP dédiées statiques. Vous pouvez également placer vos machines virtuelles dans un sous-réseau séparé de vos autres instances de rôle.
  - **Ajouter un sous-réseau de passerelle** : le sous-réseau de passerelle est requis pour un VPN de point à site. Cliquez sur cette option pour ajouter le sous-réseau de passerelle. Ce sous-réseau est uniquement utilisé pour la passerelle de réseau virtuel.
-1. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page Réseaux du portail Azure. Une fois votre réseau virtuel créé, vous pouvez procéder à la création de votre passerelle de routage dynamique.
+1. Une fois votre réseau virtuel créé, la mention **Créé** apparaît sous **État** sur la page Réseaux du Portail Azure Classic. Une fois votre réseau virtuel créé, vous pouvez procéder à la création de votre passerelle de routage dynamique.
 
 ### Créer une passerelle de routage dynamique
 
 Le type de passerelle doit être configuré comme dynamique. Les passerelles de routage statique ne fonctionneront pas avec cette fonctionnalité.
 
-1. Dans le portail Azure, au niveau de la page **Réseaux**, cliquez sur le réseau virtuel que vous venez de créer, puis accédez à la page **Tableau de bord**.
+1. Dans le Portail Azure Classic, au niveau de la page **Réseaux**, cliquez sur le réseau virtuel que vous venez de créer, puis accédez à la page **Tableau de bord**.
 1. Au bas de la page **Tableau de bord**, cliquez sur **Créer une passerelle**. Vous voyez apparaître le message suivant : **Souhaitez-vous créer une passerelle pour réseau virtuel « votre\_réseau » ?**. Cliquez sur **Oui** pour initialiser la création de la passerelle. Cette opération peut prendre environ 15 minutes.
 
 ## Section 2 : générer et télécharger des certificats
@@ -88,19 +88,19 @@ Si vous n’utilisez pas de solution de certificat d’entreprise, vous devez g�
 
 1. L’une des solutions pour créer un certificat X.509 consiste à utiliser l’outil de création de certificats (makecert.exe). Pour utiliser makecert, téléchargez et installez [Microsoft Visual Studio Express](https://www.visualstudio.com/products/visual-studio-express-vs.aspx), disponible gratuitement.
 2. Accédez au dossier Visual Studio Tools et démarrez l’invite de commandes en tant qu’administrateur.
-3. La commande figurant dans l’exemple suivant crée et installe un certificat racine dans le magasin de certificats Personnel de votre ordinateur, et crée également un fichier *.cer* correspondant que vous chargerez par la suite dans le portail Azure.
+3. La commande figurant dans l’exemple suivant crée et installe un certificat racine dans le magasin de certificats Personnel de votre ordinateur, et crée également un fichier *.cer* correspondant que vous chargerez par la suite dans le Portail Azure Classic.
 4. Accédez au répertoire dans lequel vous souhaitez stocker le fichier .cer, puis exécutez la commande suivante (*RootCertificateName* correspond au nom de certificat à utiliser). L’exécution de l’exemple suivant sans aucune modification entraînera la création d’un certificat racine et du fichier *RootCertificateName.cer* correspondant.
 
 >[AZURE.NOTE]Comme vous avez créé un certificat racine permettant de générer des certificats clients, il peut être utile d'exporter ce certificat avec sa clé privée et de l'enregistrer à un emplacement sûr à partir duquel il pourra être récupéré.
 
     makecert -sky exchange -r -n "CN=RootCertificateName" -pe -a sha1 -len 2048 -ss My "RootCertificateName.cer"
 
-### Télécharger le fichier de certificat racine .cert dans le portail Azure
+### Télécharger le fichier de certificat racine .cert dans le Portail Azure Classic
 
 Vous devez télécharger le fichier .cer correspondant pour chaque certificat racine sur Azure. Vous pouvez télécharger jusqu’à 20 certificats.
 
-1. Lorsque vous avez généré un certificat racine lors de la procédure précédente, vous avez également créé un fichier *.cer*. Vous allez à présent charger ce fichier dans le portail Azure. Notez que le fichier .cer ne contient pas la clé privée du certificat racine. Vous pouvez télécharger jusqu’à 20 certificats racine.
-1. Dans le portail Azure, sur la page **Certificats** de votre réseau virtuel, cliquez sur **Télécharger un certificat racine**.
+1. Lorsque vous avez généré un certificat racine lors de la procédure précédente, vous avez également créé un fichier *.cer*. Vous allez à présent charger ce fichier dans le Portail Azure Classic. Notez que le fichier .cer ne contient pas la clé privée du certificat racine. Vous pouvez télécharger jusqu’à 20 certificats racine.
+1. Dans le Portail Azure Classic, sur la page **Certificats** de votre réseau virtuel, cliquez sur **Télécharger un certificat racine**.
 1. Dans la page **Télécharger un certificat**, recherchez le certificat racine .cer, puis cliquez sur la coche correspondante.
 
 ### Générer un certificat client
@@ -137,7 +137,7 @@ Pour configurer votre client VPN, procédez comme suit, dans l’ordre :
 
 ### Créer le package de configuration du client VPN
 
-1. Dans le portail Azure, sur la page **Tableau de bord** de votre réseau virtuel, accédez au menu d’aperçu rapide dans le coin droit, puis cliquez sur le package VPN s’appliquant au client que vous souhaitez connecter à votre réseau virtuel.
+1. Dans le Portail Azure Classic, sur la page **Tableau de bord** de votre réseau virtuel, accédez au menu d’aperçu rapide dans le coin droit, puis cliquez sur le package VPN s’appliquant au client que vous souhaitez connecter à votre réseau virtuel.
 2. 
 Les systèmes d’exploitation clients pris en charge sont les suivants :
  - Windows 7 (32 bits et 64 bits)
@@ -152,7 +152,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
  - Pour les clients 32 bits, sélectionnez **Télécharger le package VPN client 32 bits**.
  - Pour les clients 64 bits, sélectionnez **Télécharger le package VPN client 64 bits**.
 1. La création du package client prendra quelques minutes. Une fois le package généré, vous serez en mesure de télécharger le fichier. Le fichier *.exe* que vous téléchargez peut être stocké en toute sécurité sur votre ordinateur local.
-1. Après avoir généré et téléchargé le package client VPN à partir du portail Azure, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client. Le package client VPN contient des informations de configuration pour configurer le logiciel client VPN intégré à Windows. Le package n’installe aucun logiciel supplémentaire.
+1. Après avoir généré et téléchargé le package client VPN à partir du Portail Azure Classic, vous pouvez l’installer sur l’ordinateur client que vous souhaitez utiliser pour vous connecter à votre réseau virtuel. Si vous prévoyez d'installer le package client VPN sur plusieurs ordinateurs clients, assurez-vous que chacun d'entre eux dispose également d'un certificat client. Le package client VPN contient des informations de configuration pour configurer le logiciel client VPN intégré à Windows. Le package n’installe aucun logiciel supplémentaire.
 
 ### Installer le package de configuration VPN sur le client et démarrer la connexion
 
@@ -193,4 +193,4 @@ Vous pouvez ajouter des machines virtuelles à votre réseau virtuel. Consultez 
 
 Si vous voulez d’autres informations sur les réseaux virtuels, consultez la page [Document de réseau virtuel Azure](https://azure.microsoft.com/documentation/services/virtual-network/).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 ## Téléchargement, installation et inscription de l’agent Azure Backup
 
-Après avoir créé l’archivage de sauvegarde Azure, un agent doit être installé sur chaque serveur local (Windows Server, client Windows ou serveur Data Protection Manager) pour vous permettre de sauvegarder des données et des applications dans Azure.
+Après avoir créé l’archivage de sauvegarde Azure, un agent doit être installé sur chacune de vos machines Windows (Windows Server, client Windows, System Center Data Protection Manager ou Azure Backup Server) pour permettre la sauvegarde des données et des applications dans Azure.
 
 1. Connectez-vous au [portail de gestion](https://manage.windowsazure.com/).
 
@@ -48,4 +48,4 @@ Après avoir créé l’archivage de sauvegarde Azure, un agent doit être insta
 
     ![Configurer la sauvegarde Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

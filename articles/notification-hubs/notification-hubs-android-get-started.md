@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="11/25/2015"
 	ms.author="wesmc"/>
 
 # Prendre en main Notification Hubs pour les applications Android
@@ -55,10 +55,8 @@ Vous devez suivre ce didacticiel avant de pouvoir suivre tous les autres didacti
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-<ol start="7">
-<li><p>Cliquez sur l’onglet <b>Configurer</b> dans la partie supérieure, saisissez la valeur de <b>clé d’API</b> obtenue à la section précédente, puis cliquez sur <b>Enregistrer</b>.</p>
-</li>
-</ol>
+&emsp;&emsp;7. Cliquez sur l’onglet **Configurer** dans la partie supérieure, saisissez la valeur de **clé d’API** obtenue à la section précédente, puis cliquez sur **Enregistrer**.
+
 &emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
 
 Votre concentrateur de notification est à présent configuré pour GCM, et vous disposez des chaînes de connexion vous permettant d’inscrire votre application pour la réception de notifications et l’envoi de notifications Push.
@@ -83,10 +81,10 @@ Votre concentrateur de notification est à présent configuré pour GCM, et vous
 
 ###Ajout de code
 
-1. Téléchargez le <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">Kit de développement logiciel (SDK) Android pour Notification Hubs</a>. Décompressez le fichier .zip et copiez **notificationhubs\\notification-hubs-0.3.jar** et **notifications\\notifications-1.0.1.jar** dans le répertoire **app\\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier **libs**.
+1. Téléchargez le fichier notification-hubs-0.4.jar à partir de l’onglet **Fichiers** du [Notification-Hubs-Android-SDK sur Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Téléchargez également le fichier [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) dans le répertoire **app\\libs** de votre projet. Vous pouvez effectuer cette opération en faisant glisser les fichiers directement dans le dossier **libs** dans la fenêtre Project View d'Android Studio. Actualisez le dossier **libs**.
 
 
-    > [AZURE.NOTE]Les numéros à la fin du nom du fichier peuvent changer dans les versions ultérieures du Kit de développement logiciel (SDK).
+    >[AZURE.NOTE]Les numéros à la fin du nom du fichier peuvent changer dans les versions ultérieures du Kit de développement logiciel (SDK).
 
 2. Configurez l’application afin d’obtenir un ID d’enregistrement depuis GCM, et utilisez-la pour inscrire l’instance d’application auprès du hub de notification.
 
@@ -553,14 +551,12 @@ Pour obtenir des informations générales sur Notification Hubs, consultez la pa
 
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
-[Prise en main des notifications Push dans Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [portail Azure]: https://manage.windowsazure.com/
 [portail de gestion Azure]: https://manage.windowsazure.com/
 [Recommandations relatives à Notification Hubs]: http://msdn.microsoft.com/library/jj927170.aspx
 [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
-[Utilisation de Notification Hubs pour envoyer des notifications aux utilisateurs]: notification-hubs-aspnet-backend-android-notify-users.md
 [Utilisation des Notification Hubs pour diffuser les dernières nouvelles]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

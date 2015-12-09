@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire | Microsoft Azure"
-	description="Apprenez à créer une machine virtuelle Azure ou un ordinateur virtuel exécutant Windows à partir d’Azure Marketplace dans la version préliminaire du portail Azure"
+	pageTitle="Créer une machine virtuelle exécutant Windows dans le portail Azure | Microsoft Azure"
+	description="Apprenez à créer une machine virtuelle Azure ou un ordinateur virtuel exécutant Windows à partir d’Azure Marketplace dans le portail Azure"
 	keywords="machine virtuelle azure, créer une machine virtuelle, ordinateur virtuel, configuration d’une machine virtuelle"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,17 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# Créer une machine virtuelle exécutant Windows dans le portail Azure en version préliminaire#
+# Créer une machine virtuelle exécutant Windows dans le portail Azure#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 <br>
 
-Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure en version préliminaire, et ce, en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
+Ce didacticiel vous montre combien il est facile de créer une machine virtuelle Azure dans le portail Azure, et ce, en quelques minutes. Nous allons utiliser une image de Windows Server 2012 R2 Datacenter à titre d’exemple pour créer la machine virtuelle. Ce n’est toutefois qu’une des nombreuses images proposées par Azure. Les images disponibles dépendent de votre abonnement. Par exemple, les images de bureau sont disponibles pour les abonnés MSDN.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Modèle de déploiement classique Pour plus d’informations sur Resource Manager, voir [Présentation d’Azure Resource Manager](resource-group-overview.md).
 
@@ -43,7 +43,7 @@ Voici une procédure pas à pas de ce didacticiel.
 
 ## Sélectionner l’image de la machine virtuelle
 
-1. Connectez-vous à la version préliminaire du portail Azure.
+1. Connectez-vous au portail Azure.
 
 2. Dans le menu Hub, cliquez sur **Nouveau** > **Calcul** > **Windows Server 2012 R2 Datacenter**.
 
@@ -87,7 +87,7 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 
 >[AZURE.NOTE]Pour des conseils concernant les exigences et le dépannage, consultez [Connexion d'une machine virtuelle Azure à l'aide de RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Si ce n’est pas déjà fait, connectez-vous au portail Azure en version préliminaire.
+1. Si ce n’est pas déjà fait, connectez-vous au portail Azure.
 
 2. Cliquez sur votre machine virtuelle dans le Tableau d’accueil. Si vous devez la rechercher, cliquez sur **Rechercher tout** > **Récent** ou **Rechercher tout** > **Machines virtuelles**. Sélectionnez ensuite votre machine virtuelle dans la liste.
 
@@ -108,6 +108,6 @@ Une fois que vous avez créé la machine virtuelle, vous pouvez vous y connecter
 ## Étapes suivantes
 
 * Utilisez Azure PowerShell et l’interface de ligne de commande Azure pour [rechercher et sélectionner des images de machine virtuelle](resource-groups-vm-searching.md).
-* Automatisez le déploiement et la gestion de la machine virtuelle et de la charge de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
+* Automatisez le déploiement et la gestion des machines virtuelles et charges de travail à l’aide d’[Azure Resource Manager](virtual-machines-how-to-automate-azure-resource-manager.md) et des [modèles Azure Resource Manager](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

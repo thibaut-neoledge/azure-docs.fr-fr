@@ -37,13 +37,13 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-## Création d'une application Windows universelle
+## Création d’une application Windows universelle
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application Windows universelle ou modifier un projet d'application Windows Store ou Windows Phone existant afin de vous connecter au service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application Windows universelle ou modifier un projet d’application Windows Store ou Windows Phone existant afin de vous connecter au service mobile.
 
 Dans cette section, vous allez créer une application Windows universelle connectée à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application Windows Store**.
@@ -73,7 +73,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 
 * [Ajout de l’authentification à votre application Mobile Services][Get started with authentication] Découvrez comment authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 
-* [Ajouter les notifications push à votre application][Get started with push notifications] Découvrez comment envoyer une notification Push très basique à votre application.
+* [Ajout de notifications push à votre application][Get started with push notifications] En savoir plus sur l’envoi d’une notification Push très basique à votre application.
 
 * [Comment utiliser la bibliothèque cliente .NET](mobile-services-windows-dotnet-how-to-use-client-library.md) Découvrez comment interroger le service mobile, utiliser les données et accéder aux API personnalisées.
 
@@ -95,7 +95,7 @@ Vous avez terminé les étapes de démarrage rapide. Découvrez ensuite comment 
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

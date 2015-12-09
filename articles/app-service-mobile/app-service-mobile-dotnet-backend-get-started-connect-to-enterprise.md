@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="06/19/2015"
+	ms.date="12/03/2015"
 	ms.author="mahender"/>
 
 # Connecter une application mobile aux API SaaS
@@ -32,7 +32,7 @@ Ce didacticiel requiert les éléments suivants :
 ## <a name="configure-permissions"></a>Configuration de votre application pour un accès délégué à SharePoint
 Par défaut, le jeton que vous recevez d'AAD a des autorisations limitées. Pour accéder à une ressource ou une application SaaS tierce telle que SharePoint Online, vous devez l'autoriser explicitement.
 
-1. Dans la section **Active Directory** du [portail de gestion Azure], sélectionnez votre client. Accédez à l'application web que vous avez créée pour le service App Service.
+1. Dans la section **Active Directory** du [portail Azure Classic], sélectionnez votre client. Accédez à l'application web que vous avez créée pour le service App Service.
 
 2. Sous l'onglet **Configurer**, faites défiler la page jusqu'à la section Autorisations pour d'autres applications. Sélectionnez **Office 365 SharePoint Online** et accordez l'autorisation déléguée **Modifier ou supprimer les fichiers des utilisateurs**. Cliquez ensuite sur **Enregistrer**.
 
@@ -42,13 +42,13 @@ Vous avez maintenant configuré Azure AD pour émettre un jeton d'accès SharePo
 
 ## <a name="store-credentials"></a>Ajout d’informations SharePoint à votre application mobile
 
-Pour appeler SharePoint, vous devez spécifier les points de terminaison avec lesquels l'application mobile a besoin de communiquer. Vous devez également être capable de prouver l'identité de votre service d'application avec une paire ID client/clé secrète. Vous avez déjà obtenu et stocké l'ID client pour le service d'application pendant la configuration de la connexion AAD. Comme il s’agit d’informations d’identification sensibles, vous ne devez pas les stocker en clair dans votre code. Définissez plutôt ces valeurs en tant que paramètres d'application pour votre site Code de l'application mobile.
+Pour appeler SharePoint, vous devez spécifier les points de terminaison avec lesquels l'application mobile a besoin de communiquer. Vous devez également être capable de prouver l'identité de votre service d'application avec une paire ID client/clé secrète. Vous avez déjà obtenu et stocké l'ID client pour le service d'application pendant la configuration de la connexion AAD. Comme il s’agit d’informations d’identification sensibles, vous ne devez pas les stocker en clair dans votre code. Définissez plutôt ces valeurs en tant que paramètres d’application pour votre serveur principal Mobile App.
 
 1. Revenez sous l'onglet Applications AAD de votre client et sélectionnez l'application web pour votre service d'application.
 
 2. Sous Configurer, faites défiler l'écran jusqu'à la section Clés. Vous pouvez obtenir une clé secrète client en générant une nouvelle clé. Notez que lorsque vous créez une clé et quittez la page, il n'est plus possible de l'éliminer du portail. Une fois cette valeur créée, copiez-la et enregistrez-la dans un emplacement sûr. Sélectionnez une durée pour votre clé, puis cliquez sur Enregistrer et faites une copie de la valeur obtenue.
 
-3. Dans la section Code de l'application mobile du portail de gestion, accédez à l'onglet Configurer puis à la section Paramètres de l’application. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
+3. Dans le [portail Azure](https://portal.azure.com/) de votre serveur principal Mobile App, cliquez sur **Tous les paramètres** > **Paramètres d’application**, faites défiler le menu jusqu’à **Paramètres d’application**. Vous pouvez fournir ici une paire clé/valeur qui vous aidera à référencer les informations d'identification nécessaires.
 
 * Définissez SP\_Authority sur le point de terminaison d'autorité pour votre client AAD. Cette valeur doit être identique à la valeur d'autorité utilisée pour votre application cliente. Elle aura la forme suivante : `https://login.windows.net/contoso.onmicrosoft.com`
 
@@ -183,9 +183,9 @@ Pour créer un document Word, vous allez utiliser le package NuGet OpenXML. Inst
 
 <!-- URLs. -->
 
-[portail de gestion Azure]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/fr-FR/sharepoint/
 [Service d’authentification unique de la bibliothèque d’authentification Azure Active Directory]: app-service-mobile-ios-aad-sso.md
 [Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

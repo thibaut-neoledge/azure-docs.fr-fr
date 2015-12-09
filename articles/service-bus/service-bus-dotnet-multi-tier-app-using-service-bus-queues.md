@@ -87,13 +87,13 @@ Avant de commencer à développer votre application Azure, téléchargez les out
 
 L’étape suivante consiste à créer l’espace de noms de service et à obtenir une clé de signature d’accès partagé (SAP). Un espace de noms fournit une limite d’application pour chaque application exposée via Service Bus. Une clé SAP est automatiquement générée par le système lors de la création d'un espace de noms de service. La combinaison de l’espace de noms et de la clé SAP fournit à Service Bus des informations d’identification permettant d’authentifier l’accès à une application.
 
-### Configuration de l’espace de noms avec le portail Azure
+### Configuration de l’espace de noms avec le Portail Azure Classic
 
-1.  Connectez-vous au [portail Azure][].
+1.  Connectez-vous au [Portail Azure Classic][].
 
-2.  Dans le volet de navigation de gauche du portail Azure, cliquez sur **Service Bus**.
+2.  Dans le volet de navigation de gauche du portail, cliquez sur **Service Bus**.
 
-3.  Dans le volet inférieur du portail Azure, cliquez sur **Créer**.
+3.  Dans le volet inférieur du portail, cliquez sur **Créer**.
 
     ![][6]
 
@@ -269,7 +269,7 @@ Maintenant, ajoutez le code pour envoyer des éléments dans une file d’attent
 
 2.  Donnez le nom QueueConnector.cs à la classe. Cliquez sur **Add** pour créer la classe.
 
-3.  Maintenant, ajoutez le code qui encapsule les informations de connexion et initialise la connexion à une file d’attente Service Bus. Dans QueueConnector.cs, ajoutez le code suivant, puis entrez des valeurs pour **Espace de noms** (votre espace de noms de service) et **Votre clé**, qui est la clé SAP obtenue dans le [portail Azure][Azure portal] précédemment.
+3.  Maintenant, ajoutez le code qui encapsule les informations de connexion et initialise la connexion à une file d’attente Service Bus. Dans QueueConnector.cs, ajoutez le code suivant, puis entrez des valeurs pour **Espace de noms** (votre espace de noms de service) et **yourKey**, qui est la clé SAP obtenue précédemment dans le [Portail Azure Classic][].
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@ Maintenant, ajoutez le code pour envoyer des éléments dans une file d’attent
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -510,8 +510,7 @@ Pour plus d’informations sur le déploiement du composant frontal sur un site 
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [portail Azure]: http://manage.windowsazure.com
+  [Portail Azure Classic]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -545,4 +544,4 @@ Pour plus d’informations sur le déploiement du composant frontal sur un site 
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

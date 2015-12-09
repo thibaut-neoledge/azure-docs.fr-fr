@@ -59,7 +59,7 @@ Maintenant que les données sont en place, vous pouvez déplacer votre fabrique 
 
 ## Utilisation d’Azure Data Factory
 
-Maintenant que nous avons configuré tous les éléments, nous pouvons commencer à configurer le pipeline en accédant à votre instance d’Azure Data Factory dans le portail Azure en version préliminaire. C’est possible en accédant au [portail Azure](portal.azure.com), puis en sélectionnant votre fabrique de données dans le menu de gauche.
+Maintenant que nous avons configuré tous les éléments, nous pouvons commencer à configurer le pipeline en accédant à votre instance d’Azure Data Factory dans le portail Azure. C’est possible en accédant au [Portail Azure Classic](portal.azure.com), puis en sélectionnant votre fabrique de données dans le menu de gauche.
 
 À ce stade, il vous reste trois étapes pour configurer votre pipeline de fabrique de données Azure pour transférer des données vers votre entrepôt de données : la liaison de vos services, la définition de vos jeux de données et la création de votre pipeline.
 
@@ -206,4 +206,4 @@ Dans la section « Créer et déployer », cliquez sur « Autres commandes �
 	}
 	
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -40,7 +40,7 @@ Vous apprendrez ce qui suit :
 * Comment configurer Visual Studio pour créer une application web App Service pendant la création d’un projet web ASP.NET MVC 5.
 * Comment déployer un projet web sur une application web App Service à l’aide de Visual Studio.
 * Utilisation de l’**Explorateur de serveurs** Visual Studio pour ouvrir des fichiers distants et démarrer une session de débogage à distance. 
-* Utilisation du [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
+* utiliser le [portail Azure](/overview/preview-portal/) pour surveiller et gérer votre application web.
 
 > [AZURE.NOTE]Ce didacticiel porte sur l’utilisation d’ASP.NET avec Azure App Service. Il n’explique pas comment développer une application web ASP.NET. Pour une présentation d’ASP.NET MVC 5, consultez [Prise en main d’ASP.NET MVC 5](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sur le site [ASP.NET](http://asp.net/). Pour des liens vers d’autres articles plus détaillés sur l’utilisation d’Azure App Service, consultez la section [Étapes suivantes](#next-steps).
 > 
@@ -51,7 +51,7 @@ Vous apprendrez ce qui suit :
 Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Vous pouvez :
 
 * [Ouvrir un compte Azure gratuitement](/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Même après que les crédits sont épuisés, vous pouvez conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
-* [Activer les avantages de l’abonnement MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Votre abonnement MSDN vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
+* [Activez les avantages d’abonnement Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Votre abonnement Visual Studio vous donne droit chaque mois à des crédits dont vous pouvez vous servir pour les services Azure payants.
 
 Si vous souhaitez commencer à utiliser Azure App Service avant d’ouvrir un compte Azure, accédez à [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Là, vous pouvez créer immédiatement une application de départ temporaire dans App Service. Aucune carte de crédit n’est requise ni aucun engagement.
 
@@ -300,6 +300,5 @@ Dans ce didacticiel, vous avez appris à créer une application web simple et à
 
 ## Changements apportés
 * Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Pour obtenir un guide des différences entre le portail Azure et le portail Azure en version préliminaire, consultez [Informations de référence sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

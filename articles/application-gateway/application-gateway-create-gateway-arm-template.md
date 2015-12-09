@@ -237,7 +237,7 @@ Cliquer pour déployer est une autre manière d’utiliser les modèles ARM. C�
 
 
 ### Étape 1 
-Le lien [Cliquez pour déployer la passerelle Application Gateway](https://azure.microsoft.com/fr-FR/documentation/templates/101-application-gateway-public-ip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
+Le lien [Cliquez pour déployer la passerelle Application Gateway](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) vous redirige vers la page de modèle du portail pour la passerelle Application Gateway.
 
 
 ### Étape 2 
@@ -273,4 +273,4 @@ Si vous souhaitez plus d'informations sur les options d'équilibrage de charge e
 - [Équilibrage de charge Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

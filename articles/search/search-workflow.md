@@ -42,7 +42,7 @@ Deux niveaux de tarification sont disponibles. Nous vous recommandons d’utilis
 
 Une fois le service créé, vous êtes prêt à créer l’index, en commençant par la définition de son schéma.
 
-Le moyen le plus rapide et le plus simple de créer un index consiste à utiliser le portail Azure. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](search-create-index-portal.md).
+Le moyen le plus rapide et le plus simple de créer un index consiste à utiliser le Portail Azure Classic. Chaque document doit disposer au minimum d’une clé unique et d’un champ contenant des données pouvant faire l’objet d’une recherche. Pour commencer, consultez [Création d’un index sur le portail](search-create-index-portal.md).
 
 > [AZURE.NOTE]À l’intérieur d’un index Azure Search
 >
@@ -180,7 +180,7 @@ Pour utiliser des données externes, vous devez définir un champ dans l'index q
 
 L’une des fonctionnalités Azure Search les plus intéressantes est la facilité avec laquelle vous pouvez augmenter ou réduire les ressources selon la demande. Si cette fonctionnalité n'élimine pas le besoin de planifier la capacité, elle réduit la plupart des risques. Vous n'êtes pas tenu d’utiliser du matériel supplémentaire ou du matériel inadéquat pour exécuter vos charges de travail de recherche.
 
-Au cours de la dernière étape, passez en revue les niveaux de ressource existants pour les réplicas et les partitions, et pour déterminer si des ajustements sont nécessaires. Le moyen le plus simple d’ajuster la capacité est sur le [portail Azure](https://ms.portal.azure.com/).
+Au cours de la dernière étape, passez en revue les niveaux de ressource existants pour les réplicas et les partitions, et pour déterminer si des ajustements sont nécessaires. Le moyen le plus simple d’ajuster la capacité est sur le [Portail Azure Classic](https://ms.portal.azure.com/).
 
 N’oubliez pas que seul le niveau de tarification standard peut être augmenté ou diminué. En outre, selon le degré d'ajustement, le déploiement de clusters supplémentaires pour votre service peut prendre de quelques minutes à plusieurs heures.
 
@@ -190,4 +190,4 @@ N’oubliez pas que seul le niveau de tarification standard peut être augmenté
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

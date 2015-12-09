@@ -35,9 +35,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## Création d'une application Windows Store
 
-Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail de gestion pour créer une application Windows Store 8.1 en JavaScript qui se connecte à votre service mobile.
+Après avoir créé votre service mobile, vous pouvez suivre un démarrage rapide facile dans le portail Azure Classic pour créer une application Windows Store 8.1 en JavaScript qui se connecte à votre service mobile.
 
-1.  Dans le portail de gestion, cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
+1.  Dans le [portail Azure Classic], cliquez sur **Mobile Services**, puis sur le service mobile que vous venez de créer.
 
 
 2. Dans l'onglet de démarrage rapide, cliquez sur **Windows** sous **Choisissez une plateforme** et développez **Créer une application Windows Store**.
@@ -64,7 +64,7 @@ La dernière étape de ce didacticiel consiste à générer et à exécuter votr
 
 4. (Facultatif) Réexécutez l’application. Notez que les données enregistrées à l’étape précédente sont chargées à partir du service mobile après le démarrage de l’application.
  
-4. De retour dans le portail de gestion, cliquez sur l'onglet **Données**, puis sur la table **TodoItems**.
+4. De retour dans le [portail Azure Classic], cliquez sur l’onglet **Données**, puis cliquez sur la table **TodoItems**.
 
    	Cela vous permet de parcourir les données insérées par l'application dans la table.
 
@@ -87,6 +87,6 @@ Le démarrage rapide étant terminé, découvrez comment utiliser le [client Mob
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express pour Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Management Portal]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Didacticiel Hadoop : prise en main de Hadoop sur Windows | Microsoft Azure"
    description="Prise en main de Hadoop dans HDInsight. Apprenez à approvisionner des clusters Hadoop sur Windows, à exécuter une requête Hive sur des données et à en analyser les résultats dans Excel."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
+   keywords="didacticiel Hadoop,hadoop sur windows,cluster hadoop,découverte de hadoop,requête hive"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/07/2015"
+   ms.date="11/29/2015"
    ms.author="nitinme"/>
 
 
@@ -71,10 +71,10 @@ Ce didacticiel utilise uniquement l'objet blob par défaut et le compte de stock
 
 **Pour créer un compte Azure Storage**
 
-1. Connectez-vous au [portail Azure][azure-management-portal].
+1. Connectez-vous au [portail Azure Classic][azure-management-portal].
 2. Cliquez sur **NOUVEAU** dans l'angle inférieur gauche, puis entrez les valeurs comme indiqué dans l'image.
 
-	![Portail Azure où vous pouvez utiliser l'option Création rapide pour configurer un nouveau compte de stockage.][image-hdi-storageaccount-quickcreate]
+	![Portail Azure Classic où vous pouvez utiliser l’option Création rapide pour configurer un nouveau compte de stockage.][image-hdi-storageaccount-quickcreate]
 
 >[AZURE.NOTE]Veillez à créer le compte de stockage à un emplacement pris en charge pour le cluster. À savoir : **Asie de l'Est**, **Asie du Sud-Est**, **Europe du Nord**, **Europe de l'Ouest**, **Est des États-Unis**, **Ouest des États-Unis**, **Nord du centre des États-Unis**, **Sud du centre des États-Unis**.
 
@@ -82,14 +82,14 @@ Sélectionnez le nouveau compte de stockage dans la liste et cliquez sur **GÉRE
 
 ##<a name="provision"></a>Approvisionnement d'un cluster Hadoop
 
-Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calcul Azure contenant Hadoop et ses applications associées. Dans cette section, vous approvisionnez un cluster HDInsight version 3.1, qui est basé sur la version 2.4 d'Hadoop. Vous pouvez également créer des clusters Hadoop pour d'autres versions au moyen du portail Azure, des applets de commande HDInsight PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision]. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
+Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calcul Azure contenant Hadoop et ses applications associées. Dans cette section, vous approvisionnez un cluster HDInsight version 3.1, qui est basé sur la version 2.4 d'Hadoop. Vous pouvez également créer des clusters Hadoop pour d’autres versions au moyen du portail Azure Classic, des applets de commande HDInsight PowerShell ou du Kit de développement logiciel (SDK) .NET HDInsight. Pour plus d'informations, consultez la rubrique [Approvisionnement de clusters HDInsight au moyen d'options personnalisées][hdinsight-provision]. Pour en savoir plus sur les différentes versions de HDInsight et leurs contrats SLA, consultez la page [Contrôle de version des composants HDInsight](hdinsight-component-versioning.md).
 
 [AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 
 **Pour approvisionner un cluster Hadoop**
 
-1. Connectez-vous au [portail Azure][azure-management-portal].
+1. Connectez-vous au [portail Azure Classic][azure-management-portal].
 
 2. Cliquez sur **NOUVEAU** dans l'angle inférieur gauche, puis entrez les valeurs comme indiqué dans l'image.
 
@@ -127,7 +127,7 @@ Quand vous approvisionnez un cluster, vous approvisionnez les ressources de calc
 
 Un cluster HDInsight approvisionné correctement fournit une console de requête incluant une galerie de prise en main permettant d’exécuter les exemples directement à partir du portail. Vous pouvez utiliser les exemples pour apprendre à utiliser HDInsight en parcourant quelques scénarios de base. Ces exemples sont fournis avec tous les composants requis, tels que les données à analyser et les requêtes à exécuter sur les données. Pour plus d’informations sur les exemples de la galerie de prise en main, consultez la page [Découverte de Hadoop à l’aide de la galerie de prise en main de HDInsight](hdinsight-learn-hadoop-use-sample-gallery.md).
 
-**Pour exécuter l’exemple**, à partir du portail Azure, cliquez sur le nom du cluster dans lequel vous voulez exécuter l’exemple, puis cliquez sur **Console de requête** en bas de la page. Dans la page web qui s’ouvre, cliquez sur l’onglet **Galerie de prise en main**, puis sous la catégorie**Exemples**, cliquez sur l’exemple que vous voulez exécuter. Suivez les instructions de la page web pour terminer l’exemple. Le tableau suivant répertorie quelques exemples et fournit plus d’informations sur les chaque exemple.
+**Pour exécuter l’exemple**, à partir du portail Azure Classic, cliquez sur le nom du cluster dans lequel vous voulez exécuter l’exemple, puis cliquez sur **Console de requête** en bas de la page. Dans la page web qui s’ouvre, cliquez sur l’onglet **Galerie de prise en main**, puis sous la catégorie**Exemples**, cliquez sur l’exemple que vous voulez exécuter. Suivez les instructions de la page web pour terminer l’exemple. Le tableau suivant répertorie quelques exemples et fournit plus d’informations sur les chaque exemple.
 
 Exemple | Fonction
 ------ | ---------------
@@ -144,7 +144,7 @@ Exemple | Fonction
 
 **Exécution d'un travail Hive à partir d'un tableau de bord du cluster**
 
-1. Connectez-vous au [portail Azure][azure-management-portal].
+1. Connectez-vous au [portail Azure Classic][azure-management-portal].
 2. Cliquez sur **HDINSIGHT** dans le volet de gauche. La liste des clusters s'affiche, avec celui que vous avez créé dans la section précédente.
 3. Cliquez sur le nom du cluster que vous voulez utiliser pour l'exécution du travail Hive, puis cliquez sur **CONSOLE DE REQUÊTE** au bas de la page.
 4. Une page web s'ouvre dans un autre onglet du navigateur. Entrez le compte et le mot de passe de l'utilisateur Hadoop. Le nom d'utilisateur par défaut est **admin**, le mot de passe est celui que vous avez entré pendant l'approvisionnement du cluster. Le tableau de bord ressemble à ceci :
@@ -280,4 +280,4 @@ Dans ce didacticiel Hadoop, vous avez appris à approvisionner un cluster Hadoop
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -11,4 +11,4 @@
 	 
 Votre serveur principal Mobile App peut maintenant être utilisé avec votre application cliente.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

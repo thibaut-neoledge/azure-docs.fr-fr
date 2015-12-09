@@ -22,7 +22,7 @@
 
 Azure IoT Hub est un service entièrement géré qui autorise des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils IoT et un serveur d’applications principal. L’une des plus grandes difficultés dans les projets IoT consiste à pouvoir connecter de manière fiable et sécurisée des appareils au serveur d’applications principal. Pour simplifier ce scénario, Azure IoT Hub propose une messagerie « appareil vers cloud » et « cloud vers appareil » extensible et fiable, garantit la sécurité des communications grâce au contrôle d’accès et aux informations d’identification de sécurité par appareil, et offre des bibliothèques d’appareils pour les plateformes et les langages les plus populaires.
 
-Ce didacticiel montre comment utiliser le portail Azure en version préliminaire pour créer un hub IoT. Il montre également comment créer une identité d’appareil dans votre hub IoT, créer un appareil simulé qui envoie des messages de l’appareil vers le cloud et reçoit des messages en provenance du cloud.
+Ce didacticiel montre comment utiliser le portail Azure pour créer un hub IoT. Il montre également comment créer une identité d’appareil dans votre hub IoT et comment créer un appareil simulé qui envoie des messages de l’appareil vers le cloud et reçoit des messages en provenance du cloud.
 
 À la fin de ce didacticiel, vous disposerez de trois applications de console Windows :
 
@@ -30,17 +30,17 @@ Ce didacticiel montre comment utiliser le portail Azure en version préliminaire
 * **ReadDeviceToCloudMessages**, qui lit les messages de l’appareil vers le cloud et affiche leur contenu ; et
 * **SimulatedDevice**, qui se connecte à votre hub IoT avec l’identité d’appareil créée précédemment et envoie un message de l’appareil vers le cloud chaque seconde.
 
-> [AZURE.NOTE] IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT][]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
+> [AZURE.NOTE]IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (y compris C, Java et Javascript) via les Kits de développement logiciel (SDK) pour les appareils IoT Azure. Pour obtenir des instructions étape par étape expliquant comment connecter votre appareil au code de ce didacticiel, et généralement à Azure IoT Hub, consultez le [Centre de développement Azure IoT][]. Les Kits de développement logiciel (SDK) du service Azure IoT pour Java et Node seront publiés prochainement.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 + Microsoft Visual Studio 2015
 
-+ Un compte Azure actif. <br/>Si vous n’avez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
++ Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d’informations, consultez la page d’[essai gratuit d’Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Ffr-FR%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank").
 
 ## Créer un hub IoT
 
-1. Connectez-vous au [portail Azure en version préliminaire].
+1. Connectez-vous au [portail Azure].
 
 2. Dans la barre de lancement, cliquez sur **Nouveau**, sur **Internet des objets **, puis sur **IoT Hub**.
 
@@ -115,7 +115,7 @@ Informations supplémentaires sur IoT Hub :
 [42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
 
 <!-- Links -->
-[portail Azure en version préliminaire]: https://portal.azure.com/
+[portail Azure]: https://portal.azure.com/
 
 [Envoyer des messages du cloud vers des appareils avec IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Traiter les messages des appareils vers cloud]: iot-hub-csharp-csharp-process-d2c.md
@@ -130,4 +130,4 @@ Informations supplémentaires sur IoT Hub :
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
 [Centre de développement Azure IoT]: http://www.azure.com/develop/iot
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

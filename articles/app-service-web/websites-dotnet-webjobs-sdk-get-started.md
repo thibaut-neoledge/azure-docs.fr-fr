@@ -290,7 +290,7 @@ Après avoir créé quelques publicités dans le cloud, vous afficherez le table
 
 ### Configurez l’application pour l’utilisation de votre base de données SQL et de votre compte de stockage Azure.
 
-Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs quand l’application s’exécute dans Azure. Vous pouvez définir ces valeurs dans Azure à l’aide de l’**Explorateur de serveurs**, du portail, de Windows PowerShell ou de l’interface de ligne de commande interplateforme. Pour plus d’informations, consultez [Fonctionnement des chaînes d’application et des chaînes de connexion](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+Par sécurité, il est conseillé [d'éviter de placer des informations sensibles (par exemple, des chaînes de connexion) dans des fichiers stockés dans des référentiels de code source](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Vous pouvez définir une chaîne de connexion et d’autres paramètres dans l’environnement Azure. Les API de configuration ASP.NET sélectionnent automatiquement ces valeurs quand l’application s’exécute dans Azure. Vous pouvez définir ces valeurs dans Azure à l’aide de l’**Explorateur de serveurs**, du portail Azure, de Windows PowerShell ou de l’interface de ligne de commande interplateforme. Pour plus d’informations, consultez [Fonctionnement des chaînes d’application et des chaînes de connexion](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir des valeurs de chaînes de connexion dans Azure.
 
@@ -326,11 +326,11 @@ Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir 
 
 11.	Actualisez la page après quelques secondes : la vignette s'affiche.
 
-	Si la miniature n’apparaît pas, vous devrez patienter environ une minute pour que WebJob redémarre. Si après quelques instants vous ne voyez toujours pas la miniature lorsque vous actualisez la page, WebJob n’a peut-être pas démarré automatiquement. Dans ce cas, accédez à l’onglet WebJobs sur la page [portail Azure](https://manage.windowsazure.com) de votre application web, puis cliquez sur **Démarrer**.
+	Si la miniature n’apparaît pas, vous devrez patienter environ une minute pour que WebJob redémarre. Si après quelques instants vous ne voyez toujours pas la miniature lorsque vous actualisez la page, WebJob n’a peut-être pas démarré automatiquement. Dans ce cas, accédez à l’onglet WebJobs sur la page [portail Classic](https://manage.windowsazure.com) de votre application web, puis cliquez sur **Démarrer**.
 
 ### Affichage du tableau de bord du Kit de développement logiciel (SDK) WebJobs
 
-1. Dans le [portail Azure](https://manage.windowsazure.com), sélectionnez votre application web.
+1. Dans le [portail Classic](https://manage.windowsazure.com), sélectionnez votre application web.
 
 2. Cliquez sur l'onglet **Tâches web**.
 
@@ -348,7 +348,7 @@ Dans cette section, vous utilisez l’**Explorateur de serveurs** pour définir 
 
 	Le bouton **Rappeler la fonction** de cette page commande à l'infrastructure du SDK de rappeler la fonction et vous permet de modifier les données déjà transmises à la fonction.
 
->[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Azure, accédez à l’onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** en bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
+>[AZURE.NOTE]Lorsque le test est terminé, supprimez l’application web et l’instance Base de données SQL. L’application web est gratuite, mais l’instance Base de données SQL et le compte de stockage engendrent des frais (minimaux du fait de la petite taille). De même, si vous laissez l’application web s’exécuter, toute personne trouvant votre URL peut créer et afficher des publicités. Dans le portail Classic, accédez à l’onglet **Tableau de bord** de votre application web, puis cliquez sur le bouton **Supprimer** au bas de la page. Vous pouvez en même temps cocher une case pour supprimer l'instance Base de données SQL. Si vous souhaitez empêcher temporairement l’accès à l’application web, cliquez plutôt sur **Arrêter**. Dans ce cas, les frais continuent à s'accumuler pour la base de données SQL et le compte de stockage. Vous pouvez suivre une procédure similaire pour supprimer la base de données SQL et le compte de stockage lorsque vous n'en avez plus besoin.
 
 ## <a id="create"></a>Créer l’application intégralement
 
@@ -465,7 +465,7 @@ Pour ajouter des fichiers à un projet ou à un dossier, cliquez avec le bouton 
 	- *Global.asax.cs*  
 	- Dans le dossier *Controllers* : *AdController.cs*.
 	- Dans le dossier *Views\\Shared* : fichier *\_Layout.cshtml*
-	- Dans le dossier *Views\\Home* : *Index.cshtml*
+- Dans le dossier *Views\\Home* : *Index.cshtml*
 	- Dans le dossier *Views\\Ad* (à créer) : cinq fichiers *.cshtml*<br/><br/>
 
 3. Dans le projet ContosoAdsWebJob, ajoutez les fichiers suivants du projet téléchargé.
@@ -802,7 +802,7 @@ Pour vous assurer que vos WebJobs sont toujours en cours d’exécution sur tout
 
 ### Utilisation du Kit de développement logiciel (SDK) WebJobs en dehors de WebJobs
 
-Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l’application web au compte de stockage que vous utilisez en définissant la chaîne de connexion AzureWebJobsDashboard sous l’onglet **Configurer** du portail Azure. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
+Un programme qui utilise le Kit SDK WebJobs ne doit pas obligatoirement s’exécuter dans Azure dans une tâche web. Il peut s'exécuter localement, ou dans d'autres environnements tels qu'un rôle de travail de service cloud ou un service Windows. Toutefois, vous ne pouvez accéder au tableau de bord du Kit de développement logiciel (SDK) WebJobs que par le biais d’une application web Azure. Pour utiliser le tableau de bord, vous devez connecter l’application web au compte de stockage que vous utilisez en définissant la chaîne de connexion AzureWebJobsDashboard sous l’onglet **Configurer** du portail Classic. Vous pouvez ensuite accéder au tableau de bord à l’aide de l’URL suivante :
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -812,4 +812,4 @@ Pour plus d'informations, consultez le billet de blog [Récupération d'un table
 
 Pour plus d’informations, consultez [Ressources de documentation relatives à Azure WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

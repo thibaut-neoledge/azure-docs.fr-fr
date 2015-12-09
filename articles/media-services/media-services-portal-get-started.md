@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure | Microsoft Azure"
-	description="Ce didacticiel vous présente les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide du portail Azure."
+	pageTitle="Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure Classic | Microsoft Azure"
+	description="Ce didacticiel vous présente les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) avec Azure Media Services à l’aide du portail Azure Classic."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -17,15 +17,15 @@
 	ms.author="juliako"/>
 
 
-# Prendre en main la diffusion de contenus à la demande à l’aide du portail Azure
+# Prise en main de la diffusion de contenus à la demande à l’aide du portail Azure Classic
 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
-Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) de base à l’aide du portail Azure.
+Ce didacticiel vous guide à travers les étapes d’implémentation d’une application de diffusion de contenu vidéo à la demande (VoD) de base à l’aide du portail Azure Classic.
 
-> [AZURE.NOTE]Pour effectuer ce didacticiel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
+> [AZURE.NOTE]Pour suivre ce didacticiel, vous avez besoin d'un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d'évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Version d'évaluation gratuite d'Azure</a>.
 
 Ce didacticiel comprend les tâches suivantes :
 
@@ -39,7 +39,7 @@ Ce didacticiel comprend les tâches suivantes :
 
 ## Créer un compte Azure Media Services
 
-1. Dans le [portail Azure,](https://manage.windowsazure.com/) cliquez sur **Nouveau**, sur **Service de média**, puis sur **Création rapide**.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Nouveau**, **Service de média**, puis sur **Création rapide**.
 
 	![Media Services - Création rapide](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
@@ -79,7 +79,7 @@ Avec l’empaquetage dynamique, vous devez stocker et payer les fichiers dans un
 
 Pour changer le nombre d’unités réservées de diffusion en continu, procédez comme suit :
 
-1. Dans le [portail Azure](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
+1. Dans le [portail Azure Classic](https://manage.windowsazure.com/), cliquez sur **Media Services**. Cliquez ensuite sur le nom du service multimédia.
 
 2. Sélectionnez la page POINTS DE TERMINAISON DE DIFFUSION EN CONTINU. Cliquez ensuite sur le point de terminaison de diffusion en continu que vous souhaitez modifier.
 
@@ -93,12 +93,12 @@ Pour changer le nombre d’unités réservées de diffusion en continu, procéde
 
 	>[AZURE.NOTE]Actuellement, le fait de passer d’une valeur positive à zéro pour le nombre d’unités de diffusion en continu peut désactiver la diffusion en continu pendant une heure.
 	>
-	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour obtenir des informations détaillées sur la tarification, consultez la page [Détails de la tarification de Media Services](http://go.microsoft.com/fwlink/?LinkId=275107).
+	> C’est le plus grand nombre d’unités spécifiées sur 24 heures qui est utilisé pour calculer le coût. Pour des informations détaillées sur la tarification, consultez la page [Détails de la tarification des services de média](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 ## Téléchargement de contenu
 
 
-1. Dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
+1. Dans le [portail Azure Classic](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), cliquez sur **Media Services**, puis sur le nom du compte Media Services.
 2. Sélectionnez la page CONTENU.
 3. Cliquez sur le bouton **Télécharger** disponible sur cette page ou en bas du portail.
 4. Dans la boîte de dialogue **Télécharger le contenu**, accédez au fichier correspondant à l’élément multimédia de votre choix. Cliquez sur le fichier, puis sur **Ouvrir**, ou appuyez sur Entrée.
@@ -137,7 +137,7 @@ Notez qu’en plus d’utiliser les fonctionnalités d’empaquetage dynamique, 
 
 ### Encoder
 
-Cette section décrit les étapes à suivre pour encoder votre contenu avec Azure Media Encoder à l’aide du portail Azure.
+Cette section décrit les étapes à suivre pour encoder votre contenu avec Azure Media Encoder à l’aide du portail Azure Classic.
 
 1.  Sélectionnez le fichier que vous souhaitez encoder. Si l’encodage est pris en charge pour ce type de fichier, le bouton **TRAITER** sera activé en bas de la page CONTENU.
 4. Dans la boîte de dialogue **Traiter**, sélectionnez le processeur **Azure Media Encoder**.
@@ -172,7 +172,7 @@ Cette section décrit les étapes à suivre pour encoder votre contenu avec Azur
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord « publier » votre élément multimédia en créant un localisateur. Les localisateurs assurent l’accès aux fichiers contenus dans l’élément multimédia. Media Services prend en charge deux types de localisateurs : les localisateurs OnDemandOrigin, utilisés pour diffuser du contenu multimédia (par exemple, MPEG DASH, HLS ou Smooth Streaming) et les localisateurs d’URL SAS (signature d’accès partagé), utilisés pour télécharger des fichiers multimédias.
 
-Quand vous utilisez le portail Azure pour publier vos éléments multimédias, les localisateurs sont créés pour vous et une URL basée sur le localisateur OnDemand (si votre élément multimédia contient un fichier .ism) ou une URL SAS vous est fournie.
+Quand vous utilisez le portail Azure Classic pour publier vos éléments multimédias, les localisateurs sont créés pour vous et une URL basée sur le localisateur OnDemand (si votre élément multimédia contient un fichier .ism) ou une URL SAS vous est fournie.
 
 Une URL SAS a le format suivant :
 
@@ -209,7 +209,7 @@ Pour utiliser le portail pour publier un élément multimédia, procédez comme 
 
 ## Lecture de contenu sur le portail
 
-Le portail Azure propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
+Le portail Azure Classic propose un lecteur de contenu que vous pouvez utiliser pour tester votre vidéo.
 
 Cliquez sur la vidéo de votre choix, puis sur le bouton **Lire** situé en bas du portail.
 
@@ -223,7 +223,7 @@ Certaines considérations s’appliquent :
 
 
 
-##Étapes suivantes : Parcours d’apprentissage Media Services
+##Étapes suivantes : parcours d’apprentissage Media Services
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -244,7 +244,7 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 
 
 <!-- URLs. -->
-[Azure portal]: http://manage.windowsazure.com/
+[Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 <!-- Images -->
@@ -260,4 +260,4 @@ Si cette rubrique ne répond pas à vos attentes ou besoins, ou ne contient pas 
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

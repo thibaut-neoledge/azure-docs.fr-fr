@@ -1,0 +1,3 @@
+>[AZURE.NOTE]Il s’agit d’une rubrique **Azure Mobile Services**. Microsoft Azure recommande des applications mobiles Azure App Service pour tous les nouveaux déploiements de serveur principal mobile. Pour commencer avec les applications mobiles Azure App Service, consultez le [centre de documentation Applications mobiles de service d’application]((/documentation/services/app-service/mobile).
+
+<!---HONumber=AcomDC_1203_2015-->

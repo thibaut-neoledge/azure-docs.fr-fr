@@ -28,4 +28,4 @@ Pour une analyse de l’utilisation, utilisez le [Kit de développement logiciel
 * [Prise en main d'Application Insights pour iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
 * [Prise en main de HockeyApp pour Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

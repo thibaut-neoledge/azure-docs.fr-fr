@@ -61,7 +61,7 @@ Les sections suivantes offrent de plus amples informations sur SQL Server dans l
 
 La **base de données SQL Microsoft Azure (Azure SQL Database)** est une base de données en tant que service relationnelle hébergée das Azure Cloud, qui entre dans les catégories *Logiciel en tant que service (software-as-a-service [SaaS])* et *Plateforme en tant que service (platform-as-a-service [PaaS])*. Azure SQL Database repose sur du matériel et des logiciels standardisés, qui sont détenus, hébergés et gérés par Microsoft. Avec SQL Database, vous pouvez développer directement sur le service à l'aide de fonctionnalités intégrées. Lorsque vous utilisez SQL Database, vous payez à l'utilisation avec les options de mise à l'échelle pour plus de puissance.
 
-**SQL Server dans les machines virtuelles Azure** entre dans la catégorie de l’*infrastructure en tant que service (IaaS)* et vous permet d’exécuter SQL Server sur une machine virtuelle dans le cloud. Comme pour Azure SQL Database, elle repose sur du matériel standardisé détenu, hébergé et géré par Microsoft. Lorsque vous utilisez SQL Server sur une machine virtuelle, vous pouvez appliquer votre propre licence SQL Server pour Azure ou utiliser l'une des images préconfigurées de SQL Server dans le portail Azure.
+**SQL Server dans les machines virtuelles Azure** entre dans la catégorie de l’*infrastructure en tant que service (IaaS)* et vous permet d’exécuter SQL Server sur une machine virtuelle dans le cloud. Comme pour Azure SQL Database, elle repose sur du matériel standardisé détenu, hébergé et géré par Microsoft. Lorsque vous utilisez SQL Server sur une machine virtuelle, vous pouvez appliquer votre propre licence SQL Server pour Azure ou utiliser l’une des images préconfigurées de SQL Server dans le portail Azure Classic.
 
 En général, ces deux options SQL sont optimisées à différentes fins :
 
@@ -263,4 +263,4 @@ Merci à tous pour votre participation !
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

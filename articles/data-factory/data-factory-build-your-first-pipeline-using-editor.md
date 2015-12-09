@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Concevez votre premier pipeline Azure Data Factory en utilisant Data Factory Editor"
-	description="Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l'aide de Data Factory Editor dans le portail Azure."
+	description="Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure Classic."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Concevez votre premier pipeline Azure Data Factory en utilisant Data Factory Editor (portail Azure)
+# Concevez votre premier pipeline Azure Data Factory en utilisant Data Factory Editor (portail Azure Classic)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -24,7 +24,7 @@
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
 
-Dans cet article, vous apprendrez à utiliser le [portail Azure en version préliminaire](https://portal.azure.com/) pour créer votre premier pipeline. Ce didacticiel se déroule comme suit :
+Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre premier pipeline. Ce didacticiel se déroule comme suit :
 
 1.	Création de la fabrique de données
 2.	Création des services liés (magasins de données, calculs) et des jeux de données
@@ -36,7 +36,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 
 ## Étape 1 : création de la fabrique de données
 
-1.	Après la connexion au [portail Azure en version préliminaire](http://portal.azure.com/), procédez comme suit :
+1.	Après la connexion au [portail Azure](http://portal.azure.com/), procédez comme suit :
 	1.	Cliquez sur **NOUVEAU**dans le menu de gauche. 
 	2.	Cliquez sur **Analyse des données** dans le panneau **Créer**.
 	3.	Cliquez sur **Data Factory** dans le panneau **Analyse des données**.
@@ -60,7 +60,7 @@ Cet article ne fournit pas une vue d'ensemble conceptuelle du service Azure Dat
 		![Créer un groupe de ressources](./media/data-factory-build-your-first-pipeline-using-editor/create-resource-group.png)
 4.	Après avoir sélectionné le groupe de ressources, vérifiez que vous utilisez l’abonnement correspondant à celui dans lequel vous souhaitez créer la fabrique de données.
 5.	Cliquez sur **Créer** dans le panneau **Nouvelle fabrique de données**.
-6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau d'accueil** du portail Azure en version préliminaire, comme suit :   
+6.	La fabrique de données apparaît comme étant en cours de création dans le **Tableau d’accueil** du portail Azure, comme suit :   
 
 	![État de la création de la fabrique de données](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 7. Félicitations ! Vous avez créé votre première fabrique de données. Une fois la fabrique de données créée, vous verrez la page correspondante indiquant son contenu. 	
@@ -99,7 +99,7 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 		  "properties": {
 		    "type": "HDInsightOnDemand",
 		    "typeProperties": {
-		      "version": "3.1",
+		      "version": "3.2",
 		      "clusterSize": 1,
 		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "StorageLinkedService"
@@ -111,7 +111,7 @@ Vous allez maintenant créer un service lié pour le cluster HDInsight à la dem
 	
 	Propriété | Description
 	-------- | -----------
-	Version | Cette propriété indique que la version du service HDInsight doit être la version 3.1. 
+	Version | Cette propriété indique que la version de service HDInsight doit être la version 3.2. 
 	ClusterSize | Cette propriété crée un cluster HDInsight avec un seul nœud. 
 	TimeToLive | Cette propriété spécifie la durée d'inactivité du cluster HDInsight, avant sa suppression.
 	linkedServiceName | Cette propriété spécifie le compte de stockage qui sera utilisé pour stocker les journaux générés par HDInsight.
@@ -233,4 +233,4 @@ Dans cette étape, vous allez créer votre premier pipeline.
 Dans cet article, vous avez créé un pipeline avec une activité de transformation (Activité HDInsight) qui exécute un script Hive sur un cluster HDInsight à la demande. Pour apprendre à utiliser une activité de copie pour copier des données à partir d’un objet blob Azure dans Azure SQL, consultez le [Didacticiel : copie de données depuis un objet blob Azure vers Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

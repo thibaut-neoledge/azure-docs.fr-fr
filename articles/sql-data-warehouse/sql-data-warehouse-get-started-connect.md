@@ -35,7 +35,7 @@ Votre base de données est associée à un serveur SQL Azure. Pour vous connecte
 
 Pour obtenir le nom complet du serveur
 
-1. Accédez au [portail Azure en version préliminaire](https://portal.azure.com).
+1. Accédez au [portail Azure](https://portal.azure.com).
 2. Cliquez sur **Bases de données SQL**, puis sur la base de données à laquelle vous souhaitez vous connecter. Cet exemple utilise l’exemple de base de données AdventureWorksDW.
 3. Recherchez le nom complet du serveur.
 
@@ -108,4 +108,4 @@ Comme vous pouvez à présent vous connecter et exécuter des requêtes, essayez
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -40,11 +40,11 @@ Vous devez disposer de ce qui suit pour suivre jusqu’au bout ce didacticiel Ap
 
 Storm sur HDInsight utilise un stockage d’objet blob Azure pour stocker les fichiers journaux et les topologies envoyés au cluster. Utilisez les étapes suivantes pour créer un compte de stockage Azure à utiliser avec votre cluster :
 
-1. Connectez-vous à la [version préliminaire du portail Azure][preview-portal].
+1. Connectez-vous au [portail Azure][preview-portal].
 
 2. Sélectionnez **NOUVEAU**, __Analyse des données__, puis __HDInsight__
 
-	![Création d’un cluster dans le portail Azure en version préliminaire](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
+	![Création d’un cluster dans le portail Azure](./media/hdinsight-apache-storm-tutorial-get-started-linux/new-cluster.png)
 
 3. Entrez une valeur dans le champ __Nom de cluster__, puis sélectionnez __Storm__ pour le __Type de cluster__. Une coche verte apparaît en regard du __nom de cluster__ s’il est disponible.
 
@@ -233,4 +233,4 @@ Dans ce didacticiel sur Storm Apache, vous avez appris à créer un cluster Sto
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -27,9 +27,9 @@ La première étape consiste à créer l’espace de noms de service et à obten
 
 ### Création d’un espace de noms de service et obtention d’une clé SAP
 
-1. Pour créer un espace de noms dans le portail Azure, suivez les étapes de la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Pour créer un espace de noms dans le [Portail Azure Classic][], suivez les étapes de la rubrique [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/hh690931.aspx).
 
-2. Dans la fenêtre principale du portail Azure, cliquez sur le nom d’espace de noms du service que vous avez créé à l’étape précédente.
+2. Dans la fenêtre principale du portail, cliquez sur le nom d’espace de noms du service que vous avez créé à l’étape précédente.
 
 3. Cliquez sur **Configurer** pour afficher les stratégies d’accès partagé pour l’espace de noms.
 
@@ -37,25 +37,25 @@ La première étape consiste à créer l’espace de noms de service et à obten
 
 ## Étape 2: Définition d’un contrat de service REST WCF à utiliser avec le Service Bus
 
-Comme avec d'autres services Service Bus, lorsque vous créez un service de type REST, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) n'a pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n'est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
+Comme avec d'autres services Service Bus, lorsque vous créez un service de type REST, vous devez définir le contrat. Le contrat spécifie les opérations prises en charge par l'hôte. Une opération de service peut être considérée comme une méthode de service web. Les contrats sont créés en définissant une interface C++, C# ou Visual Basic. Chaque méthode dans l'interface correspond à une opération de service spécifique. L’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) doit être appliqué à chaque interface et l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) doit être appliqué à chaque opération. Si une méthode dans une interface qui contient l’attribut [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) n’a pas l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), cette méthode n’est pas exposée. Le code utilisé pour effectuer ces tâches est indiqué dans l'exemple suivant la procédure.
 
-La principale différence entre un contrat Service Bus de base et un contrat de type REST est l'ajout d'une propriété à l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) : [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Dans ce cas, nous utiliserons [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) pour associer une méthode à HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l'interface.
+La principale différence entre un contrat Service Bus de base et un contrat de type REST est l’ajout d’une propriété à l’attribut [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) : [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx). Cette propriété vous permet de mapper une méthode dans votre interface à une méthode de l'autre côté de l'interface. Dans ce cas, nous utiliserons [WebGetAttribute](https://msdn.microsoft.com/library/system.servicemodel.web.webgetattribute.aspx) pour associer une méthode à HTTP GET. Cela permet à Service Bus de récupérer et d’interpréter correctement les commandes envoyées à l'interface.
 
 ### Création d’un contrat de Service Bus avec une interface
 
-1. Ouvrez Visual Studio en tant qu’administrateur : cliquez avec le bouton droit sur le programme dans le menu **Démarrer**, puis cliquez sur **Exécuter en tant qu’administrateur**.
+1. Ouvrez Visual Studio en tant qu’administrateur : cliquez avec le bouton droit sur le programme dans le menu **Démarrer**, puis cliquez sur **Exécuter en tant qu’administrateur**.
 
 2. Créez un projet d’application de console. Cliquez sur le menu **Fichier**, sélectionnez **Nouveau**, puis **Projet**. Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C#** (si **Visual C#** n’apparaît pas, regardez sous **Autres langages**), sélectionnez le modèle **Application console** et nommez-le **ImageListener**. Utilisez l’**emplacement** par défaut. Cliquez sur **OK** pour créer le projet.
 
 3. Pour un projet C#, Visual Studio crée un fichier `Program.cs`. Cette classe contient une méthode `Main()` vide, requise pour créer correctement un projet d’application console.
 
-4. Ajoutez une référence à **System.ServiceModel.dll** au projet :
+4. Ajoutez une référence à **System.ServiceModel.dll** au projet :
 
 	a. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Références**, puis cliquez sur **Ajouter une référence**.
 
 	b. Cliquez sur l’onglet **.NET** dans la boîte de dialogue **Ajouter une référence** et faites défiler la fenêtre jusqu’à l’élément **System.ServiceModel**. Sélectionnez cet élément, puis cliquez sur **OK**.
 
-5. Répétez l’étape précédente pour ajouter une référence à l’assemblage **System.ServiceModel.Web.dll**.
+5. Répétez l’étape précédente pour ajouter une référence à l’assembly **System.ServiceModel.Web.dll**.
 
 6. Ajoutez des instructions `using` aux espaces de noms **System.ServiceModel**, **System.ServiceModel.Channels**, **System.ServiceModel.Web** et **System.IO**.
 
@@ -120,9 +120,9 @@ La principale différence entre un contrat Service Bus de base et un contrat de 
 	public interface IImageChannel : IImageContract, IClientChannel { }
 	```
 
-	Un canal est l'objet WCF par le biais duquel le service et le client se transmettent des informations. Plus tard, vous créerez le canal dans votre application hôte. Service Bus utilise ensuite ce canal pour transmettre les requêtes HTTP GET du navigateur vers votre implémentation **GetImage**. Service Bus utilise également ce canal pour extraire valeur **GetImage** renvoyée et la traduire en une HTTP GETRESPONSE pour le navigateur client.
+	Un canal est l'objet WCF par le biais duquel le service et le client se transmettent des informations. Plus tard, vous créerez le canal dans votre application hôte. Service Bus utilise ensuite ce canal pour transmettre les requêtes HTTP GET du navigateur vers votre implémentation **GetImage**. Service Bus utilise également ce canal pour extraire la valeur **GetImage** renvoyée et la convertir en une HTTP GETRESPONSE pour le navigateur client.
 
-12. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer si votre travail est correct.
+12. Dans le menu **Générer**, cliquez sur **Générer la solution** pour confirmer que votre travail est correct.
 
 ### Exemple
 
@@ -195,7 +195,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
 
 4. Pour vous assurer que le service en cours d’exécution est capable de trouver le fichier image, cliquez avec le bouton droit sur le fichier image dans l’**Explorateur de solutions**. Dans le volet **Propriétés**, définissez la valeur **Copier dans le répertoire de sortie** sur **Copier si plus récent**.
 
-5. Ajoutez des références aux assemblages **System.Drawing.dll**, **System.Runtime.Serialization.dll** et **Microsoft.ServiceBus.dll** au projet, ainsi que les instructions connexes `using` suivantes.
+5. Ajoutez des références aux assemblys **System.Drawing.dll**, **System.Runtime.Serialization.dll** et **Microsoft.ServiceBus.dll** au projet, ainsi que les instructions connexes `using` suivantes.
 
 	```
 	using System.Drawing;
@@ -235,13 +235,13 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
 	}
 	```
 
-	Cette implémentation utilise **MemoryStream** pour récupérer l’image et la préparer pour la diffusion en continu vers le navigateur. La diffusion en continu commence à la position zéro, déclare le contenu du flux au format jpeg et diffuse l'information.
+	Cette implémentation utilise **MemoryStream** pour récupérer l'image et la préparer pour la diffusion en continu vers le navigateur. La diffusion en continu commence à la position zéro, déclare le contenu du flux au format jpeg et diffuse l'information.
 
 8. Dans le menu **Build**, cliquez sur **Build Solution**.
 
 ### Définition de la configuration pour l’exécution du service web sur Service Bus
 
-1. Cliquez avec le bouton droit sur le projet **ImageListener**. Cliquez ensuite sur **Ajouter**, puis sur **Nouvel élément**.
+1. Cliquez sur le projet **ImageListener**. Cliquez ensuite sur **Ajouter**, puis sur **Nouvel élément**.
 
 2. Dans l’**Explorateur de solutions**, double-cliquez sur **App.config**, qui contient actuellement les éléments XML suivants.
 
@@ -300,7 +300,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
 
 	Cette étape configure un service qui utilise la valeur par défaut **webHttpRelayBinding** définie précédemment. Il utilise également la valeur par défaut **sbTokenProvider**, définie dans l’étape suivante.
 
-6. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS\_KEY » par la clé avec *signature d’accès partagé* (SAP) obtenue à partir du portail de gestion Azure à l’étape 1.
+6. Après l’élément `<services>`, créez un élément `<behaviors>` avec le contenu suivant, en remplaçant « SAS\_KEY » par la clé par la *signature d’accès partagé* (SAP) obtenue à partir du [Portail Azure Classic][] à l’étape 1.
 
 	```
 	<behaviors>
@@ -321,7 +321,7 @@ Comme pour les étapes précédentes, il y a très peu de différences entre l'i
 	</behaviors>
 	```
 
-7. À partir du menu **Build**, cliquez sur **Générer la solution** pour générer la solution complète.
+7. À partir du menu **Générer**, cliquez sur **Générer la solution** pour générer la solution complète.
 
 ### Exemple
 
@@ -582,4 +582,6 @@ Maintenant que vous avez créé une application qui utilise le service de relais
 
 - [Utilisation du service Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=Oct15_HO3-->
+[Portail Azure Classic]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

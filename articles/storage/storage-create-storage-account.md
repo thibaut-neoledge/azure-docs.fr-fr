@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Création, gestion ou suppression d’un compte de stockage | Microsoft Azure"
-	description="Découvrez comment créer, gérer ou supprimer un compte de stockage dans le portail Azure."
+	description="Créez un compte de stockage, gérez vos clés d’accès ou supprimez un compte de stockage dans le portail Azure."
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/12/2015"
+	ms.date="12/01/2015" 
 	ms.author="tamram"/>
 
 
 # À propos des comptes de stockage Azure
 
-## Vue d’ensemble
+[AZURE.INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
+
+## Vue d'ensemble
 
 Un compte de stockage Azure vous donne accès aux services Azure Objet blob, File d’attente, Table et Fichier dans Azure Storage. Votre compte de stockage fournit les espaces de noms uniques pour vos objets de données Azure Storage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte.
 
@@ -43,43 +45,7 @@ Pour plus d’informations sur la capacité et les objectifs de performance du c
 
 > [AZURE.NOTE]Lorsque vous créez une machine virtuelle Azure, un compte de stockage est créé automatiquement pour vous sur le lieu de déploiement si vous ne disposez pas déjà de ce type de compte à cet emplacement. Il n’est donc pas nécessaire de suivre les étapes ci-dessous pour créer un compte de stockage pour vos disques de machines virtuelles. Le nom du compte de stockage dépend du nom de la machine virtuelle. Pour plus d’informations, consultez la [documentation relative aux machines virtuelles Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## Créer un compte de stockage
-
-1. Connectez-vous au [portail Azure](https://manage.windowsazure.com).
-
-2. Cliquez sur **Nouveau** dans la barre des tâches en bas de la page. Sélectionnez **Data Services** | **Stockage**, puis cliquez sur **Création rapide**.
-
-	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
-
-3. Dans **URL**, entrez le nom de votre compte de stockage.
-
-	> [AZURE.NOTE]Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
-	>  
-	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail indique si le nom du compte de stockage sélectionné est déjà utilisé.
-
-	Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, voir [Points de terminaison d’un compte de stockage](#storage-account-endpoints).
-
-4. Dans **Emplacement/Groupe d’affinités**, sélectionnez un emplacement pour votre compte de stockage qui soit proche de vous ou de vos clients. Si l’accès aux données de votre compte de stockage se fera à partir d’un autre service Azure, comme un service cloud ou une machine virtuelle Azure, vous pouvez sélectionner un groupe d’affinités dans la liste afin de regrouper votre compte de stockage dans le même centre de données que les autres services Azure que vous utilisez. Les performances en seront améliorées et les coûts réduits.
-
-	Notez que vous devez sélectionner un groupe d’affinités lors de la création de votre compte de stockage. Vous ne pouvez pas déplacer un compte existant vers un groupe d’affinités. Pour plus d’informations sur les groupes d’affinités, voir [Colocalisation de service avec un groupe d’affinités](#service-co-location-with-an-affinity-group) ci-dessous.
-
-	>[AZURE.IMPORTANT]Pour déterminer les emplacements disponibles pour votre abonnement, vous pouvez appeler l’opération [List Providers](https://msdn.microsoft.com/library/azure/dn790524.aspx). Pour répertorier les fournisseurs à partir de PowerShell, appelez [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx). À partir de .NET, utilisez la méthode [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) de la classe ProviderOperationsExtensions.
-	>
-	>En outre, pour plus d’informations sur les services disponibles dans votre région., voir [Régions Azure](https://azure.microsoft.com/fr-FR/regions/#services).
-
-
-5. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Dans **Subscription**, entrez l'abonnement Azure à utiliser avec le compte de stockage.
-
-6. Dans **Réplication**, sélectionnez le niveau de réplication souhaité pour votre compte de stockage. L’option de réplication recommandée est la réplication géo-redondante qui offre une durabilité maximale pour vos données. Pour plus d’informations sur les options de réplication d’Azure Storage, voir [Réplication Azure Storage](storage-redundancy.md).
-
-6. Cliquez sur **Create Storage Account**.
-
-	La création de votre compte de stockage peut prendre plusieurs minutes. Pour vérifier l'état d'avancement de l'opération, vous pouvez contrôler les notifications au bas du portail. Une fois que le compte de stockage est créé, le statut **Online** lui est associé et il est prêt à être utilisé.
-
-![StoragePage](./media/storage-create-storage-account/Storage_StoragePage.png)
-
-
-### Points de terminaison d’un compte de stockage
+## Points de terminaison d’un compte de stockage
 
 Chaque objet que vous stockez dans Azure Storage possède une adresse URL unique. Le nom du compte de stockage constitue le sous-domaine de cette adresse. La combinaison sous-domaine/nom du domaine, qui est propre à chaque service, forme un *point de terminaison* pour votre compte de stockage.
 
@@ -93,43 +59,55 @@ Par exemple, si le nom de votre compte de stockage est *mystorageaccount*, les p
 
 - Service de fichiers : http://*mystorageaccount*.file.core.windows.net
 
-Les points de terminaison pour votre compte de stockage sont visibles dans le tableau de bord de stockage du portail Azure une fois le compte créé.
-
 L’URL permettant d’accéder à un objet dans un compte de stockage est constituée de l’ajout de l’emplacement de l’objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d’objet blob peut avoir ce format : http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Pour plus d’informations, voir [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage-custom-domain-name.md).
+Vous pouvez aussi configurer un nom de domaine personnalisé à utiliser avec votre compte de stockage. Pour plus d’informations, consultez [Configuration d’un nom de domaine personnalisé pour des données d’objets blob dans un compte de stockage Azure](storage-custom-domain-name.md).
 
-### Colocalisation de service avec un groupe d’affinités
+## Créez un compte de stockage.
 
-Un *groupe d'affinités* est un regroupement géographique de vos services et machines virtuelles Azure avec votre compte de stockage Azure. Un groupe d'affinités peut améliorer les performances d'un service en situant les charges de travail d'un ordinateur dans le même centre de données ou près des utilisateurs cibles. De même, vous n’êtes pas facturé pour les acheminements lorsque les données d’un compte de stockage sont utilisées par un service faisant partie du même groupe d’affinités.
+1. Connectez-vous au [portail Azure](portal.azure.com).
 
-> [AZURE.NOTE]Pour créer un groupe d’affinités, ouvrez la zone <b>Paramètres</b> du portail Azure, cliquez sur <b>Groupes d’affinités</b>, puis sur <b>Ajouter un groupe d’affinités</b> ou sur le bouton <b>Ajouter</b>. Vous pouvez également créer et gérer des groupes d’affinités à l’aide de l’API de gestion des services Azure. Pour plus d’informations, voir <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Opérations sur les groupes d’affinités</a>.
+2. Dans le menu Hub, sélectionnez **Nouveau** -> **Données et stockage** -> **Compte de stockage**.
 
-## Affichage, copie et régénération de clés d’accès de stockage
+3. Sélectionnez un modèle de déploiement : **Resource Manager** ou **Classique**. **Resource Manager** est le modèle de déploiement recommandé. Pour plus d’informations, consultez [Présentation du déploiement de Resource Manager et du déploiement classique](../resource-manager-deployment-model.md).
+
+4. Entrez un nom pour votre compte de stockage.
+
+	> [AZURE.NOTE]Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
+	>  
+	> Le nom de votre compte de stockage doit être unique dans Azure. Le portail Azure indique si le nom du compte de stockage sélectionné est déjà utilisé.
+
+	Pour plus d’informations sur l’utilisation du nom de compte de stockage pour adresser les objets que vous stockez dans Azure Storage, consultez [Points de terminaison d’un compte de stockage](#storage-account-endpoints).
+
+5. Spécifiez le type de compte de stockage à créer. Le type de compte de stockage détermine la manière dont le compte de stockage est répliqué et s’il s’agit d’un compte de stockage standard ou premium.
+
+	Le type de compte de stockage par défaut est **Standard-RAGRS**, qui est un compte de stockage standard doté de la réplication géo-redondante avec accès en lecture. Ce type de compte de stockage est répliqué vers une région secondaire, à des centaines de kilomètres de la région primaire et fournit un accès en lecture à l’emplacement secondaire.
+
+	Pour plus d’informations sur les options de réplication d’Azure Storage, consultez [Réplication Azure Storage](storage-redundancy.md). Pour plus d’informations sur les comptes de stockage standard et premium, consultez [Introduction à Microsoft Azure Storage](storage-introduction.md) et [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](storage-premium-storage-preview-portal.md)
+
+6. Indiquez si vous souhaitez activer les diagnostics pour votre compte de stockage. Les diagnostics incluent la journalisation et les mesures Storage Analytics.
+
+7. Si vous disposez de plusieurs abonnements Azure, le champ **Subscription** s'affiche. Sélectionnez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+
+8. Spécifiez un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Pour plus d’informations sur les groupes de ressources, consultez [Utiliser le portail Azure pour gérer des ressources Azure](../resource-group-portal.md).
+
+9. Sélectionnez l’emplacement géographique de votre compte de stockage.
+
+10. Cliquez sur **Créer** pour créer le compte de stockage.
+
+## Gérer vos clés d’accès de stockage
 
 Lorsque vous créez un compte de stockage, Azure génère deux clés d'accès de stockage de 512 bits, qui servent à l'authentification lors de l'accès au compte de stockage. En fournissant deux clés d'accès de stockage, Azure vous permet de régénérer les clés sans interrompre votre service de stockage ni l'accès à ce service.
 
 > [AZURE.NOTE]Nous vous recommandons d’éviter de partager vos clés d’accès de stockage avec qui que ce soit. Pour autoriser l'accès aux ressources de stockage sans donner vos clés d'accès, vous pouvez utiliser une *signature d'accès partagé*. Celle-ci donne accès à votre compte à une ressource pendant une durée que vous déterminez et avec les autorisations que vous spécifiez. Pour plus d'informations, consultez le [didacticiel sur les signatures d'accès partagé](storage-dotnet-shared-access-signature-part-1.md).
 
-Dans le [portail Azure](http://manage.windowsazure.com), utilisez **Gérer les clés** sur le tableau de bord ou la page **Stockage** pour afficher, copier et régénérer les clés d’accès de stockage qui servent à accéder aux services Objet blob, Table et File d’attente.
+### Afficher et copier les clés d’accès de stockage
 
-### Copie d'une clé d'accès de stockage  
-
-L'option **Manage Keys** sert à copier une clé d'accès de stockage à utiliser dans une chaîne de connexion. Cette dernière nécessite le nom du compte de stockage et une clé pour l’authentification. Pour plus d’informations sur la configuration des chaînes de connexion pour accéder aux services de stockage Azure, voir [Configuration de chaînes de connexion Azure](http://msdn.microsoft.com/library/azure/ee758697.aspx).
-
-1. Dans le [portail Azure](http://manage.windowsazure.com), cliquez sur **Stockage**, puis sur le nom du compte de stockage pour ouvrir le tableau de bord.
-
-2. Cliquez sur **Manage Keys**.
-
- 	**Manage Access Keys** s'affiche.
-
-	![Managekeys](./media/storage-create-storage-account/Storage_ManageKeys.png)
-
-
-3. Pour copier une clé d’accès de stockage, sélectionnez le texte de la clé. Cliquez ensuite avec le bouton droit, puis cliquez sur **Copier**.
+Dans le [portail Azure](portal.azure.com), accédez à votre compte de stockage, puis cliquez sur l’icône **Clés** pour afficher, copier et régénérer les clés d’accès de votre compte. Le panneau **Clés d’accès** inclut également des chaînes de connexion préconfigurées utilisant vos clés principales et secondaires, que vous pouvez copier pour utilisation dans vos applications.
 
 ### Régénération des clés d'accès de stockage
-Vous devez modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
+
+Nous vous recommandons de modifier périodiquement les clés d’accès à votre compte de stockage pour garantir la sécurité des connexions de stockage. Vous bénéficiez de deux clés d’accès, ce qui vous permet de conserver des connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé.
 
 > [AZURE.WARNING]La régénération des clés d’accès a une incidence sur les machines virtuelles, les services de médias et toutes les applications qui dépendent du compte de stockage. Tous les clients qui utilisent la clé d'accès pour accéder au compte de stockage doivent être mis à jour pour utiliser la nouvelle clé.
 
@@ -137,38 +115,27 @@ Vous devez modifier périodiquement les clés d’accès à votre compte de stoc
 
 **Media Services** : si des services de médias sont liés à votre compte de stockage, vous devez resynchroniser les clés d’accès avec ces services après avoir régénéré les clés.
 
-**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer. Pour ce faire :
+**Applications** : si des applications web ou des services cloud utilisent le compte de stockage, vous perdez les connexions en régénérant les clés, à moins de les substituer.
+
+Voici le processus de rotation de vos clés d’accès de stockage :
 
 1. Mettez à jour les chaînes de connexion dans votre code d'application pour désigner la clé d'accès secondaire du compte de stockage.
 
-2. Régénérez la clé d'accès principale de votre compte de stockage. Dans le [portail Azure](http://manage.windowsazure.com), depuis le tableau de bord ou la page **Configurer**, cliquez sur **Gérer les clés**. Cliquez sur **Régénérer** sous la clé d’accès principale, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
+2. Régénérez la clé d'accès principale de votre compte de stockage. Dans le panneau **Clés d’accès**, cliquez sur **Régénérer Key1**, puis sur **Oui** pour confirmer que vous souhaitez générer une nouvelle clé.
 
 3. Mettez à jour les chaînes de connexion dans votre code pour désigner la nouvelle clé d’accès principale.
 
-4. Régénérez la clé d’accès secondaire.
+4. Régénérez la clé d’accès secondaire de la même manière.
 
-## Suppression d’un compte de stockage
+## Suppression d'un compte de stockage
 
-Pour supprimer un compte de stockage obsolète, utilisez **Supprimer** sur le tableau de bord ou la page **Configurer**. **Supprimer** a pour effet d'éliminer l'intégralité du compte de stockage, y compris tous les objets blob, les tables et les files d'attente du compte.
+Pour supprimer un compte de stockage que vous n’utilisez plus, accédez au compte de stockage dans le [portail Azure](portal.azure.com), puis cliquez sur **Supprimer**. La suppression d’un compte de stockage supprime l’intégralité du compte, y compris toutes les données qu’il contient.
 
 > [AZURE.WARNING]Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.
->
-> Si votre compte de stockage contient des fichiers de disque dur virtuel pour une machine virtuelle Azure, vous devez supprimer l’ensemble des images et disques qui utilisent ces fichiers avant de pouvoir supprimer le compte de stockage. Arrêtez au préalable la machine virtuelle si elle est en cours d’exécution, puis supprimez-la. Pour supprimer les disques, accédez à l’onglet **Disques** et supprimez tous les disques affichés. Pour supprimer les images, accédez à l’onglet **Images** et supprimez toutes les images qui sont stockées dans le compte.
-
-1. Dans le [portail Azure](http://manage.windowsazure.com), cliquez sur **Stockage**.
-
-2. Cliquez sur un endroit quelconque de l'entrée du compte de stockage, à l'exception du nom, puis sur **Supprimer**.
-
-	 -Ou-
-
-	Cliquez sur le nom du compte de stockage pour ouvrir le tableau de bord, puis cliquez sur **Supprimer**.
-
-3. Cliquez sur **Oui** pour confirmer que vous souhaitez supprimer le compte de stockage.
 
 ## Étapes suivantes
 
-- Pour plus d’informations sur Azure Storage, consultez la documentation de référence sur [Azure.com](http://azure.microsoft.com/documentation/services/storage/) et sur [MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx).
-
+- Pour en savoir plus sur Azure Storage, consultez la documentation de référence Azure Storage sur [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Consultez le [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

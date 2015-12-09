@@ -30,7 +30,7 @@ Ce didacticiel part du principe que vous avez créé un environnement App Servic
 
 ## Créer une application web
 
-1. Dans le [portail Azure en version préliminaire](https://portal.azure.com/), cliquez sur **Nouveau > Web + mobile > Application web**. 
+1. Dans le [Portail Azure](https://portal.azure.com/), cliquez sur **Nouveau > Web + mobile > Application web**. 
 
 	![][1]
 
@@ -118,4 +118,4 @@ Après avoir créé votre application web et votre plan App Service, il peut êt
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->
