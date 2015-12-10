@@ -23,7 +23,7 @@ Pour configurer votre chaîne de connexion dans la configuration de service Azur
 
 4.  Cliquez sur le bouton **...** situé à l’extrême droite de l’entrée **Setting1**. La boîte de dialogue **Storage Account Connection String** s'ouvre.
 
-5.  Indiquez si vous voulez cibler l’émulateur de stockage (stockage Windows Azure simulé sur votre ordinateur local) ou un compte de stockage dans le cloud. Le code de ce guide fonctionne dans les deux cas.
+5.  Indiquez si vous voulez cibler l’émulateur de stockage (stockage Microsoft Azure simulé sur votre ordinateur local) ou un compte de stockage dans le cloud. Le code de ce guide fonctionne dans les deux cas.
 
 	> [AZURE.NOTE]Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de ce didacticiel seront négligeables.
 
