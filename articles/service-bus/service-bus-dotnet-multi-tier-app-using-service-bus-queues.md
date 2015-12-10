@@ -37,7 +37,7 @@ Les captures d’écran suivantes présentent l’application terminée :
 
 ![][0]
 
-> [AZURE.NOTE]Azure offre également la fonction de file d’attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Windows Azure et files d'attente Windows Azure Service Bus - comparaison et différences][sbqueuecomparison].
+> [AZURE.NOTE]Azure offre également la fonction de file d’attente de stockage. Pour plus d'informations sur les files d'attente de stockage Azure et les files d'attente Service Bus, consultez la page [Files d'attente Microsoft Azure et files d'attente Microsoft Azure Service Bus - comparaison et différences][sbqueuecomparison].
 
 ## Vue d’ensemble du scénario : communication entre les rôles
 

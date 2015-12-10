@@ -143,7 +143,7 @@ Vous devez avoir installé Excel 2013 ou 2010 pour mener à bien cette partie
 **Pour importer des données HDInsight**
 
 1. Ouvrez Excel et créez un classeur.
-3. Cliquez dans le menu **Power Query**, cliquez sur **À partir d'autres sources**, puis sur **Depuis Microsoft Windows Azure HDInsight**.
+3. Cliquez dans le menu **Power Query**, cliquez sur **À partir d'autres sources**, puis sur **Depuis Microsoft Microsoft Azure HDInsight**.
 
 	![Menu Importation Excel PowerQuery ouvert pour Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 
