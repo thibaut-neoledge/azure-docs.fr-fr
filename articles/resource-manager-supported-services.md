@@ -18,7 +18,8 @@
 
 # Prise en charge de Resource Manager pour les services, les régions et les versions API
 
-Azure Resource Manager vous offre un nouveau moyen de déployer et gérer les services qui composent vos applications. La plupart des services (mais pas tous) offrent une prise en charge complète ou partielle de Resource Manager. Microsoft prévoit d’activer Resource Manager pour les principaux services dans les solutions futures. En attendant que ce processus soit terminé, il est important pour vous de connaître l’état actuel de la prise en charge pour chaque service. Cette rubrique répertorie les fournisseurs de ressources pris en charge pour Azure Resource Manager.
+Azure Resource Manager vous offre un nouveau moyen de déployer et gérer les services qui composent vos applications.
+La plupart des services (mais pas tous) offrent une prise en charge complète ou partielle de Resource Manager. Microsoft prévoit d’activer Resource Manager pour les principaux services dans les solutions futures. En attendant que ce processus soit terminé, il est important pour vous de connaître l’état actuel de la prise en charge pour chaque service. Cette rubrique répertorie les fournisseurs de ressources pris en charge pour Azure Resource Manager.
 
 Quand vous déployez vos ressources, vous avez également besoin de connaître les régions qui prennent en charge ces ressources et quelles versions d'API sont disponibles pour les ressources. La section [Régions prises en charge](#supported-regions) vous explique comment trouver les régions dans lesquelles vous pourrez utiliser votre abonnement et vos ressources. La section [Versions d'API prises en charge](#supported-api-versions) vous explique comment déterminer les versions d'API que vous pouvez utiliser.
 
@@ -61,7 +62,8 @@ Les ressources Machines virtuelles (classiques) peuvent être déplacées vers u
 | SQL Database | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Oui | [Créer une base de données](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Search | Oui | [Oui](https://portal.azure.com/#create/Microsoft.Search) | Oui | [REST Search](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | SQL Data Warehouse | Oui | [Oui](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Non | Non | - | - | - | | Cache géré | Non | Non | - | - | - |
+| StorSimple | Non | Non | - | - | - |
+| Cache géré | Non | Non | - | - | - |
 
 ## Web et mobilité
 
@@ -87,7 +89,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | Stream Analytics | Oui | [Oui](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Oui | [Oui](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Oui | | |
 | Data Factory | Oui | [Oui](https://portal.azure.com/#create/Microsoft.DataFactory) | Oui | [Créer une fabrique de données](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Machine Learning | Non | Non | - | - | - | | Catalogue de données | Non | Non | - | - | - |
+| Machine Learning | Non | Non | - | - | - |
+| Catalogue de données | Non | Non | - | - | - |
 
 ## Média et CDN
 
@@ -103,7 +106,8 @@ Lorsque vous travaillez avec des applications web, vous ne pouvez pas déplacer 
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | BizTalk Services | Oui | Non | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Oui | Non | | [REST Service Bus](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Sauvegarde | Non | Non | - | - | - | | Récupération de sites | Non | Non | - | - | - |
+| Sauvegarde | Non | Non | - | - | - |
+| Récupération de sites | Non | Non | - | - | - |
 
 ## Gestion des identités et des accès 
 

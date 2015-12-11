@@ -304,7 +304,7 @@ Vous pouvez vous référer aux [options de configuration de base](#basic-configu
   		
 		* **Metastores externes**: permet de spécifier la base de données SQL Azure que vous souhaitez utiliser pour enregistrer les métadonnées Hive et Oozie associée au cluster.
  
-            > [AZURE.NOTE] Metastore configuration is not available for HBase cluster types.
+            > [AZURE.NOTE] La configuration Metastore n’est pas disponible pour les types de cluster HBase.
 
 			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
@@ -437,7 +437,7 @@ Les procédures suivantes sont nécessaires pour créer un cluster HDInsight en 
 	###########################################
 	# Préparer le conteneur et le compte de stockage par défaut
 	########################################### 
-	-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
+	New-AzureRmStorageAccount -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName -Location $location
 	
 	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $newResourceGroupName -Name $newDefaultStorageAccountName | %{ $\_.Key1 }
 	$defaultStorageContext = New-AzureStorageContext -StorageAccountName $newDefaultStorageAccountName -StorageAccountKey
