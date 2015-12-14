@@ -75,7 +75,11 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	Dans le panneau **Créer une connexion hybride** : - dans **Nom**, indiquez le nom de la connexion. - dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource. - Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut). - Cliquez sur **Biz Talk Service**
+	Dans le panneau **Créer une connexion hybride** :
+	- dans **Nom**, indiquez le nom de la connexion.
+	- dans **Nom d’hôte**, entrez le nom de l’ordinateur local qui héberge votre ressource.
+	- Dans **Port**, entrez le numéro de port utilisé par votre ressource locale (1433 pour une instance SQL Server par défaut).
+	- Cliquez sur **Biz Talk Service**
 
 
 4. Le panneau **Créer un service BizTalk** s’affiche. Entrez un nom pour le service BizTalk, puis cliquez sur **OK**.
@@ -91,12 +95,12 @@ Vous allez ensuite créer une connexion hybride et un service BizTalk pour l’a
 6. Une fois le processus terminé, la zone des notifications du portail vous informe que la connexion a été créée.
 	<!-- TODO
 
-Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the classic portal
-(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-Create hybrid conn step, you get the following error
-Failed to create hybrid connection RelecIoudHC. The 
-resource type could not be found in the namespace 
-'Microsoft.BizTaIkServices for api version 2014-06-01'.
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
 The error indicates it couldn't find the type, not the instance.
 ![Success notification][CreateHCSuccessNotification]
@@ -152,7 +156,7 @@ The error indicates it couldn't find the type, not the instance.
 
 Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez créer une application hybride qui l'utilise.
 
->[AZURE.NOTE]Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+>[AZURE.NOTE] Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751). Vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 
 <a name="NextSteps"></a>
 ## Étapes suivantes ##
@@ -176,7 +180,8 @@ Maintenant que l'infrastructure de connexion hybride est terminée, vous pouvez 
 [Connexion à une instance SQL Server locale à partir d’Azure Mobile Services au moyen de connexions hybrides (vidéo Channel 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 ## Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre l’ancien et le nouveau portail, consultez la page [Références sur la navigation dans le portail Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- IMAGES -->
 [New]: ./media/web-sites-hybrid-connection-get-started/B01New.png

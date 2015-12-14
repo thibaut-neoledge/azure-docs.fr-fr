@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Gestion d’un compte DocumentDB via le portail Azure | Microsoft Azure" 
-	description="Apprenez à gérer un compte DocumentDB via le portail Azure. Trouvez un guide vous expliquant comment utiliser le portail Azure pour afficher, copier, supprimer et accéder aux comptes." 
-	keywords="Portail Azure, documentdb, azure, Microsoft azure"
+	pageTitle="Gestion d’un compte DocumentDB via le portail Azure en version préliminaire | Microsoft Azure" 
+	description="Apprenez à gérer un compte DocumentDB via le portail Azure en version préliminaire. Trouvez un guide vous expliquant comment utiliser le portail Azure en version préliminaire pour afficher, copier, supprimer et accéder aux comptes." 
+	keywords="Portail Azure en version préliminaire, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="AndrewHoh" 

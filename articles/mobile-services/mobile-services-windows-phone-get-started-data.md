@@ -93,10 +93,10 @@ Votre service mobile étant prêt, vous pouvez mettre à jour l’application po
 
 6. Dans le même fichier, supprimez les marques de commentaire du code qui définit la variable **MobileService**, puis indiquez l’URL et la clé d’application du service mobile dans le constructeur **MobileServiceClient**, dans cet ordre.
 
-		//public static MobileServiceClient MobileService = new MobileServiceClient(
-        //    "AppUrl",
-        //    "AppKey"
-        //);
+		//public static MobileServiceClient MobileService = new MobileServiceClient( 
+        //    "AppUrl", 
+        //    "AppKey" 
+        //); 
 
   	Cela permet de créer une nouvelle instance de **MobileServiceClient**, qui est utilisée pour accéder à votre service mobile.
 

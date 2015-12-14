@@ -144,7 +144,9 @@ Voici une vue détaillée de l’utilisation des informations marketing de l’o
 ## Étapes suivantes
 Votre contenu Marketplace étant chargé, nous allons maintenant tester votre offre dans l’environnement intermédiaire. Vous devez toutefois sélectionner le type d’offre approprié dans la liste ci-dessous, car les étapes diffèrent selon le type d’offre.
 
-||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution | |----|----|----|----|----| | **Étape 3. Envoyer votre offre dans l’environnement intermédiaire** | [Tester votre offre de machine virtuelle dans l’environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans l’environnement intermédiaire | [Tester votre offre de service de données dans l’environnement intermédiaire](marketplace-publishing-data-service-test-in-staging.md) | [Tester votre modèle de solution dans l’environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
+||Image de machine virtuelle |Service de développement | Service de données | Modèle de solution |
+|----|----|----|----|----|
+| **Étape 3. Envoyer votre offre dans l’environnement intermédiaire** | [Tester votre offre de machine virtuelle dans l’environnement intermédiaire](marketplace-publishing-vm-image-test-in-staging.md) | Tester votre offre de service de développement dans l’environnement intermédiaire | Tester votre offre de service de données dans l’environnement intermédiaire |[ Tester votre modèle de solution dans l’environnement intermédiaire](marketplace-publishing-solution-template-test-in-staging.md) |
 
 ## Voir aussi
 - [Mise en route : Publication d’une offre sur Azure Marketplace](marketplace-publishing-getting-started.md)

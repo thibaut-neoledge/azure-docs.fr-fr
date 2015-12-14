@@ -47,7 +47,7 @@ Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d
 
 5. Sélectionnez l’onglet **Keys and Access Tokens**. Prenez note des valeurs de **Consumer Key (API Key)** et de **Consumer secret (API Secret)**.
 
-    > [AZURE.NOTE]La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
+    > [AZURE.NOTE] La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
 
 
 ## <a name="secrets"> </a>Ajout des informations Twitter à votre application

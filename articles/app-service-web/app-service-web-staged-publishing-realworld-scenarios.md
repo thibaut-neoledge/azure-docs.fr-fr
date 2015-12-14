@@ -364,12 +364,19 @@ Pour réaliser la configuration, vous devez mettre à jour le fichier courier.co
 
 Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+De même, installez le module Courier sur votre site de production et configurez-le de manière à ce qu'il pointe vers l'application web intermédiaire dans le fichier courier.config concerné, comme indiqué ici
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
+  <repositories>
+        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
+        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
+            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
+            <user>0</user>
+           </repository>
+  </repositories>
+```
 
 Cliquez sur l’onglet Courier2 dans le tableau de bord de l’application web Umbraco CMS et sélectionnez des emplacements. Vous devez voir le nom du référentiel comme indiqué dans `courier.config`. Exécutez l'opération à la fois sur votre application de production et votre application intermédiaire.
 

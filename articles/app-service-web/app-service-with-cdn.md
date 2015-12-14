@@ -38,7 +38,9 @@ Ce didacticiel nécessite les éléments suivants :
 -	Un [compte Microsoft Azure](http://azure.microsoft.com/account/) actif.
 -	Visual Studio 2013 avec le [Kit de développement logiciel (SDK) Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
-> [AZURE.NOTE]Vous avez besoin d’un compte Azure pour suivre ce didacticiel : + Vous pouvez [ouvrir un compte Azure gratuitement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web App. Vous pouvez [activer les avantages d’abonnement Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement Visual Studio vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
+> [AZURE.NOTE] Vous avez besoin d’un compte Azure pour suivre ce didacticiel :
+> + Vous pouvez [ouvrir un compte Azure gratuitement](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) : vous obtenez alors des crédits dont vous pouvez vous servir pour essayer les services Azure payants et, une fois vos crédits épuisés, vous pouvez conserver le compte et utiliser les services Azure gratuits, notamment Web App.
+> + Vous pouvez [activer les avantages d’abonnement MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) : votre abonnement MSDN vous octroie des crédits chaque mois que vous pouvez utiliser pour des services Azure payants.
 
 ## Déployer une application web Azure avec un point de terminaison CDN intégré ##
 

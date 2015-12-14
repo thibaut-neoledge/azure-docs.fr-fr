@@ -96,7 +96,6 @@ Voici la liste des différents états possibles des tranches d’un jeu de donn�
 <td>ValidationRetry</td><td>Attente d’une nouvelle tentative de validation.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validation</td><td>Validation en cours.</td>
 </tr>
 <td></td>
@@ -265,11 +264,11 @@ En cas d'échec d'exécution de l'activité dans un pipeline, le jeu de données
 
 ### Utiliser le portail Azure Classic
 
-Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **EXÉCUTER**, figurant sur la barre de commandes.
+Quand vous dépannez et déboguez des erreurs dans un pipeline, vous pouvez réexécuter ces échecs en accédant à la tranche qui pose problème. Il suffit de cliquer sur le bouton **Exécuter**, figurant sur la barre de commandes.
 
 ![Réexécuter une tranche de données ayant échoué](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
 
-En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **VALIDER**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+En cas d’échec de validation de la tranche à cause d’une erreur de stratégie (données indisponibles, par ex.), vous pouvez corriger l'erreur et relancer la validation en cliquant sur le bouton **Valider**, figurant sur la barre de commandes. ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Utilisation de Microsoft Azure PowerShell
 
@@ -444,7 +443,7 @@ Pour activer les mesures, suivez le chemin suivant à partir du panneau Data Fa
 
 **Analyse** -> **Mesure** -> **Paramètres de diagnostic** -> **Diagnostic**
 
-Sur le panneau **DIAGNOSTIC**, cliquez sur **ACTIVÉ** et sélectionnez votre compte de stockage. Enregistrez.
+Sur le panneau **Diagnostic**, cliquez sur **Activé** et sélectionnez votre compte de stockage. Enregistrez.
 
 ![Activer les mesures](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -516,7 +515,9 @@ Vous pouvez déployer des alertes relatives à des mesures de la même façon qu
  
 Remplacez les valeurs de subscriptionId, resourceGroupName et dataFactoryName figurant dans l'exemple ci-dessus par des valeurs appropriées.
 
-*metricName* prend désormais en charge 2 valeurs : FailedRuns - SuccessfulRuns
+*metricName* prend désormais en charge 2 valeurs :
+- FailedRuns
+- SuccessfulRuns
 
 **Déploiement de l’alerte :**
 

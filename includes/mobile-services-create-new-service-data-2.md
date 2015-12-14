@@ -6,43 +6,48 @@ Pour pouvoir stocker des données d’application dans le nouveau service mobile
 
    	La boîte de dialogue **Create new table** s’affiche.
 
-3. Dans **Table name**, saisissez _TodoItem_, puis cliquez sur le bouton de vérification. Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l’application, qui est distribuée avec l’application, peut accéder aux données de la table et les modifier.
+3. Dans **Nom de la table**, tapez _TodoItem_, puis cliquez sur le bouton de vérification.
 
-    >[AZURE.NOTE]Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
+  Une nouvelle table de stockage **TodoItem** est créée avec les autorisations par défaut. Cela signifie que quiconque possédant la clé de l’application, qui est distribuée avec l’application, peut accéder aux données de la table et les modifier.
+
+	>[AZURE.NOTE] Le même nom de table est utilisé dans le démarrage rapide avec Mobile Services. Toutefois, chaque table est créée dans un schéma spécifique pour un service mobile donné. Cela vise à éviter les collisions de données lorsque plusieurs services mobiles utilisent la même base de données.
 
 4. Cliquez sur la nouvelle table **TodoItem** et vérifiez qu’aucune ligne de données n’est présente.
 
 5. Cliquez sur l’onglet **Colonnes**. Vérifiez si les colonnes par défaut suivantes ont été automatiquement créées pour vous :
 	
 	<table border="1" cellpadding="10">
-<tr>
-<th>Nom de la colonne</th>
-<th>Type</th>
-<th>Index</th>
-</tr>
-<tr>
-<td>id</td>
-<td>string</td>
-<td>Indexé</td>
-</tr>
-<tr>
-<td>__createdAt</td>
-<td>date</td>
-<td>Indexé</td>
-</tr>
-<tr>
-<td>__updatedAt</td>
-<td>date</td>
-<td><font color="transparent">-</font></td>
-</tr>
-<tr>
-<td>__version</td>
-<td>timestamp (MSSQL)</td>
-<td><font color="transparent">-</font></td>
-</tr> 	
-</table>Cela correspond à la configuration minimale requise pour une table dans Mobile Services.
+ 	<tr>
+ 	<th>Nom de la colonne</th>
+ 	<th>Type</th>
+ 	<th>Index</th>
+ 	</tr>
+ 	<tr>
+ 	<td>id</td>
+ 	<td>string</td>
+ 	<td>Indexé</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__createdAt</td>
+ 	<td>date</td>
+ 	<td>Indexé</td>
+ 	</tr>
+ 	<tr>
+ 	<td>__updatedAt</td>
+ 	<td>date</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr>
+ 	<tr>
+ 	<td>__version</td>
+ 	<td>timestamp (MSSQL)</td>
+ 	<td><font color="transparent">-</font></td>
+ 	</tr> 	
+ 	</table> 	
+		
 
-    > [AZURE.NOTE]Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d'insertion ou de mise à jour.
+  	Cela correspond à la configuration minimale requise pour une table dans Mobile Services.
+
+    > [AZURE.NOTE] Lorsque le schéma dynamique est activé sur votre service mobile, de nouvelles colonnes sont créées automatiquement lorsque des objets JSON sont envoyés au service mobile par une opération d'insertion ou de mise à jour.
 
 Vous pouvez maintenant utiliser le nouveau service mobile en tant que stockage des données pour l'application.
 

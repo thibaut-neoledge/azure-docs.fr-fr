@@ -135,7 +135,11 @@ Pour ajouter des modules Node.js à votre service mobile, il est recommandé d'a
 
 Maintenant que vous avez terminé ce didacticiel, vous savez comment stocker vos scripts dans un contrôle de code source. Pour plus d'informations sur l'utilisation de scripts serveur et d'API personnalisées :
 
-+ [Utilisation des scripts serveur dans Mobile Services] <br/>Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
++ [Utilisation des scripts serveur dans Mobile Services] <br/>
+Explique comment utiliser les scripts serveur, le planificateur de travaux et les API personnalisées.
+
++ [Appel d'une API personnalisée à partir du client] <br/>
+ Explique comment créer des API personnalisées pouvant être appelées à partir du client.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control

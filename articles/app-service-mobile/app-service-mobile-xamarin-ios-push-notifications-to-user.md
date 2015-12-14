@@ -18,7 +18,9 @@
 
 # Envoi de notifications interplateformes à un utilisateur spécifique
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 Cette rubrique montre comment envoyer des notifications à tous les appareils inscrits d'un utilisateur spécifique à partir de votre backend mobile. Elle présente les [modèles], qui donnent aux applications clientes la liberté de spécifier des formats de charge utile et divers emplacements réservés lors de l’inscription. Lorsqu'un modèle de notification est envoyé à partir d'un serveur, le concentrateur de notification lui indique toutes les platesformes avec ces espaces réservés, activant les notifications interplateformes.
 
@@ -102,4 +104,4 @@ Publiez à nouveau votre projet de backend mobile et exécutez les applications 
 [Prise en main des notifications Push]: app-service-mobile-xamarin-ios-get-started-push.md
 [modèles]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

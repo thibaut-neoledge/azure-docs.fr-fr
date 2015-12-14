@@ -107,7 +107,7 @@ HPC Pack installe un certificat auto-signé sur le nœud principal, nommé « D
 
 	![Paramètres de certificat][upload_cert1]
 
-4. Sur le nœud principal, accédez au fichier C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
+4. Sur le nœud principal, accédez au fichier C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer. Cliquez ensuite sur le bouton représentant une **coche**.
 
 	![Télécharger le certificat][install_hpc10]
 

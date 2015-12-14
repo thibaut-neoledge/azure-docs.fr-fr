@@ -155,7 +155,11 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 
   >[AZURE.TIP]Les politiques concernant la participation sont décrites sur le [site Web Azure](http://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
-  > Si vous rencontrez des problèmes pendant l'inscription du vendeur, ouvrez un ticket de support comme indiqué ci-dessous : 1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975). 2. Choisissez **Inscription au Tableau de bord vendeur et votre compte**. 3. Choisissez **Inscription pour un compte de développeur**. 4. Choisissez une méthode de contact.
+  > Si vous rencontrez des problèmes pendant l’enregistrement du vendeur, ouvrez un ticket de support comme indiqué ci-dessous :
+  1. Contactez le [support technique](http://go.microsoft.com/fwlink?LinkId=272975)
+  2. Choisissez **Seller Dashboard registration and your account**
+  3. Choisissez **Registering for a developer account**
+  4. Choisissez une **méthode de contact**
 
 ### Pays à partir duquel vous vendez
 
@@ -167,7 +171,12 @@ Le Portail de publication Azure permet de publier et gérer vos offres. Il conti
 ## Étapes suivantes
 Maintenant que votre compte est créé et enregistré, cliquez sur le type d'artefact (machine virtuelle, service de développeur, service de données ou modèle de solution) que vous souhaitez publier sur Azure Marketplace. Visitez l’un des articles suivants pour apprendre à publier votre offre :
 
-|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution | |----|-----|-----|-----|-----| |**Étape 2 : Création de votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| || [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | [Conditions techniques requises pour les services de données](marketplace-publishing-data-service-creation-prerequisites.md) | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) | || [Guide de publication d'images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | [Guide de publication de services de données](marketplace-publishing-data-service-creation.md) | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) | || [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
+|| Image de machine virtuelle | Service de développeur | Service de données | Modèle de solution |
+|----|-----|-----|-----|-----|
+|**Étape 2 : Créer votre offre** |[Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)| [Conditions générales requises à caractère non technique](marketplace-publishing-pre-requisites.md)|
+|| [Conditions techniques requises pour les images de machine virtuelle][link-single-vm-prereq] | Conditions techniques requises pour les services de développeur | Conditions techniques requises pour les services de données | [Conditions techniques requises pour les modèles de solution](marketplace-publishing-solution-template-creation-prerequisites.md) |
+|| [Guide de publication d’images de machine virtuelle][link-single-vm] | Guide de publication de services de développeur | Guide de publication de services de données | [Guide de publication de modèles de solution](marketplace-publishing-solution-template-creation.md) |
+|| [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] | [Guide de contenu marketing Azure Marketplace][link-pushstaging] |
 
 ## Voir aussi
 - [Mise en route : publication d'une offre dans Azure Marketplace](marketplace-publishing-getting-started.md)

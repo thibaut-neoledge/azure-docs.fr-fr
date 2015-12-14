@@ -24,7 +24,9 @@
 
 Des conseils sur les technologies utilisées pour déplacer des données vers et/ou depuis le stockage d’objets blob Azure sont disponibles ici :
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+- Utilisation d’Azure Storage Explorer
+- Utilisation de l’utilitaire de ligne de commande AzCopy
+- Utilisation d’Azure SDK dans Python
 
 La méthode la mieux adaptée à vos besoins dépend de votre scénario. L’article sur les [Scénarios du processus de science des données Azure en action dans Azure Machine Learning](../machine-learning-data-science-plan-sample-scenarios.md) vous aide à déterminer les éléments multimédias dont vous avez besoin pour différents flux de travail d’analyse avancée.
 
